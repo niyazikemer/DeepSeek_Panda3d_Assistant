@@ -1,16 +1,36 @@
 import streamlit as st
 import ollama
 
-# Initialize chat history if not exists
+# Initialize chat history and system prompt
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    system_prompt = """You are a helpful AI assistant. Always provide accurate, 
+    informative, and engaging responses while maintaining a conversational tone."""
+    st.session_state.messages.append({"role": "system", "content": system_prompt})
 
 # Set page title
 st.title("Chatbot with DeepSeek")
 
 def get_ai_response(query):
-    prompt = f"Question: {query}\n\nAnswer:"
-    response = ollama.generate(model="deepseek-r1:32b", prompt=prompt)
+    # Format entire conversation history
+    formatted_prompt = ""
+    for msg in st.session_state.messages:
+        if msg["role"] == "system":
+            formatted_prompt += f"Instructions: {msg['content']}\n\n"
+        else:
+            role = "Human" if msg["role"] == "user" else "Assistant"
+            formatted_prompt += f"{role}: {msg['content']}\n"
+    
+    formatted_prompt += f"Human: {query}\nAssistant:"
+    
+    response = ollama.generate(
+        model="deepseek-r1:32b",
+        prompt=formatted_prompt,
+        options={
+            "temperature": 0.7,
+            "top_p": 0.95
+        }
+    )
     return response["response"]
 
 # Display chat history
