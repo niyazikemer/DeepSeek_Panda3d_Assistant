@@ -4,33 +4,34 @@ import ollama
 # Initialize chat history and system prompt
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    system_prompt = """You are a helpful AI assistant. Always provide accurate, 
+    st.session_state.system_prompt = """You are a helpful AI assistant. Always provide accurate, 
     informative, and engaging responses while maintaining a conversational tone."""
-    st.session_state.messages.append({"role": "system", "content": system_prompt})
+    st.session_state.last_context = None  # Store last context for reuse
 
 # Set page title
 st.title("Chatbot with DeepSeek")
 
 def get_ai_response(query):
-    # Format entire conversation history
-    formatted_prompt = ""
-    for msg in st.session_state.messages:
-        if msg["role"] == "system":
-            formatted_prompt += f"Instructions: {msg['content']}\n\n"
-        else:
-            role = "Human" if msg["role"] == "user" else "Assistant"
-            formatted_prompt += f"{role}: {msg['content']}\n"
+    # First generate with just the query to get context
+    if st.session_state.last_context is None:
+        initial_response = ollama.generate(
+            model="deepseek-r1:32b",
+            prompt=query,
+            system=st.session_state.system_prompt
+        )
+        st.session_state.last_context = initial_response.get('context', None)
     
-    formatted_prompt += f"Human: {query}\nAssistant:"
-    
+    # Generate final response using context
     response = ollama.generate(
         model="deepseek-r1:32b",
-        prompt=formatted_prompt,
-        options={
-            "temperature": 0.7,
-            "top_p": 0.95
-        }
+        prompt=query,
+        system=st.session_state.system_prompt,
+        context=st.session_state.last_context
     )
+    
+    # Update context for next iteration
+    st.session_state.last_context = response.get('context', None)
+    
     return response["response"]
 
 # Display chat history
