@@ -11,8 +11,24 @@ if "messages" not in st.session_state:
         }
     ]
 
-# Set page title
-st.title("Chatbot with DeepSeek")
+# Set page title and add reset button in same line
+col1, col2 = st.columns([4,1])
+with col1:
+    st.title("Chatbot with DeepSeek")
+with col2:
+    if st.button("New Chat"):
+        # Reset to initial state with only system message
+        st.session_state.messages = [
+            {
+                'role': 'system',
+                'content': """You are a helpful AI assistant. Always provide accurate, 
+                informative, and engaging responses while maintaining a conversational tone."""
+            }
+        ]
+        
+
+
+
 
 def get_ai_response(query):
     # Add user message to history
