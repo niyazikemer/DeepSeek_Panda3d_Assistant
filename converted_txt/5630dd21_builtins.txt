@@ -1,0 +1,204 @@
+Built-in Global Variables
+
+cpp
+
+This page is not relevant for C++ users.
+
+python
+
+When an instance of the ~direct.showbase.ShowBase.ShowBase class is
+created, many of its member variables are written to the built-in scope
+of the Python interpreter, making them available to any Python module
+without the need for extra imports.
+
+While these are handy for prototyping, we do not recommend using them in
+bigger projects as it can make the code confusing to read to other
+Python developers to whom it may not be obvious from where these
+variables are originating.
+
+Many of these built-in variables are alternatively accessible as members
+of the global base instance, or can instead be imported from the
+~direct.showbase.ShowBaseGlobal module.
+
+The variables written to the built-in scope are:
+
+  A global instance of the ~direct.showbase.ShowBase.ShowBase class is
+  available to any Python scope as base. This allows access to the
+  graphical display, the scene graph, the input devices, the task and
+  event managers, and all the other things that ShowBase is responsible
+  for setting up and managing.
+
+  Although it is not a required component, most Panda3D applications are
+  created using the ShowBase abstraction layer, because it sets up
+  nearly everything needed by most games and simulations, with only a
+  minimal amount of set up required. In fact, to start up a ShowBase
+  application, it is only necessary to call:
+
+      from direct.showbase.ShowBase import ShowBase
+
+      base = ShowBase()
+      base.run()
+
+  There can only be one ShowBase instance at a time; call
+  ~direct.showbase.ShowBase.ShowBase.destroy() to get rid of it, which
+  will allow another instance to be created.
+
+  type
+      .ShowBase
+
+  A NodePath created as the root of the default 3-D
+  scene graph <the-scene-graph>. Parent models to this node to make them
+  show up in the 3-D display region.
+
+  type
+      ~panda3d.core.NodePath
+
+  Like render, but created as root of the 2-D scene graph. The
+  coordinate system of this node runs from -1 to 1, with the X axis
+  running from left to right and the Z axis from bottom to top.
+
+  type
+      ~panda3d.core.NodePath
+
+  The root of the 2-D scene graph used for GUI rendering. Unlike
+  render2d, which may result in elements being stretched in windows that
+  do not have a square aspect ratio, this node is scaled automatically
+  to ensure that nodes parented to it do not appear stretched.
+
+  type
+      ~panda3d.core.NodePath
+
+  This is a variant of aspect2d that is scaled up such that one Panda
+  unit is equal to one pixel on screen. It can be used if pixel-perfect
+  layout of UI elements is desired. Its pixel origin is also in the
+  top-left corner of the screen. Because Panda uses a Z-up coordinate
+  system, however, please note that the Z direction goes up the screen
+  rather than down, and therefore it is necessary to use negative
+  instead of positive coordinates in the Z direction.
+
+  type
+      ~panda3d.core.NodePath
+
+  This is a scene graph that is not used for anything, to which nodes
+  can be parented that should not appear anywhere. This is esoteric and
+  rarely needs to be used; the use of ~panda3d.core.NodePath.stash()
+  will suffice in most situations wherein a node needs to be temporarily
+  removed from the scene graph.
+
+  type
+      ~panda3d.core.NodePath
+
+  A node that is set up with the camera used to render the default 3-D
+  scene graph (render) attached to it. This is the node that should be
+  used to manipulate this camera, but please note that it is necessary
+  to first call base.disableMouse()
+  <direct.showbase.ShowBase.ShowBase.disableMouse> to ensure that the
+  default mouse controller releases its control of the camera.
+
+  type
+      ~panda3d.core.NodePath
+
+  This is the primary interface through which assets such as models,
+  textures, sounds, shaders and fonts are loaded. See model-files and
+  simple-texture-replacement.
+
+  type
+      ~direct.showbase.Loader.Loader
+
+  The global task manager <tasks>, as imported from
+  direct.task.TaskManagerGlobal.
+
+  type
+      ~direct.task.Task.TaskManager
+
+  The global job manager, as imported from
+  direct.showbase.JobManagerGlobal.
+
+  type
+      ~direct.showbase.JobManager.JobManager
+
+  The global event manager, as imported from
+  direct.showbase.EventManagerGlobal.
+
+  type
+      ~direct.showbase.EventManager.EventManager
+
+  The global messenger, imported from direct.showbase.MessengerGlobal,
+  is responsible for event handling <event-handlers>. The most commonly
+  used method of this object is perhaps messenger.send("event")
+  <direct.showbase.Messenger.Messenger.send>, which dispatches a custom
+  event.
+
+  type
+      ~direct.showbase.Messenger.Messenger
+
+  The global bulletin board, as imported from
+  direct.showbase.BulletinBoardGlobal.
+
+  type
+      ~direct.showbase.BulletinBoard.BulletinBoard
+
+  The default Panda3D output stream for notifications and logging, as a
+  short-hand for Notify.out() <panda3d.core.Notify.out>.
+
+  type
+      ~panda3d.core.Ostream
+
+  The clock object used by default for timing information, a short-hand
+  for
+  ClockObject.getGlobalClock() <panda3d.core.ClockObject.getGlobalClock>.
+
+  The most common use is to obtain the time elapsed since the last frame
+  (for calculations in movement code), using globalClock.dt
+  <panda3d.core.ClockObject.dt>. The value is given in seconds.
+
+  Another useful function is to get the frame time (in seconds, since
+  the program started):
+
+      frameTime = globalClock.getFrameTime()
+
+  type
+      ~panda3d.core.ClockObject
+
+  A global instance of the virtual file system <virtual-file-system>, as
+  a short-hand for VirtualFileSystem.getGlobalPtr()
+  <panda3d.core.VirtualFileSystem.getGlobalPtr>.
+
+  type
+      ~panda3d.core.VirtualFileSystem
+
+  Provides access to the loaded configuration files. Short-hand for
+  ConfigPageManager.getGlobalPtr()
+  <panda3d.core.ConfigPageManager.getGlobalPtr>.
+
+  type
+      ~panda3d.core.ConfigPageManager
+
+  Provides access to configuration variables. Short-hand for
+  ConfigVariableManager.getGlobalPtr()
+  <panda3d.core.ConfigVariableManager.getGlobalPtr>.
+
+  type
+      ~panda3d.core.ConfigVariableManager
+
+  Provides information about the Panda3D distribution, such as the
+  version, compiler information and build settings. Short-hand for
+  PandaSystem.getGlobalPtr()
+  <panda3d.core.PandaSystem.getGlobalPtr>.
+
+  type
+      ~panda3d.core.PandaSystem
+
+  Short-hand for direct.tkpanels.Inspector.inspect(), which opens up a
+  GUI panel for inspecting an object's properties.
+
+  See inspection-utilities.
+
+  The deprecated ~direct.showbase.DConfig interface for
+  accessing config variables <accessing-config-vars-in-a-program>.
+
+  Calls the task manager main loop, which runs indefinitely. This is a
+  deprecated short-hand for
+  base.run() <direct.showbase.ShowBase.ShowBase.run>.
+
+  See main-loop.

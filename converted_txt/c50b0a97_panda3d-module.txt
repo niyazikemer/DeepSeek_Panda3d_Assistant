@@ -1,0 +1,24 @@
+{{ fullname | escape | underline }}
+
+{{ fullname }}
+
+{% if classes %} .. autosummary:: :toctree: . :template:
+autosummary/panda3d-class.rst
+
+  {% for item in classes %} {{ item }} {%- endfor %}
+
+{% endif %}
+
+{% if functions %} .. rubric:: Global Functions
+
+python
+
+{% for item in functions %} .. autofunction:: {{ item }} {%- endfor %}
+
+cpp
+
+cpp
+
+{% for item in functions %} .. autofunction:: {{ item }} {%- endfor %}
+
+{% endif %}
