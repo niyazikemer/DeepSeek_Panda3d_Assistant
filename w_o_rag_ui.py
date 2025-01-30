@@ -3,13 +3,7 @@ from ollama import chat
 
 # Initialize chat history
 if "messages" not in st.session_state:
-    st.session_state.messages = [
-        {
-            'role': 'system',
-            'content': """You are a helpful AI assistant. Always provide accurate, 
-            informative, and engaging responses while maintaining a conversational tone."""
-        }
-    ]
+    st.session_state.messages = []
 
 # Set page title and add reset button
 col1, col2 = st.columns([4, 1])
@@ -17,13 +11,7 @@ with col1:
     st.title("Chatbot with DeepSeek")
 with col2:
     if st.button("New Chat"):
-        st.session_state.messages = [
-            {
-                'role': 'system',
-                'content': """You are a helpful AI assistant. Always provide accurate, 
-                informative, and engaging responses while maintaining a conversational tone."""
-            }
-        ]
+        st.session_state.messages = []
 
 # Display chat history (skip system message)
 for message in st.session_state.messages[1:]:
@@ -46,7 +34,8 @@ if prompt := st.chat_input("Ask me anything!"):
         stream = chat(
             model='deepseek-r1:32b',
             messages=st.session_state.messages,
-            options={'temperature': 0.65, 'top_p': 0.95, 'top_k': 50},
+            #https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
+            options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50,'num_ctx': 15000},
             stream=True
         )
         
