@@ -39,8 +39,13 @@ with col2:
 
 
 def get_ai_response(query):
-    # Add user message to history
     relevant_docs = faiss_index.similarity_search(query, k=5)
+    
+    # Display retrieved docs
+    st.markdown("### Retrieved Documents")
+    for i, doc in enumerate(relevant_docs, start=1):
+        st.markdown(f"**Document {i}:**\n{doc.page_content}")
+    
     ctx = "\n".join([doc.page_content for doc in relevant_docs])
     query = f"Context: {ctx}\n\n Question: {query}"
     st.session_state.messages.append({'role': 'user', 'content': query})
