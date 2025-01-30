@@ -1,9 +1,13 @@
 from langchain.document_loaders import PyPDFLoader, DirectoryLoader,TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings#OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain_experimental.text_splitter import SemanticChunker
+from openai import OpenAI
+
+
+
 
 def load_documents():
     # Initialize loaders for PDFs and other supported formats
@@ -25,7 +29,7 @@ def load_documents():
 #     chunk_size=1000,  # Size of each document chunk
 #     chunk_overlap=200,  # Overlap between consecutive chunks
 # )
-text_splitter = SemanticChunker(HuggingFaceEmbeddings())  
+text_splitter = SemanticChunker(HuggingFaceEmbeddings())
 
 
 
