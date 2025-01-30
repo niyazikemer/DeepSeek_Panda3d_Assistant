@@ -1,6 +1,7 @@
 import streamlit as st
 from ollama import chat
 
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = [
@@ -37,8 +38,11 @@ def get_ai_response(query):
     # Get response using chat
     response = chat(
         model='deepseek-r1:32b',
-        messages=st.session_state.messages
+        messages=st.session_state.messages,
+        options={'temperature': 0.65,'top_p': 0.95,'top_k': 50},
+        #stream=True 
     )
+
     
     # Add assistant response to history
     st.session_state.messages.append({
