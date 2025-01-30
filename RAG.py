@@ -11,13 +11,7 @@ faiss_index = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deseri
 
 # Initialize chat history
 if "messages" not in st.session_state:
-    st.session_state.messages = [
-        {
-            'role': 'system',
-            'content': """You are a helpful AI assistant. Always provide accurate, 
-            informative, and engaging responses while maintaining a conversational tone."""
-        }
-    ]
+    st.session_state.messages = []
 
 # Set page title and add reset button in same line
 col1, col2 = st.columns([4,1])
@@ -26,16 +20,7 @@ with col1:
 with col2:
     if st.button("New Chat"):
         # Reset to initial state with only system message
-        st.session_state.messages = [
-            {
-                'role': 'system',
-                'content': """You are a helpful AI assistant. Always provide accurate, 
-                informative, and engaging responses while maintaining a conversational tone."""
-            }
-        ]
-        
-
-
+        st.session_state.messages = []       
 
 
 def get_ai_response(query):
