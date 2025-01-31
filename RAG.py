@@ -30,7 +30,8 @@ with col2:
 
 def get_ai_response(query):
     relevant_docs = faiss_index.similarity_search(query, k=5)
-    
+    #this is for giving the model some liberty to choose the best documents and not all of them
+    context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 5 documents that might help you:"
     # Display docs in right sidebar
     with st.sidebar:
         st.markdown("### Retrieved Documents")
@@ -39,7 +40,7 @@ def get_ai_response(query):
             st.divider()
     
     ctx = "\n".join([doc.page_content for doc in relevant_docs])
-    augmented_query = f"Context: {ctx}\n\nQuestion: {query}"
+    augmented_query = f"Context:{context_explanation} {ctx}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
     response = chat(
