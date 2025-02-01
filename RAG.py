@@ -4,6 +4,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 
 # Custom CSS to move sidebar to the right
+#put the combined documnet at the right side of the screen
 st.markdown("""
     <style>
         [data-testid="stSidebar"] {
