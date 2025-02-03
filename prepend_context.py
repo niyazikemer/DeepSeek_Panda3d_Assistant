@@ -26,7 +26,7 @@ Here is the chunk we want to situate within the whole document
 <chunk>
 {chunk_content}
 </chunk>
-Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Answer only with the succinct context and nothing else.
+Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Use doc strings to understand. Answer only with the succinct context and nothing else.
 """
     response = ollama.generate(model="deepseek-r1:32b", prompt=prompt)
     return response['response'].strip()
@@ -163,8 +163,8 @@ def split_documents(documents, default_chunk_size=1000, default_chunk_overlap=20
 
     # Add context to chunks before saving
     chunks = process_chunks_with_context(chunks, documents)
+
     # Save the chunks with a specific prefix
-    
     chunks_dir = save_documents(chunks, "processed_documents", "chunks")
     print(f"Saved {len(chunks)} chunks to {chunks_dir}")
     
@@ -208,5 +208,5 @@ def create_index(source_dir, index_path="faiss_index"):
 
 if __name__ == "__main__":
     # Example usage
-    source_directory = "source_code"
+    source_directory = "_test_source_code"
     create_index(source_directory)
