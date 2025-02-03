@@ -46,12 +46,15 @@ def get_ai_response(query):
     
     response = chat(
         model='deepseek-r1:32b',
-        messages=st.session_state.messages
+        messages=st.session_state.messages,
+        #https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
+        options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50,'num_ctx': 15000}
     )
     
     st.session_state.messages.append({
         'role': 'assistant', 
         'content': response.message.content
+
     })
     
     return response.message.content
