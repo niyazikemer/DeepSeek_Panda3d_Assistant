@@ -75,7 +75,12 @@ class DocumentIndexer:
 
         for source, docs in docs_by_source.items():
             base_name = os.path.basename(source)
-            file_path = os.path.join(save_dir, f"{base_name}_processed.json")
+            # Add timestamp and source hash to filename
+            file_hash = hex(hash(source))[-8:]  # Last 8 chars of hash
+            file_path = os.path.join(
+                save_dir, 
+                f"{timestamp}_{file_hash}_{base_name}_processed.json"
+            )
             with open(file_path, 'w', encoding='utf-8') as f:
                 json.dump(docs, f, indent=2, ensure_ascii=False)
         return save_dir
@@ -85,7 +90,7 @@ class DocumentIndexer:
             self.source_dir,
             glob="**/*",
             suffixes=self.get_supported_extensions(),
-            parser=LanguageParser(parser_threshold=5)
+            parser=LanguageParser(parser_threshold=15)
         )
         
         text_loader = DirectoryLoader(
@@ -200,7 +205,7 @@ indexer = DocumentIndexer(
     chunk_size=1000,
     chunk_overlap=200
 )
-# chunks = indexer.process_and_save_chunks()
+chunks = indexer.process_and_save_chunks()
 
-chunks_dir = "processed_documents/20250204_065433_chunks"  # Use actual directory
-indexer.create_index(chunks_dir)
+# chunks_dir = "processed_documents/20250204_065433_chunks"  # Use actual directory
+# indexer.create_index(chunks_dir)
