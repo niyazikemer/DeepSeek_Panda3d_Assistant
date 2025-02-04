@@ -19,17 +19,19 @@ def get_supported_extensions():
 def generate_context(document_content: str, chunk_content: str) -> str:
     """Generate context for a chunk using Ollama"""
     prompt = f"""
-<document>
-{document_content}
-</document>
-Here is the chunk we want to situate within the whole document
-<chunk>
-{chunk_content}
-</chunk>
-Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Use doc strings to understand. Answer only with the succinct context and nothing else.
-"""
+    <document>
+    {document_content}
+    </document>
+    Here is the chunk we want to situate within the whole document
+    <chunk>
+    {chunk_content}
+    </chunk>
+    Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Use doc strings to understand. Answer only with the succinct context and nothing else.
+    """
     response = ollama.generate(model="deepseek-r1:32b", prompt=prompt)
-    return response['response'].strip()
+
+    return response['response'].split('</think>')[-1].strip()
+    
 
 def process_chunks_with_context(chunks: List, documents: Dict) -> List:
     """Add context to chunks"""
