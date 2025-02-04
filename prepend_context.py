@@ -147,13 +147,26 @@ class DocumentIndexer:
         self.split_documents()
         
         print("Creating embeddings...")
-        embeddings = HuggingFaceEmbeddings()
+        embeddings = HuggingFaceEmbeddings(
+            model_kwargs={'device': 'cuda'},
+            encode_kwargs={'batch_size': 8}  # Adjust batch size based on your GPU memory
+)
+        # embeddings = HuggingFaceEmbeddings()
+            # Process in smaller batches
+
+        batch_size = 20  # Adjust based on your GPU memory
+        for i in range(0, len(self.chunks), batch_size):
+            batch = self.chunks[i:i + batch_size]
+            if i == 0:
+                self.vectorstore = FAISS.from_documents(batch, embedding=embeddings)
+            else:
+                self.vectorstore.add_documents(batch)
         
-        print("Building vector store...")
-        self.vectorstore = FAISS.from_documents(
-            self.chunks,
-            embedding=embeddings,
-        )
+        # print("Building vector store...")
+        # self.vectorstore = FAISS.from_documents(
+        #     self.chunks,
+        #     embedding=embeddings,
+        # )
         
         print(f"Saving index to {self.index_path}...")
         self.vectorstore.save_local(self.index_path)
