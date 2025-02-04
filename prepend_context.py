@@ -4,6 +4,7 @@ from langchain_community.document_loaders.parsers import LanguageParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain_core.documents import Document 
 import os
 import json
 import datetime
@@ -135,7 +136,8 @@ class DocumentIndexer:
         chunks_dir = self.save_documents(self.chunks, "chunks")
         print(f"Saved {len(self.chunks)} chunks to {chunks_dir}")
 
-    def create_index(self):
+    def process_and_save_chunks(self):
+        """Process documents into chunks and save them"""
         print("Loading documents...")
         self.load_source_documents()
         print(f"Loaded {len(self.documents)} documents")
@@ -145,29 +147,46 @@ class DocumentIndexer:
         
         print("Splitting documents...")
         self.split_documents()
-        
+        return self.chunks
+    
+    def load_chunks(self, chunks_dir: str):
+        """Load previously processed chunks and convert to Document objects"""
+        chunks = []
+        for root, _, files in os.walk(chunks_dir):
+            for file in files:
+                if file.endswith('_processed.json'):
+                    with open(os.path.join(root, file), 'r') as f:
+                        file_chunks = json.load(f)
+                        for chunk in file_chunks:
+                            # Convert dict to Document object
+                            doc = Document(
+                                page_content=chunk['content'],
+                                metadata=chunk['metadata']
+                            )
+                            chunks.append(doc)
+        return chunks  # Add return statement
+       
+    def create_index(self, chunks_dir: str):
+        """Create index from previously processed chunks"""
+        print("Loading chunks...")
+        chunks = self.load_chunks(chunks_dir)
+        print(f"Loaded {len(chunks)} chunks")
+
         print("Creating embeddings...")
         embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-mpnet-base-v2",  # Add model name
             model_kwargs={'device': 'cuda'},
-            encode_kwargs={'batch_size': 8}  # Adjust batch size based on your GPU memory
-)
-        # embeddings = HuggingFaceEmbeddings()
-            # Process in smaller batches
+            encode_kwargs={'batch_size': 8}
+        )
 
-        batch_size = 20  # Adjust based on your GPU memory
-        for i in range(0, len(self.chunks), batch_size):
-            batch = self.chunks[i:i + batch_size]
+        batch_size = 20
+        for i in range(0, len(chunks), batch_size):
+            batch = chunks[i:i + batch_size]
             if i == 0:
                 self.vectorstore = FAISS.from_documents(batch, embedding=embeddings)
             else:
                 self.vectorstore.add_documents(batch)
-        
-        # print("Building vector store...")
-        # self.vectorstore = FAISS.from_documents(
-        #     self.chunks,
-        #     embedding=embeddings,
-        # )
-        
+
         print(f"Saving index to {self.index_path}...")
         self.vectorstore.save_local(self.index_path)
         print("Done!")
@@ -181,4 +200,7 @@ indexer = DocumentIndexer(
     chunk_size=1000,
     chunk_overlap=200
 )
-indexer.create_index()
+# chunks = indexer.process_and_save_chunks()
+
+chunks_dir = "processed_documents/20250204_065433_chunks"  # Use actual directory
+indexer.create_index(chunks_dir)
