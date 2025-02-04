@@ -1,0 +1,101 @@
+[
+  {
+    "content": "The code chunk imports `Vec3` from Panda3D's core module to define 3D vector representations for display positions and orientations within a multi-display configuration setup.\n\nfrom panda3d.core import Vec3",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 39
+  },
+  {
+    "content": "This chunk defines a dictionary (`ClientConfigs`) that specifies configuration details for different types of computer clusters. The dictionary is used to define display configurations for various cluster setups, including positional offsets, orientations, focal lengths, film sizes, and other rendering parameters for each display in the cluster. This information overrides default settings specified elsewhere (e.g., DirectCamConfig.py) and is critical for correctly configuring multi-display or distributed rendering systems.\n\n#: A dictionary of information for various cluster configurations.\n#: Dictionary is keyed on cluster-config string\n#: Each dictionary contains a list of display configurations, one for\n#: each display in the cluster\n#:\n#: Information that can be specified for each display:\n#:\n#: - display name: Name of display (used in Configrc to specify server)\n#: - display type: Used to flag client vs. server\n#: - pos: positional offset of display's camera from main cluster group\n#: - hpr: orientation offset of display's camera from main cluster group\n#: - focal length: display's focal length (in mm)\n#: - film size: display's film size (in inches)\n#: - film offset: offset of film back (in inches)\n#:\n#: Note: this overrides offsets specified in DirectCamConfig.py\n#: For now we only specify frustum for first display region of configuration\n#:\n#: TODO: Need to handle multiple display regions per cluster node and to\n#: generalize to non cluster situations\nClientConfigs = {",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 40
+  },
+  {
+    "content": "The chunk defines client configuration options for single-, two-, and three-server setups within a distributed system. Each configuration specifies display parameters such as position (pos), orientation (hpr), display name, mode, and other optional attributes like focal length or film offset. The context involves setting up client displays across multiple server nodes, with potential extensions to handle more complex configurations and non-cluster scenarios.\n\n#:\n#: TODO: Need to handle multiple display regions per cluster node and to\n#: generalize to non cluster situations\nClientConfigs = {\n    'single-server':       [{'display name': 'display0',\n                              'display mode': 'client',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)}\n                            ],\n    'two-server':          [{'display name': 'master',\n                              'display mode': 'client',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)},\n                             {'display name': 'la',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)\n                              }\n                            ],\n    'three-server':          [{'display name': 'master',\n                              'display mode': 'client',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)},",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 41
+  },
+  {
+    "content": "This document defines various 3D display configurations for different setups like stereo-3d, mono-cave, ursula, and composite. Each setup specifies multiple displays with their respective properties such as position (pos), orientation (hpr), focal length, film size, and offset. The provided chunk is part of the 'mono-cave' configuration section, which defines specific display settings for a monoscopic cave-like environment.\n\n'display mode': 'client',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)},\n                             {'display name': 'la',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)\n                              },\n                             {'display name': 'lb',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0)\n                              }\n                              ],\n    'mono-cave':   [{'display name': 'la',\n                      'pos': Vec3(-0.105, -0.020, 5.000),\n                      'hpr': Vec3(51.213, 0.000, 0.000),\n                      'focal length': 0.809,\n                      'film size': (1.000, 0.831),\n                      'film offset': (0.000, 0.173),\n                     },\n                     {'display name': 'lb',\n                      'display mode': 'client',",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 42
+  },
+  {
+    "content": "```json\n{\n  \"seamless-ave\": [\n    {\n      \"display name\": \"...\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    },\n    {\n      \"display name\": \"lb\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    },\n    {\n      \"display name\": \"lc\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    }\n  ],\n  \"seamless-cave\": [\n    {\n      \"display name\": \"...\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    },\n    ...\n  ],\n  \"ursula\": [\n    {\n      \"display name\": \"master\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    },\n    {\n      \"display name\": \"l\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    },\n    {\n      \"display name\": \"r\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    }\n  ],\n  \"composite\": [\n    {\n      \"display name\": \"...\",\n      \"pos\": [ ... ],\n      \"hpr\": [ ... ],\n      ...\n    },\n    ...\n  ]\n}\n```\n\n'film offset': (0.000, 0.173),\n                     },\n                     {'display name': 'lb',\n                      'display mode': 'client',\n                      'pos': Vec3(-0.105, -0.020, 5.000),\n                      'hpr': Vec3(-0.370, 0.000, 0.000),\n                      'focal length': 0.815,\n                      'film size': (1.000, 0.831),\n                      'film offset': (0.000, 0.173),\n                      },\n                     {'display name': 'lc',\n                      'pos': Vec3(-0.105, -0.020, 5.000),\n                      'hpr': Vec3(-51.675, 0.000, 0.000),\n                      'focal length': 0.820,\n                      'film size': (1.000, 0.830),\n                      'film offset': (-0.000, 0.173),\n                      },\n                    ],\n    'seamless-cave':   [{'display name': 'master',\n                          'display mode': 'client',\n                          'pos': Vec3(-0.105, -0.020, 5.000),",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 43
+  },
+  {
+    "content": "The chunk is part of a JSON-like configuration defining multiple display setups, specifically focusing on the 'seamless-cave' setup which includes multiple display configurations with details such as position (pos), heading-pitch-roll (hpr), focal length, film size, and offset. The context involves arranging displays in a coordinated manner for immersive or multi-screen environments.\n\n],\n    'seamless-cave':   [{'display name': 'master',\n                          'display mode': 'client',\n                          'pos': Vec3(-0.105, -0.020, 5.000),\n                          'hpr': Vec3(-0.370, 0.000, 0.000),\n                          'focal length': 0.815,\n                          'film size': (1.000, 0.831),\n                          'film offset': (0.000, 0.173),\n                         },\n                         {'display name': 'la',\n                          'pos': Vec3(-0.105, -0.020, 5.000),\n                          'hpr': Vec3(51.213, 0.000, 0.000),\n                          'focal length': 0.809,\n                          'film size': (1.000, 0.831),\n                          'film offset': (0.000, 0.173),\n                          },\n                         {'display name': 'lb',\n                          'pos': Vec3(-0.105, -0.020, 5.000),\n                          'hpr': Vec3(-0.370, 0.000, 0.000),",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 44
+  },
+  {
+    "content": "The given chunk represents a section of a configuration file containing display setups for a system named 'ursula'. Each entry specifies details such as display name, position (pos), orientation (hpr), focal length, film size, and offset.\n\n},\n                         {'display name': 'lb',\n                          'pos': Vec3(-0.105, -0.020, 5.000),\n                          'hpr': Vec3(-0.370, 0.000, 0.000),\n                          'focal length': 0.815,\n                          'film size': (1.000, 0.831),\n                          'film offset': (0.000, 0.173),\n                          },\n                         {'display name': 'lc',\n                          'pos': Vec3(-0.105, -0.020, 5.000),\n                          'hpr': Vec3(-51.675, 0.000, 0.000),\n                          'focal length': 0.820,\n                          'film size': (1.000, 0.830),\n                          'film offset': (-0.000, 0.173),\n                          },\n                         {'display name': 'ra',\n                          'pos': Vec3(0.105, -0.020, 5.000),\n                          'hpr': Vec3(51.675, 0.000, 0.000),\n                          'focal length': 0.820,",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 45
+  },
+  {
+    "content": "The chunk represents a section of display configuration within a document outlining various multi-display setups or configurations, such as those used in VR, 3D rendering, or multi-monitor systems. The chunk specifically defines parameters (position, orientation, focal length, film size, and offset) for individual displays named 'rc', likely part of the 'ursula' setup.\n\n'pos': Vec3(0.105, -0.020, 5.000),\n                          'hpr': Vec3(51.675, 0.000, 0.000),\n                          'focal length': 0.820,\n                          'film size': (1.000, 0.830),\n                          'film offset': (0.000, 0.173),\n                          },\n                         {'display name': 'rb',\n                          'pos': Vec3(0.105, -0.020, 5.000),\n                          'hpr': Vec3(0.370, 0.000, 0.000),\n                          'focal length': 0.815,\n                          'film size': (1.000, 0.831),\n                          'film offset': (0.000, 0.173),\n                          },\n                         {'display name': 'rc',\n                          'pos': Vec3(0.105, -0.020, 5.000),\n                          'hpr': Vec3(-51.213, 0.000, 0.000),\n                          'focal length': 0.809,\n                          'film size': (1.000, 0.831),",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 46
+  },
+  {
+    "content": "The chunk is part of a larger configuration document detailing display setups with their respective positions, rotations, focal lengths, film sizes, and offsets. It specifically describes the setup for displays labeled 'l' and 'r' within the 'ursula' section, providing essential parameters to configure these displays accurately in a 3D environment.\n\n'hpr': Vec3(-51.213, 0.000, 0.000),\n                          'focal length': 0.809,\n                          'film size': (1.000, 0.831),\n                          'film offset': (-0.000, 0.173),\n                          },\n                        ],\n    'ursula':              [{'display name': 'master',\n                              'display mode': 'client',\n                              'pos': Vec3(0),\n                              'hpr': Vec3(0),\n                             },\n                             {'display name': 'l',\n                              'pos': Vec3(-.105, 0, 0),\n                              'hpr': Vec3(0, 0, 0),\n                              'focal length': 15,\n                              'film size': (13.33, 10),\n                              #'film offset': (0.105, -2),\n                              'film offset': (0.105, -1),\n                              },\n                             {'display name': 'r',",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 47
+  },
+  {
+    "content": "This chunk is part of a configuration document detailing display setups for various systems. The highlighted section specifically pertains to the 'ursula' system, which includes configurations for left and right displays with their respective positions, orientations, focal lengths, film sizes, and offsets.\n\n'film offset': (0.105, -1),\n                              },\n                             {'display name': 'r',\n                              'pos': Vec3(.105, 0, 0),\n                              'hpr': Vec3(0, 0, 0),\n                              'focal length': 15,\n                              'film size': (13.33, 10),\n                              #'film offset': (-0.105, -2),\n                              'film offset': (-0.105, -1),\n                              }\n                            ],\n    'composite':           [{'display name': 'master',\n                              'display mode': 'client',\n                              'pos': Vec3(0),\n                             },\n                             {'display name': 'left',\n                              'pos': Vec3(-0.105, -0.020, 5.000),\n                              'hpr': Vec3(-0.370, 0.000, 0.000),\n                              'focal length': 0.815,",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 48
+  },
+  {
+    "content": "The chunk describes two displays ('left' and 'right') within a stereo or multi-display configuration under the 'composite' key of a larger document that specifies positional and projection parameters for different setups involving multiple projectors or displays.\n\n'pos': Vec3(-0.105, -0.020, 5.000),\n                              'hpr': Vec3(-0.370, 0.000, 0.000),\n                              'focal length': 0.815,\n                              'film size': (1.000, 0.831),\n                              'film offset': (0.000, 0.173),\n                              },\n                             {'display name': 'right',\n                              'pos': Vec3(0.105, -0.020, 5.000),\n                              'hpr': Vec3(0.370, 0.000, 0.000),\n                              'focal length': 0.815,\n                              'film size': (1.000, 0.831),\n                              'film offset': (0.000, 0.173),\n                              }\n                            ],\n}",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterConfig.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 49
+  }
+]

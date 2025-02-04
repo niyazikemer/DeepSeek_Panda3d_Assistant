@@ -1,0 +1,182 @@
+[
+  {
+    "content": "A class handling cluster server operations with message management and synchronization of camera and object states.\n\nclass ClusterServer(DirectObject.DirectObject):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"ClusterServer\")\n    MSG_NUM = 2000000",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 64
+  },
+  {
+    "content": "The provided code chunk is the `__init__` method of a class named `ClusterServer`. This method initializes various networking components, including a connection manager, listener, reader, and writer. It sets up TCP server rendezvous for network communication and initializes message handling for cluster synchronization between client and server. Additionally, it stores references to camera-related objects for managing the cluster's camera setup.\n\nContext:  \nThe `__init__` method of the `ClusterServer` class initializes networking infrastructure (connection manager, listener, reader, writer) and sets up camera attributes for cluster synchronization.\n\ndef __init__(self, cameraJig, camera):\n        global clusterServerPort, clusterSyncFlag\n        global clusterDaemonClient, clusterDaemonPort\n        # Store information about the cluster's camera\n        self.cameraJig = cameraJig\n        self.camera = camera\n        self.lens = camera.node().getLens()\n        self.lastConnection = None\n        self.fPosReceived = 0\n        # Create network layer objects\n        self.qcm = QueuedConnectionManager()\n        self.qcl = QueuedConnectionListener(self.qcm, 0)\n        self.qcr = QueuedConnectionReader(self.qcm, 0)\n        self.cw = ConnectionWriter(self.qcm, 0)\n        try:\n            port = clusterServerPort\n        except NameError:\n            port = CLUSTER_SERVER_PORT\n        self.tcpRendezvous = self.qcm.openTCPServerRendezvous(port, 1)\n        self.qcl.addConnection(self.tcpRendezvous)\n        self.msgHandler = ClusterMsgHandler(ClusterServer.MSG_NUM, self.notify)\n        # Start cluster tasks",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 65
+  },
+  {
+    "content": "This chunk represents the initialization phase of a cluster server setup within a Python-based application, likely part of a distributed rendering or networked simulation environment. The code configures network connections, initializes message handling for inter-process communication, starts essential polling tasks for listener and reader processes, and optionally enables swap coordination for synchronized rendering across multiple nodes. It also sets the global clock to slave mode for time synchronization and initializes a daemon for background services. This setup is typical in high-performance applications requiring distributed computing or real-time collaboration between client and server components.\n\nself.qcl.addConnection(self.tcpRendezvous)\n        self.msgHandler = ClusterMsgHandler(ClusterServer.MSG_NUM, self.notify)\n        # Start cluster tasks\n        self.startListenerPollTask()\n        self.startReaderPollTask()\n        # If synchronized server, start swap coordinator too\n        try:\n            clusterSyncFlag\n        except NameError:\n            clusterSyncFlag = 0\n        if clusterSyncFlag:\n            self.startSwapCoordinator()\n            base.graphicsEngine.setAutoFlip(0)\n        # Set global clock mode to slave mode\n        ClockObject.getGlobalClock().setMode(ClockObject.MSlave)\n        # Send verification of startup to client\n        self.daemon = DirectD()",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 66
+  },
+  {
+    "content": "The chunk initializes core data structures and configurations for managing objects, controls, and messaging within the server implementation. It also establishes communication with a cluster daemon service and configures a task to handle incoming network data early in the frame processing pipeline.\n\nself.objectMappings  = {}\n        self.objectHasColor  = {}\n        self.controlMappings = {}\n        self.controlPriorities = {}\n        self.controlOffsets  = {}\n        self.messageQueue    = []\n        self.sortedControlMappings   = []\n\n        # These must be passed in as bootstrap arguments and stored in\n        # the __builtins__ namespace\n        try:\n            clusterDaemonClient\n        except NameError:\n            clusterDaemonClient = 'localhost'\n        try:\n            clusterDaemonPort\n        except NameError:\n            clusterDaemonPort = CLUSTER_DAEMON_PORT\n        self.daemon.serverReady(clusterDaemonClient, clusterDaemonPort)\n\n    def startListenerPollTask(self):\n        # Run this task near the start of frame, sometime after the dataLoop\n        taskMgr.add(self.listenerPollTask, \"serverListenerPollTask\", -40)",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 67
+  },
+  {
+    "content": "The chunk defines a method `listenerPollTask` within a class that handles network connections. This task listens for new client connections, checks if there are any available, retrieves them, adds them to the connection list, and sets the last connection for further communication. It serves as part of a networking system managing server-client interactions.\n\ndef listenerPollTask(self, task):\n        \"\"\" Task to listen for a new connection from the client \"\"\"\n        # Run this task after the dataLoop\n        if self.qcl.newConnectionAvailable():\n            self.notify.info(\"New connection is available\")\n            rendezvous = PointerToConnection()\n            netAddress = NetAddress()\n            newConnection = PointerToConnection()\n            if self.qcl.getNewConnection(rendezvous, netAddress, newConnection):\n                # Crazy dereferencing\n                newConnection=newConnection.p()\n                self.qcr.addConnection(newConnection)\n                self.lastConnection = newConnection\n                self.notify.info(\"Got a connection!\")\n            else:\n                self.notify.warning(\"getNewConnection returned false\")\n        return Task.cont",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 68
+  },
+  {
+    "content": "These functions manage mappings between named objects and their properties (e.g., color, priority) for control purposes. The `addNamedObjectMapping` method registers an object with a unique name along with optional color capabilities, while `removeObjectMapping` deletes the mapping by name. The `redoSortedPriorities` function updates a sorted list of controls based on defined priorities, facilitating ordered management of named objects in the system.\n\ndef addNamedObjectMapping(self, object, name, hasColor = True,\n                              priority = 0):\n        if name not in self.objectMappings:\n            self.objectMappings[name] = object\n            self.objectHasColor[name] = hasColor\n        else:\n            self.notify.debug('attempt to add duplicate named object: '+name)\n\n    def removeObjectMapping(self, name):\n        if name in self.objectMappings:\n            self.objectMappings.pop(name)\n\n    def redoSortedPriorities(self):\n        self.sortedControlMappings = sorted(\n            [self.controlPriorities[key], key] for key in self.objectMappings\n        )",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 69
+  },
+  {
+    "content": "The chunk introduces three methods: `redoSortedPriorities()`, `addControlMapping()`, and `setControlMappingOffset()`. These are situated within the context of managing control mappings for camera or object manipulation. \n\n- **Context**:  \n  The class manages camera controls and object transformations, utilizing mappings between object names and their controlled counterparts. These methods handle adding, updating, and sorting these mappings by priority to ensure proper ordering during processing.\n\n**Answer:**\n\nThis chunk is part of a class managing control mappings for objects or cameras, introducing methods to add, update, and sort these mappings based on priorities.\n\ndef redoSortedPriorities(self):\n        self.sortedControlMappings = sorted(\n            [self.controlPriorities[key], key] for key in self.objectMappings\n        )\n\n    def addControlMapping(self, objectName, controlledName, offset = None,\n                          priority = 0):\n        if objectName not in self.controlMappings:\n            self.controlMappings[objectName] = controlledName\n            if offset is None:\n                offset = Vec3(0,0,0)\n            self.controlOffsets[objectName]  = offset\n            self.controlPriorities[objectName] = priority\n            self.redoSortedPriorities()\n        else:\n            self.notify.debug('attempt to add duplicate controlled object: ' + objectName)\n\n    def setControlMappingOffset(self, objectName, offset):\n        if objectName in self.controlMappings:\n            self.controlOffsets[objectName] = offset",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 70
+  },
+  {
+    "content": "This code chunk defines methods related to controlling and moving objects within a scene, utilizing control mappings and priorities. The `setControlMappingOffset` method sets an offset for a named object's movement, while `removeControlMapping` deletes the mapping for a specified name. The `startControlObjectTask` initializes a task to continuously update the positions of controlled objects based on their priority and defined offsets. This functionality is integral to managing dynamic object interactions within the scene.\n\ndef setControlMappingOffset(self, objectName, offset):\n        if objectName in self.controlMappings:\n            self.controlOffsets[objectName] = offset\n\n    def removeControlMapping(self, name):\n        if name in self.controlMappings:\n            self.controlMappings.pop(name)\n            self.controlPriorities.pop(name)\n        self.redoSortedPriorities()\n\n    def startControlObjectTask(self):\n        self.notify.debug(\"moving control objects\")\n        taskMgr.add(self.controlObjectTask,\"controlObjectTask\",50)\n\n    def controlObjectTask(self, task):\n        #print \"running control object task\"\n        for pair in self.sortedControlPriorities:\n            object = pair[1]\n            name   = self.controlMappings[object]\n            if object in self.objectMappings:\n                self.moveObject(self.objectMappings[object],name,self.controlOffsets[object],\n                                self.objectHasColor[object])",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 71
+  },
+  {
+    "content": "The provided chunk introduces a method `moveObject()` that sends object transformation data (position, rotation, scale, color, visibility) to a client via datagram. It also includes `sendNamedMovementDone()`, which signals completion of all named object movements. These methods are part of a distributed 3D scene synchronization system for real-time collaboration, likely in a Panda3D-based application.\n\n**Context:**\nThis code handles server-side updates for moving and manipulating objects in a shared 3D environment, ensuring clients remain synchronized with the latest object states.\n\nself.sendNamedMovementDone()\n        return Task.cont\n\n    def sendNamedMovementDone(self):\n        self.notify.debug(\"named movement done\")\n        datagram = self.msgHandler.makeNamedMovementDone()\n        self.cw.send(datagram,self.lastConnection)\n\n    def moveObject(self, nodePath, object, offset, hasColor):\n        self.notify.debug('moving object '+object)\n        #print \"moving object\",object\n        xyz = nodePath.getPos(render) + offset\n        hpr = nodePath.getHpr(render)\n        scale = nodePath.getScale(render)\n        if hasColor:\n            color = nodePath.getColor()\n        else:\n            color = [1,1,1,1]\n        hidden = nodePath.isHidden()\n        datagram = self.msgHandler.makeNamedObjectMovementDatagram(xyz,hpr,scale,color,hidden,object)\n        self.cw.send(datagram, self.lastConnection)",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 72
+  },
+  {
+    "content": "The provided code chunk defines two methods within a class: `startReaderPollTask` and `_readerPollTask`. These methods are responsible for managing tasks related to reading datagrams from a client in either a synchronous or asynchronous manner. The `startReaderPollTask` method checks a flag (`clusterSyncFlag`) to determine whether to use a synchronous or asynchronous approach, adding the appropriate task to the task manager. The `_readerPollTask` method itself is a non-blocking task that reads all available datagrams from the client and processes them using the `handleDatagram` method. This code is part of a larger system for handling client-server communication, specifically designed to efficiently process incoming data and update application state accordingly.\n\ndef startReaderPollTask(self):\n        \"\"\" Task to handle datagrams from client \"\"\"\n        # Run this task just after the listener poll task\n        if clusterSyncFlag:\n            # Sync version\n            taskMgr.add(self._syncReaderPollTask, \"serverReaderPollTask\", -39)\n        else:\n            # Asynchronous version\n            taskMgr.add(self._readerPollTask, \"serverReaderPollTask\", -39)\n\n    def _readerPollTask(self, state):\n        \"\"\" Non blocking task to read all available datagrams \"\"\"\n        while 1:\n            (datagram, dgi, type) = self.msgHandler.nonBlockingRead(self.qcr)\n            # Queue is empty, done for now\n            if type is CLUSTER_NONE:\n                break\n            else:\n                # Got a datagram, handle it\n                self.handleDatagram(dgi, type)\n        return Task.cont",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 73
+  },
+  {
+    "content": "The provided code chunk contains two key methods within a server's synchronization logic:\n\n1. `_syncReaderPollTask`: Continuously reads datagrams from clients until receiving a camera position update, ensuring real-time synchronization.\n\n2. `startSwapCoordinator`: Initializes a high-priority task to manage frame buffer swaps between client and server, maintaining visual consistency.\n\nThese methods are integral for real-time camera tracking and rendering coordination in a distributed system setup.\n\ndef _syncReaderPollTask(self, task):\n        if self.lastConnection is None:\n            pass\n        elif self.qcr.isConnectionOk(self.lastConnection):\n            # Process datagrams till you get a postion update\n            type = CLUSTER_NONE\n            while type != CLUSTER_CAM_MOVEMENT:\n                # Block until you get a new datagram\n                (datagram, dgi, type) = self.msgHandler.blockingRead(self.qcr)\n                # Process datagram\n                self.handleDatagram(dgi, type)\n        return Task.cont\n\n    def startSwapCoordinator(self):\n        taskMgr.add(self.swapCoordinatorTask, \"serverSwapCoordinator\", 51)",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 74
+  },
+  {
+    "content": "This chunk is part of a class method that implements a server-side task manager for coordinating swaps between connected clients. The `startSwapCoordinator` method initializes a task that manages the synchronization process, while `swapCoordinatorTask` handles sending swap readiness notifications to clients and processing incoming datagrams until a swap command is received. This functionality is used to ensure smooth transitions between connected devices during live collaboration or rendering tasks.\n\ndef startSwapCoordinator(self):\n        taskMgr.add(self.swapCoordinatorTask, \"serverSwapCoordinator\", 51)\n\n    def swapCoordinatorTask(self, task):\n        if self.fPosReceived:\n            self.fPosReceived = 0\n            # Alert client that this server is ready to swap\n            self.sendSwapReady()\n            # Wait for swap command (processing any intermediate datagrams)\n            while 1:\n                (datagram, dgi, type) = self.msgHandler.blockingRead(self.qcr)\n                self.handleDatagram(dgi, type)\n                if type == CLUSTER_SWAP_NOW:\n                    break\n        return Task.cont\n\n    def sendSwapReady(self):\n        self.notify.debug(\n            'send swap ready packet %d' % self.msgHandler.packetNumber)\n        datagram = self.msgHandler.makeSwapReadyDatagram()\n        self.cw.send(datagram, self.lastConnection)",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 75
+  },
+  {
+    "content": "The `handleDatagram` method serves as the central dispatcher for processing various types of network datagrams in a distributed rendering or collaborative environment. It uses type flags to route incoming data to specific handler methods, such as updating camera positions (`CLUSTER_CAM_MOVEMENT`), object transformations (`CLUSTER_SELECTED_MOVEMENT`), executing remote commands (`CLUSTER_COMMAND_STRING`), or managing frame synchronization (`CLUSTER_TIME_DATA`). This method ensures proper handling of different message types, enabling seamless communication between client and server processes in a distributed system.\n\ndef handleDatagram(self, dgi, type):\n        \"\"\" Process a datagram depending upon type flag \"\"\"\n        if type == CLUSTER_NONE:\n            pass\n        elif type == CLUSTER_EXIT:\n            print('GOT EXIT')\n            import sys\n            sys.exit()\n        elif type == CLUSTER_CAM_OFFSET:\n            self.handleCamOffset(dgi)\n        elif type == CLUSTER_CAM_FRUSTUM:\n            self.handleCamFrustum(dgi)\n        elif type == CLUSTER_CAM_MOVEMENT:\n            self.handleCamMovement(dgi)\n        elif type == CLUSTER_SELECTED_MOVEMENT:\n            self.handleSelectedMovement(dgi)\n        elif type == CLUSTER_COMMAND_STRING:\n            self.handleCommandString(dgi)\n        elif type == CLUSTER_SWAP_READY:\n            pass\n        elif type == CLUSTER_SWAP_NOW:\n            self.notify.debug('swapping')\n            base.graphicsEngine.flipFrame()\n        elif type == CLUSTER_TIME_DATA:\n            self.notify.debug('time data')\n            self.handleTimeData(dgi)",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 76
+  },
+  {
+    "content": "This chunk is part of a message handling function within a Python script that processes various types of graphical and movement commands for a 3D application or game. The code snippet specifically deals with processing different types of network messages related to rendering, timing synchronization, object transformations, and command execution. It handles cases like executing arbitrary rendering commands, updating time data between client and server, managing queued object movements, and processing these movements when signalled.\n\nbase.graphicsEngine.flipFrame()\n        elif type == CLUSTER_TIME_DATA:\n            self.notify.debug('time data')\n            self.handleTimeData(dgi)\n        elif type == CLUSTER_NAMED_OBJECT_MOVEMENT:\n            self.messageQueue.append(self.msgHandler.parseNamedMovementDatagram(dgi))\n            #self.handleNamedMovement(dgi)\n        elif type == CLUSTER_NAMED_MOVEMENT_DONE:\n            #print \"got done\",self.messageQueue\n            #if (len(self.messageQueue) > 0):\n            #    print self.messageQueue[0]\n            #    print dir(self.messageQueue)\n            self.handleMessageQueue()\n        else:\n            self.notify.warning(\"Received unknown packet type:\" % type)\n        return type",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 77
+  },
+  {
+    "content": "The code chunk defines two methods (`handleCamOffset` and `handleCamFrustum`) within a class responsible for managing server-specific tasks related to camera configuration. These methods adjust the camera's position, orientation, and frustum parameters based on data received from a client, ensuring accurate rendering or visualization in a 3D environment.\n\n# Server specific tasks\n    def handleCamOffset(self, dgi):\n        \"\"\" Set offset of camera from cameraJig \"\"\"\n        (x, y, z, h, p, r) = self.msgHandler.parseCamOffsetDatagram(dgi)\n        self.camera.setPos(x,y,z)\n        self.lens.setViewHpr(h, p, r)\n\n    def handleCamFrustum(self, dgi):\n        \"\"\" Adjust camera frustum based on parameters sent by client \"\"\"\n        (fl, fs, fo) = self.msgHandler.parseCamFrustumDatagram(dgi)\n        self.lens.setFocalLength(fl)\n        self.lens.setFilmSize(fs[0], fs[1])\n        self.lens.setFilmOffset(fo[0], fo[1])",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 78
+  },
+  {
+    "content": "This chunk defines methods for handling and processing updates to named objects in a 3D application. The `handleNamedMovement` method processes individual data packets containing position, rotation, scale, color, and visibility information for specific named objects, updating their properties accordingly if they exist in the object mappings. The `handleMessageQueue` method processes a queue of such update requests, ensuring all pending updates are applied before clearing the queue.\n\ndef handleNamedMovement(self, data):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (name,x, y, z, h, p, r,sx,sy,sz, red, g, b, a, hidden) = data\n        if name in self.objectMappings:\n            self.objectMappings[name].setPosHpr(render, x, y, z, h, p, r)\n            self.objectMappings[name].setScale(render,sx,sy,sz)\n            self.objectMappings[name].setColor(red,g,b,a)\n            if hidden:\n                self.objectMappings[name].hide()\n            else:\n                self.objectMappings[name].show()\n        else:\n            self.notify.debug(\"recieved unknown named object command: \"+name)\n\n    def handleMessageQueue(self):\n        #print(self.messageQueue)\n        for data in self.messageQueue:\n            #print(\"in queue\", dgi)\n            self.handleNamedMovement(data)\n\n        self.messageQueue = []",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 79
+  },
+  {
+    "content": "This code chunk is part of a class responsible for managing camera and object transformations in a 3D environment, utilizing parsed data from an external source. The methods handleCamMovement and handleSelectedMovement update the position, rotation, and scale of respective objects based on received data, while self.messageQueue = [] resets the message queue after processing updates.\n\nself.messageQueue = []\n\n    def handleCamMovement(self, dgi):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (x, y, z, h, p, r) = self.msgHandler.parseCamMovementDatagram(dgi)\n        self.cameraJig.setPosHpr(render, x, y, z, h, p, r)\n        self.fPosReceived = 1\n\n    def handleSelectedMovement(self, dgi):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (x, y, z, h, p, r, sx, sy, sz) = self.msgHandler.parseSelectedMovementDatagram(\n            dgi)\n        if getattr(builtins, 'last', None):\n            builtins.last.setPosHprScale(x, y, z, h, p, r, sx, sy, sz)",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 80
+  },
+  {
+    "content": "The chunk consists of two methods (`handleTimeData` and `handleCommandString`) within a class responsible for managing data processing and command execution from a client. These methods are part of a larger system that handles various types of data sent by a client, including camera movements, object updates, time synchronization, and arbitrary commands. The chunk specifically focuses on synchronizing timing information between the client and server (`handleTimeData`) and executing dynamic commands received from the client (`handleCommandString`), enabling real-time updates and interactions in the application.\n\ndef handleTimeData(self, dgi):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (frameCount, frameTime, dt) = self.msgHandler.parseTimeDataDatagram(dgi)\n        # Use frame time from client for both real and frame time\n        clock = ClockObject.getGlobalClock()\n        clock.setFrameCount(frameCount)\n        clock.setFrameTime(frameTime)\n        clock.dt = dt\n\n    def handleCommandString(self, dgi):\n        \"\"\" Handle arbitrary command string from client \"\"\"\n        command = self.msgHandler.parseCommandStringDatagram(dgi)\n        try:\n            exec(command, __builtins__)\n        except Exception:\n            pass",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 81
+  },
+  {
+    "content": "This chunk contains essential import statements for a Panda3D-based cluster messaging system. It includes network communication modules (panda3d.net), core utilities (panda3d.core), message handling types from ClusterMsgs, notification system, showbase components, task management, and built-in functions. These imports are fundamental for implementing networked camera synchronization, object transformations, time同步, command execution, and cluster node coordination in a distributed 3D application.\n\nfrom panda3d.core import (\n    ClockObject,\n    Vec3,\n)\nfrom panda3d.net import (\n    ConnectionWriter,\n    NetAddress,\n    PointerToConnection,\n    QueuedConnectionListener,\n    QueuedConnectionManager,\n    QueuedConnectionReader,\n)\nfrom .ClusterMsgs import (\n    CLUSTER_CAM_FRUSTUM,\n    CLUSTER_CAM_MOVEMENT,\n    CLUSTER_CAM_OFFSET,\n    CLUSTER_COMMAND_STRING,\n    CLUSTER_DAEMON_PORT,\n    CLUSTER_EXIT,\n    CLUSTER_NAMED_MOVEMENT_DONE,\n    CLUSTER_NAMED_OBJECT_MOVEMENT,\n    CLUSTER_NONE,\n    CLUSTER_SELECTED_MOVEMENT,\n    CLUSTER_SERVER_PORT,\n    CLUSTER_SWAP_NOW,\n    CLUSTER_SWAP_READY,\n    CLUSTER_TIME_DATA,\n    ClusterMsgHandler,\n)\nfrom direct.directnotify import DirectNotifyGlobal\nfrom direct.showbase import DirectObject\nfrom direct.task import Task\nfrom direct.task.TaskManagerGlobal import taskMgr\nimport builtins",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 82
+  },
+  {
+    "content": "This code is part of a `ClusterServer` class that manages a distributed rendering system for clusters, handling camera synchronization, object transformations, and command execution across clients. The chunk contains initialization notes specifying required bootstrap variables for server operation and a warning about potential issues with multi-camera configurations in the cluster setup.\n\n# NOTE: This assumes the following variables are set via bootstrap command line\n# arguments on server startup:\n#     clusterServerPort\n#     clusterSyncFlag\n#     clusterDaemonClient\n#     clusterDaemonPort\n# Also, I'm not sure multiple camera-group configurations are working for the\n# cluster system.\n\n\n# Code for: class ClusterServer(DirectObject.DirectObject):",
+    "metadata": {
+      "source": "_test_source_code/cluster/ClusterServer.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 83
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "content": "The chunk defines the `DistancePhasedNode` class, which combines phasing logic with NodePath functionality to dynamically adjust object behavior based on distance from a collider. This class enables users to define phase transitions using distance thresholds, manage collision events, and control cleanup behavior when exiting the largest phase sphere.\n\nclass DistancePhasedNode(PhasedObject, DirectObject, NodePath):\n    \"\"\"\n    This class defines a PhasedObject,NodePath object that will handle\n    the phasing of an object in the scene graph according to its\n    distance from some other collider object(such as an avatar).\n\n    Since it's a NodePath, you can parent it to another object in the\n    scene graph, or even inherit from this class to get its functionality.\n\n    What you will need to define to use this class:\n\n     - The distances at which you want the phases to load/unload\n     - Whether you want the object to clean itself up or not when\n       exitting the largest distance sphere\n     - What the load/unload functions are\n     - What sort of events to listen for when a collision occurs\n     - (Optional) A collision bitmask for the phase collision spheres\n     - (Optional) A 'from' collision node to collide into our 'into' spheres",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 84
+  },
+  {
+    "content": "The provided chunk explains how to use the `phaseParamMap` parameter in the `DistancePhasingNode` class and describes the behavior of the node when using a custom collision traverser. This information is important for users who need to set up phase transitions based on distance and handle collision events properly.\n\nTo place this chunk within the overall document, it should be situated near the explanation of the `__init__` method parameters or in the section describing how to initialize and use the class. The context should help users understand how to configure the node for their specific needs and what to expect when using custom collision setups.\n\nThe chunk provides crucial information about parameter usage, event handling, and traversal setup, making it a key part of the documentation for initializing and configuring the `DistancePhasingNode`.\n\nYou specify the distances and function names by the phaseParamMap\n    parameter to `__init__()`.  For example::\n\n        phaseParamMap = {'Alias': distance, ...}\n        ...\n        def loadPhaseAlias(self):\n            pass\n        def unloadPhaseAlias(self):\n            pass\n\n    If the 'fromCollideNode' is supplied, we will set up our own\n    traverser and only traverse below this node.  It will send out\n    events of the form '<enterPrefix>%in' and '<exitPrefix>%in' in\n    order to match the main collision traverser's patterns.  Note\n    that this will only be used after a reset or phase change in\n    order to fully transition to the correct phase in a single pass.\n    Most of the time, it will be reacting to events from the main\n    collision traverser.\n\n    IMPORTANT:",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 85
+  },
+  {
+    "content": "This chunk situates within a Python class named `DistancePhasedObject` designed for managing distance-based phasing using collision spheres. The code includes important notes about behavior related to the `autoCleanup` parameter, instance management variables (`__InstanceSequence`, `__InstanceDeque`), and event handling for phase transitions. It is part of the initialization or setup section of the class, explaining crucial details about its lifecycle and cleanup mechanisms.\n\nIMPORTANT:\n\n        The following only applies when ``autoCleanup is True``:\n        If you unload the last phase, by either calling `cleanup()` or\n        by exiting the last phase's distance, you will need to\n        explicitly call `reset()` to get the distance phasing to work\n        again. This was done so if either this node or the collider is\n        removed from the scene graph (e.g. avatar teleport), the phased\n        object will clean itself up automatically.\n    \"\"\"\n\n    notify = directNotify.newCategory(\"DistancePhasedObject\")\n    __InstanceSequence = 0\n    __InstanceDeque: list[int] = []",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 86
+  },
+  {
+    "content": "This chunk introduces static methods (`__allocateId` and `__deallocateId`) for managing unique IDs assigned to instances of the class, ensuring proper event handling and preventing conflicts between multiple `DistancePhasedObject` instances.\n\nnotify = directNotify.newCategory(\"DistancePhasedObject\")\n    __InstanceSequence = 0\n    __InstanceDeque: list[int] = []\n\n    @staticmethod\n    def __allocateId():\n        \"\"\"\n        Give each phase node a unique id in order to filter out\n        collision events from other phase nodes.  We do it in\n        this manner so the client doesn't need to worry about\n        giving each phase node a unique name.\n        \"\"\"\n        if DistancePhasedNode.__InstanceDeque:\n            return DistancePhasedNode.__InstanceDeque.pop(0)\n        else:\n            id = DistancePhasedNode.__InstanceSequence\n            DistancePhasedNode.__InstanceSequence += 1\n            DistancePhasedNode.__InstanceSequence &= 65535\n            return id\n\n    @staticmethod\n    def __deallocateId(id):\n        \"\"\"\n        Reuse abandoned ids.\n        \"\"\"\n        if DistancePhasedNode is not None:\n            DistancePhasedNode.__InstanceDeque.append(id)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 87
+  },
+  {
+    "content": "This chunk represents the initialization method of a class that combines `NodePath` and `PhasedObject`, designed to manage dynamic states or phases through collision detection with spherical boundaries. The constructor sets up phase parameters, defines event handling prefixes for entering/exiting these phases, configures collision masks, and initializes necessary traversal components for detecting intersections with other objects in the scene graph. This class is particularly useful for creating state transitions based on proximity within defined zones in a 3D environment.\n\ndef __init__(self, name, phaseParamMap = {},\n                 autoCleanup = True,\n                 enterPrefix = 'enter', exitPrefix = 'exit',\n                 phaseCollideMask = BitMask32.allOn(),\n                 fromCollideNode = None):\n        NodePath.__init__(self, name)\n        self.phaseParamMap = phaseParamMap\n        self.phaseParamList = sorted(list(phaseParamMap.items()),\n                                     key = lambda x: x[1],\n                                     reverse = True)\n        PhasedObject.__init__(self,\n                              dict([(alias,phase) for (phase,alias) in enumerate([item[0] for item in self.phaseParamList])]))\n        self.__id = self.__allocateId()\n\n        self.autoCleanup = autoCleanup\n        self.enterPrefix = enterPrefix\n        self.exitPrefix = exitPrefix\n        self.phaseCollideMask = phaseCollideMask\n        self.cTrav = base.cTrav\n        self.fromCollideNode = fromCollideNode\n        self._colSpheres = []",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 88
+  },
+  {
+    "content": "The chunk defines key special methods for the `DistancePhasedObject` class, including initialization, cleanup, and string representation. It includes the `reset()` method to reinitialize the object's state, the `__del__()` destructor to clean up resources, and the `__repr__()` and `__str__()` methods for debugging and user-friendly object representation respectively. These methods provide essential functionality for managing object lifecycle and facilitating debugging and logging of the phase management system.\n\nself.reset()\n\n    def __del__(self):\n        self.__deallocateId(self.__id)\n\n    def __repr__(self):\n        outStr = 'DistancePhasedObject('\n        outStr += repr(self.getName())\n        for param, value in zip(('phaseParamMap', 'autoCleanup', 'enterPrefix', 'exitPrefix', 'phaseCollideMask', 'fromCollideNode'),\n                                ({}, True, 'enter', 'exit', BitMask32.allOn(), None)):\n            pv = getattr(self, param)\n            if pv != value:\n                outStr += ', %s = %r' % (param, pv)\n        outStr += ')'\n        return outStr\n\n    def __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 89
+  },
+  {
+    "content": "This code chunk contains methods related to the functionality and lifecycle management of the class. The `__str__` method provides a string representation of the object's current state, while the `cleanup` method is responsible for cleaning up resources by disabling collisions, ignoring event listeners, and removing collision spheres. The `setPhaseCollideMask` method allows setting a custom collision mask for all active phase zones, enabling control over how these zones interact with other objects in the environment.\n\ndef __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())\n\n    def cleanup(self):\n        \"\"\"\n        Disables all collisions.\n        Ignores all owned event listeners.\n        Unloads all unloaded phases.\n        \"\"\"\n        self.__disableCollisions(cleanup = True)\n        for sphere in self._colSpheres:\n            sphere.remove()\n        self._colSpheres = []\n        PhasedObject.cleanup(self)\n\n    def setPhaseCollideMask(self, mask):\n        \"\"\"\n        Sets the intoCollideMasks for our collision spheres.\n        \"\"\"\n        self.phaseCollideMask = mask\n        for sphere in self._colSpheres:\n            self.colSphere.node().setIntoCollideMask(self.phaseCollideMask)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 90
+  },
+  {
+    "content": "The chunk is part of a Python class managing phase transitions using collision detection. The `reset()` method initializes or reinitializes the phase node by cleaning up existing resources, performing an initial collision check, and setting up new collision spheres based on specified parameters. This ensures the node starts fresh, ready to detect phase changes through collisions.\n\n**Context:**  \nThe `reset()` method in this document is a crucial part of a system that manages phase transitions using collision detection, likely within a 3D environment such as Panda3D. It initializes or reinitializes the node by cleaning up old resources and setting up new collision spheres to detect when an object enters or exits different phases. This ensures proper handling of phase changes from the start.\n\ndef reset(self):\n        \"\"\"\n        Unloads all loaded phases and puts the phase node\n        in the startup state is if it had just been initialized.\n        \"\"\"\n        self.cleanup()\n        self.__oneTimeCollide()\n        for name, dist in self.phaseParamList:\n            cSphere = CollisionSphere(0.0, 0.0, 0.0, dist)\n            cSphere.setTangible(0)\n            cName = 'PhaseNode%s-%d' % (name, self.__id)\n            cSphereNode = CollisionNode(cName)\n            cSphereNode.setIntoCollideMask(self.phaseCollideMask)\n            cSphereNode.setFromCollideMask(BitMask32.allOff())\n            cSphereNode.addSolid(cSphere)\n            cSphereNodePath = self.attachNewNode(cSphereNode)\n            cSphereNodePath.stash()\n            # cSphereNodePath.show() # For debugging\n            self._colSpheres.append(cSphereNodePath)\n        if self.fromCollideNode:\n            self.cTrav = CollisionTraverser()\n            cHandler = CollisionHandlerEvent()",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 91
+  },
+  {
+    "content": "The chunk is part of the initialization process for setting up collision detection in the `__init__` method of the class, where a new collision sphere node path is added to the list `_colSpheres`, and if `fromCollideNode` is provided, a collision traverser is created with event handlers to detect entry (`enterPrefix`) and exit (`exitPrefix`) events for phase changes.\n\nself._colSpheres.append(cSphereNodePath)\n        if self.fromCollideNode:\n            self.cTrav = CollisionTraverser()\n            cHandler = CollisionHandlerEvent()\n            cHandler.addInPattern(self.enterPrefix + '%in')\n            cHandler.addOutPattern(self.exitPrefix + '%in')\n            self.cTrav.addCollider(self.fromCollideNode,cHandler)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 92
+  },
+  {
+    "content": "The code chunk is part of a class that manages phase transitions using collision detection. It includes methods for setting the current phase (`setPhase`), which updates collision handling based on the new phase, and helper methods (`__getEnterEvent`, `__getExitEvent`) to generate unique event names for entering or exiting specific phases.\n\nself.__enableCollisions(-1)\n\n    def setPhase(self, aPhase):\n        \"\"\"\n        See PhasedObject.setPhase()\n        \"\"\"\n        phase = self.getAliasPhase(aPhase)\n        PhasedObject.setPhase(self, aPhase)\n        self.__disableCollisions()\n        self.__enableCollisions(phase)\n\n        if phase == -1 and self.autoCleanup:\n            self.cleanup()\n        else:\n            self.__oneTimeCollide()\n\n    def __getEnterEvent(self, phaseName):\n        return '%sPhaseNode%s-%d' % (self.enterPrefix, phaseName, self.__id)\n\n    def __getExitEvent(self, phaseName):\n        return '%sPhaseNode%s-%d' % (self.exitPrefix, phaseName, self.__id)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 93
+  },
+  {
+    "content": "The code chunk is part of a class designed to manage phased zones or regions using collision detection. The `__getExitEvent` method constructs event names for exiting specific phases, while `__enableCollisions` activates collision spheres by unstashing their geometry and setting up exit event handlers. This allows the object to detect when it exits a phase zone, enabling smooth transitions between phases in a phased region system.\n\ndef __getExitEvent(self, phaseName):\n        return '%sPhaseNode%s-%d' % (self.exitPrefix, phaseName, self.__id)\n\n    def __enableCollisions(self, phase):\n        \"\"\"\n        Turns on collisions for the spheres bounding this\n        phase zone by unstashing their geometry.  Enables\n        the exit event for the larger and the enter event\n        for the smaller.  Handles the  extreme(end) phases\n        gracefully.\n        \"\"\"\n        if 0 <= phase:\n            phaseName = self.getPhaseAlias(phase)\n            self.accept(self.__getExitEvent(phaseName),\n                        self.__handleExitEvent,\n                        extraArgs = [phaseName])\n            self._colSpheres[phase].unstash()",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 94
+  },
+  {
+    "content": "The given chunk is part of a method `__enableCollisions` within a class responsible for managing phase transitions based on collision events. The code checks if the next phase index is valid, then enables an enter event handler for that phase and activates its collision detection by unstashing the corresponding geometry.\n\nContext: This code enables handling of entering into a new phase zone by ensuring the next phase exists, setting up the appropriate event listener, and activating the associated collision sphere.\n\nif 0 <= phase+1 < len(self._colSpheres):\n            phaseName = self.getPhaseAlias(phase+1)\n            self.accept(self.__getEnterEvent(phaseName),\n                        self.__handleEnterEvent,\n                        extraArgs = [phaseName])\n            self._colSpheres[phase+1].unstash()",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 95
+  },
+  {
+    "content": "This code chunk from the `PhaseManager` class handles event-driven collision management. The methods manage how the object transitions between phases by enabling/disabling collision detection zones (spheres) when entering or exiting them, ensuring correct phase changes based on detected collisions.\n\ndef __disableCollisions(self, cleanup = False):\n        \"\"\"\n        Disables all collision geometry by stashing\n        the geometry.  If autoCleanup == True and we're\n        not currently cleaning up, leave the exit event\n        and collision sphere active for the largest(thus lowest)\n        phase.  This is so that we can still cleanup if\n        the phase node exits the largest sphere.\n        \"\"\"\n        for x,sphere in enumerate(self._colSpheres):\n            phaseName = self.getPhaseAlias(x)\n            self.ignore(self.__getEnterEvent(phaseName))\n            if x > 0 or not self.autoCleanup or cleanup:\n                sphere.stash()\n                self.ignore(self.__getExitEvent(phaseName))\n\n    def __handleEnterEvent(self, phaseName, cEntry):\n        self.setPhase(phaseName)\n\n    def __handleExitEvent(self, phaseName, cEntry):\n        phase = self.getAliasPhase(phaseName) - 1\n        self.setPhase(phase)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 96
+  },
+  {
+    "content": "The code chunk defines two methods within a class responsible for handling phase transitions based on collision detection: `__handleExitEvent`, which decreases the current phase by 1 when an exit event is triggered, and `__oneTimeCollide`, which performs a single scene graph traversal to process all collision events at once.\n\ndef __handleExitEvent(self, phaseName, cEntry):\n        phase = self.getAliasPhase(phaseName) - 1\n        self.setPhase(phase)\n\n    def __oneTimeCollide(self):\n        \"\"\"\n        Fire off a one-time collision traversal of the\n        scene graph.  This allows us to process our entire\n        phasing process in one frame in the cases where\n        we cross more than one phase border.\n        \"\"\"\n        if self.cTrav:\n            if self.cTrav is base.cTrav:\n                # we use 'render'here since if we only try to\n                # traverse ourself, we end up calling exit\n                # events for the rest of the eventHandlers.\n                # Consider supplying the fromCollideNode parameter.\n                self.cTrav.traverse(render)\n            else:\n                # Only traverse ourself\n                self.cTrav.traverse(self)\n            base.eventMgr.doEvents()",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 97
+  },
+  {
+    "content": "This chunk introduces a subclass called `BufferedDistancePhasedNode` that extends the functionality of the `DistancePhasedNode` class to prevent 'phase flicker' by adding buffer distances around each phase boundary, ensuring smoother transitions between phases.\n\nclass BufferedDistancePhasedNode(DistancePhasedNode):\n    \"\"\"\n    This class is similar to DistancePhasedNode except you can also\n    specify a buffer distance for each phase.  Upon entering that phase,\n    its distance will be increased by the buffer amount.  Conversely,\n    the distance will be decremented by that amount, back to its\n    original size, upon leaving.  In this manner, you can avoid the problem\n    of 'phase flicker' as someone repeatedly steps across a static phase\n    border.\n\n    You specify the buffer amount in the bufferParamMap parameter\n    to :meth:`__init__()`.  It has this format::\n\n        bufferParamMap = {'alias':(distance, bufferAmount), ...}\n    \"\"\"\n    notify = directNotify.newCategory(\"BufferedDistancePhasedObject\")",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 98
+  },
+  {
+    "content": "This chunk introduces a `BufferedDistancePhasedObject` class, which builds upon the existing `DistancePhasedObject` implementation by introducing buffering functionality for phase transitions. The class uses a `bufferParamMap` dictionary to define distance thresholds and associated buffer zones, where each entry maps an alias to a tuple containing `(distance, bufferAmount)`. This allows the object to smoothly transition between phases with hysteresis, preventing rapid state changes near phase boundaries.\n\nbufferParamMap = {'alias':(distance, bufferAmount), ...}\n    \"\"\"\n    notify = directNotify.newCategory(\"BufferedDistancePhasedObject\")\n\n    def __init__(self, name, bufferParamMap = {}, autoCleanup = True,\n                 enterPrefix = 'enter', exitPrefix = 'exit', phaseCollideMask = BitMask32.allOn(), fromCollideNode = None):\n        self.bufferParamMap = bufferParamMap\n        self.bufferParamList = sorted(list(bufferParamMap.items()),\n                                      key = lambda x: x[1],\n                                      reverse = True)\n\n        sParams = dict(bufferParamMap)\n        for key in sParams:\n            sParams[key] = sParams[key][0]",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 99
+  },
+  {
+    "content": "The chunk initializes a `DistancePhasedNode` instance with modified phase parameters extracted from a buffer parameter map, facilitating distance-based phasing in a node hierarchy.\n\nsParams = dict(bufferParamMap)\n        for key in sParams:\n            sParams[key] = sParams[key][0]\n\n        DistancePhasedNode.__init__(self, name = name,\n                                    phaseParamMap = sParams,\n                                    autoCleanup = autoCleanup,\n                                    enterPrefix = enterPrefix,\n                                    exitPrefix = exitPrefix,\n                                    phaseCollideMask = phaseCollideMask,\n                                    fromCollideNode = fromCollideNode)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 100
+  },
+  {
+    "content": "The chunk introduces a subclass `BufferedDistancePhasedNode` extending `DistancePhasedNode`, enhancing phase management with buffering capabilities. It includes methods for string representation, phase adjustment, and overriding the `setPhase` method to integrate buffer parameters, ensuring smooth transitions between phases while maintaining collision handling integrity.\n\ndef __repr__(self):\n        outStr = 'BufferedDistancePhasedNode('\n        outStr += repr(self.getName())\n        for param, value in zip(('bufferParamMap', 'autoCleanup', 'enterPrefix', 'exitPrefix', 'phaseCollideMask', 'fromCollideNode'),\n                                ({}, True, 'enter', 'exit', BitMask32.allOn(), None)):\n            pv = getattr(self, param)\n            if pv != value:\n                outStr += ', %s = %r' % (param, pv)\n        outStr += ')'\n        return outStr\n\n    def __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())\n\n    def setPhase(self, aPhase):\n        \"\"\"\n        see DistancePhasedNode.setPhase()\n        \"\"\"\n        DistancePhasedNode.setPhase(self, aPhase)\n        phase = self.getAliasPhase(aPhase)\n        self.__adjustCollisions(phase)",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 101
+  },
+  {
+    "content": "The chunk introduces a method `__adjustCollisions` within the class definition provided. This method is designed to modify the radii of collision spheres in `_colSpheres`. The first loop adjusts the first `phase+1` spheres to an upper bound, while the second loop sets larger spheres beyond the current phase to a lower bound based on `bufferParamList`. This method is crucial for dynamically adjusting sphere sizes during phase transitions to ensure accurate collision detection.\n\ndef __adjustCollisions(self, phase):\n        for x,sphere in enumerate(self._colSpheres[:phase+1]):\n            sphere.node().modifySolid(0).setRadius(self.bufferParamList[x][1][1])\n            sphere.node().markInternalBoundsStale()\n\n        for x,sphere in enumerate(self._colSpheres[phase+1:]):\n            sphere.node().modifySolid(0).setRadius(self.bufferParamList[x+phase+1][1][0])\n            sphere.node().markInternalBoundsStale()",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "functions_classes",
+      "language": "python"
+    },
+    "chunk_index": 102
+  },
+  {
+    "content": "The code chunk represents the import statements and class declarations for a Panda3D-based node system. It situates within a document detailing classes for handling phased zones with distance-based transitions, including buffered functionality.\n\nfrom __future__ import annotations\n\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom panda3d.core import (\n    BitMask32,\n    CollisionHandlerEvent,\n    CollisionNode,\n    CollisionSphere,\n    CollisionTraverser,\n    NodePath,\n)\nfrom .PhasedObject import PhasedObject\n\n\n# Code for: class DistancePhasedNode(PhasedObject, DirectObject, NodePath):\n\n\n# Code for: class BufferedDistancePhasedNode(DistancePhasedNode):",
+    "metadata": {
+      "source": "_test_source_code/showbase/DistancePhasedNode.py",
+      "content_type": "simplified_code",
+      "language": "python"
+    },
+    "chunk_index": 103
+  }
+]
