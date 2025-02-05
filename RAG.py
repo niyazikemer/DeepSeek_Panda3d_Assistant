@@ -3,6 +3,7 @@ from ollama import chat
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from hybrid_retriever import HybridRetriever
+from re_ranker import OptimizedReranker
 
 # Custom CSS to move sidebar to the right
 #put the combined documnet at the right side of the screen
@@ -30,22 +31,29 @@ with col2:
     if st.button("New Chat"):
         st.session_state.messages = []
 
+reranker = OptimizedReranker()
+context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 5 documents that might help you:"
 def get_ai_response(query):
-    
+    # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
-    relevant_docs = hybrid_retriever.hybrid_search(query, k=20)
-    #relevant_docs = faiss_index.similarity_search(query, k=5)
-    #this is for giving the model some liberty to choose the best documents and not all of them
-    context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 5 documents that might help you:"
-    # Display docs in right sidebar
+    initial_docs = hybrid_retriever.hybrid_search(query, k=30)  # Get 30 docs
+    
+    # Stage 2: Reranking
+    reranked_docs = reranker.rerank(query, initial_docs, top_k=20)
+    
+    # Display in sidebar
     with st.sidebar:
-        st.markdown("### Retrieved Documents")
-        for i, doc in enumerate(relevant_docs, start=1):
-            st.markdown(f"**Document {i}:**\n{doc.page_content}")
+        st.markdown("### Reranked Documents")
+        for i, doc in enumerate(reranked_docs, start=1):
+            st.markdown(f"**Document {i}:**\n{doc.page_content[:200]}...")  # Show preview
             st.divider()
     
-    ctx = "\n".join([doc.page_content for doc in relevant_docs])
-    augmented_query = f"Context:{context_explanation} {ctx}\n\nQuestion: {query}"
+    # Prepare context
+    context = "\n\n".join([
+        f"Document {i+1}:\n{doc.page_content}" 
+        for i, doc in enumerate(reranked_docs)
+    ])
+    augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
     response = chat(
