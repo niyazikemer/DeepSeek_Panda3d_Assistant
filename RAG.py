@@ -2,6 +2,7 @@ import streamlit as st
 from ollama import chat
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
+from hybrid_retriever import HybridRetriever
 
 # Custom CSS to move sidebar to the right
 #put the combined documnet at the right side of the screen
@@ -30,7 +31,10 @@ with col2:
         st.session_state.messages = []
 
 def get_ai_response(query):
-    relevant_docs = faiss_index.similarity_search(query, k=5)
+    
+    hybrid_retriever = HybridRetriever(faiss_index)
+    relevant_docs = hybrid_retriever.hybrid_search(query, k=20)
+    #relevant_docs = faiss_index.similarity_search(query, k=5)
     #this is for giving the model some liberty to choose the best documents and not all of them
     context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 5 documents that might help you:"
     # Display docs in right sidebar
