@@ -1,0 +1,9 @@
+{
+  "content": "notify = directNotify.newCategory(\"DistancePhasedObject\")\n    __InstanceSequence = 0\n    __InstanceDeque: list[int] = []\n\n    @staticmethod\n    def __allocateId():\n        \"\"\"\n        Give each phase node a unique id in order to filter out\n        collision events from other phase nodes.  We do it in\n        this manner so the client doesn't need to worry about\n        giving each phase node a unique name.\n        \"\"\"\n        if DistancePhasedNode.__InstanceDeque:\n            return DistancePhasedNode.__InstanceDeque.pop(0)\n        else:\n            id = DistancePhasedNode.__InstanceSequence\n            DistancePhasedNode.__InstanceSequence += 1\n            DistancePhasedNode.__InstanceSequence &= 65535\n            return id\n\n    @staticmethod\n    def __deallocateId(id):\n        \"\"\"\n        Reuse abandoned ids.\n        \"\"\"\n        if DistancePhasedNode is not None:\n            DistancePhasedNode.__InstanceDeque.append(id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_0",
+    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4
+  }
+}

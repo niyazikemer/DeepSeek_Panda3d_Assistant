@@ -1,0 +1,9 @@
+{
+  "content": "def __disableCollisions(self, cleanup = False):\n        \"\"\"\n        Disables all collision geometry by stashing\n        the geometry.  If autoCleanup == True and we're\n        not currently cleaning up, leave the exit event\n        and collision sphere active for the largest(thus lowest)\n        phase.  This is so that we can still cleanup if\n        the phase node exits the largest sphere.\n        \"\"\"\n        for x,sphere in enumerate(self._colSpheres):\n            phaseName = self.getPhaseAlias(x)\n            self.ignore(self.__getEnterEvent(phaseName))\n            if x > 0 or not self.autoCleanup or cleanup:\n                sphere.stash()\n                self.ignore(self.__getExitEvent(phaseName))\n\n    def __handleEnterEvent(self, phaseName, cEntry):\n        self.setPhase(phaseName)\n\n    def __handleExitEvent(self, phaseName, cEntry):\n        phase = self.getAliasPhase(phaseName) - 1\n        self.setPhase(phase)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_0",
+    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 13
+  }
+}
