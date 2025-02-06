@@ -4,11 +4,12 @@ from typing import List
 import os
 import json
 import datetime
+import hashlib
 class CustomDocumentSplitter:
     def __init__(self, chunk_size: int = 1000, chunk_overlap: int = 200):
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        
+
     def split_documents(self, documents: List[Document]) -> List[Document]:
         python_docs = []
         rst_docs = []
@@ -19,7 +20,7 @@ class CustomDocumentSplitter:
                 python_docs.append(doc)
             elif doc.metadata.get('doc_type') == 'rst':
                 rst_docs.append(doc)
-                
+        
         # Initialize language-specific splitters
         python_splitter = RecursiveCharacterTextSplitter.from_language(
             language=Language.PYTHON,
@@ -33,29 +34,50 @@ class CustomDocumentSplitter:
             chunk_overlap=self.chunk_overlap
         )
         
-        # Split documents and maintain metadata
+        # Split and maintain metadata
         chunks = []
-        chunks.extend(python_splitter.split_documents(python_docs))
-        chunks.extend(rst_splitter.split_documents(rst_docs))
         
+        
+    # Process Python documents
+        for doc in python_docs:
+            doc_chunks = python_splitter.split_documents([doc])
+            for chunk in doc_chunks:
+                chunk.metadata = {
+                    'doc_type': doc.metadata['doc_type'],
+                    'doc_id': doc.metadata['doc_id'],
+                    'parent': doc.metadata['file_path']
+                }
+            chunks.extend(doc_chunks)
+
+        # Process RST documents
+        for doc in rst_docs:
+            doc_chunks = rst_splitter.split_documents([doc])
+            for chunk in doc_chunks:
+                chunk.metadata = {
+                    'doc_type': doc.metadata['doc_type'],
+                    'doc_id': doc.metadata['doc_id'],
+                    'parent': doc.metadata['file_path']
+                }
+            chunks.extend(doc_chunks)
+
         return chunks
-    
+
     def save_chunks(self, chunks: List[Document], output_dir: str):
         os.makedirs(output_dir, exist_ok=True)
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_dir = os.path.join(output_dir, f"{timestamp}_raw_chunks")
-        os.makedirs(save_dir, exist_ok=True)
-
         for i, chunk in enumerate(chunks):
-            file_path = os.path.join(save_dir, f"raw_chunk_{i}.json")
-            with open(file_path, 'w') as f:
-                chunk_dict = {
-                    'content': chunk.page_content,
-                    'metadata': chunk.metadata
-                }
+            chunk.metadata['chunk_number'] = i  # Add global chunk number
+            content_hash = hashlib.md5(chunk.page_content.encode()).hexdigest()[:8]
+            file_name = f"chunk_{i}_{content_hash}.json"
+            save_path = os.path.join(output_dir, file_name)
+            
+            chunk_dict = {
+                'content': chunk.page_content,
+                'metadata': chunk.metadata
+            }
+            with open(save_path, 'w') as f:
                 json.dump(chunk_dict, f, indent=2)
         
-        return save_dir
+        return output_dir
         
 
 
@@ -71,7 +93,7 @@ if __name__ == "__main__":
     
     splitter = CustomDocumentSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = splitter.split_documents(documents)
-    splitter.save_chunks(chunks,'processed_documents')
+    splitter.save_chunks(chunks,'processed_documents/chunks')
     
     print(f"Original documents: {len(documents)}")
     print(f"After splitting: {len(chunks)}")
