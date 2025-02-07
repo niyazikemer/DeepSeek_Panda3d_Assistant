@@ -12,7 +12,7 @@ import ollama
 from typing import Dict, List
 
 class DocumentIndexer:
-    def __init__(self, source_dir: str, output_dir: str = "processed_documents", 
+    def __init__(self, source_dir: str, output_dir: str = "processed_documents/prepended_chunks", 
                  index_path: str = "faiss_index", chunk_size: int = 1000, 
                  chunk_overlap: int = 200):
         self.source_dir = source_dir
@@ -22,14 +22,8 @@ class DocumentIndexer:
         self.chunk_overlap = chunk_overlap
         self.documents = []
         self.chunks = []
-        self.vectorstore = None
-        
-    @staticmethod
-    def get_supported_extensions():
-        return [
-            ".py", ".js", ".java", ".cpp", ".cs", ".go", ".kt", 
-            ".lua", ".pl", ".rb", ".rs", ".scala", ".ts"
-        ]
+        self.vectorstore = None      
+ 
 
     def generate_context(self, document_content: str, chunk_content: str) -> str:
         prompt = f"""
@@ -50,131 +44,35 @@ class DocumentIndexer:
         for chunk in self.chunks:
             source = chunk.metadata['source']
             original_doc = next(doc for doc in self.documents if doc.metadata['source'] == source)
+            print(f'original_doc: {original_doc.metadata["source"]}')
             context = self.generate_context(original_doc.page_content, chunk.page_content)
             new_content = f"{context}\n\n{chunk.page_content}"
             chunk.page_content = new_content
             processed_chunks.append(chunk)
         return processed_chunks
 
-    def save_documents(self, documents, subdir_prefix=""):
-        os.makedirs(self.output_dir, exist_ok=True)
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_dir = os.path.join(self.output_dir, f"{timestamp}_{subdir_prefix}")
-        os.makedirs(save_dir, exist_ok=True)
 
-        docs_by_source = {}
-        for i, doc in enumerate(documents):
-            source = doc.metadata.get('source', 'unknown_source')
-            if source not in docs_by_source:
-                docs_by_source[source] = []
-            docs_by_source[source].append({
-                'content': doc.page_content,
-                'metadata': doc.metadata,
-                'chunk_index': i
-            })
-
-        for source, docs in docs_by_source.items():
-            base_name = os.path.basename(source)
-            # Add timestamp and source hash to filename
-            file_hash = hex(hash(source))[-8:]  # Last 8 chars of hash
-            file_path = os.path.join(
-                save_dir, 
-                f"{timestamp}_{file_hash}_{base_name}_processed.json"
-            )
-            with open(file_path, 'w', encoding='utf-8') as f:
-                json.dump(docs, f, indent=2, ensure_ascii=False)
-        return save_dir
-
-    def load_source_documents(self):
-        loader = GenericLoader.from_filesystem(
-            self.source_dir,
-            glob="**/*",
-            suffixes=self.get_supported_extensions(),
-            parser=LanguageParser(parser_threshold=15)
-        )
-        
-        text_loader = DirectoryLoader(
-            self.source_dir,
-            glob="**/*.txt",
-            recursive=True
-        )
-        
-        try:
-            self.documents.extend(loader.load())
-        except Exception as e:
-            print(f"Warning: Error loading source code files: {e}")
-        
-        try:
-            self.documents.extend(text_loader.load())
-        except Exception as e:
-            print(f"Warning: Error loading text files: {e}")
-
-    def split_documents(self):
-        language_docs = {}
-        other_docs = []
-        
-        for doc in self.documents:
-            if 'language' in doc.metadata:
-                lang = doc.metadata['language']
-                if lang not in language_docs:
-                    language_docs[lang] = []
-                language_docs[lang].append(doc)
-            else:
-                other_docs.append(doc)
-        
-        for lang, docs in language_docs.items():
-            splitter = RecursiveCharacterTextSplitter.from_language(
-                language=lang,
-                chunk_size=self.chunk_size,
-                chunk_overlap=self.chunk_overlap
-            )
-            self.chunks.extend(splitter.split_documents(docs))
-        
-        if other_docs:
-            default_splitter = RecursiveCharacterTextSplitter(
-                chunk_size=self.chunk_size,
-                chunk_overlap=self.chunk_overlap
-            )
-            self.chunks.extend(default_splitter.split_documents(other_docs))
-
-        self.chunks = self.process_chunks_with_context()
-        chunks_dir = self.save_documents(self.chunks, "chunks")
-        print(f"Saved {len(self.chunks)} chunks to {chunks_dir}")
-
-    def process_and_save_chunks(self):
-        """Process documents into chunks and save them"""
-        print("Loading documents...")
-        self.load_source_documents()
-        print(f"Loaded {len(self.documents)} documents")
-        
-        orig_dir = self.save_documents(self.documents, "original")
-        print(f"Saved original documents to {orig_dir}")
-        
-        print("Splitting documents...")
-        self.split_documents()
-        return self.chunks
-    
-    def load_chunks(self, chunks_dir: str):
+    def load_json_docs(self, json_doc_dir: str):
         """Load previously processed chunks and convert to Document objects"""
-        chunks = []
-        for root, _, files in os.walk(chunks_dir):
+        json_doc = []
+        for root, _, files in os.walk(json_doc_dir):
             for file in files:
-                if file.endswith('_processed.json'):
+                if file.endswith('.json'):  # Changed from startswith('chunk_')
                     with open(os.path.join(root, file), 'r') as f:
-                        file_chunks = json.load(f)
-                        for chunk in file_chunks:
-                            # Convert dict to Document object
-                            doc = Document(
-                                page_content=chunk['content'],
-                                metadata=chunk['metadata']
-                            )
-                            chunks.append(doc)
-        return chunks  # Add return statement
+                        chunk_data = json.load(f)  # Load the entire JSON file
+                        # Create Document object from JSON data
+                        doc = Document(
+                            page_content=chunk_data['content'],
+                            metadata=chunk_data['metadata']
+                        )
+                        json_doc.append(doc)
+        print(f"Loaded {len(json_doc)} chunks")
+        return json_doc
        
-    def create_index(self, chunks_dir: str):
+    def create_index(self, json_doc_dir: str):
         """Create index from previously processed chunks"""
         print("Loading chunks...")
-        chunks = self.load_chunks(chunks_dir)
+        chunks = self.load_chunks(json_doc_dir)
         print(f"Loaded {len(chunks)} chunks")
 
         print("Creating embeddings...")
@@ -205,7 +103,11 @@ indexer = DocumentIndexer(
     chunk_size=1000,
     chunk_overlap=200
 )
-chunks = indexer.process_and_save_chunks()
+raw_chunks = indexer.load_json_docs('processed_documents/chunks')
+context_documents = indexer.load_json_docs('processed_documents/context_documents')
+print(list(raw_chunks))
 
-# chunks_dir = "processed_documents/20250204_065433_chunks"  # Use actual directory
-# indexer.create_index(chunks_dir)
+#chunks = indexer.process_and_save_chunks()
+
+# json_doc_dir = "processed_documents/20250204_065433_chunks"  # Use actual directory
+# indexer.create_index(json_doc_dir)
