@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains the initialization of instance variables, destructor, and string representation methods for the `BufferedDistancePhasedObject` class. It is situated in the overall document as part of the class definition to handle object creation, destruction, and provide human-readable representations of the object's state.\n\nself.reset()\n\n    def __del__(self):\n        self.__deallocateId(self.__id)\n\n    def __repr__(self):\n        outStr = 'DistancePhasedObject('\n        outStr += repr(self.getName())\n        for param, value in zip(('phaseParamMap', 'autoCleanup', 'enterPrefix', 'exitPrefix', 'phaseCollideMask', 'fromCollideNode'),\n                                ({}, True, 'enter', 'exit', BitMask32.allOn(), None)):\n            pv = getattr(self, param)\n            if pv != value:\n                outStr += ', %s = %r' % (param, pv)\n        outStr += ')'\n        return outStr\n\n    def __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_0",
+    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 6
+  }
+}
