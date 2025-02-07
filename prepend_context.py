@@ -10,27 +10,28 @@ import json
 import datetime
 import ollama
 from typing import Dict, List
+import hashlib
 
 class DocumentIndexer:
-    def __init__(self, source_dir: str, output_dir: str = "processed_documents/prepended_chunks", 
+    def __init__(self, output_dir: str = "processed_documents/prepended_chunks", 
                  index_path: str = "faiss_index", chunk_size: int = 1000, 
-                 chunk_overlap: int = 200):
-        self.source_dir = source_dir
+                 chunk_overlap: int = 200):        
         self.output_dir = output_dir
         self.index_path = index_path
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        self.documents = []
-        self.chunks = []
+        # self.documents = []
+        # self.chunks = []
         self.vectorstore = None      
  
 
     def generate_context(self, document_content: str, chunk_content: str) -> str:
         prompt = f"""
+        Here is the whole document
         <document>
         {document_content}
         </document>
-        Here is the chunk we want to situate within the whole document
+        and here is the chunk we want to situate within the whole document
         <chunk>
         {chunk_content}
         </chunk>
@@ -39,17 +40,7 @@ class DocumentIndexer:
         response = ollama.generate(model="deepseek-r1:32b", prompt=prompt)
         return response['response'].split('</think>')[-1].strip()
 
-    def process_chunks_with_context(self) -> List:
-        processed_chunks = []
-        for chunk in self.chunks:
-            source = chunk.metadata['source']
-            original_doc = next(doc for doc in self.documents if doc.metadata['source'] == source)
-            print(f'original_doc: {original_doc.metadata["source"]}')
-            context = self.generate_context(original_doc.page_content, chunk.page_content)
-            new_content = f"{context}\n\n{chunk.page_content}"
-            chunk.page_content = new_content
-            processed_chunks.append(chunk)
-        return processed_chunks
+
 
 
     def load_json_docs(self, json_doc_dir: str):
@@ -68,11 +59,55 @@ class DocumentIndexer:
                         json_doc.append(doc)
         print(f"Loaded {len(json_doc)} chunks")
         return json_doc
-       
-    def create_index(self, json_doc_dir: str):
+    
+    def process_and_save_chunks(self, chunks: List[Document], context_docs: List[Document]) -> str:
+        os.makedirs(self.output_dir, exist_ok=True)
+        doc_map = {doc.metadata['doc_id']: doc for doc in context_docs}
+        
+        for chunk in chunks:
+            # Process chunk
+            doc_id = chunk.metadata['doc_id']
+            original_doc = doc_map[doc_id]
+            context = self.generate_context(original_doc.page_content, chunk.page_content)
+            chunk.page_content = f"{context}\n\n{chunk.page_content}"
+            
+            # Use existing chunk number from metadata
+            content_hash = hashlib.md5(chunk.page_content.encode()).hexdigest()[:8]
+            chunk_num = chunk.metadata['chunk_number']
+            file_name = f"{content_hash}_chunk_{chunk_num}.json"
+            save_path = os.path.join(self.output_dir, file_name)
+            
+            with open(save_path, 'w') as f:
+                chunk_dict = {
+                    'content': chunk.page_content,
+                    'metadata': chunk.metadata
+                }
+                json.dump(chunk_dict, f, indent=2)
+                
+        return self.output_dir
+
+    # def save_processed_chunks(self, chunks: List[Document]):
+    #     """Save processed chunks with context"""
+    #     os.makedirs(self.output_dir, exist_ok=True)
+    #     for i, chunk in enumerate(chunks):
+    #         content_hash = hashlib.md5(chunk.page_content.encode()).hexdigest()[:8]
+    #         file_name = f"{content_hash}_chunk_{i}.json"
+    #         save_path = os.path.join(self.output_dir, file_name)
+            
+    #         chunk_dict = {
+    #             'content': chunk.page_content,
+    #             'metadata': chunk.metadata
+    #         }
+    #         with open(save_path, 'w') as f:
+    #             json.dump(chunk_dict, f, indent=2)
+    #     return self.output_dir
+      
+    def create_index(self, json_doc_dir: str = None):
         """Create index from previously processed chunks"""
+        if json_doc_dir is None:
+            json_doc_dir = self.output_dir
         print("Loading chunks...")
-        chunks = self.load_chunks(json_doc_dir)
+        chunks = self.load_json_docs(json_doc_dir)
         print(f"Loaded {len(chunks)} chunks")
 
         print("Creating embeddings...")
@@ -96,18 +131,15 @@ class DocumentIndexer:
         
         return self.vectorstore
 
-indexer = DocumentIndexer(
-    source_dir="_test_source_code",
-    output_dir="processed_documents",
+indexer = DocumentIndexer(    
+    output_dir="processed_documents/prepended_chunks",
     index_path="faiss_index",
     chunk_size=1000,
     chunk_overlap=200
 )
 raw_chunks = indexer.load_json_docs('processed_documents/chunks')
 context_documents = indexer.load_json_docs('processed_documents/context_documents')
-print(list(raw_chunks))
+#print(raw_chunks[0])
 
-#chunks = indexer.process_and_save_chunks()
-
-# json_doc_dir = "processed_documents/20250204_065433_chunks"  # Use actual directory
-# indexer.create_index(json_doc_dir)
+chunks_dir = indexer.process_and_save_chunks(raw_chunks, context_documents)
+#indexer.create_index()
