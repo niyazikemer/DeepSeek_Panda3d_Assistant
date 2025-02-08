@@ -1,0 +1,9 @@
+{
+  "content": "def place(self):\n    from direct.showbase import ShowBaseGlobal\n    ShowBaseGlobal.base.startDirect(fWantTk = 1)\n    # Don't use a regular import, to prevent ModuleFinder from picking\n    # it up as a dependency when building a .p3d package.\n    import importlib\n    Placer = importlib.import_module('direct.tkpanels.Placer')\n    return Placer.place(self)\n\nDtool_funcToMethod(place, NodePath)\ndel place\n#####################################################################\ndef explore(self):\n    from direct.showbase import ShowBaseGlobal\n    ShowBaseGlobal.base.startDirect(fWantTk = 1)\n    # Don't use a regular import, to prevent ModuleFinder from picking\n    # it up as a dependency when building a .p3d package.\n    import importlib\n    SceneGraphExplorer = importlib.import_module('direct.tkwidgets.SceneGraphExplorer')\n    return SceneGraphExplorer.explore(self)\n\nDtool_funcToMethod(explore, NodePath)\ndel explore\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5759
+  }
+}

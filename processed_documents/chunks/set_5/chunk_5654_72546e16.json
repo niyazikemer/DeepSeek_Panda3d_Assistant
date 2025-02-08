@@ -1,0 +1,9 @@
+{
+  "content": "def wantSmoothPosBroadcastTask(self):\n        return True\n\n    def startPosHprBroadcast(self, period=.2, stagger=0, type=None):\n        if self.cnode is None:\n            self.initializeCnode()\n\n        BT = DistributedSmoothNodeBase.BroadcastTypes\n        if type is None:\n            type = BT.FULL\n        # set the broadcast type\n        self.broadcastType = type\n\n        broadcastFuncs = {\n            BT.FULL: self.cnode.broadcastPosHprFull,\n            BT.XYH:  self.cnode.broadcastPosHprXyh,\n            BT.XY:  self.cnode.broadcastPosHprXy,\n        }\n        # this comment is here so it will show up in a grep for 'def d_broadcastPosHpr'\n        self.d_broadcastPosHpr = broadcastFuncs[self.broadcastType]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_332",
+    "parent": "processed_documents/context_documents/8613714e_DistributedSmoothNodeBase.json",
+    "chunk_number": 5654
+  }
+}

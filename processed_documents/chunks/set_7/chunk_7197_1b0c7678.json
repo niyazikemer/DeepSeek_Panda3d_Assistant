@@ -1,0 +1,9 @@
+{
+  "content": "Since debug rendering is not very fast we can turn debug rendering on and off, without having to remove the debug node from the scene graph. Turning debug rendering on and of is simply done by hiding or showing the debug node. The following code shows how to toggle debug node visibility on and off, using the F1 key:\n\npython\n\nfrom direct.showbase.DirectObject import DirectObject\n\no = DirectObject()\no.accept('f1', toggleDebug)\n\ndef toggleDebug():\n    if debugNP.isHidden():\n        debugNP.show()\n    else:\n        debugNP.hide()\n\ncpp\n\n...\nvoid toggle_physics_debug(const Event *e, void *data) {\n    static bool show_state = true;\n    show_state = !show_state;\n    bullet_dbg_node->show_bounding_boxes(show_state);\n    bullet_dbg_node->show_constraints(show_state);\n    bullet_dbg_node->show_normals(show_state);\n    bullet_dbg_node->show_wireframe(show_state);\n}\n...\nframework.define_key(\"f1\", \"Toggle Physics debug\", toggle_physics_debug, nullptr);\n....",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_603",
+    "parent": "processed_documents/context_documents/5e747db8_2c6507d0_debug-renderer.json",
+    "chunk_number": 7197
+  }
+}

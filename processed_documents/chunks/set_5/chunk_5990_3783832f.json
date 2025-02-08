@@ -1,0 +1,9 @@
+{
+  "content": "The following code can be used to determine which GPU is in use:\n\npython\n\nprint(base.win.gsg.driver_vendor)\nprint(base.win.gsg.driver_renderer)\n\ncpp\n\nstd::cerr << win->get_gsg()->get_driver_vendor() << \"\\n\"\n          << win->get_gsg()->get_driver_renderer() << \"\\n\";\n\nForcing Use of Discrete GPU on Windows\n\nOn Windows, it is possible to force the NVIDIA and AMD graphics drivers to automatically select the high-peformance dedicated graphics card, by compiling special symbols into the main executable.\n\npython\n\nWhile developing, the main executable is python.exe, which does not set these symbols. But when building an application <distribution>, build_apps can automatically add these special symbols. Simply add this option to the build_apps options block in setup.py:\n\n'prefer_discrete_gpu': True,\n\nThis option is available as of Panda3D 1.10.13.\n\ncpp\n\nSimply copy-paste the following symbols into the source file containing your main entry point:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_388",
+    "parent": "processed_documents/context_documents/c0d5bb73_e6056c7a_motherboard-integrated-video.json",
+    "chunk_number": 5990
+  }
+}

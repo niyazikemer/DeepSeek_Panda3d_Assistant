@@ -1,0 +1,9 @@
+{
+  "content": "Simple Texture Replacement\n\nAlthough usually you will load and display models that are already textured, you can also apply or replace a texture image on a model at runtime. To do this, you must first get a handle to the texture, for instance by loading it directly:\n\npython\n\nmyTexture = loader.loadTexture(\"myTexture.png\")\n\nThe above loader.loadTexture() <direct.showbase.Loader.Loader.loadTexture> call will search along the current model-path for the named image file (in this example, a file named \"myTexture.png\"). If the texture is not found or cannot be read for some reason, None is returned.\n\ncpp\n\n#include \"texturePool.h\"\n\nPT(Texture) tex;\ntex = TexturePool::load_texture(\"myTexture.png\");\n\nNodePath smiley;\nsmiley = window->load_model(window->get_render(), \"smiley.egg\");\nsmiley.set_texture(tex, 1);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_439",
+    "parent": "processed_documents/context_documents/86c0a6eb_814d539f_simple-texture-replacement.json",
+    "chunk_number": 6227
+  }
+}

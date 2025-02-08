@@ -1,0 +1,9 @@
+{
+  "content": "The following code shows how it works (the methods used are not real):\n\n# Setup collision event\ndef onCollision(entry):\n    geom1 = entry.getGeom1()\n    geom2 = entry.getGeom2()\n    body1 = entry.getBody1()\n    body2 = entry.getBody2()\n    if (body1 and body1 == spear) or (body2 and body2 == spear):\n        # Must have hit someone\n        for p in entry.getContactPoints()\n            particleSystem.drawBlood(p)\n\nspace.setCollisionEvent(\"ode-collision\")\nbase.accept(\"ode-collision\", onCollision)\n\nExample\n\nThis is an example of some random boxes falling down and colliding with the floor.\n\nfrom direct.directbase import DirectStart\nfrom panda3d.ode import OdeWorld, OdeSimpleSpace, OdeJointGroup\nfrom panda3d.ode import OdeBody, OdeMass, OdeBoxGeom, OdePlaneGeom\nfrom panda3d.core import BitMask32, CardMaker, Vec4, Quat\nfrom random import randint, random\n\n# Setup our physics world\nworld = OdeWorld()\nworld.setGravity(0, 0, -9.81)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_624",
+    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
+    "chunk_number": 7309
+  }
+}

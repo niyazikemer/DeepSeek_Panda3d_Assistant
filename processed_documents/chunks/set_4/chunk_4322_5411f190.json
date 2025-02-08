@@ -1,0 +1,9 @@
+{
+  "content": "from panda3d.core import Filename, VirtualFileSystem, VirtualFileMountSystem, OFileStream, copyStream\nfrom direct.stdpy.file import open\nimport sys\nimport marshal\nimport imp\nimport types\n\n#: The sharedPackages dictionary lists all of the \"shared packages\",\n#: special Python packages that automatically span multiple directories\n#: via magic in the VFSImporter.  You can make a package \"shared\"\n#: simply by adding its name into this dictionary (and then calling\n#: reloadSharedPackages() if it's already been imported).\n#:\n#: When a package name is in this dictionary at import time, *all*\n#: instances of the package are located along sys.path, and merged into\n#: a single Python module with a __path__ setting that represents the\n#: union.  Thus, you can have a direct.showbase.foo in your own\n#: application, and loading it won't shadow the system\n#: direct.showbase.ShowBase which is in a different directory on disk.\nsharedPackages = {}\n\nvfs = VirtualFileSystem.getGlobalPtr()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4322
+  }
+}

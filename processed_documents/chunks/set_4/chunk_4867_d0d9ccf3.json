@@ -1,0 +1,9 @@
+{
+  "content": "# client CPU affinity is determined by, in order:\n        # - client-cpu-affinity-mask config\n        # - pcalt-# (# is CPU number, 0-based)\n        # - client-cpu-affinity config\n        # - auto-single-cpu-affinity config\n        affinityMask = ConfigVariableInt('client-cpu-affinity-mask', -1).value\n        if affinityMask != -1:\n            TrueClock.getGlobalPtr().setCpuAffinity(affinityMask)\n        else:\n            # this is useful on machines that perform better with each process\n            # assigned to a single CPU\n            autoAffinity = ConfigVariableBool('auto-single-cpu-affinity', False).value\n            affinity = None\n            if autoAffinity and hasattr(builtins, 'clientIndex'):\n                affinity = abs(int(builtins.clientIndex))\n            else:\n                affinity = ConfigVariableInt('client-cpu-affinity', -1).value\n            if (affinity in (None, -1)) and autoAffinity:\n                affinity = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4867
+  }
+}

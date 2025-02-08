@@ -1,0 +1,9 @@
+{
+  "content": "In addition multipart actor parts need to be connected together in a meaningful fashion:\n\nmyactor.attach(\"head\", \"torso\", \"joint-head\")\nmyactor.attach(\"torso\", \"legs\", \"joint-hips\")\n\nThe ~direct.actor.Actor.Actor.attach() call names two parts, and reparents the part named by the first parameter onto the part named by the second parameter, at the node named by the third parameter, which should be an exposed joint (that is, a joint in the part named by the second parameter). You must have already exposed the joint before this call, either with the egg- optchar command line tool, or by calling actor.exposeJoint() <direct.actor.Actor.Actor.exposeJoint> at runtime.\n\nAfter calling ~direct.actor.Actor.Actor.attach(), the stacked part will inherit the animation from the attachment joint, by virtue of the scene graph relationship.\n\nAnimation\n\nYou can animate the parts as normal animations, but you need to supply the partname, like this:\n\nmyactor.play('Animation Name', 'Part Name')",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_512",
+    "parent": "processed_documents/context_documents/cf700b32_707eb733_multi-part-actors.json",
+    "chunk_number": 6575
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getAncestry(self):\n    \"\"\"Deprecated.  Get a list of a node path's ancestors\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.getAncestry() is deprecated.  Use get_ancestors() instead.\", DeprecationWarning, stacklevel=2)\n    ancestors = list(self.getAncestors())\n    ancestors.reverse()\n    return ancestors\n\nDtool_funcToMethod(getAncestry, NodePath)\ndel getAncestry\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5742
+  }
+}

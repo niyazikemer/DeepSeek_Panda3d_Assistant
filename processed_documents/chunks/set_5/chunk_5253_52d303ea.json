@@ -1,0 +1,9 @@
+{
+  "content": "def getZoneFromXYZ(self, pos, wantRowAndCol=False):\n        # NOTE: pos should be relative to our own grid origin\n        # Convert a 3d position to a zone\n        dx = self.cellWidth * self.gridSize * .5\n        x = pos[0] + dx\n        y = pos[1] + dx\n        col = x // self.cellWidth\n        row = y // self.cellWidth\n        # Compute which zone we are in\n        zoneId = int(self.startingZone + ((row * self.gridSize) + col))\n\n        if wantRowAndCol:\n            return (zoneId, col, row)\n        else:\n            return zoneId",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_298",
+    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
+    "chunk_number": 5253
+  }
+}

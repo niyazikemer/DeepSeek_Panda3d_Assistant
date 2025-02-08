@@ -1,0 +1,9 @@
+{
+  "content": "base.finalExitCallbacks.append(self.shutdown)\n\n        # The doId allocator.  The CMU LAN server may choose to\n        # send us a block of doIds.  If it chooses to do so, then we\n        # may create objects, using those doIds.\n        self.doIdAllocator = None\n        self.doIdBase = 0\n        self.doIdLast = 0\n\n        # The doIdBase of the client message currently being\n        # processed.\n        self.currentSenderId = None\n\n        # Explicitly-requested interest zones.\n        self.interestZones = []\n\n    def handleSetDoIdrange(self, di):\n        self.doIdBase = di.getUint32()\n        self.doIdLast = self.doIdBase + di.getUint32()\n        self.doIdAllocator = UniqueIdAllocator(self.doIdBase, self.doIdLast - 1)\n\n        self.ourChannel = self.doIdBase\n\n        self.createReady()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5659
+  }
+}

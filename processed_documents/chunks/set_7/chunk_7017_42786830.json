@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nNodePath dummy_node = window->get_render().attach_new_node(\"Dummy Node Name\");\nmyModel.reparent_to(dummy_node);\nmyOtherModel.reparent_to(dummy_node);\n\nSince a node inherits its position information from its parent node, when you reparent a node in the scene graph you might inadvertently change its position in the world. If you need to avoid this, you can use a special variant on ~.NodePath.reparent_to():\n\npython\n\nmyModel.wrtReparentTo(newParent)\n\ncpp\n\nmyModel.wrt_reparent_to(new_parent);\n\nThe \"wrt\" prefix stands for \"with respect to\". This special method works like ~.NodePath.reparent_to(), except that it automatically recomputes the local transform on myModel to compensate for the change in transform under the new parent, so that the node ends up in the same position relative to the world.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_568",
+    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
+    "chunk_number": 7017
+  }
+}

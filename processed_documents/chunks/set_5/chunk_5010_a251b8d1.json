@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] start wxPython\n    def startWx(self, fWantWx = True):\n        fWantWx = bool(fWantWx)\n        if self.wantWx != fWantWx:\n            self.wantWx = fWantWx\n            if self.wantWx:\n                self.spawnWxLoop()\n\n    def spawnWxLoop(self):\n        \"\"\" Call this method to hand the main loop over to wxPython.\n        This sets up a wxTimer callback so that Panda still gets\n        updated, but wxPython owns the main loop (which seems to make\n        it happier than the other way around). \"\"\"\n\n        if self.wxAppCreated:\n            # Don't do this twice.\n            return\n\n        init_app_for_gui()\n\n        # Use importlib to prevent this import from being picked up\n        # by modulefinder when packaging an application.\n        wx = importlib.import_module('wx')\n\n        if not self.wxApp:\n            # Create a new base.wxApp.\n            self.wxApp = wx.App(redirect = False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5010
+  }
+}

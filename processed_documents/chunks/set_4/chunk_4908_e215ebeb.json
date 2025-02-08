@@ -1,0 +1,9 @@
+{
+  "content": "self.render2d.setDepthTest(0)\n        self.render2d.setDepthWrite(0)\n        self.render2d.setMaterialOff(1)\n        self.render2d.setTwoSided(1)\n\n        #: The normal 2-d DisplayRegion has an aspect ratio that\n        #: matches the window, but its coordinate system is square.\n        #: This means anything we parent to render2d gets stretched.\n        #: For things where that makes a difference, we set up\n        #: aspect2d, which scales things back to the right aspect\n        #: ratio along the X axis (Z is still from -1 to 1)\n        self.aspect2d = ShowBaseGlobal.aspect2d\n\n        aspectRatio = self.getAspectRatio()\n        self.aspect2d.setScale(1.0 / aspectRatio, 1.0, 1.0)\n\n        self.a2dBackground = self.aspect2d.attachNewNode(\"a2dBackground\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4908
+  }
+}

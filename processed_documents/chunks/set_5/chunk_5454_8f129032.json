@@ -1,0 +1,9 @@
+{
+  "content": "def getObjectsInZone(self, parentId, zoneId):\n        \"\"\"\n        returns dict of doId:distObj for a zone.\n        returned dict is safely mutable.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        doDict = {}\n        for doId in self.getDoIdList(parentId, zoneId):\n            doDict[doId] = self.getDo(doId)\n        return doDict\n\n    def getObjectsOfClassInZone(self, parentId, zoneId, objClass):\n        \"\"\"\n        returns dict of doId:object for a zone, containing all objects\n        that inherit from 'class'. returned dict is safely mutable.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        doDict = {}\n        for doId in self.getDoIdList(parentId, zoneId, objClass):\n            doDict[doId] = self.getDo(doId)\n        return doDict",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5454
+  }
+}

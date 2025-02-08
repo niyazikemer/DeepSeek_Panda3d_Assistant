@@ -1,0 +1,9 @@
+{
+  "content": "class TaskThreaded:\n    \"\"\" derive from this if you need to do a bunch of CPU-intensive\n    processing and you don't want to hang up the show. Lets you break\n    up the processing over multiple frames \"\"\"\n    notify = directNotify.newCategory(\"TaskThreaded\")\n\n    _Serial = SerialNumGen()\n\n    def __init__(self, name, threaded=True, timeslice=None, callback=None):\n        # timeslice is how long this thread should take every frame.\n        self.__name = name\n        self.__threaded = threaded\n        if timeslice is None:\n            timeslice = .01\n        self.__timeslice = timeslice\n        self.__taskNames = set()\n        self._taskStartTime = None\n        self.__threads = set()\n        self._callback = callback\n\n    def finished(self):\n        if self._callback:\n            self._callback()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_245",
+    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
+    "chunk_number": 4313
+  }
+}

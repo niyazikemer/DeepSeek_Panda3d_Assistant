@@ -1,0 +1,9 @@
+{
+  "content": "try:\n                            className = attr.__class__.__name__\n                        except Exception:\n                            pass\n                        else:\n                            if className == 'method-wrapper':\n                                continue\n                        attrName2obj[attrName] = attr\n                if len(attrName2obj) > 0:\n                    ids = set(traversedIds)\n                    ids.add(id(obj))\n                    # push them in reverse alphabetical order so they'll be popped in the correct order\n                    for attrName in sorted(attrName2obj, reverse=True):\n                        obj = attrName2obj[attrName]\n                        stateStack.push(['%s.%s' % (name, attrName), obj, ids])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_273",
+    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
+    "chunk_number": 4776
+  }
+}

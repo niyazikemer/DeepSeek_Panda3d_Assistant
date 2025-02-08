@@ -1,0 +1,9 @@
+{
+  "content": "class TaskThread:\n    # derive and override these four funcs\n    # TaskThreaded obj is available as 'self.parent'\n    # attributes of TaskThreaded obj are available directly as self.variable\n    # call self.finished() when you're done\n    def setUp(self):\n        pass\n    def run(self):\n        pass\n    def tearDown(self):\n        # undo what you did in setUp()\n        # this will be called if we get destroyed early\n        pass\n    def done(self):\n        # override this if you want to do stuff after the thread finishes\n        pass\n\n    # call this when your task is complete\n    def finished(self):\n        self.tearDown()\n        self._finished = True\n        self.done()\n    def isFinished(self):\n        return self._finished\n\n    # call this to find out if you've gone over your timeslice\n    def timeLeft(self):\n        return self.parent.taskTimeLeft()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_245",
+    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
+    "chunk_number": 4319
+  }
+}

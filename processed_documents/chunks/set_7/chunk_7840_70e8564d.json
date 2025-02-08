@@ -1,0 +1,9 @@
+{
+  "content": "This sets the into collide mask of nodePath, and all children of nodePath, to the hexadecimal value 0x10, regardless of the value each node had before.\n\npython\n\nnodePath.setCollideMask(BitMask32(0x04), BitMask32(0xff))\n\ncpp\n\nnode_path.set_collide_mask(BitMask32(0x04), BitMask32(0xff));\n\nThis replaces the lower 8 bits of nodePath and all of its children with the value 0x04, leaving the upper 24 bits of each node unchanged.\n\nThe default value for both from and into collide masks for a new CollisionNode can be retrieved by .CollisionNode.get_default_collide_mask(), and the default into collide mask for a new GeomNode is .GeomNode.get_default_collide_mask(). Note that you can create a CollisionNode that collides with visible geometry by doing something like this:\n\npython\n\nnodePath.node().setFromCollideMask(GeomNode.getDefaultCollideMask())\n\ncpp\n\nnode_path.set_collide_mask(GeomNode::get_default_collide_mask());",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_725",
+    "parent": "processed_documents/context_documents/8c4f78b1_4a8f1002_collision-bitmasks.json",
+    "chunk_number": 7840
+  }
+}

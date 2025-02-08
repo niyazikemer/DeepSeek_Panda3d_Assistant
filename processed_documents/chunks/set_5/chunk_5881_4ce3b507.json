@@ -1,0 +1,9 @@
+{
+  "content": "alight = AmbientLight('alight')\nalight.setColor((0.2, 0.2, 0.2, 1))\nalnp = render.attachNewNode(alight)\nrender.setLight(alnp)\n\nSpotlights\n\nSpotlights represent the most sophisticated kind of light. A spotlight has both a point and a direction, and a field-of-view. In fact, a spotlight contains a lens, just like a camera does; the lens should be a PerspectiveLens and is used to define the area of effect of the light (the light illuminates everything within the field of view of the lens).\n\nNote that the English word \"spotlight\" is one word, as opposed to the other kinds of lights, which are two words. Thus, the class name is correctly spelled \"Spotlight\", not \"SpotLight\".\n\nslight = Spotlight('slight')\nslight.setColor((1, 1, 1, 1))\nlens = PerspectiveLens()\nslight.setLens(lens)\nslnp = render.attachNewNode(slight)\nslnp.setPos(10, 20, 0)\nslnp.lookAt(myObject)\nrender.setLight(slnp)\n\nPutting it all Together",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5881
+  }
+}

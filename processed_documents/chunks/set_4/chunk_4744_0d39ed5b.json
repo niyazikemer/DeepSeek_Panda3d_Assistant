@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectTypesLeakDetector(LeakDetector):\n    # are we accumulating any particular Python object type?\n    def __init__(self):\n        LeakDetector.__init__(self)\n        self._type2ld = {}\n        self._type2count = {}\n        self._generation = 0\n        self._thisLdGen = 0\n\n    def destroy(self):\n        for ld in self._type2ld.values():\n            ld.destroy()\n        LeakDetector.destroy(self)\n\n    def _recalc(self):\n        objs = gc.get_objects()\n        self._type2count = {}\n        for obj in objs:\n            objType = safeTypeName(obj)\n            if objType not in self._type2ld:\n                self._type2ld[objType] = ObjectTypeLeakDetector(self, objType, self._generation)\n            self._type2count.setdefault(objType, 0)\n            self._type2count[objType] += 1\n        self._generation += 1\n\n    def _getGeneration(self):\n        return self._generation",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4744
+  }
+}

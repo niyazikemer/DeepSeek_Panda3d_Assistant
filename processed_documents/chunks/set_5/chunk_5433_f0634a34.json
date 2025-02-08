@@ -1,0 +1,9 @@
+{
+  "content": "def dosByDistance(self):\n        objs = list(self.doId2do.values())\n        objs.sort(cmp=self._compareDistance)\n        return objs\n\n    def doByDistance(self):\n        objs = self.dosByDistance()\n        for obj in objs:\n            print('%s\\t%s\\t%s' % (obj.doId, self._getDistanceFromLA(obj),\n                                  obj.dclass.getName()))\n\n    if __debug__:\n        def printObjects(self):\n            format=\"%10s %10s %10s %30s %20s\"\n            title=format%(\"parentId\", \"zoneId\", \"doId\", \"dclass\", \"name\")\n            print(title)\n            print('-'*len(title))\n            for distObj in self.doId2do.values():\n                print(format%(\n                    distObj.__dict__.get(\"parentId\"),\n                    distObj.__dict__.get(\"zoneId\"),\n                    distObj.__dict__.get(\"doId\"),\n                    distObj.dclass.getName(),\n                    distObj.__dict__.get(\"name\")))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5433
+  }
+}

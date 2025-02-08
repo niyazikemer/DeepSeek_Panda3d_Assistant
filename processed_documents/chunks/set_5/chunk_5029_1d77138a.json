@@ -1,0 +1,9 @@
+{
+  "content": "def setupMirror(name, width, height, rootCamera = None,\n                bufferSize = 256, clearColor = None):\n    # The return value is a NodePath that contains a rectangle that\n    # reflects render.  You can reparent, reposition, and rotate it\n    # anywhere you like.\n    if rootCamera is None:\n        rootCamera = base.camera\n\n    root = render.attachNewNode(name)\n\n    # Create a polygon to be the visible representation of the mirror.\n    cm = CardMaker('mirror')\n    cm.setFrame(width / 2.0, -width / 2.0, -height / 2.0, height / 2.0)\n    cm.setHasUvs(1)\n    card = root.attachNewNode(cm.generate())\n\n    # Create a PlaneNode to represent the mirror's position, for\n    # computing where the mirror's camera belongs each frame.\n    plane = Plane(Vec3(0, 1, 0), Point3(0, 0, 0))\n    planeNode = PlaneNode('mirrorPlane')\n    planeNode.setPlane(plane)\n    planeNP = root.attachNewNode(planeNode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_285",
+    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
+    "chunk_number": 5029
+  }
+}

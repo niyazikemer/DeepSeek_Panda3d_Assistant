@@ -1,0 +1,9 @@
+{
+  "content": "notify = directNotify.newCategory(\"ProfileSession\")\n\n    def __init__(self, name, func=None, logAfterProfile=False):\n        self._func = func\n        self._name = name\n        self._logAfterProfile = logAfterProfile\n        self._filenameBase = 'profileData-%s-%s' % (self._name, id(self))\n        self._refCount = 0\n        # if true, accumulate profile results every time we run\n        # if false, throw out old results every time we run\n        self._aggregate = False\n        self._lines = 500\n        self._sorts = ['cumulative', 'time', 'calls']\n        self._callInfo = True\n        self._totalTime = None\n        self._reset()\n        self.acquire()\n\n    def getReference(self):\n        # call this when you want to store a new reference to this session that will\n        # manage its acquire/release reference count independently of an existing reference\n        self.acquire()\n        return self",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5085
+  }
+}

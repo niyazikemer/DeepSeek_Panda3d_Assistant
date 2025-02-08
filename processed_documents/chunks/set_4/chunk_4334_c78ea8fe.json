@@ -1,0 +1,9 @@
+{
+  "content": "filename = Filename.temporary('', self.filename.getBasenameWoExtension(),\n                                          '.' + self.filename.getExtension(),\n                                          type = Filename.TDso)\n            filename.setExtension(self.filename.getExtension())\n            filename.setBinary()\n            sin = vfile.openReadFile(True)\n            sout = OFileStream()\n            if not filename.openWrite(sout):\n                raise IOError\n            if not copyStream(sin, sout):\n                raise IOError\n            vfile.closeReadFile(sin)\n            del sout",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4334
+  }
+}

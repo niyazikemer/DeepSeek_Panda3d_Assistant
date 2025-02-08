@@ -1,0 +1,9 @@
+{
+  "content": "def sendDeleteMsg(self):\n        self.cr.sendDeleteMsg(self.doId)\n\n    def taskName(self, taskString):\n        return \"%s-%s\" % (taskString, self.doId)\n\n    def uniqueName(self, idString):\n        return \"%s-%s\" % (idString, self.doId)\n\n    def getCallbackContext(self, callback, extraArgs = []):\n        # Some objects implement a back-and-forth handshake operation\n        # with the AI via an arbitrary context number.  This method\n        # (coupled with doCallbackContext(), below) maps a Python\n        # callback onto that context number so that client code may\n        # easily call the method and wait for a callback, rather than\n        # having to negotiate context numbers.\n\n        # This method generates a new context number and stores the\n        # callback so that it may later be called when the response is\n        # returned.\n\n        # This is intended to be called within derivations of\n        # DistributedObject, not directly by other objects.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5565
+  }
+}

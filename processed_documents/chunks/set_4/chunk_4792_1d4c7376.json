@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectPool:\n    \"\"\"manipulate a pool of Python objects\"\"\"\n    notify = directNotify.newCategory('ObjectPool')\n\n    def __init__(self, objects):\n        self._objs = list(objects)\n        self._type2objs = {}\n        self._count2types = {}\n        self._len2obj = {}\n        type2count = {}\n        for obj in self._objs:\n            typ = itype(obj)\n            type2count.setdefault(typ, 0)\n            type2count[typ] += 1\n            self._type2objs.setdefault(typ, [])\n            self._type2objs[typ].append(obj)\n            try:\n                self._len2obj[len(obj)] = obj\n            except Exception:\n                pass\n        self._count2types = invertDictLossless(type2count)\n\n    def _getInternalObjs(self):\n        return (self._objs, self._type2objs, self._count2types)\n\n    def destroy(self):\n        del self._objs\n        del self._type2objs\n        del self._count2types\n\n    def getTypes(self):\n        return list(self._type2objs.keys())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_276",
+    "parent": "processed_documents/context_documents/8fef47ef_ObjectPool.json",
+    "chunk_number": 4792
+  }
+}

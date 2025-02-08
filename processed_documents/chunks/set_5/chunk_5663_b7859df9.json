@@ -1,0 +1,9 @@
+{
+  "content": "assert self.notify.debug(\"performing generate for %s %s\" % (dclass.getName(), doId))\n        dclass.startGenerate()\n        # Create a new distributed object, and put it in the dictionary\n        distObj = self.generateWithRequiredOtherFields(dclass, doId, di, 0, zoneId)\n        dclass.stopGenerate()\n\n    def allocateDoId(self):\n        \"\"\" Returns a newly-allocated doId.  Call freeDoId() when the\n        object has been deleted. \"\"\"\n\n        return self.doIdAllocator.allocate()\n\n    def reserveDoId(self, doId):\n        \"\"\" Removes the indicate doId from the available pool, as if\n        it had been explicitly allocated.  You may pass it to\n        freeDoId() later if you wish. \"\"\"\n\n        self.doIdAllocator.initialReserveId(doId)\n        return doId\n\n    def freeDoId(self, doId):\n        \"\"\" Returns a doId back into the free pool for re-use. \"\"\"\n\n        assert self.isLocalId(doId)\n        self.doIdAllocator.free(doId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5663
+  }
+}

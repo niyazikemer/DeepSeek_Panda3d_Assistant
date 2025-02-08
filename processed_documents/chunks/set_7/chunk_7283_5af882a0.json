@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\n#include \"bulletTriangleMesh.h\"\n...\nPT(BulletTriangleMesh) triangle_mesh = new BulletTriangleMesh();\ntriangle_mesh->add_geom(geom);\n\nHeightfield Shape\n\nA special non-primitive collision shape. Give a heightfield image we can construct a terrain mesh with only a few lines of code.\n\npython\n\nfrom panda3d.core import Filename\nfrom panda3d.core import PNMImage\nfrom panda3d.bullet import BulletHeightfieldShape\nfrom panda3d.bullet import ZUp\nheight = 10.0\nimg = PNMImage(Filename('elevation.png'))\nshape = BulletHeightfieldShape(img, height, ZUp)\n\ncpp\n\n#include \"pnmImage.h\"\n#include \"bulletHeightfieldShape.h\"\n\nPNMImage pnm_image;\npnm_image.read(Filename(\"models/elevation.png\"));\n\nPT(BulletHeightfieldShape) heightfield_shape = new BulletHeightfieldShape(*pnm_image, height);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7283
+  }
+}

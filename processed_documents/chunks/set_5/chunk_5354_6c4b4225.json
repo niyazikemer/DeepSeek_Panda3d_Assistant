@@ -1,0 +1,9 @@
+{
+  "content": "@report(types = ['args'], dConfigParam = 'smoothnode')\n    def setComponentT(self, timestamp):\n        # This is a little bit hacky.  If *this* function is called,\n        # it must have been called directly by the server, for\n        # instance to update the values previously set for some avatar\n        # that was already into the zone as we entered.  (A live\n        # update would have gone through the function called\n        # setComponentTLive, below.)\n\n        # Since we know this update came through the server, it may\n        # reflect very old data.  Thus, we can't accurately decode the\n        # network timestamp (since the network time encoding can only\n        # represent a time up to about 5 minutes in the past), but we\n        # don't really need to know the timestamp anyway.  We'll just\n        # arbitrarily place it at right now.\n        self.smoother.setPhonyTimestamp()\n        self.smoother.clearPositions(1)\n        self.smoother.markPosition()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5354
+  }
+}

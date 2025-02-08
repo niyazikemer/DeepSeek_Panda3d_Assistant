@@ -1,0 +1,9 @@
+{
+  "content": "self.aspect2d.node().removeAllChildren()\n        self.render2d.node().removeAllChildren()\n        self.aspect2d.reparent_to(self.render2d)\n\n        # [gjeon] restore sticky key settings\n        if self.__disabledStickyKeys:\n            allowAccessibilityShortcutKeys(True)\n            self.__disabledStickyKeys = False\n\n        self.__directObject.ignoreAll()\n        self.ignoreAll()\n        self.shutdown()\n\n        if getattr(self, 'musicManager', None):\n            assert self.musicManager is not None\n            self.musicManager.shutdown()\n            self.musicManager = None\n            for sfxManager in self.sfxManagerList:\n                sfxManager.shutdown()\n            self.sfxManagerList = []\n        if getattr(self, 'loader', None):\n            self.loader.destroy()\n            del self.loader\n        if getattr(self, 'graphicsEngine', None):\n            self.graphicsEngine.removeAllWindows()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4879
+  }
+}

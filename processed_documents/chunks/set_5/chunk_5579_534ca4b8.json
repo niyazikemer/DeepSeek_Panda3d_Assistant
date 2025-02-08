@@ -1,0 +1,9 @@
+{
+  "content": "def stopUpdateGridTask(self):\n        taskMgr.remove(self.taskName(\"updateGridTask\"))\n        self.updateTaskStarted = 0\n\n    def updateGridTask(self, task=None):\n        # Run through all grid objects and update their parents if needed\n        missingObjs = []\n        for avId in list(self.gridObjects.keys()):\n            av = self.gridObjects[avId]\n            # handle a missing object after it is already gone?\n            if av.isEmpty():\n                task.setDelay(1.0)\n                del self.gridObjects[avId]\n                continue\n            pos = av.getPos()\n            if (pos[0] < 0 or pos[1] < 0) or \\\n               (pos[0] > self.cellWidth or pos[1] > self.cellWidth):\n                # we are out of the bounds of this current cell\n                self.handleAvatarZoneChange(av)\n        # Do this every second, not every frame\n        if task:\n            task.setDelay(1.0)\n        return Task.again",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_325",
+    "parent": "processed_documents/context_documents/7ef9e01d_DistributedCartesianGridAI.json",
+    "chunk_number": 5579
+  }
+}

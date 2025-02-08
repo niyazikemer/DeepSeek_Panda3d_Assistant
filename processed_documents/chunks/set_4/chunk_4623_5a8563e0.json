@@ -1,0 +1,9 @@
+{
+  "content": "def profileFunc(callback, name, terse, log=True):\n        global _ProfileResultStr\n        if 'globalProfileFunc' in builtins.__dict__:\n            # rats. Python profiler is not re-entrant...\n            base.notify.warning(\n                'PythonUtil.profileStart(%s): aborted, already profiling %s'\n                #'\\nStack Trace:\\n%s'\n                % (name, builtins.globalProfileFunc,\n                #StackTrace()\n                ))\n            return\n        builtins.globalProfileFunc = callback\n        builtins.globalProfileResult = [None]\n        prefix = '***** START PROFILE: %s *****' % name\n        if log:\n            print(prefix)\n        startProfile(cmd='globalProfileResult[0]=globalProfileFunc()', callInfo=(not terse), silent=not log)\n        suffix = '***** END PROFILE: %s *****' % name\n        if log:\n            print(suffix)\n        else:\n            _ProfileResultStr = '%s\\n%s\\n%s' % (prefix, _ProfileResultStr, suffix)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4623
+  }
+}

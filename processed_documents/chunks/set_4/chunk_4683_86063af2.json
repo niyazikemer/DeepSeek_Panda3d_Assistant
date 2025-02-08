@@ -1,0 +1,9 @@
+{
+  "content": "def pstatcollect(scope, level = None):\n    def decorator(f):\n        return f\n\n    try:\n        if not (__dev__ or ConfigVariableBool('force-pstatcollect', False)) or \\\n           not scope:\n            return decorator\n\n        def decorator(f):\n            def wrap(*args, **kw):\n                scope.start(push = (level or f.__name__))\n                val = f(*args, **kw)\n                scope.stop(pop = True)\n                return val\n            return wrap\n    except Exception:\n        pass\n\n    return decorator\n\n\n__report_indent = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4683
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class DoInterestManager(DirectObject.DirectObject):\n    \"\"\"\n    Top level Interest Manager\n    \"\"\"\n    notify = directNotify.newCategory(\"DoInterestManager\")\n    InterestDebug = ConfigVariableBool('interest-debug', False)\n\n    # 'handle' is a number that represents a single interest set that the\n    # client has requested; the interest set may be modified\n    _HandleSerialNum = 0\n    # high bit is reserved for server interests\n    _HandleMask = 0x7FFF\n\n    # 'context' refers to a single request to change an interest set\n    _ContextIdSerialNum = 100\n    _ContextIdMask = 0x3FFFFFFF # avoid making Python create a long\n\n    _interests: dict[int, InterestState] = {}\n    if __debug__:\n        _debug_interestHistory: list[tuple] = []\n        _debug_maxDescriptionLen = 40\n\n    _SerialGen = SerialNumGen()\n    _SerialNum = serialNum()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5204
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "from twisted.internet.task import LoopingCall\nfrom twisted.internet import reactor\n\nLoopingCall(taskMgr.step).start(1 / Desired_FPS)\nreactor.run()\n\nYou will need to replace Desired_FPS by the desired framerate, that is, how many times you want Panda3D to redraw the frame per second. Please note that reactor.run() is blocking, just like Panda's run() method.\n\nAnother third party example is wxPython GUI, that is a blending of the wxWidgets C++ class library with the Python programming language. Panda's run() function, and wx's app.MainLoop() method, both are designed to handle all events and never return. They are each supposed to serve as the one main loop of the application. Two main loops can not effectively run an application.\n\nwxPython also supplies a method that can be called occasionally, instead of a function that never returns. In wx's case, it's app.Dispatch().",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_404",
+    "parent": "processed_documents/context_documents/ba8da20a_c90a4174_main-loop.json",
+    "chunk_number": 6062
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# this lets GridParents share CellOrigins\n    GridZone2CellOrigin: dict[tuple, NodePath] = {}\n    GridZone2count: dict[tuple, int] = {}\n    @staticmethod\n    def getCellOrigin(grid, zoneId):\n        tup = (grid, zoneId)\n        if tup not in GridParent.GridZone2count:\n            GridParent.GridZone2count[tup] = 0\n            # For readability when debugging, append the zone to the name\n            GridParent.GridZone2CellOrigin[tup] = grid.attachNewNode(\"cellOrigin-%s\" % zoneId)\n            # Get grid cell origin\n            cellPos = grid.getZoneCellOrigin(zoneId)\n            # Set the gridNode's position\n            GridParent.GridZone2CellOrigin[tup].setPos(*cellPos)\n        GridParent.GridZone2count[tup] += 1\n        return GridParent.GridZone2CellOrigin[tup]\n    @staticmethod\n    def releaseCellOrigin(grid, zoneId):\n        tup = (grid, zoneId)\n        GridParent.GridZone2count[tup] -= 1\n        if GridParent.GridZone2count[tup] == 0:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_322",
+    "parent": "processed_documents/context_documents/ac8cc70f_GridParent.json",
+    "chunk_number": 5539
+  }
+}

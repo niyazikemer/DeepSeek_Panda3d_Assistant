@@ -1,0 +1,9 @@
+{
+  "content": "msgType = self.getMsgType()\n        self.currentSenderId = None\n\n        # These are the sort of messages we may expect from the public\n        # Panda server.\n\n        if msgType == SET_DOID_RANGE_CMU:\n            self.handleSetDoIdrange(di)\n        elif msgType == OBJECT_GENERATE_CMU:\n            self.handleGenerate(di)\n        elif msgType == OBJECT_UPDATE_FIELD_CMU:\n            self.handleUpdateField(di)\n        elif msgType == OBJECT_DISABLE_CMU:\n            self.handleDisable(di)\n        elif msgType == OBJECT_DELETE_CMU:\n            self.handleDelete(di)\n        elif msgType == REQUEST_GENERATES_CMU:\n            self.handleRequestGenerates(di)\n        else:\n            self.handleMessageType(msgType, di)\n\n        # If we're processing a lot of datagrams within one frame, we\n        # may forget to send heartbeats.  Keep them coming!\n        self.considerHeartbeat()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5673
+  }
+}

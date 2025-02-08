@@ -1,0 +1,9 @@
+{
+  "content": "return context\n\n    def __getBarrierData(self):\n        # Returns the barrier data formatted for sending to the\n        # clients.  This lists all of the current outstanding barriers\n        # and the avIds waiting for them.\n        data = []\n        for context, barrier in self.__barriers.items():\n            toons = barrier.pendingToons\n            if toons:\n                data.append((context, barrier.name, toons))\n        return data\n\n    def ignoreBarrier(self, context):\n        # Aborts a previously-set barrier.  The context is the return\n        # value from the previous call to beginBarrier().\n        barrier = self.__barriers.get(context)\n        if barrier:\n            barrier.cleanup()\n            del self.__barriers[context]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5513
+  }
+}

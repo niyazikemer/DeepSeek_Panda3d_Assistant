@@ -1,0 +1,9 @@
+{
+  "content": "def _profileMarshalDump(data, file):\n        # marshal.dump doesn't work with StringIO objects\n        # simulate it\n        if isinstance(file, StringIO) and hasattr(file, '_profFilename'):\n            if file._profFilename in profileFilenames:\n                profileFilename2marshalData[file._profFilename] = data\n                return None\n        return movedDumpFuncs[-1](data, file)\n\n    def _profileMarshalLoad(file):\n        # marshal.load doesn't work with StringIO objects\n        # simulate it\n        if isinstance(file, StringIO) and hasattr(file, '_profFilename'):\n            if file._profFilename in profileFilenames:\n                return profileFilename2marshalData[file._profFilename]\n        return movedLoadFuncs[-1](file)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4628
+  }
+}

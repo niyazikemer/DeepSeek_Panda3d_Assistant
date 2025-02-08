@@ -1,0 +1,9 @@
+{
+  "content": "if clearColor:\n            dr.setClearColorActive(1)\n            dr.setClearColor(clearColor)\n\n        dr.setCamera(cam)\n\n        return cam\n\n    def makeCamera2d(self, win, sort = 10,\n                     displayRegion = (0, 1, 0, 1), coords = (-1, 1, -1, 1),\n                     lens = None, cameraName = None):\n        \"\"\"\n        Makes a new camera2d associated with the indicated window, and\n        assigns it to render the indicated subrectangle of render2d.\n\n        :rtype: panda3d.core.NodePath\n        \"\"\"\n        dr = win.makeMonoDisplayRegion(*displayRegion)\n        dr.setSort(sort)\n\n        # Enable clearing of the depth buffer on this new display\n        # region (see the comment in setupRender2d, above).\n        dr.setClearDepthActive(1)\n\n        # Make any texture reloads on the gui come up immediately.\n        dr.setIncompleteRender(False)\n\n        left, right, bottom, top = coords",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4926
+  }
+}

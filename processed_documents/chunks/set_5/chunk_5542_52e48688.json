@@ -1,0 +1,9 @@
+{
+  "content": "def delete(self):\n        if self.av:\n            if self.av.getParent() == self.cellOrigin:\n                self.av.detachNode()\n            del self.av\n            self.av = None\n        # Remove the gridNodes\n        if self.ownCellOrigin is not None:\n            self.ownCellOrigin.removeNode()\n            self.ownCellOrigin = None\n        if self.grid is not None:\n            self.releaseCellOrigin(self.grid, self.zoneId)\n            self.grid = None\n            self.zoneId = None\n\n    def setGridParent(self, grid, zoneId, teleport=0):\n        # If teleport=0, preserve the avatar's absolute position.  If teleport=1\n        # the avatars previous world position is invalid, so don't wrtReparent,\n        # just do a regular reparent, and let the cellOrigin give us our new position\n\n        # Also, if the avatar has no parent, then force teleport=1\n        if self.av.getParent().isEmpty():\n            teleport = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_322",
+    "parent": "processed_documents/context_documents/ac8cc70f_GridParent.json",
+    "chunk_number": 5542
+  }
+}

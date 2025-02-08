@@ -1,0 +1,9 @@
+{
+  "content": "def sendDoIdRange(self, client):\n        \"\"\" sends the client the range of doid's that the client can\n        use \"\"\"\n\n        datagram = NetDatagram()\n        datagram.addUint16(SET_DOID_RANGE_CMU)\n        datagram.addUint32(client.doIdBase)\n        datagram.addUint32(self.doIdRange)\n\n        self.cw.send(datagram, client.connection)\n        self.needsFlush.add(client)\n\n    # a client disconnected from us, we need to update our data, also\n    # tell other clients to remove the disconnected clients objects\n    def handleClientDisconnect(self, client):\n        for zoneId in client.currentInterestZoneIds:\n            if len(self.zonesToClients[zoneId]) == 1:\n                del self.zonesToClients[zoneId]\n            else:\n                self.zonesToClients[zoneId].remove(client)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5193
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Enabling the Multithreaded Render Pipeline\n\nTo enable this feature, simply set the following variable in your Config.prc file:\n\nthreading-model Cull/Draw\n\nThe names \"Cull\" and \"Draw\" in the above are used as the names of the threads that serve Cull and Draw, respectively. It doesn't matter what you call them; the name before the slash will be the name of the thread that performs Cull, and the name following the slash will be the name of the thread that performs Draw. (So setting this to Draw/Cull will not reverse the phases, but will instead just give your two threads very misleading and confusing names.)\n\nThe above string defines a different thread for each of App, Cull, and Draw. You can also assign these three phases to threads in different ways:\n\nthreading-model /Draw",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_519",
+    "parent": "processed_documents/context_documents/0cd108d5_dab687d3_multithreaded-render-pipeline.json",
+    "chunk_number": 6617
+  }
+}

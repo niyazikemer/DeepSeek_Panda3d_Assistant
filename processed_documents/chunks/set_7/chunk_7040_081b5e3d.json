@@ -1,0 +1,9 @@
+{
+  "content": "A glow map must be an alpha-texture:\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MGlow)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_glow);\nsmiley.set_texture(ts, tex);\n\nIf you wish, you can pack a modulate-texture and a glow-map into a single RGBA texture. In that case, the RGB components are just regular color values that are modulated onto the model, and the A controls glow:\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MModulateGlow)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_modulate_glow);\nsmiley.set_texture(ts, tex);\n\nCurrently, Panda3D only allows one glow map per polygon, additional glow maps will be ignored.\n\nSee also: glow-filter\n\nGlow maps only function when shader generation <the-shader-generator> is enabled.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7040
+  }
+}

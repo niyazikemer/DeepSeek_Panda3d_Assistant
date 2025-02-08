@@ -1,0 +1,9 @@
+{
+  "content": "Audio Managers\n\nSound effects and music in code are implemented as .AudioManager objects. You can access these audio managers with the following code:\n\nsfxMgr = base.sfxManagerList[0]\nmusicMgr = base.musicManager\n\nIn ~builtins.base, sfxManagerList <direct.showbase.ShowBase.ShowBase.sfxManagerList> is a list of .AudioManager objects intended to be used for sound effects, and musicManager <direct.showbase.ShowBase.ShowBase.musicManager> is an .AudioManager object intended to be used for music.\n\nEach .AudioManager object can have 16 different sounds cached at a given time. This value is actually set as the audio-cache-limit in the panda config.prc (found in your install directory) and can be changed.\n\npython\n\nBy default, base.musicManager <direct.showbase.ShowBase.ShowBase.musicManager> has a limit of 1 concurrent sound, however. This limit can be explicitly increased using the following code:\n\n# Allow playing two music files at the same time.\nbase.musicManager.setConcurrentSoundLimit(2)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_506",
+    "parent": "processed_documents/context_documents/aecd627c_35e53253_audio-managers.json",
+    "chunk_number": 6551
+  }
+}

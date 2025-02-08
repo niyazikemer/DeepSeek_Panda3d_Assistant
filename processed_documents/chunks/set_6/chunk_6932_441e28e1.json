@@ -1,0 +1,9 @@
+{
+  "content": "In this vertex shader, the only thing that we are doing is assigning the variable l_position a constant float4. In C/C++/C# you cannot assign arrays to arrays the way we do it here, but in Cg this is possible for fixed sized arrays. The l_position variable can be renamed into anything you like, as long as it is prefixed with l_ and it has the \"POSITION\" keyword attached.\n\nWhy do we have to write \"out\" in front of l_position? In C/C++/C# every function has at most one return value but shaders often need to return more than one value. The NVIDIA guys added an \"in\" keyword and an \"out\" keyword to Cg. \"out\" means that it is a return value. \"in\" means that is an input value. This basic shader has no inputs at all and this is one of the main reasons it cannot produce any useful results. Here we only output l_position but in later examples we will have more then one output value.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_552",
+    "parent": "processed_documents/context_documents/c21812f2_917f801a_part-2.json",
+    "chunk_number": 6932
+  }
+}

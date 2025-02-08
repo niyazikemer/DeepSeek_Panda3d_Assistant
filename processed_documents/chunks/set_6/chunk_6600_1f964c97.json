@@ -1,0 +1,9 @@
+{
+  "content": "Similarly, each GeomVertexWriter keeps track of the current write row, which is initially 0, and can be retrieved by getWriteRow(). Each call to setData or addData stores the given value in the current write row, and then increments the current write row. It is an error to call setData when the write row has reached the end of the data; but as with the GeomVertexReader, you can call isAtEnd() to determine when you have reached the end of the data.\n\nThe addData family of functions work exactly like the setData functions, except that addData can be called when the GeomVertexWriter has reached its end. In this case, addData will add a new row to the table, and then fill in the specified data in that row (and then increment the current write row). If addData is called when the current write row already exists, it behaves exactly the same as setData.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_517",
+    "parent": "processed_documents/context_documents/0c23aa57_d4dd2496_more-about-reader-writer-rewriter.json",
+    "chunk_number": 6600
+  }
+}

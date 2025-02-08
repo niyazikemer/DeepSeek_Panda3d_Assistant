@@ -1,0 +1,9 @@
+{
+  "content": "itype(curObj), hex(id(curObj)), len(referrers), fastRepr(curObj, maxLen=2)))\n                        for referrer in referrers:\n                            #assert self.notify.debug('referrer: %s' % itype(curObj))\n                            yield None\n                            refId = id(referrer)\n                            # don't go in a loop\n                            if refId in visitedObjIds:\n                                #assert self.notify.debug('already visited')\n                                continue\n                            # don't self-reference\n                            if referrer is curObjList or referrer is nextObjList:\n                                continue\n                            if refId in builtinIds:\n                                # not a leak, there is a path to builtin that does not involve the messenger",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4725
+  }
+}

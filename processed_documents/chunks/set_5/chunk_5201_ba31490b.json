@@ -1,0 +1,9 @@
+{
+  "content": "class InterestState:\n    StateActive = 'Active'\n    StatePendingDel = 'PendingDel'\n    def __init__(self, desc, state, context, event, parentId, zoneIdList,\n                 eventCounter, auto=False):\n        self.desc = desc\n        self.state = state\n        self.context = context\n        # We must be ready to keep track of multiple events. If somebody\n        # requested an interest to be removed and we get a second request\n        # for removal of the same interest before we get a response for the\n        # first interest removal, we now have two parts of the codebase\n        # waiting for a response on the removal of a single interest.\n        self.events = []\n        self.eventCounter = eventCounter\n        if event:\n            self.addEvent(event)\n        self.parentId = parentId\n        self.zoneIdList = zoneIdList\n        self.auto = auto\n    def addEvent(self, event):\n        self.events.append(event)\n        self.eventCounter.num += 1\n    def getEvents(self):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5201
+  }
+}

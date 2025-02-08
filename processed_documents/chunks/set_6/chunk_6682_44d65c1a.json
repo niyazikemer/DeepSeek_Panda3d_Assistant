@@ -1,0 +1,9 @@
+{
+  "content": "Now to switch from Walk state to Swim state, you would just need to request a transition, like this:\n\nmyfsm.request('Swim')\n\nThis FSM is a very simple example. Soon you will find the need for more than two states. For instance, you might want to play a transition animation while the avatar is moving from Walk state to Swim state and back again, and these can be encoded as separate states. There might be a \"drowning\" animation if the avatar stays too long underwater, which again might be another state. Graphically, this now looks like this:\n\ntransitions\n\nrankdir=LR node [style=rounded, shape=box]\n\nWalk -> Walk2Swim; Walk2Swim -> Swim; Swim -> Swim2Walk; Swim2Walk -> Walk; Swim -> Drowning;\n\n{ rank=same; Walk2Swim; Swim2Walk; }",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_537",
+    "parent": "processed_documents/context_documents/1ec143d1_47834cc9_fsm-introduction.json",
+    "chunk_number": 6682
+  }
+}

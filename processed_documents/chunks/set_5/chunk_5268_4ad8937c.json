@@ -1,0 +1,9 @@
+{
+  "content": "def contains(self, doId):\n        return doId in self.dict\n\n    def delete(self, doId):\n        assert self.checkCache()\n        assert doId in self.dict\n        # Look it up\n        distObj = self.dict[doId]\n        # Remove it from the dict and fifo\n        del self.dict[doId]\n        self.fifo.remove(distObj)\n        # and delete it\n        distObj.deleteOrDelay()\n        if distObj.getDelayDeleteCount() <= 0:\n            # make sure we're not leaking\n            distObj.detectLeaks()\n\n    def checkCache(self):\n        # For debugging; this verifies that the cache is sensible and\n        # returns true if so.\n        from panda3d.core import NodePath\n        for obj in self.dict.values():\n            if isinstance(obj, NodePath):\n                assert not obj.isEmpty() and obj.getTopNode() != render.node()\n        return 1\n\n    def turnOff(self):\n        self.flush()\n        self.storedMaxCache = self.maxCacheItems\n        self.maxCacheItems = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5268
+  }
+}

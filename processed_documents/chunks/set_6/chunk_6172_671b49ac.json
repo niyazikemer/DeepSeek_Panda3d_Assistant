@@ -1,0 +1,9 @@
+{
+  "content": "Cg Tutorial Part 3\n\nCaution\n\nSupport for Cg shaders will be deprecated in an upcoming version of Panda3D.\n\nCg Tutorial Part 3: The Simplest Useful Shader\n\nHere our shader will actually have useful output. It won't be anything fancy, just the silhouettes of the boxes since we're not doing anything with the lighting just yet. To recap, there are two types of shaders. Vertex shaders and fragment shaders. In DirectX these are called vertex shaders and pixel shaders. Fragment shader is a more accurate name for it but for the moment think of fragments as the equivalent of pixels.\n\nThe Shader\n\nvoid vshader(\n    uniform float4x4 mat_modelproj,\n    in float4 vtx_position : POSITION,\n    out float4 l_position : POSITION)\n{\n    l_position = mul(mat_modelproj, vtx_position);\n}\n\nvoid fshader(\n    out float4 o_color : COLOR)\n{\n    o_color = float4(1.0, 0.0, 1.0, 1.0);\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_428",
+    "parent": "processed_documents/context_documents/87cb3e24_4754c55c_part-3.json",
+    "chunk_number": 6172
+  }
+}

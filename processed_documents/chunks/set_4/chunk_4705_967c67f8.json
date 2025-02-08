@@ -1,0 +1,9 @@
+{
+  "content": "def getTotalAnnounceTime():\n    td=0\n    for objs in base.stats.values():\n        for stat in objs:\n            td+=getAnnounceGenerateTime(stat)\n    return td\n\n\ndef getAnnounceGenerateTime(stat):\n    val=0\n    stats=stat.stats\n    for i in list(stats.keys()):\n        if i[2] == \"announceGenerate\":\n            newVal = stats[i][3]\n            if newVal > val:\n                val = newVal\n    return val",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4705
+  }
+}

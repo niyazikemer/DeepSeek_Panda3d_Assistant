@@ -1,0 +1,9 @@
+{
+  "content": "This is the completed application:\n\n// Include all the stuff\n#include \"pandaFramework.h\"\n#include \"pandaSystem.h\"\n\nint main(int argc, char *argv[]) {\n  // Open the framework\n  PandaFramework framework;\n  framework.open_framework(argc, argv);\n  // Set a nice title\n  framework.set_window_title(\"Hello World!\");\n  // Open it!\n  WindowFramework *window = framework.open_window();\n\n  // Check whether the window is loaded correctly\n  if (window != nullptr) {\n    nout << \"Opened the window successfully!\\n\";\n\n    window->enable_keyboard(); // Enable keyboard detection\n    window->setup_trackball(); // Enable default camera movement\n\n    // Put here your own code, such as the loading of your models\n\n    // Do the main loop\n    framework.main_loop();\n  } else {\n    nout << \"Could not load the window!\\n\";\n  }\n  // Close the framework\n  framework.close_framework();\n  return (0);\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_467",
+    "parent": "processed_documents/context_documents/252e272f_aebd239e_window-framework.json",
+    "chunk_number": 6387
+  }
+}

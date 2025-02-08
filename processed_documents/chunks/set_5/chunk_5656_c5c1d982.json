@@ -1,0 +1,9 @@
+{
+  "content": "def _posHprBroadcast(self, task=DummyTask):\n        # TODO: we explicitly stagger the initial task timing in\n        # startPosHprBroadcast; we should at least make an effort to keep\n        # this task accurately aligned with its period and starting time.\n        self.d_broadcastPosHpr()\n        task.setDelay(self.__broadcastPeriod)\n        return Task.again\n\n    def sendCurrentPosition(self):\n        # if we're not currently broadcasting, make sure things are set up\n        if self.d_broadcastPosHpr is None:\n            self.cnode.initialize(self, self.dclass, self.doId)\n        self.cnode.sendEverything()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_332",
+    "parent": "processed_documents/context_documents/8613714e_DistributedSmoothNodeBase.json",
+    "chunk_number": 5656
+  }
+}

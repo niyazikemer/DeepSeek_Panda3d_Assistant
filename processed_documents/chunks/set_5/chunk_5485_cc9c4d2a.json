@@ -1,0 +1,9 @@
+{
+  "content": "class PyDatagram(Datagram):\n\n    # This is a little helper Dict to replace the huge <if> statement\n    # for trying to match up datagram subatomic types with add funtions\n    # If Python had an O(1) \"case\" statement we would use that instead\n    FuncDict = {\n        STInt8: (Datagram.addInt8, int),\n        STInt16: (Datagram.addInt16, int),\n        STInt32: (Datagram.addInt32, int),\n        STInt64: (Datagram.addInt64, int),\n        STUint8: (Datagram.addUint8, int),\n        STUint16: (Datagram.addUint16, int),\n        STUint32: (Datagram.addUint32, int),\n        STUint64: (Datagram.addUint64, int),\n        STFloat64: (Datagram.addFloat64, None),\n        STString: (Datagram.addString, None),\n        STBlob: (Datagram.addBlob, None),\n        STBlob32: (Datagram.addBlob32, None),\n    }\n\n    addChannel = Datagram.addUint64",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_317",
+    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
+    "chunk_number": 5485
+  }
+}

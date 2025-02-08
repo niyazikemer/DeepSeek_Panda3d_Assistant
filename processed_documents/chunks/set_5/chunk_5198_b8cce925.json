@@ -1,0 +1,9 @@
+{
+  "content": "def sendToZoneExcept(self, zoneId, datagram, exceptionList):\n        \"\"\"sends a message to everyone who has interest in the\n        indicated zone, except for the clients on exceptionList.\"\"\"\n\n        if self.notify.getDebug():\n            self.notify.debug(\n                \"ServerRepository sending to all in zone %s except %s:\" % (zoneId, [c.doIdBase for c in exceptionList]))\n            #datagram.dumpHex(ostream)\n\n        for client in self.zonesToClients.get(zoneId, []):\n            if client not in exceptionList:\n                if self.notify.getDebug():\n                    self.notify.debug(\n                        \"  -> %s\" % (client.doIdBase))\n                self.cw.send(datagram, client.connection)\n                self.needsFlush.add(client)\n\n    def sendToAllExcept(self, datagram, exceptionList):\n        \"\"\" sends a message to all connected clients, except for\n        clients on exceptionList. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5198
+  }
+}

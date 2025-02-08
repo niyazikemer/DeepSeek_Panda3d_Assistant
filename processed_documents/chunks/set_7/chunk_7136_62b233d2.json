@@ -1,0 +1,9 @@
+{
+  "content": "There is a different option, however, for compressing texture images in-memory. Most modern graphics cards can use a handful of run-time compression algorithms to render directly from a texture that has been compressed in-memory. This is called block compression. It's not really very much like JPEG compression internally, but you can think of it in the same way. It does have some things in common: it reduces the size of the image dramatically (4 times or even 8 times smaller), and it sacrifices a tiny bit of image quality.\n\nMost block compression methods (such as DXT and 3Dc) operate on blocks of 4 by 4 pixels. Therefore, it is recommended that your texture size is a multiple of 4 in both dimensions, or extra padding will have to be applied.\n\nRuntime texture compression\n\nThe easiest way to enable compressed texture images is to put the following in your Config.prc file:\n\ncompressed-textures 1",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_591",
+    "parent": "processed_documents/context_documents/e855bf7e_76bdc2be_texture-compression.json",
+    "chunk_number": 7136
+  }
+}

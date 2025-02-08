@@ -1,0 +1,9 @@
+{
+  "content": "try:\n                childNames = dir(parentObj)\n            except Exception:\n                pass\n            else:\n                childName = None\n                child = None\n                for childName in childNames:\n                    try:\n                        child = getattr(parentObj, childName)\n                    except Exception:\n                        continue\n                    if id(child) not in self._visitedIds:\n                        self._visitedIds.add(id(child))\n                        if self._examine(child):\n                            assert self._queue.back() is child\n                            self._id2pathStr[id(child)] = self._id2pathStr[id(parentObj)] + '.%s' % childName\n                del childName\n                del child\n                continue\n\n        if self._log:\n            self.printingBegin()\n            for i in self._output(limit=self._limit):\n                yield None\n            self.printingEnd()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4359
+  }
+}

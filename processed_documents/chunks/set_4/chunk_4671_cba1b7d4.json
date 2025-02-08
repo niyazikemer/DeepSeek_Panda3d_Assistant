@@ -1,0 +1,9 @@
+{
+  "content": "if maxLen is not None and len(obj) > maxLen:\n            o = list(obj.keys())[:maxLen]\n            ellips = '...'\n        else:\n            o = list(obj.keys())\n            ellips = ''\n        _visitedIds.add(id(obj))\n        for key in o:\n            value = obj[key]\n            s += '%s: %s, ' % (deeptype(key, maxLen, _visitedIds=_visitedIds),\n                               deeptype(value, maxLen, _visitedIds=_visitedIds))\n        _visitedIds.remove(id(obj))\n        s += ellips\n        s += '}'\n        return s\n    else:\n        return str(itype(obj))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4671
+  }
+}

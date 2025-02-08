@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, objects):\n        self._objects = list(objects)\n        self._postFilterObjs = []\n        self._sync = Sync('%s-%s' % (self.__class__.__name__,\n                                     self._SerialNumGen.next()),\n                          self._SyncMaster)\n        self._sync.invalidate()\n        ExclusiveObjectPool.addExclObjs(self._objects, self._postFilterObjs,\n                                        self._sync)\n\n    def destroy(self):\n        self.ignoreAll()\n        ExclusiveObjectPool.removeExclObjs(self._objects, self._postFilterObjs,\n                                           self._sync)\n        del self._objects\n        del self._postFilterObjs\n        del self._sync",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_258",
+    "parent": "processed_documents/context_documents/edd88549_ObjectReport.json",
+    "chunk_number": 4544
+  }
+}

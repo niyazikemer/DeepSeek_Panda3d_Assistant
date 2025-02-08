@@ -1,0 +1,9 @@
+{
+  "content": "zoom = teapot.posInterval(5, VBase3(20, 0, 0), startPos=VBase3(-20, 0, 0))\nzoom.loop()\n\nWarning\n\nWhen you render a dynamic cube map, don't forget that you are re-rendering your scene six times every frame in addition to the main frame render. If you are not careful, and if you have a complex scene, then you could easily end up reducing your frame rate by a factor of seven.\n\nIt is a good idea to limit the amount of geometry that you render in the cube map. One simple way to do this is to ensure that the far plane <lenses-and-field-of-view> on the cube map cameras is set relatively close in. Since all of the cube map cameras share the same lens, you can adjust the near and far plane of all of the cameras at once like this:\n\nlens = rig.find('**/+Camera').node().getLens()\nlens.setNearFar(1, 100)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_496",
+    "parent": "processed_documents/context_documents/bf8dabed_8b653f62_dynamic-cube-maps.json",
+    "chunk_number": 6495
+  }
+}

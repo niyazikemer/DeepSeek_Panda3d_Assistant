@@ -1,0 +1,9 @@
+{
+  "content": "def checkin(self, item):\n        \"\"\"\n        Put back a checked out item.\n        Error if the item is not checked out.\n        \"\"\"\n        if item not in self.__used:\n            self.notify.error(\"item is not checked out\")\n        self.__used.remove(item)\n        self.__free.append(item)\n\n    def reset(self):\n        \"\"\"\n        Resets the pool so all items are free.\n        \"\"\"\n        self.__free.extend(self.__used)\n        self.__used = []\n\n    def hasFree(self):\n        \"\"\"\n        Returns true if there is at least one free item.\n        \"\"\"\n        return len(self.__free) != 0\n\n    def isFree(self, item):\n        \"\"\"\n        Returns true if this item is free for check out.\n        \"\"\"\n        return item in self.__free\n\n    def isUsed(self, item):\n        \"\"\"\n        Returns true if this item has already been checked out.\n        \"\"\"\n        return item in self.__used",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_274",
+    "parent": "processed_documents/context_documents/a48c79c0_Pool.json",
+    "chunk_number": 4781
+  }
+}

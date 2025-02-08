@@ -1,0 +1,9 @@
+{
+  "content": "python\n\ndr = win.makeDisplayRegion()\ndr.sort = 20\n\nmyCamera2d = NodePath(Camera('myCam2d'))\nlens = OrthographicLens()\nlens.setFilmSize(2, 2)\nlens.setNearFar(-1000, 1000)\nmyCamera2d.node().setLens(lens)\n\nmyRender2d = NodePath('myRender2d')\nmyRender2d.setDepthTest(False)\nmyRender2d.setDepthWrite(False)\nmyCamera2d.reparentTo(myRender2d)\ndr.setCamera(myCamera2d)\n\ncpp\n\nPT(DisplayRegion) dr = win->make_display_region();\ndr->set_sort(20);\n\nNodePath myCamera2d(new Camera(\"myCam2d\"));\nPT(OrthographicLens) lens = new OrthographicLens;\nlens->set_film_size(2, 2);\nlens->set_near_far(-1000, 1000)\n((Camera *)myCamera2d.node())->set_lens(lens);\n\nNodePath myRender2d(\"myRender2d\");\nmyRender2d.set_depth_test(false);\nmyRender2d.set_depth_write(false);\nmyCamera2d.reparent_to(myRender2d);\ndr->set_camera(myCamera2d)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_571",
+    "parent": "processed_documents/context_documents/baabada6_80cd6c1e_2d-display-region.json",
+    "chunk_number": 7044
+  }
+}

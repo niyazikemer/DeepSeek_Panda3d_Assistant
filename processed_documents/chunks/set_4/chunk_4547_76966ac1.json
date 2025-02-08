@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectReport:\n    \"\"\"report on every Python object in the current process\"\"\"\n    notify = directNotify.newCategory('ObjectReport')\n\n    def __init__(self, name, log=True):\n        gr = GarbageReport('ObjectReport\\'s GarbageReport: %s' % name, log=log)\n        gr.destroy()\n        del gr\n        self._name = name\n        self._pool = ObjectPool(self._getObjectList())\n        #ExclusiveObjectPool.addExclObjs(self, self._pool, self._name)\n        if log:\n            self.notify.info('===== ObjectReport: \\'%s\\' =====\\n%s' % (self._name, self.typeFreqStr()))\n\n    def destroy(self):\n        #ExclusiveObjectPool.removeExclObjs(self, self._pool, self._name)\n        self._pool.destroy()\n        del self._pool\n        del self._name\n\n    def typeFreqStr(self):\n        return self._pool.typeFreqStr()\n\n    def diff(self, other):\n        return self._pool.diff(other._pool)\n\n    def getObjectPool(self):\n        return self._pool",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_258",
+    "parent": "processed_documents/context_documents/edd88549_ObjectReport.json",
+    "chunk_number": 4547
+  }
+}

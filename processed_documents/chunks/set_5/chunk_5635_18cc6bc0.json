@@ -1,0 +1,9 @@
+{
+  "content": "if x not in self.fixtures:\n                self.fixtures[x] = Fixture(x, self.parent, Point3(0), hpr = Point3(0), fov = VBase2(0))\n\n            fix = self.fixtures.get(x)\n            fix.setId(x)\n            fix.setPosHpr(pos,hpr)\n            fix.setState(state)\n            fix.setFov(fov)\n            recordingInProgress |= state == 'Recording'\n\n        messenger.send('recordingInProgress', [recordingInProgress])\n\n    def testFixture(self, index):\n        fixture = self.fixtures.get(index)\n        if fixture:\n            fixture.request('Using', [True])\n            self.accept('escape', self.stopTesting, [index])\n\n    def stopTesting(self, index):\n        fixture = self.fixtures.get(index)\n        if fixture:\n            self.ignore('escape')\n            fixture.request('Standby')\n            localAvatar.b_setGameState('LandRoam')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_329",
+    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
+    "chunk_number": 5635
+  }
+}

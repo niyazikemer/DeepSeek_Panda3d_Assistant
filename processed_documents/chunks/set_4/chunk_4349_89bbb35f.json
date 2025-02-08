@@ -1,0 +1,9 @@
+{
+  "content": "def reloadSharedPackages():\n    \"\"\" Walks through the sharedPackages list, and forces a reload of\n    any modules on that list that have already been loaded.  This\n    allows new directories to be added to the search path. \"\"\"\n\n    #print >> sys.stderr, \"reloadSharedPackages, path = %s, sharedPackages = %s\" % (sys.path, sharedPackages.keys())\n\n    # Sort the list, just to make sure parent packages are reloaded\n    # before child packages are.\n    for fullname in sorted(sharedPackages.keys()):\n        mod = sys.modules.get(fullname, None)\n        if not mod:\n            continue\n\n        reloadSharedPackage(mod)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4349
+  }
+}

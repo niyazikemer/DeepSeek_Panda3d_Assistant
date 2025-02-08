@@ -1,0 +1,9 @@
+{
+  "content": "def delete(self):\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.delete(self)\n        DistributedNodeAI.DistributedNodeAI.delete(self)\n\n    # distributed set pos and hpr functions\n    # these are invoked by the DC system\n    # 'send' (d_set*) versions are inherited from DistributedSmoothNodeBase\n    def setSmStop(self, t=None):\n        pass\n\n    # These have their FFI functions exposed for efficiency\n    def setSmH(self, h, t=None):\n        self.setH(h)\n\n    def setSmZ(self, z, t=None):\n        self.setZ(z)\n\n    def setSmXY(self, x, y, t=None):\n        self.setX(x)\n        self.setY(y)\n\n    def setSmXZ(self, x, z, t=None):\n        self.setX(x)\n        self.setZ(z)\n\n    def setSmPos(self, x, y, z, t=None):\n        self.setPos(x, y, z)\n\n    def setSmHpr(self, h, p, r, t=None):\n        self.setHpr(h, p, r)\n\n    def setSmXYH(self, x, y, h, t=None):\n        self.setX(x)\n        self.setY(y)\n        self.setH(h)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_307",
+    "parent": "processed_documents/context_documents/6bdbd1f3_DistributedSmoothNodeAI.json",
+    "chunk_number": 5372
+  }
+}

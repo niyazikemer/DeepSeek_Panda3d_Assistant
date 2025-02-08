@@ -1,0 +1,9 @@
+{
+  "content": "If you wish to collect the time data for functions, a simple decorator pattern can be used below, as below:\n\nfrom panda3d.core import PStatCollector\ndef pstat(func):\n    collectorName = \"Debug:%s\" % func.__name__\n    if hasattr(base, 'custom_collectors'):\n        if collectorName in base.custom_collectors.keys():\n            pstat = base.custom_collectors[collectorName]\n        else:\n            base.custom_collectors[collectorName] = PStatCollector(collectorName)\n            pstat = base.custom_collectors[collectorName]\n    else:\n        base.custom_collectors = {}\n        base.custom_collectors[collectorName] = PStatCollector(collectorName)\n        pstat = base.custom_collectors[collectorName]\n    def doPstat(*args, **kargs):\n        pstat.start()\n        returned = func(*args, **kargs)\n        pstat.stop()\n        return returned\n    doPstat.__name__ = func.__name__\n    doPstat.__dict__ = func.__dict__\n    doPstat.__doc__ = func.__doc__\n    return doPstat",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7489
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This is useful for debugging broken shader generators. early-event-sphere bool 0 Set this to true in order to hit door triggers that are just\nslightly behind the door itself. early-random-seed bool 0 Configure this true to compute the SSL random seed early on in the\napplication (specifically, when the libpandaexpress library is loaded),\nor false to defer this until it is actually needed (which will be the\nfirst time you open an https connection or otherwise use encryption\nservices). You can also call HTTPClient::init_random_seed() to do this\nwhen you are ready. The issue is that on Windows, OpenSSL will attempt\nto randomize its seed by crawling through the entire heap of allocated\nmemory, which can be extremely large in a Panda application, especially\nif you have already opened a window and started rendering; and so this\ncan take as much as 30 seconds or more. For this reason it is best to\ninitialize the random seed at startup, when the application is still",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_543",
+    "parent": "processed_documents/context_documents/ff9c6499_876ce29a_list-of-all-config-variables.json",
+    "chunk_number": 6741
+  }
+}

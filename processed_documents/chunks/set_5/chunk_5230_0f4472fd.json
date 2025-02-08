@@ -1,0 +1,9 @@
+{
+  "content": "handle is a client-side created number that refers to\n                a set of interests.  The same handle number doesn't\n                necessarily have any relationship to the same handle\n                on another client.\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        if __debug__:\n            if isinstance(zoneIdList, list):\n                zoneIdList.sort()\n            if action is None:\n                action = 'add'\n            self._addDebugInterestHistory(\n                action, description, handle, contextId, parentId, zoneIdList)\n        if parentId == 0:\n            DoInterestManager.notify.error(\n                'trying to set interest to invalid parent: %s' % parentId)\n        datagram = PyDatagram()\n        # Add message type\n        if isinstance(zoneIdList, list):\n            vzl = sorted(zoneIdList)\n            uniqueElements(vzl)\n            datagram.addUint16(CLIENT_ADD_INTEREST_MULTIPLE)\n            datagram.addUint32(contextId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5230
+  }
+}

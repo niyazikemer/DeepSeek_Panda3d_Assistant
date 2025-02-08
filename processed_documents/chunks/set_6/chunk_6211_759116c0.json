@@ -1,0 +1,9 @@
+{
+  "content": "# Create the joints\nsmileyJoint = OdeBallJoint(world)\nsmileyJoint.attach(smileyBody, None) # Attach it to the environment\nsmileyJoint.setAnchor(0, 0, 0)\nfrowneyJoint = OdeBallJoint(world)\nfrowneyJoint.attach(smileyBody, frowneyBody)\nfrowneyJoint.setAnchor(-5, 0, -5)\n\n# Set the camera position\nbase.disableMouse()\nbase.camera.setPos(0, 50, -7.5)\nbase.camera.lookAt(0, 0, -7.5)\n\n# We are going to be drawing some lines between the anchor points and the joints\nlines = LineNodePath(parent=render, thickness=3.0, colorVec=(1, 0, 0, 1))\ndef drawLines():\n    # Draws lines between the smiley and frowney.\n    lines.reset()\n    lines.drawLines([((frowney.getX(), frowney.getY(), frowney.getZ()),\n                      (smiley.getX(), smiley.getY(), smiley.getZ())),\n                     ((smiley.getX(), smiley.getY(), smiley.getZ()),\n                      (0, 0, 0))])\n    lines.create()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_435",
+    "parent": "processed_documents/context_documents/0ec0b5a5_f9150a54_attaching-bodies-using-joints.json",
+    "chunk_number": 6211
+  }
+}

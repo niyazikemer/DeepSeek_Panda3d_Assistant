@@ -1,0 +1,9 @@
+{
+  "content": "## if self.recorder:\n            ##     # If we have a recorder, we wrap the connect inside a\n            ##     # SocketStreamRecorder, which will trap incoming data\n            ##     # when the recorder is set to record mode.  (It will\n            ##     # also play back data when the recorder is in playback\n            ##     # mode, but in that case we never get this far in the\n            ##     # code, since we just create an empty\n            ##     # SocketStreamRecorder without actually connecting to\n            ##     # the gameserver.)\n            ##     stream = SocketStreamRecorder(self.tcpConn, 1)\n            ##     self.recorder.addRecorder('gameserver', stream)\n\n            ##     # In this case, we pass ownership of the original\n            ##     # connection to the SocketStreamRecorder object.\n            ##     self.tcpConn.userManagesMemory = 0\n            ##     self.tcpConn = stream",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5329
+  }
+}

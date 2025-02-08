@@ -1,0 +1,9 @@
+{
+  "content": "constantOneStencil =\n    StencilAttrib.make(1, StencilAttrib.SCFAlways,StencilAttrib.SOZero,\n                          StencilAttrib.SOReplace,StencilAttrib.SOReplace,1,0,1)\n\nAgain we start by enabling the attribute. The comparison function here is Always, meaning that the test passes no matter the parameters. Next is the operation to perform on the stencil buffer if the test fails (which in this case will never happen) -- we set the stencil buffer value to zero. The next parameter determines what should happen if the stencil function passes, but the depth test fails, and finally, what should happen if both the stencil and depth tests pass. In our case we want to set the value of the stencil buffer whether we pass the depth test or not, so both are set to Replace. The reference value to set in the stencil buffer is 1. We're writing regardless of what's in the buffer already, so we'll set the read and write masks to 0 and 1, respectively.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_426",
+    "parent": "processed_documents/context_documents/110b2e47_d82698ba_stencil-attribute.json",
+    "chunk_number": 6164
+  }
+}

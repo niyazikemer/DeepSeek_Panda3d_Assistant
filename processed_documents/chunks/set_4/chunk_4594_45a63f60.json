@@ -1,0 +1,9 @@
+{
+  "content": "def clear(self):\n        self.text = \"\"\n        if self.onScreenText:\n            self.onScreenText.clearText()\n\n    def add(self, key, value):\n        self.data[key] = (self.frame, value)\n        return 1 # to allow assert onScreenDebug.add(\"foo\", bar)\n\n    def has(self, key):\n        return key in self.data\n\n    def remove(self, key):\n        del self.data[key]\n\n    def removeAllWithPrefix(self, prefix):\n        toRemove = []\n        for key in list(self.data.keys()):\n            if len(key) >= len(prefix):\n                if key[:len(prefix)] == prefix:\n                    toRemove.append(key)\n        for key in toRemove:\n            self.remove(key)\n\n    def append(self, text):\n        self.text += text",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_262",
+    "parent": "processed_documents/context_documents/a76bfde3_OnScreenDebug.json",
+    "chunk_number": 4594
+  }
+}

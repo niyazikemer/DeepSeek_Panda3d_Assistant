@@ -1,0 +1,9 @@
+{
+  "content": "def hasCachedData(self, name):\n        assert isinstance(name, str)\n        if not hasattr(self, '_cachedData'):\n            return False\n        return name in self._cachedData\n\n    def getCachedData(self, name):\n        assert isinstance(name, str)\n        # ownership of the data passes to the caller of this method\n        data = self._cachedData[name]\n        del self._cachedData[name]\n        return data\n\n    def flushCachedData(self, name):\n        assert isinstance(name, str)\n        # call this to throw out cached data from a previous instantiation\n        self._cachedData[name].flush()\n\n    def setCacheable(self, boolean):\n        assert boolean == 1 or boolean == 0\n        self.cacheable = boolean\n\n    def getCacheable(self):\n        return self.cacheable",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5555
+  }
+}

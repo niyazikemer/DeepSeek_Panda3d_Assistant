@@ -1,0 +1,9 @@
+{
+  "content": "ClientRepository.__init__(\n    self,\n    dcFileNames = dcFileNames,\n    dcSuffix = 'AI',\n    threadedNet = True)\n\nThe setup is quite similar to the one of a normal client repository which we will take a look at in the next sections. The main difference is that for an AI repository we pass the dcSuffix = \u2018AI\u2019 to the .ClientRepository initialization. This makes sure that the correct definitions of the DC definition file will be used. Another method that should be specifically defined in an AI Repository is the following.\n\ndef deallocateChannel(self, doID):\n    print(\"Client left us: \", doID)\n\nThis function will be called whenever a client has disconnected and gives us the chance to react to its disconnection.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_420",
+    "parent": "processed_documents/context_documents/d5d9e7c2_47963ea2_ai-repositories.json",
+    "chunk_number": 6137
+  }
+}

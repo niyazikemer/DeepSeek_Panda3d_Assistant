@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] remove winControl\n        for winCtrl in self.winControls:\n            if winCtrl.win == win:\n                self.winControls.remove(winCtrl)\n                break\n        # Now we can actually close the window.\n        if removeWindow:\n            self.graphicsEngine.removeWindow(win)\n        self.winList.remove(win)\n\n        mainWindow = False\n        if win == self.win:\n            mainWindow = True\n            self.win = None\n            if self.frameRateMeter:\n                self.frameRateMeter.clearWindow()\n                self.frameRateMeter = None\n            if self.sceneGraphAnalyzerMeter:\n                self.sceneGraphAnalyzerMeter.clearWindow()\n                self.sceneGraphAnalyzerMeter = None\n\n        messenger.send('close_window', [win, mainWindow])\n        if mainWindow:\n            messenger.send('close_main_window')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4897
+  }
+}

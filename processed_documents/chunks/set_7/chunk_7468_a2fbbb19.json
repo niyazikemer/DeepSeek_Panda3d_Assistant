@@ -1,0 +1,9 @@
+{
+  "content": "To use PStats, you first need to run the PStats server program, which is part of the Panda3D installation on Windows and Linux. On macOS, it is not included, but it can be built from source if the GTK+ 2 library is available on the system.\n\npython\n\nOnce it is running, launch your application with the following set in your Config.prc file:\n\nwant-pstats 1\n\nOr, at runtime, issue the Python command:\n\nPStatClient.connect()\n\ncpp\n\nOnce it is running, launch your application with the following added to your start-up code:\n\n// Includes: pStatClient.h\n\nif (PStatClient::is_connected()) {\n  PStatClient::disconnect();\n}\n\nstring host = \"\"; // Empty = default config var value\nint port = -1; // -1 = default config var value\nif (!PStatClient::connect(host, port)) {\n  std::cout << \"Could not connect to PStat server.\" << std::endl;\n}\n\nOr if you're running pview, press shift-S.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7468
+  }
+}

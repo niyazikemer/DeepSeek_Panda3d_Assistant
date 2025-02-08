@@ -1,0 +1,9 @@
+{
+  "content": "class GoldenRectangle:\n    @staticmethod\n    def getLongerEdge(shorter):\n        return shorter * GoldenRatio\n\n    @staticmethod\n    def getShorterEdge(longer):\n        return longer / GoldenRatio\n\n\ndef nullGen():\n    # generator that ends immediately\n    if False:\n        # yield that never runs but still exists, making this func a generator\n        yield None\n\n\ndef loopGen(l):\n    # generator that yields the items of an iterable object forever\n    def _gen(l):\n        while True:\n            for item in l:\n                yield item\n    gen = _gen(l)\n    # don't leak\n    _gen = None\n    return gen",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4699
+  }
+}

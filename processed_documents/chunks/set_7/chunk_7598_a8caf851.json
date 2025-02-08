@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nand then you can load models like this in your Python code:\n\nmodel = loader.loadModel('models/myfile.bam')\ntexture = loader.loadTexture('maps/mytexture.png')\n\nIf you want to prepare for reading and writing assets to a Multifile do the following.\n\npython\n\nfrom panda3d.core import VirtualFileSystem\nfrom panda3d.core import Multifile\nfrom panda3d.core import Filename\n\nmf = Multifile()\nmf.openReadWrite(\"models.mf\")\n\nvfs = VirtualFileSystem.getGlobalPtr()\nif vfs.mount(mf, \".\", VirtualFileSystem.MFReadOnly):\n    print('mounted')\n\ncpp\n\nPT(Multifile) mf = new Multifile;\nmf->open_read_write(\"models.mf\");\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nif (vfs->mount(mf, \".\", VirtualFileSystem::MF_read_only) {\n    std::cerr << \"mounted\\n\";\n}\n\nIf you want to prepare for reading and writing assets to a 'subdirectory' Multifile do the following. Note \"mysys\" must always be literally written in any python code. E.g. \"mysys/memfdir/mfbar2.txt\"\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7598
+  }
+}

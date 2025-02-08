@@ -1,0 +1,9 @@
+{
+  "content": "assert self.notify.debug('beginBarrier(%s, %s, %s, %s)' % (context, name, avIds, timeout))\n\n        if avIds:\n            barrier = Barrier.Barrier(\n                name, self.uniqueName(name), avIds, timeout,\n                doneFunc = PythonUtil.Functor(\n                    self.__barrierCallback, context, callback))\n            self.__barriers[context] = barrier\n\n            # Send the context number to each involved client.\n            self.sendUpdate(\"setBarrierData\", [self.__getBarrierData()])\n        else:\n            # No avatars; just call the callback immediately.\n            callback(avIds)\n\n        return context",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5512
+  }
+}

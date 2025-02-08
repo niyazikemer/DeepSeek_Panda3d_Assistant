@@ -1,0 +1,9 @@
+{
+  "content": "Note also that Panda may be compiled with a special threading mode (called \"simple threads\") that is designed to be low overhead, but which is fundamentally incompatible with true threads as provided by the system library. Thus, in any Panda application, you must always use Panda's synchronization primitives, and not the system-provided ones; and you must use Panda's thread primitives and not call into the system thread library directly, or you will risk a terrible crash. That is, you should use Panda's Thread and Mutex classes (or for Python users, the direct.stdpy.threading module), and not any system thread or mutex implementation. See threading for more.\n\nDefining task chains\n\nTo set up a new task chain, you simply call:\n\ncpp\n\nAsyncTaskManager *task_mgr = AsyncTaskManager::get_global_ptr();\nAsyncTaskChain *chain = task_mgr->make_task_chain(\"chain_name\");",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_602",
+    "parent": "processed_documents/context_documents/85c9384f_6df8f2d1_task-chains.json",
+    "chunk_number": 7191
+  }
+}

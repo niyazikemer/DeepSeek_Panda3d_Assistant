@@ -1,0 +1,9 @@
+{
+  "content": "loaders = []\n        for dir in path:\n            if dir in excludePaths:\n                continue\n\n            importer = sys.path_importer_cache.get(dir, None)\n            if importer is None:\n                try:\n                    importer = VFSImporter(dir)\n                except ImportError:\n                    continue\n\n                sys.path_importer_cache[dir] = importer\n\n            try:\n                loader = importer.find_module(fullname)\n                if not loader:\n                    continue\n            except ImportError:\n                continue\n\n            loaders.append(loader)\n\n        if not loaders:\n            return None\n        return VFSSharedLoader(loaders, reload = reload)\n\n    def getLoadedDirname(self, mod):\n        \"\"\" Returns the directory name that the indicated\n        conventionally-loaded module must have been loaded from. \"\"\"\n\n        if not getattr(mod, '__file__', None):\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4342
+  }
+}

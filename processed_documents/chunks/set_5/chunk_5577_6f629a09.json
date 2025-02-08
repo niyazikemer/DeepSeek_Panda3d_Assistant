@@ -1,0 +1,9 @@
+{
+  "content": "# Stop task if there are no more av's being managed\n        if len(self.gridObjects) == 0:\n            self.stopUpdateGridTask()\n\n    #####################################################################\n    # updateGridTask\n    # This task is similar to the processVisibility task for the local client.\n    # A couple differences:\n    #  - we are not doing setInterest on the AI (that is a local client\n    #    specific call).\n    #  - we assume that the moving objects on the grid are parented to a\n    #    gridParent, and are broadcasting their position relative to that\n    #    gridParent.  This makes the task's math easy.  Just check to see\n    #    when our position goes out of the current grid cell.  When it does,\n    #    call handleAvatarZoneChange\n\n    def startUpdateGridTask(self):\n        self.stopUpdateGridTask()\n        self.updateTaskStarted = 1\n        taskMgr.add(self.updateGridTask, self.taskName(\"updateGridTask\"))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_325",
+    "parent": "processed_documents/context_documents/7ef9e01d_DistributedCartesianGridAI.json",
+    "chunk_number": 5577
+  }
+}

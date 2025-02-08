@@ -1,0 +1,9 @@
+{
+  "content": "class PruneObjectRefs(Job):\n    \"\"\"\n    Job to destroy any container refs that are no longer valid.\n    Checks validity by asking for each container\n    \"\"\"\n\n    def __init__(self, name, leakDetector):\n        Job.__init__(self, name)\n        self._leakDetector = leakDetector\n        self.notify = self._leakDetector.notify\n        ContainerLeakDetector.addPrivateObj(self.__dict__)\n\n    def destroy(self):\n        ContainerLeakDetector.removePrivateObj(self.__dict__)\n        Job.destroy(self)\n\n    def getPriority(self):\n        return Job.Priorities.Normal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4530
+  }
+}

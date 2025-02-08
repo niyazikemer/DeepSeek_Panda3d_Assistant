@@ -1,0 +1,9 @@
+{
+  "content": "# Since the reflection matrix will reverse the vertex-winding\n    # order of all the polygons in the world, we have to tell the\n    # camera to reverse the direction of its face culling.  We also\n    # tell it not to draw (that is, to clip) anything behind the\n    # mirror plane.\n    dummy = NodePath('dummy')\n    dummy.setAttrib(CullFaceAttrib.makeReverse())\n    dummy.setClipPlane(planeNP)\n    camera.setInitialState(dummy.getState())\n\n    # Create a visible representation of the camera so we can see it.\n    #cameraVis = base.loader.loadModel('camera.egg')\n    #if not cameraVis.isEmpty():\n    #    cameraVis.reparentTo(cameraNP)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_285",
+    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
+    "chunk_number": 5031
+  }
+}

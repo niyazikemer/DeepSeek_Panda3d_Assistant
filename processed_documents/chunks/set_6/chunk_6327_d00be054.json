@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nvdata.setNumRows(4)\n\ncpp\n\nvdata->set_num_rows(4);\n\nNow that you have created a GeomVertexData, you should create a number of GeomVertexWriters <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>, one for each column, to fill in the data.\n\npython\n\nvertex = GeomVertexWriter(vdata, 'vertex')\nnormal = GeomVertexWriter(vdata, 'normal')\ncolor = GeomVertexWriter(vdata, 'color')\ntexcoord = GeomVertexWriter(vdata, 'texcoord')\n\ncpp\n\nGeomVertexWriter vertex(vdata, \"vertex\");\nGeomVertexWriter normal(vdata, \"normal\");\nGeomVertexWriter color(vdata, \"color\");\nGeomVertexWriter texcoord(vdata, \"texcoord\");\n\nIt is your responsibility to know which columns exist in the GeomVertexFormat you have used. It is legal to create a GeomVertexWriter for a column that doesn't exist, but it will be an error if you later attempt to use it to add data.\n\nTo add data, you can now iterate through your vertices and call one of the addData methods on each GeomVertexWriter.\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_457",
+    "parent": "processed_documents/context_documents/8ea7083f_03f8bce3_creating-vertex-data.json",
+    "chunk_number": 6327
+  }
+}

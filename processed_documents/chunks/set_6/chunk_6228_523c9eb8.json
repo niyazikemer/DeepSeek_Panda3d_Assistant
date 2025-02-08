@@ -1,0 +1,9 @@
+{
+  "content": "PT(Texture) tex;\ntex = TexturePool::load_texture(\"myTexture.png\");\n\nNodePath smiley;\nsmiley = window->load_model(window->get_render(), \"smiley.egg\");\nsmiley.set_texture(tex, 1);\n\nThe above TexturePool::load_texture() call will search along the current model-path for the named image file (in this example, a file named \"myTexture.png\"). If the texture is not found or cannot be read for some reason, None is returned.\n\nNote that the Texture class is reference counted <reference-counting>, so it is necessary to use a smart PT(Texture) pointer to ensure that it is not automatically deleted by the garbage collector.\n\nOnce you have a texture, you can apply it to a model with the ~.NodePath.set_texture() call. For instance, suppose you used the .CardMaker class to generate a plain white card:\n\npython\n\ncm = CardMaker('card')\ncard = render.attachNewNode(cm.generate())\n\ncpp\n\nCardMaker cm(\"card\");\nNodePath card = render.attach_new_node(cm.generate());",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_439",
+    "parent": "processed_documents/context_documents/86c0a6eb_814d539f_simple-texture-replacement.json",
+    "chunk_number": 6228
+  }
+}

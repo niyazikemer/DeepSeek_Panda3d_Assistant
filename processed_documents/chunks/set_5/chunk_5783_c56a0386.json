@@ -1,0 +1,9 @@
+{
+  "content": "from panda3d.direct import CInterval\nfrom .extension_native_helpers import Dtool_funcToMethod\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nimport warnings\n\nCInterval.DtoolClassDict[\"notify\"] = directNotify.newCategory(\"Interval\")\n\n#####################################################################\ndef setT(self, t):\n    # Overridden from the C++ function to call privPostEvent\n    # afterward.  We do this by renaming the C++ function in\n    # FFIRename.\n    self.setT_Old(t)\n    self.privPostEvent()\n\nCInterval.DtoolClassDict[\"setT_Old\"] = CInterval.setT\nDtool_funcToMethod(setT, CInterval)\ndel setT\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_342",
+    "parent": "processed_documents/context_documents/f82a7e89_CInterval_extensions.json",
+    "chunk_number": 5783
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "myNodePath.place()\n\nChanging the Parent\n\nOne of the most fundamental scene graph manipulations is changing a node's parent. You need to do this at least once after you load a model, to put it under render for viewing:\n\npython\n\nmyModel.reparentTo(render)\n\ncpp\n\nmyModel.reparent_to(window->get_render());\n\nAs you become more comfortable with scene graph operations, you may find yourself taking more and more advantage of a deeply nested scene graph, and you may start to parent your models to other nodes than just render. Sometimes it is convenient to create an empty node for this purpose, for instance, to group several models together:\n\npython\n\ndummyNode = render.attachNewNode(\"Dummy Node Name\")\nmyModel.reparentTo(dummyNode)\nmyOtherModel.reparentTo(dummyNode)\n\ncpp\n\nNodePath dummy_node = window->get_render().attach_new_node(\"Dummy Node Name\");\nmyModel.reparent_to(dummy_node);\nmyOtherModel.reparent_to(dummy_node);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_568",
+    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
+    "chunk_number": 7016
+  }
+}

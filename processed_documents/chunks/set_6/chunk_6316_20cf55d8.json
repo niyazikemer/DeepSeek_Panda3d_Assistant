@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nHere is a small example showing a random cloud of boxes:\n\nfrom direct.directbase.DirectStart import *\nfrom panda3d.core import RigidBodyCombiner, NodePath, Vec3\nimport random\n\nrbc = RigidBodyCombiner(\"rbc\")\nrbcnp = NodePath(rbc)\nrbcnp.reparentTo(render)\n\nfor i in range(200):\n    pos = Vec3(random.uniform(-100, 100),\n               random.uniform(-100, 100),\n               random.uniform(-100, 100))\n\n    f = loader.loadModel(\"box.egg\")\n    f.setPos(pos)\n    f.reparentTo(rbcnp)\n\nrbc.collect()\nbase.run()\n\nNote\n\nRenderEffects <render-effects> such as Billboards <billboard-effects> are not supported below this node.\n\nFor more information and a complete list of RigidBodyCombiner methods please see the ~panda3d.core.RigidBodyCombiner page in the API Reference.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_454",
+    "parent": "processed_documents/context_documents/63223705_5b100b10_rigid-body-combiner.json",
+    "chunk_number": 6316
+  }
+}

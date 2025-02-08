@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nExample for sweep testing:\n\ntsFrom = TransformState.makePos(Point3(0, 0, 0))\ntsTo = TransformState.makePos(Point3(10, 0, 0))\n\nshape = BulletSphereShape(0.5)\npenetration = 0.0\n\nresult = world.sweepTestClosest(shape, tsFrom, tsTo, penetration)\n\nprint(result.hasHit())\nprint(result.getHitPos())\nprint(result.getHitNormal())\nprint(result.getHitFraction())\nprint(result.getNode())\n\nContact Test\n\nThere are two contact tests. One which checks if a collision objects is in contact with other collision objects, and another which checks for a pair of collision objects if they are in contact.\n\npython\n\nExample for contact testing:\n\nbody1 = BulletRigidBodyNode(\"body1\")\n...\n\nbody2 = BulletRigidBodyNode(\"body2\")\n...\n\nresult = world.contactTest(node1)\nresult = world.contactTestPair(node1, node2)\n\nprint(result.getNumContacts())\n\nfor contact in result.getContacts():\n  print(contact.getNode0())\n  print(contact.getNode1())",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_444",
+    "parent": "processed_documents/context_documents/1bf2fda4_32b65eff_queries.json",
+    "chunk_number": 6250
+  }
+}

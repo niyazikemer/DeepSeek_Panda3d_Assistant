@@ -1,0 +1,9 @@
+{
+  "content": "def freeDoId(self, doId):\n        \"\"\" Returns a doId back into the free pool for re-use. \"\"\"\n\n        assert self.isLocalId(doId)\n        self.doIdAllocator.free(doId)\n\n    def storeObjectLocation(self, object, parentId, zoneId):\n        # The CMU implementation doesn't use the DoCollectionManager\n        # much.\n        object.parentId = parentId\n        object.zoneId = zoneId\n\n    def createDistributedObject(self, className = None, distObj = None,\n                                zoneId = 0, optionalFields = None,\n                                doId = None, reserveDoId = False):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5664
+  }
+}

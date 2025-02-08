@@ -1,0 +1,9 @@
+{
+  "content": "It is, of course, impossible to split up every transparent object into individual pixels or polygons for sorting individually, so Panda sorts objects at the Geom level, according to the center of the bounding volume. This works well 95% of the time.\n\nYou run into problems with large flat polygons, though, since these tend to have parts that are far away from the center of their bounding volume. The bounding-volume sorting is especially likely to go awry when you have two or more large flats close behind the other, and you view them from slightly off-axis. (Try drawing a picture, of the two flats as seen from the top, and imagine yourself viewing them from different directions. Also imagine where the center of the bounding volumes is.)\n\nNow, there are a number of solutions to this sort of problem. No one solution is right for every situation.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_448",
+    "parent": "processed_documents/context_documents/d4aa489f_64e02051_transparency-and-blending.json",
+    "chunk_number": 6269
+  }
+}

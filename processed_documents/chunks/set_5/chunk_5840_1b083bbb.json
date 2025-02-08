@@ -1,0 +1,9 @@
+{
+  "content": "The parameter constrainedLoop works similarly to loop, but while loop=1 implies a loop within the entire range of animation, constrainedLoop=1 implies a loop within startFrame and endFrame only. That is, if you specify loop=1 and the animation plays past endFrame, in the next frame it will play beginning at frame 0; while if you specify constrainedLoop=1 instead, then the next frame after endFrame will be startFrame again.\n\nAll parameters other than the animation name are optional.\n\nfrom direct.interval.ActorInterval import ActorInterval\n\nmyInterval = myactor.actorInterval(\n    \"Animation Name\",\n    loop=<0 or 1>,\n    constrainedLoop=<0 or 1>,\n    duration=D,\n    startTime=T1,\n    endTime=T2,\n    startFrame=N1,\n    endFrame=N2,\n    playRate=R,\n    partName=PN,\n    lodName=LN,\n)\n\ncpp\n\nAs ActorInterval is implemented in Python, this section does not apply to C++.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_357",
+    "parent": "processed_documents/context_documents/42afdc61_e36f127f_actor-intervals.json",
+    "chunk_number": 5840
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Returns:\n            A `~direct.task.Task` that can be awaited.\n        \"\"\"\n        clock = self.clock\n        clock.mode = ClockObject.MNonRealTime\n        clock.dt = 1.0 / fps\n        t = self.taskMgr.add(self._movieTask, namePrefix + '_task')\n        t.frameIndex = 0  # Frame 0 is not captured.\n        t.numFrames = int(duration * fps)\n        t.source = source\n        t.outputString = namePrefix + '_%0' + repr(sd) + 'd.' + format\n        t.setUponDeath(lambda state: clock.setMode(ClockObject.MNormal))\n        return t\n\n    def _movieTask(self, state):\n        if state.frameIndex != 0:\n            frameName = state.outputString % state.frameIndex\n            self.notify.info(\"Capturing frame: \" + frameName)\n            self.screenshot(namePrefix = frameName, defaultFilename = 0,\n                            source = state.source)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5000
+  }
+}

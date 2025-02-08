@@ -1,0 +1,9 @@
+{
+  "content": "def _checkResume(self, timestamp):\n        \"\"\"\n        Determine if we were previously stopped and now need to\n        resume movement by making sure any old stored positions\n        reflect the node's current position\n        \"\"\"\n        if self.stopped:\n            currTime = ClockObject.getGlobalClock().getFrameTime()\n            now = currTime - self.smoother.getExpectedBroadcastPeriod()\n            last = self.smoother.getMostRecentTimestamp()\n            if now > last:\n                # only set a new timestamp postion if we still have\n                # a position being smoothed to (so we don't interrupt\n                # any current smoothing and only do this if the object\n                # is actually locally stopped)\n                if timestamp is None:\n                    # no timestamp, use current time\n                    local = 0.0\n                else:\n                    local = globalClockDelta.networkToLocalTime(\n                        timestamp, currTime)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5348
+  }
+}

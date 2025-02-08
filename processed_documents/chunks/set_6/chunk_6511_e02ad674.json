@@ -1,0 +1,9 @@
+{
+  "content": "PT(GenericAsyncTask) task;\ntask = new GenericAsyncTask(\"MyTaskName\", &example_task, nullptr);\n\ntask_mgr->add(task);\n\nYou can add an arbitrary argument to the call through the third parameter.\n\nAlthough normally each task is given a unique name, you may also create multiple different tasks with the same name. This can be convenient for locating or removing many task functions at the same time. Each task remains independent of the others, even if they have the same name; this means that a task function returning a \"done\" status will not affect any other task functions.\n\npython\n\nTo remove the task and stop it from executing, call taskMgr.remove(). You can pass in either the name of the task, or the task object (which was returned by taskMgr.add(), above).\n\ntaskMgr.remove('MyTaskName')\n\ncpp\n\nTo remove the task and stop it from executing, you can call task->remove().\n\ntask->remove();",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6511
+  }
+}

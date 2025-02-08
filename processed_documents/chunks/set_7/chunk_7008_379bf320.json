@@ -1,0 +1,9 @@
+{
+  "content": "You should call ~.NodePath.analyze() again after performing the flatten operation, to see how effective it was. There are some scenarios in which Panda3D cannot flatten together multiple models effectively, for example because they all have a unique texture applied, or contain other unique state changes that prevent flattening. See too-many-state-changes for more details.\n\nIndependently Moving Objects\n\nFlattening a node will cause that scene graph to become one static unit. This means that you will no longer be able to independently manipulate parts of a flattened scene anymore.\n\nYou can still flatten the nodes that need to move individually, or protect them using ModelNodes (as Panda does by default to individually loaded models), but this may not be sufficient if there are too many nodes that move independently.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_567",
+    "parent": "processed_documents/context_documents/342ef41e_d207c8ca_too-many-meshes.json",
+    "chunk_number": 7008
+  }
+}

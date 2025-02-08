@@ -1,0 +1,9 @@
+{
+  "content": "To use group mask filtering instead of the default bit mask filtering mentioned above, set the bullet-filter-algorithm configuration variable to groups-mask. The default collision matrix is set to only collide objects that are in the same group. As you make changes, the collision matrix is kept symmetrical along the line of the diagonal for you. So if you set Group 0 to collide with Group 1, then Group 1 will also automatically collide with Group 0.\n\nThe following collision matrix shows that the only collisions that occur are between group 1 and group 2, and group 2 with itself.\n\n\\ Group 0 Group 1 Group 2 Group 0 False False False Group 1 False True Group 2 True\n\nThe following code segment shows how this matrix is represented in code.\n\npython\n\n# Group 0 never collides\nworld.setGroupCollisionFlag(0, 0, False)\nworld.setGroupCollisionFlag(0, 1, False)\nworld.setGroupCollisionFlag(0, 2, False)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_726",
+    "parent": "processed_documents/context_documents/d4378174_cadceabb_collision-filtering.json",
+    "chunk_number": 7846
+  }
+}

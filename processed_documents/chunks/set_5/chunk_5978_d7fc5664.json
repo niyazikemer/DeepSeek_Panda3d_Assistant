@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\n// This makes everything drawn by the default camera use myNodePath's\n// RenderState.\nwindow->get_camera(0)->set_initial_state(myNodePath.get_state());\n\nYou may, however, want more control over what .RenderState gets assigned to each node in the scene. You can do this using the .Camera methods set_tag_state_key(key) <.Camera.set_tag_state_key> and set_tag_state(value, state) <.Camera.set_tag_state>. For any .NodePaths that you want to recieve special treatment you call set_tag(key, value) <.NodePath.set_tag> (see common-state-changes). Now, any time the camera sees an object with a tag named key, it is assigned whatever state is associated with value.\n\npython\n\n# Assume we have Shader instances toon_shader and blur_shader\n# and we have a Camera whose NodePath is myCamera",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_386",
+    "parent": "processed_documents/context_documents/64e38fe4_b8963543_multi-pass-rendering.json",
+    "chunk_number": 5978
+  }
+}

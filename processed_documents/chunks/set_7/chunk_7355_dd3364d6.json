@@ -1,0 +1,9 @@
+{
+  "content": "https://discourse.panda3d.org/t/using-c-20-coroutines-with-panda3d/27323\n\nLoading in a thread\n\nAlternatively, it is possible to use a separate thread to initiate the model load. Panda3D's scene graph is thread-safe and can safely handle model operations from any thread. See the threading page for more details.\n\nOne thing to note is that you may want to make sure that you complete all model operations (positioning, material assignments, etc.) before attaching it into the scene graph. Otherwise, if Panda3D happens to render a frame in between those calls, there is a chance that the model may briefly appear in its original state.\n\nOn-demand texture loading",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7355
+  }
+}

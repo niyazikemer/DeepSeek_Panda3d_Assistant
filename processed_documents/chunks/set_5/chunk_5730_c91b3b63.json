@@ -1,0 +1,9 @@
+{
+  "content": "def _stopMemLeakCheck(self):\n            del self._len\n\n        def _checkMemLeaks(self):\n            assert self._len == len(self._doId2name2data)\n\nif __debug__:\n    class TestCachedData(CachedDOData):\n        def __init__(self):\n            CachedDOData.__init__(self)\n            self._destroyed = False\n            self._flushed = False\n        def destroy(self):\n            CachedDOData.destroy(self)\n            self._destroyed = True\n        def flush(self):\n            CachedDOData.flush(self)\n            self._flushed = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_338",
+    "parent": "processed_documents/context_documents/66cf91ba_CRDataCache.json",
+    "chunk_number": 5730
+  }
+}

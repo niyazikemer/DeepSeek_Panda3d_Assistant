@@ -1,0 +1,9 @@
+{
+  "content": "Gloss Map Mode\n\nA gloss map is a black-and-white image indicating where the model is supposed to be shiny and where it is supposed to be dull. Gloss maps do not affect the color of the model - they affect the degree to which the model reflects specular highlights. So if no lights are applied to the model, and thus there are no specular highlights at all, then the gloss map will be invisible.\n\nMore precisely, the gloss map affects the material specular color of the model. If the model already has a material specular color, then it is multiplied by the value (0-1) in the gloss map. In this way, the gloss map can effectively turn on or off the specularity on a per-pixel basis. If the model does not already have a material specular color specified, then applying a gloss map causes the material specular color to range from off to bright white.\n\nA gloss map must be an alpha-texture:\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MGloss)\nsmiley.setTexture(ts, tex)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7037
+  }
+}

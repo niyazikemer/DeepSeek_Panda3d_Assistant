@@ -1,0 +1,9 @@
+{
+  "content": "def shutdown(self) -> None:\n        self.taskMgr.remove('audioLoop')\n        self.taskMgr.remove('igLoop')\n        self.taskMgr.remove('shadowCollisionLoop')\n        self.taskMgr.remove('collisionLoop')\n        self.taskMgr.remove('dataLoop')\n        self.taskMgr.remove('resetPrevTransform')\n        self.taskMgr.remove('ivalLoop')\n        self.taskMgr.remove('garbageCollectStates')\n        self.eventMgr.shutdown()\n\n    def getBackgroundColor(self, win = None):\n        \"\"\"\n        Returns the current window background color.  This assumes\n        the window is set up to clear the color each frame (this is\n        the normal setting).\n\n        :rtype: panda3d.core.VBase4\n        \"\"\"\n        if win is None:\n            win = self.win\n\n        return VBase4(win.getClearColor())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4965
+  }
+}

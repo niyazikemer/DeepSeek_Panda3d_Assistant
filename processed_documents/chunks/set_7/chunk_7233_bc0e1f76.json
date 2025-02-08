@@ -1,0 +1,9 @@
+{
+  "content": "ClientRepository.__init__(\n            self,\n            dcFileNames = dcFileNames,\n            threadedNet = True)\n\n        # Set the same port as configured on the server to be able to connect\n        # to it\n        tcpPort = ConfigVariableInt('server-port', 4400).getValue()\n\n        # Set the IP or hostname of the server we want to connect to\n        hostname = ConfigVariableString('server-host', '127.0.0.1').getValue()\n\n        # Build the URL from the server hostname and port. If your server\n        # uses another protocol then http you should change it accordingly.\n        # Make sure to pass the connectMethod to the ClientRepository.__init__\n        # call too.  Available connection methods are:\n        # self.CM_HTTP, self.CM_NET and self.CM_NATIVE\n        self.url = URLSpec('http://{}:{}'.format(hostname, tcpPort))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_613",
+    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
+    "chunk_number": 7233
+  }
+}

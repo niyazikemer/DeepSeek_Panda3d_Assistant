@@ -1,0 +1,9 @@
+{
+  "content": "def acquire(self):\n        self._refCount += 1\n    def release(self):\n        self._refCount -= 1\n        if not self._refCount:\n            self._destroy()\n\n    def _destroy(self):\n        del self._func\n        del self._name\n        del self._filenameBase\n        del self._filenameCounter\n        del self._filenames\n        del self._duration\n        del self._filename2ramFile\n        del self._resultCache\n        del self._successfulProfiles\n\n    def _reset(self):\n        self._filenameCounter = 0\n        self._filenames = []\n        # index of next file to be added to stats object\n        self._statFileCounter = 0\n        self._successfulProfiles = 0\n        self._duration = None\n        self._filename2ramFile = {}\n        self._stats = None\n        self._resultCache = {}\n\n    def _getNextFilename(self):\n        filename = '%s-%s' % (self._filenameBase, self._filenameCounter)\n        self._filenameCounter += 1\n        return filename",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5086
+  }
+}

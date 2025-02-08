@@ -1,0 +1,9 @@
+{
+  "content": "return AsyncTask::DS_cont;\n}\n\nint main(int argc, char *argv[]) {\n  // All variables.\n  PandaFramework framework;\n  WindowFramework *window;\n  NodePath camera;\n  PT(AsyncTaskManager) task_mgr;\n\n  // Init everything :D\n  framework.open_framework(argc, argv);\n  framework.set_window_title(\"Bullet Physics\");\n\n  window = framework.open_window();\n  window->enable_keyboard();\n  window->setup_trackball();\n\n  camera = window->get_camera_group();\n  task_mgr = AsyncTaskManager::get_global_ptr();\n\n  // Make physics simulation.\n  // Static world stuff.\n  get_physics_world()->set_gravity(0, 0, -9.81f);\n\n  PT(BulletPlaneShape) floor_shape = new BulletPlaneShape(LVecBase3(0, 0, 1), 1);\n  PT(BulletRigidBodyNode) floor_rigid_node = new BulletRigidBodyNode(\"Ground\");\n\n  floor_rigid_node->add_shape(floor_shape);\n\n  NodePath np_ground = window->get_render().attach_new_node(floor_rigid_node);\n  np_ground.set_pos(0, 0, -2);\n  get_physics_world()->attach(floor_rigid_node);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7105
+  }
+}

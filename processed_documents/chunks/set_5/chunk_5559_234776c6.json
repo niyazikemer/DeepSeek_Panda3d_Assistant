@@ -1,0 +1,9 @@
+{
+  "content": "def announceGenerate(self):\n        \"\"\"\n        Sends a message to the world after the object has been\n        generated and all of its required fields filled in.\n        \"\"\"\n        assert self.notify.debug('announceGenerate(): %s' % (self.doId))\n\n    def _deactivateDO(self):\n        # after this is called, the object is no longer an active DistributedObject\n        # and it may be placed in the cache\n        if not self.cr:\n            # we are going to crash, output the destroyDo stacktrace\n            self.notify.warning('self.cr is none in _deactivateDO %d' % self.doId)\n            if hasattr(self, 'destroyDoStackTrace'):\n                print(self.destroyDoStackTrace)\n        self.__callbacks = {}\n        self.cr.closeAutoInterests(self)\n        self.setLocation(0,0)\n        self.cr.deleteObjectLocation(self, self.parentId, self.zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5559
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "indices = array.array('H', [\n    0, 1, 2,  # the vertex indices of the 1st triangle\n    0, 2, 3   # the vertex indices of the 2nd triangle\n])\ntris_prim = GeomTriangles(GeomEnums.UH_static)\ntris_array = tris_prim.modify_vertices()\n# note that `unclean_set_num_rows` fills the primitive with more or fewer\n# random integer values, which can be much larger than the number of vertices\n# in the associated vertex data object; this will cause an error when the\n# primitive is added to the scenegraph, so make sure the correct indices are\n# assigned before doing so, or call `set_num_rows` (slightly slower) instead\ntris_array.unclean_set_num_rows(len(indices))\nview = memoryview(tris_array).cast('B').cast('H')\nview[:] = indices",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_561",
+    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
+    "chunk_number": 6970
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "PandaNode.resetAllPrevTransform()\n        return Task.cont\n\n    def __dataLoop(self, state):\n        # Check if there were newly connected devices.\n        self.devices.update()\n\n        # traverse the data graph.  This reads all the control\n        # inputs (from the mouse and keyboard, for instance) and also\n        # directly acts upon them (for instance, to move the avatar).\n        self.dgTrav.traverse(self.dataRootNode)\n        return Task.cont\n\n    def __ivalLoop(self, state):\n        # Execute all intervals in the global ivalMgr.\n        IntervalManager.ivalMgr.step()\n        return Task.cont\n\n    def initShadowTrav(self):\n        if not self.shadowTrav:\n            # set up the shadow collision traverser\n            self.shadowTrav = CollisionTraverser(\"base.shadowTrav\")\n            self.shadowTrav.setRespectPrevTransform(False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4957
+  }
+}

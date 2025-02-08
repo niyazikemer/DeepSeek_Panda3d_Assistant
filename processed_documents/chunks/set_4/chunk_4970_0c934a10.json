@@ -1,0 +1,9 @@
+{
+  "content": "def disableMouse(self):\n        \"\"\"\n        Temporarily disable the mouse control of the camera, either\n        via the drive interface or the trackball, whichever is\n        currently in use.\n        \"\"\"\n        # We don't reparent the drive interface or the trackball;\n        # whichever one was there before will remain in the data graph\n        # and active.  This way they won't lose button events while\n        # the mouse is disabled.  However, we do move the mouse2cam\n        # object out of there, so we won't be updating the camera any\n        # more.\n        if self.mouse2cam:\n            self.mouse2cam.detachNode()\n\n    def enableMouse(self):\n        \"\"\"\n        Reverse the effect of a previous call to `disableMouse()`.\n        `useDrive()` also implicitly enables the mouse.\n        \"\"\"\n        if self.mouse2cam:\n            self.mouse2cam.reparentTo(self.mouseInterface)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4970
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "If you have convex meshes or triangle meshes then it is better to \"bake\" the scale before creating the collision shape. Baking means to apply the scale to all vertices first, and then pass the scaled vertex positions to the convex or triangle mesh shape. This can be done before exporting your model from your modelling application, or in code after loading the model.\n\nPlease note that the effective scale applied to a Bullet collision shape is the global scale of the node, that is the scale component of the global transform of this node. So if you have the scene graph \"A\" --> \"B\" --> \"C\", then the effective scale of the node \"C\" is the scale set on \"A\" times the scale set on \"B\" times the scale set on \"C\".",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_672",
+    "parent": "processed_documents/context_documents/00e06f80_ea5f56a8_faq.json",
+    "chunk_number": 7588
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def run(self):\n        try:\n            # this yields a different set of start refs every time we start a new traversal\n            # force creation of a new workingListSelector inside the while loop right off the bat\n            workingListSelector = nullGen()\n            # this holds the current step of the current traversal\n            curObjRef = None\n            while True:\n                # yield up here instead of at the end, since we skip back to the\n                # top of the while loop from various points\n                yield None\n                #import pdb;pdb.set_trace()\n                if curObjRef is None:\n                    # choose an object to start a traversal from\n                    try:\n                        startRefWorkingList = next(workingListSelector)\n                    except StopIteration:\n                        # do relative # of traversals on each set based on how many refs it contains",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4497
+  }
+}

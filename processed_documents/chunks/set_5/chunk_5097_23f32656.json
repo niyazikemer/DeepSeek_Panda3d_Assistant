@@ -1,0 +1,9 @@
+{
+  "content": "class SfxPlayer:\n    \"\"\"\n    Play sound effects, potentially localized.\n    \"\"\"\n\n    UseInverseSquare = 0\n\n    def __init__(self):\n        # volume attenuates according to the inverse square of the\n        # distance from the source. volume = 1/(distance^2)\n        # this is the volume at which a sound is nearly inaudible\n        self.cutoffVolume = .02\n\n        # cutoff for inverse square attenuation\n        if SfxPlayer.UseInverseSquare:\n            self.setCutoffDistance(300.0)\n        else:\n            # Distance at which sounds can no longer be heard\n            # This was determined experimentally\n            self.setCutoffDistance(120.0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_289",
+    "parent": "processed_documents/context_documents/cac8bf59_SfxPlayer.json",
+    "chunk_number": 5097
+  }
+}

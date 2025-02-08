@@ -1,0 +1,9 @@
+{
+  "content": "def _getNextHandle(self):\n        handle = DoInterestManager._HandleSerialNum\n        while True:\n            handle = (handle + 1) & DoInterestManager._HandleMask\n            # skip handles that are already in use\n            if handle not in DoInterestManager._interests:\n                break\n            DoInterestManager.notify.warning(\n                'interest %s already in use' % handle)\n        DoInterestManager._HandleSerialNum = handle\n        return DoInterestManager._HandleSerialNum\n    def _getNextContextId(self):\n        contextId = DoInterestManager._ContextIdSerialNum\n        while True:\n            contextId = (contextId + 1) & DoInterestManager._ContextIdMask\n            # skip over the 'no context' id\n            if contextId != NO_CONTEXT:\n                break\n        DoInterestManager._ContextIdSerialNum = contextId\n        return DoInterestManager._ContextIdSerialNum",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5224
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# set up the RAM file\n            self._filenames.append(self._getNextFilename())\n            filename = self._filenames[-1]\n            _installProfileCustomFuncs(filename)\n\n            # do the profiling\n            Profile = profile.Profile\n            statement = 'globalProfileSessionResult[0]=globalProfileSessionFunc()'\n            sort = -1\n            retVal = None\n\n            # this is based on profile.run, the code is replicated here to allow us to\n            # eliminate a memory leak\n            prof = Profile()\n            try:\n                prof = prof.run(statement)\n            except SystemExit:\n                pass\n            # this has to be run immediately after profiling for the timings to be accurate\n            # tell the Profile object to generate output to the RAM file\n            prof.dump_stats(filename)\n\n            # eliminate the memory leak\n            del prof.dispatcher",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5088
+  }
+}

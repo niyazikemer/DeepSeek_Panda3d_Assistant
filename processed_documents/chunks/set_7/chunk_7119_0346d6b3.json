@@ -1,0 +1,9 @@
+{
+  "content": "#AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n    #to update the AIWorld\n    def AIUpdate(self,task):\n        self.AIworld.update()\n        return Task.cont\n\n    #All the movement functions for the Target\n    def setMovement(self):\n        self.keyMap = {\"left\": 0, \"right\": 0, \"up\": 0, \"down\": 0}\n        self.accept(\"arrow_left\", self.setKey, [\"left\", 1])\n        self.accept(\"arrow_right\", self.setKey, [\"right\", 1])\n        self.accept(\"arrow_up\", self.setKey, [\"up\", 1])\n        self.accept(\"arrow_down\", self.setKey, [\"down\", 1])\n        self.accept(\"arrow_left-up\", self.setKey, [\"left\", 0])\n        self.accept(\"arrow_right-up\", self.setKey, [\"right\", 0])\n        self.accept(\"arrow_up-up\", self.setKey, [\"up\", 0])\n        self.accept(\"arrow_down-up\", self.setKey, [\"down\", 0])\n        #movement task\n        taskMgr.add(self.Mover, \"Mover\")\n\n        addInstructions(0.9, \"Use the Arrow keys to move the Red Target\")",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_587",
+    "parent": "processed_documents/context_documents/d3846491_e4337389_evade.json",
+    "chunk_number": 7119
+  }
+}

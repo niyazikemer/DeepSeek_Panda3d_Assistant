@@ -1,0 +1,9 @@
+{
+  "content": "self.AIchar = AICharacter(\"seeker\",self.seeker, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        self.AIbehaviors.seek(self.target)\n        self.seeker.loop(\"run\")\n\n        #AI World update\n        taskMgr.add(self.AIUpdate,\"AIUpdate\")\n\n    #to update the AIWorld\n    def AIUpdate(self,task):\n        self.AIworld.update()\n        return Task.cont\n\nw = World()\nbase.run()\n\nNote It doesn't matter where your seek is first called (ie. before the AIWorld update or after) it should still work as soon as the Update starts processing.\n\nNote: This above example is only for seek but if you go to each of the pages, a separate example is provided showing you each AI individually.\n\nIf you want to get a working demo of this tutorial, please visit :\n\nhttps://sites.google.com/site/etcpandai/documentation/getting-started/PandAIBasicTutorial.zip?attredirects=0&d=1\n\nNext Step:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_589",
+    "parent": "processed_documents/context_documents/3d40f64e_a5e34e22_getting-started.json",
+    "chunk_number": 7127
+  }
+}

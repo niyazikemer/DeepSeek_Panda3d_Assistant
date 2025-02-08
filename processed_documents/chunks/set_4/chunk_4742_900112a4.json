@@ -1,0 +1,9 @@
+{
+  "content": "class LeakDetector:\n    def __init__(self):\n        # put this object just under __builtins__ where the\n        # ContainerLeakDetector will find it quickly\n        if not hasattr(builtins, \"leakDetectors\"):\n            builtins.leakDetectors = {}\n        self._leakDetectorsKey = self.getLeakDetectorKey()\n        if __dev__:\n            assert self._leakDetectorsKey not in builtins.leakDetectors\n        builtins.leakDetectors[self._leakDetectorsKey] = self\n\n    def destroy(self):\n        del builtins.leakDetectors[self._leakDetectorsKey]\n\n    def getLeakDetectorKey(self):\n        # this string will be shown to the end user and should ideally contain enough information to\n        # point to what is leaking\n        return '%s-%s' % (self.__class__.__name__, id(self))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4742
+  }
+}

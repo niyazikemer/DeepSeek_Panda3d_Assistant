@@ -1,0 +1,9 @@
+{
+  "content": "There are a few things you need to do to activate this mode.\n\n1. First, you must tell the CollisionTraverser that you intend to use this mode; by default, it ignores the previous position information. To activate this mode, call:\n\npython\n\nbase.cTrav.setRespectPrevTransform(True)\n\ncpp\n\ntraverser->set_respect_prev_transform(true);\n\nYou only need to make this call once, at the beginning of your application (or whenever you create the CollisionTraverser). That switches the CollisionTraverser into the new mode. If you create any additional CollisionTraversers, you should make the call for them as well.\n\n2. Ensure that PandaNode.reset_all_prev_transform() is called every frame. Actually, this is already done for you automatically by ShowBase.py, so normally you don't need to do anything for this step.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_650",
+    "parent": "processed_documents/context_documents/df1bf3af_582a2f76_rapidly-moving-objects.json",
+    "chunk_number": 7456
+  }
+}

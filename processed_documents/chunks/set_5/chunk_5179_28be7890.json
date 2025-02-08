@@ -1,0 +1,9 @@
+{
+  "content": "def readerPollOnce(self):\n        \"\"\" checks for available messages to the server \"\"\"\n\n        availGetVal = self.qcr.dataAvailable()\n        if availGetVal:\n            datagram = NetDatagram()\n            readRetVal = self.qcr.getData(datagram)\n            if readRetVal:\n                # need to send to message processing unit\n                self.handleDatagram(datagram)\n        return availGetVal\n\n    def handleDatagram(self, datagram):\n        \"\"\" switching station for messages \"\"\"\n\n        client = self.clientsByConnection.get(datagram.getConnection())\n\n        if not client:\n            # This shouldn't be possible, though it appears to happen\n            # sometimes?\n            self.notify.warning(\n                \"Ignoring datagram from unknown connection %s\" % (datagram.getConnection()))\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5179
+  }
+}

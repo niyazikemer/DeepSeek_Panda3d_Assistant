@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nPT(GeomVertexArrayFormat) array;\narray = new GeomVertexArrayFormat();\narray->add_column(InternalName::make(\"vertex\"), 3,\n                  Geom::NT_float32, Geom::C_point);\n\nThe parameters to ~.GeomVertexArrayFormat.add_column() are, in order, the column name, the number of components, the numeric type, and the contents specification. See geomvertexformat for a detailed description of each of these parameters and their appropriate values. You may also supply an optional fifth parameter, which specifies the byte offset within the row at which the column's data begins; but normally you should omit this to indicate that the column's data immediately follows the previous column's data.\n\ncpp\n\nNote that the column name should be an .InternalName object, as returned by a call to .InternalName.make(). This is Panda's mechanism for tokenizing a string name, to allow for fast name lookups during rendering. Other than this detail, the column name is really just an arbitrary string.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_482",
+    "parent": "processed_documents/context_documents/98868df0_5990f8cd_custom-vertex-format.json",
+    "chunk_number": 6436
+  }
+}

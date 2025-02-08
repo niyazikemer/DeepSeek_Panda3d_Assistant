@@ -1,0 +1,9 @@
+{
+  "content": "def isGridParent(self):\n        # If this distributed object is a DistributedGrid return 1.\n        # 0 by default\n        return 1\n\n    def getCellWidth(self):\n        return self.cellWidth\n\n    def getParentingRules(self):\n        self.notify.debug(\"calling getter\")\n        rule = (\"%i%s%i%s%i\" % (self.startingZone, self.RuleSeparator,\n                                self.gridSize, self.RuleSeparator,\n                                self.gridRadius))\n        return [self.style, rule]\n\n    # Reparent and setLocation on av to DistributedOceanGrid\n    def addObjectToGrid(self, av, useZoneId=-1, startAutoUpdate=True):\n        self.notify.debug(\"setting parent to grid %s\" % self)\n        avId = av.doId\n\n        # Create a grid parent\n        #gridParent = self.attachNewNode(\"gridParent-%s\" % avId)\n        #self.gridParents[avId] = gridParent\n        self.gridObjects[avId] = av\n\n        # Put the avatar on the grid\n        self.handleAvatarZoneChange(av, useZoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_325",
+    "parent": "processed_documents/context_documents/7ef9e01d_DistributedCartesianGridAI.json",
+    "chunk_number": 5575
+  }
+}

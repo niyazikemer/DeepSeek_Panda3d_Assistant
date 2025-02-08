@@ -1,0 +1,9 @@
+{
+  "content": "This function is designed to be safe to call multiple times.\n\n        When called from a thread other than the main thread, this will create\n        a task to schedule the destroy on the main thread, and wait for this to\n        complete.\n        \"\"\"\n\n        if sys.platform != \"android\" and Thread.getCurrentThread() != Thread.getMainThread():\n            task = taskMgr.add(self.destroy, extraArgs=[])\n            task.wait()\n            return\n\n        for cb in self.finalExitCallbacks[:]:\n            cb()\n\n        # Remove the built-in base reference\n        if getattr(builtins, 'base', None) is self:\n            del builtins.run\n            del builtins.base\n            del builtins.loader\n            del builtins.taskMgr\n            ShowBaseGlobal = sys.modules.get('direct.showbase.ShowBaseGlobal', None)\n            if ShowBaseGlobal:\n                del ShowBaseGlobal.base",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4878
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedObjectGlobalUD(DistributedObjectUD):\n    notify = directNotify.newCategory('DistributedObjectGlobalUD')\n\n    doNotDeallocateChannel = 1\n    isGlobalDistObj = 1\n\n    def __init__(self, air):\n        DistributedObjectUD.__init__(self, air)\n        self.ExecNamespace = {\"self\":self}\n\n    def announceGenerate(self):\n        self.air.registerForChannel(self.doId)\n        DistributedObjectUD.announceGenerate(self)\n\n    def delete(self):\n        self.air.unregisterForChannel(self.doId)\n        ## self.air.removeDOFromTables(self)\n        DistributedObjectUD.delete(self)\n\n    def execCommand(self, command, mwMgrId, avId, zoneId):\n        length = ConfigVariableInt(\"ai-debug-length\", 300)\n        text = str(self.__execMessage(command))[:length.value]\n        self.notify.info(text)\n\n    def __execMessage(self, message):\n        if not self.ExecNamespace:\n            # Import some useful variables into the ExecNamespace initially.\n            import panda3d.core",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_328",
+    "parent": "processed_documents/context_documents/9ec1bded_DistributedObjectGlobalUD.json",
+    "chunk_number": 5623
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class ClientRepository(ClientRepositoryBase):\n    \"\"\"\n    This is the open-source ClientRepository as provided by CMU.  It\n    communicates with the ServerRepository in this same directory.\n\n    If you are looking for the VR Studio's implementation of the\n    client repository, look to OTPClientRepository (elsewhere).\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"ClientRepository\")\n\n    # This is required by DoCollectionManager, even though it's not\n    # used by this implementation.\n    GameGlobalsId = 0\n\n    doNotDeallocateChannel = True\n\n    def __init__(self, dcFileNames = None, dcSuffix = '', connectMethod = None,\n                 threadedNet = None):\n        ClientRepositoryBase.__init__(self, dcFileNames = dcFileNames, dcSuffix = dcSuffix, connectMethod = connectMethod, threadedNet = threadedNet)\n        self.setHandleDatagramsInternally(False)\n\n        base.finalExitCallbacks.append(self.shutdown)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5658
+  }
+}

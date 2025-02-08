@@ -1,0 +1,9 @@
+{
+  "content": "The debug node is pretty easy to use. We just need to create such a node, place it in the scene graph, and tell the Bullet world that we have such a node. From now on Bullet will create a \"debug\" visualisation of the world's content within the debug node, whenever ~panda3d.bullet.BulletWorld.do_physics() is called. The following code snippet shows how to do this:\n\npython\n\nfrom panda3d.bullet import BulletDebugNode\n\ndebugNode = BulletDebugNode('Debug')\ndebugNode.showWireframe(True)\ndebugNode.showConstraints(True)\ndebugNode.showBoundingBoxes(False)\ndebugNode.showNormals(False)\ndebugNP = render.attachNewNode(debugNode)\ndebugNP.show()\n\nworld = BulletWorld()\nworld.setGravity(Vec3(0, 0, -9.81))\nworld.setDebugNode(debugNP.node())\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_603",
+    "parent": "processed_documents/context_documents/5e747db8_2c6507d0_debug-renderer.json",
+    "chunk_number": 7195
+  }
+}

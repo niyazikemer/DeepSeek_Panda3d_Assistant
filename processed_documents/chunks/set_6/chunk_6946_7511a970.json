@@ -1,0 +1,9 @@
+{
+  "content": "python\n\ndef processInput(self):\n    speed = Vec3(0, 0, 0)\n    omega = 0.0\n\n    if inputState.isSet('forward'): speed.setY( 3.0)\n    if inputState.isSet('reverse'): speed.setY(-3.0)\n    if inputState.isSet('left'):    speed.setX(-3.0)\n    if inputState.isSet('right'):   speed.setX( 3.0)\n    if inputState.isSet('turnLeft'):  omega =  120.0\n    if inputState.isSet('turnRight'): omega = -120.0\n\n    self.player.setAngularMovement(omega)\n    self.player.setLinearMovement(speed, True)\n\ncpp\n\nvoid characterMove (std::vector<bool> *KeyMap) {\n        LVecBase3 speed = LVecBase3(0, 0, 0);\n        float omega = 0.0;\n\n        if (KeyMap->at(MOVE_FORWARD)) { speed.set_y (3.0); }\n        if (KeyMap->at(MOVE_REVERSE)) { speed.set_y (-3.0); }\n        if (KeyMap->at(MOVE_LEFT)) { speed.set_x (-3.0); }\n        if (KeyMap->at(MOVE_RIGHT)) { speed.set_x (3.0); }\n        if (keyMap->at(TURN_LEFT)) { omege = 120.0; }\n        if (keyMap->at(TURN_RIGHT)) { omega = -120.0 }",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_554",
+    "parent": "processed_documents/context_documents/7d1f7487_d82f40be_character-controller.json",
+    "chunk_number": 6946
+  }
+}

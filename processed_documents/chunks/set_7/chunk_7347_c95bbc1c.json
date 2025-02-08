@@ -1,0 +1,9 @@
+{
+  "content": "Asynchronous Loading\n\nWe've seen a basic way to load models in model-files using loader.loadModel() <direct.showbase.Loader.Loader.loadModel>. The major problem with this call is that it blocks the main thread while the model is being loaded, which means that all other tasks on the main thread (including Panda's rendering task) are blocked until the model has finished loading. This is noticeable by the user as a jarring lag, especially when the application freezes for longer periods of time.\n\npython\n\nThe following example demonstrates the naive way to load the scene models:\n\nclass Game(ShowBase):\n    def __init__(self):\n        ShowBase.__init__(self)\n\n        self.loadScene()\n\n    def loadScene(self):\n        text = OnscreenText(\"Loading\u2026\")\n\n        self.terrainModel = loader.loadModel(\"terrain\")\n        self.terrainModel.reparentTo(render)\n        self.cityModel = loader.loadModel(\"city\")\n        self.cityModel.reparentTo(render)\n\n        text.destroy()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7347
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def randUint31(rng=random.random):\n    \"\"\"returns a random integer in [0..2^31).\n    rng must return float in [0..1]\"\"\"\n    return int(rng() * 0x7FFFFFFF)\n\n\ndef randInt32(rng=random.random):\n    \"\"\"returns a random integer in [-2147483648..2147483647].\n    rng must return float in [0..1]\n    \"\"\"\n    i = int(rng() * 0x7FFFFFFF)\n    if rng() < .5:\n        i *= -1\n    return i",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4652
+  }
+}

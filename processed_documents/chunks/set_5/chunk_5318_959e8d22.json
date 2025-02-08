@@ -1,0 +1,9 @@
+{
+  "content": "importSymbols = []\n                for i in range(dcFile.getNumImportSymbols(n)):\n                    symbolName = dcFile.getImportSymbol(n, i)\n\n                    # Check for the OV suffix\n                    suffix = symbolName.split('/')\n                    symbolName = suffix[0]\n                    suffix=suffix[1:]\n                    if ownerDcSuffix in suffix:\n                        symbolName += ownerDcSuffix\n                    importSymbols.append(symbolName)\n                    ownerImportSymbols[symbolName] = None\n\n                self.importModule(dcImports, moduleName, importSymbols)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5318
+  }
+}

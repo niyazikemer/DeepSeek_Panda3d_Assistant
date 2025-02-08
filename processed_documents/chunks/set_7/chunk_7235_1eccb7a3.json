@@ -1,0 +1,9 @@
+{
+  "content": "# We must wait for the TimeManager to be fully created and\n        # synced before we can enter another zone and wait for the\n        # game object.  The uniqueName is important that we get the\n        # correct, our sync message from the TimeManager and not\n        # accidentally a message from another client\n        self.acceptOnce(self.uniqueName('gotTimeSync'), self.syncReady)\n\n    def syncReady(self):\n        \"\"\" Now we've got the TimeManager manifested, and we're in\n        sync with the server time.  Now we can enter the world.  Check\n        to see if we've received our doIdBase yet. \"\"\"\n\n        # This method checks whether we actually have a valid doID range\n        # to create distributed objects yet\n        if self.haveCreateAuthority():\n            # we already have one\n            self.gotCreateReady()\n        else:\n            # Not yet, keep waiting a bit longer.\n            self.accept(self.uniqueName('createReady'), self.gotCreateReady)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_613",
+    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
+    "chunk_number": 7235
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "If you want to modify the vertex data, you have two choices. The simplest option is to create a new geomvertexdata and fill it up with your new vertex data (as described in creating-and-filling-a-geomvertexdata), and then assigning this data to the geom with the call geom.set_vertex_data() <.Geom.set_vertex_data>. You must ensure that you add enough vertices to the new GeomVertexData to satisfy the GeomPrimitives that reference it.\n\nYour second choice is to modify the vertex data in-place, by operating on the existing vertices. You can do this with a GeomVertexWriter <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>. For instance, if you want to copy the (X, Y) position of each vertex to its (U, V) texture coordinate, you could do something like this:\n\npython\n\ntexcoord = GeomVertexWriter(vdata, 'texcoord')\nvertex = GeomVertexReader(vdata, 'vertex')\n\nwhile not vertex.isAtEnd():\n    v = vertex.getData3()\n    texcoord.setData2(v[0], v[1])\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_362",
+    "parent": "processed_documents/context_documents/367417a0_6ffafe16_modifying-existing-geometry.json",
+    "chunk_number": 5856
+  }
+}

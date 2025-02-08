@@ -1,0 +1,9 @@
+{
+  "content": "python\n\n# Make it appear as though it is 10 units in front of the camera\nmyNodePath.setBillboardPointEye(-10, fixed_depth=True)\n\nmyNodePath.setBin(\"fixed\", 0)\nmyNodePath.setDepthWrite(False)\nmyNodePath.setDepthTest(False)\n\ncpp\n\n// Make it appear as though it is 10 units in front of the camera\nmyNodePath.set_billboard_point_eye(-10, true);\n\nmyNodePath.set_bin(\"fixed\", 0);\nmyNodePath.set_depth_write(false);\nmyNodePath.set_depth_test(false);\n\nThere are several more options available on a BillboardEffect, but these are rarely used. If you need to take advantage of any of these more esoteric options, you must create a .BillboardEffect and apply it to the node yourself:\n\nmyEffect = BillboardEffect.make(\n    up_vector=vec3,\n    eye_relative=bool,\n    axial_rotate=bool,\n    offset=float,\n    look_at=nodepath,\n    look_at_point=point3,\n    fixed_depth=bool\n)\nmyNodePath.node().setEffect(myEffect)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_636",
+    "parent": "processed_documents/context_documents/39bf3fcc_b9518b3a_billboard.json",
+    "chunk_number": 7399
+  }
+}

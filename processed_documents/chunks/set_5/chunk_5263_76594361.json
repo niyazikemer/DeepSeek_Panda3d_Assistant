@@ -1,0 +1,9 @@
+{
+  "content": "def flush(self):\n        \"\"\"\n        Delete each item in the cache then clear all references to them\n        \"\"\"\n        assert self.checkCache()\n        CRCache.notify.debug(\"Flushing the cache\")\n        # NOTE: delayDeleted objects should no longer get into the cache in the first place\n        # give objects a chance to clean themselves up before checking for DelayDelete leaks\n        messenger.send('clientCleanup')\n        # some of these objects might be holding delayDeletes on others\n        # track each object that is delayDeleted after it gets its chance to delete,\n        # and check them after all objects have had a chance to delete\n        delayDeleted = []\n        for distObj in self.dict.values():\n            distObj.deleteOrDelay()\n            if distObj.getDelayDeleteCount() != 0:\n                delayDeleted.append(distObj)\n            if distObj.getDelayDeleteCount() <= 0:\n                # make sure we're not leaking\n                distObj.detectLeaks()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5263
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class SubframeCall:\n    \"\"\"Calls a callback at a specific time during the frame using the\n    task system\"\"\"\n\n    def __init__(self, functor, taskPriority, name=None):\n        self._functor = functor\n        self._name = name\n        self._taskName = uniqueName('SubframeCall-%s' % self._name)\n        taskMgr.add(self._doCallback,\n                    self._taskName,\n                    priority=taskPriority)\n\n    def _doCallback(self, task):\n        functor = self._functor\n        del self._functor\n        functor()\n        del self._name\n        self._taskName = None\n        return task.done\n\n    def cleanup(self):\n        if self._taskName:\n            taskMgr.remove(self._taskName)\n            self._taskName = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4680
+  }
+}

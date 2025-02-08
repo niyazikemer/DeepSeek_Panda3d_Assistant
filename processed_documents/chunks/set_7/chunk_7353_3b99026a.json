@@ -1,0 +1,9 @@
+{
+  "content": "We need to use await on this future object to suspend the task while the operation is not yet done.\n\nThis may seem complicated at first, but it really allows us to write much more straightforward code:\n\nclass Game(ShowBase):\n    def __init__(self):\n        ShowBase.__init__(self)\n\n        self.accept('escape', self.quit)\n\n        self.taskMgr.add(self.loadScene())\n\n    async def loadScene(self):\n        text = OnscreenText(\"Loading\u2026\")\n\n        # Load the models in the background, each time suspending this\n        # method until they are done\n        self.terrainModel = await loader.loadModel(\"terrain\", blocking=False)\n        self.cityModel = await loader.loadModel(\"city\", blocking=False)\n\n        self.terrainModel.reparentTo(render)\n        self.cityModel.reparentTo(render)\n\n        text.destroy()\n\n    def quit(self):\n        sys.exit()\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7353
+  }
+}

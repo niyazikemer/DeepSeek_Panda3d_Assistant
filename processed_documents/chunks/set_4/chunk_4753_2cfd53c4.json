@@ -1,0 +1,9 @@
+{
+  "content": "class _MessageTypeLeakDetector(LeakDetector, MessageLeakDetectorBase):\n    # tracks the number of objects that are listening to each message\n    def __init__(self, msgNamePattern):\n        self._msgNamePattern = msgNamePattern\n        self._msgNames = set()\n        LeakDetector.__init__(self)\n\n    def addMsgName(self, msgName):\n        # for efficiency, we keep the actual message names around\n        # for queries on the messenger\n        self._msgNames.add(msgName)\n\n    def __len__(self):\n        toRemove = set()\n        num = 0\n        for msgName in self._msgNames:\n            n = messenger._getNumListeners(msgName)\n            if n == 0:\n                toRemove.add(msgName)\n            else:\n                num += n\n        # remove message names that are no longer in the messenger\n        self._msgNames.difference_update(toRemove)\n        return num\n\n    def getLeakDetectorKey(self):\n        return '%s-%s' % (self._msgNamePattern, self.__class__.__name__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4753
+  }
+}

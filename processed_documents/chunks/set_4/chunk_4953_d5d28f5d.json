@@ -1,0 +1,9 @@
+{
+  "content": "# enable/disableAllAudio allow a programmable global override-off\n    # for current audio settings.  they're meant to be called when app\n    # loses audio focus (switched out), so we can turn off sound without\n    # affecting internal sfxActive/musicActive sound settings, so things\n    # come back ok when the app is switched back to\n\n    def disableAllAudio(self):\n        \"\"\"\n        Disables all SFX and music managers, meant to be called when the app\n        loses audio focus.\n        \"\"\"\n        self.AppHasAudioFocus = 0\n        self.SetAllSfxEnables(0)\n        if self.musicManagerIsValid:\n            self.musicManager.setActive(0)\n        self.notify.debug(\"Disabling audio\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4953
+  }
+}

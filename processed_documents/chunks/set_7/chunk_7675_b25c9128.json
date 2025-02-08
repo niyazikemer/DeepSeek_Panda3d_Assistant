@@ -1,0 +1,9 @@
+{
+  "content": "If you want, you can change the image into another one using setImage():\n\nimageObject.setImage('myImage2.jpg')\n\nWhen you want to take the image away, use:\n\nimageObject.destroy()\n\nA full list of arguments that can be passed to the constructor is available on the ~.direct.gui.OnscreenText.OnscreenText page of the API reference.\n\nGenerating a card\n\n.CardMaker is a convenience class that can be used to generate a card with arbitrary dimensions. It can be used for rendering an image in the 3D or 2D scene. The image should be loaded as a texture and then applied to the generated card:\n\npython\n\ncm = CardMaker('card')\ncard = render2d.attachNewNode(cm.generate())\n\ntex = loader.loadTexture('maps/noise.rgb')\ncard.setTexture(tex)\n\ncpp\n\nCardMaker cm(\"card\");\nNodePath card = render2d.attach_new_node(cm.generate());\n\nPT(Texture) tex = TexturePool::load_texture(\"maps/noise.rgb\");\ncard.set_texture(tex);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_690",
+    "parent": "processed_documents/context_documents/f5e8a56c_dd3d2a8a_rendering-images.json",
+    "chunk_number": 7675
+  }
+}

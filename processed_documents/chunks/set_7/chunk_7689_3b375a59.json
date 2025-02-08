@@ -1,0 +1,9 @@
+{
+  "content": "Note, however, that Actor is a Python class that extends the C++ NodePath class. For the most part, you don't have to think about this: Actor inherits sensibly from NodePath and generally does what you expect. There are a few subtle oddities, though. When you attach an Actor into a scene graph, the low-level C++ Panda constructs only record the NodePath part of the Actor in the scene graph, which is fine as long as you also keep a pointer to the Actor instance in your Python objects. If you let the Actor destruct, however, its visible geometry will remain, but it will cease animating (because it is no longer an Actor). Also, even if you keep the Actor object around, if you retrieve a new pointer to the Actor from the scene graph (for instance, as returned by the collision system), you will get back just an ordinary NodePath, not an Actor.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_694",
+    "parent": "processed_documents/context_documents/604afc7a_b9f103d9_loading-actors-and-animations.json",
+    "chunk_number": 7689
+  }
+}

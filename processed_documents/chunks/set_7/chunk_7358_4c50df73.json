@@ -1,0 +1,9 @@
+{
+  "content": "You can use .DisplayRegion.set_texture_reload_priority() if you want ensure that textures in some scenes are loaded with higher priority than other scenes.\n\nAnimation loading\n\nA similar behavior can be enabled for Actors, so that when you have an Actor with a large number of animations (too many to preload them all at once), you can have the Actor load them on-demand, so that when you play an animation, the animation may not start playing immediately, but will instead be loaded in the background. Until it is ready, the actor will hold its last pose, and then when the animation is fully loaded, the actor will start playing where it would have been had the animation been loaded from the beginning. To make this work, you have to run all of the animations through egg-optchar with the -preload option, and you might also want to set:\n\nallow-async-bind 1\nrestore-initial-pose 0\n\nConfiguration",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7358
+  }
+}

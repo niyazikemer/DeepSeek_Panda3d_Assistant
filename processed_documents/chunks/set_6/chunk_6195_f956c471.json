@@ -1,0 +1,9 @@
+{
+  "content": "if inputState.isSet('forward'):\n    engineForce = 1000.0\n    brakeForce = 0.0\n\nif inputState.isSet('reverse'):\n    engineForce = 0.0\n    brakeForce = 100.0\n\nif inputState.isSet('turnLeft'):\n    steering += dt * steeringIncrement\n    steering = min(steering, steeringClamp)\n\nif inputState.isSet('turnRight'):\n    steering -= dt * steeringIncrement\n    steering = max(steering, -steeringClamp)\n\n# Apply steering to front wheels\nvehicle.setSteeringValue(steering, 0)\nvehicle.setSteeringValue(steering, 1)\n\n# Apply engine and brake to rear wheels\nvehicle.applyEngineForce(engineForce, 2)\nvehicle.applyEngineForce(engineForce, 3)\nvehicle.setBrake(brakeForce, 2)\nvehicle.setBrake(brakeForce, 3)\n\nMore realistic control models can be invented, in order to meet the control requirements of individual driving games. For example:\n\nRelaxing the steering angle to zero if the user does no hold down the left or right keys.\n\nReducing the maximum steering angle with increasing vehicle speed.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_432",
+    "parent": "processed_documents/context_documents/e8a9ae27_79b9f95b_vehicles.json",
+    "chunk_number": 6195
+  }
+}

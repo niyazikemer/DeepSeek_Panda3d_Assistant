@@ -1,0 +1,9 @@
+{
+  "content": "def getRender(self):\n        # note that this will return a different node if we change zones\n        return self.air.getRender(self.zoneId)\n\n    def getNonCollidableParent(self):\n        return self.air.getNonCollidableParent(self.zoneId)\n\n    def getParentMgr(self):\n        return self.air.getParentMgr(self.zoneId)\n\n    def getCollTrav(self, *args, **kArgs):\n        return self.air.getCollTrav(self.zoneId, *args, **kArgs)\n\n    def sendUpdate(self, fieldName, args = []):\n        assert self.notify.debugStateCall(self)\n        if self.air:\n            self.air.sendUpdate(self, fieldName, args)\n\n    def GetPuppetConnectionChannel(self, doId):\n        return doId + (1001 << 32)\n\n    def GetAccountConnectionChannel(self, doId):\n        return doId + (1003 << 32)\n\n    def GetAccountIDFromChannelCode(self, channel):\n        return channel >> 32\n\n    def GetAvatarIDFromChannelCode(self, channel):\n        return channel & 0xffffffff",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5503
+  }
+}

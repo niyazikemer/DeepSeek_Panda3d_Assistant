@@ -1,0 +1,9 @@
+{
+  "content": "MeshDrawer works by using calls similar to Panda3D's animation system and basically creates a buffer of undefined vertices which is then morphed into the shape you specify. Triangles which don't get used are turned into micro (0,0,0) triangles so that they will not be visible. Then those vertices are shipped to the GPU every frame, it's good to keep a low count of triangles in this buffer. This is also why the begin and end are needed to mark the vertex as being edited and then submit them back to Panda3D when finished.\n\nYou can also take a look at ~panda3d.core.MeshDrawer2D.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_460",
+    "parent": "processed_documents/context_documents/97490678_7fe92637_meshdrawer.json",
+    "chunk_number": 6353
+  }
+}

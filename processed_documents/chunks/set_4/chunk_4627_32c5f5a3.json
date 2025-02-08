@@ -1,0 +1,9 @@
+{
+  "content": "def _profileOpen(filename, *args, **kArgs):\n        # this is a replacement for the file open() builtin function\n        # for use during profiling, to intercept the file open\n        # operation used by the Python profiler and profile stats\n        # systems\n        if filename in profileFilenames:\n            # if this is a file related to profiling, create an\n            # in-RAM file object\n            if filename not in profileFilename2file:\n                file = StringIO()\n                file._profFilename = filename\n                profileFilename2file[filename] = file\n            else:\n                file = profileFilename2file[filename]\n        else:\n            file = movedOpenFuncs[-1](filename, *args, **kArgs)\n        return file",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4627
+  }
+}

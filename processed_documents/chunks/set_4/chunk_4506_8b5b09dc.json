@@ -1,0 +1,9 @@
+{
+  "content": "if type(curObj) is dict:\n                    key = None\n                    attr = None\n                    keys = list(curObj.keys())\n                    # we will continue traversing the object graph via one key of the dict,\n                    # choose it at random without taking a big chunk of CPU time\n                    numKeysLeft = len(keys) + 1\n                    for key in keys:\n                        yield None\n                        numKeysLeft -= 1\n                        try:\n                            attr = curObj[key]\n                        except KeyError as e:\n                            # this is OK because we are yielding during the iteration\n                            self.notify.debug('could not index into %s with key %s' % (\n                                parentObjRef, safeRepr(key)))\n                            continue\n                        hasLength = self._hasLength(attr)\n                        notDeadEnd = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4506
+  }
+}

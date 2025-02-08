@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" This module serves as a placeholder for the global AppRunner\nobject, which only exists when we are running a .p3d file via\nrunp3d.py or via the Panda3D plugin or standalone executable.\n\nThis is needed for apps that start themselves by importing\nDirectStart; it provides a place for these apps to look for\nthe AppRunner at startup.\n\n.. deprecated:: 1.10.0\n   The p3d packaging system has been replaced with the new setuptools-based\n   system.  See the :ref:`distribution` manual section.\n\"\"\"\n\nif __debug__:\n    import warnings\n    warnings.warn(\"AppRunner has been removed and AppRunnerGlobal has been deprecated.\", DeprecationWarning, stacklevel=2)\n\n#: Contains the global :class:`~.AppRunner.AppRunner` instance, or None\n#: if this application was not run from the runtime environment.\nappRunner = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_257",
+    "parent": "processed_documents/context_documents/ba2e15d0_AppRunnerGlobal.json",
+    "chunk_number": 4541
+  }
+}

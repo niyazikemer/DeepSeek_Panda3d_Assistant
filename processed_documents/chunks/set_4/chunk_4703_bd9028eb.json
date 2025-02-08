@@ -1,0 +1,9 @@
+{
+  "content": "if __debug__:\n    def quickProfile(name=\"unnamed\"):\n        import pstats\n\n        def profileDecorator(f):\n            if not ConfigVariableBool(\"use-profiler\", False):\n                return f\n\n            def _profiled(*args, **kArgs):\n                # must do this in here because we don't have base/simbase\n                # at the time that PythonUtil is loaded\n                if not ConfigVariableBool(\"profile-debug\", False):\n                    #dumb timings\n                    clock = ClockObject.getGlobalClock()\n                    st = clock.getRealTime()\n                    f(*args, **kArgs)\n                    s = clock.getRealTime() - st\n                    print(\"Function %s.%s took %s seconds\"%(f.__module__, f.__name__,s))\n                else:\n                    import profile as prof",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4703
+  }
+}

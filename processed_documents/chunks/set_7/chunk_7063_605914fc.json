@@ -1,0 +1,9 @@
+{
+  "content": "A .ConnectionWriter, which allows PyDatagrams to be transmitted out along an active connection\n\nThe first step is to instantiate these four classes.\n\nfrom panda3d.core import QueuedConnectionManager\nfrom panda3d.core import QueuedConnectionListener\nfrom panda3d.core import QueuedConnectionReader\nfrom panda3d.core import ConnectionWriter\n\ncManager = QueuedConnectionManager()\ncListener = QueuedConnectionListener(cManager, 0)\ncReader = QueuedConnectionReader(cManager, 0)\ncWriter = ConnectionWriter(cManager, 0)\n\nactiveConnections = [] # We'll want to keep track of these later\n\nThis method of instantiation prepares the classes in single-thread mode, which that realtime communication requires them to be polled periodically.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_579",
+    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
+    "chunk_number": 7063
+  }
+}

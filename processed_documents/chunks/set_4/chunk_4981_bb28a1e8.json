@@ -1,0 +1,9 @@
+{
+  "content": "if self.oobeMode:\n            # Disable OOBE mode.\n            if self.oobeCullFrustum is not None:\n                # First, disable OOBE cull mode.\n                self.oobeCull(cam = cam)\n\n            if self.oobeVis:\n                self.oobeVis.reparentTo(self.hidden)\n\n            # Restore the mouse interface node, and remove the oobe\n            # trackball from the data path.\n            self.mouseInterfaceNode.clearButton(KeyboardButton.shift())\n            self.oobeTrackball.detachNode()\n\n            bt = self.buttonThrowers[0].node()\n            bt.setSpecificFlag(1)\n            bt.setButtonDownEvent('')\n            bt.setButtonRepeatEvent('')\n            bt.setButtonUpEvent('')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4981
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Convex Hull Shape\n\nThe first of the non-primitive collision shapes. A good analogy for a convex hull is an elastic membrane or balloon under pressure which is placed around a given set of vertices. When released the membrane will assume the shape of the convex hull. Convex hull shapes should be used for dynamic objects, if it is not possible to find a good approximation of the objects shape using collision primitives.\n\nConvex hull shapes can be created is several ways:\n\npython\n\nfrom panda3d.bullet import BulletConvexHullShape\n\n# Add each vertex separately\nshape1 = BulletConvexHullShape()\nshape1.addPoint(Point3(1, 1, 2))\nshape1.addPoint(Point3(0, 0, 0))\nshape1.addPoint(Point3(2, 0, 0))\nshape1.addPoint(Point3(0, 2, 0))\nshape1.addPoint(Point3(2, 2, 0))\n\n# Add several vertices with a single call\nshape2 = BulletConvexHullShape()\nshape2.addArray([\n   Point3(1, 1, 2),\n   Point3(0, 0, 0),\n   Point3(2, 0, 0),\n   Point3(0, 2, 0),\n   Point3(2, 2, 0),\n])",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7279
+  }
+}

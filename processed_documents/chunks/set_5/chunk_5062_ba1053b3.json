@@ -1,0 +1,9 @@
+{
+  "content": "def clear(self):\n        \"\"\"\n        Start fresh with a clear dict\n        \"\"\"\n        self.lock.acquire()\n        try:\n            self.__callbacks.clear()\n            self.__objectEvents.clear()\n            self._id2object.clear()\n        finally:\n            self.lock.release()\n\n    def isEmpty(self):\n        return len(self.__callbacks) == 0\n\n    def getEvents(self):\n        return list(self.__callbacks.keys())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5062
+  }
+}

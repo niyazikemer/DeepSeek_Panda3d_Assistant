@@ -1,0 +1,9 @@
+{
+  "content": "Client-Side Created Objects\n\nAfter setting up a basic client and server and having them connect, the next step is to create some objects that will get distributed over this existing network connection.\n\nClient-side created DirectObjects are objects that the will be created using the .ClientRepository on the end users client.\n\nThere are multiple ways to create a DirectObject. You can either create an instance of a DO and pass it to the .ClientRepository.createDistributedObject call of the CR instance or simply pass its name.\n\nFor example, the following code creates a DGameObject which inherited from DistributedObject.\n\ndistributedObject = DGameObject()\ncr.createDistributedObject(\n    distObj = distributedObject,\n    zoneId = 2)\n\nThis example creates a DGameObject only from the name as defined in the DC definition files.\n\nself.gameDistObject = self.createDistributedObject(\n    className = 'DGameObject',\n    zoneId = 2)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_595",
+    "parent": "processed_documents/context_documents/1fb96bad_dcf1eb50_client-created-objects.json",
+    "chunk_number": 7151
+  }
+}

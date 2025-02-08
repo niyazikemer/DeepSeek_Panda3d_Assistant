@@ -1,0 +1,9 @@
+{
+  "content": "class VFSSharedLoader:\n    \"\"\" The second part of VFSSharedImporter, this imports a list of\n    packages and combines them. \"\"\"\n\n    def __init__(self, loaders, reload):\n        self.loaders = loaders\n        self.reload = reload\n\n    def load_module(self, fullname):\n        #print >>sys.stderr, \"shared load_module(%s), loaders = %s\" % (fullname, map(lambda l: l.dir_path, self.loaders))\n\n        mod = None\n        message = None\n        path = []\n        vfs_shared_path = []\n        if self.reload:\n            mod = sys.modules[fullname]\n            path = mod.__path__ or []\n            if path == fullname:\n                # Work around Python bug setting __path__ of frozen modules.\n                path = []\n            vfs_shared_path = getattr(mod, '_vfs_shared_path', [])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4344
+  }
+}

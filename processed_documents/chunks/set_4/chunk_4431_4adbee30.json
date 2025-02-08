@@ -1,0 +1,9 @@
+{
+  "content": "def __asyncFlattenDone(self, models,\n                           gotList, callback, origModelList, extraArgs):\n        \"\"\" The asynchronous flatten operation has completed; quietly\n        drop in the new models. \"\"\"\n        self.notify.debug(\"asyncFlattenDone: %s\" % (models,))\n        assert len(models) == len(origModelList)\n        for i, model in enumerate(models):\n            origModelList[i].getChildren().detach()\n            orig = origModelList[i].node()\n            flat = model.node()\n            orig.copyAllProperties(flat)\n            flat.replaceNode(orig)\n\n        if callback:\n            if gotList:\n                callback(origModelList, *extraArgs)\n            else:\n                callback(*(origModelList + extraArgs))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4431
+  }
+}

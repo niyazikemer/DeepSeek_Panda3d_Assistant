@@ -1,0 +1,9 @@
+{
+  "content": "class FPTObjsNamed(Job):\n    def __init__(self, name, leakDetector, on, doneCallback=None):\n        Job.__init__(self, name)\n        self._leakDetector = leakDetector\n        self.notify = self._leakDetector.notify\n        self._on = on\n        self._doneCallback = doneCallback\n        self._ldde = self._leakDetector._getDestroyEvent()\n        self.accept(self._ldde, self._handleLDDestroy)\n        ContainerLeakDetector.addPrivateObj(self.__dict__)\n\n    def destroy(self):\n        self.ignore(self._ldde)\n        self._leakDetector = None\n        self._doneCallback = None\n        ContainerLeakDetector.removePrivateObj(self.__dict__)\n        Job.destroy(self)\n\n    def _handleLDDestroy(self):\n        self.destroy()\n\n    def getPriority(self):\n        return Job.Priorities.High",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4526
+  }
+}

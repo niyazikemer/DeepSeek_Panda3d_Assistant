@@ -1,0 +1,9 @@
+{
+  "content": "# distributed only\n        self.d_setFixtures(self.fixtures)\n\n    def b_setFixtures(self, fixtures):\n        self.getObject().setFixtures(fixtures)\n        self.setFixtures(fixtures)\n        self.d_setFixtures(fixtures)\n\n    def d_setFixtures(self, fixtures):\n        self.sendUpdate('setFixtures', [fixtures])\n\n    def addFixture(self, fixture, index = None):\n        if index is not None:\n            self.fixtures.insert(index, fixture)\n        else:\n            self.fixtures.append(fixture)\n        self.b_setFixtures(self.fixtures)\n        return self.fixtures.index(fixture)\n\n    def blinkFixture(self, index):\n        if index < len(self.fixtures):\n            fixture = self.fixtures[index]\n            fixture[6] = 'Blinking'\n            self.b_setFixtures(self.fixtures)\n\n    def standbyFixture(self, index):\n        if index < len(self.fixtures):\n            fixture = self.fixtures[index]\n            fixture[6] = 'Standby'\n            self.b_setFixtures(self.fixtures)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_331",
+    "parent": "processed_documents/context_documents/3deb3265_DistributedCameraOV.json",
+    "chunk_number": 5648
+  }
+}

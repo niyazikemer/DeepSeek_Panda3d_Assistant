@@ -1,0 +1,9 @@
+{
+  "content": "def setNeverDisable(self, boolean):\n        assert boolean == 1 or boolean == 0\n        self.neverDisable = boolean\n\n    def getNeverDisable(self):\n        return self.neverDisable\n\n    def _retrieveCachedData(self):\n        # once we know our doId, grab any data that might be stored in the data cache\n        # from the last time we were on the client\n        if self.cr.doDataCache.hasCachedData(self.doId):\n            self._cachedData = self.cr.doDataCache.popCachedData(self.doId)\n\n    def setCachedData(self, name, data):\n        assert isinstance(name, str)\n        # ownership of the data passes to the repository data cache\n        self.cr.doDataCache.setCachedData(self.doId, name, data)\n\n    def hasCachedData(self, name):\n        assert isinstance(name, str)\n        if not hasattr(self, '_cachedData'):\n            return False\n        return name in self._cachedData",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5554
+  }
+}

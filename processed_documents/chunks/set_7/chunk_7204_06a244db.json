@@ -1,0 +1,9 @@
+{
+  "content": "Simple FSM Usage\n\npython\n\nA Panda3D FSM is implemented by defining a new Python class which inherits from the class direct.fsm.FSM.FSM (normally imported as simply FSM), and defining the appropriate enter and exit methods on the class.\n\nFSM states are represented by name strings, which should not contain spaces or punctuation marks; by Panda3D convention, state names should begin with a capital letter. An FSM is always in exactly one state a time; the name of the current state in stored in fsm.state. When it transitions from one state to another, it first calls exitOldState(), and then it calls enterNewState(), where OldState is the name of the previous state, and NewState is the name of the state it is entering. While it is making this transition, the FSM is not technically in either state, and fsm.state will be None--but you can find both old and new state names in fsm.oldState and fsm.newState, respectively.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_604",
+    "parent": "processed_documents/context_documents/787f0d21_8c41fb3c_simple-fsm-usage.json",
+    "chunk_number": 7204
+  }
+}

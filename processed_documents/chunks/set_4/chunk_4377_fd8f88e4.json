@@ -1,0 +1,9 @@
+{
+  "content": "if loaderOptions is None:\n            loaderOptions = LoaderOptions()\n        else:\n            loaderOptions = LoaderOptions(loaderOptions)\n\n        if okMissing is not None:\n            if okMissing:\n                loaderOptions.setFlags(loaderOptions.getFlags() & ~LoaderOptions.LFReportErrors)\n            else:\n                loaderOptions.setFlags(loaderOptions.getFlags() | LoaderOptions.LFReportErrors)\n        else:\n            okMissing = ((loaderOptions.getFlags() & LoaderOptions.LFReportErrors) == 0)\n\n        if noCache is not None:\n            if noCache:\n                loaderOptions.setFlags(loaderOptions.getFlags() | LoaderOptions.LFNoCache)\n            else:\n                loaderOptions.setFlags(loaderOptions.getFlags() & ~LoaderOptions.LFNoCache)\n\n        if allowInstance:\n            loaderOptions.setFlags(loaderOptions.getFlags() | LoaderOptions.LFAllowInstance)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4377
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if self.check_for_update(current_time):\n            color_scale = self.color_scale\n\n            if self.fade:\n                elapsed_time = current_time - self.fade_start_time\n\n                if elapsed_time < 0.0:\n                    print(\"elapsed_time < 0: %f\" % (elapsed_time))\n                    elapsed_time = 0.0\n\n                if elapsed_time < self.fade_time:\n                    color_scale = (1.0 - (elapsed_time / self.fade_time)) * color_scale\n                else:\n                    color_scale = 0.0\n                    self.fade_end = True\n\n            self.last_update_time = current_time\n\n            # remove expired frames\n            minimum_time = current_time - self.time_window\n\n            index = 0\n\n            last_frame_index = len(self.frame_list) - 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5128
+  }
+}

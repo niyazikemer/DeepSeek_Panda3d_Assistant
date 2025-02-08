@@ -1,0 +1,9 @@
+{
+  "content": "def postGenerateMessage(self):\n        messenger.send(self.uniqueName(\"generate\"), [self])\n\n    def addInterest(self, zoneId, note=\"\", event=None):\n        self.air.addInterest(self.getDoId(), zoneId, note, event)\n\n    def b_setLocation(self, parentId, zoneId):\n        self.d_setLocation(parentId, zoneId)\n        self.setLocation(parentId, zoneId)\n\n    def d_setLocation(self, parentId, zoneId):\n        self.air.sendSetLocation(self, parentId, zoneId)\n\n    def setLocation(self, parentId, zoneId):\n        self.air.storeObjectLocation(self, parentId, zoneId)\n\n    def getLocation(self):\n        try:\n            if self.parentId <= 0 and self.zoneId <= 0:\n                return None\n            # This is a -1 stuffed into a uint32\n            if self.parentId == 0xffffffff and self.zoneId == 0xffffffff:\n                return None\n            return (self.parentId, self.zoneId)\n        except AttributeError:\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5500
+  }
+}

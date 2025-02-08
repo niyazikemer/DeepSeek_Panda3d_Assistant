@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nvfs->mount(\"./foo.mf\", \".\", VirtualFileSystem::MF_read_only);\n\nIf you want to read assets, you can mount a whole directory structure from a webserver.\n\nIf your webserver hosts:\n\nhttp://localhost/mydir/models/myfile.bam\nhttp://localhost/mydir/maps/mytexture.png\n\nPut this in your config.prc:\n\nvfs-mount-url http://myserver/mydir /mydir\nmodel-path /mydir\n\nOr, equivalently, write this code at startup:\n\npython\n\nvfs.mount(VirtualFileMountHTTP('http://myserver/mydir'), '/mydir', 0)\ngetModelPath().appendDirectory('/mydir')\n\ncpp\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nvfs->mount(new VirtualFileMountHTTP(\"http://myserver/mydir\"), \"/mydir\", 0);\nget_model_path().append_directory(\"/mydir\");\n\npython\n\nand then you can load models like this in your Python code:\n\nmodel = loader.loadModel('models/myfile.bam')\ntexture = loader.loadTexture('maps/mytexture.png')",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7597
+  }
+}

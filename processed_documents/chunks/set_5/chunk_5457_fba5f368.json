@@ -1,0 +1,9 @@
+{
+  "content": "class ClockDelta(DirectObject.DirectObject):\n    \"\"\"\n    The ClockDelta object converts between universal (\"network\") time,\n    which is used for all network traffic, and local time (e.g. as\n    returned by getFrameTime() or getRealTime()), which is used for\n    everything else.\n    \"\"\"\n\n    notify = DirectNotifyGlobal.directNotify.newCategory('ClockDelta')\n\n    def __init__(self):\n        self.globalClock = ClockObject.getGlobalClock()\n\n        # self.delta is the relative delta from our clock to the\n        # server's clock.\n        self.delta = 0\n\n        # self.uncertainty represents the number of seconds plus or\n        # minus in which we are confident our delta matches the\n        # server's actual time.  The initial value, None, represents\n        # infinity--we have no idea.\n        self.uncertainty = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_315",
+    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
+    "chunk_number": 5457
+  }
+}

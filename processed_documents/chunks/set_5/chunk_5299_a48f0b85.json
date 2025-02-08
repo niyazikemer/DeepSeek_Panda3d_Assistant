@@ -1,0 +1,9 @@
+{
+  "content": "# let the C connection repository know whether we're supporting\n        # 'owner' views of distributed objects (i.e. 'receives ownrecv',\n        # 'I own this object and have a separate view of it regardless of\n        # where it currently is located')\n        CConnectionRepository.__init__(self, hasOwnerView, threadedNet)\n        self.setWantMessageBundling(config.GetBool('want-message-bundling', 1))\n        # DoInterestManager.__init__ relies on CConnectionRepository being\n        # initialized\n        DoInterestManager.__init__(self)\n        DoCollectionManager.__init__(self)\n        self.setPythonRepository(self)\n\n        # Create a unique ID number for each ConnectionRepository in\n        # the world, helpful for sending messages specific to each one.\n        self.uniqueId = hash(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5299
+  }
+}

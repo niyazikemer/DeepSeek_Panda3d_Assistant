@@ -1,0 +1,9 @@
+{
+  "content": "taskMgr.doMethodLater(delayTime, myFunction, 'Task Name', extraArgs = [variables])\n\nNote: if you wish to call a function which takes no variables simply pass extraArgs = []\n\nDo-Later tasks can be repeated from the task function by returning Task.again. You can also change the delay of the Do-Later task by changing task.delayTime, but changing this will not have any effect on the task's actual delay time until the next time it gets added to the do-later list, for instance by returning Task.again.\n\n# This task increments itself so that the delay between task executions\n# gradually increases over time. If you do not change task.delayTime\n# the task will simply repeat itself every 2 seconds\ndef myFunction(task):\n    print(\"Delay: %s\" % task.delayTime)\n    print(\"Frame: %s\" % task.frame)\n    task.delayTime += 1\n    return task.again\n\nmyTask = taskMgr.doMethodLater(2, myFunction, 'tickTask')",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6506
+  }
+}

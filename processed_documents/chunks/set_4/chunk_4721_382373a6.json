@@ -1,0 +1,9 @@
+{
+  "content": "def run(self):\n        # set of ids of objects that we know are always attached to builtin;\n        # if an object is attached to one of these, it's attached to builtin\n        # this cuts down on the amount of searching that needs to be done\n        builtinIds = set()\n        builtinIds.add(id(builtins.__dict__))\n        try:\n            builtinIds.add(id(base))\n            builtinIds.add(id(base.cr))\n            builtinIds.add(id(base.cr.doId2do))\n        except Exception:\n            pass\n        try:\n            builtinIds.add(id(simbase))\n            builtinIds.add(id(simbase.air))\n            builtinIds.add(id(simbase.air.doId2do))\n        except Exception:\n            pass\n        try:\n            builtinIds.add(id(uber))\n            builtinIds.add(id(uber.air))\n            builtinIds.add(id(uber.air.doId2do))\n        except Exception:\n            pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4721
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nwin->set_clear_depth_active(flag);\nwin->set_clear_depth(depthValue);\n\nThe depthValue should almost always be 1.0, which is the default.\n\nIt is also possible to selectively clear the stencil buffer, and other auxiliary buffers, in a similar way. See the generated API docs for .DrawableRegion for more information.\n\nSorting\n\nNote that when you are overlapping DisplayRegions, it becomes very important to specify the order in which the DisplayRegions should be drawn. To do this, use ~.DisplayRegion.set_sort():\n\npython\n\ndr.setSort(sortValue)\n\ncpp\n\ndr->set_sort(sortValue);\n\nThe sortValue can be any integer number; the default is zero. All DisplayRegions for a particular window will be drawn in order from smallest sort first to largest sort last. If two DisplayRegions have the same sort value, the order in which they are drawn is undefined.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_597",
+    "parent": "processed_documents/context_documents/e33eb321_9af630d5_clearing-display-regions.json",
+    "chunk_number": 7161
+  }
+}

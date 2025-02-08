@@ -1,0 +1,9 @@
+{
+  "content": "Main Loop\n\nA typical form of a Panda program might look like:\n\nfrom direct.showbase.DirectObject import DirectObject # To listen for Events\n\nclass World(DirectObject):\n    def __init__(self):\n        #initialize instance self. variables here\n\n    def method1():\n        # Panda source goes here\n\nw = World()\nbase.run() # main loop\n\n~direct.showbase.ShowBase.ShowBase.run() is a function that never returns. It is the main loop.\n\nFor an alternative, run() could not be called at all. Panda doesn't really need to own the main loop. Instead, taskMgr.step() can be called intermittently, which will run through one iteration of Panda's loop. In fact, run() is basically just an infinite loop that calls taskMgr.step() repeatedly.\n\ntaskMgr.step() must be called quickly enough after the previous call to taskMgr.step(). This must be done quick enough to be faster than the frame rate.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_404",
+    "parent": "processed_documents/context_documents/ba8da20a_c90a4174_main-loop.json",
+    "chunk_number": 6060
+  }
+}

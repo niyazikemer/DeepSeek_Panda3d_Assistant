@@ -1,0 +1,9 @@
+{
+  "content": "// A vertex column named \"anything\".  The number of components should match up with\n// that of the vertex array.  \"uvec\" and \"ivec\" variants are allowed for integer\n// vertex arrays to access un-normalized data.\nin vec4 anything;\n\n// These two attributes will be present when hardware skinning is enabled.\n// transform_index contains indices into the p3d_TransformTable array for the four\n// most influential joints, and transform_weight the corresponding weights.\nin vec4 transform_weight;\nin uvec4 transform_index;\n\nA special note about vertex colors\n\nBefore Panda3D 1.10, if p3d_Color was used but no vertex color information was present on the model, the values would be undefined (but usually (0, 0, 0, 0)). This means that you could not use the same shader on objects with and without vertex colors, since objects without vertex colors would appear black instead of white.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_659",
+    "parent": "processed_documents/context_documents/f02f1382_244963d7_list-of-glsl-inputs.json",
+    "chunk_number": 7518
+  }
+}

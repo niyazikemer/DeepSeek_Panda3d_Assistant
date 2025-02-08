@@ -1,0 +1,9 @@
+{
+  "content": "def _getContainerByEval(self, evalStr, curObj=None):\n        if curObj is not None:\n            # eval('curObj.foo.bar.someDict')\n            evalStr = 'curObj%s' % evalStr\n        else:\n            # this eval is not based off of curObj, use the globalbuiltins namespace\n            # put builtins at the start if it's not already there\n            bis = 'builtins'\n            if evalStr[:len(bis)] != bis:\n                evalStr = '%s.%s' % (bis, evalStr)\n        try:\n            container = eval(evalStr)\n        except NameError as ne:\n            return None\n        except AttributeError as ae:\n            return None\n        except KeyError as ke:\n            return None\n        return container",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4483
+  }
+}

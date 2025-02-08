@@ -1,0 +1,9 @@
+{
+  "content": "state.frameIndex += 1\n        if state.frameIndex > state.numFrames:\n            return Task.done\n        else:\n            return Task.cont\n\n    def windowEvent(self, win):\n        if win != self.win:\n            # This event isn't about our window.\n            return\n\n        properties = win.getProperties()\n        if properties != self.__prevWindowProperties:\n            self.__prevWindowProperties = properties\n\n            self.notify.debug(\"Got window event: %s\" % (repr(properties)))\n            if not properties.getOpen():\n                # If the user closes the main window, we should exit.\n                self.notify.info(\"User closed main window.\")\n                if __debug__:\n                    if self.__autoGarbageLogging:\n                        GarbageReport.b_checkForGarbageLeaks()\n                self.userExit()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5001
+  }
+}

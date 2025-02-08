@@ -1,0 +1,9 @@
+{
+  "content": "def loadFade(self):\n        if self.fade is None:\n            # We create a DirectFrame for the fade polygon, instead of\n            # simply loading the polygon model and using it directly,\n            # so that it will also obscure mouse events for objects\n            # positioned behind it.\n            self.fade = DirectFrame(\n                parent = ShowBaseGlobal.hidden,\n                guiId = 'fade',\n                relief = None,\n                image = self.fadeModel,\n                image_scale = (4, 2, 2),\n                state = DGG.NORMAL,\n            )\n            if not self.fadeModel:\n                # No fade model was given, so we make this the fade model.\n                self.fade[\"relief\"] = DGG.FLAT\n                self.fade[\"frameSize\"] = (-2, 2, -1, 1)\n                self.fade[\"frameColor\"] = (0, 0, 0, 1)\n                self.fade.setTransparency(TransparencyAttrib.MAlpha)\n            self.fade.setBin('unsorted', 0)\n            self.fade.setColor(0,0,0,0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4286
+  }
+}

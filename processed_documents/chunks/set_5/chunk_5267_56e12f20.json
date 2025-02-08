@@ -1,0 +1,9 @@
+{
+  "content": "# Make sure that the fifo and the dictionary are sane\n        assert len(self.dict) == len(self.fifo)\n        return success\n\n    def retrieve(self, doId):\n        assert self.checkCache()\n        if doId in self.dict:\n            # Find the object\n            distObj = self.dict[doId]\n            # Remove it from the dictionary\n            del self.dict[doId]\n            # Remove it from the fifo\n            self.fifo.remove(distObj)\n            # return the distObj\n            return distObj\n        else:\n            # If you can't find it, return None\n            return None\n\n    def contains(self, doId):\n        return doId in self.dict",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5267
+  }
+}

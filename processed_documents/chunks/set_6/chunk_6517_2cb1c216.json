@@ -1,0 +1,9 @@
+{
+  "content": "# A task that runs forever\ndef taskFunc(task):\n    global taskAccumulator\n    taskAccumulator += 1\n    return task.cont\n\ndef taskStop(task):\n    taskMgr.remove('Accumulator')\n\n# Add the taskFunc function with an uponDeath argument\ntaskMgr.add(taskFunc, 'Accumulator', uponDeath=cleanUp)\n# Stops the task 2 seconds later\ntaskMgr.doMethodLater(2, taskStop, 'Task Stop')\n\ncpp\n\nset_upon_death()\n\nint task_accumulator = 0;\n\nvoid clean_up(GenericAsyncTask *task, bool clean_exit, void *user_data) {\n  cout << \"Task func has accumulated \" << task_accumulator << endl;\n  //  Reset the accumulator\n  task_accumulator = 0;\n}\n\n// A task that runs forever\nAsyncTask::DoneStatus task_func(GenericAsyncTask *task, void *data) {\n  task_accumulator++;\n  return AsyncTask::DS_cont;\n}\n\nAsyncTask::DoneStatus task_stop(GenericAsyncTask *task, void *data) {\n  ((GenericAsyncTask *)data)->remove();\n  return AsyncTask::DS_done;\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6517
+  }
+}

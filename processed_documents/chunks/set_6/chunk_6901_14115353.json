@@ -1,0 +1,9 @@
+{
+  "content": "Texture Transforms\n\nIt is possible to apply a matrix to transform the (u, v) texture coordinates of a model before rendering. In this way, you can adjust the position, rotation, or scale of a texture, sliding the texture around to suit your particular needs.\n\nUse the following .NodePath methods to do this:\n\nnodePath.setTexOffset(TextureStage, uOffset, vOffset)\nnodePath.setTexScale(TextureStage, uScale, vScale)\nnodePath.setTexRotate(TextureStage, degrees)\n\nIf you don't have a particular TextureStage, use .TextureStage.get_default() as the first parameter.\n\nNote that the operation in each case is applied to the (u, v) texture coordinates, not to the texture; so it will have the opposite effect on the texture. For instance, the call nodePath.set_tex_scale(ts, 2, 2) <.NodePath.set_tex_scale> will effectively double the values of the texture coordinates on the model, which doubles the space over which the texture is applied, and thus makes the texture appear half as large.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_546",
+    "parent": "processed_documents/context_documents/e7c8839c_acc9476d_texture-transforms.json",
+    "chunk_number": 6901
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Call ~.NodePath.remove_node() on all NodePaths in the scene graph \u2013 The first step is to clear out the NodePaths that the custom class has added to the scene graph. If this step isn\u2019t accomplished, it won\u2019t necessarily prevent the custom class instance from being garbage collected, but it could. Even if the custom class instance is still garbage collected the scene graph itself will retain references to the NodePaths that haven\u2019t been cleared out and they will remain in the scene graph. There is one exception to this rule: when a parent NodePath has ~.NodePath.remove_node called on it that ultimately result in the removal of its child NodePaths, so long as nothing else retains a reference to them. However, relying on this behavior is an easy way to make mistakes so it\u2019s better to manually remove all of the NodePaths a custom class adds to the scene graph.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_493",
+    "parent": "processed_documents/context_documents/34bfddd9_5e9b18c7_removing-custom-class-instances.json",
+    "chunk_number": 6479
+  }
+}

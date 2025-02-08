@@ -1,0 +1,9 @@
+{
+  "content": "audio3d.setSoundVelocity(sound, velocityVector)\naudio3d.setListenerVelocity(velocityVector)\n\nbase.cTrav = CollisionTraverser()\naudio3d.setSoundVelocityAuto(sound)\naudio3d.setListenerVelocityAuto()\n\nCurrently, for the latter to work, a .CollisionTraverser must be attached to base.cTrav as you see in the example. If you already have one assigned to do collision detection that will be sufficient. Read more about collision-traversers.\n\nThe attenuation of moving sounds by distance and the doppler shift are based the way sound works in the real world. By default it assumes a scale of 1 panda unit equal to 1 foot (or 1 meter in Panda3D 1.10 and above). If you use another scale you'll need to use ~direct.showbase.Audio3DManager.Audio3DManager.setDistanceFactor() to adjust the scale.\n\naudio3d.setDistanceFactor(scale)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_644",
+    "parent": "processed_documents/context_documents/3e30e0d3_68e87296_3d-audio.json",
+    "chunk_number": 7431
+  }
+}

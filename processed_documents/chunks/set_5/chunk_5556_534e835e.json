@@ -1,0 +1,9 @@
+{
+  "content": "def setCacheable(self, boolean):\n        assert boolean == 1 or boolean == 0\n        self.cacheable = boolean\n\n    def getCacheable(self):\n        return self.cacheable\n\n    def deleteOrDelay(self):\n        if len(self._token2delayDeleteName) > 0:\n            if not self._delayDeleted:\n                self._delayDeleted = 1\n                # Object is delayDeleted. Clean up DistributedObject state,\n                # remove from repository tables, so that we won't crash if\n                # another instance of the same object gets generated while\n                # this instance is still delayDeleted.\n                messenger.send(self.getDelayDeleteEvent())\n                if len(self._token2delayDeleteName) > 0:\n                    self.delayDelete()\n                    if len(self._token2delayDeleteName) > 0:\n                        self._deactivateDO()\n        else:\n            self.disableAnnounceAndDelete()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5556
+  }
+}

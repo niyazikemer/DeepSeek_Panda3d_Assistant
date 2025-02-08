@@ -1,0 +1,9 @@
+{
+  "content": "def replaceIvalFunc(replaceFuncList):\n    # Make sure we have imported IntervalManager and thus created\n    # a global ivalMgr.\n    if not sys.modules.get('base.direct.interval.IntervalManager'):\n        return\n    from direct.interval.FunctionInterval import FunctionInterval\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        res = FunctionInterval.replaceMethod(oldFunc, newFunc)\n        if res:\n            print('replaced %s interval function(s): %s' % (res, funcName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4562
+  }
+}

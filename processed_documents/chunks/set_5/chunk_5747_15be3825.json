@@ -1,0 +1,9 @@
+{
+  "content": "def printHpr(self, other = None, sd = 2):\n    \"\"\" Deprecated.  Pretty print a node path's hpr \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.printHpr() is deprecated.\", DeprecationWarning, stacklevel=2)\n    formatString = '%0.' + '%d' % sd + 'f'\n    if other:\n        hpr = self.getHpr(other)\n        otherString = other.getName() + ', '\n    else:\n        hpr = self.getHpr()\n        otherString = ''\n    print((self.getName() + '.setHpr(' + otherString +\n           formatString % hpr[0] + ', ' +\n           formatString % hpr[1] + ', ' +\n           formatString % hpr[2] +\n           ')\\n'))\nDtool_funcToMethod(printHpr, NodePath)\ndel printHpr\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5747
+  }
+}

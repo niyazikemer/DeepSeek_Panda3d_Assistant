@@ -1,0 +1,9 @@
+{
+  "content": "# waits for two interests to close, then calls self._handleBothInterestsClosed()\n        # uses EventGroup.getDoneEvent() and EventGroup.newEvent() to generate unique,\n        # disposable event names\n        eGroup = EventGroup('closeInterests')\n        self.acceptOnce(eGroup.getDoneEvent(), self._handleBothInterestsClosed)\n        base.cr.closeInterest(interest1, event=eGroup.newEvent('closeInterest1'))\n        base.cr.closeInterest(interest2, event=eGroup.newEvent('closeInterest2'))\n        \"\"\"\n        self._name = name\n        self._subEvents = set()\n        self._completedEvents = set()\n        if doneEvent is None:\n            # no doneEvent provided, allocate a unique event name\n            doneEvent = 'EventGroup-%s-%s-Done' % (\n                EventGroup._SerialNumGen.next(), self._name)\n        self._doneEvent = doneEvent\n        self._completed = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_253",
+    "parent": "processed_documents/context_documents/3322f876_EventGroup.json",
+    "chunk_number": 4442
+  }
+}

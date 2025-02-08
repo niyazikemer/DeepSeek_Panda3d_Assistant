@@ -1,0 +1,9 @@
+{
+  "content": "if fullname not in sharedPackages:\n            # Not a shared package; fall back to normal import.\n            return None\n\n        if path is None:\n            path = sys.path\n\n        excludePaths = []\n        if reload:\n            # If reload is true, we are simply reloading the module,\n            # looking for new paths to add.\n            mod = sys.modules[fullname]\n            excludePaths = getattr(mod, '_vfs_shared_path', None)\n            if excludePaths is None:\n                # If there isn't a _vfs_shared_path symbol already,\n                # the module must have been loaded through\n                # conventional means.  Try to guess which path it was\n                # found on.\n                d = self.getLoadedDirname(mod)\n                excludePaths = [d]\n\n        loaders = []\n        for dir in path:\n            if dir in excludePaths:\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4341
+  }
+}

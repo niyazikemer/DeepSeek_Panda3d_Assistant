@@ -1,0 +1,9 @@
+{
+  "content": "def pPrintString(self, other = None):\n    \"\"\"\n    Deprecated.  pretty print\n    \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.pPrintString() is deprecated.\", DeprecationWarning, stacklevel=2)\n        # Normally I would have put the if __debug__ around\n        # the entire funciton, the that doesn't seem to work\n        # with -extensions.  Maybe someone will look into\n        # this further.\n        if other:\n            pos = self.getPos(other)\n            hpr = self.getHpr(other)\n            scale = self.getScale(other)\n            shear = self.getShear(other)\n            otherString = \"  'other': %s,\\n\" % (other.getName(),)\n        else:\n            pos = self.getPos()\n            hpr = self.getHpr()\n            scale = self.getScale()\n            shear = self.getShear()\n            otherString = '\\n'\n        return (\n            \"%s = {\"%(self.getName()) +\n            otherString +\n            \"  'Pos':   (%s),\\n\" % pos.pPrintValues() +",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5743
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Set up networking interfaces.\n        numThreads = 0\n        if threadedNet:\n            numThreads = 1\n        self.qcm = QueuedConnectionManager()\n        self.qcl = QueuedConnectionListener(self.qcm, numThreads)\n        self.qcr = QueuedConnectionReader(self.qcm, numThreads)\n        self.cw = ConnectionWriter(self.qcm, numThreads)\n\n        taskMgr.setupTaskChain('flushTask')\n        if threadedNet:\n            taskMgr.setupTaskChain('flushTask', numThreads = 1,\n                                   threadPriority = TPLow, frameSync = True)\n\n        self.tcpRendezvous = self.qcm.openTCPServerRendezvous(\n            serverAddress or '', tcpPort, 10)\n        self.qcl.addConnection(self.tcpRendezvous)\n        taskMgr.add(self.listenerPoll, \"serverListenerPollTask\")\n        taskMgr.add(self.readerPollUntilEmpty, \"serverReaderPollTask\")\n        taskMgr.add(self.clientHardDisconnectTask, \"clientHardDisconnect\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5167
+  }
+}

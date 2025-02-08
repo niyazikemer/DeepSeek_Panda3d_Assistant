@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nYou can view a list of the files it has actually loaded with the following command:\n\nprint(cpMgr)\n\nIt is helpful to do this to ensure that you are editing the correct Config.prc file.\n\nSometimes, it is desirable to load an additional configuration file from disk, by giving an explicit filename. To do so, use .load_prc_file(). Note that filename-syntax uses a forward slash even under Windows.\n\npython\n\nfrom panda3d.core import loadPrcFile\n\nloadPrcFile(\"config/Config.prc\")\n\ncpp\n\n#include \"load_prc_file.h\"\n\nload_prc_file(\"config/Config.prc\");\n\nThe filename you specify is searched for along the model-path, in the same way that an Egg or Bam file is searched for when you use loader.loadModel() <direct.showbase.Loader.Loader.loadModel>.\n\npython\n\nYou should load your own PRC file before instantiating ShowBase. Changing certain configuration variables later on may not affect the window/environment that has already been created.\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_626",
+    "parent": "processed_documents/context_documents/9165eb63_bae543ea_accessing-config-vars-in-a-program.json",
+    "chunk_number": 7323
+  }
+}

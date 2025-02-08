@@ -1,0 +1,9 @@
+{
+  "content": "controller->set_linear_movement(speed, true);\n        controller->set_angular_movement(omega);\n}\n\nJumping\n\nNext we want to make the character controller jump. The following code snippet shows a sample method which will make the character jump. We could for example call this method when the player presses a specific key.\n\nAfter setting the maximum jump height and the initial upward speed we need to trigger the jump using the ~panda3d.bullet.BulletCharacterControllerNode.do_jump() method.\n\npython\n\ndef doJump(self):\n    self.player.setMaxJumpHeight(5.0)\n    self.player.setJumpSpeed(8.0)\n    self.player.doJump()\n\ncpp\n\nvoid do_jump(void ) {\n    controller->set_max_jump_height(5.0)\n    controller->set_jump_speed(8.0)\n    controller->do_jump()\n}\n\nIt is possible to check whether the character controller is airborne using the ~panda3d.bullet.BulletCharacterControllerNode.is_on_ground() method.\n\nCrouching",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_554",
+    "parent": "processed_documents/context_documents/7d1f7487_d82f40be_character-controller.json",
+    "chunk_number": 6947
+  }
+}

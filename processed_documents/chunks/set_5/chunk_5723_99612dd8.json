@@ -1,0 +1,9 @@
+{
+  "content": "def getGridInterestIds(self):\n        return list(self._gridInterests.keys())\n\n    def getGridInterestZoneId(self,gridDoId):\n        return self._gridInterests.get(gridDoId,[None,None])[1]\n\n    def __clearGridInterest(self):\n        if self._gridInterestEnabled:\n            for currGridId, interestInfo in self._gridInterests.items():\n                self.cr.removeTaggedInterest(interestInfo[0])\n        self._gridInterests = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_337",
+    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
+    "chunk_number": 5723
+  }
+}

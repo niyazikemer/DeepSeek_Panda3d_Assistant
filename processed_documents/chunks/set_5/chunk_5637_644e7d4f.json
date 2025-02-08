@@ -1,0 +1,9 @@
+{
+  "content": "class PyDatagramIterator(DatagramIterator):\n\n    # This is a little helper Dict to replace the huge <if> statement\n    # for trying to match up datagram subatomic types with add funtions\n    # If Python had an O(1) \"case\" statement we would use that instead\n    FuncDict = {\n        STInt8:  DatagramIterator.getInt8,\n        STInt16: DatagramIterator.getInt16,\n        STInt32: DatagramIterator.getInt32,\n        STInt64: DatagramIterator.getInt64,\n        STUint8:  DatagramIterator.getUint8,\n        STUint16: DatagramIterator.getUint16,\n        STUint32: DatagramIterator.getUint32,\n        STUint64: DatagramIterator.getUint64,\n        STFloat64: DatagramIterator.getFloat64,\n        STString: DatagramIterator.getString,\n        STBlob: DatagramIterator.getBlob,\n        STBlob32: DatagramIterator.getBlob32,\n    }\n\n    getChannel = DatagramIterator.getUint64\n\n    def __init__(self, datagram=None, offset=0):\n        if datagram is not None:\n            super().__init__(datagram, offset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_330",
+    "parent": "processed_documents/context_documents/cf472b07_PyDatagramIterator.json",
+    "chunk_number": 5637
+  }
+}

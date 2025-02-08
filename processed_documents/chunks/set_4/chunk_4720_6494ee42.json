@@ -1,0 +1,9 @@
+{
+  "content": "class MessengerLeakDetector(Job):\n    # check for objects that are only referenced by the messenger\n    # and would otherwise be garbage collected\n    notify = directNotify.newCategory(\"MessengerLeakDetector\")\n\n    def __init__(self, name):\n        Job.__init__(self, name)\n        self.setPriority(Job.Priorities.Normal*2)\n        jobMgr.add(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4720
+  }
+}

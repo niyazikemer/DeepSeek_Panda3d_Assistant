@@ -1,0 +1,9 @@
+{
+  "content": "class DoHierarchy:\n    \"\"\"\n    This table has been a source of memory leaks, with DoIds getting left in the table indefinitely.\n    DoHierarchy guards access to the table and ensures correctness.\n    \"\"\"\n    notify = directNotify.newCategory(\"DoHierarchy\")\n\n    def __init__(self):\n        # parentId->zoneId->set(child DoIds)\n        self._table = {}\n        self._allDoIds = set()\n\n    def isEmpty(self):\n        assert (len(self._table) == 0) == (len(self._allDoIds) == 0)\n        return len(self._table) == 0 and len(self._allDoIds) == 0\n\n    def __len__(self):\n        return len(self._allDoIds)\n\n    def clear(self):\n        assert self.notify.debugCall()\n        self._table = {}\n        self._allDoIds = set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_320",
+    "parent": "processed_documents/context_documents/79f8b556_DoHierarchy.json",
+    "chunk_number": 5527
+  }
+}

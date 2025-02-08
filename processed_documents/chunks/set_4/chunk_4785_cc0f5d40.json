@@ -1,0 +1,9 @@
+{
+  "content": "# this technique produces an even distribution.\n        # random.py would solve this problem like so:\n        # where:\n        #   M=randomly generated number\n        #   O=1 greater than the maximum value of M\n        # return int(float(M)*(float(N)/float(O))) # M*(N/O)\n        #\n        # that generally works fine, except that it relies\n        # on floating-point numbers, which are not guaranteed\n        # to produce identical results on different machines.\n        #\n        # for our purposes, we need an entirely-integer approach,\n        # since integer operations *are* guaranteed to produce\n        # identical results on different machines.\n        #\n        # SO, we take the equation M*(N/O) and change the order of\n        # operations to (M*N)/O.\n        #\n        # this requires that we have the ability to hold the result of\n        # M*N. Luckily, Python has support for large integers. One\n        # alternative would be to limit the RNG to a 16-bit range,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_275",
+    "parent": "processed_documents/context_documents/e9f9509b_RandomNumGen.json",
+    "chunk_number": 4785
+  }
+}

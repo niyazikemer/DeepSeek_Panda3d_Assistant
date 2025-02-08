@@ -1,0 +1,9 @@
+{
+  "content": "# the event handlers may call back into the interest manager. Send out\n                # the events after we're once again in a stable state.\n                #DoInterestManager._interests[handle].sendEvents()\n                eventsToSend = list(DoInterestManager._interests[handle].getEvents())\n                DoInterestManager._interests[handle].clearEvents()\n            else:\n                DoInterestManager.notify.debug(\n                    \"handleInterestDoneMessage--> handle: %s: Expecting context %s, got %s\" % (\n                    handle, DoInterestManager._interests[handle].context, contextId))\n            if __debug__:\n                state = DoInterestManager._interests[handle]\n                self._addDebugInterestHistory(\n                    \"finished\", state.desc, handle, contextId, state.parentId,\n                    state.zoneIdList)\n            self._considerRemoveInterest(handle)\n            for event in eventsToSend:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5237
+  }
+}

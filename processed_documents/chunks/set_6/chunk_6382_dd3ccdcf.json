@@ -1,0 +1,9 @@
+{
+  "content": "Note\n\nSetting a sound's loop count to 0 or >1 will automatically set a sound's loop flag to true.\n\nNotes on Looping Sounds Seamlessly\n\nLooping a sound seamlessly should be as simple as loading the sound, then calling ~.AudioSound.set_loop() and ~.AudioSound.play(). However, occasionally Panda users have had difficulty getting sounds to loop seamlessly. The problems have been traced to three(!) different causes:\n\nSome MP3 encoders contain a bug where they add blank space at the end of the sound. This causes a skip during looping. Try using a wav instead.\n\nSome have tried using Sound Intervals to create a loop. Unfortunately, sound intervals depend on Panda's Thread to restart the sound, and if the CPU is is busy, there's a skip. This is not a seamless method, in general. Use ~.AudioSound.set_loop() instead.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_466",
+    "parent": "processed_documents/context_documents/cb008d7e_fe63f3af_manipulating-sounds.json",
+    "chunk_number": 6382
+  }
+}

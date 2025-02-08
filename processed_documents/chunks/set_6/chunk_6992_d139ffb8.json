@@ -1,0 +1,9 @@
+{
+  "content": "Instancing\n\nIn the musical \"A Chorus Line,\" the most well-known scene is when about 50 identical-looking young women line up left-to-right across the stage, and they all kick-left-kick-right in unison. To implement this in Panda3D, you might do this:\n\nfor i in range(50):\n    dancer = Actor.Actor(\"chorus-line-dancer.egg\", {\"kick\":\"kick.egg\"})\n    dancer.loop(\"kick\")\n    dancer.setPos(i*5,0,0)\n    dancer.reparentTo(render)\n\nHere is the scene graph that we just created:\n\nThis works fine, but it is a little expensive. Animating a model involves a lot of per-vertex matrix calculations. In this case, we're animating 50 copies of the exact same model using 50 copies of the exact same animation. That's a lot of redundant calculations. It would seem that there must be some way to avoid calculating the exact same values 50 times. There is: the technique is called instancing.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_565",
+    "parent": "processed_documents/context_documents/fd216bec_f62cc0c7_instancing.json",
+    "chunk_number": 6992
+  }
+}

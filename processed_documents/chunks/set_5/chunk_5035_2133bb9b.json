@@ -1,0 +1,9 @@
+{
+  "content": "def showFrustum(np):\n    # Utility function to reveal the frustum for a particular camera.\n    cameraNP = np.find('**/+Camera')\n    camera = cameraNP.node()\n    lens = camera.getLens()\n    geomNode = GeomNode('frustum')\n    geomNode.addGeom(lens.makeGeometry())\n    cameraNP.attachNewNode(geomNode)\n\n\nif __name__ == \"__main__\":\n    from direct.showbase.ShowBase import ShowBase\n    base = ShowBase()\n\n    panda = base.loader.loadModel(\"panda\")\n    panda.setH(180)\n    panda.setPos(0, 10, -2.5)\n    panda.setScale(0.5)\n    panda.reparentTo(base.render)\n\n    myMirror = setupMirror(\"mirror\", 10, 10, bufferSize=1024, clearColor=(0, 0, 1, 1))\n    myMirror.setPos(0, 15, 2.5)\n    myMirror.setH(180)\n\n    # Uncomment this to show the frustum of the camera in the mirror\n    #showFrustum(render)\n\n    base.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_285",
+    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
+    "chunk_number": 5035
+  }
+}

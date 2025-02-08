@@ -1,0 +1,9 @@
+{
+  "content": "def __getExitEvent(self, phaseName):\n        return '%sPhaseNode%s-%d' % (self.exitPrefix, phaseName, self.__id)\n\n    def __enableCollisions(self, phase):\n        \"\"\"\n        Turns on collisions for the spheres bounding this\n        phase zone by unstashing their geometry.  Enables\n        the exit event for the larger and the enter event\n        for the smaller.  Handles the  extreme(end) phases\n        gracefully.\n        \"\"\"\n        if 0 <= phase:\n            phaseName = self.getPhaseAlias(phase)\n            self.accept(self.__getExitEvent(phaseName),\n                        self.__handleExitEvent,\n                        extraArgs = [phaseName])\n            self._colSpheres[phase].unstash()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4581
+  }
+}

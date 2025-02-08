@@ -1,0 +1,9 @@
+{
+  "content": "If you do not want to use the linearized workflow, despite its benefits, you can tell blend2bam not to mark the textures as being sRGB-encoded, meaning that they are read without gamma correction. To do this, use the --no-srgb flag.\n\nIf you do wish to use the linearized workflow, but have other models or textures that you wish to integrate into the same application, it is important to set their texture to use the sRGB format as well so that they do not appear too bright. This can be done with the following code:\n\npython\n\nfor tex in model.find_all_textures():\n    if tex.num_components == 4:\n        tex.set_format(Texture.F_srgb_alpha)\n    else:\n        tex.set_format(Texture.F_srgb)\n\ncpp\n\nfor (Texture *tex : model.find_all_textures()) {\n  if (Texture::has_alpha(tex->get_format())) {\n    tex->set_format(Texture::F_srgb_alpha);\n  } else {\n    tex->set_format(Texture::F_srgb);\n  }\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_676",
+    "parent": "processed_documents/context_documents/7aeb9fb6_56e00594_converting-from-blender.json",
+    "chunk_number": 7619
+  }
+}

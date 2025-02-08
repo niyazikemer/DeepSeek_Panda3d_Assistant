@@ -1,0 +1,9 @@
+{
+  "content": "class StdoutPassthrough(StdoutCapture):\n    # like StdoutCapture but also allows output to go through to the OS as normal\n\n    # internal\n    def write(self, string):\n        self._string = ''.join([self._string, string])\n        self._oldStdout.write(string)\n\n\n# constant profile defaults\nif __debug__:\n    from io import StringIO\n\n    PyUtilProfileDefaultFilename = 'profiledata'\n    PyUtilProfileDefaultLines = 80\n    PyUtilProfileDefaultSorts = ['cumulative', 'time', 'calls']\n\n    _ProfileResultStr = ''\n\n    def getProfileResultString():\n        # if you called profile with 'log' not set to True,\n        # you can call this function to get the results as\n        # a string\n        return _ProfileResultStr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4622
+  }
+}

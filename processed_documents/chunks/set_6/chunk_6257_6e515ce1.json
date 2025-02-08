@@ -1,0 +1,9 @@
+{
+  "content": "smiley = loader.loadModel('smiley.egg')\nsmiley.reparentTo(render)\ntex = loader.loadTexture('maps/noise.rgb')\nts = TextureStage('ts')\nsmiley.setTexture(ts, tex)\n\nNote that we can create a new TextureStage object on the fly; the only parameter required to the TextureStage parameter is a name, which is significant only to us. When we pass the TextureStage as the first parameter to ~.NodePath.set_texture(), it means to assign the indicated texture to that TextureStage. Also note that we no longer need to specify an override to the ~.NodePath.set_texture() call, since we are not overriding the texture specified at the Geom level, but rather we are adding to it.\n\nAnd the result is this:\n\nTo undo a previous call to add a texture, use:\n\npython\n\nsmiley.clearTexture(ts)\n\ncpp\n\nsmiley.clear_texture(ts);\n\npassing in the same TextureStage that you used before. Or, alternatively, you may simply use:\n\npython\n\nsmiley.clearTexture()\n\ncpp\n\nsmiley.clear_texture();",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_445",
+    "parent": "processed_documents/context_documents/6d54e5d2_ee375144_multitexture-introduction.json",
+    "chunk_number": 6257
+  }
+}

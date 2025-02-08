@@ -1,0 +1,9 @@
+{
+  "content": "When running the application, the following should be seen:\n\nmounted\n\nYou can check if a certain subfile is encrypted or not using the ~.Multifile.is_subfile_encrypted() method, which takes the subfile index as parameter.\n\nIt is possible to have a multifile where different subfiles have different encryption, but you will not be able to mount it with the VirtualFileSystem or use it with the multify tool. To mount an encrypted file using the virtual file system, pass the password as parameter to the ~.VirtualFileSystem.mount() method:\n\npython\n\nfrom panda3d.core import VirtualFileSystem, Filename\nvfs = VirtualFileSystem.getGlobalPtr()\nvfs.mount(Filename(\"foo.mf\"), \".\", vfs.MFReadOnly, \"foobar\")\n\ncpp\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr()\nvfs->mount(\"./foo.mf\", \".\", VirtualFileSystem::MF_read_only, \"foobar\");",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7609
+  }
+}

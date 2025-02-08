@@ -1,0 +1,9 @@
+{
+  "content": "if minX is None:\n            minX = x\n            minY = y\n            minZ = z\n            maxX = x\n            maxY = y\n            maxZ = z\n        else:\n            minX = min(x, minX)\n            minY = min(y, minY)\n            minZ = min(z, minZ)\n            maxX = max(x, maxX)\n            maxY = max(y, maxY)\n            maxZ = max(z, maxZ)\n    avgX /= len(solids)\n    avgY /= len(solids)\n    avgZ /= len(solids)\n    extentX = maxX - minX\n    extentY = maxY - minY\n    extentZ = maxZ - minZ\n    maxExtent = max(extentX, extentY, extentZ)\n    # sparse octree\n    xyzSolids = []\n    XyzSolids = []\n    xYzSolids = []\n    XYzSolids = []\n    xyZSolids = []\n    XyZSolids = []\n    xYZSolids = []\n    XYZSolids = []\n    midX = avgX\n    midY = avgY\n    midZ = avgZ\n    # throw out axes that are not close to the max axis extent; try and keep\n    # the divisions square/spherical\n    if extentX < (maxExtent * .75) or extentX > (maxExtent * 1.25):\n        midX += maxExtent",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5777
+  }
+}

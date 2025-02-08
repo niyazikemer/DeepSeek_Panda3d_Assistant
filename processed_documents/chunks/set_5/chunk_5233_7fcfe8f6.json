@@ -1,0 +1,9 @@
+{
+  "content": "def _sendRemoveAIInterest(self, handle):\n        \"\"\"\n        handle is a bare int, NOT an InterestHandle.  Use this to\n        close an AI opened interest.\n        \"\"\"\n        datagram = PyDatagram()\n        # Add message type\n        datagram.addUint16(CLIENT_REMOVE_INTEREST)\n        datagram.addUint16((1<<15) + handle)\n        self.send(datagram)\n\n    def cleanupWaitAllInterestsComplete(self):\n        if self._completeDelayedCallback is not None:\n            self._completeDelayedCallback.destroy()\n            self._completeDelayedCallback = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5233
+  }
+}

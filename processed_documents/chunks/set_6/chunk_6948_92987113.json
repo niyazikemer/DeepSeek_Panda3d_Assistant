@@ -1,0 +1,9 @@
+{
+  "content": "It is possible to check whether the character controller is airborne using the ~panda3d.bullet.BulletCharacterControllerNode.is_on_ground() method.\n\nCrouching\n\nFinally we want the character to crouch or duck. To achieve this we simply change the scale of the character's collision shape. Here in this example we reduce the vertical dimension to 60 percent (0.6) when crouching, while the normal vertical scale is 1.0. We don't change the horizontal scales. In a more realistic example, one would have the player enter a crouching animation.\n\nSince we have the visual node of the player reparented to the character controller node it will automatically change its scale to match the player.\n\npython\n\nself.crouching = False\n\ndef doCrouch(self):\n    self.crouching = not self.crouching\n    sz = self.crouching and 0.6 or 1.0\n\n    self.player.getShape().setLocalScale(Vec3(1, 1, sz))\n\n    self.playerNP.setScale(Vec3(1, 1, sz) * 0.3048)\n    self.playerNP.setPos(0, 0, -1 * sz)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_554",
+    "parent": "processed_documents/context_documents/7d1f7487_d82f40be_character-controller.json",
+    "chunk_number": 6948
+  }
+}

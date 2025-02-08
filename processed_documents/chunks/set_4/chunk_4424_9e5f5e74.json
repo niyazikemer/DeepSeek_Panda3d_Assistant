@@ -1,0 +1,9 @@
+{
+  "content": "def loadSound(self, manager, soundPath, positional = False,\n                  callback = None, extraArgs = []):\n        \"\"\"Loads one or more sound files, specifying the particular\n        AudioManager that should be used to load them.  The soundPath\n        may be either a single filename, or a list of filenames.  If a\n        callback is specified, the loading happens in the background,\n        just as in loadModel(); otherwise, the loading happens before\n        loadSound() returns.\"\"\"\n\n        from panda3d.core import AudioLoadRequest\n\n        if not isinstance(soundPath, (tuple, list, set)):\n            # We were given a single sound pathname or a MovieAudio instance.\n            soundList = [soundPath]\n            gotList = False\n        else:\n            # Assume we were given a list of sound pathnames.\n            soundList = soundPath\n            gotList = True\n\n        if callback is None:\n            # We got no callback, so it's a synchronous load.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4424
+  }
+}

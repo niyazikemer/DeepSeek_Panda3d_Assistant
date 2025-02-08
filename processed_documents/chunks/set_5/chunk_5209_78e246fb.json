@@ -1,0 +1,9 @@
+{
+  "content": "if event:\n            contextId = self._getNextContextId()\n        else:\n            contextId = 0\n            # event = self._getAnonymousEvent('addInterest')\n\n        DoInterestManager._interests[handle] = InterestState(\n            description, InterestState.StateActive, contextId, event, parentId, zoneIdList, self._completeEventCount)\n        if self.__verbose():\n            print('CR::INTEREST.addInterest(handle=%s, parentId=%s, zoneIdList=%s, description=%s, event=%s)' % (\n                handle, parentId, zoneIdList, description, event))\n        self._sendAddInterest(handle, contextId, parentId, zoneIdList, description)\n        if event:\n            messenger.send(self._getAddInterestEvent(), [event])\n        assert self.printInterestsIfDebug()\n        return InterestHandle(handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5209
+  }
+}

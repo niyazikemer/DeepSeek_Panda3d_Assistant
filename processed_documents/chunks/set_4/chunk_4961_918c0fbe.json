@@ -1,0 +1,9 @@
+{
+  "content": "# Lerp stuff needs this event, and it must be generated in\n        # C++, not in Python.\n        throw_new_frame()\n        return Task.cont\n\n    def __igLoopSync(self, state):\n        if __debug__:\n            # We render the watch variables for the onScreenDebug as soon\n            # as we reasonably can before the renderFrame().\n            self.onScreenDebug.render()\n\n        if self.recorder:\n            self.recorder.recordFrame()\n\n        self.cluster.collectData()\n\n        # Finally, render the frame.\n        self.graphicsEngine.renderFrame()\n        if self.clusterSyncFlag:\n            self.graphicsEngine.syncFrame()\n        if self.multiClientSleep:\n            time.sleep(0)\n\n        if __debug__:\n            # We clear the text buffer for the onScreenDebug as soon\n            # as we reasonably can after the renderFrame().\n            self.onScreenDebug.clear()\n\n        if self.recorder:\n            self.recorder.playFrame()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4961
+  }
+}

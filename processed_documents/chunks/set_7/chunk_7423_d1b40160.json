@@ -1,0 +1,9 @@
+{
+  "content": "The node returned by the collision system may not be the object itself, but might be just a part of the object. In particular, it will be one of the GeomNodes that make up the object. (The .GeomNode class contains the visible geometry primitives that are used to define renderable objects in Panda3D.) Since your object might consist of more than one .GeomNode, what you probably would prefer to get is the .NodePath that represents the parent of all of these GeomNodes that is, the .NodePath that you set the 'myObjectTag' tag on above. You can use .NodePath.find_net_tag() to return the parent .NodePath that contains a specified tag. (There are also other, similar methods on .NodePath that can be used to query the tag specified on a parent node, such as ~.NodePath.get_net_tag() and ~.NodePath.has_net_tag(). For simplicity, we shall restrict this example to ~.NodePath.find_net_tag().)\n\npython\n\nNow you can edit myFunction() to look like this:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_642",
+    "parent": "processed_documents/context_documents/89de807b_91a421cd_clicking-on-3d-objects.json",
+    "chunk_number": 7423
+  }
+}

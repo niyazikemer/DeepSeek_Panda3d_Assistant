@@ -1,0 +1,9 @@
+{
+  "content": "self.doId2ownerView[doId] = distObj\n            # and update it.\n            distObj.generate()\n            distObj.updateRequiredOtherFields(dclass, di)\n            # updateRequiredOtherFields calls announceGenerate\n        else:\n            # ...it is not in the dictionary or the cache.\n            # Construct a new one\n            classDef = dclass.getOwnerClassDef()\n            if classDef is None:\n                self.notify.error(\"Could not create an undefined %s object. Have you created an owner view?\" % (dclass.getName()))\n            distObj = classDef(self)\n            distObj.dclass = dclass\n            # Assign it an Id\n            distObj.doId = doId\n            # Put the new do in the dictionary\n            self.doId2ownerView[doId] = distObj\n            # Update the required fields\n            distObj.generateInit()  # Only called when constructed\n            distObj.generate()\n            distObj.updateRequiredOtherFields(dclass, di)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5607
+  }
+}

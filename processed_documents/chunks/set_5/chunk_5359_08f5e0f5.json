@@ -1,0 +1,9 @@
+{
+  "content": "self.smoother.setTimestamp(local)\n            self.smoother.markPosition()\n\n        if not self.localControl and not self.smoothStarted and \\\n           self.smoother.getLatestPosition():\n            self.smoother.applySmoothPosHpr(self, self)\n\n    # These are all required by the CMU server, which requires get* to\n    # match set* in more cases than the Disney server does.\n    def getComponentL(self):\n        return self.zoneId\n\n    def getComponentX(self):\n        return self.getX()\n\n    def getComponentY(self):\n        return self.getY()\n\n    def getComponentZ(self):\n        return self.getZ()\n\n    def getComponentH(self):\n        return self.getH()\n\n    def getComponentP(self):\n        return self.getP()\n\n    def getComponentR(self):\n        return self.getR()\n\n    def getComponentT(self):\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5359
+  }
+}

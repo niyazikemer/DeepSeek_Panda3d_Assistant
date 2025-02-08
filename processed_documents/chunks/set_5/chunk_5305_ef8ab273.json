@@ -1,0 +1,9 @@
+{
+  "content": "if self.config.GetBool('want-garbage-collect-task', 1):\n            # manual garbage-collect task\n            taskMgr.add(self._garbageCollect, self.GarbageCollectTaskName, 200)\n            # periodically increase gc threshold if there is no garbage\n            taskMgr.doMethodLater(self.config.GetFloat('garbage-threshold-adjust-delay', 5 * 60.),\n                                  self._adjustGcThreshold, self.GarbageThresholdTaskName)\n\n        self._gcDefaultThreshold = gc.get_threshold()\n\n    def _getLostConnectionEvent(self):\n        return self.uniqueName('lostConnection')\n\n    def _garbageCollect(self, task=None):\n        # allow a collect\n        # enable automatic garbage collection\n        gc.enable()\n        # creating an object with gc enabled causes garbage collection to trigger if appropriate\n        gct = GCTrigger()\n        # disable the automatic garbage collect during the rest of the frame\n        gc.disable()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5305
+  }
+}

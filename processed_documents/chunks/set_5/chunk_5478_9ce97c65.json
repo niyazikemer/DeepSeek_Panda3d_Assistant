@@ -1,0 +1,9 @@
+{
+  "content": "(repr(child), parentToken))\n            # cancel any pending reparent on behalf of this child\n            self.privRemoveReparentRequest(child)\n            # make note of this pending parent request\n            self.pendingChild2parentToken[child] = parentToken\n            self.pendingParentToken2children.setdefault(parentToken, [])\n            self.pendingParentToken2children[parentToken].append(child)\n            # there is no longer any valid place for the child in the\n            # scenegraph; put it under hidden\n            child.reparentTo(hidden)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_316",
+    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
+    "chunk_number": 5478
+  }
+}

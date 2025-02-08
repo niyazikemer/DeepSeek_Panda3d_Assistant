@@ -1,0 +1,9 @@
+{
+  "content": "Also, note that it is no longer possible for anything in App to contact the graphics card directly; while App is running, the graphics card is being sent the drawing commands from two frames ago, and you can't reliably interrupt this without taking a big performance hit. So this means that OpenGL callbacks and the like have to be sensitive to the threaded nature of the graphics pipeline. (This is why Panda's interface to the graphics window requires an indirect call: base.win.requestProperties(), rather than base.win.setProperties(). It's necessary because the property-change request must be handled by the draw thread.)\n\nEnabling the Multithreaded Render Pipeline\n\nTo enable this feature, simply set the following variable in your Config.prc file:\n\nthreading-model Cull/Draw",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_519",
+    "parent": "processed_documents/context_documents/0cd108d5_dab687d3_multithreaded-render-pipeline.json",
+    "chunk_number": 6616
+  }
+}

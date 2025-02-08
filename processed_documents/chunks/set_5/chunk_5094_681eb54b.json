@@ -1,0 +1,9 @@
+{
+  "content": "self._compileStats()\n\n            if totalTime is None:\n                totalTime = self._stats.total_tt\n\n            # make sure the arguments will hash efficiently if callers provide different types\n            lines = int(lines)\n            sorts = list(sorts)\n            callInfo = bool(callInfo)\n            totalTime = float(totalTime)\n            k = str((lines, sorts, callInfo, totalTime))\n            if k in self._resultCache:\n                # we've already created this output string, get it from the cache\n                output = self._resultCache[k]\n            else:\n                # now get human-readable output from the profile stats\n\n                # capture print output to a string\n                sc = StdoutCapture()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5094
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def replaceMessengerFunc(replaceFuncList):\n    try:\n        messenger\n    except Exception:\n        return\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        res = messenger.replaceMethod(oldFunc, newFunc)\n        if res:\n            print('replaced %s messenger function(s): %s' % (res, funcName))\n\n\ndef replaceTaskMgrFunc(replaceFuncList):\n    try:\n        taskMgr\n    except Exception:\n        return\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        if taskMgr.replaceMethod(oldFunc, newFunc):\n            print('replaced taskMgr function: %s' % funcName)\n\n\ndef replaceStateFunc(replaceFuncList):\n    if not sys.modules.get('base.direct.fsm.State'):\n        return\n    from direct.fsm.State import State\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        res = State.replaceMethod(oldFunc, newFunc)\n        if res:\n            print('replaced %s FSM transition function(s): %s' % (res, funcName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4560
+  }
+}

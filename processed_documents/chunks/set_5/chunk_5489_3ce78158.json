@@ -1,0 +1,9 @@
+{
+  "content": "else:\n                raise Exception(\"Error: No such type as: \" + str(subatomicType))\n        else:\n            funcSpecs = self.FuncDict.get(subatomicType)\n            if funcSpecs:\n                # argFunc is only used if divisor == 1\n                addFunc, argFunc = funcSpecs\n                addFunc(self, int(round(arg * divisor)))\n            # Ok, arrays are not handled by the FuncDict yet\n            elif subatomicType == STInt8array:\n                self.addUint16(len(arg))\n                for i in arg:\n                    self.addInt8(int(round(i*divisor)))\n            elif subatomicType == STInt16array:\n                self.addUint16(len(arg) << 1)\n                for i in arg:\n                    self.addInt16(int(round(i*divisor)))\n            elif subatomicType == STInt32array:\n                self.addUint16(len(arg) << 2)\n                for i in arg:\n                    self.addInt32(int(round(i*divisor)))\n            elif subatomicType == STUint8array:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_317",
+    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
+    "chunk_number": 5489
+  }
+}

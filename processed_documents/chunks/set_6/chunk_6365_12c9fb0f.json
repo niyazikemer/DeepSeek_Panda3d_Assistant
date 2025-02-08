@@ -1,0 +1,9 @@
+{
+  "content": "shader = Shader.load(\"myshader.sha\", Shader.SL_Cg)\nmodel.setShader(shader)\n\ncpp\n\n#include \"shader.h\"\n\nPT(Shader) shader = Shader::load(\"myshader.sha\", Shader.SL_Cg);\nmodel.set_shader(shader);\n\nLoading a multi-file Cg shader requires a different set of parameters for the ~.Shader.load() function; the first being the shader language, and the second, third and fourth being paths to the vertex, fragment and geometry shaders respectively. Here is an example:\n\npython\n\nshader = Shader.load(Shader.SL_Cg,\n                     vertex=\"myvertexshader.sha\",\n                     fragment=\"myfragmentshader.sha\",\n                     geometry=\"mygeometryshader.sha\")\nmodel.setShader(shader)\n\ncpp\n\nPT(Shader) shader = Shader::load(Shader.SL_Cg, \"myvertexshader.sha\", \"myfragmentshader.sha\", \"mygeometryshader.sha\");\nmodel.set_shader(shader);\n\nApplying the Shader",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_462",
+    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
+    "chunk_number": 6365
+  }
+}

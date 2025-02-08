@@ -1,0 +1,9 @@
+{
+  "content": "PT(CollisionHandlerPusher) pusher = new CollisionHandlerPusher;\npusher->add_collider(fromObject, smiley);\n\nDon't be confused by the call to pusher.add_collider() <.CollisionHandlerPusher.add_collider>; it looks a lot like the call to traverser.add_collider() <.CollisionTraverser.add_collider>, but it's not the same thing, and you still need to add the collider and its handler to the traverser:\n\npython\n\ntraverser.addCollider(fromObject, pusher)\nsmiley.setPos(x, y, 0)\n\ncpp\n\ntraverser.add_collider(fromObject, pusher);\nsmiley.set_pos(x, y, 0);\n\nIf you are using Panda's drive mode to move the camera around (or some other node), then you also need to tell the pusher about the drive node, by adding it into the pusher.add_collider() <.CollisionHandlerPusher.add_collider> call:\n\npython\n\nfromObject = base.camera.attachNewNode(CollisionNode('colNode'))\nfromObject.node().addSolid(CollisionSphere(0, 0, 0, 1))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6449
+  }
+}

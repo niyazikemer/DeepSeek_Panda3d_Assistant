@@ -1,0 +1,9 @@
+{
+  "content": "def _profileWithoutGarbageLeak(cmd, filename):\n        # The profile module isn't necessarily installed on every Python\n        # installation, so we import it here, instead of in the module\n        # scope.\n        import profile\n        # this is necessary because the profile module creates a memory leak\n        Profile = profile.Profile\n        statement = cmd\n        sort = -1\n        #### COPIED FROM profile.run ####\n        prof = Profile()\n        try:\n            prof = prof.run(statement)\n        except SystemExit:\n            pass\n        if filename is not None:\n            prof.dump_stats(filename)\n        else:\n            #return prof.print_stats(sort)  #DCR\n            prof.print_stats(sort) #DCR\n        #################################\n        # eliminate the garbage leak\n        del prof.dispatcher",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4632
+  }
+}

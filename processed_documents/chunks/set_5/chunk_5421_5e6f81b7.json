@@ -1,0 +1,9 @@
+{
+  "content": "MsgName2Id = {name: value for name, value in globals().items() if isinstance(value, int)}\n\n# create id->name table for debugging\nMsgId2Names = invertDictLossless(MsgName2Id)\n\n# put msg names in module scope, assigned to msg value\nglobals().update(MsgName2Id)\n\n# These messages are ignored when the client is headed to the quiet zone\nQUIET_ZONE_IGNORED_LIST: list[int] = [\n\n    # We mustn't ignore updates, because some updates for localToon\n    # are always important.\n    #CLIENT_OBJECT_UPDATE_FIELD,\n\n    # These are now handled. If it is a create for a class that is in the\n    # uber zone, we should create it.\n    #CLIENT_CREATE_OBJECT_REQUIRED,\n    #CLIENT_CREATE_OBJECT_REQUIRED_OTHER,\n\n]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_311",
+    "parent": "processed_documents/context_documents/9eb04c49_MsgTypes.json",
+    "chunk_number": 5421
+  }
+}

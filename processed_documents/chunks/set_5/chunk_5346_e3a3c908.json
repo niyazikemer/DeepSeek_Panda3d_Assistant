@@ -1,0 +1,9 @@
+{
+  "content": "def stopSmooth(self):\n        \"\"\"\n        This function stops the task spawned by startSmooth(), and\n        allows show code to move the node around directly.\n        \"\"\"\n        if self.smoothStarted:\n            taskName = self.taskName(\"smooth\")\n            taskMgr.remove(taskName)\n            self.forceToTruePosition()\n            self.smoothStarted = 0\n\n    def setSmoothWrtReparents(self, flag):\n        self._smoothWrtReparents = flag\n\n    def getSmoothWrtReparents(self):\n        return self._smoothWrtReparents\n\n    def forceToTruePosition(self):\n        \"\"\"\n        This forces the node to reposition itself to its latest known\n        position.  This may result in a pop as the node skips the last\n        of its lerp points.\n        \"\"\"\n        #printStack()\n        if (not self.isLocal()) and \\\n           self.smoother.getLatestPosition():\n            self.smoother.applySmoothPosHpr(self, self)\n        self.smoother.clearPositions(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5346
+  }
+}

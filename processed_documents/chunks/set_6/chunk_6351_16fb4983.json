@@ -1,0 +1,9 @@
+{
+  "content": "The MeshDrawer is used in kind of an old style draw loop. I recommend creating a specific task for MeshDrawer so that you can see how much time it eats up using pstats. To the begin call you need to pass the render and base.cam so that mesh drawer can figure out correct facing for billboards. A lot of FX require billboards so it makes sense to precompute some of this facing stuff at the start.\n\npython\n\ndef drawtask(task):\n    generator.begin(base.cam,render)\n\n    ... your draw code ...\n\n    generator.end()\n    return task.cont\n\ntaskMgr.add(drawtask, \"meshdrawer task\")\n\ncpp\n\nvoid drawTask() {\n  // You'll need access to the window and the generator\n  // Call this method in your update or use a task.\n  generator.begin(window->get_camera_group(), window->get_render());\n\n  ... your draw code ...\n\n  generator.end()\n}\n\nSee the ~panda3d.core.MeshDrawer page in the API Reference to see a complete overview of the available methods.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_460",
+    "parent": "processed_documents/context_documents/97490678_7fe92637_meshdrawer.json",
+    "chunk_number": 6351
+  }
+}

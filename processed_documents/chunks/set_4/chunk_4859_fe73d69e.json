@@ -1,0 +1,9 @@
+{
+  "content": "# This is used for syncing multiple PCs in a distributed cluster\n        if hasattr(builtins, 'clusterSyncFlag'):\n            # Has the cluster sync variable been set externally?\n            self.clusterSyncFlag = builtins.clusterSyncFlag\n        else:\n            # Has the clusterSyncFlag been set via a config variable\n            self.clusterSyncFlag = ConfigVariableBool('cluster-sync', False)\n\n        # We've already created aspect2d in ShowBaseGlobal, for the\n        # benefit of creating DirectGui elements before ShowBase.\n        self.hidden = ShowBaseGlobal.hidden\n\n        #: The global :class:`~panda3d.core.GraphicsEngine`, as returned by\n        #: GraphicsEngine.getGlobalPtr()\n        self.graphicsEngine = GraphicsEngine.getGlobalPtr()\n        self.graphics_engine = self.graphicsEngine\n        self.setupRender()\n        self.setupRender2d()\n        self.setupDataGraph()\n\n        if self.wantRender2dp:\n            self.setupRender2dp()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4859
+  }
+}

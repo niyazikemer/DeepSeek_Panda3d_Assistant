@@ -1,0 +1,9 @@
+{
+  "content": "class Object:\n        \"\"\" This internal class keeps track of the data associated\n        with each extent distributed object. \"\"\"\n        def __init__(self, doId, zoneId, dclass):\n            # The object's distributed ID.\n            self.doId = doId\n\n            # The object's current zone.  Each object is associated\n            # with only one zone.\n            self.zoneId = zoneId\n\n            # The object's class type.\n            self.dclass = dclass\n\n            # Note that the server does not store any other data about\n            # the distributed objects; in particular, it doesn't\n            # record its current fields.  That is left to the clients.\n\n\n    def __init__(self, tcpPort, serverAddress = None,\n                 udpPort = None, dcFileNames = None,\n                 threadedNet = None):\n        if threadedNet is None:\n            # Default value.\n            threadedNet = ConfigVariableBool('threaded-net', False).value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5166
+  }
+}

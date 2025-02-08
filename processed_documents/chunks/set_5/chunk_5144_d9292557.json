@@ -1,0 +1,9 @@
+{
+  "content": "motion_trail_vertex_start = self.vertex_list[vertex_segment_index]\n                            motion_trail_vertex_end = self.vertex_list[vertex_segment_index + 1]\n\n                            v1 = start_transform.xform(motion_trail_vertex_end.vertex)\n                            v3 = end_transform.xform(motion_trail_vertex_end.vertex)\n\n                            # color\n                            vertex_end_color = motion_trail_vertex_end.end_color + (motion_trail_vertex_end.start_color - motion_trail_vertex_end.end_color)\n\n                            c1 = vertex_end_color * color_start_t\n                            c3 = vertex_end_color * color_end_t\n\n                            # uv\n                            t1 = Vec2(st, motion_trail_vertex_end.v)\n                            t3 = Vec2(et, motion_trail_vertex_end.v)\n\n                            self.add_geometry_quad(v0, v1, v2, v3, c0, c1, c2, c3, t0, t1, t2, t3)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5144
+  }
+}

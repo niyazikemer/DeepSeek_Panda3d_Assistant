@@ -1,0 +1,9 @@
+{
+  "content": "preload-textures 0\npreload-simple-textures 1\nsimple-image-size 16 16\ncompressed-textures 1\nallow-incomplete-render 1\n\nWhen converting models to .bam with preload-simple-textures active, simple textures will be baked into the model, so that Panda (starting with version 1.10.11) doesn't need to load the textures from disk at all until they first come into view.\n\nTo test this process, you can set async-load-delay with a value in seconds, which artificially delays each individual texture load by the given amount. This is useful for simulating the user experience on older computers with slower hard drives. Set it to a value like 0.1 and you should see the textures pop in as you move around the scene.\n\nYou can use .DisplayRegion.set_texture_reload_priority() if you want ensure that textures in some scenes are loaded with higher priority than other scenes.\n\nAnimation loading",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7357
+  }
+}

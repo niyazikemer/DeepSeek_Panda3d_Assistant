@@ -1,0 +1,9 @@
+{
+  "content": "python\n\n# Assume we have Shader instances toon_shader and blur_shader\n# and we have a Camera whose NodePath is myCamera\n\n# Create a temporary node in order to create a usable RenderState.\ntempnode = NodePath(\"temp node\")\ntempnode.setShader(toon_shader)\nbase.cam.setTagStateKey(\"Toon Shading\")\nbase.cam.setTagState(\"True\", tempnode.getState())\n\ntempnode = NodePath(\"temp node\")\ntempnode.setShader(blur_shader)\nmyCamera.node().setTagStateKey(\"Blur Shading\")\nmyCamera.node().setTagState(\"True\", tempnode.getState())\n\n# this makes myNodePath and its children get toonShaded\n# when rendered by the default camera\nmyNodePath.setTag(\"Toon Shading\", \"True\")\n# ....\n# now if you want myNodePath to be blurred when seen by myCamera,\n# it's as easy as adding a tag\nmyNodePath.setTag(\"Blur Shading\", \"True\")\n\ncpp\n\n// Assume we have Shader instances toon_shader and blur_shader\n// and we have a Camera whose NodePath is myCamera",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_386",
+    "parent": "processed_documents/context_documents/64e38fe4_b8963543_multi-pass-rendering.json",
+    "chunk_number": 5979
+  }
+}

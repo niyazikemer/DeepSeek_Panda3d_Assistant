@@ -1,0 +1,9 @@
+{
+  "content": "Args:\n            event (str): The name of the event.\n            sentArgs (list): A list of arguments to be passed along to the\n                handlers listening to this event.\n            taskChain (str, optional): If not None, the name of the task chain\n                which should receive the event.  If None, then the event is\n                handled immediately. Setting a non-None taskChain will defer\n                the event (possibly till next frame or even later) and create a\n                new, temporary task within the named taskChain, but this is the\n                only way to send an event across threads.\n        \"\"\"\n        if Messenger.notify.getDebug() and not self.quieting.get(event):\n            assert Messenger.notify.debug(\n                'sent event: %s sentArgs = %s, taskChain = %s' % (\n                event, sentArgs, taskChain))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5053
+  }
+}

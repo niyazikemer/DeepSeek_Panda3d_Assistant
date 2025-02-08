@@ -1,0 +1,9 @@
+{
+  "content": "Let's take a look at some PGui functions.\n\nThe PGui C++ modules\n\n[PGButton]\n\n#include \"pgButton.h\"\n\nwith PGButton you can create a freely definable clickable button.\n\nIt can hold four different states:\n\nExample usage, creating a texture for each state:\n\nPT(PGButton) my_button;\nmy_button = new PGButton(\"MyButton\");\nmy_button->setup(\"Button\", 0.1);\nPT(Texture) button_ready = TexturePool::load_texture(\"button.png\");\nPT(Texture) button_rollover = TexturePool::load_texture(\"button_active.png\");\nPT(Texture) button_pressed = TexturePool::load_texture(\"button_pressed.png\");\nPT(Texture) button_inactive = TexturePool::load_texture(\"button_inactive.png\");\n\n// PGFrameStyle is a powerful way to change the appearance of the button:\nPGFrameStyle my_style = my_button->get_frame_style(0); // frame_style(0): ready state\nmy_style.set_type(PGFrameStyle::T_flat);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_631",
+    "parent": "processed_documents/context_documents/5bc2b973_67d10b58_index.json",
+    "chunk_number": 7372
+  }
+}

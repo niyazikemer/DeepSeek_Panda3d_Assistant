@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedSmoothNodeAI(DistributedNodeAI.DistributedNodeAI,\n                              DistributedSmoothNodeBase.DistributedSmoothNodeBase):\n\n    def __init__(self, air, name=None):\n        DistributedNodeAI.DistributedNodeAI.__init__(self, air, name)\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.__init__(self)\n\n    def generate(self):\n        DistributedNodeAI.DistributedNodeAI.generate(self)\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.generate(self)\n        self.cnode.setRepository(self.air, 1, self.air.ourChannel)\n\n    def disable(self):\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.disable(self)\n        DistributedNodeAI.DistributedNodeAI.disable(self)\n\n    def delete(self):\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.delete(self)\n        DistributedNodeAI.DistributedNodeAI.delete(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_307",
+    "parent": "processed_documents/context_documents/6bdbd1f3_DistributedSmoothNodeAI.json",
+    "chunk_number": 5371
+  }
+}

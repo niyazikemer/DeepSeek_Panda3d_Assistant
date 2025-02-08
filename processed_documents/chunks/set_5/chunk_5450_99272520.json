@@ -1,0 +1,9 @@
+{
+  "content": "def removeDOFromTables(self, do):\n        assert self.notify.debugStateCall(self)\n        #assert not hasattr(do, \"isQueryAllResponse\") or not do.isQueryAllResponse\n        #assert do.doId in self.doId2do\n        location = do.getLocation()\n        if location:\n            oldParentId, oldZoneId = location\n            oldParentObj = self.doId2do.get(oldParentId)\n            if oldParentObj:\n                oldParentObj.handleChildLeave(do, oldZoneId)\n        self.deleteObjectLocation(do, do.parentId, do.zoneId)\n        ## location = do.getLocation()\n        ## if location is not None:\n        ##     if location not in self.zoneId2doIds:\n        ##         self.notify.warning(\n        ##             'dobj %s (%s) has invalid location: %s' %\n        ##             (do, do.doId, location))\n        ##     else:\n        ##         assert do.doId in self.zoneId2doIds[location]\n        ##         del self.zoneId2doIds[location][do.doId]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5450
+  }
+}

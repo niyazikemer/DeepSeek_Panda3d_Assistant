@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] this function is seperated from setupMouse to allow multiple mouse watchers\n    def setupMouseCB(self, win):\n        # For each mouse/keyboard device, we create\n        #  - MouseAndKeyboard\n        #  - MouseWatcher\n        #  - ButtonThrower\n        # The ButtonThrowers are stored in a list, self.buttonThrowers.\n        # Given a ButtonThrower, one can access the MouseWatcher and\n        # MouseAndKeyboard using getParent.\n        #\n        # The MouseAndKeyboard generates mouse events and mouse\n        # button/keyboard events; the MouseWatcher passes them through\n        # unchanged when the mouse is not over a 2-d button, and passes\n        # nothing through when the mouse *is* over a 2-d button.  Therefore,\n        # objects that don't want to get events when the mouse is over a\n        # button, like the driveInterface, should be parented to\n        # MouseWatcher, while objects that want events in all cases, like the",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4935
+  }
+}

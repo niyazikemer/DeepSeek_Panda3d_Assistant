@@ -1,0 +1,9 @@
+{
+  "content": "# this is a special generate used for estates, or anything else that\n    # needs to have a hard coded doId as assigned by the server\n    def generateWithRequiredAndId(self, doId, parentId, zoneId, optionalFields=[]):\n        assert self.notify.debugStateCall(self)\n        # have we already allocated a doId?\n        if self.__preallocDoId:\n            assert doId == self.__preallocDoId\n            self.__preallocDoId = 0\n\n        # The repository is the one that really does the work\n        self.air.generateWithRequiredAndId(self, doId, parentId, zoneId, optionalFields)\n        ## self.parentId = parentId\n        ## self.zoneId = zoneId\n        self.generate()\n        self.announceGenerate()\n        self.postGenerateMessage()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5506
+  }
+}

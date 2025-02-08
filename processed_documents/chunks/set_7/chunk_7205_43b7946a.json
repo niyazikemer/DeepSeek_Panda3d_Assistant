@@ -1,0 +1,9 @@
+{
+  "content": "To define a possible state for an FSM, you only need to define an enterStateName() and/or exitStateName() method on your class, where StateName is the name of the state you would like to define. The enterStateName() method should perform all the necessary action for entering your new state, and the corresponding exitStateName() method should generally undo everything that was done in enterStateName(), so that the world is returned to a neutral state.\n\nAn FSM starts and finishes in the state named \"Off\". When the FSM is created, it is already in \"Off\"; and when you destroy it (by calling fsm.cleanup() <direct.fsm.FSM.FSM.cleanup>), it automatically transitions back to \"Off\".\n\nTo request an FSM to transition explicitly to a new state, use the call fsm.request('StateName') <direct.fsm.FSM.FSM.request>, where StateName is the state you would like it to transition to.\n\nArguments to enterStateName methods",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_604",
+    "parent": "processed_documents/context_documents/787f0d21_8c41fb3c_simple-fsm-usage.json",
+    "chunk_number": 7205
+  }
+}

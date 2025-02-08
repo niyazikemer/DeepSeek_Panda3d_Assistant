@@ -1,0 +1,9 @@
+{
+  "content": "Geometry Entries\n\nGeometry entries reference Vertex pool entries to generate renderable geometry for Panda to use.\n\nPolygons\n\nA polygon consists of a sequence of vertices from a single vertex pool. Vertices are identified by pool-name and index number within the pool; indices is a list of vertex numbers within the given vertex pool. Vertices are listed in counterclockwise order. Although the vertices must all come from the same vertex pool, they may have been assigned to arbitrarily many different joints regardless of joint connectivity (there is no \"straddle-polygon\" limitation). See Joints, below.\n\nThe polygon syntax is quite verbose, and there isn't any way to specify a set of attributes that applies to a group of polygons--the attributes list must be repeated for each polygon. This is why egg files tend to be very large.\n\n<Polygon> name {\n    [attributes]\n    <VertexRef> {\n        indices\n        <Ref> { pool-name }\n    }\n}\n\nPolygon Attributes",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_400",
+    "parent": "processed_documents/context_documents/fe5417d7_2644dc0c_syntax.json",
+    "chunk_number": 6039
+  }
+}

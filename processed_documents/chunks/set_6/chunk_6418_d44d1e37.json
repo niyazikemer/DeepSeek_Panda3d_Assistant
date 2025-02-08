@@ -1,0 +1,9 @@
+{
+  "content": "tex = loader.loadCubeMap('streetscene_cube_#.jpg')\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MEyeCubeMap)\nteapot.setTexture(tex)\n\nAnd the result looks very similar to the sphere map:\n\nIn fact, it looks so similar that one might wonder why we bothered. So far, a cube map looks pretty similar to a sphere map, except that it consumes six times the texture memory. Hardly impressive.\n\nBut as we mentioned earlier <simple-environment-mapping>, there are two problems with sphere maps that cube maps can solve. One of these problems is that the point-of-view is permanently baked into the sphere map. Cube maps don't necessarily have the same problem. In fact, we can solve it with one simple variation:\n\ntex = loader.loadCubeMap('streetscene_cube_#.jpg')\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MWorldCubeMap)\nteapot.setTexture(tex)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_475",
+    "parent": "processed_documents/context_documents/948b4838_20446138_environment-mapping-with-cube-maps.json",
+    "chunk_number": 6418
+  }
+}

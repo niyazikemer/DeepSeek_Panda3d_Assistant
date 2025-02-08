@@ -1,0 +1,9 @@
+{
+  "content": "def _do__call__(self, *args, **kargs):\n        _kargs = self._kargs.copy()\n        _kargs.update(kargs)\n        return self._function(*(self._args + args), **_kargs)\n\n    __call__ = _do__call__\n\n    def __repr__(self):\n        s = 'Functor(%s' % self._function.__name__\n        for arg in self._args:\n            try:\n                argStr = repr(arg)\n            except Exception:\n                argStr = 'bad repr: %s' % arg.__class__\n            s += ', %s' % argStr\n        for karg, value in list(self._kargs.items()):\n            s += ', %s=%s' % (karg, repr(value))\n        s += ')'\n        return s",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4600
+  }
+}
