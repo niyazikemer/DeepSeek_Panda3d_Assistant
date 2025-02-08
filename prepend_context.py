@@ -45,6 +45,7 @@ class DocumentIndexer:
 
     def load_json_docs(self, json_doc_dir: str):
         """Load previously processed chunks and convert to Document objects"""
+        document_type = json_doc_dir.split('/')[-1]
         json_doc = []
         for root, _, files in os.walk(json_doc_dir):
             for file in files:
@@ -57,7 +58,7 @@ class DocumentIndexer:
                             metadata=chunk_data['metadata']
                         )
                         json_doc.append(doc)
-        print(f"Loaded {len(json_doc)} chunks")
+        print(f"Loaded {len(json_doc)} {document_type}")
         return json_doc
     
     def process_and_save_chunks(self, chunks: List[Document], context_docs: List[Document]) -> str:
@@ -86,26 +87,12 @@ class DocumentIndexer:
                 
         return self.output_dir
 
-    # def save_processed_chunks(self, chunks: List[Document]):
-    #     """Save processed chunks with context"""
-    #     os.makedirs(self.output_dir, exist_ok=True)
-    #     for i, chunk in enumerate(chunks):
-    #         content_hash = hashlib.md5(chunk.page_content.encode()).hexdigest()[:8]
-    #         file_name = f"{content_hash}_chunk_{i}.json"
-    #         save_path = os.path.join(self.output_dir, file_name)
-            
-    #         chunk_dict = {
-    #             'content': chunk.page_content,
-    #             'metadata': chunk.metadata
-    #         }
-    #         with open(save_path, 'w') as f:
-    #             json.dump(chunk_dict, f, indent=2)
-    #     return self.output_dir
       
     def create_index(self, json_doc_dir: str = None):
         """Create index from previously processed chunks"""
         if json_doc_dir is None:
             json_doc_dir = self.output_dir
+            
         print("Loading chunks...")
         chunks = self.load_json_docs(json_doc_dir)
         print(f"Loaded {len(chunks)} chunks")
