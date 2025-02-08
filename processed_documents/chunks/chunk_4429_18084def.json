@@ -1,9 +1,0 @@
-{
-  "content": "If a callback is specified, then it is called after the\n        operation is finished, receiving the flattened model (or a\n        list of flattened models).\"\"\"\n\n        if isinstance(model, NodePath):\n            # We were given a single model.\n            modelList = [model]\n            gotList = False\n        else:\n            # Assume we were given a list of models.\n            modelList = model\n            gotList = True\n\n        if inPlace:\n            extraArgs = [gotList, callback, modelList, extraArgs]\n            callback = self.__asyncFlattenDone\n            gotList = True",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4429
-  }
-}

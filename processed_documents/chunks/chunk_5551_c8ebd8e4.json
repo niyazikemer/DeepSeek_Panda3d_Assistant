@@ -1,9 +1,0 @@
-{
-  "content": "def getAutoInterests(self):\n        # returns the sub-zones under this object that are automatically\n        # opened for us by the server.\n        # have we already cached it?\n        def _getAutoInterests(cls):\n            # returns set of auto-interests for this class and all derived\n            # have we already computed this class's autoInterests?\n            if 'autoInterests' in cls.__dict__:\n                autoInterests = cls.autoInterests\n            else:\n                autoInterests = set()\n                # grab autoInterests from base classes\n                for base in cls.__bases__:\n                    autoInterests.update(_getAutoInterests(base))\n                # grab autoInterests from this class\n                if cls.__name__ in self.cr.dclassesByName:\n                    dclass = self.cr.dclassesByName[cls.__name__]\n                    field = dclass.getFieldByName('AutoInterest')\n                    if field is not None:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5551
-  }
-}

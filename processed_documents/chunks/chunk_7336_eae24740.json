@@ -1,9 +1,0 @@
-{
-  "content": "The Practice\n\nWith most C++ classes the only way forward is to create a new C++ subclass and the related Python wrapper around it. However, there is a work-around for classes such as PandaNode and NodePath. Both these C++ classes have in fact been designed with functionality to store and retrieve python objects on them. Specifically, the methods ~.NodePath.set_python_tag(), ~.NodePath.get_python_tag() and ~.NodePath.has_python_tag() are available to respectively store, retrieve and check for the existence of a pointer to an arbitrary Python object on these C++ objects.\n\nThis allows us to subclass from the Python wrapper class around the C++ object and store, on the C++ object, a pointer to the new sub class.\n\nLet's first see an example of what doesn't work:\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import PandaNode",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_628",
-    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
-    "chunk_number": 7336
-  }
-}

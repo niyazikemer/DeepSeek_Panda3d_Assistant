@@ -1,9 +1,0 @@
-{
-  "content": "void fshader(float4 l_color0 : COLOR0,\n             out float4 o_color : COLOR)\n{\n  o_color = l_color0.grba;\n}\n\nMulti-File Cg Shaders\n\nCg shaders can be divided into several files as well; one for the vertex shader, another for the fragment shader, and a third for the geometry shader. The procedure names are still required to be vshader(), fshader() and gshader() in their respective shader files.\n\nLoading a Cg Shader\n\nLoading a single-file Cg shader is done with the .Shader.load() procedure. The first parameter is the path to the shader file, and the second is the shader language, which in this case is .Shader.SL_Cg. The following is an example of using this procedure:\n\npython\n\nfrom panda3d.core import Shader\n\nshader = Shader.load(\"myshader.sha\", Shader.SL_Cg)\nmodel.setShader(shader)\n\ncpp\n\n#include \"shader.h\"\n\nPT(Shader) shader = Shader::load(\"myshader.sha\", Shader.SL_Cg);\nmodel.set_shader(shader);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_462",
-    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
-    "chunk_number": 6364
-  }
-}

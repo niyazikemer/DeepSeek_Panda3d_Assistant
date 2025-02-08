@@ -1,9 +1,0 @@
-{
-  "content": "def setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"wanderer\",self.wanderer, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        self.AIbehaviors.wander(5, 0, 10, 1.0)\n        self.wanderer.loop(\"run\")\n\n        #AI World update\n        taskMgr.add(self.AIUpdate,\"AIUpdate\")\n\n    #to update the AIWorld\n    def AIUpdate(self,task):\n        self.AIworld.update()\n        return Task.cont\n\nw = World()\nrun()\n\nTo get the full working demo, please visit :\n\nhttps://sites.google.com/site/etcpandai/documentation/steering-behaviors/wander/PandAIWanderExample.zip?attredirects=0&d=1",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_641",
-    "parent": "processed_documents/context_documents/9113b52e_38a0a9a9_wander.json",
-    "chunk_number": 7417
-  }
-}

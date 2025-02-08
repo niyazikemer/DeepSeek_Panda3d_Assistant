@@ -1,9 +1,0 @@
-{
-  "content": "# This is the DataGraph traverser, which we might as well\n        # create now.\n        self.dgTrav = DataGraphTraverser()\n\n        # Maybe create a RecorderController to record and/or play back\n        # the user session.\n        self.recorder: RecorderController | None = None\n        playbackSession = ConfigVariableFilename('playback-session', '')\n        recordSession = ConfigVariableFilename('record-session', '')\n        if not playbackSession.empty():\n            self.recorder = RecorderController()\n            self.recorder.beginPlayback(playbackSession.value)\n        elif not recordSession.empty():\n            self.recorder = RecorderController()\n            self.recorder.beginRecord(recordSession.value)\n\n        if self.recorder:\n            # If we're either playing back or recording, pass the\n            # random seed into the system so each session will have\n            # the same random seed.\n            import random #, whrandom",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4861
-  }
-}

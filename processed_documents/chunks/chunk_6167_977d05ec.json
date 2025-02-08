@@ -1,9 +1,0 @@
-{
-  "content": "Bullet Softbody Patch\n\nSoft body patches are two-dimensional rectangular meshes, which can be used to simulate for example a flag, a tapestry, or sheets of paper.\n\nSetup\n\nSetting up a soft body patch is similar to soft body ropes, but a few extra settings have to be done. The following code will create rectangular path with 31 by 31 segments, and thus 32 x 32 nodes.\n\npython\n\nfrom panda3d.bullet import BulletSoftBodyNode\n\ninfo = self.world.getWorldInfo()\ninfo.setAirDensity(1.2)\ninfo.setWaterDensity(0)\ninfo.setWaterOffset(0)\ninfo.setWaterNormal(Vec3(0, 0, 0))\n\nresx = 31\nresy = 31\n\np00 = Point3(-8, -8, 0)\np10 = Point3( 8, -8, 0)\np01 = Point3(-8,  8, 0)\np11 = Point3( 8,  8, 0)\n\nfixeds = 1+2+4+8\ngendiags = True\n\nbodyNode = BulletSoftBodyNode.makePatch(info, p00, p10, p01, p11, resx, resy, fixeds, gendiags)\n\nmaterial = bodyNode.appendMaterial()\nmaterial.setLinearStiffness(0.4)\nbodyNode.generateBendingConstraints(2, material)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_427",
-    "parent": "processed_documents/context_documents/7f01e2c4_8fed4065_softbody-patch.json",
-    "chunk_number": 6167
-  }
-}

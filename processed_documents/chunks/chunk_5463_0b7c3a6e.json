@@ -1,9 +1,0 @@
-{
-  "content": "gotSync = 0\n        if elapsed <= 0 or elapsed > P2PResyncDelay:\n            # The elapsed time must be positive (the local timestamp\n            # must be in the past), and shouldn't be more than\n            # P2PResyncDelay.  If it does not meet these requirements,\n            # it must be very old indeed, or someone is playing tricks\n            # on us.\n            self.notify.info(\n                \"Ignoring old request for resync from %s.\" % (avId))\n        else:\n            # Now the other client has told us his delta and uncertainty\n            # information, which was generated somewhere in the range\n            # [-elapsed, 0] seconds ago.  That means our complete window\n            # is wider by that amount.\n            self.notify.info(\n                \"Got sync +/- %.3f s, elapsed %.3f s, from %s.\" %\n                (uncertainty, elapsed, avId))\n            delta -= elapsed / 2.0\n            uncertainty += elapsed / 2.0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5463
-  }
-}

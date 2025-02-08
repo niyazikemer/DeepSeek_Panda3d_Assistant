@@ -1,9 +1,0 @@
-{
-  "content": "def setFinalVolume(self, sfx, node, volume, listenerNode, cutoff = None):\n        \"\"\"Calculate the final volume based on all contributed factors.\"\"\"\n        # If we have either a node or a volume, we need to adjust the sfx\n        # The volume passed in multiplies the distance base volume\n        if node or (volume is not None):\n            if node:\n                finalVolume = self.getLocalizedVolume(node, listenerNode, cutoff)\n            else:\n                finalVolume = 1\n            if volume is not None:\n                finalVolume *= volume\n            if node is not None:\n                finalVolume *= node.getNetAudioVolume()\n            sfx.setVolume(finalVolume)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_289",
-    "parent": "processed_documents/context_documents/cac8bf59_SfxPlayer.json",
-    "chunk_number": 5101
-  }
-}

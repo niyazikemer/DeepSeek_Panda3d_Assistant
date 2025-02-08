@@ -1,9 +1,0 @@
-{
-  "content": "base.physicsMgr.addLinearForce(gravityForce)\n\nSince the gravitational force is relative to the entire world (and shouldn't change if, for example, the jetpack guy tumbles head-over-heels), the gravityForce vector was added to a ForceNode attached to render. So regardless of the orientation of the NodePath controlled by an, the force will always pull towards the bottom of the scene.\n\nSince all objects in the scene should be affected by gravity, the force was added to the set of forces managed by the PhysicsManager itself. Since forces ignore the mass of the objects they act upon by default, this force will pull all objects towards the ground at standard gravitational acceleration. The next example shows how to apply a force to a single object.\n\nExample 2: Rotary Thruster\n\nHere is another example of applying forces to objects and the way in which the ForceNode alters the effect:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_474",
-    "parent": "processed_documents/context_documents/8c4ba017_99cfb284_applying-physics-to-a-node.json",
-    "chunk_number": 6414
-  }
-}

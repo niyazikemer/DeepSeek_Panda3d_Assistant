@@ -1,9 +1,0 @@
-{
-  "content": "The __del__ method is a good way to test if a custom class is being garbage collected. The __del__ method is similar to the __init__ method in that we don\u2019t call it ourselves; it gets called when something happens. __init__ is called when a new instance of the class is created; __del__ is called when an instance of the class is garbage collected. It\u2019s a pretty common thought to want to put some important clean up steps in the __del__ method itself, but this isn\u2019t wise. In fact, it\u2019s best not to have a __del__ method in any of our classes in the final product because the __del__ method can actually hinder proper garbage collection. A better usage is to put a simple print statement in the __del__ method that will serve as a notifier that Python has garbage collected the custom class instance. For example:\n\ndef __del__(self):\n    print(\"Instance of Custom Class Alpha Removed\")",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_493",
-    "parent": "processed_documents/context_documents/34bfddd9_5e9b18c7_removing-custom-class-instances.json",
-    "chunk_number": 6483
-  }
-}

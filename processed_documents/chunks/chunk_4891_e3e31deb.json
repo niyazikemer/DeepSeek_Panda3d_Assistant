@@ -1,9 +1,0 @@
-{
-  "content": "if type is None:\n            type = self.windowType\n\n        if props is None:\n            props = WindowProperties.getDefault()\n\n        if fbprops is None:\n            fbprops = FrameBufferProperties.getDefault()\n\n        if size is not None:\n            # If we were given an explicit size, use it; otherwise,\n            # the size from the properties is used.\n            props = WindowProperties(props)\n            props.setSize(size[0], size[1])\n\n        if name is None:\n            name = 'window%s' % (self.nextWindowIndex)\n            self.nextWindowIndex += 1\n\n        win = None\n\n        flags = GraphicsPipe.BFFbPropsOptional\n        if type == 'onscreen':\n            flags = flags | GraphicsPipe.BFRequireWindow\n        elif type == 'offscreen':\n            flags = flags | GraphicsPipe.BFRefuseWindow\n\n        if callbackWindowDict:\n            flags = flags | GraphicsPipe.BFRequireCallbackWindow",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4891
-  }
-}

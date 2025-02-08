@@ -1,9 +1,0 @@
-{
-  "content": "def noIris(self):\n        \"\"\"\n        Removes any current iris tasks and parents the iris polygon away\n        \"\"\"\n        if self.transitionIval:\n            self.transitionIval.pause()\n            self.transitionIval = None\n        if self.iris is not None:\n            self.iris.detachNode()\n        # Actually we need to remove the fade too,\n        # because the iris effect uses it.\n        self.noFade()\n\n    def noTransitions(self):\n        \"\"\"\n        This call should immediately remove any and all transitions running\n        \"\"\"\n        self.noFade()\n        self.noIris()\n        # Letterbox is not really a transition, it is a screen overlay\n        # self.noLetterbox()\n\n    def __finishTransition(self):\n        if self.__transitionFuture:\n            self.__transitionFuture.setResult(None)\n            self.__transitionFuture = None\n\n    ##################################################\n    # Letterbox\n    ##################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_244",
-    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
-    "chunk_number": 4302
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "In order to add a from object to the CollisionTraverser, you must first create a CollisionHandler that defines the action to take when the collision is detected; then you pass the NodePath for your from object, and its CollisionHandler, to ~.CollisionTraverser.add_collider().\n\npython\n\ntraverser = CollisionTraverser('traverser name')\nbase.cTrav = traverser\ntraverser.addCollider(fromObject, handler)\n\nYou only need to add the \"from\" objects to your traverser! Don't try to add the \"into\" objects to the CollisionTraverser. Adding an object to a CollisionTraverser makes it a \"from\" object. On the other hand, every object that you put in the scene graph, whether it is added to a CollisionTraverser or not, is automatically an \"into\" object.\n\nNote that all of your \"from\" objects are typically \"into\" objects too (because they are in the scene graph), although you may choose to make them not behave as into objects by setting their CollideMask <collision-bitmasks> to zero.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_648",
-    "parent": "processed_documents/context_documents/8f6a9f50_903add0c_collision-traversers.json",
-    "chunk_number": 7450
-  }
-}

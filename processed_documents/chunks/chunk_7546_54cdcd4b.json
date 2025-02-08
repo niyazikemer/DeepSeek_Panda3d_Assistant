@@ -1,9 +1,0 @@
-{
-  "content": "base.setBackgroundColor(0.0, 0.0, 0.0)\nbase.disableMouse()\n\nbase.camLens.setNearFar(1.0, 50.0)\nbase.camLens.setFov(45.0)\n\ncamera.setPos(0.0, -20.0, 10.0)\ncamera.lookAt(0.0, 0.0, 0.0)\n\nroot = render.attachNewNode(\"Root\")\nroot.setPos(0.0, 0.0, 0.0)\n\ntextureArrow = loader.loadTexture(\"arrow.png\")\ntextureArrow.setWrapU(Texture.WMClamp)\ntextureArrow.setWrapV(Texture.WMClamp)\n\nstageArrow = TextureStage(\"Arrow\")\nstageArrow.setSort(1)\n\ntextureCircle = loader.loadTexture(\"circle.png\")\ntextureCircle.setWrapU(Texture.WMClamp)\ntextureCircle.setWrapV(Texture.WMClamp)\n\nstageCircle = TextureStage(\"Circle\")\nstageCircle.setSort(2)\n\nmodelCube = loader.loadModel(\"cube.egg\")\n\ncubes = []\nfor x in [-3.0, 0.0, 3.0]:\n    cube = modelCube.copyTo(root)\n    cube.setPos(x, 0.0, 0.0)\n    cubes += [ cube ]\n\nbase.accept(\"escape\", sys.exit)\n\nbase.accept(\"o\", base.oobe)\n\ndef animate(t):\n    for i in range(len(cubes)):\n        cubes[i].setH(t * (2.0 ** i))\n\ninterval = LerpFunc(animate, 5.0, 0.0, 360.0)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_664",
-    "parent": "processed_documents/context_documents/84ac09f0_3f7e393a_part-1.json",
-    "chunk_number": 7546
-  }
-}

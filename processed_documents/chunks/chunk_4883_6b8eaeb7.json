@@ -1,9 +1,0 @@
-{
-  "content": "# Do we already have a pipe of this type on the list?\n            # This operation is n-squared, but presumably there won't\n            # be more than a handful of pipe types, so who cares.\n            already = 0\n            for pipe in self.pipeList:\n                if pipe.getType() == pipeType:\n                    already = 1\n\n            if not already:\n                pipe = selection.makePipe(pipeType)\n                if pipe:\n                    self.notify.info(\"Got aux graphics pipe %s (%s).\" % (\n                        pipe.getType().getName(), pipe.getInterfaceName()))\n                    self.pipeList.append(pipe)\n                else:\n                    self.notify.info(\"Could not make graphics pipe %s.\" % (\n                        pipeType.getName()))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4883
-  }
-}

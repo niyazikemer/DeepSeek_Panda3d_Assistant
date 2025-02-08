@@ -1,9 +1,0 @@
-{
-  "content": "def _outputType(self, type, limit=None):\n        if type not in self._type2id2len:\n            return\n        len2ids = invertDictLossless(self._type2id2len[type])\n        print('=====')\n        print('===== %s' % type)\n        count = 0\n        stop = False\n        for l in sorted(len2ids, reverse=True):\n            #len2ids[l].sort()\n            pathStrList = list()\n            for id in len2ids[l]:\n                obj = self._id2container[id]\n                #print '%s: %s' % (l, self._id2pathStr[id])\n                pathStrList.append(self._id2pathStr[id])\n                count += 1\n                if (count & 0x7f) == 0:\n                    yield None\n            pathStrList.sort()\n            for pathstr in pathStrList:\n                print('%s: %s' % (l, pathstr))\n            if limit is not None and count >= limit:\n                return",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_247",
-    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
-    "chunk_number": 4362
-  }
-}

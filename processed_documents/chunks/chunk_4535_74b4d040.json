@@ -1,9 +1,0 @@
-{
-  "content": "if config.GetBool('leak-container', 0):\n            _createContainerLeak()\n        if config.GetBool('leak-tasks', 0):\n            _createTaskLeak()\n\n        # don't check our own tables for leaks\n        ContainerLeakDetector.addPrivateObj(ContainerLeakDetector.PrivateIds)\n        ContainerLeakDetector.addPrivateObj(self.__dict__)\n\n        self.setPriority(Job.Priorities.Min)\n        jobMgr.add(self)\n\n    def destroy(self):\n        messenger.send(self._getDestroyEvent())\n        self.ignoreAll()\n        if self._pruneContainersJob is not None:\n            jobMgr.remove(self._pruneContainersJob)\n            self._pruneContainersJob = None\n        if self._checkContainersJob is not None:\n            jobMgr.remove(self._checkContainersJob)\n            self._checkContainersJob = None\n        jobMgr.remove(self._findContainersJob)\n        self._findContainersJob = None\n        del self._id2ref\n        del self._index2containerId2len\n        del self._index2delay",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4535
-  }
-}

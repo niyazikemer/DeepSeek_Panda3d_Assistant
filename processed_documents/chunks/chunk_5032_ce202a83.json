@@ -1,9 +1,0 @@
-{
-  "content": "# Create a visible representation of the camera so we can see it.\n    #cameraVis = base.loader.loadModel('camera.egg')\n    #if not cameraVis.isEmpty():\n    #    cameraVis.reparentTo(cameraNP)\n\n    # Spawn a task to keep that camera on the opposite side of the\n    # mirror.\n    def moveCamera(task, cameraNP = cameraNP, plane = plane,\n                   planeNP = planeNP, card = card, lens = lens,\n                   width = width, height = height, rootCamera = rootCamera):\n        # Set the camera to the mirror-image position of the main camera.\n        cameraNP.setMat(rootCamera.getMat(planeNP) * plane.getReflectionMat())\n\n        # Set the cameras roll to the roll of the mirror. Otherwise\n        # mirrored objects will be moved unexpectedly\n        cameraNP.setR(planeNP.getR()-180)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_285",
-    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
-    "chunk_number": 5032
-  }
-}

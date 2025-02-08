@@ -1,9 +1,0 @@
-{
-  "content": "if not cTrav:\n            # set up the shadow collision traverser\n            base.initShadowTrav()\n            cTrav = base.shadowTrav\n\n        self.cTrav = cTrav\n        self.shadowNodePath = shadowNodePath\n\n        floorOffset = 0.025\n        # Set up the collison ray\n        # This is a ray cast down to detect floor polygons\n        self.cRay = CollisionRay(0.0, 0.0, CollisionHandlerRayStart, 0.0, 0.0, -1.0)\n        cRayNode = CollisionNode('shadowPlacer')\n        cRayNode.addSolid(self.cRay)\n        self.cRayNodePath = NodePath(cRayNode)\n        self.cRayBitMask = floorCollideMask\n        cRayNode.setFromCollideMask(self.cRayBitMask)\n        cRayNode.setIntoCollideMask(BitMask32.allOff())\n\n        # set up floor collision mechanism\n        self.lifter = CollisionHandlerFloor()\n        #self.lifter.setInPattern(\"on-floor\")\n        #self.lifter.setOutPattern(\"off-floor\")\n        self.lifter.setOffset(floorOffset)\n        self.lifter.setReach(4.0)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_265",
-    "parent": "processed_documents/context_documents/ee959aee_ShadowPlacer.json",
-    "chunk_number": 4730
-  }
-}

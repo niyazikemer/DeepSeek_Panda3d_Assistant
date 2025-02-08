@@ -1,9 +1,0 @@
-{
-  "content": "self.ourChannel = self.doIdBase\n\n        self.createReady()\n\n    def createReady(self):\n        # Now that we've got a doId range, we can safely generate new\n        # distributed objects.\n        messenger.send('createReady', taskChain = 'default')\n        messenger.send(self.uniqueName('createReady'), taskChain = 'default')\n\n    def handleRequestGenerates(self, di):\n        # When new clients join the zone of an object, they need to hear\n        # about it, so we send out all of our information about objects in\n        # that particular zone.\n\n        zone = di.getUint32()\n        for obj in self.doId2do.values():\n            if obj.zoneId == zone:\n                if self.isLocalId(obj.doId):\n                    self.resendGenerate(obj)\n\n    def resendGenerate(self, obj):\n        \"\"\" Sends the generate message again for an already-generated\n        object, presumably to inform any newly-arrived clients of this\n        object's current state. \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5660
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def run(self):\n        ids = self._leakDetector.getContainerIds()\n        try:\n            for id in ids:\n                yield None\n                try:\n                    for container in self._leakDetector.getContainerByIdGen(id):\n                        yield None\n                except Exception:\n                    pass\n                else:\n                    name = self._leakDetector._id2ref[id].getFinalIndirectionStr()\n                    if self._on.lower() in name.lower():\n                        try:\n                            for ptc in self._leakDetector.getContainerNameByIdGen(id):\n                                yield None\n                        except Exception:\n                            pass\n                        else:\n                            print('GPTCN(' + self._on + '):' + self.getJobName() + ': ' + ptc)\n        except Exception as e:\n            print('FPTObjsNamed job caught exception: %s' % e)\n            if __dev__:\n                raise",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4527
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def printPosHpr(self, other = None, sd = 2):\n    \"\"\" Deprecated.  Pretty print a node path's pos and, hpr \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.printPosHpr() is deprecated.\", DeprecationWarning, stacklevel=2)\n    formatString = '%0.' + '%d' % sd + 'f'\n    if other:\n        pos = self.getPos(other)\n        hpr = self.getHpr(other)\n        otherString = other.getName() + ', '\n    else:\n        pos = self.getPos()\n        hpr = self.getHpr()\n        otherString = ''\n    print((self.getName() + '.setPosHpr(' + otherString +\n           formatString % pos[0] + ', ' +\n           formatString % pos[1] + ', ' +\n           formatString % pos[2] + ', ' +\n           formatString % hpr[0] + ', ' +\n           formatString % hpr[1] + ', ' +\n           formatString % hpr[2] +\n           ')\\n'))\n\nDtool_funcToMethod(printPosHpr, NodePath)\ndel printPosHpr\n#####################################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5749
-  }
-}

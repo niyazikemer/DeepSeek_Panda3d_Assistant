@@ -1,9 +1,0 @@
-{
-  "content": "def delete(self):\n        DistributedNode.delete(self)\n        # TODO: when teleporting off an island...\n        taskMgr.remove(self.taskName(\"processVisibility\"))\n\n    def isGridParent(self):\n        # If this distributed object is a DistributedGrid return 1.  0 by default\n        return 1\n\n    def setCellWidth(self, width):\n        self.cellWidth = width\n\n    def setParentingRules(self, style, rule):\n        assert self.notify.debug(\"setParentingRules: style: %s, rule: %s\" % (style, rule))\n        rules = rule.split(self.RuleSeparator)\n        assert len(rules) == 3\n        self.style = style\n        self.startingZone = int(rules[0])\n        self.gridSize = int(rules[1])\n        self.viewingRadius = int(rules[2])\n\n        # Store the center of the grid\n        cx = self.cellWidth * self.gridSize/2.0\n        self.centerPos = Vec3(cx, cx, 0)\n\n        if __debug__:\n            if self.VisualizeGrid:\n                self.visualizeGrid()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5275
-  }
-}

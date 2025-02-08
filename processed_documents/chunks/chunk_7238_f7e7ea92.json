@@ -1,9 +1,0 @@
-{
-  "content": "In the syncReady and gotCreateReady methods you\u2019ll see the .ClientRepository.haveCreateAuthority function called. This is a check to see if we are already able to create DOs and give them a correct doId. You can create DOs earlier already, but they may have invalid doIds <doId> then.\n\nAt the end of the gotCreateReady method you can fully use the client and create whatever DOs you may need and add other client related logic.\n\nAt this stage, you may also want to set interest in different zones for the client to see objects created by the server and other clients which are placed in those specific zones. You can do this by calling the .ClientRepository.setInterestZones() method which you simply pass a number of zoneIds that this client should see.\n\nShowBase Client Repository\n\nAfter setting up your main client repository, you should add it to your ShowBase instance in a variable called cr, as in the following example:\n\nbase.cr = MyMainClientRepository()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_613",
-    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
-    "chunk_number": 7238
-  }
-}

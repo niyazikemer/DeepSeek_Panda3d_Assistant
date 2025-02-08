@@ -1,9 +1,0 @@
-{
-  "content": "# First, look for Python files.\n        filename = Filename(path)\n        filename.setExtension('py')\n        vfile = vfs.getFile(filename, True)\n        if vfile:\n            return VFSLoader(dir_path, vfile, filename,\n                             desc=('.py', 'r', imp.PY_SOURCE))\n\n        # If there's no .py file, but there's a .pyc file, load that\n        # anyway.\n        for ext in compiledExtensions:\n            filename = Filename(path)\n            filename.setExtension(ext)\n            vfile = vfs.getFile(filename, True)\n            if vfile:\n                return VFSLoader(dir_path, vfile, filename,\n                                 desc=('.'+ext, 'rb', imp.PY_COMPILED))\n\n        # Look for a C/C++ extension module.\n        for desc in imp.get_suffixes():\n            if desc[2] != imp.C_EXTENSION:\n                continue",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4325
-  }
-}

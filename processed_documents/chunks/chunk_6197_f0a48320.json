@@ -1,9 +1,0 @@
-{
-  "content": "Projected Textures\n\nIn a previous section <texture-transforms>, we introduced ways to apply an explicit transformation to a model's texture coordinates, with methods like ~.NodePath.set_tex_offset() and ~.NodePath.set_tex_scale(). In addition to this explicit control, Panda3D offers a simple mechanism to apply an automatic texture transform each frame, as computed from the relative transform between any two nodes.\n\nnodePath.setTexProjector(textureStage, fromNodePath, toNodePath)\n\nWhen you have enabled this mode, the relative scene-graph transform from fromNodePath to toNodePath--that is, the result of fromNodePath.getTransform(toNodePath)--is automatically applied as a texture-coordinate transform to the indicated textureStage. The result is more-or-less as if you executed the following command every frame:\n\nnodePath.setTexTransform(textureStage, fromNodePath.getTransform(toNodePath))",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_433",
-    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
-    "chunk_number": 6197
-  }
-}

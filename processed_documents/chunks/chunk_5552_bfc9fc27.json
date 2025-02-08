@@ -1,9 +1,0 @@
-{
-  "content": "dclass = self.cr.dclassesByName[cls.__name__]\n                    field = dclass.getFieldByName('AutoInterest')\n                    if field is not None:\n                        p = DCPacker()\n                        p.setUnpackData(field.getDefaultValue())\n                        length = p.rawUnpackUint16() // 4\n                        for i in range(length):\n                            zone = int(p.rawUnpackUint32())\n                            autoInterests.add(zone)\n                    autoInterests.update(autoInterests)\n                    cls.autoInterests = autoInterests\n            return set(autoInterests)\n        autoInterests = _getAutoInterests(self.__class__)\n        # if the server starts supporting multiple auto-interest per class, this check\n        # should be removed\n        if len(autoInterests) > 1:\n            self.notify.error(\n                'only one auto-interest allowed per DC class, %s has %s autoInterests (%s)' %",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5552
-  }
-}

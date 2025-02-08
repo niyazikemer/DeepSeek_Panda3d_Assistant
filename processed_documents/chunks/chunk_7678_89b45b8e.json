@@ -1,9 +1,0 @@
-{
-  "content": "Simulating the Physics World\n\nSimulating the physics scene\n\nNow, we've only had some theory so far, but haven't seen any simulation yet. To simulate, we will need to keep calling the quickStep(stepSize) function on the OdeWorld instance. stepSize is how much time should be simulated in one step. To get the most stable simulation, it is recommended that the stepSize be kept constant.\n\nThe problem with using the delta time of a task to step the simulation is that the time between tasks might not be consistent. To get around this, a deltaTime accumulator is used to figure out how many steps must be taken. When a step is performed, the world is iterated a few times, you can specify how much times the world is being iterated by calling the setQuickStepNumIterations(num) function on the OdeWorld instance.\n\nHere's a small example showing a simple simulation showing an iron ball falling from a ridge:\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_691",
-    "parent": "processed_documents/context_documents/19b1c5f9_f606c2b9_simulating-physics-world.json",
-    "chunk_number": 7678
-  }
-}

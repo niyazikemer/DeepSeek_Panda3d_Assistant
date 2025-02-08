@@ -1,9 +1,0 @@
-{
-  "content": "def itype(obj):\n    # version of type that gives more complete information about instance types\n    global dtoolSuperBase\n    t = type(obj)\n    # C++ object instances appear to be types via type()\n    # check if this is a C++ object\n    if dtoolSuperBase is None:\n        _getDtoolSuperBase()\n    if isinstance(obj, dtoolSuperBase):\n        return \"<type 'instance' of %s>\" % (obj.__class__)\n    return t",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4669
-  }
-}

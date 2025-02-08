@@ -1,9 +1,0 @@
-{
-  "content": "__all__ = ()\n\nfrom .ShowBase import ShowBase, WindowControls # pylint: disable=unused-import\nfrom direct.directnotify.DirectNotifyGlobal import directNotify, giveNotify # pylint: disable=unused-import\nfrom panda3d.core import VirtualFileSystem, Notify, ClockObject, PandaSystem\nfrom panda3d.core import ConfigPageManager, ConfigVariableManager, ConfigVariableBool\nfrom panda3d.core import NodePath, PGTop\nfrom . import DConfig as config # pylint: disable=unused-import\nfrom .Loader import Loader\nimport warnings\n\n__dev__: bool = ConfigVariableBool('want-dev', __debug__).value\n\nbase: ShowBase\n\n#: The global instance of the :ref:`virtual-file-system`, as obtained using\n#: :meth:`panda3d.core.VirtualFileSystem.getGlobalPtr()`.\nvfs = VirtualFileSystem.getGlobalPtr()\n\n#: The default Panda3D output stream for notifications and logging, as\n#: obtained using :meth:`panda3d.core.Notify.out()`.\nostream = Notify.out()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_254",
-    "parent": "processed_documents/context_documents/3ecfde5b_ShowBaseGlobal.json",
-    "chunk_number": 4448
-  }
-}

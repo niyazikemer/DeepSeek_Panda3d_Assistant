@@ -1,9 +1,0 @@
-{
-  "content": "self.updateClientInterestZones(client)\n\n    def handleClientObjectSetZone(self, datagram, dgi):\n        \"\"\" The client is telling us the object is changing to a new\n        zone. \"\"\"\n        doId = dgi.getUint32()\n        zoneId = dgi.getUint32()\n\n        connection = datagram.getConnection()\n        client = self.clientsByConnection[connection]\n        object = client.objectsByDoId.get(doId)\n        if not object:\n            # Don't know this object.\n            self.notify.warning(\"Ignoring object location for %s: unknown\" % (doId))\n            return\n\n        self.setObjectZone(client, object, zoneId)\n\n    def setObjectZone(self, owner, object, zoneId):\n        if object.zoneId == zoneId:\n            # No change.\n            return",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5190
-  }
-}

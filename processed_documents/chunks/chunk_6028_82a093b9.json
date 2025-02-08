@@ -1,9 +1,0 @@
-{
-  "content": "If you request an FSM to make a transition, and the request fails, you might consider this an error condition, and you might prefer to have your code to stop right away rather than continuing. In this case, you should call fsm.demand() <direct.fsm.FSM.FSM.demand> instead. The syntax is the same as that for request(), but instead of returning None on failure, it will always raise an exception if the state transition is denied. There is no return value from demand(); if it returns, the transition was accepted.\n\nFSM.AlreadyInTransition\n\nAn FSM is always in exactly one state, except while it is in the process of transitioning between states (that is, while it is calling the exitStateName method for the previous state, followed by the enterStateName method for the new state). During this time, the FSM is not considered in either state, and if you query fsm.state it will contain None.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_399",
-    "parent": "processed_documents/context_documents/aca109a0_8bcd09f5_advanced-fsm-tidbits.json",
-    "chunk_number": 6028
-  }
-}

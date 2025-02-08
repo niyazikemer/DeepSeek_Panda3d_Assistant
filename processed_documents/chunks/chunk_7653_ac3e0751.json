@@ -1,9 +1,0 @@
-{
-  "content": "In order to create the cone/twist constraint we have to define the spatial frames of the cone/twist connector point, as seen from body A and from body B. Then we need to create a new instance of .BulletConeTwistConstraint, by passing both bodies and both transforms to the constructor. Once created, we can set properties like the scale of the debug visualization of this constraint, as well as limits. Finally, we add the new constraint to the physics world.\n\npython\n\nframeA = TransformState.makePosHpr(Point3(0, 0, -5), Vec3(0, 0, -90))\nframeB = TransformState.makePosHpr(Point3(0, 0, 5), Vec3(0, 0, -90))\n\nswing1 = 60 # degrees\nswing2 = 36 # degrees\ntwist = 120 # degrees\n\ncs = BulletConeTwistConstraint(npA.node(), npB.node(), frameA, frameB)\ncs.setDebugDrawSize(2.0)\ncs.setLimit(swing1, swing2, twist)\nworld.attachConstraint(cs)\n\nIn this case we have set the following limits:\n\nAngle of the cone opening in first direction (swing span 1)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_685",
-    "parent": "processed_documents/context_documents/57dfcc59_ec61c3af_constraints.json",
-    "chunk_number": 7653
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def getNumberedTypedString(items, maxLen=5000, numPrefix=''):\n    \"\"\"get a string that has each item of the list on its own line,\n    and each item is numbered on the left from zero\"\"\"\n    digits = 0\n    n = len(items)\n    while n > 0:\n        digits += 1\n        n //= 10\n    format = numPrefix + '%0' + '%s' % digits + 'i:%s \\t%s'\n    first = True\n    s = ''\n    snip = '<SNIP>'\n    for i in range(len(items)):\n        if not first:\n            s += '\\n'\n        first = False\n        objStr = fastRepr(items[i])\n        if len(objStr) > maxLen:\n            objStr = '%s%s' % (objStr[:(maxLen-len(snip))], snip)\n        s += format % (i, itype(items[i]), objStr)\n    return s",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4672
-  }
-}

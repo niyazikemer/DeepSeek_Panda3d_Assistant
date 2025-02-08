@@ -1,9 +1,0 @@
-{
-  "content": "model = self.loadModel(modelPath, noCache = False)\n        if model is not None:\n            model = model.node()\n\n        return model\n\n    def unloadModel(self, model):\n        \"\"\"\n        model is the return value of loadModel().  For backward\n        compatibility, it may also be the filename that was passed to\n        loadModel(), though this requires a disk search.\n        \"\"\"\n        if isinstance(model, NodePath):\n            # Maybe we were given a NodePath\n            modelNode = model.node()\n\n        elif isinstance(model, ModelNode):\n            # Maybe we were given a node\n            modelNode = model",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4385
-  }
-}

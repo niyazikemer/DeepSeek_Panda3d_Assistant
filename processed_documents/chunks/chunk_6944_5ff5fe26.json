@@ -1,9 +1,0 @@
-{
-  "content": "Setup\n\nThe following code will first create a shape with total height of 1.75 units and total width of 0.8 units. We have to subtract twice the radius from the total height in order to get the length of the cylindrical part of the capsule shape.\n\npython\n\nfrom panda3d.bullet import BulletCharacterControllerNode\nfrom panda3d.bullet import BulletCapsuleShape\nfrom panda3d.bullet import ZUp\n\nheight = 1.75\nradius = 0.4\nshape = BulletCapsuleShape(radius, height - 2*radius, ZUp)\n\nplayerNode = BulletCharacterControllerNode(shape, 0.4, 'Player')\nplayerNP = self.worldNP.attachNewNode(playerNode)\nplayerNP.setPos(-2, 0, 14)\nplayerNP.setH(45)\nplayerNP.setCollideMask(BitMask32.allOn())\n\nworld.attachCharacter(playerNP.node())\n\ncpp\n\nfloat height = 1.75;\nfloat radius = 0.4;",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_554",
-    "parent": "processed_documents/context_documents/7d1f7487_d82f40be_character-controller.json",
-    "chunk_number": 6944
-  }
-}

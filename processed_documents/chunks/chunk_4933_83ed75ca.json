@@ -1,9 +1,0 @@
-{
-  "content": "if self.mouseInterface:\n            self.mouseInterface.reparentTo(self.mouseWatcher)\n\n        if self.recorder:\n            # If we have a recorder, the mouseWatcher belongs under a\n            # special MouseRecorder node, which may intercept the\n            # mouse activity.\n            mw = self.buttonThrowers[0].getParent()\n            mouseRecorder = MouseRecorder('mouse')\n            self.recorder.addRecorder('mouse', mouseRecorder)\n            np = mw.getParent().attachNewNode(mouseRecorder)\n            mw.reparentTo(np)\n\n        mw = self.buttonThrowers[0].getParent()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4933
-  }
-}

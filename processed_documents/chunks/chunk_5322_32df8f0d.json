@@ -1,9 +1,0 @@
-{
-  "content": "for symbolName in importSymbols:\n                if hasattr(module, symbolName):\n                    dcImports[symbolName] = getattr(module, symbolName)\n                else:\n                    raise Exception('Symbol %s not defined in module %s.' % (symbolName, moduleName))\n        else:\n            # \"import moduleName\"\n\n            # Copy the root module name into the dictionary.\n\n            # Follow the dotted chain down to the actual module.\n            components = moduleName.split('.')\n            dcImports[components[0]] = module\n\n    def getServerAddress(self):\n        return self._serverAddress",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5322
-  }
-}

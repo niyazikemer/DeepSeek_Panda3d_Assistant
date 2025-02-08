@@ -1,9 +1,0 @@
-{
-  "content": "In order for all of this to work, Panda has to do some clever tricks behind the scenes. The most important trick is that there need to be three different copies of the scene graph in different states of modification. As your App process is moving nodes around for frame 3, for instance, Cull is still analyzing frame 2, and must be able to analyze the scene graph before anything in App started mucking around to make frame 3. So there needs to be a complete copy of the scene graph saved as of the end of App's frame 2. Panda does a pretty good job of doing this efficiently, relying on the fact that most things are the same from one frame to the next; but still there is some overhead to all this, so the total performance gain is always somewhat less than the theoretical 3x speedup. In particular, if the application is already running fast (60fps or above), then the gain from parallelization is likely to be dwarfed by the additional overhead requirements. And, of course, if your application",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_519",
-    "parent": "processed_documents/context_documents/0cd108d5_dab687d3_multithreaded-render-pipeline.json",
-    "chunk_number": 6614
-  }
-}

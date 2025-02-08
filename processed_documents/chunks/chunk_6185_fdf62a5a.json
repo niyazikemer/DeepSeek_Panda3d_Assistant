@@ -1,9 +1,0 @@
-{
-  "content": "The particle factory, emitter and renderer should be attached to the ParticleSystem and most important the render node should be set.\n\nparticle_sys->set_factory(pt_particle_factory);\nparticle_sys->set_renderer(pt_particle_rend);\nparticle_sys->set_emitter(sphere_emitter);\n// if spawn and render parents should be different\n//particle_sys->set_spawn_render_node_path(window->get_render());\nparticle_sys->set_render_parent(window->get_render());\n\nParticleSystemManager\n\nThis class is responsible for simplifying control of particle systems. Instead of stepping each particle system in the scene they are all added to the ParticleSystemManager and they can be all stepped using a single command or they can be stepped individually. This class is not count referenced so PT() and CPT() should not be used with it. To attach a particle system to the manager:\n\nparticle_sys_mgr.attach_particlesystem(particle_sys);\n\nTo step all the particle systems:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_429",
-    "parent": "processed_documents/context_documents/fc6d0e95_4db2b8a7_index.json",
-    "chunk_number": 6185
-  }
-}

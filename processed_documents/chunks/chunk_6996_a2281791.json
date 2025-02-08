@@ -1,9 +1,0 @@
-{
-  "content": "for i in range(3):\n    placeholder = render.attachNewNode(\"Line-Placeholder\")\n    placeholder.setPos(0,i*10,0)\n    chorusline.instanceTo(placeholder)\n\nHere is the scene graph I just created:\n\nBut when the renderer traverses it using a recursive tree-traversal algorithm, it will see 3 major subtrees (rooted at a line-placeholder), and each subtree will contain 50 placeholders and 50 dancers, for a grand total of 150 apparent dancers.\n\nInstancing: an Important Caveat\n\nInstancing saves panda quite a bit of CPU time when animating the model. But that doesn't change the fact that the renderer still needs to render the model 150 times. If the dancer is a 1000 polygon model, that's still 150,000 polygons.\n\nNote that each instance has its own bounding box, each is occlusion-culled and frustum-culled separately.\n\nThe NodePath: a Pointer to a Node plus a Unique Instance ID",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_565",
-    "parent": "processed_documents/context_documents/fd216bec_f62cc0c7_instancing.json",
-    "chunk_number": 6996
-  }
-}

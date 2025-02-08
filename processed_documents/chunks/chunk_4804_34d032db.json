@@ -1,9 +1,0 @@
-{
-  "content": "def __str__(self):\n        outStr = PhasedObject.__repr__(self)\n        outStr += ' in phase \\'%s\\'' % self.getPhase()\n        return outStr\n\n    def setAlias(self, phase, alias):\n        \"\"\"\n        Map an alias to a phase number.\n\n        phase must be >= 0 and alias must be a string\n        of characters suitable for python variable names.\n\n        The mapping must be one-to-one.\n        \"\"\"\n        assert isinstance(phase,int) and phase >= 0\n        assert isinstance(alias,str)\n\n        self.phaseAliasMap[phase] = alias\n        self.aliasPhaseMap[alias] = phase\n\n    def getPhaseAlias(self, phase):\n        \"\"\"\n        Returns the alias of a phase number, if it exists.\n        Otherwise, returns the phase number.\n        \"\"\"\n        return self.phaseAliasMap.get(phase, phase)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_278",
-    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
-    "chunk_number": 4804
-  }
-}

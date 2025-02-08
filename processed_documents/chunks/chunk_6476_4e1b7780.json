@@ -1,9 +1,0 @@
-{
-  "content": "Too Many Fragment/Pixel Shader Instructions\n\nAs an easy way to detect whether this is a bottleneck in your application, try resizing the window. If the framerate heavily varies with the window size or screen resolution, you're most likely dealing with this problem.\n\nIf your frame rate strongly depends on the window or screen resolution, this may be a hint that your fragment shader has too many instructions. Another problem is if your depth complexity is too high. Try to look at your scene from different angles and positions. If your frame rate varies, then the overdraw from one specific view angle is to high.\n\nTry to minimize the objects Panda3D needs to draw. Use .Lens.set_far(), or fall back to a simpler fragment shaders for objects that are far away. If an object is far away from the viewer it doesn't make sense to apply normal mapping. .LODNode or .FadeLODNode may help.\n\nIf your fragment shader is self-made, then try to offload some work to your vertex shader.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_492",
-    "parent": "processed_documents/context_documents/b285911f_be416a06_too-many-shader-instructions.json",
-    "chunk_number": 6476
-  }
-}

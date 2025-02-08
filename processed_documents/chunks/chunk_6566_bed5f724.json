@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nExample usage of this would be to stop a sound from playing only if it's currently playing.\n\nif mySound.status() == mySound.PLAYING:\n    mySound.stop()\n\nSetting Volume\n\nThe volume can be set between 0 and 1 and will linearly scale between these.\n\npython\n\nmySound.setVolume(0.5)\n\ncpp\n\nmySound->set_volume(0.5);\n\nPanning a Sound\n\nYou can change the balance of a sound. The range is between -1.0 to 1.0. Hard left is -1.0 and hard right is 1.0.\n\npython\n\nmySound.setBalance(-0.5)\n\ncpp\n\nmySound->set_balance(-0.5);\n\npython\n\nNote\n\nIf Panda3D is running from an interactive prompt, call ~.AudioManager.update() after you play a sound.\n\nbase.sfxManagerList[n].update()\n\nThis is because the ~.AudioManager.update() command is called every frame to reset a sound's channel. In interactive mode, however, Panda3D's frame update is suspended and does not run automatically.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_510",
-    "parent": "processed_documents/context_documents/fc972193_a35dd850_loading-playing-sounds-music.json",
-    "chunk_number": 6566
-  }
-}

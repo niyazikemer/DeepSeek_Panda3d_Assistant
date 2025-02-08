@@ -1,9 +1,0 @@
-{
-  "content": "Example for closest hit:\n\npython\n\npFrom = Point3(0, 0, 0)\npTo = Point3(10, 0, 0)\n\nresult = world.rayTestClosest(pFrom, pTo)\n\nprint(result.hasHit())\nprint(result.getHitPos())\nprint(result.getHitNormal())\nprint(result.getHitFraction())\nprint(result.getNode())\n\ncpp\n\nLPoint3 pFrom(0, 0, 0);\nLPoint3 pTo(10, 0, 0);\nBulletAllHitsRayResult result = world->ray_test_closest(pFrom, pTo);\n\nExample for all hits:\n\npython\n\npFrom = Point3(0, 0, 0)\npTo = pFrom + Vec3(1, 0, 0) * 99999\n\nresult = world.rayTestAll(pFrom, pTo)\n\nprint(result.hasHits())\nprint(result.getClosestHitFraction())\nprint(result.getNumHits())\n\nfor hit in result.getHits():\n    print(hit.getHitPos())\n    print(hit.getHitNormal())\n    print(hit.getHitFraction())\n    print(hit.getNode())\n\ncpp\n\nLPoint3 pFrom = LPoint3(0, 0, 0);\nLPoint3 pTo = pFrom + LVector3d(1, 0, 0) * 99999;\nBulletAllHitsRayResult result = world->ray_test_all(pFrom, pTo);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_444",
-    "parent": "processed_documents/context_documents/1bf2fda4_32b65eff_queries.json",
-    "chunk_number": 6247
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "self.pendingObjects = {}\n\n\n    def __timeoutExpired(self, tuple):\n        allCallback, eachCallback, timeoutCallback, doIdsPending, doIdList, doLaterName = tuple\n        assert self.notify.debug(\"timeout expired for %s (remaining: %s)\" % (doIdList, doIdsPending))\n\n        self.__removePending(tuple, doIdsPending)\n        if timeoutCallback:\n            timeoutCallback(doIdList)\n        else:\n            objects, doIdsPending = self.__generateObjectList(doIdList)\n            if allCallback:\n                allCallback(objects)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_308",
-    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
-    "chunk_number": 5385
-  }
-}

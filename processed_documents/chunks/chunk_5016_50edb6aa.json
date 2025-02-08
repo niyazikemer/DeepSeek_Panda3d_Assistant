@@ -1,9 +1,0 @@
-{
-  "content": "else:\n            # Leave Panda in charge of the main loop.  This is\n            # friendlier for IDE's and interactive editing in general.\n            def tkLoop(task):\n                # Do all the tkinter events waiting on this frame\n                # dooneevent will return 0 if there are no more events\n                # waiting or 1 if there are still more.\n                # DONT_WAIT tells tkinter not to block waiting for events\n                while self.tkRoot.dooneevent(tkinter.ALL_EVENTS | tkinter.DONT_WAIT):\n                    pass\n\n                return task.again\n\n            self.taskMgr.add(tkLoop, 'tkLoop')\n        self.tkRootCreated = True\n\n    def __tkTimerCallback(self):\n        if not Thread.getCurrentThread().getCurrentTask():\n            self.taskMgr.step()\n\n        self.tkRoot.after(self.tkDelay, self.__tkTimerCallback)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5016
-  }
-}

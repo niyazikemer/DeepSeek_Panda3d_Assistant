@@ -1,9 +1,0 @@
-{
-  "content": "Putting it all Together\n\nHere is an example of lighting. There are an ambient light and two directional lights lighting the scene, and a green ambient light that only affects one of the pandas.\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import *\n\n# Put two pandas in the scene, panda x and panda y.\nx = loader.loadModel('panda')\nx.reparentTo(render)\nx.setPos(10,0,-6)\n\ny = loader.loadModel('panda')\ny.reparentTo(render)\ny.setPos(-10,0,-6)\n\n# Position the camera to view the two pandas.\nbase.trackball.node().setPos(0, 60, 0)\n\n# Now create some lights to apply to everything in the scene.\n\n# Create Ambient Light\nambientLight = AmbientLight('ambientLight')\nambientLight.setColor((0.1, 0.1, 0.1, 1))\nambientLightNP = render.attachNewNode(ambientLight)\nrender.setLight(ambientLightNP)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_365",
-    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
-    "chunk_number": 5882
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "# the maximum for N ought to be 0x80000000, but Python treats\n        # that as a negative number.\n        assert N >= 0\n        assert N <= 0x7fffffff\n\n        return int((self.__rng.getUint31() * N) >> 31)\n\n    def choice(self, seq):\n        \"\"\"returns a random element from seq\"\"\"\n        return seq[self.__rand(len(seq))]\n\n    def shuffle(self, x):\n        \"\"\"randomly shuffles x in-place\"\"\"\n        for i in range(len(x) - 1, 0, -1):\n            # pick an element in x[:i+1] with which to exchange x[i]\n            j = int(self.__rand(i+1))\n            x[i], x[j] = x[j], x[i]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_275",
-    "parent": "processed_documents/context_documents/e9f9509b_RandomNumGen.json",
-    "chunk_number": 4787
-  }
-}

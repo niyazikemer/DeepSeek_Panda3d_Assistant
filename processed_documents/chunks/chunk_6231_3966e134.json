@@ -1,9 +1,0 @@
-{
-  "content": "You can also use ~.NodePath.set_texture() to replace the texture on an already-textured model. In this case, you must specify a second parameter to setTexture, which is the same optional Panda override parameter you can specify on any kind of Panda state change. Normally, you simply pass 1 as the second parameter to ~.NodePath.set_texture(). Without this override, the texture that is assigned directly at the Geom level will have precedence over the state change you make at the model node, and the texture change won't be made.\n\nFor instance, to change the appearance of smiley:\n\npython\n\nsmiley = loader.loadModel('smiley.egg')\nsmiley.reparentTo(render)\ntex = loader.loadTexture('maps/noise.rgb')\nsmiley.setTexture(tex, 1)\n\ncpp\n\nNodePath smiley;\nPT(Texture) tex;\n\nsmiley = window->load_model(window->get_render(), \"smiley.egg\");\ntex = TexturePool::load_texture(\"maps/noise.rgb\");\nsmiley.set_texture(tex, 1);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_439",
-    "parent": "processed_documents/context_documents/86c0a6eb_814d539f_simple-texture-replacement.json",
-    "chunk_number": 6231
-  }
-}

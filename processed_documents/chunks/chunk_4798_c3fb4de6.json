@@ -1,9 +1,0 @@
-{
-  "content": "Usage:\n        Define a subclass of CountedResource that defines the\n        @classmethods acquire() and release().  In these two\n        functions, define your resource allocation and cleanup code.\n\n    IMPORTANT:\n        If you define your own __init__ and __del__ methods, you\n        MUST be sure to call down to the ones defined in\n        CountedResource.\n\n    Notes:\n        Until we figure out a way to wrangle a bit more functionality\n        out of Python, you MUST NOT inherit from any class that has\n        CountedResource as its base class. In debug mode, this will\n        raise a runtime assertion during the invalid class's call to\n        __init__(). If you have more than one resource that you want to\n        manage/access with a single object, you should subclass\n        CountedResource again. See the example code at the bottom of\n        this file to see how to accomplish this (This is useful for\n        dependent resources).\n    \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_277",
-    "parent": "processed_documents/context_documents/283aed1f_CountedResource.json",
-    "chunk_number": 4798
-  }
-}

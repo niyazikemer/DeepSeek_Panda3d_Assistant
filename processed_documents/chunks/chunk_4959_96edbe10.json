@@ -1,9 +1,0 @@
-{
-  "content": "def __garbageCollectStates(self, state):\n        \"\"\" This task is started only when we have\n        garbage-collect-states set in the Config.prc file, in which\n        case we're responsible for taking out Panda's garbage from\n        time to time.  This is not to be confused with Python's\n        garbage collection.  \"\"\"\n\n        TransformState.garbageCollect()\n        RenderState.garbageCollect()\n        return Task.cont\n\n    def __igLoop(self, state):\n        if __debug__:\n            # We render the watch variables for the onScreenDebug as soon\n            # as we reasonably can before the renderFrame().\n            self.onScreenDebug.render()\n\n        if self.recorder:\n            self.recorder.recordFrame()\n\n        # Finally, render the frame.\n        self.graphicsEngine.renderFrame()\n        if self.clusterSyncFlag:\n            self.graphicsEngine.syncFrame()\n        if self.multiClientSleep:\n            time.sleep(0)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4959
-  }
-}

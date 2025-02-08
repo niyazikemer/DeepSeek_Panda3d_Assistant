@@ -1,9 +1,0 @@
-{
-  "content": "This functions is different from createObject in that it does not\n        generate the object when the response comes back.  It only tells you\n        the doId.  This is useful on the UD where we don't really want the\n        object on the UD, we just want the object created and the UD wants\n        to send messages to it using the ID.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        assert name\n        assert className\n        self.neededObjects[name] = None\n        if context is None:\n            context = self.air.allocateContext()\n        self.accept(\n            self.air.getDatabaseGenerateResponseEvent(context),\n            self._checkCompletion, [name, None])\n        self.air.requestDatabaseGenerate(className, context, values = values)\n        self._resetTimeoutTask()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_309",
-    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
-    "chunk_number": 5401
-  }
-}

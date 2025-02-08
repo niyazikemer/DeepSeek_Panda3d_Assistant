@@ -1,9 +1,0 @@
-{
-  "content": "self.lock.acquire()\n        try:\n            id = self._getMessengerId(object)\n\n            # Find the dictionary of all the objects accepting this event\n            acceptorDict = self.__callbacks.get(event)\n            # If this object is there, delete it from the dictionary\n            if acceptorDict and id in acceptorDict:\n                del acceptorDict[id]\n                # If this dictionary is now empty, remove the event\n                # entry from the Messenger alltogether\n                if len(acceptorDict) == 0:\n                    del self.__callbacks[event]\n\n            # This object is no longer listening for this event\n            eventDict = self.__objectEvents.get(id)\n            if eventDict and event in eventDict:\n                del eventDict[event]\n                if len(eventDict) == 0:\n                    del self.__objectEvents[id]\n\n                self._releaseObject(object)\n        finally:\n            self.lock.release()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_286",
-    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
-    "chunk_number": 5047
-  }
-}

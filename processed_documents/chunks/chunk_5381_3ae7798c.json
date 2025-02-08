@@ -1,9 +1,0 @@
-{
-  "content": "# First, see if we have all of the objects already.\n        objects, doIdsPending = self.__generateObjectList(doIdList)\n\n        # Call the eachCallback immediately on any objects we already\n        # have.\n        if eachCallback:\n            for object in objects:\n                if object:\n                    eachCallback(object)\n\n        if len(doIdsPending) == 0:\n            # All the objects exist, so just call the callback\n            # immediately.\n            assert self.notify.debug(\"All objects already exist.\")\n            if allCallback:\n                allCallback(objects)\n            return\n\n        # Some objects don't exist yet, so start listening for them, and\n        # also set a timeout in case they don't come.\n        assert self.notify.debug(\"Some objects pending: %s\" % (doIdsPending))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_308",
-    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
-    "chunk_number": 5381
-  }
-}

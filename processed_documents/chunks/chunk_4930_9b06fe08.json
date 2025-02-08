@@ -1,9 +1,0 @@
-{
-  "content": "camera2dp = self.camera2dp.attachNewNode(cam2dNode)\n        dr.setCamera(camera2dp)\n\n        if self.cam2dp is None:\n            self.cam2dp = camera2dp\n\n        return camera2dp\n\n    def setupDataGraph(self) -> None:\n        \"\"\"\n        Creates the data graph and populates it with the basic input\n        devices.\n        \"\"\"\n        self.dataRoot = NodePath('dataRoot')\n        # Cache the node so we do not ask for it every frame\n        self.dataRootNode = self.dataRoot.node()\n\n        # Now we have the main trackball & drive interfaces.\n        # useTrackball() and useDrive() switch these in and out; only\n        # one is in use at a given time.\n        self.trackball = NodePath(Trackball('trackball'))\n        self.drive = NodePath(DriveInterface('drive'))\n        self.mouse2cam = NodePath(Transform2SG('mouse2cam'))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4930
-  }
-}

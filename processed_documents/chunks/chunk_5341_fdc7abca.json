@@ -1,9 +1,0 @@
-{
-  "content": "def globalActivateSmoothing(smoothing, prediction):\n    \"\"\" Globally activates or deactivates smoothing and prediction on\n    all DistributedSmoothNodes currently in existence, or yet to be\n    generated. \"\"\"\n\n    global GlobalSmoothing, GlobalPrediction\n    GlobalSmoothing = smoothing\n    GlobalPrediction = prediction\n\n    for obj in base.cr.getAllOfType(DistributedSmoothNode):\n        obj.activateSmoothing(smoothing, prediction)\n\n\n# For historical reasons, we temporarily define\n# DistributedSmoothNode.activateSmoothing() to be the global function.\n# We'll remove this soon, so it won't get confused with the instance\n# method, below.\nactivateSmoothing = globalActivateSmoothing",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5341
-  }
-}

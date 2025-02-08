@@ -1,9 +1,0 @@
-{
-  "content": "pFrom = render.getRelativePoint(base.cam, pFrom)\n  pTo = render.getRelativePoint(base.cam, pTo)\n\n  # Calculate initial velocity\n  v = pTo - pFrom\n  v.normalize()\n  v *= 10000.0\n\n  # Create bullet\n  shape = BulletBoxShape(Vec3(0.5, 0.5, 0.5))\n  body = BulletRigidBodyNode('Bullet')\n  bodyNP = render.attachNewNode(body)\n  bodyNP.node().addShape(shape)\n  bodyNP.node().setMass(2.0)\n  bodyNP.node().setLinearVelocity(v)\n  bodyNP.setPos(pFrom)\n  bodyNP.setCollideMask(BitMask32.allOn())\n\n  # Enable CCD\n  bodyNP.node().setCcdMotionThreshold(1e-7)\n  bodyNP.node().setCcdSweptSphereRadius(0.50)\n\n  world.attachRigidBody(bodyNP.node())\n\n  # Remove the bullet again after 1 second\n  bullets.append(bodyNP)\n  taskMgr.doMethodLater(1, removeBullet, 'removeBullet')\n\ncpp\n\nTODO\n\nMost of the code is related to finding the initial velocity vector for the bullet, which is calculated from the mouse position when shooting the bullet.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_656",
-    "parent": "processed_documents/context_documents/8223b26b_1484f604_ccd.json",
-    "chunk_number": 7506
-  }
-}

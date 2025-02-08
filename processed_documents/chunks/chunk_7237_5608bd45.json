@@ -1,9 +1,0 @@
-{
-  "content": "ClientRepository.__init__(\n    self,\n    dcFileNames = dcFileNames,\n    threadedNet = True)\n\nHaving the client repository ready, we can try to connect to the desired server with the .ConnectionRepository.connect call available from the CR. Dependent on the outcome, one of the functions given to the call will be used.\n\nself.connect([self.url],\n             successCallback = self.connectSuccess,\n             failureCallback = self.connectFailure)\n\nIn the connectSuccess method we have to make sure that the client is interested in the correct zones in which a time manager has been instantiated. How the time manager is set up and what it is used for will be shown in a later section. For now we just expect it to exist in zone 1 on the AI Server.\n\nAs soon as the client is synced, the .TimeManager will send a gotTimeSync event. It is recommended to show some kind of waiting screen to the user at this point until the client is fully connected to the server.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_613",
-    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
-    "chunk_number": 7237
-  }
-}

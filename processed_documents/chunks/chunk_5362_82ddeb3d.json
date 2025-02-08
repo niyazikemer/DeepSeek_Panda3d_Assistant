@@ -1,9 +1,0 @@
-{
-  "content": "@report(types = ['args'], dConfigParam = 'smoothnode')\n    def d_setParent(self, parentToken):\n        # We override this DistributedNode method to force a full position\n        # update immediately after the distributed setParent is sent.\n        # See ParentMgr.py for an explanation.\n        DistributedNode.DistributedNode.d_setParent(self, parentToken)\n\n        self.forceToTruePosition()\n        self.sendCurrentPosition()\n\n    ### Monitor clock sync ###\n\n    def d_suggestResync(self, avId, timestampA, timestampB,\n                        serverTime, uncertainty):\n        serverTimeSec = math.floor(serverTime)\n        serverTimeUSec = (serverTime - serverTimeSec) * 10000.0\n        self.sendUpdate(\"suggestResync\", [avId, timestampA, timestampB,\n                                          serverTimeSec, serverTimeUSec,\n                                          uncertainty])",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5362
-  }
-}

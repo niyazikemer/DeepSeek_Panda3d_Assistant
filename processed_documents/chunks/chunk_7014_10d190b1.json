@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nmyNodePath.setPos(otherNodePath, X, Y, Z)\nmyNodePath.getPos(otherNodePath)\n\ncpp\n\nmyNodePath.set_pos(otherNodePath, X, Y, Z);\nmyNodePath.get_pos(otherNodePath);\n\nPutting a NodePath as the first parameter to any of the transform setters or getters makes it a relative operation. The above ~.NodePath.set_pos() means to set myNodePath to the position (X, Y, Z), relative to otherNodePath--that is, the position myNodePath would be in if it were a child of otherNodePath and its position were set to (X, Y, Z). The ~.NodePath.get_pos() call returns the position myNodePath would have if it were a child of otherNodePath.\n\nIt is also important to note that you can use the NodePath in its own relative sets and gets. This may be helpful in situations where you are concerned with distances. For example:\n\npython\n\n# Move myNodePath 3 units forward in the x\nmyNodePath.setPos(myNodePath, 3, 0, 0)\n\ncpp\n\n// Move myNodePath 3 units forward in the x\nmyNodePath.set_pos(myNodePath, 3, 0, 0);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_568",
-    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
-    "chunk_number": 7014
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "class _MessageListenerTypeLeakDetector(LeakDetector):\n    # tracks the number of each object type that is listening for events\n    def __init__(self, typeName):\n        self._typeName = typeName\n        LeakDetector.__init__(self)\n\n    def __len__(self):\n        numObjs = 0\n        for obj in messenger._getObjects():\n            if typeName(obj) == self._typeName:\n                numObjs += 1\n        return numObjs\n\n    def getLeakDetectorKey(self):\n        return '%s-%s' % (self._typeName, self.__class__.__name__)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_269",
-    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
-    "chunk_number": 4758
-  }
-}

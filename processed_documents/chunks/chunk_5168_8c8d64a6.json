@@ -1,9 +1,0 @@
-{
-  "content": "# A set of clients that have recently been written to and may\n        # need to be flushed.\n        self.needsFlush = set()\n\n        collectTcpInterval = ConfigVariableDouble('collect-tcp-interval').getValue()\n        taskMgr.doMethodLater(collectTcpInterval, self.flushTask, 'flushTask',\n                              taskChain = 'flushTask')\n\n        # A dictionary of connection -> Client object, tracking all of\n        # the clients we currently have connected.\n        self.clientsByConnection = {}\n\n        # A similar dictionary of doIdBase -> Client object, indexing\n        # by the client's doIdBase number instead.\n        self.clientsByDoIdBase = {}\n\n        # A dictionary of zoneId -> set([Client]), listing the clients\n        # that have an interest in each zoneId.\n        self.zonesToClients = {}\n\n        # A dictionary of zoneId -> set([Object]), listing the\n        # distributed objects assigned to each zone, globally.\n        self.objectsByZoneId = {}",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5168
-  }
-}

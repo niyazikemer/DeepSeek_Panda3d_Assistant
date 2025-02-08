@@ -1,9 +1,0 @@
-{
-  "content": "from .DistributedObjectAI import DistributedObjectAI\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\n\n\nclass DistributedObjectGlobalAI(DistributedObjectAI):\n    notify = directNotify.newCategory('DistributedObjectGlobalAI')\n\n    doNotDeallocateChannel = 1\n    isGlobalDistObj = 1\n\n    def __init__(self, air):\n        DistributedObjectAI.__init__(self, air)\n\n    def announceGenerate(self):\n        DistributedObjectAI.announceGenerate(self)\n        try:\n            if not self.doNotListenToChannel:\n                self.air.registerForChannel(self.doId)\n        except AttributeError:\n            self.air.registerForChannel(self.doId)\n        return False\n\n    def delete(self):\n        DistributedObjectAI.delete(self)\n        try:\n            if not self.doNotListenToChannel:\n                self.air.unregisterForChannel(self.doId)\n        except AttributeError:\n            self.air.unregisterForChannel(self.doId)\n        ## self.air.removeDOFromTables(self)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_312",
-    "parent": "processed_documents/context_documents/f7797661_DistributedObjectGlobalAI.json",
-    "chunk_number": 5423
-  }
-}

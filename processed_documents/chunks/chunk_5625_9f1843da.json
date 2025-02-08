@@ -1,9 +1,0 @@
-{
-  "content": "# Now try to evaluate the expression using ChatInputNormal.ExecNamespace as\n        # the local namespace.\n        try:\n            return str(eval(message, globals(), self.ExecNamespace))\n\n        except SyntaxError:\n            # Maybe it's only a statement, like \"x = 1\", or\n            # \"import math\".  These aren't expressions, so eval()\n            # fails, but they can be exec'ed.\n            try:\n                exec(message, globals(), self.ExecNamespace)\n                return 'ok'\n            except:\n                exception = sys.exc_info()[0]\n                extraInfo = sys.exc_info()[1]\n                if extraInfo:\n                    return str(extraInfo)\n                else:\n                    return str(exception)\n        except:\n            exception = sys.exc_info()[0]\n            extraInfo = sys.exc_info()[1]\n            if extraInfo:\n                return str(extraInfo)\n            else:\n                return str(exception)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_328",
-    "parent": "processed_documents/context_documents/9ec1bded_DistributedObjectGlobalUD.json",
-    "chunk_number": 5625
-  }
-}

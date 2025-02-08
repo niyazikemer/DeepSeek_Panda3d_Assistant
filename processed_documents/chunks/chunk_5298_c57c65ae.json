@@ -1,9 +1,0 @@
-{
-  "content": "class ConnectionRepository(\n        DoInterestManager, DoCollectionManager, CConnectionRepository):\n    \"\"\"\n    This is a base class for things that know how to establish a\n    connection (and exchange datagrams) with a gameserver.  This\n    includes ClientRepository and AIRepository.\n    \"\"\"\n    notify = directNotify.newCategory(\"ConnectionRepository\")\n    taskPriority = -30\n    taskChain = None\n\n    CM_HTTP=0\n    CM_NET=1\n    CM_NATIVE=2\n\n    gcNotify = directNotify.newCategory(\"GarbageCollect\")\n\n    GarbageCollectTaskName = \"allowGarbageCollect\"\n    GarbageThresholdTaskName = \"adjustGarbageCollectThreshold\"\n\n    def __init__(self, connectMethod, config, hasOwnerView = False,\n                 threadedNet = None):\n        assert self.notify.debugCall()\n        if threadedNet is None:\n            # Default value.\n            threadedNet = config.GetBool('threaded-net', False)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5298
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "\"\"\"RandomNumGen module: contains the RandomNumGen class\"\"\"\n\n__all__ = ['randHash', 'RandomNumGen']\n\nfrom direct.directnotify import DirectNotifyGlobal\nfrom panda3d.core import Mersenne\n\n\ndef randHash(num):\n    \"\"\" this returns a random 16-bit integer, given a seed integer.\n    It will always return the same output given the same input.\n    This is useful for repeatably mapping numbers with predictable\n    bit patterns (i.e. doIds or zoneIds) to numbers with random bit patterns\n    \"\"\"\n    rng = RandomNumGen(num)\n    return rng.randint(0, (1<<16) - 1)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_275",
-    "parent": "processed_documents/context_documents/e9f9509b_RandomNumGen.json",
-    "chunk_number": 4783
-  }
-}

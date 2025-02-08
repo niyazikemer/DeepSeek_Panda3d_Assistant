@@ -1,9 +1,0 @@
-{
-  "content": "# From here on, we deal with a list of (filename, node) pairs.\n        modelList = list(zip(modelList, nodeList))\n\n        if blocking is None:\n            blocking = callback is None\n\n        if blocking:\n            # We got no callback, so it's a synchronous save.\n\n            result = []\n            for modelPath, node in modelList:\n                thisResult = self.loader.saveSync(Filename(modelPath), loaderOptions, node)\n                result.append(thisResult)\n\n            if gotList:\n                return result\n            else:\n                return result[0]\n\n        else:\n            # We got a callback, so we want an asynchronous (threaded)\n            # save.  We'll return immediately, but when all of the\n            # requested models have been saved, we'll invoke the\n            # callback (passing it the models on the parameter list).",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4389
-  }
-}

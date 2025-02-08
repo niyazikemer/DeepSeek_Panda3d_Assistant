@@ -1,9 +1,0 @@
-{
-  "content": "# Attempt a connection to the server\n        self.connect([self.url],\n                     successCallback = self.connectSuccess,\n                     failureCallback = self.connectFailure)\n\n    def lostConnection(self):\n        \"\"\" This should be overridden by a derived class to handle an\n        unexpectedly lost connection to the gameserver. \"\"\"\n        # Handle the disconnection from the server.  This can be a reconnect,\n        # simply exiting the application or anything else.\n        exit()\n\n    def connectFailure(self, statusCode, statusString):\n        \"\"\" Something went wrong \"\"\"\n        exit()\n\n    def connectSuccess(self):\n        \"\"\" Successfully connected.  But we still can't really do\n        anything until we've got the doID range. \"\"\"\n\n        # Make sure we have interest in the by the AIRepository defined\n        # TimeManager zone, so we always see it even if we switch to\n        # another zone.\n        self.setInterestZones([1])",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_613",
-    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
-    "chunk_number": 7234
-  }
-}

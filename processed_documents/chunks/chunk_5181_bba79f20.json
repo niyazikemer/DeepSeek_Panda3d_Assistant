@@ -1,9 +1,0 @@
-{
-  "content": "dgi = DatagramIterator(datagram)\n\n        type = dgi.getUint16()\n\n        if type == CLIENT_DISCONNECT_CMU:\n            self.handleClientDisconnect(client)\n        elif type == CLIENT_SET_INTEREST_CMU:\n            self.handleClientSetInterest(client, dgi)\n        elif type == CLIENT_OBJECT_GENERATE_CMU:\n            self.handleClientCreateObject(datagram, dgi)\n        elif type == CLIENT_OBJECT_UPDATE_FIELD:\n            self.handleClientObjectUpdateField(datagram, dgi)\n        elif type == CLIENT_OBJECT_UPDATE_FIELD_TARGETED_CMU:\n            self.handleClientObjectUpdateField(datagram, dgi, targeted = True)\n        elif type == OBJECT_DELETE_CMU:\n            self.handleClientDeleteObject(datagram, dgi.getUint32())\n        elif type == OBJECT_SET_ZONE_CMU:\n            self.handleClientObjectSetZone(datagram, dgi)\n        else:\n            self.handleMessageType(type, dgi)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5181
-  }
-}

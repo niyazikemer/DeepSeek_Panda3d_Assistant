@@ -1,9 +1,0 @@
-{
-  "content": "# Make the regular MouseInterface node respond only when\n            # the shift button is pressed.  And the oobe node will\n            # respond only when shift is *not* pressed.\n\n            self.mouseInterfaceNode.requireButton(KeyboardButton.shift(), True)\n            self.oobeTrackball.node().requireButton(KeyboardButton.shift(), False)\n            self.oobeTrackball.reparentTo(self.mouseWatcher)\n\n            # Set our initial OOB position to be just behind the camera.\n            mat = Mat4.translateMat(0, -10, 3) * self.camera.getMat(cameraParent)\n            mat.invertInPlace()\n            self.oobeTrackball.node().setMat(mat)\n\n            cam.reparentTo(self.oobeCameraTrackball)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4983
-  }
-}

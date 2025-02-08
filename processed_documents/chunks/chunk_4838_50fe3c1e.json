@@ -1,9 +1,0 @@
-{
-  "content": "def arbitraryShadow(node):\n    # Turn off the existing drop shadow, if any\n    if hasattr(node, \"dropShadow\"):\n        # stash it so that when the game hides and shows it, it will still be gone\n        node.dropShadow.stash()\n\n    # Set up a new node to hold the \"light\": this is an abitrary point\n    # somewhere above the node, looking down, as if from the sun.\n    objectPath = node\n    shadowCamera = objectPath.attachNewNode('shadowCamera')\n    lightPath = shadowCamera.attachNewNode('lightPath')\n\n    # We can change this position at will to change the angle of the\n    # sun.\n    lightPath.setPos(50, 0, 50)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_282",
-    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
-    "chunk_number": 4838
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "FSM with input\n\npython\n\nAnother common use for FSM's is to provide an abstraction for AI state. For this purpose, you would like to supply an \"input\" string to the FSM and let the FSM decide which state it should transition to rather than explicitly specifying the target state name. Consider the following FSM state diagram:\n\ntransitions\n\nrankdir=TB node [style=rounded, shape=box]\n\nNorth -> West [ label=\" left\" ]; West -> South [ label=\" left\" ]; South -> East [ label=\" left\", constraint=false ]; East -> North [ label=\" left\", constraint=false ];\n\nNorth:n -> North:n [ label=\"straight\" ]; West:s -> West:s [ label=\"straight\" ]; South:s -> South:s [ label=\"straight\" ]; East:n -> East:n [ label=\"straight\" ];\n\n{ rank=same; West; South } { rank=same; North; East }\n\nHere the text next to an arrow represents the \"input\" string given to the FSM, and the direction of the arrow represents the state transition that should be made for that particular input string, from the indicated starting state.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_528",
-    "parent": "processed_documents/context_documents/72c7beb9_6de13beb_fsm-with-input.json",
-    "chunk_number": 6647
-  }
-}

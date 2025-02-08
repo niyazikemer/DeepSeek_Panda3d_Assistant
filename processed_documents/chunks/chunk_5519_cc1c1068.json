@@ -1,9 +1,0 @@
-{
-  "content": "self.thisContext = -1\n        self.nextContext = 0\n        self.attemptCount = 0\n        self.start = 0\n        self.lastAttempt = -self.minWait*2\n\n    ### DistributedObject methods ###\n\n    def generate(self):\n        \"\"\"\n        This method is called when the DistributedObject is reintroduced\n        to the world, either for the first time or from the cache.\n        \"\"\"\n        DistributedObject.DistributedObject.generate(self)\n\n        self.accept('clock_error', self.handleClockError)\n\n        if self.updateFreq > 0:\n            self.startTask()\n\n    def announceGenerate(self):\n        DistributedObject.DistributedObject.announceGenerate(self)\n        self.cr.timeManager = self\n        self.synchronize(\"TimeManager.announceGenerate\")",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_319",
-    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
-    "chunk_number": 5519
-  }
-}

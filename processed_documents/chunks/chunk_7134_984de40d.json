@@ -1,9 +1,0 @@
-{
-  "content": "# Callback function to set text\ndef itemSel(arg):\n    if arg != \"Add\":\n        # No need to add an element\n        output = \"Item Selected is: \" + arg\n        textObject.setText(output)\n    else:\n        # Add an element\n        tmp_menu = menu['items']\n        new_item = \"item\" + str(len(tmp_menu))\n        tmp_menu.insert(-1, new_item) #add the element before add\n        menu['items'] = tmp_menu\n        # Set the status message\n        output = \"Item Added is: \" + new_item\n        textObject.setText(output)\n\n# Create a frame\nmenu = DirectOptionMenu(text=\"options\", scale=0.1, initialitem=2,\n                        items=[\"item1\", \"item2\", \"item3\", \"Add\"],\n                        highlightColor=(0.65, 0.65, 0.65, 1),\n                        command=itemSel, textMayChange=1)\n\n# Procedurally select a item\nmenu.set(0)\n\n# Run the tutorial\nbase.run()\n\nIn this example we add an item to the menu whenever the Add item is selected.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_590",
-    "parent": "processed_documents/context_documents/bff13fca_95820bc1_directoptionmenu.json",
-    "chunk_number": 7134
-  }
-}

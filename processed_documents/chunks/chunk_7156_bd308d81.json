@@ -1,9 +1,0 @@
-{
-  "content": "bodyNP = self.worldNP.attachNewNode(bodyNode)\nbodyNP.setPos(0, 0, 8)\nbodyNP.setHpr(45, 0, 0)\nworld.attachSoftBody(bodyNode)\n\ncpp\n\nTODO\n\nThe method generateClusters is new. We didn't use this method so far when setting up non-volume soft bodies. It splits the soft body volume up into the given number of small, convex clusters, which consecutively will be used for collision detection with other soft bodies or rigid bodies.\n\nVisualisation\n\nThere are two different ways to visualise a tetrahedral soft body. First you can let Panda3D generate a Geom for you, like in the previous two soft body manual pages. The following code shows how to do this:\n\npython\n\ngeom = BulletHelper.makeGeomFromFaces(node)\nvisNode = GeomNode('TetraVisual')\nvisNode.addGeom(geom)\nvisNP = softNP.attachNewNode(visNode)\nbodyNode.linkGeom(geom)\n\ncpp\n\nTODO",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_596",
-    "parent": "processed_documents/context_documents/44951a7f_af197370_softbody-tetrahedron.json",
-    "chunk_number": 7156
-  }
-}

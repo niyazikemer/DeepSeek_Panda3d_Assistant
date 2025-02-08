@@ -1,9 +1,0 @@
-{
-  "content": "\"a\", \"b\", \"3\", \"[\", etc. not \"A\", \"B\", \"#\", \"{\"\n\nThe key down event is named for the key.\n\nThe keyboard autorepeat is named for the key + \"-repeat\" e.g.\n\n\"a-repeat\", \"2-repeat\", \"[-repeat\"\n\nThe key up event is named for the key + \"-up\" e.g.\n\n\"a-up\", \"2-up\", \"[-up\"\n\nAll key events (including \"-up\") have a corresponding time event labeled\n\n\"time-\" + <key name>\n\npython\n\nHere is an example of time reading in code:\n\nclass ReadKeys(DirectObject.DirectObject):\n    def __init__(self):\n        self.accept('time-a-repeat', self.printRepeat)\n\n    def printRepeat(self, when):\n        print(\"repeat a\", when)\n\nKeys that don't type a character are labeled as follows:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_711",
-    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
-    "chunk_number": 7755
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def _isDeadEnd(self, obj, objName=None):\n        if type(obj) in deadEndTypes:\n            return True\n\n        # if it's an internal object, ignore it\n        if id(obj) in ContainerLeakDetector.PrivateIds:\n            return True\n        # prevent crashes in objects that define __cmp__ and don't handle strings\n        if type(objName) == str and objName in ('im_self', 'im_class'):\n            return True\n        try:\n            className = obj.__class__.__name__\n        except Exception:\n            pass\n        else:\n            # prevent infinite recursion in built-in containers related to methods\n            if className == 'method-wrapper':\n                return True\n        return False\n\n    def _hasLength(self, obj):\n        return hasattr(obj, '__len__')",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4494
-  }
-}

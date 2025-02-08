@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nattrib = ShaderAttrib.make()\nattrib = attrib.setShader(Shader.load(\"myshader.sha\"))\nattrib = attrib.setShaderInput(\"tint\", (1.0, 0.5, 0.5, 1.0))\nbase.cam.node().setInitialState(attrib)\n\ncpp\n\nCPT(ShaderAttrib) attrib = DCAST(ShaderAttrib, ShaderAttrib::make());\nattrib = attrib->set_shader(Shader::load(\"myshader.sha\"));\nattrib = attrib->set_shader_input(\"tint\", LVector4(1.0, 0.5, 0.5, 1.0));\ncamera.set_initial_state(attrib);\n\nBe careful: attribs are immutable objects. So when you apply a function like ~.NodePath.set_shader() or ~.NodePath.set_shader_input() to a .ShaderAttrib, you aren't modifying the attrib. Instead, these functions work by returning a new attrib (which contains the modified data).\n\nDeferred Shader Compilation",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_462",
-    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
-    "chunk_number": 6372
-  }
-}

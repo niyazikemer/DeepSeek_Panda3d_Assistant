@@ -1,9 +1,0 @@
-{
-  "content": "if 'interests' in types:\n                base.cr.printInterestSets()\n\n            if 'stackTrace' in types:\n                print(StackTrace())\n\n            global __report_indent\n            rVal = None\n            try:\n                __report_indent += 1\n                rVal = f(*args, **kwargs)\n            finally:\n                __report_indent -= 1\n                if rVal is not None:\n                    print(indent(' -> ' + repr(rVal)))\n            return rVal\n\n        wrap.__name__ = f.__name__\n        wrap.__dict__ = f.__dict__\n        wrap.__doc__ = f.__doc__\n        wrap.__module__ = f.__module__\n        return wrap\n    return decorator",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4691
-  }
-}

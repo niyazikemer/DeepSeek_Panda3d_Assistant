@@ -1,9 +1,0 @@
-{
-  "content": "def stopReaderPollTask(self):\n        if self.readerPollTaskObj:\n            taskMgr.remove(self.readerPollTaskObj)\n            self.readerPollTaskObj = None\n        self.ignore(CConnectionRepository.getOverflowEventName())\n\n    def readerPollUntilEmpty(self, task):\n        while self.readerPollOnce():\n            pass\n        return Task.cont\n\n    def readerPollOnce(self):\n        if self.checkDatagram():\n            self.getDatagramIterator(self.private__di)\n            self.handleDatagram(self.private__di)\n            return 1\n\n        # Unable to receive a datagram: did we lose the connection?\n        if not self.isConnected():\n            self.stopReaderPollTask()\n            messenger.send(self.uniqueName('lostConnection'), taskChain = 'default')\n        return 0\n\n    def handleReaderOverflow(self):\n        # this is called if the incoming-datagram queue overflowed and\n        # we lost some data. Override and handle if desired.\n        pass",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5332
-  }
-}

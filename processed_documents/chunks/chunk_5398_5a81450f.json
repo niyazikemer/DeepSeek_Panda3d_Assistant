@@ -1,9 +1,0 @@
-{
-  "content": "def askForObject(self, doId, context = None):\n        \"\"\"\n        Request an already created object, i.e. read from database.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        assert doId\n        if context is None:\n            context = self.air.allocateContext()\n        self.acceptOnce(\n            \"doRequestResponse-%s\"%(context,),\n            self._checkCompletion, [None])\n        self.air.queryObjectAll(doId, context)\n        self._resetTimeoutTask()\n\n    def createObject(self, name, className,\n            databaseId = None, values = None, context = None):\n        \"\"\"\n        Create a new database object.  You can get the doId from within\n        your self.finish() function.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_309",
-    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
-    "chunk_number": 5398
-  }
-}

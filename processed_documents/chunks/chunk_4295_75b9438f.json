@@ -1,9 +1,0 @@
-{
-  "content": "self.fade.reparentTo(ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX)\n        self.fade.setColor(color)\n\n    def noFade(self):\n        \"\"\"\n        Removes any current fade tasks and parents the fade polygon away\n        \"\"\"\n        #print \"transitiosn: noFade\"\n        if self.transitionIval:\n            self.transitionIval.pause()\n            self.transitionIval = None\n        if self.__transitionFuture:\n            self.__transitionFuture.cancel()\n            self.__transitionFuture = None\n        if self.fade:\n            # Make sure to reset the color, since fadeOutActive() is looking at it\n            self.fade.setColor(self.alphaOff)\n            self.fade.detachNode()\n\n    def setFadeColor(self, r, g, b):\n        self.alphaOn.set(r, g, b, 1)\n        self.alphaOff.set(r, g, b, 0)\n\n    ##################################################\n    # Iris\n    ##################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_244",
-    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
-    "chunk_number": 4295
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "self.taskMgr.step()\n\n    def wxRun(self):\n        \"\"\" This method replaces `run()` after we have called `spawnWxLoop()`.\n        Since at this point wxPython now owns the main loop, this method is a\n        call to wxApp.MainLoop(). \"\"\"\n\n        if Thread.getCurrentThread().getCurrentTask():\n            # This happens in the p3d environment during startup.\n            # Ignore it.\n            return\n\n        self.wxApp.MainLoop()\n\n    def startTk(self, fWantTk = True):\n        fWantTk = bool(fWantTk)\n        if self.wantTk != fWantTk:\n            self.wantTk = fWantTk\n            if self.wantTk:\n                self.spawnTkLoop()\n\n    def spawnTkLoop(self):\n        \"\"\" Call this method to hand the main loop over to Tkinter.\n        This sets up a timer callback so that Panda still gets\n        updated, but Tkinter owns the main loop (which seems to make\n        it happier than the other way around). \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5013
-  }
-}

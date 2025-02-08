@@ -1,9 +1,0 @@
-{
-  "content": "class SingletonError(ValueError):\n    \"\"\" Used to indicate an inappropriate value for a Singleton.\"\"\"\n\n\ndef printListEnumGen(l):\n    # log each individual item with a number in front of it\n    digits = 0\n    n = len(l)\n    while n > 0:\n        digits += 1\n        n //= 10\n    format = '%0' + '%s' % digits + 'i:%s'\n    for i in range(len(l)):\n        print(format % (i, l[i]))\n        yield None\n\n\ndef printListEnum(l):\n    for result in printListEnumGen(l):\n        pass\n\n\n# base class for all Panda C++ objects\n# libdtoolconfig doesn't seem to have this, grab it off of TypedObject\ndtoolSuperBase = None\n\n\ndef _getDtoolSuperBase():\n    global dtoolSuperBase\n    from panda3d.core import TypedObject\n    dtoolSuperBase = TypedObject.__bases__[0]\n    assert dtoolSuperBase.__name__ == 'DTOOL_SUPER_BASE'\n\n\nsafeReprNotify = None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4659
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def getDisableEvent(self):\n        return self.uniqueName(\"disable\")\n\n    def disableAndAnnounce(self):\n        \"\"\"\n        Inheritors should *not* redefine this function.\n        \"\"\"\n        # We must send the disable announce message *before* we\n        # actually disable the object.  That way, the various cleanup\n        # tasks can run first and take care of restoring the object to\n        # a normal, nondisabled state; and *then* the disable function\n        # can properly disable it (for instance, by parenting it to\n        # hidden).\n        if self.activeState != ESDisabled:\n            self.activeState = ESDisabling\n            messenger.send(self.getDisableEvent())\n            self.disable()\n            self.activeState = ESDisabled\n            if not self._delayDeleted:\n                # if the object is DelayDeleted, _deactivateDO has\n                # already been called\n                self._deactivateDO()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5558
-  }
-}

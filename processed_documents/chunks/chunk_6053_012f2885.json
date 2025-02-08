@@ -1,9 +1,0 @@
-{
-  "content": "At some point, when functionality that is currently flaky becomes reliable, we may expand the definition of what constitutes 'basic' shaders.\n\nProblem: Invalid output when using ATI/AMD cards\n\nProblem: This is a specific case of the problem above. The Cg Toolkit only supports two sets of profiles on most non-nVidia cards; the basic ARB profiles, and the GLSL profiles. The ARB profiles are limited in functionality, which prompts people to use the GLSL profiles. However, these often produce incorrect results on ATI/AMD cards.\n\nWorkaround: Enable \"basic-shaders-only true\" as described above. For advanced shader effects, write your shaders in GLSL instead of Cg if you intend to support non-nVidia cards.\n\nProblem: Cg program too complex for driver\n\nProblem: Panda will translate the shader into the ARBvp1/ARBvp1 profile by default, for the reason stated above. If instructions are used that are not supported by these profiles, this error will occur.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_401",
-    "parent": "processed_documents/context_documents/b94e6c02_f8c75e0b_known-shader-issues.json",
-    "chunk_number": 6053
-  }
-}

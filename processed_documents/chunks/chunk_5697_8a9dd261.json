@@ -1,9 +1,0 @@
-{
-  "content": "def sendUpdateToAccountId(self, accountId, fieldName, args):\n        assert self.notify.debugStateCall(self)\n        channelId = self.GetAccountConnectionChannel(accountId)\n        self.sendUpdateToChannel(channelId, fieldName, args)\n\n    def sendUpdateToChannel(self, channelId, fieldName, args):\n        assert self.notify.debugStateCall(self)\n        if self.air:\n            self.air.sendUpdateToChannel(self, channelId, fieldName, args)\n\n    def generateWithRequired(self, zoneId, optionalFields=[]):\n        assert self.notify.debugStateCall(self)\n        # have we already allocated a doId?\n        if self.__preallocDoId:\n            self.__preallocDoId = 0\n            return self.generateWithRequiredAndId(\n                self.doId, zoneId, optionalFields)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5697
-  }
-}

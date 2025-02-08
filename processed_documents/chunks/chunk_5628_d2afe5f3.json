@@ -1,9 +1,0 @@
-{
-  "content": "def pack(self):\n        return 'Camera(%s, %s, %s)' % (self.getPos(), self.getHpr(), self.getFov())\n\n    def setId(self, id):\n        self.id = id\n\n    def setFov(self, fov):\n        \"\"\"\n        fov should be a VBase2.  Use VBase2(0) to indicate default.\n        \"\"\"\n        if fov != VBase2(0):\n            self.lens.setFov(fov)\n        self.setupFrustum()\n\n    def adjustFov(self, x, y):\n        fov = self.lens.getFov()\n        self.lens.setFov(fov[0]+x, fov[1]+y)\n        self.dirty = True\n\n    def getFov(self):\n        return self.lens.getFov()\n\n    def setupFrustum(self):\n        oldFrustum = self.find('frustum')\n        if oldFrustum:\n            oldFrustum.detachNode()\n\n        self.attachNewNode(GeomNode('frustum')).node().addGeom(self.lens.makeGeometry())\n\n    def setRecordingInProgress(self, inProgress):\n        self.recordingInProgress = inProgress\n        if self.recordingInProgress and _camera_id.value >= 0:\n            self.hide()\n        else:\n            self.show()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_329",
-    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
-    "chunk_number": 5628
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "Why are my animations/intervals sometimes skipped when I run something heavy on the CPU before playing them?\n\nIf you'll run this example code you might not see the position interval.\n\nfrom panda3d.core import *\nimport direct.directbase.DirectStart\nfrom direct.interval.IntervalGlobal import *\n\nenv = loader.loadModel('environment')\nenv.reparentTo(render)\nenv.setZ(-4)\n\ndef func():\n    # something heavy on the CPU\n    for i in range(9999999):\n        pass\n    # run the interval after\n    posival.start()\n\nposival = LerpPosInterval(base.cam, 0.4, (0,base.cam.getY()-12,0), base.cam.getPos())\n\nfunc()\n\nbase.run()\n\nBut you will see the interval being played if you comment out the for-loop. What is going on? It looks like Panda3D had skipped the interval, even though it was after the loop, as if Panda3D had \"lost focus\" when running the loop and even after it had finished it needed some time to start running normally again.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_459",
-    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
-    "chunk_number": 6337
-  }
-}

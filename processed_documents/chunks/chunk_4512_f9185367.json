@@ -1,9 +1,0 @@
-{
-  "content": "def run(self):\n        try:\n            self._leakDetector._index2containerId2len[self._index] = {}\n            ids = self._leakDetector.getContainerIds()\n            # record the current len of each container\n            for objId in ids:\n                yield None\n                try:\n                    for result in self._leakDetector.getContainerByIdGen(objId):\n                        yield None\n                    container = result\n                except Exception as e:\n                    # this container no longer exists\n                    if self.notify.getDebug():\n                        for contName in self._leakDetector.getContainerNameByIdGen(objId):\n                            yield None\n                        self.notify.debug(\n                            '%s no longer exists; caught exception in getContainerById (%s)' % (\n                            contName, e))\n                    self._leakDetector.removeContainerById(objId)\n                    continue",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4512
-  }
-}

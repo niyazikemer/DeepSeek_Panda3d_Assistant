@@ -1,9 +1,0 @@
-{
-  "content": "For the most part, this car was painted with one big texture image, which looks like this:\n\nBut we also have a blue version of the same texture image:\n\nAlthough it is tempting to use .NodePath.set_texture() to assign the blue texture to the whole car, that would also assign the blue texture to the car's tires, which need to use a different texture map. So instead, we apply the blue texture just to the pieces that we want to change:\n\npython\n\ncar = loader.loadModel('bvw-f2004--carnsx/carnsx.egg')\nblue = loader.loadTexture('bvw-f2004--carnsx/carnsx-blue.png')\ncar.find('**/body/body').setTexture(blue, 1)\ncar.find('**/body/polySurface1').setTexture(blue, 1)\ncar.find('**/body/polySurface2').setTexture(blue, 1)\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_439",
-    "parent": "processed_documents/context_documents/86c0a6eb_814d539f_simple-texture-replacement.json",
-    "chunk_number": 6233
-  }
-}

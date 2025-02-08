@@ -1,9 +1,0 @@
-{
-  "content": "Bodies and masses\n\nIn physics space, the objects that matter are called bodies. In order to have something affected by physics, you need to create an OdeBody, and set an OdeMass on it.\n\nAn OdeMass does not just define how much an object weighs. You roughly have to specify a shape so ODE will know how the mass is divided over the body. Also, ODE will have to know either the density of the object or the mass.\n\nIn the following example the geometry is assumed to be a box-shaped object made of lead, and the box has a width, length and height of 1 meter.\n\npython\n\nfrom panda3d.ode import OdeBody, OdeMass\nmyBody = OdeBody(myWorld)\nmyBody.setPosition(somePandaObject.getPos(render))\nmyBody.setQuaternion(somePandaObject.getQuat(render))\nmyMass = OdeMass()\nmyMass.setBox(11340, 1, 1, 1)\nmyBody.setMass(myMass)\n\ncpp\n\n#include \"odeBody.h\"\n#include \"odeMass.h\"",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_682",
-    "parent": "processed_documents/context_documents/38bb6ad4_c8821add_worlds-bodies-masses.json",
-    "chunk_number": 7643
-  }
-}

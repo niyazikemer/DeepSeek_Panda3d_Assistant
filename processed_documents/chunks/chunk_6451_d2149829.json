@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nanp = render.attachNewNode(ActorNode('actor'))\nfromObject = anp.attachNewNode(CollisionNode('colNode'))\nfromObject.node().addSolid(CollisionSphere(0, 0, 0, 1))\n\npusher = PhysicsCollisionHandler()\npusher.addCollider(fromObject, anp)\n\ncpp\n\nanp = window->get_render().attach_new_node(new ActorNode(\"actor\"));\nfromObject = anp.attach_new_node(new CollisionNode(\"colNode\"));\nfromObject.node()->add_solid(new CollisionSphere(0, 0, 0, 1))\n\nPT(PhysicsCollisionHandler) pusher = new PhysicsCollisionHandler;\npusher->add_collider(fromObject, anp);\n\nWhenever you have an ActorNode that you want to respond to collisions, we recommend that you use a PhysicsCollisionHandler rather than an ordinary CollisionHandlerPusher. The PhysicsCollisionHandler will keep the object out of walls, just like the CollisionHandlerPusher does, but it will also update the object's velocity within the physics engine, which helps to prevent the physics system from becoming unstable due to large accumulated velocities.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_485",
-    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
-    "chunk_number": 6451
-  }
-}

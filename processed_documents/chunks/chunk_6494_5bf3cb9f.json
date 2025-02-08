@@ -1,9 +1,0 @@
-{
-  "content": "When you are done with the cube map, you should remove its buffer (and stop the cube map from continuing to render) by calling:\n\nbase.graphicsEngine.removeWindow(buffer)\n\nAs a complete example, here is how we might load up a dynamic cube map environment on our teapot and move the teapot down the street to show off the dynamic reflections:\n\nscene = loader.loadModel('bvw-f2004--streetscene/street-scene.egg')\nscene.reparentTo(render)\nscene.setZ(-2)\n\nteapot = loader.loadModel('teapot.egg')\nteapot.reparentTo(render)\n\nrig = NodePath('rig')\nbuffer = base.win.makeCubeMap('env', 64, rig)\nrig.reparentTo(teapot)\n\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MWorldCubeMap)\nteapot.setTexture(buffer.getTexture())\n\nzoom = teapot.posInterval(5, VBase3(20, 0, 0), startPos=VBase3(-20, 0, 0))\nzoom.loop()\n\nWarning",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_496",
-    "parent": "processed_documents/context_documents/bf8dabed_8b653f62_dynamic-cube-maps.json",
-    "chunk_number": 6494
-  }
-}

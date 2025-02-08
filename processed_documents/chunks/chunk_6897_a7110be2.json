@@ -1,9 +1,0 @@
-{
-  "content": "Caching and the Shader Generator\n\nIf two objects are rendered using the same .RenderState (ie, the exact same attributes), then the shader is only generated once. But certain changes to to the RenderState will the shader to be regenerated. This is not entirely cheap. Making changes to the RenderState of an object should be avoided when shader generation is enabled, because this necessitates regeneration of the shader.\n\nA few alterations don't count as RenderState modifications: in particular, changing the positions and colors of the lights doesn't count as a change to the RenderState, and therefore, does not require shader regeneration. This can be useful: if you just want to tint an object, apply a light to it then change the color of the light.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_545",
-    "parent": "processed_documents/context_documents/f47095f0_6d2d98fe_shader-generator.json",
-    "chunk_number": 6897
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nThe following code snippet shows how this could be done.\n\nfrom panda3d.bullet import BulletVehicle\n\n# Chassis body\nshape = BulletBoxShape(Vec3(0.7, 1.5, 0.5))\nts = TransformState.makePos(Point3(0, 0, 0.5))\n\nchassisNP = render.attachNewNode(BulletRigidBodyNode('Vehicle'))\nchassisNP.node().addShape(shape, ts)\nchassisNP.setPos(0, 0, 1)\nchassisNP.node().setMass(800.0)\nchassisNP.node().setDeactivationEnabled(False)\n\nworld.attachRigidBody(chassisNP.node())\n\n# Chassis geometry\nloader.loadModel('path/to/model').reparentTo(chassisNP)\n\n# Vehicle\nvehicle = BulletVehicle(world, chassisNP.node())\nvehicle.setCoordinateSystem(ZUp)\nworld.attachVehicle(vehicle)\n\nWheels",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_432",
-    "parent": "processed_documents/context_documents/e8a9ae27_79b9f95b_vehicles.json",
-    "chunk_number": 6191
-  }
-}

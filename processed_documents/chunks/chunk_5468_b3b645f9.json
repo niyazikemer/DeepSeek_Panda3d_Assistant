@@ -1,9 +1,0 @@
-{
-  "content": "# Are we in non-real-time mode (i.e. filming a movie)?  If you\n        # set movie-network-time 1, then we'll circumvent this logic\n        # and always return now.\n        if self.globalClock.getMode() == ClockObject.MNonRealTime and \\\n           ConfigVariableBool('movie-network-time', False):\n            return now\n\n        # First, determine what network time we have for 'now'.\n        ntime = int(math.floor(((now - self.delta) * ticksPerSec) + 0.5))\n\n        # The signed difference between these is the number of ticks\n        # by which the network time differs from 'now'.\n        if bits == 16:\n            diff = self.__signExtend(networkTime - ntime)\n        else:\n            # Assume the bits is either 16 or 32.  If it's 32, no need\n            # to sign-extend.  32 bits gives us about 227 days of\n            # continuous timestamp.\n\n            diff = networkTime - ntime\n\n        return now + float(diff) / ticksPerSec",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5468
-  }
-}

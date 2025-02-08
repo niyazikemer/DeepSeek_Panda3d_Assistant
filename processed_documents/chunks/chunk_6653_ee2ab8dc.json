@@ -1,9 +1,0 @@
-{
-  "content": "For instance, we could have defined the above FSM using just the defaultFilter method, and a lookup table:\n\nclass CompassDir(FSM):\n    nextState = {\n        ('North', 'straight') : 'North',\n        ('North', 'left') : 'West',\n        ('West', 'straight') : 'West',\n        ('West', 'left') : 'South',\n        ('South', 'straight') : 'South',\n        ('South', 'left') : 'East',\n        ('East', 'straight') : 'East',\n        ('East', 'left') : 'North',\n    }\n\n    def defaultFilter(self, request, args):\n        key = (self.state, request)\n        return self.nextState.get(key)\n\nThe base FSM class defines a ~direct.fsm.FSM.FSM.defaultFilter() method that implements the default FSM transition rules (that is, allow all direct-to-state (uppercase) transition requests unless self.defaultTransitions is defined; in either case, quietly ignore input (lowercase) requests).",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_528",
-    "parent": "processed_documents/context_documents/72c7beb9_6de13beb_fsm-with-input.json",
-    "chunk_number": 6653
-  }
-}

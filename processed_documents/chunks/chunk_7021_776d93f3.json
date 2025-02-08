@@ -1,9 +1,0 @@
-{
-  "content": "Setting an object's color completely replaces any color on the vertices. However, if you have created a model with per-vertex color, you might prefer to modulate the object's color without losing the per-vertex color. For this there is the ~.NodePath.set_color_scale() variant, which multiplies the indicated color values by the object's existing color:\n\npython\n\nmyNodePath.setColorScale(R, G, B, A)\n\ncpp\n\nmyNodePath.set_color_scale(R, G, B, A);\n\nOne use of ~.NodePath.set_color_scale() is to apply it at the top of the scene graph (e.g. render) to darken the entire scene uniformly, for instance to implement a fade-to-black effect.\n\nSince alpha is so important, there is also a method for scaling it without affecting the other color components:\n\npython\n\nmyNodePath.setAlphaScale(SA)\n\ncpp\n\nmyNodePath.set_alpha_scale(SA);\n\nHiding and Showing\n\nTo temporarily prevent an object from being drawn on all cameras, use ~.NodePath.hide() and ~.NodePath.show():\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_568",
-    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
-    "chunk_number": 7021
-  }
-}

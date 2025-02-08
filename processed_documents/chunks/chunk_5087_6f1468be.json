@@ -1,9 +1,0 @@
-{
-  "content": "def _getNextFilename(self):\n        filename = '%s-%s' % (self._filenameBase, self._filenameCounter)\n        self._filenameCounter += 1\n        return filename\n\n    def run(self):\n        # make sure this instance doesn't get destroyed inside self._func\n        self.acquire()\n\n        if not self._aggregate:\n            self._reset()\n\n        # if we're already profiling, just run the func and don't profile\n        if 'globalProfileSessionFunc' in builtins.__dict__:\n            self.notify.warning('could not profile %s' % self._func)\n            result = self._func()\n            if self._duration is None:\n                self._duration = 0.\n        else:\n            # put the function in the global namespace so that profile can find it\n            assert hasattr(self._func, '__call__')\n            builtins.globalProfileSessionFunc = self._func\n            builtins.globalProfileSessionResult = [None]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_288",
-    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
-    "chunk_number": 5087
-  }
-}

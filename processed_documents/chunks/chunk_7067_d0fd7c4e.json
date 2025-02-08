@@ -1,9 +1,0 @@
-{
-  "content": "from panda3d.core import NetDatagram\n\ndef tskReaderPolling(taskdata):\n    if cReader.dataAvailable():\n        datagram = NetDatagram()  # catch the incoming data in this instance\n        # Check the return value; if we were threaded, someone else could have\n        # snagged this data before we did\n        if cReader.getData(datagram):\n            myProcessDataFunction(datagram)\n    return Task.cont\n\nNote that the QueuedConnectionReader retrieves data from all clients connected to the server. The NetDatagram can be queried using NetDatagram.getConnection to determine which client sent the message.\n\nIf the server wishes to send data to the client, it can use the ConnectionWriter to transmit back along the connection.\n\n# broadcast a message to all clients\nmyPyDatagram = myNewPyDatagram()  # build a datagram to send\nfor aClient in activeConnections:\n    cWriter.send(myPyDatagram,aClient)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_579",
-    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
-    "chunk_number": 7067
-  }
-}

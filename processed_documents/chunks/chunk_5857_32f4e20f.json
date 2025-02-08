@@ -1,9 +1,0 @@
-{
-  "content": "python\n\ntexcoord = GeomVertexWriter(vdata, 'texcoord')\nvertex = GeomVertexReader(vdata, 'vertex')\n\nwhile not vertex.isAtEnd():\n    v = vertex.getData3()\n    texcoord.setData2(v[0], v[1])\n\ncpp\n\nGeomVertexWriter texcoord(vdata, \"texcoord\");\nGeomVertexReader vertex(vdata, \"vertex\");\n\nwhile (!vertex.is_at_end()) {\n  LVector3 v = vertex.get_data3();\n  texcoord.set_data2(v[0], v[1]);\n}\n\nImportant\n\nImportant! When you are simultaneously reading from and writing to the same GeomVertexData object, you should create all of the GeomVertexWriters you need before you create any GeomVertexReader. This is because of Panda's internal reference-counting mechanism; creating a GeomVertexWriter may automatically (and transparently) force a copy of the data in the GeomVertexData, which could invalidate any GeomVertexReaders you have already created.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_362",
-    "parent": "processed_documents/context_documents/367417a0_6ffafe16_modifying-existing-geometry.json",
-    "chunk_number": 5857
-  }
-}

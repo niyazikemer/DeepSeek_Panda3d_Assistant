@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\nPT(LinearForce) lvf = new LinearVectorForce(1, 0, 0);  // Push 1 newton in the positive-x direction\nforce_node->add_force(lvf);  // Determine coordinate space of this force node\nactor_node->get_physical(0)->add_linear_force(lvf); // Add the force to the object\n\nAngularVectorForce\n\nThe ~panda3d.physics.AngularVectorForce applies a torque to the object it is attached to. The acceleration is in Newtons, and ~panda3d.physics.AngularVectorForce may be treated in much the same way as ~panda3d.physics.LinearVectorForce. There are, however, some minor differences that that should be taken into account.\n\n~panda3d.physics.AngularVectorForce does not have a .setDependantMass(). The reason for this is simple: mass must be used in the torque calculations. As such, you will want to make sure your forces are sufficiently small or your masses are sufficiently large to keep your rotational velocity sane.\n\nExample:\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_536",
-    "parent": "processed_documents/context_documents/d5ae41dd_f323a58b_types-of-forces.json",
-    "chunk_number": 6676
-  }
-}

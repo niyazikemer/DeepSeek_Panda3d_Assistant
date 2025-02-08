@@ -1,9 +1,0 @@
-{
-  "content": "### setParent ###\n\n    def b_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.setParentStr(parentToken)\n        else:\n            self.setParent(parentToken)\n        self.d_setParent(parentToken)\n\n    def d_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.sendUpdate(\"setParentStr\", [parentToken])\n        else:\n            self.sendUpdate(\"setParent\", [parentToken])\n\n    def setParentStr(self, parentToken):\n        self.notify.debug('setParentStr(%s): %s' % (self.doId, parentToken))\n        if len(parentToken) > 0:\n            self.do_setParent(parentToken)\n\n    def setParent(self, parentToken):\n        self.notify.debug('setParent(%s): %s' % (self.doId, parentToken))\n        if parentToken == 0:\n            senderId = self.air.getAvatarIdFromSender()\n            self.air.writeServerEvent('suspicious', senderId, 'setParent(0)')\n        else:\n            self.do_setParent(parentToken)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_326",
-    "parent": "processed_documents/context_documents/e6633f02_DistributedNodeAI.json",
-    "chunk_number": 5585
-  }
-}

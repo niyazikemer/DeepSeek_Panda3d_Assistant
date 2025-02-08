@@ -1,9 +1,0 @@
-{
-  "content": "The engine force and brake model shown is very simple too. If 'forward' is pressed then the engine force will be the maximum engine force, otherwise engine force will be zero. Likewise for the brakes.\n\nOnce the steering angle and engine/brake forces are determined they will be applied to the wheels. Each wheel - addressed by it's index, i. e. 0 to 3 for a four-wheel car - can be individually assigned values for steering and engine/brake force. This way front/rear drives or four-wheel-drives can be simulated.\n\npython\n\nThe following code snippet shows pseudocode for controlling steering and engine/brakes.\n\n# Steering info\nsteering = 0.0            # degree\nsteeringClamp = 45.0      # degree\nsteeringIncrement = 120.0 # degree per second\n\n# Process input\nengineForce = 0.0\nbrakeForce = 0.0\n\nif inputState.isSet('forward'):\n    engineForce = 1000.0\n    brakeForce = 0.0\n\nif inputState.isSet('reverse'):\n    engineForce = 0.0\n    brakeForce = 100.0",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_432",
-    "parent": "processed_documents/context_documents/e8a9ae27_79b9f95b_vehicles.json",
-    "chunk_number": 6194
-  }
-}

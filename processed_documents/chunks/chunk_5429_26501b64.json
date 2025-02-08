@@ -1,9 +1,0 @@
-{
-  "content": "class DoCollectionManager:\n    def __init__(self):\n        # Dict of {DistributedObject ids: DistributedObjects}\n        self.doId2do = {}\n        # (parentId, zoneId) to dict of doId->DistributedObjectAI\n        ## self.zoneId2doIds={}\n        if self.hasOwnerView():\n            # Dict of {DistributedObject ids: DistributedObjects}\n            # for 'owner' views of objects\n            self.doId2ownerView = {}\n        # Dict of {\n        #   parent DistributedObject id:\n        #     { zoneIds: [child DistributedObject ids] }}\n        self._doHierarchy = DoHierarchy.DoHierarchy()\n\n    def getDo(self, doId):\n        return self.doId2do.get(doId)\n\n    def getGameDoId(self):\n        return self.GameGlobalsId\n\n    def callbackWithDo(self, doId, callback):\n        do = self.doId2do.get(doId)\n        if do is not None:\n            callback(do)\n        else:\n            relatedObjectMgr(doId, allCallback=callback)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_314",
-    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
-    "chunk_number": 5429
-  }
-}

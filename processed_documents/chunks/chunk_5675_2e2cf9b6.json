@@ -1,9 +1,0 @@
-{
-  "content": "# We should never get a disable message for our own object.\n            assert not self.isLocalId(doId)\n            self.disableDoId(doId)\n\n    def handleDelete(self, di):\n        # Receives a single doId.\n        doId = di.getUint32()\n        self.deleteObject(doId)\n\n    def deleteObject(self, doId):\n        \"\"\"\n        Removes the object from the client's view of the world.  This\n        should normally not be called directly except in the case of\n        error recovery, since the server will normally be responsible\n        for deleting and disabling objects as they go out of scope.\n\n        After this is called, future updates by server on this object\n        will be ignored (with a warning message).  The object will\n        become valid again the next time the server sends a generate\n        message for this doId.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5675
-  }
-}

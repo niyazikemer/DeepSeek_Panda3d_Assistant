@@ -1,9 +1,0 @@
-{
-  "content": "During this transition time, it is not legal to call fsm.request() to request a new state. If you try to do this, the FSM will raise the exception FSM.AlreadyInTransition <direct.fsm.FSM.AlreadyInTransition>. This is a particularly common error if some cleanup code that is called from the exitStateName method has a side-effect that triggers a transition to a new state.\n\nHowever, there's a simple solution to this problem: call fsm.demand() instead. Unlike request(), demand() can be called while the FSM is currently in transition. When this happens, the FSM will queue up the demand, and will carry it out as soon as it has fully transitioned into its new state.\n\nforceTransition()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_399",
-    "parent": "processed_documents/context_documents/aca109a0_8bcd09f5_advanced-fsm-tidbits.json",
-    "chunk_number": 6029
-  }
-}

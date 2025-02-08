@@ -1,9 +1,0 @@
-{
-  "content": "# Developer-defined constants, telling the server what to do.\n# Your style of how to store this information may differ; this is\n# only one way to tackle the problem\nPRINT_MESSAGE = 1\n\ndef myNewPyDatagram(self):\n    # Send a test message\n    myPyDatagram = PyDatagram()\n    myPyDatagram.addUint8(PRINT_MESSAGE)\n    myPyDatagram.addString(\"Hello, world!\")\n    return myPyDatagram\n\nAs shown in the previous section, once the datagram is constructed you may then send it using a ConnectionWriter.\n\ncWriter.send(myPyDatagram, aConnection)\n\nReceiving a message\n\nAs shown in the previous section, when a message is received via a QueuedConnectionReader, it can be retrieved into a NetDatagram:\n\ndatagram = NetDatagram()\nif cReader.getData(datagram):\n    myProcessDataFunction(datagram)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_652",
-    "parent": "processed_documents/context_documents/fa93ed35_a2fae2c7_transmitting-data.json",
-    "chunk_number": 7464
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def setMouseOnNode(self, newNode):\n        if self.mouse2cam:\n            self.mouse2cam.node().setNode(newNode)\n\n    def changeMouseInterface(self, changeTo):\n        \"\"\"\n        Change the mouse interface used to control the camera.\n        \"\"\"\n        # Get rid of the prior interface:\n        self.mouseInterface.detachNode()\n        # Update the mouseInterface to point to the drive\n        self.mouseInterface = changeTo\n        self.mouseInterfaceNode = self.mouseInterface.node()\n        # Hookup the drive to the camera.\n        if self.mouseWatcher:\n            self.mouseInterface.reparentTo(self.mouseWatcher)\n        if self.mouse2cam:\n            self.mouse2cam.reparentTo(self.mouseInterface)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4972
-  }
-}

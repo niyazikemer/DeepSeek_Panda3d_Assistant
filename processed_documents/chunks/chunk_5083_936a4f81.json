@@ -1,9 +1,0 @@
-{
-  "content": "@staticmethod\n    def func_std_string(func_name): # match what old profile produced\n        return \"%s:%d(%s)\" % func_name\n\n    def print_line(self, func):\n        cc, nc, tt, ct, callers = self.stats[func]\n        c = str(nc)\n        # DCR\n        f8 = self.f8\n        if nc != cc:\n            c = c + '/' + str(cc)\n        print(c.rjust(9), end=' ')\n        print(f8(tt), end=' ')\n        if nc == 0:\n            print(' '*8, end=' ')\n        else:\n            print(f8(tt/nc), end=' ')\n        print(f8(ct), end=' ')\n        if cc == 0:\n            print(' '*8, end=' ')\n        else:\n            print(f8(ct/cc), end=' ')\n        # DCR\n        #print func_std_string(func)\n        print(PercentStats.func_std_string(func))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_288",
-    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
-    "chunk_number": 5083
-  }
-}

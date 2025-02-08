@@ -1,9 +1,0 @@
-{
-  "content": "if 'timeStamp' in types:\n                outStr = '%-8.3f : %s' % (globalClock.getFrameTime(), outStr)\n\n            if 'deltaStamp' in types:\n                outStr = '%-8.2f : %s' % (globalClock.getRealTime() - \\\n                                         globalClockDelta.delta, outStr)\n            if 'avLocation' in types:\n                outStr = '%s : %s' % (outStr, str(localAvatar.getLocation()))\n\n            if xform:\n                outStr = '%s : %s' % (outStr, xform(args[0]))\n\n            if prefixes:\n                # This will print the same report once for each prefix\n                for prefix in prefixes:\n                    if notifyFunc:\n                        notifyFunc(outStr % (prefix,))\n                    else:\n                        print(indent(outStr % (prefix,)))\n            else:\n                if notifyFunc:\n                    notifyFunc(outStr)\n                else:\n                    print(indent(outStr))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4690
-  }
-}

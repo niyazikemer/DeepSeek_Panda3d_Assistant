@@ -1,9 +1,0 @@
-{
-  "content": "It should be noted that this low-level image interface is also supported for other types of shaders when write access to images is desired.\n\nTexture Clear\n\nWhen using a compute shader to operate on a texture image, such as in procedural texture generation, you may require the texture data to be cleared to an initial value before it is used. This is now possible using the ~.Texture.set_clear_color() function, which specifies the color that Panda3D will clear the texture to. This color is used in absence of actual image data.\n\npython\n\n# Set up a texture for procedural generation.\ntex = Texture(\"procedural-normal-map\")\ntex.setup_2d_texture(512, 512, Texture.T_unsigned_byte, Texture.F_rgb8)\n\n# Set the initial color of the texture.\ntex.set_clear_color((0.5, 0.5, 1.0, 0.0))\n\ncpp\n\n// Set up a texture for procedural generation.\nPT(Texture) tex = new Texture(\"procedural-normal-map\");\ntex->setup_2d_texture(512, 512, Texture::T_unsigned_byte, Texture::F_rgb8);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_599",
-    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
-    "chunk_number": 7180
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "assert not self.cr._noNewInterests\n        if self.cr.noNewInterests():\n            self.notify.warning(\n                'startProcessVisibility(%s): tried to open a new interest during logout'\n                % self.doId)\n            return\n        taskMgr.remove(self.taskName(\"processVisibility\"))\n        self.acceptOnce(self.cr.StopVisibilityEvent, self.stopProcessVisibility)\n        self.visAvatar = avatar\n        self.visZone = None\n        self.visDirty = True\n        taskMgr.add(\n            self.processVisibility, self.taskName(\"processVisibility\"))\n        self.processVisibility(0)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5278
-  }
-}

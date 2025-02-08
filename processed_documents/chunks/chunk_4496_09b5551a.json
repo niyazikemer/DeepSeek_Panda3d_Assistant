@@ -1,9 +1,0 @@
-{
-  "content": "def _addDiscoveredStartRef(self, obj, ref):\n        # we've discovered an object that can be used to start an object graph traversal\n        objId = id(obj)\n        if objId in self._id2discoveredStartRef:\n            existingRef = self._id2discoveredStartRef[objId]\n            if type(existingRef) is not int:\n                if existingRef.getNumIndirections() >= ref.getNumIndirections():\n                    # the ref that we already have is more concise than the new ref\n                    return\n        if objId in self._id2ref:\n            if self._id2ref[objId].getNumIndirections() >= ref.getNumIndirections():\n                # the ref that we already have is more concise than the new ref\n                return\n        storedItem = ref\n        # if we already are storing a reference to this object, don't store a second reference\n        if objId in self._id2ref:\n            storedItem = objId\n        self._id2discoveredStartRef[objId] = storedItem",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4496
-  }
-}

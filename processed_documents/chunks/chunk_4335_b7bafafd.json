@@ -1,9 +1,0 @@
-{
-  "content": "module = imp.load_module(fullname, None, filename.toOsSpecific(),\n                                 self.desc)\n        module.__file__ = self.filename.toOsSpecific()\n        return module\n\n    def _import_frozen_module(self, fullname):\n        \"\"\" Imports the frozen module without messing around with\n        searching any more. \"\"\"\n        #print >>sys.stderr, \"importing frozen %s\" % (fullname)\n        module = imp.load_module(fullname, None, fullname,\n                                 ('', '', imp.PY_FROZEN))\n        module.__path__ = []\n        return module\n\n    def _read_code(self):\n        \"\"\" Returns the Python compiled code object for this file, if\n        it is available, or None if it is not.  May raise IOError,\n        ValueError, SyntaxError, or a number of other errors generated\n        by the low-level system. \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4335
-  }
-}

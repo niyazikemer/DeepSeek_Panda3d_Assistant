@@ -1,9 +1,0 @@
-{
-  "content": "elapsed = ClockObject.getGlobalClock().getRealTime() - self.lastHeartbeat\n        if elapsed < 0 or elapsed > self.heartbeatInterval:\n            # It's time to send the heartbeat again (or maybe someone\n            # reset the clock back).\n            self.notify.info(\"Sending heartbeat mid-frame.\")\n            self.startHeartbeat()\n\n    def stopHeartbeat(self):\n        taskMgr.remove(\"heartBeat\")\n        self.heartbeatStarted = 0\n\n    def startHeartbeat(self):\n        self.stopHeartbeat()\n        self.heartbeatStarted = 1\n        self.sendHeartbeat()\n        self.waitForNextHeartBeat()\n\n    def sendHeartbeatTask(self, task):\n        self.sendHeartbeat()\n        return Task.again\n\n    def waitForNextHeartBeat(self):\n        taskMgr.doMethodLater(self.heartbeatInterval, self.sendHeartbeatTask,\n                              \"heartBeat\", taskChain='net')\n\n    def replaceMethod(self, oldMethod, newFunction):\n        return 0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5619
-  }
-}

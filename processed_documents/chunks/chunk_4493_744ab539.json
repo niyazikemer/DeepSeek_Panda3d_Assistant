@@ -1,9 +1,0 @@
-{
-  "content": "def destroy(self):\n        ContainerLeakDetector.removePrivateObj(self.__dict__)\n        Job.destroy(self)\n\n    def getPriority(self):\n        return Job.Priorities.Low\n\n    @staticmethod\n    def getStartObjAffinity(startObj):\n        # how good of a starting object is this object for traversing the object graph?\n        try:\n            return len(startObj)\n        except Exception:\n            return 1\n\n    def _isDeadEnd(self, obj, objName=None):\n        if type(obj) in deadEndTypes:\n            return True",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4493
-  }
-}

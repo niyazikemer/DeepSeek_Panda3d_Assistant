@@ -1,9 +1,0 @@
-{
-  "content": "Panda Filename Syntax\n\nThe path used in all calls to the Panda3D API must abide by Panda3D's filename conventions. For easier portability, Panda3D uses Unix-style pathnames, even on Microsoft Windows. This means that the directory separator character is always a forward slash, not the Windows backslash character, and there is no leading drive letter prefix. (Instead of a leading drive letter, Panda uses an initial one-letter directory name to represent the drive.)\n\nThere is a fairly straightforward conversion from Windows filenames to panda filenames. Always be sure to use Panda filename syntax when using a Panda3D library function, or one of the panda utility programs:\n\npython\n\n# WRONG:\nloader.loadModel(\"c:\\\\Program Files\\\\My Game\\\\Models\\\\Model1.egg\")\n\n# RIGHT:\nloader.loadModel(\"/c/Program Files/My Game/Models/Model1.egg\")\n\ncpp\n\n# WRONG:\nwindow->load_model(framework.get_models(), \"c:\\\\Program Files\\\\My Game\\\\Models\\\\Model1.egg\");",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_638",
-    "parent": "processed_documents/context_documents/ff34a7e6_33cbbc72_filename-syntax.json",
-    "chunk_number": 7403
-  }
-}

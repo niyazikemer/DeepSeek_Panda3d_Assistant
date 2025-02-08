@@ -1,9 +1,0 @@
-{
-  "content": "dclass = self.dclassesByNumber[classId]\n\n        object = client.objectsByDoId.get(doId)\n        if object:\n            # This doId is already in use; thus, this message is\n            # really just an update.\n            if object.dclass != dclass:\n                self.notify.warning(\n                    \"Ignoring attempt to change object %s from %s to %s by client %s\" % (\n                    doId, object.dclass.getName(), dclass.getName(), client.doIdBase))\n                return\n            self.setObjectZone(client, object, zoneId)\n        else:\n            if self.notify.getDebug():\n                self.notify.debug(\n                    \"Creating object %s of type %s by client %s\" % (\n                    doId, dclass.getName(), client.doIdBase))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5183
-  }
-}

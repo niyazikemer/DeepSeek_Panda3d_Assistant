@@ -1,9 +1,0 @@
-{
-  "content": "class VFSSharedImporter:\n    \"\"\" This is a special importer that is added onto the meta_path\n    list, so that it is called before sys.path is traversed.  It uses\n    special logic to load one of the \"shared\" packages, by searching\n    the entire sys.path for all instances of this shared package, and\n    merging them. \"\"\"\n\n    def __init__(self):\n        pass\n\n    def find_module(self, fullname, path = None, reload = False):\n        #print >>sys.stderr, \"shared find_module(%s), path = %s\" % (fullname, path)\n\n        if fullname not in sharedPackages:\n            # Not a shared package; fall back to normal import.\n            return None\n\n        if path is None:\n            path = sys.path",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4340
-  }
-}

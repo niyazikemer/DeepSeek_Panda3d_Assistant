@@ -1,9 +1,0 @@
-{
-  "content": "try:\n                                        for container in self._leakDetector.getContainerByIdGen(objId):\n                                            yield None\n                                    except Exception:\n                                        # TODO\n                                        self.notify.debug('caught exception in getContainerByIdGen (2)')\n                                    else:\n                                        msg = ('%s (%s) consistently increased in size over the last '\n                                               '3 periods (%s items at last measurement, current contents: %s)' %\n                                               (name, itype(container), idx2id2len[self._index][objId],\n                                                fastRepr(container, maxLen=CheckContainers.ReprItems)))\n                                        self.notify.warning(msg)\n                                    yield None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4518
-  }
-}

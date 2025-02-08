@@ -1,9 +1,0 @@
-{
-  "content": "This constructor will add various things to the Python builtins scope,\n        including this instance itself (under the name ``base``).\n        \"\"\"\n\n        from . import ShowBaseGlobal\n\n        #: Set if the want-dev Config.prc variable is enabled.  By default, it\n        #: is set to True except when using Python with the -O flag.\n        self.__dev__ = ShowBaseGlobal.__dev__\n        builtins.__dev__ = self.__dev__\n\n        logStackDump = (ConfigVariableBool('log-stack-dump', False).value or\n                        ConfigVariableBool('client-log-stack-dump', False).value)\n        uploadStackDump = ConfigVariableBool('upload-stack-dump', False).value\n        if logStackDump or uploadStackDump:\n            ExceptionVarDump.install(logStackDump, uploadStackDump)\n\n        if __debug__:\n            self.__autoGarbageLogging = self.__dev__ and ConfigVariableBool('auto-garbage-logging', False)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4850
-  }
-}

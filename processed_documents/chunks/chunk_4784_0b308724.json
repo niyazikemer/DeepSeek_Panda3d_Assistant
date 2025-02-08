@@ -1,9 +1,0 @@
-{
-  "content": "class RandomNumGen:\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"RandomNumGen\")\n\n    def __init__(self, seed):\n        \"\"\"seed must be an integer or another RandomNumGen\"\"\"\n        if isinstance(seed, RandomNumGen):\n            # seed this rng with the other rng\n            rng = seed\n            seed = rng.randint(0, 1 << 16)\n\n        self.notify.debug(\"seed: \" + str(seed))\n        seed = int(seed)\n        rng = Mersenne(seed)\n        self.__rng = rng\n\n    def __rand(self, N):\n        \"\"\"returns integer in [0..N)\"\"\"\n\n        ## using modulus biases the numbers a little bit\n        ## the bias is worse for larger values of N\n        #return self.__rng.getUint31() % N",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_275",
-    "parent": "processed_documents/context_documents/e9f9509b_RandomNumGen.json",
-    "chunk_number": 4784
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def randrange(self, start, stop=None, step=1):\n        \"\"\"randrange([start,] stop[, step])\n        same as choice(range(start, stop[, step])) without construction\n        of a list\"\"\"\n        ## this was lifted from Python2.2's random.py\n        # This code is a bit messy to make it fast for the\n        # common case while still doing adequate error checking\n        istart = int(start)\n        if istart != start:\n            raise ValueError(\"non-integer arg 1 for randrange()\")\n        if stop is None:\n            if istart > 0:\n                return self.__rand(istart)\n            raise ValueError(\"empty range for randrange()\")\n        istop = int(stop)\n        if istop != stop:\n            raise ValueError(\"non-integer stop for randrange()\")\n        if step == 1:\n            if istart < istop:\n                return istart + self.__rand(istop - istart)\n            raise ValueError(\"empty range for randrange()\")\n        istep = int(step)\n        if istep != step:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_275",
-    "parent": "processed_documents/context_documents/e9f9509b_RandomNumGen.json",
-    "chunk_number": 4788
-  }
-}

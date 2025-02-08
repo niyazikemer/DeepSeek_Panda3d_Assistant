@@ -1,9 +1,0 @@
-{
-  "content": "So the framebuffer now needs to store surface normal, diffuse color, and depth value (to infer surface position). In practice, most ordinary framebuffers can only store color and depth - they don't have any place to store a third value. So we need to use a special offscreen buffer with an \"auxiliary\" bitplane. The auxiliary bitplane stores the surface normal.\n\nSo then, there's the final postprocessing pass. This involves combining the diffuse color texture, the surface normal texture, the depth texture, and the light parameters into a final rendered output. The light parameters are passed into the postprocessing shader as constants, not as textures.\n\nIf there are a lot of lights, things get interesting. You use one postprocessing pass per light. Each pass only needs to scan those framebuffer pixels that are actually in range of the light in question. To traverse only the pixels that are affected by the light, just render the illuminated area's convex bounding volume.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_522",
-    "parent": "processed_documents/context_documents/7430db66_5763024b_fireflies.json",
-    "chunk_number": 6629
-  }
-}

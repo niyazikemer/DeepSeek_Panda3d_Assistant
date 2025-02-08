@@ -1,9 +1,0 @@
-{
-  "content": "# Setup our physics world\nworld = OdeWorld()\nworld.setGravity(0, 0, -9.81)\n\n# The surface table is needed for autoCollide\nworld.initSurfaceTable(1)\nworld.setSurfaceEntry(0, 0, 150, 0.0, 9.1, 0.9, 0.00001, 0.0, 0.002)\n\n# Create a space and add a contactgroup to it to add the contact joints\nspace = OdeSimpleSpace()\nspace.setAutoCollideWorld(world)\ncontactgroup = OdeJointGroup()\nspace.setAutoCollideJointGroup(contactgroup)\n\n# Load the box\nbox = loader.loadModel(\"box\")\n# Make sure its center is at 0, 0, 0 like OdeBoxGeom\nbox.setPos(-.5, -.5, -.5)\nbox.flattenLight() # Apply transform\nbox.setTextureOff()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_624",
-    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
-    "chunk_number": 7310
-  }
-}

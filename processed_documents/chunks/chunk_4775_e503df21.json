@@ -1,9 +1,0 @@
-{
-  "content": "while len(stateStack) > 0:\n            name, obj, traversedIds = stateStack.pop()\n            #notify.info('%s, %s, %s' % (name, fastRepr(obj), traversedIds))\n            r = fastRepr(obj, maxLen=10)\n            if isinstance(r, str):\n                r = r.replace('\\n', '\\\\n')\n            s += '\\n    %s = %s' % (name, r)\n            # if we've already traversed through this object, don't traverse through it again\n            if id(obj) not in traversedIds:\n                attrName2obj = {}\n                for attrName in codeNames:\n                    attr = getattr(obj, attrName, _AttrNotFound)\n                    if attr is not _AttrNotFound:\n                        # prevent infinite recursion on method wrappers (__init__.__init__.__init__...)\n                        try:\n                            className = attr.__class__.__name__\n                        except Exception:\n                            pass\n                        else:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_273",
-    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
-    "chunk_number": 4775
-  }
-}

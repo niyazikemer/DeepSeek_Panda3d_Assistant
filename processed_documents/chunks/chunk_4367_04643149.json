@@ -1,9 +1,0 @@
-{
-  "content": "class Loader(DirectObject):\n    \"\"\"\n    Load models, textures, sounds, and code.\n    \"\"\"\n    notify = directNotify.newCategory(\"Loader\")\n    loaderIndex = 0\n\n    _loadedPythonFileTypes = False\n\n    class _Callback:\n        \"\"\"Returned by loadModel when used asynchronously.  This class is\n        modelled after Future, and can be awaited.\"\"\"\n\n        # This indicates that this class behaves like a Future.\n        _asyncio_future_blocking = False\n\n        def __init__(self, loader, numObjects, gotList, callback, extraArgs):\n            self._loader = loader\n            self.objects = [None] * numObjects\n            self.gotList = gotList\n            self.callback = callback\n            self.extraArgs = extraArgs\n            self.requests = set()\n            self.requestList = []\n\n        def gotObject(self, index, object):\n            self.objects[index] = object",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4367
-  }
-}

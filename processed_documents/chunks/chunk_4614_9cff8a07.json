@@ -1,9 +1,0 @@
-{
-  "content": "def makeList(x):\n    \"\"\"returns x, converted to a list\"\"\"\n    if isinstance(x, list):\n        return x\n    elif isinstance(x, tuple):\n        return list(x)\n    else:\n        return [x,]\n\n\ndef makeTuple(x):\n    \"\"\"returns x, converted to a tuple\"\"\"\n    if isinstance(x, list):\n        return tuple(x)\n    elif isinstance(x, tuple):\n        return x\n    else:\n        return (x,)\n\n\ndef list2dict(L, value=None):\n    \"\"\"creates dict using elements of list, all assigned to same value\"\"\"\n    return dict([(k, value) for k in L])\n\n\ndef listToIndex2item(L):\n    \"\"\"converts list to dict of list index->list item\"\"\"\n    d = {}\n    for i, item in enumerate(L):\n        d[i] = item\n    return d\n\n\nassert listToIndex2item(['a','b']) == {0: 'a', 1: 'b',}",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4614
-  }
-}

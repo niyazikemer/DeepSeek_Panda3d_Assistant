@@ -1,9 +1,0 @@
-{
-  "content": "vertex_segment_index += 1\n\n                        segment_index += 1\n\n                    # evaluate NurbsCurveEvaluator for each vertex\n                    index = 0\n                    nurbs_curve_result_list = []\n                    while index < self.total_vertices:\n                        nurbs_curve_evaluator = nurbs_curve_evaluator_list[index]\n                        nurbs_curve_result = nurbs_curve_evaluator.evaluate()\n                        nurbs_curve_result_list = nurbs_curve_result_list + [nurbs_curve_result]\n\n                        nurbs_start_t = nurbs_curve_result.getStartT()\n                        nurbs_end_t = nurbs_curve_result.getEndT()\n\n                        index += 1\n\n                    # create quads from NurbsCurveResult\n                    total_curve_segments = total_distance / self.resolution_distance\n                    if total_curve_segments < total_segments:\n                        total_curve_segments = total_segments",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5135
-  }
-}

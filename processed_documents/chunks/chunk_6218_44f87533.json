@@ -1,9 +1,0 @@
-{
-  "content": "For instance, the teapot.egg sample model that ships with Panda has no texture coordinates built into the model, so you cannot normally apply a texture to it. But you can enable automatic generation of texture coordinates and then apply a texture:\n\npython\n\nteapot = loader.loadModel('teapot.egg')\ntex = loader.loadTexture('maps/color-grid.rgb')\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MWorldPosition)\nteapot.setTexture(tex)\n\ncpp\n\nNodePath teapot = window->load_model(render, \"teapot.egg\");\nPT(Texture) tex = TexturePool::load_texture(\"maps/color-grid.rgb\");\nteapot.set_tex_gen(TextureStage::get_default(), TexGenAttrib::M_world_position);\nteapot.set_texture(tex);\n\nAnd you end up with something like this:\n\nYou can use this in conjunction with a texture transform to further manipulate the texture coordinates. For instance, to rotate the texture 90 degrees, you could do something like this:\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_437",
-    "parent": "processed_documents/context_documents/aa36d59a_558ab811_automatic-texture-coordinates.json",
-    "chunk_number": 6218
-  }
-}

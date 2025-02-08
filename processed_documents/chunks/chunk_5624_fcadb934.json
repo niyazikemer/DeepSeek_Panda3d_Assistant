@@ -1,9 +1,0 @@
-{
-  "content": "def __execMessage(self, message):\n        if not self.ExecNamespace:\n            # Import some useful variables into the ExecNamespace initially.\n            import panda3d.core\n\n            for key, value in panda3d.core.__dict__.items():\n                if not key.startswith('__'):\n                    self.ExecNamespace[key] = value\n            #self.importExecNamespace()\n\n        # Now try to evaluate the expression using ChatInputNormal.ExecNamespace as\n        # the local namespace.\n        try:\n            return str(eval(message, globals(), self.ExecNamespace))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_328",
-    "parent": "processed_documents/context_documents/9ec1bded_DistributedObjectGlobalUD.json",
-    "chunk_number": 5624
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "while countdown > 0:\n       print(countdown)\n\n       # Suspend the application for a second\n       time.sleep(1.0)\n       countdown -= 1\n\n    print(\"Launch!\")\n\nlaunchRocket(countdown=3)\n\nThe problem with the above code is that time.sleep() will block the main thread while it is waiting, meaning that other tasks (including Panda3D's rendering loop) will not get a chance to run in the meantime. The entire application will appear to have frozen until the countdown is complete!\n\nIt is certainly possible to use multiple tasks with delays in order to solve this problem. However, this will quickly make the code a lot more complex, with multiple functions and state variables that need to be stored somewhere. Instead, let us see how we can turn this into a coroutine with minimal modifications:\n\nfrom direct.task.Task import Task\n\n\nasync def launchRocket(countdown):\n    print(\"Beginning countdown\u2026\")\n\n    while countdown > 0:\n       print(countdown)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_689",
-    "parent": "processed_documents/context_documents/0a46205a_9afad06b_coroutines.json",
-    "chunk_number": 7669
-  }
-}

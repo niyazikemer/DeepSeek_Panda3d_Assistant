@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\nPT(TextFont) font=FontPool::load_font(\"arial.ttf\");\nPT(DynamicTextFont) dfont = DCAST(DynamicTextFont, font);\ndfont->set_pixels_per_unit(60);\n\nNotice that this method is only available with DynamicTextFont objects. These are the objects created when loading FreeType-compatible fonts such as TTF files. In these cases the font file is loaded into memory and characters are rasterized and mapped onto a polygon as the need arises. Changes to the font object (such as resetting the pixels per unit value) will regenerate the textures for all characters that have been generated so far, a small price to pay for the flexibility of a dynamic font. When a font is loaded from an egg file instead, the returned object is a ~panda3d.core.StaticTextFont that provides a much restricted functionality. Effectively these kind of egg files are \"frozen\" fonts: their characters have been permanently rendered into a texture and cannot be easily changed from inside your application.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_514",
-    "parent": "processed_documents/context_documents/896bae18_c85845c1_text-fonts.json",
-    "chunk_number": 6585
-  }
-}

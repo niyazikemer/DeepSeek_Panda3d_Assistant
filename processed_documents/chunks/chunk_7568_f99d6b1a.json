@@ -1,9 +1,0 @@
-{
-  "content": "startPos, startVel, duration - given a starting velocity, go for a specific time period\n\nstartPos, startVel, endZ - given a starting velocity, go until you hit a given Z plane\n\nIn addition you may alter gravity by providing a multiplier in 'gravityMult'. '2' will make gravity twice as strong, '.5' half as strong.'-1' will reverse gravity.\n\nHere's a little snippet of code that will demonstrate projectile intervals:\n\ncamera.setPos(0,-45,0)\n\n# load the ball model\nself.ball = loader.loadModel(\"smiley\")\nself.ball.reparentTo(render)\nself.ball.setPos(-15,0,0)\n\n# setup the projectile interval\nself.trajectory = ProjectileInterval(self.ball, duration=1,\n                                     startPos=Point3(-15,0,0),\n                                     endPos=Point3(15,0, 0))\nself.trajectory.loop()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_667",
-    "parent": "processed_documents/context_documents/ceefef2b_d159644d_projectile-intervals.json",
-    "chunk_number": 7568
-  }
-}

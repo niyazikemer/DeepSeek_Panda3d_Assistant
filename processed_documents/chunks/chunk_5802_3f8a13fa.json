@@ -1,9 +1,0 @@
-{
-  "content": "image-trans -cscale 0.2 -o streetscene_env_dark.jpg streetscene_env.jpg\n\nSo the new map looks like this:\n\nWhile we're fixing things up, let's move the wheels to a different node, so we can assign the shine just to the metal and glass body of the car:\n\ncar = loader.loadModel('bvw-f2004--carnsx/carnsx.egg')\nbody = car.find('**/body')\nbody.findAllMatches('**/FL_wheel*').reparentTo(car)\n\nAnd now the shine is applied like this:\n\ntex = loader.loadTexture('streetscene_env_dark.jpg')\nts = TextureStage('env')\nts.setMode(TextureStage.MAdd)\nbody.setTexGen(ts, TexGenAttrib.MEyeSphereMap)\nbody.setTexture(ts, tex)\n\nNote that the shiny highlights are now quite subtle, but still compelling, especially when you see the car move.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_347",
-    "parent": "processed_documents/context_documents/a66d1af9_840bebd2_simple-environment-mapping.json",
-    "chunk_number": 5802
-  }
-}

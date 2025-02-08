@@ -1,9 +1,0 @@
-{
-  "content": "I have a model with an animation. When I try to play the animation I get a KeyError. Why?\n\nThe exact error is this:\n\nKeyError: lodRoot\n:display: Closing wglGraphicsWindow\n\nThis often happens when you are trying to load animations onto a model that wasn't exported to have animations. There are two pieces to objects that have animations; their geometry and their skeleton. The geometry is what you see when you load a model, the skeleton is what controls the geometry in an animation. If only the geometry was used to make the egg file, you will have problems when you try to play animations. Look at the manual for more details about exporting models as eggs.\n\nI called setTexture('tex.png') and it didn't change or send an error. Why?\n\nTo override an existing texture, you need to specify a priority. The setTexture() call includes an optional priority parameter, and if the priority is less than 1 the texture will not change.\n\nsetTexture('tex.png', 1)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_459",
-    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
-    "chunk_number": 6343
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "You would normally never call any methods on the GSG directly; Panda handles all of this for you, via the GraphicsEngine. This is important, because in some modes, the GSG may operate almost entirely in a separate thread from all of your application code, and it is important not to interrupt that thread while it might be in the middle of drawing.\n\nEach .GraphicsOutput object keeps a pointer to the GSG that will be used to render that window or buffer. It is possible for each GraphicsOutput to have its own GSG, or it is possible to share the same GSG between multiple different GraphicsOutputs. Normally, it is preferable to share GSG's, because this tends to be more efficient for managing graphics resources.\n\nConsider the following diagram to illustrate the relationship between these classes. This shows a typical application with one window and two offscreen buffers:\n\ninheritance\n\nrankdir=TB node [shape=box];\n\npipe -> output1; pipe -> output2; pipe -> output3;",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_393",
-    "parent": "processed_documents/context_documents/b9b6eb63_1752f959_introducing-graphics-classes.json",
-    "chunk_number": 6011
-  }
-}

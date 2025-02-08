@@ -1,9 +1,0 @@
-{
-  "content": "This class helps manage that process.  To use it, an object should\n    register its desire to be associated with the other object's doId.\n    When the other object is generated (or immediately, if the object\n    already exists), the associated callback will be called.  There is\n    also a timeout callback in case the object never appears.\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory('RelatedObjectMgr')\n\n    doLaterSequence = 1\n\n    def __init__(self, cr):\n        self.cr = cr\n        self.pendingObjects = {}\n\n    def destroy(self):\n        self.abortAllRequests()\n        del self.cr\n        del self.pendingObjects",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_308",
-    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
-    "chunk_number": 5377
-  }
-}

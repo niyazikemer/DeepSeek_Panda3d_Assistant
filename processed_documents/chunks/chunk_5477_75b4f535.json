@@ -1,9 +1,0 @@
-{
-  "content": "def requestReparent(self, child, parentToken):\n        if parentToken in self.token2nodepath:\n            # this parent has registered\n            # this child may already be waiting on a different parent;\n            # make sure they aren't any more\n            self.privRemoveReparentRequest(child)\n            self.notify.debug(\"performing wrtReparent of %s to '%s'\" %\n                              (repr(child), parentToken))\n            child.wrtReparentTo(self.token2nodepath[parentToken])\n        else:\n            if isDefaultValue(parentToken):\n                self.notify.error('child %s requested reparent to default-value token: %s' % (repr(child), parentToken))\n            self.notify.debug(\n                \"child %s requested reparent to parent '%s' that is not (yet) registered\" %\n                (repr(child), parentToken))\n            # cancel any pending reparent on behalf of this child\n            self.privRemoveReparentRequest(child)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_316",
-    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
-    "chunk_number": 5477
-  }
-}

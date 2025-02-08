@@ -1,9 +1,0 @@
-{
-  "content": "def generateWithRequiredFields(self, dclass, doId, di, parentId, zoneId):\n        if doId in self.doId2do:\n            # ...it is in our dictionary.\n            # Just update it.\n            distObj = self.doId2do[doId]\n            assert distObj.dclass == dclass\n            distObj.generate()\n            distObj.setLocation(parentId, zoneId)\n            distObj.updateRequiredFields(dclass, di)\n            # updateRequiredFields calls announceGenerate\n        elif self.cache.contains(doId):\n            # ...it is in the cache.\n            # Pull it out of the cache:\n            distObj = self.cache.retrieve(doId)\n            assert distObj.dclass == dclass\n            # put it in the dictionary:\n            self.doId2do[doId] = distObj\n            # and update it.\n            distObj.generate()\n            # make sure we don't have a stale location\n            distObj.parentId = None\n            distObj.zoneId = None\n            distObj.setLocation(parentId, zoneId)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5600
-  }
-}

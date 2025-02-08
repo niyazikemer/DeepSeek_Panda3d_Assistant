@@ -1,9 +1,0 @@
-{
-  "content": "class ObjectRef:\n    \"\"\"\n    stores a reference to a container in a way that does not prevent garbage\n    collection of the container if possible\n    stored as a series of 'indirections' (obj.foo -> '.foo', dict[key] -> '[key]', etc.)\n    \"\"\"\n    notify = directNotify.newCategory(\"ObjectRef\")\n\n    class FailedEval(Exception):\n        pass\n\n    def __init__(self, indirection, objId, other=None):\n        self._indirections = []\n        # are we building off of an existing ref?\n        if other is not None:\n            for ind in other._indirections:\n                self._indirections.append(ind)\n\n        # make sure we're not storing a reference to the actual object,\n        # that could cause a memory leak\n        assert type(objId) is int\n        # prevent cycles (i.e. base.loader.base.loader)\n        assert not self.goesThrough(objId=objId)\n\n        self._indirections.append(indirection)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4478
-  }
-}

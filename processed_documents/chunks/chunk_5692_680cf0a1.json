@@ -1,9 +1,0 @@
-{
-  "content": "def updateAllRequiredFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateRequiredOtherFields(self, dclass, di):\n        dclass.receiveUpdateBroadcastRequired(self, di)\n        # Announce generate after updating all the required fields,\n        # but before we update the non-required fields.\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n        dclass.receiveUpdateOther(self, di)\n\n    def updateAllRequiredOtherFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        # Announce generate after updating all the required fields,\n        # but before we update the non-required fields.\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n        dclass.receiveUpdateOther(self, di)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5692
-  }
-}

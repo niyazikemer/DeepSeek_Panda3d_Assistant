@@ -1,9 +1,0 @@
-{
-  "content": "Why do all my flat objects look weird when lit?\n\nFlats don't often have a lot of vertices. Lighting is only calculated at the vertices, and then linearly interpolated between the vertices. If your vertices are very far apart, lighting can look very strange--for instance, a point light in the center of a large polygon might not show up at all. (The light is far from all four vertices, even though it's very near the polygon's center.)\n\nOne solution is to create a model with a lot of polygons to pick up the lighting. It also helps to make a flat surface slightly curved to improve its appearance.\n\nAnother approach might be to create an ambient light that only affects this object. See the manual for more detail about attaching lights to objects in your scene.\n\nTo smooth my animations, I used the \"interpolate-frames 1\" option, but it doesn't work somehow. Why?",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_459",
-    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
-    "chunk_number": 6345
-  }
-}

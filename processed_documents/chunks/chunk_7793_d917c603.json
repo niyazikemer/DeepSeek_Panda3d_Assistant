@@ -1,9 +1,0 @@
-{
-  "content": "Another nice property of an orthographic lens is that the near distance does not have to be greater than zero. In fact, it can be negative--you can put the near plane behind the camera plane, which means the camera will see objects behind itself. The .OrthographicLens for ~builtins.render2d is set up with .set_near_far(-1000, 1000) <.Lens.set_near_far>, so it will render any objects with a Y value between -1000 and 1000 (assuming the default Z-up coordinate system). (Of course, in render2d almost all objects have a Y value of 0, so it doesn't matter much.)\n\nIf you like, you can change the default camera to use an orthographic lens with something like this:\n\npython\n\nlens = OrthographicLens()\nlens.setFilmSize(20, 15)  # Or whatever is appropriate for your scene\nbase.cam.node().setLens(lens)\n\ncpp\n\nPT(OrthographicLens) lens = new OrthographicLens();\nlens->set_film_size(20, 15); // Or whatever is appropriate for your scene\nwindow->get_camera(0)->set_lens(lens);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_718",
-    "parent": "processed_documents/context_documents/238ea883_db69adc9_orthographic-lenses.json",
-    "chunk_number": 7793
-  }
-}

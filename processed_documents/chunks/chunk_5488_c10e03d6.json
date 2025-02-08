@@ -1,9 +1,0 @@
-{
-  "content": "for i in arg:\n                    self.addInt32(int(i))\n            elif subatomicType == STUint8array:\n                self.addUint16(len(arg))\n                for i in arg:\n                    self.addUint8(int(i))\n            elif subatomicType == STUint16array:\n                self.addUint16(len(arg) << 1)\n                for i in arg:\n                    self.addUint16(int(i))\n            elif subatomicType == STUint32array:\n                self.addUint16(len(arg) << 2)\n                for i in arg:\n                    self.addUint32(int(i))\n            elif subatomicType == STUint32uint8array:\n                self.addUint16(len(arg) * 5)\n                for i in arg:\n                    self.addUint32(int(i[0]))\n                    self.addUint8(int(i[1]))\n            else:\n                raise Exception(\"Error: No such type as: \" + str(subatomicType))\n        else:\n            funcSpecs = self.FuncDict.get(subatomicType)\n            if funcSpecs:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_317",
-    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
-    "chunk_number": 5488
-  }
-}

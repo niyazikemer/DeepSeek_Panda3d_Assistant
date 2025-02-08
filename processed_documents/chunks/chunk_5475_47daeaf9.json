@@ -1,9 +1,0 @@
-{
-  "content": "notify = DirectNotifyGlobal.directNotify.newCategory('ParentMgr')\n\n    def __init__(self):\n        self.token2nodepath = {}\n        # these are nodepaths that have requested to be parented to\n        # a node that has not yet registered as a parent\n        self.pendingParentToken2children = {}\n        # Multiple reparent requests may come in for a given child\n        # before that child can successfully be reparented. We need to\n        # make sure that each child is only scheduled to be parented to\n        # a single parent, at most.\n        # For efficient removal of pending children, we keep a dict\n        # of pending children to the token of the parent they're waiting for\n        self.pendingChild2parentToken = {}\n\n    def destroy(self):\n        del self.token2nodepath\n        del self.pendingParentToken2children\n        del self.pendingChild2parentToken",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_316",
-    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
-    "chunk_number": 5475
-  }
-}

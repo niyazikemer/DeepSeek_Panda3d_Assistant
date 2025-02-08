@@ -1,9 +1,0 @@
-{
-  "content": "from direct.directnotify.DirectNotify import DirectNotify\n(...)\nnotify = DirectNotify().newCategory(\"MyCategory\")\n(...)\nnotify.warning(\"Put some informational text here.\")\n\nFirst you create a new notify category, which may be whatever you want, e.g. \"PlayerMovement\". It's a convention to have such a notifier for each bigger class or module. In the last line there is a warning() call, which indicates that the given text will be only printed if the severity level for this category is warning or debug. If the severity isn't set for this particular category, then the default-directnotify-level setting is taken.\n\nRedirecting Log Messages to a File\n\nIf you wish, you can redirect all of panda's log messages into a file. The following snippet will do the trick:\n\nnout = MultiplexStream()\nNotify.ptr().setOstreamPtr(nout, 0)\nnout.addFile(Filename(\"out.txt\"))\n\nAlternatively you may want to use the notify-output prc option, which expects a filename as argument:\n\nnotify-output mygame-log.txt",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_625",
-    "parent": "processed_documents/context_documents/1d6b6005_09fa2aa2_log-messages.json",
-    "chunk_number": 7318
-  }
-}

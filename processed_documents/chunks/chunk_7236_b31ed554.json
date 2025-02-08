@@ -1,9 +1,0 @@
-{
-  "content": "def gotCreateReady(self):\n        \"\"\" Ready to enter the world.  Expand our interest to include\n        any other zones \"\"\"\n\n        # This method checks whether we actually have a valid doID range\n        # to create distributed objects yet\n        if not self.haveCreateAuthority():\n            # Not ready yet.\n            return\n\n        # we are ready now, so ignore further createReady events\n        self.ignore(self.uniqueName('createReady'))\n\n        # Now the client is ready to create DOs and send and receive data\n        # to and from the server\n\nFirst of all, we need to initialize the .ClientRepository. This will handle the connection code to the server. We pass it our dc files as well as the threadedNet parameter which will have the same effect as described in the server repositories.\n\nClientRepository.__init__(\n    self,\n    dcFileNames = dcFileNames,\n    threadedNet = True)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_613",
-    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
-    "chunk_number": 7236
-  }
-}

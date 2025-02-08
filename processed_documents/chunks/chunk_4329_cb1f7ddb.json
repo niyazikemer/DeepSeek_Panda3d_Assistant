@@ -1,9 +1,0 @@
-{
-  "content": "# Check if this is a child of a shared package.\n        if not loadingShared and self.packagePath and '.' in fullname:\n            parentname = fullname.rsplit('.', 1)[0]\n            if parentname in sharedPackages:\n                # It is.  That means it's a shared package too.\n                parent = sys.modules[parentname]\n                path = getattr(parent, '__path__', None)\n                importer = VFSSharedImporter()\n                sharedPackages[fullname] = True\n                loader = importer.find_module(fullname, path = path)\n                assert loader\n                return loader.load_module(fullname)\n\n        code = self._read_code()\n        if not code:\n            raise ImportError('No Python code in %s' % (fullname))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4329
-  }
-}

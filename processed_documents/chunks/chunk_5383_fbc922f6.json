@@ -1,9 +1,0 @@
-{
-  "content": "pendingList.append(tuple)\n\n        if doLaterName:\n            # Now spawn a do-later to catch the timeout.\n            taskMgr.doMethodLater(timeout, self.__timeoutExpired, doLaterName,\n                                  extraArgs = [tuple])\n\n        return tuple\n\n    def abortRequest(self, tuple):\n        \"\"\"\n        Aborts a previous request.  The parameter is the return value\n        from a previous call to requestObjects().  The pending request\n        is removed from the queue and no further callbacks will be called.\n\n        See Also: requestObjects()\n        \"\"\"\n        if tuple:\n            allCallback, eachCallback, timeoutCallback, doIdsPending, doIdList, doLaterName = tuple\n            assert self.notify.debug(\"aborting request for %s (remaining: %s)\" % (doIdList, doIdsPending))\n\n            if doLaterName:\n                taskMgr.remove(doLaterName)\n            self.__removePending(tuple, doIdsPending)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_308",
-    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
-    "chunk_number": 5383
-  }
-}

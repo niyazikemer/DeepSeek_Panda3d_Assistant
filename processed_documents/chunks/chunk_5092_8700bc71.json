@@ -1,9 +1,0 @@
-{
-  "content": "def aggregate(self, other):\n        # pull in stats from another ProfileSession\n        other._compileStats()\n        self._compileStats()\n        self._stats.add(other._stats)\n\n    def _compileStats(self):\n        # make sure our stats object exists and is up-to-date\n        statsChanged = (self._statFileCounter < len(self._filenames))\n\n        if self._stats is None:\n            for filename in self._filenames:\n                self._restoreRamFile(filename)\n            self._stats = PercentStats(*self._filenames)\n            self._statFileCounter = len(self._filenames)\n            for filename in self._filenames:\n                self._discardRamFile(filename)\n        else:\n            while self._statFileCounter < len(self._filenames):\n                filename = self._filenames[self._statFileCounter]\n                self._restoreRamFile(filename)\n                self._stats.add(filename)\n                self._discardRamFile(filename)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_288",
-    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
-    "chunk_number": 5092
-  }
-}

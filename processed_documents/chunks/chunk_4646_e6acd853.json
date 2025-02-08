@@ -1,9 +1,0 @@
-{
-  "content": "def findPythonModule(module):\n    # Look along the python load path for the indicated filename.\n    # Returns the located pathname, or None if the filename is not\n    # found.\n    filename = module + '.py'\n    for dir in sys.path:\n        pathname = os.path.join(dir, filename)\n        if os.path.exists(pathname):\n            return pathname\n\n    return None\n\n\ndef clampScalar(value, a, b):\n    # calling this ought to be faster than calling both min and max\n    if a < b:\n        if value < a:\n            return a\n        elif value > b:\n            return b\n        else:\n            return value\n    else:\n        if value < b:\n            return b\n        elif value > a:\n            return a\n        else:\n            return value",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4646
-  }
-}

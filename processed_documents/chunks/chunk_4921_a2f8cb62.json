@@ -1,9 +1,0 @@
-{
-  "content": "if props.hasSize() and props.getYSize() != 0:\n                aspectRatio = float(props.getXSize()) / float(props.getYSize())\n\n        if aspectRatio == 0:\n            return 1\n\n        return aspectRatio\n\n    def getSize(self, win = None):\n        \"\"\"\n        Returns the actual size of the indicated (or main window), or the\n        default size if there is not yet a main window.\n        \"\"\"\n\n        if win is None:\n            win = self.win\n\n        if win is not None and win.hasSize():\n            return win.getXSize(), win.getYSize()\n        else:\n            if win is None or not hasattr(win, \"getRequestedProperties\"):\n                props = WindowProperties.getDefault()\n            else:\n                props = win.getRequestedProperties()\n                if not props.hasSize():\n                    props = WindowProperties.getDefault()\n\n            return props.getXSize(), props.getYSize()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4921
-  }
-}

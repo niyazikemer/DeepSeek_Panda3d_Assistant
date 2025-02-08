@@ -1,9 +1,0 @@
-{
-  "content": "# If the visAvatar is parented to this grid, also do a\n                # setLocation\n                parentId = self.visAvatar.parentId\n                oldZoneId = self.visAvatar.zoneId\n                assert self.notify.debug(\n                    \"processVisibility: %s: parentId: %s oldZoneId: %s\" %\n                    (self.doId, parentId, oldZoneId))\n                if parentId == self.doId:\n                    assert self.notify.debug(\n                        \"processVisibility: %s: changing location\" %\n                        (self.doId))\n                    messenger.send(\"avatarZoneChanged\", [self.visAvatar, self.doId, zoneId])\n                    #self.handleAvatarZoneChange(self.visAvatar, zoneId)\n            self.visDirty = False\n            return Task.cont",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5286
-  }
-}

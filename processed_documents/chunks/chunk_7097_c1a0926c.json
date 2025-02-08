@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nworld.doPhysics(dt, 10, 1.0/180.0)\n\ncpp\n\nphysics_world->do_physics(co->get_dt(), 10, 1.0 / 180.0);\n\nHere we have a maximum of 10 substeps, each with 1/180 seconds. Choosing smaller substeps will make the simulation more realistic, but performance will decrease too. Smaller substeps also reduce jitter.\n\nStatic bodies\n\nSo far we just have an empty world. We next need to add some objects. The most simple objects are static bodies. Static object don't change their position or orientation with time. Typical static objects are the ground or terrain, and houses or other non-moveable obstacles. Here we create a simple plane which will serve as a ground.\n\npython\n\nfrom panda3d.bullet import BulletPlaneShape\nfrom panda3d.bullet import BulletRigidBodyNode\n\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\n\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\n\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\n\nworld.attachRigidBody(node)\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_584",
-    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
-    "chunk_number": 7097
-  }
-}

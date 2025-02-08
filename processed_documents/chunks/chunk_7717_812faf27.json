@@ -1,9 +1,0 @@
-{
-  "content": "Most DOs will have a basic class definition (eg. \"Foo\") and an AI definition which would be called \"FooAI\". The Foo class will be used on clients and the FooAI class will be generated on the AI servers.\n\nAn example of a distributed object class implementation may look like the following:\n\nClient-side DGameObject.py:\n\nfrom direct.distributed.DistributedObject import DistributedObject\n\nclass DGameObject(DistributedObject):\n    def __init__(self, cr):\n        DistributedObject.__init__(self, cr)\n\n    def d_sendGameData(self):\n        \"\"\" A method to send an update message to the server.  The d_ stands\n        for distributed \"\"\"\n\n        # send the message to the server\n        self.sendUpdate('sendGameData', [('ValueA', 123, 1.25)])\n\nAI Server side DGameObjectAI.py\n\nfrom direct.distributed.DistributedObjectAI import DistributedObjectAI\n\nclass DGameObjectAI(DistributedObjectAI):\n    def __init__(self, aiRepository):\n        DistributedObjectAI.__init__(self, aiRepository)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_699",
-    "parent": "processed_documents/context_documents/f83ba817_17e60af4_distributed-object.json",
-    "chunk_number": 7717
-  }
-}

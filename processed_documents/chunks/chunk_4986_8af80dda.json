@@ -1,9 +1,0 @@
-{
-  "content": "# Tell the camera to cull from here instead of its own\n            # origin.\n            for c in self.camList:\n                c.node().setCullCenter(self.oobeCullFrustum)\n            if cam.node().isOfType(Camera):\n                cam.node().setCullCenter(self.oobeCullFrustum)\n            for c in cam.findAllMatches('**/+Camera'):\n                c.node().setCullCenter(self.oobeCullFrustum)\n        else:\n            # Disable OOBE culling.\n\n            for c in self.camList:\n                c.node().setCullCenter(NodePath())\n            if cam.node().isOfType(Camera):\n                cam.node().setCullCenter(self.oobeCullFrustum)\n            for c in cam.findAllMatches('**/+Camera'):\n                c.node().setCullCenter(NodePath())\n            self.oobeCullFrustum.removeNode()\n            self.oobeCullFrustum = None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4986
-  }
-}

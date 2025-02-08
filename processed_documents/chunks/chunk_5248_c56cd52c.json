@@ -1,9 +1,0 @@
-{
-  "content": "def handleChildLeaveZone(self, childObj, zoneId):\n        \"\"\"\n        A child is about to setLocation to another zone beneath us.\n        Give us a chance to run code just before a child sets\n        location to that zone.\n        \"\"\"\n        assert self.notify.debugCall()\n        # Inheritors should override\n\n    def handleQueryObjectChildrenLocalDone(self, context):\n        assert self.notify.debugCall()\n        # Inheritors should override\n\n    def getParentObj(self):\n        if self.parentId is None:\n            return None\n        return self.cr.doId2do.get(self.parentId)\n\n    def hasParentingRules(self):\n        return self.dclass.getFieldByName('setParentingRules') is not None\n\n    def delete(self):\n        \"\"\"\n        Override this to handle cleanup right before this object\n        gets deleted.\n        \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_296",
-    "parent": "processed_documents/context_documents/084461fa_DistributedObjectBase.json",
-    "chunk_number": 5248
-  }
-}

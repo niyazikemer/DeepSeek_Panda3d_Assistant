@@ -1,9 +1,0 @@
-{
-  "content": "def remove_task():\n    if MotionTrail.task_added:\n        total_motion_trails = len(MotionTrail.motion_trail_list)\n\n        if total_motion_trails > 0:\n            if __debug__:\n                warnings.warn(\"%d motion trails still exist when motion trail task is removed\" % (total_motion_trails), RuntimeWarning, stacklevel=2)\n\n        MotionTrail.motion_trail_list = []\n\n        taskMgr.remove(MotionTrail.motion_trail_task_name)\n\n        print(\"MotionTrail task removed\")\n\n        MotionTrail.task_added = False",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5103
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "return gotSync\n\n    def newDelta(self, localTime, newDelta, newUncertainty,\n                 trustNew = 1):\n        \"\"\"\n        Accepts a new delta and uncertainty pair, understood to\n        represent time as of localTime.  Improves our current notion\n        of the time delta accordingly.  The return value is true if\n        the new measurement was used, false if it was discarded.\n        \"\"\"\n        oldUncertainty = self.getUncertainty()\n        if oldUncertainty is not None:\n            self.notify.info(\n                'previous delta at %.3f s, +/- %.3f s.' %\n                (self.delta, oldUncertainty))\n            self.notify.info(\n                'new delta at %.3f s, +/- %.3f s.' %\n                (newDelta, newUncertainty))\n            # Our previous measurement was self.delta +/- oldUncertainty;\n            # our new measurement is newDelta +/- newUncertainty.  Take\n            # the intersection of both.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5465
-  }
-}

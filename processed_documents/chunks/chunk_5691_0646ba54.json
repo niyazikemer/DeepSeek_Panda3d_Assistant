@@ -1,9 +1,0 @@
-{
-  "content": "def getLocation(self):\n        try:\n            if self.parentId <= 0 and self.zoneId <= 0:\n                return None\n            # This is a -1 stuffed into a uint32\n            if self.parentId == 0xffffffff and self.zoneId == 0xffffffff:\n                return None\n            return (self.parentId, self.zoneId)\n        except AttributeError:\n            return None\n\n    def postGenerateMessage(self):\n        self.__generated = True\n        messenger.send(self.uniqueName(\"generate\"), [self])\n\n    def updateRequiredFields(self, dclass, di):\n        dclass.receiveUpdateBroadcastRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateAllRequiredFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5691
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "The shader to store the diffuse color and surface normal is trivial. But the final postprocessing shader is a little complicated. What makes it tricky is that it needs to regenerate the original surface position from the screen position and depth value. The math for that deserves some explanation.\n\nWe need to take a clip-space coordinate and depth-buffer value $\\begin{pmatrix}x_{clip}&y_{clip}&z_{clip}&w_{clip}\\end{pmatrix}$ and unproject it back to a view-space $\\begin{pmatrix}x_{view}&y_{view}&z_{view}\\end{pmatrix}$ coordinate. Lighting is then done in view-space.\n\nOkay, so here's the math. Panda uses the projection matrix to transform view-space into clip-space. But in practice, the projection matrix for a perspective camera always contains four nonzero constants, and they're always in the same place:\n\n$$\\begin{aligned} \\begin{bmatrix} A & 0 & 0 & 0 \\\\ 0 & 0 & B & 1 \\\\ 0 & C & 0 & 0 \\\\ 0 & 0 & D & 0 \\end{bmatrix} \\end{aligned}$$",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_522",
-    "parent": "processed_documents/context_documents/7430db66_5763024b_fireflies.json",
-    "chunk_number": 6630
-  }
-}

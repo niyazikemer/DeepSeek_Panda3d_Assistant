@@ -1,9 +1,0 @@
-{
-  "content": "class GarbageLeakDetector(LeakDetector):\n    # are we accumulating Python garbage?\n    def __len__(self):\n        # do a garbage collection\n        oldFlags = gc.get_debug()\n        gc.set_debug(0)\n        gc.collect()\n        numGarbage = len(gc.garbage)\n        del gc.garbage[:]\n        gc.set_debug(oldFlags)\n        return numGarbage",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_269",
-    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
-    "chunk_number": 4746
-  }
-}

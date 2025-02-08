@@ -1,9 +1,0 @@
-{
-  "content": "def getContainerGen(self, getInstance=False):\n        # try to get a handle on the container by eval'ing and looking things\n        # up in dictionaries, depending on the type of each indirection\n        # if getInstance is True, will return instance instead of instance dict\n        #import pdb;pdb.set_trace()\n        evalStr = ''\n        curObj = None\n        # make sure the indirections don't go away on us\n        indirections = self._indirections\n        for indirection in indirections:\n            indirection.acquire()\n        for indirection in indirections:\n            yield None\n            if not indirection.isDictKey():\n                # build up a string to be eval'd\n                evalStr += indirection.getString()\n            else:\n                curObj = self._getContainerByEval(evalStr, curObj=curObj)\n                if curObj is None:\n                    raise FailedEval(evalStr)\n                # try to look up this key in the curObj dictionary",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4484
-  }
-}

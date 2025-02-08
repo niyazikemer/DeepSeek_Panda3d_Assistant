@@ -1,9 +1,0 @@
-{
-  "content": "If you need to chain serveral object reads or creates, just add more\n    entries to the self.neededObjects dictionary in the self.finish function\n    and return without calling AsyncRequest.finish().  Your finish method\n    will be called again when the new self.neededObjects is complete.  You\n    may repeat this as necessary.\n    \"\"\"\n    _asyncRequests: dict[int, AsyncRequest] = {}\n\n    notify = DirectNotifyGlobal.directNotify.newCategory('AsyncRequest')",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_309",
-    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
-    "chunk_number": 5392
-  }
-}

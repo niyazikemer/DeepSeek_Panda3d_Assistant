@@ -1,9 +1,0 @@
-{
-  "content": "# Does the class have a definition defined in the newly\n                    # imported namespace?\n                    classDef = dcImports.get(className)\n                    if classDef is None:\n                        self.notify.error(\"No class definition for %s.\" % className)\n                    else:\n                        if inspect.ismodule(classDef):\n                            if not hasattr(classDef, className):\n                                self.notify.error(\"Module %s does not define class %s.\" % (className, className))\n                            classDef = getattr(classDef, className)\n                        dclass.setOwnerClassDef(classDef)\n                        self.dclassesByName[className] = dclass",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5320
-  }
-}

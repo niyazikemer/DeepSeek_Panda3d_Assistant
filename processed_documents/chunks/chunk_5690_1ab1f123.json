@@ -1,9 +1,0 @@
-{
-  "content": "def setLocation(self, parentId, zoneId):\n        # Prevent Duplicate SetLocations for being Called\n        if self.parentId == parentId and self.zoneId == zoneId:\n            return\n\n        oldParentId = self.parentId\n        oldZoneId = self.zoneId\n        self.air.storeObjectLocation(self, parentId, zoneId)\n        if oldParentId != parentId or oldZoneId != zoneId:\n            self.releaseZoneData()\n            messenger.send(self.getZoneChangeEvent(), [zoneId, oldZoneId])\n            # if we are not going into the quiet zone, send a 'logical' zone\n            # change message\n            if zoneId != DistributedObjectAI.QuietZone:\n                lastLogicalZone = oldZoneId\n                if oldZoneId == DistributedObjectAI.QuietZone:\n                    lastLogicalZone = self.lastNonQuietZone\n                self.handleLogicalZoneChange(zoneId, lastLogicalZone)\n                self.lastNonQuietZone = zoneId",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5690
-  }
-}

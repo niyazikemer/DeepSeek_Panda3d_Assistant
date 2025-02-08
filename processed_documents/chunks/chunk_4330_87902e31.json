@@ -1,9 +1,0 @@
-{
-  "content": "code = self._read_code()\n        if not code:\n            raise ImportError('No Python code in %s' % (fullname))\n\n        mod = sys.modules.setdefault(fullname, imp.new_module(fullname))\n        mod.__file__ = self.filename.toOsSpecific()\n        mod.__loader__ = self\n        if self.packagePath:\n            mod.__path__ = [self.packagePath.toOsSpecific()]\n            #print >> sys.stderr, \"loaded %s, path = %s\" % (fullname, mod.__path__)\n\n        exec(code, mod.__dict__)\n        return sys.modules[fullname]\n\n    def getdata(self, path):\n        path = Filename(self.dir_path, Filename.fromOsSpecific(path))\n        vfile = vfs.getFile(path)\n        if not vfile:\n            raise IOError(\"Could not find '%s'\" % (path))\n        return vfile.readFile(True)\n\n    def is_package(self, fullname):\n        return bool(self.packagePath)\n\n    def get_code(self, fullname):\n        return self._read_code()\n\n    def get_source(self, fullname):\n        return self._read_source()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4330
-  }
-}

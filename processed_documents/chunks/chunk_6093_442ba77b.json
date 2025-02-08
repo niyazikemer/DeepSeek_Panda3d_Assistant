@@ -1,9 +1,0 @@
-{
-  "content": "messenger.toggleVerbose()\nprint(messenger)\nmessenger.clear()\n\nSending Custom Events\n\nCustom events can be sent by the script using the code\n\nmessenger.send('Event Name')\n\nA list of parameters can optionally be sent to the event handler. Parameters defined in accept() are passed first, and then the parameters defined in send(). for example this would print out \"eggs sausage foo bar\":\n\nclass Test(DirectObject):\n    def __init__(self):\n        self.accept('spam', self.on_spam, ['eggs', 'sausage'])\n\n    def on_spam(self, a, b, c, d):\n        print(a, b, c, d)\n\ntest = Test()\nmessenger.send('spam', ['foo', 'bar'])\nbase.run()\n\nA Note on Object Management\n\nWhen a DirectObject accepts an event, the messenger retains a reference to that DirectObject. To ensure that objects that are no longer needed are properly disposed of, they must ignore any messages they are accepting.\n\nFor example, the following code may not do what you expect:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_410",
-    "parent": "processed_documents/context_documents/26c3d669_149a857c_event-handlers.json",
-    "chunk_number": 6093
-  }
-}

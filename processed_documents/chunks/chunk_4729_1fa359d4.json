@@ -1,9 +1,0 @@
-{
-  "content": "class ShadowPlacer(DirectObject.DirectObject):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"ShadowPlacer\")\n\n    if __debug__:\n        count = 0\n        activeCount = 0\n\n    # special methods\n    def __init__(self, cTrav, shadowNodePath,\n            wallCollideMask, floorCollideMask):\n        self.isActive = 0 # Is the placer \"on\".  This is also printed in the debugCall.\n        assert self.notify.debugCall()\n        DirectObject.DirectObject.__init__(self)\n        self.setup(cTrav, shadowNodePath,\n            wallCollideMask, floorCollideMask)\n        if __debug__:\n            self.count += 1\n            self.debugDisplay()\n\n    def setup(self, cTrav, shadowNodePath,\n            wallCollideMask, floorCollideMask):\n        \"\"\"\n        Set up the collisions\n        \"\"\"\n        assert self.notify.debugCall()\n        assert not shadowNodePath.isEmpty()\n        assert not hasattr(self, \"cTrav\") # Protect from setup() being called again.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_265",
-    "parent": "processed_documents/context_documents/ee959aee_ShadowPlacer.json",
-    "chunk_number": 4729
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def restart(self, clusterSync: bool = False, cluster=None) -> None:\n        self.shutdown()\n        # __resetPrevTransform goes at the very beginning of the frame.\n        self.taskMgr.add(\n            self.__resetPrevTransform, 'resetPrevTransform', sort = -51)\n        # give the dataLoop task a reasonably \"early\" sort,\n        # so that it will get run before most tasks\n        self.taskMgr.add(self.__dataLoop, 'dataLoop', sort = -50)\n        self.__deadInputs = 0\n        # spawn the ivalLoop with a later sort, so that it will\n        # run after most tasks, but before igLoop.\n        self.taskMgr.add(self.__ivalLoop, 'ivalLoop', sort = 20)\n        # make the collisionLoop task run before igLoop,\n        # but leave enough room for the app to insert tasks\n        # between collisionLoop and igLoop\n        self.taskMgr.add(self.__collisionLoop, 'collisionLoop', sort = 30)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4963
-  }
-}

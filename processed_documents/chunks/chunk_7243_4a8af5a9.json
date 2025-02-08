@@ -1,9 +1,0 @@
-{
-  "content": "When they aren't necessary\n\nAlthough it is safest to use PT(T) to refer to an object in all cases, in some cases it is not strictly necessary and may be more efficient not to.\n\nThis can only be done, however, when you are absolutely sure that the reference count cannot decrease to zero during the time you might be using that reference. In particular, a getter or setter of a class storing a PointerTo need not take or return a PointerTo since the class object itself already holds a reference count.\n\nThe following code example highlights a case where it is not necessary:\n\nPT(TextNode) node;\nnode = new TextNode(\"title\");\n\nuse_text_node(node);\n\nvoid use_text_node(TextNode *node) {\n  node->do_something();\n}\n\nOne crucial example where the return value of a function has to be a PointerTo is where the function may return a new instance of the object:\n\nPT(TextNode) make_text_node() {\n  return new TextNode(\"title\");\n}\n\nPT(TextNode) node = make_text_node();\n\nManaging Reference Count",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_614",
-    "parent": "processed_documents/context_documents/34116fa8_637658a3_reference-counting.json",
-    "chunk_number": 7243
-  }
-}

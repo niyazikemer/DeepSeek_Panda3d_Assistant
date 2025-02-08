@@ -1,9 +1,0 @@
-{
-  "content": "if self._log:\n            self.printingBegin()\n            for i in self._output(limit=self._limit):\n                yield None\n            self.printingEnd()\n\n        yield Job.Done\n\n    def _enqueueContainer(self, obj, pathStr=None):\n        # call this to add a container that should be examined before any (other) direct\n        # children of __builtins__\n        # this is mostly to fix up the names of variables\n        self._queue.push(obj)\n        objId = id(obj)\n        if pathStr is not None:\n            self._id2pathStr[objId] = pathStr\n        # if it's a container, put it in the tables\n        try:\n            length = len(obj)\n        except Exception:\n            length = None\n        if length is not None and length > 0:\n            self._id2container[objId] = obj\n            self._type2id2len.setdefault(type(obj), {})\n            self._type2id2len[type(obj)][objId] = length",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_247",
-    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
-    "chunk_number": 4360
-  }
-}

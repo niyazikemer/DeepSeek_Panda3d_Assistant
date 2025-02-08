@@ -1,9 +1,0 @@
-{
-  "content": "elif dcfield.hasKeyword('broadcast'):\n            # Broadcast: to everyone except orig sender\n            self.sendToZoneExcept(object.zoneId, dg, [client])\n\n        elif dcfield.hasKeyword('reflect'):\n            # Reflect: broadcast to everyone including orig sender\n            self.sendToZoneExcept(object.zoneId, dg, [])\n\n        else:\n            self.notify.warning(\n                \"Message is not broadcast or p2p\")\n\n    def getDoIdBase(self, doId):\n        \"\"\" Given a doId, return the corresponding doIdBase.  This\n        will be the owner of the object (clients may only create\n        object doId's within their assigned range). \"\"\"\n\n        return int(doId / self.doIdRange) * self.doIdRange + 1\n\n    def handleClientDeleteObject(self, datagram, doId):\n        \"\"\" client deletes an object, let everyone who has interest in\n        the object's zone know about it. \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5188
-  }
-}

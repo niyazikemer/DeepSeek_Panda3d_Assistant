@@ -1,9 +1,0 @@
-{
-  "content": "def updateAllRequiredFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateRequiredOtherFields(self, dclass, di):\n        # First, update the required fields\n        dclass.receiveUpdateBroadcastRequiredOwner(self, di)\n\n        # Announce generate after updating all the required fields,\n        # but before we update the non-required fields.\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n        dclass.receiveUpdateOther(self, di)\n\n    def getCacheable(self):\n        return False\n\n    def sendUpdate(self, fieldName, args = [], sendToId = None):\n        if self.cr:\n            dg = self.dclass.clientFormatUpdate(\n                fieldName, sendToId or self.doId, args)\n            self.cr.send(dg)\n        else:\n            self.notify.warning(\"sendUpdate failed, because self.cr is not set\")",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_336",
-    "parent": "processed_documents/context_documents/c0800c7e_DistributedObjectOV.json",
-    "chunk_number": 5715
-  }
-}

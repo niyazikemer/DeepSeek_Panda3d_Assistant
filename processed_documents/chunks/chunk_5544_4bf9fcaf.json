@@ -1,9 +1,0 @@
-{
-  "content": "class CachedDOData:\n    # base class for objects that are used to store data in the CRDataCache\n    #\n    # stores a minimal set of cached data for DistributedObjects between instantiations\n\n    def __init__(self):\n        # override and store cached data\n        # this object now owns the data\n        # ownership will either pass back to another instantion of the object,\n        # or the data will be flushed\n        pass\n\n    def destroy(self):\n        # override and handle this object being destroyed\n        # this is destruction of this object, not the cached data (see flush)\n        pass\n\n    def flush(self):\n        # override and destroy the cached data\n        # cached data is typically created by the DistributedObject and destroyed here\n        pass\n\n    # These next two methods tell mypy to allow arbitrary attributes.\n    def __getattribute__(self, name: str):\n        return object.__getattribute__(self, name)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_323",
-    "parent": "processed_documents/context_documents/6ffc08e5_CachedDOData.json",
-    "chunk_number": 5544
-  }
-}

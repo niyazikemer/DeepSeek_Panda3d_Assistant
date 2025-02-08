@@ -1,9 +1,0 @@
-{
-  "content": "def getName(self):\n        return self._name\n\n    def getDoneEvent(self):\n        return self._doneEvent\n\n    def isCompleted(self):\n        return self._completed\n\n    def addEvent(self, eventName):\n        \"\"\" Adds a new event to the list of sub-events that we're waiting on.\n        Returns the name of the event. \"\"\"\n        if self._completed:\n            self.notify.error('addEvent(\\'%s\\') called on completed EventGroup \\'%s\\'' % (\n                eventName, self.getName()))\n        if eventName in self._subEvents:\n            self.notify.error('addEvent(\\'%s\\'): event already in EventGroup \\'%s\\'' % (\n                eventName, self.getName()))\n        self._subEvents.add(eventName)\n        self.acceptOnce(eventName, Functor(self._subEventComplete, eventName))\n        return eventName",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_253",
-    "parent": "processed_documents/context_documents/3322f876_EventGroup.json",
-    "chunk_number": 4444
-  }
-}

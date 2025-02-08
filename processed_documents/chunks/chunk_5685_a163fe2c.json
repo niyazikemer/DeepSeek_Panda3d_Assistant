@@ -1,9 +1,0 @@
-{
-  "content": "def getDelayDeleteCount(self):\n        return 0\n\n    def delete(self):\n        \"\"\"\n        Inheritors should redefine this to take appropriate action on delete\n        Note that this may be called multiple times if a class inherits\n        from DistributedObjectAI more than once.\n        \"\"\"\n        self.__generates -= 1\n        if self.__generates < 0:\n            self.notify.debug('DistributedObjectAI: delete() called more times than generate()')\n        if self.__generates == 0:\n            # prevent this code from executing multiple times\n            if self.air is not None:\n                # self.doId may not exist.  The __dict__ syntax works around that.\n                assert self.notify.debug('delete(): %s' % (self.__dict__.get(\"doId\")))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5685
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "# If oobeMode was never set, set it to false and create the\n        # structures we need to implement OOBE.\n        if not hasattr(self, 'oobeMode'):\n            self.oobeMode = 0\n\n            self.oobeCamera = self.hidden.attachNewNode('oobeCamera')\n            self.oobeCameraTrackball = self.oobeCamera.attachNewNode('oobeCameraTrackball')\n            self.oobeLens = PerspectiveLens()\n            self.oobeLens.setAspectRatio(self.getAspectRatio())\n            self.oobeLens.setNearFar(0.1, 10000.0)\n            self.oobeLens.setMinFov(40)\n\n            self.oobeTrackball = NodePath(Trackball('oobeTrackball'))\n            self.oobe2cam = self.oobeTrackball.attachNewNode(Transform2SG('oobe2cam'))\n            self.oobe2cam.node().setNode(self.oobeCameraTrackball.node())",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4979
-  }
-}

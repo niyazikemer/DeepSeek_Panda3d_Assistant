@@ -1,9 +1,0 @@
-{
-  "content": "def __await__(self):\n            \"\"\" Returns a generator that raises StopIteration when the loading\n            is complete.  This allows this class to be used with 'await'.\"\"\"\n\n            if self.requests:\n                self._asyncio_future_blocking = True\n                while self.requests:\n                    yield self\n\n            if self.gotList:\n                return self.objects\n            else:\n                return self.objects[0]\n\n        async def __aiter__(self):\n            \"\"\" This allows using `async for` to iterate asynchronously over\n            the results of this class.  It does guarantee to return the\n            results in order, though, even though they may not be loaded in\n            that order. \"\"\"\n            requestList = self.requestList\n            assert requestList is not None, \"Request was cancelled.\"\n\n            for req in requestList:\n                yield await req",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4370
-  }
-}

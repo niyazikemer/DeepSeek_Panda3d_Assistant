@@ -1,9 +1,0 @@
-{
-  "content": "# ClockDelta provides the ability to use clock synchronization for\n# distributed objects\n\nfrom panda3d.core import ClockObject, ConfigVariableBool\nfrom direct.directnotify import DirectNotifyGlobal\nfrom direct.showbase import DirectObject\nimport math\n\n# The following two parameters, NetworkTimeBits and\n# NetworkTimePrecision, define the number of bits required to store a\n# network time, and the number of ticks per second it represents,\n# respectively.  The tradeoff is the longest period of elapsed time we\n# can measure, vs. the precision with which we can measure it.\n\n# 16 and 100 give us precision to 1/100th of a second, with a range of\n# +/- 5 minutes in a 16-bit integer.  These are eminently tweakable,\n# but the parameter types in toon.dc must match the number of bits\n# specified here (i.e. int16 if NetworkTimeBits is 16; int32 if\n# NetworkTimeBits is 32).\nNetworkTimeBits = 16\nNetworkTimePrecision = 100.0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5455
-  }
-}

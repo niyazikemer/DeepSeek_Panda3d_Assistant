@@ -1,9 +1,0 @@
-{
-  "content": "if defaultFilename:\n            filename = GraphicsOutput.makeScreenshotFilename(namePrefix)\n        else:\n            filename = Filename(namePrefix)\n\n        if isinstance(source, Texture):\n            if source.getZSize() > 1:\n                saved = source.write(filename, 0, 0, 1, 0)\n            else:\n                saved = source.write(filename)\n        elif blocking:\n            saved = source.saveScreenshot(filename, imageComment)\n        else:\n            request = source.saveAsyncScreenshot(filename, imageComment)\n            request.addDoneCallback(lambda fut, filename=filename: messenger.send('screenshot', [filename]))\n            return request\n\n        if saved:\n            # Announce to anybody that a screenshot has been taken\n            messenger.send('screenshot', [filename])\n            return filename\n\n        return None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4990
-  }
-}

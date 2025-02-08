@@ -1,9 +1,0 @@
-{
-  "content": "for sound in sounds:\n                vel = self.getSoundVelocity(sound)\n                sound.set3dAttributes(pos[0], pos[1], pos[2], vel[0], vel[1], vel[2])\n\n        # Update the position of the listener based on the object\n        # to which it is attached\n        if self.listener_target:\n            pos = self.listener_target.getPos(self.root)\n            forward = self.root.getRelativeVector(self.listener_target, Vec3.forward())\n            up = self.root.getRelativeVector(self.listener_target, Vec3.up())\n            vel = self.getListenerVelocity()\n            self.audio_manager.audio3dSetListenerAttributes(pos[0], pos[1], pos[2], vel[0], vel[1], vel[2], forward[0], forward[1], forward[2], up[0], up[1], up[2])\n        else:\n            self.audio_manager.audio3dSetListenerAttributes(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)\n        return Task.cont",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_255",
-    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
-    "chunk_number": 4465
-  }
-}

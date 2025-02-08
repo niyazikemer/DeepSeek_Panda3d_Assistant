@@ -1,9 +1,0 @@
-{
-  "content": "# remove expired frames\n            minimum_time = current_time - self.time_window\n\n            index = 0\n\n            last_frame_index = len(self.frame_list) - 1\n\n            while index <= last_frame_index:\n                motion_trail_frame = self.frame_list[last_frame_index - index]\n                if motion_trail_frame.time >= minimum_time:\n                    break\n                index += 1\n\n            if index > 0:\n                self.frame_list[last_frame_index - index: last_frame_index + 1] = []\n\n            # add new frame to beginning of list\n            motion_trail_frame = MotionTrailFrame(current_time, transform)\n            self.frame_list = [motion_trail_frame] + self.frame_list\n\n            # convert frames and vertices to geometry\n            total_frames = len(self.frame_list)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5129
-  }
-}

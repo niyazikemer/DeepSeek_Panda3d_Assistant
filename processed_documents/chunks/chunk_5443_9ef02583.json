@@ -1,9 +1,0 @@
-{
-  "content": "def storeObjectLocation(self, object, parentId, zoneId):\n        oldParentId = object.parentId\n        oldZoneId = object.zoneId\n        if oldParentId != parentId:\n            # notify any existing parent that we're moving away\n            oldParentObj = self.doId2do.get(oldParentId)\n            if oldParentObj is not None:\n                oldParentObj.handleChildLeave(object, oldZoneId)\n            self.deleteObjectLocation(object, oldParentId, oldZoneId)\n\n        elif oldZoneId != zoneId:\n            # Remove old location\n            oldParentObj = self.doId2do.get(oldParentId)\n            if oldParentObj is not None:\n                oldParentObj.handleChildLeaveZone(object, oldZoneId)\n            self.deleteObjectLocation(object, oldParentId, oldZoneId)\n        else:\n            # object is already at that parent and zone\n            return",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_314",
-    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
-    "chunk_number": 5443
-  }
-}

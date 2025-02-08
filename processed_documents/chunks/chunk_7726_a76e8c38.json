@@ -1,9 +1,0 @@
-{
-  "content": "Loading Resources from Memory\n\nIf you have want to load a resource from a different spot then a hard drive or inside a multifile, say for instance database or network packet you can using a StringStream.\n\nHere is an example that reads and image into data and then uses StringStream to feed that data into the image.\n\ndata = open('my-image-file.png', 'rb').read()\n# send data over network or any other place and pass it on\np = PNMImage()\np.read(StringStream(data))\ntex = Texture()\ntex.load(p)\n\nBut, you can go one step further. Instead of just loading textures, models, sounds or other data one at a time this way, you can load an entire multifile, which as we learned in the previous section can contain any number of models, textures, sounds and other data.\n\ndata = open('my-multifile.mf', 'rb').read()\nstream = StringStream(data)\nmf = Multifile()\nmf.openRead(stream)\nvfs = VirtualFileSystem.getGlobalPtr()\nvfs.mount(mf, '/mf', 0)\nsmiley = loader.loadModel('/mf/smiley.egg')",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_702",
-    "parent": "processed_documents/context_documents/a76e8c38_97809026_loading-resources-from-memory.json",
-    "chunk_number": 7726
-  }
-}

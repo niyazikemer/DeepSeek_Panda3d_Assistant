@@ -1,9 +1,0 @@
-{
-  "content": "myfsm = AvatarFSM()\n\nKeep in mind this is just an imaginary example, but it should give you an idea of what an FSM class looks like.\n\nNote that each enter method activates everything that is important for its particular state, and--this is the important part--the corresponding exit method turns off or undoes everything that was turned on by the enter method. This means that whenever the FSM leaves a particular state, you can be confident that it will completely disable anything it started when it entered that state.\n\nNow to switch from Walk state to Swim state, you would just need to request a transition, like this:\n\nmyfsm.request('Swim')",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_537",
-    "parent": "processed_documents/context_documents/1ec143d1_47834cc9_fsm-introduction.json",
-    "chunk_number": 6681
-  }
-}

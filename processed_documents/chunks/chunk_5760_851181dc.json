@@ -1,9 +1,0 @@
-{
-  "content": "def rgbPanel(self, cb = None):\n    from direct.showbase import ShowBaseGlobal\n    ShowBaseGlobal.base.startTk()\n    # Don't use a regular import, to prevent ModuleFinder from picking\n    # it up as a dependency when building a .p3d package.\n    import importlib\n    Valuator = importlib.import_module('direct.tkwidgets.Valuator')\n    return Valuator.rgbPanel(self, cb)\n\nDtool_funcToMethod(rgbPanel, NodePath)\ndel rgbPanel\n#####################################################################\ndef select(self):\n    from direct.showbase import ShowBaseGlobal\n    base = ShowBaseGlobal.base\n    base.startDirect(fWantTk = 0)\n    base.direct.select(self)\n\nDtool_funcToMethod(select, NodePath)\ndel select\n#####################################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5760
-  }
-}

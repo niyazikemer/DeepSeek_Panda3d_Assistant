@@ -1,9 +1,0 @@
-{
-  "content": "def printTransform(self, other = None, sd = 2, fRecursive = 0):\n    \"Deprecated.\"\n    if __debug__:\n        warnings.warn(\"NodePath.printTransform() is deprecated.\", DeprecationWarning, stacklevel=2)\n    from panda3d.core import Vec3\n    fmtStr = '%%0.%df' % sd\n    name = self.getName()\n    if other is None:\n        transform = self.getTransform()\n    else:\n        transform = self.getTransform(other)\n    if transform.hasPos():\n        pos = transform.getPos()\n        if not pos.almostEqual(Vec3(0)):\n            outputString = '%s.setPos(%s, %s, %s)' % (name, fmtStr, fmtStr, fmtStr)\n            print(outputString % (pos[0], pos[1], pos[2]))\n    if transform.hasHpr():\n        hpr = transform.getHpr()\n        if not hpr.almostEqual(Vec3(0)):\n            outputString = '%s.setHpr(%s, %s, %s)' % (name, fmtStr, fmtStr, fmtStr)\n            print(outputString % (hpr[0], hpr[1], hpr[2]))\n    if transform.hasScale():\n        if transform.hasUniformScale():",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5753
-  }
-}

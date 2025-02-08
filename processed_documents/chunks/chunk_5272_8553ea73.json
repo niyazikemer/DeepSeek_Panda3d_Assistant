@@ -1,9 +1,0 @@
-{
-  "content": "\"\"\"SampleObject module: contains the SampleObject class\"\"\"\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.distributed.DistributedObject import DistributedObject\n\nclass SampleObject(DistributedObject):\n\n    notify = directNotify.newCategory(\"SampleObject\")\n\n    def __init__(self, cr):\n        self.cr = cr\n#        self.red = 0\n#        self.green = 0\n#        self.blue = 0\n\n    def setColor(self, red = 0, green = 0, blue = 0):\n        self.red = red\n        self.green = green\n        self.blue = blue\n        self.announceGenerate()\n\n    def getColor(self):\n        return (self.red, self.green, self.blue)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_301",
-    "parent": "processed_documents/context_documents/172ac0b0_SampleObject.json",
-    "chunk_number": 5272
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def registerParent(self, token, parent):\n        if token in self.token2nodepath:\n            self.notify.error(\n                \"registerParent: token '%s' already registered, referencing %s\" %\n                (token, repr(self.token2nodepath[token])))\n\n        if isDefaultValue(token):\n            self.notify.error('parent token (for %s) cannot be a default value (%s)' % (repr(parent), token))\n\n        if isinstance(token, int):\n            if token > 0xFFFFFFFF:\n                self.notify.error('parent token %s (for %s) is out of uint32 range' % (token, repr(parent)))\n\n        self.notify.debug(\"registering %s as '%s'\" % (repr(parent), token))\n        self.token2nodepath[token] = parent",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_316",
-    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
-    "chunk_number": 5479
-  }
-}

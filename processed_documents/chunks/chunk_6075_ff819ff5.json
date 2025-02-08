@@ -1,9 +1,0 @@
-{
-  "content": "How are Cells and Portals handled in Panda3D?\n\nCells in Panda3D are just NodePaths parented under the top level of the scene graph (usually render). Any object that is physically in that cell should be parented under the cell's NodePath. It is up to you to dynamically re-parent objects as they move from one cell to another, or not put them in a cell at all.\n\nPortals are one-way and for this reason they are usually created in pairs. Portals get parented under the cell from which they are intended to be looked through. For example if this is a portal from cell A looking into cell B, it would get parented under cell A. Which side of the portal is the front or back is determined by winding order of the vertices, the same as with render geometry.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_406",
-    "parent": "processed_documents/context_documents/a91ce29d_29ed6181_portal-culling.json",
-    "chunk_number": 6075
-  }
-}

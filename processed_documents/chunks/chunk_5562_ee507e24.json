@@ -1,9 +1,0 @@
-{
-  "content": "def generate(self):\n        \"\"\"\n        Inheritors should redefine this to take appropriate action on generate\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        self.activeState = ESGenerating\n        # this has already been set at this point\n        #self.cr.storeObjectLocation(self, self.parentId, self.zoneId)\n        # semi-hack: we seem to be calling generate() more than once for objects that multiply-inherit\n        if not hasattr(self, '_autoInterestHandle'):\n            self.cr.openAutoInterests(self)\n\n    def generateInit(self):\n        \"\"\"\n        This method is called when the DistributedObject is first introduced\n        to the world... Not when it is pulled from the cache.\n        \"\"\"\n        self.activeState = ESGenerating\n\n    def getDoId(self):\n        \"\"\"\n        Return the distributed object id\n        \"\"\"\n        return self.doId\n\n    #This message was moved out of announce generate\n    #to avoid ordering issues.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5562
-  }
-}

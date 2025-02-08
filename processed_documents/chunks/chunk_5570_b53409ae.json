@@ -1,9 +1,0 @@
-{
-  "content": "# If this is None, it either means we have called\n        # doneBarrier() twice, or we have not received a barrier\n        # context from the AI.  I think in either case it's ok to\n        # silently ignore the error.\n        if self.__barrierContext is not None:\n            context, aiName = self.__barrierContext\n            if name is None or name == aiName:\n                assert self.notify.debug('doneBarrier(%s, %s)' % (context, aiName))\n                self.sendUpdate(\"setBarrierReady\", [context])\n                self.__barrierContext = None\n            else:\n                assert self.notify.debug('doneBarrier(%s) ignored; current barrier is %s' % (name, aiName))\n        else:\n            assert self.notify.debug('doneBarrier(%s) ignored; no active barrier.' % (name))\n\n    def addInterest(self, zoneId, note=\"\", event=None):\n        return self.cr.addInterest(self.getDoId(), zoneId, note, event)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5570
-  }
-}

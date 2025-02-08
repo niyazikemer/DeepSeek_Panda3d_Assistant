@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nnode.flattenStrong()\n\ncpp\n\nnode.flatten_strong();\n\nThis will cause Panda to try to reduce the NodePath to as few nodes as possible. But be careful with this function: Usage without care might cause your game to crash, since you may not be able to move individual subnodes of a flattened node around anymore. Also note that flattening your whole world like this is a bad idea, as you will break culling, which will cause your whole world to be rendered even if your camera is rendering only a small part of it. You will need to find a balance.\n\n.NodePath.flatten_medium() and ~.NodePath.flatten_light() are not as rigorous as ~.NodePath.flatten_strong(), but may be worth considering.\n\nBy default, Panda3D prevents separate models from being flattened together, so that they can still be moved independently. If you wish to do this anyway, it is necessary to first call ~.NodePath.clear_model_nodes() to allow a model to be combined with other models.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_567",
-    "parent": "processed_documents/context_documents/342ef41e_d207c8ca_too-many-meshes.json",
-    "chunk_number": 7007
-  }
-}

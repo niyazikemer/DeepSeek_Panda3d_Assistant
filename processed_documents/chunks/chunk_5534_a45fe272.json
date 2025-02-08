@@ -1,9 +1,0 @@
-{
-  "content": "class InterestWatcher(DirectObject):\n    \"\"\"Object that observes all interests adds/removes over a period of time,\n    and sends out an event when all of those interests have closed\"\"\"\n    notify = directNotify.newCategory('InterestWatcher')\n\n    def __init__(self, interestMgr, name, doneEvent=None,\n                 recurse=True, start=True, mustCollect=False, doCollectionMgr=None):\n        DirectObject.__init__(self)\n        self._interestMgr = interestMgr\n        if doCollectionMgr is None:\n            doCollectionMgr = interestMgr\n        self._doCollectionMgr = doCollectionMgr\n        self._eGroup = EventGroup(name, doneEvent=doneEvent)\n        self._doneEvent = self._eGroup.getDoneEvent()\n        self._gotEvent = False\n        self._recurse = recurse\n        if self._recurse:\n            # this will hold a dict of parentId to set(zoneIds) that are closing\n            self.closingParent2zones = {}\n        if start:\n            self.startCollect(mustCollect)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_321",
-    "parent": "processed_documents/context_documents/a87e46e1_InterestWatcher.json",
-    "chunk_number": 5534
-  }
-}

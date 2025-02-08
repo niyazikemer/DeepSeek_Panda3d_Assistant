@@ -1,9 +1,0 @@
-{
-  "content": "if getInstance:\n            lenDict = len('.__dict__')\n            if str[-lenDict:] == '.__dict__':\n                str = str[:-lenDict]\n\n        for indirection in indirections:\n            yield None\n            indirection.release()\n        yield str\n\n    def getFinalIndirectionStr(self):\n        prevIndirection = None\n        if len(self._indirections) > 1:\n            prevIndirection = self._indirections[-2]\n        return self._indirections[-1].getString(prevIndirection=prevIndirection)\n\n    def __repr__(self):\n        for result in self.getEvalStrGen():\n            pass\n        return result",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4488
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "unpacker = DCPacker()\n                        unpacker.setUnpackData(packer.getString())\n                        unpacker.beginUnpack(field)\n                        value = unpacker.unpackObject()\n                        unpacker.endUnpack()\n                    if value is not None:\n                        function = getattr(distObj, field.getName())\n                        if function is not None:\n                            function(*value)\n                        else:\n                            self.notify.error(\n                                \"\\n\\n\\nNot able to find %s.%s\" % (\n                                    distObj.__class__.__name__,\n                                    field.getName()\n                                )\n                            )\n        distObj.announceGenerate()\n        distObj.parentId = 0\n        distObj.zoneId = 0\n        # updateRequiredFields calls announceGenerate\n        return distObj",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5310
-  }
-}

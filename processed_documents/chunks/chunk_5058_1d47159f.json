@@ -1,9 +1,0 @@
-{
-  "content": "def __dispatch(self, acceptorDict, event, sentArgs, foundWatch):\n        for id in list(acceptorDict.keys()):\n            # We have to make this apparently redundant check, because\n            # it is possible that one object removes its own hooks\n            # in response to a handler called by a previous object.\n            #\n            # NOTE: there is no danger of skipping over objects due to\n            # modifications to acceptorDict, since the for..in above\n            # iterates over a list of objects that is created once at\n            # the start\n            callInfo = acceptorDict.get(id)\n            if callInfo:\n                method, extraArgs, persistent = callInfo\n                # If this object was only accepting this event once,\n                # remove it from the dictionary\n                if not persistent:\n                    # This object is no longer listening for this event\n                    eventDict = self.__objectEvents.get(id)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_286",
-    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
-    "chunk_number": 5058
-  }
-}

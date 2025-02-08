@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\nLPoint3 pFrom = LPoint3(0, 0, 0);\nLPoint3 pTo = pFrom + LVector3d(1, 0, 0) * 99999;\nBulletAllHitsRayResult result = world->ray_test_all(pFrom, pTo);\n\nOften users want to pick or select an object by clicking on it with the mouse. We can use the rayTestClosest to find the collision object which is \"under\" the mouse pointer, but we have to convert the coordinates in camera space to global coordinates world space. The following example shows how this can be done.\n\npython\n\n# Get to and from pos in camera coordinates\npMouse = base.mouseWatcherNode.getMouse()\npFrom = Point3()\npTo = Point3()\nbase.camLens.extrude(pMouse, pFrom, pTo)\n\n# Transform to global coordinates\npFrom = render.getRelativePoint(base.cam, pFrom)\npTo = render.getRelativePoint(base.cam, pTo)\n\ncpp\n\nTODO\n\nSweep Test",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_444",
-    "parent": "processed_documents/context_documents/1bf2fda4_32b65eff_queries.json",
-    "chunk_number": 6248
-  }
-}

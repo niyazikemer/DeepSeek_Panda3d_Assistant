@@ -1,9 +1,0 @@
-{
-  "content": "Multi-Pass Rendering\n\nSometimes you may need to draw the same scene more than once per frame, each view looking different. This is where multi-pass rendering comes into play.\n\nThe easiest way to do implement multi-pass rendering is to render offscreen to a separate buffer. You:\n\nset up a .GraphicsBuffer object\n\ncreate a camera for it and\n\nplace the camera in the scene.\n\nHowever, this method assumes you have two independent scene graphs. If you use this method to render the same scene graph, it is only useful for showing the scene from a different camera view. To actually make the scenes have different RenderStates <render-attributes> (i.e. one without lighting, one with lighting) you must also change how each Camera renders the scene.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_386",
-    "parent": "processed_documents/context_documents/64e38fe4_b8963543_multi-pass-rendering.json",
-    "chunk_number": 5976
-  }
-}

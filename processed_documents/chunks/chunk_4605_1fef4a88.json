@@ -1,9 +1,0 @@
-{
-  "content": "def compact(self):\n            r = ''\n            comma = ','\n            for filename, lineNum, funcName, text in self.trace:\n                r += '%s.%s:%s%s' % (filename[:filename.rfind('.py')][filename.rfind('\\\\')+1:], funcName, lineNum, comma)\n            if len(r) > 0:\n                r = r[:-len(comma)]\n            return r\n\n        def reverseCompact(self):\n            r = ''\n            comma = ','\n            for filename, lineNum, funcName, text in self.trace:\n                r = '%s.%s:%s%s%s' % (filename[:filename.rfind('.py')][filename.rfind('\\\\')+1:], funcName, lineNum, comma, r)\n            if len(r) > 0:\n                r = r[:-len(comma)]\n            return r",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4605
-  }
-}

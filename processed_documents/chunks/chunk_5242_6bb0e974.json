@@ -1,9 +1,0 @@
-{
-  "content": "class TestInterestAddRemove(AsyncTestCase, DirectObject.DirectObject):\n        def testInterestAdd(self):\n            event = uniqueName('InterestAdd')\n            self.acceptOnce(event, self.gotInterestAddResponse)\n            self.handle = base.cr.addInterest(base.cr.GameGlobalsId, 100, 'TestInterest', event=event)\n        def gotInterestAddResponse(self):\n            event = uniqueName('InterestRemove')\n            self.acceptOnce(event, self.gotInterestRemoveResponse)\n            base.cr.removeInterest(self.handle, event=event)\n        def gotInterestRemoveResponse(self):\n            self.setCompleted()\n\n    def runTests():\n        suite = unittest.makeSuite(TestInterestAddRemove)\n        unittest.AsyncTextTestRunner(verbosity=2).run(suite)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5242
-  }
-}

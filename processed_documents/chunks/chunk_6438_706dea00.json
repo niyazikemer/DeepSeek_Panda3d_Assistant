@@ -1,9 +1,0 @@
-{
-  "content": "Once you have defined the columns of your array, you should create a .GeomVertexFormat to hold the array:\n\npython\n\nformat = GeomVertexFormat()\nformat.addArray(array)\n\ncpp\n\nPT(GeomVertexFormat) unregistered_format;\nunregistered_format = new GeomVertexFormat();\nunregistered_format->add_array(array);\n\nIf you want your format to consist of multiple different arrays, you can create additional arrays and add them at this point as well.\n\nFinally, before you can use your new format, you must register it. Registering a format builds up the internal tables necessary to use the vertex format for rendering. However, once you have registered a format, you can no longer add or remove columns, or modify it in any way; if you want to make changes to the format after this point, you'll have to start over with a new .GeomVertexFormat object.\n\npython\n\nformat = GeomVertexFormat.registerFormat(format)\n\ncpp\n\nCPT(GeomVertexFormat) format;\nformat = GeomVertexFormat::register_format(unregistered_format);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_482",
-    "parent": "processed_documents/context_documents/98868df0_5990f8cd_custom-vertex-format.json",
-    "chunk_number": 6438
-  }
-}

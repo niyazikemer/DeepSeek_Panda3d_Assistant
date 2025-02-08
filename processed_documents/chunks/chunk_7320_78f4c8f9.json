@@ -1,9 +1,0 @@
-{
-  "content": "my-game-server panda3dgame.com\n\nNote that I invented the variable name \"my-game-server\" out of thin air. This variable is not recognized by Panda3D in any way. Therefore, this line has no effect on the engine whatsoever.\n\nTo manipulate this variable procedurally, use code not unlike the following, which creates an object of class .ConfigVariableString and then manipulates it using the methods ~.ConfigVariableString.set_value() and ~.ConfigVariableString.get_value().\n\npython\n\nfrom panda3d.core import ConfigVariableString\n\nmyGameServer = ConfigVariableString('my-game-server', '127.0.0.1')\nprint('Server specified in config file: ', myGameServer.getValue())\n\n# Allow the user to change servers on the command-line.\nif (sys.argv[1] == '--server'):\n    myGameServer.setValue(sys.argv[2])\nprint('Server that we will use: ', myGameServer.getValue())",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_626",
-    "parent": "processed_documents/context_documents/9165eb63_bae543ea_accessing-config-vars-in-a-program.json",
-    "chunk_number": 7320
-  }
-}

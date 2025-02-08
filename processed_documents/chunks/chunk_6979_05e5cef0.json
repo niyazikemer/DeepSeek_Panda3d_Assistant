@@ -1,9 +1,0 @@
-{
-  "content": "old_count = tris_prim.get_num_vertices()\nstart = side_index * 6 # (2 triangles, thus 6 vertex indices)\n# just like the vertex data rows, the corresponding indices in the primitive\n# will be overwritten with those following them;\n# the latter additionally need to be offset, otherwise they would reference\n# vertices that are not in the vertex data table (since there are 4 fewer now)\ntris_prim.offset_vertices(-4, start + 6, old_count)\ntris_array = tris_prim.modify_vertices()\nview = memoryview(tris_array).cast('B').cast('H')\nview[start:-6] = view[start+6:]\ntris_array.set_num_rows(old_count - 6)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_561",
-    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
-    "chunk_number": 6979
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def SetAllSfxEnables(self, bEnabled):\n        \"\"\"Calls ``setActive(bEnabled)`` on all valid SFX managers.\"\"\"\n        for i in range(len(self.sfxManagerList)):\n            if self.sfxManagerIsValidList[i]:\n                self.sfxManagerList[i].setActive(bEnabled)\n\n    def enableSoundEffects(self, bEnableSoundEffects):\n        \"\"\"\n        Enables or disables SFX managers.\n        \"\"\"\n        # don't setActive(1) if no audiofocus\n        if self.AppHasAudioFocus or not bEnableSoundEffects:\n            self.SetAllSfxEnables(bEnableSoundEffects)\n        self.sfxActive = bEnableSoundEffects\n        if bEnableSoundEffects:\n            self.notify.debug(\"Enabling sound effects\")\n        else:\n            self.notify.debug(\"Disabling sound effects\")",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4952
-  }
-}

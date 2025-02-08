@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nimport sys, os\nimport direct.directbase.DirectStart\nfrom panda3d.core import Filename\n\n# Get the location of the 'py' file I'm running:\nmydir = os.path.dirname(os.path.abspath(__file__))\n\n# Convert that to panda's unix-style notation.\nmydir = Filename.fromOsSpecific(mydir)\n\n# Now load the model:\nmodel = loader.loadModel(mydir / \"models/mymodel.egg\")\n\ncpp\n\n#include \"filename.h\"\n#include \"executionEnvironment.h\"\n\n// Get the location of the executable file I'm running:\nFilename mydir = ExecutionEnvironment::get_binary_name();\nmydir = mydir.get_dirname();\n\n// Now load the model:\nwindow->load_model(framework.get_models(), mydir + \"/models/mymodel.egg\");",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_638",
-    "parent": "processed_documents/context_documents/ff34a7e6_33cbbc72_filename-syntax.json",
-    "chunk_number": 7407
-  }
-}

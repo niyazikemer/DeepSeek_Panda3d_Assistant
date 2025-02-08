@@ -1,9 +1,0 @@
-{
-  "content": "In Panda3D 1.11, this situation will be improved as Panda3D will be able to automatically back-translate GLSL 1.50+ shaders to 1.20 as required by the driver.\n\nProblem: Register Allocation\n\nProblem: nVidia's Cg compiler tries to assign registers to parameters. Under a variety of circumstances, the Cg compiler will assign the same register to two parameters, or to a parameter and to a constant in the program.\n\nWorkaround: We have found that if you manually allocate registers by supplying a semantic string for each parameter, this problem is bypassed.\n\nProblem: Bad Target Languages\n\nProblem: nVidia's Cg compiler will choose one of several different \"target\" languages to translate the Cg program into. When the Cg compiler tries to translate the program into the VP40/FP40 language, it often produces incorrect output.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_401",
-    "parent": "processed_documents/context_documents/b94e6c02_f8c75e0b_known-shader-issues.json",
-    "chunk_number": 6051
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "cListener.addConnection(tcpSocket)\n\nSince the network handlers we instantiated are polled, we'll create some tasks to do the polling.\n\ntaskMgr.add(tskListenerPolling, \"Poll the connection listener\", -39)\ntaskMgr.add(tskReaderPolling, \"Poll the connection reader\", -40)\n\nWhen a connection comes in, the tskListenerPolling function below handles the incoming connection and hands it to the QueuedConnectionReader. The connection is now established.\n\nfrom panda3d.core import PointerToConnection\nfrom panda3d.core import NetAddress\n\ndef tskListenerPolling(taskdata):\n    if cListener.newConnectionAvailable():\n\n        rendezvous = PointerToConnection()\n        netAddress = NetAddress()\n        newConnection = PointerToConnection()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_579",
-    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
-    "chunk_number": 7065
-  }
-}

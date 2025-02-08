@@ -1,9 +1,0 @@
-{
-  "content": "self.__enableCollisions(-1)\n\n    def setPhase(self, aPhase):\n        \"\"\"\n        See PhasedObject.setPhase()\n        \"\"\"\n        phase = self.getAliasPhase(aPhase)\n        PhasedObject.setPhase(self, aPhase)\n        self.__disableCollisions()\n        self.__enableCollisions(phase)\n\n        if phase == -1 and self.autoCleanup:\n            self.cleanup()\n        else:\n            self.__oneTimeCollide()\n\n    def __getEnterEvent(self, phaseName):\n        return '%sPhaseNode%s-%d' % (self.enterPrefix, phaseName, self.__id)\n\n    def __getExitEvent(self, phaseName):\n        return '%sPhaseNode%s-%d' % (self.exitPrefix, phaseName, self.__id)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_261",
-    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
-    "chunk_number": 4580
-  }
-}

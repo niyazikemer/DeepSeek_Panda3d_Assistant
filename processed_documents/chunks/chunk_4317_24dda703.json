@@ -1,9 +1,0 @@
-{
-  "content": "def _doCallback(self, callback, taskName, task):\n        assert self.notify.debugCall()\n        self.__taskNames.remove(taskName)\n        self._taskStartTime = ClockObject.getGlobalClock().getRealTime()\n        callback()\n        self._taskStartTime = None\n        return Task.done\n\n    def _doThreadCallback(self, thread, taskName, task):\n        assert self.notify.debugCall()\n        self._taskStartTime = ClockObject.getGlobalClock().getRealTime()\n        thread.run()\n        self._taskStartTime = None\n        if thread.isFinished():\n            thread._destroy()\n            self.__taskNames.remove(taskName)\n            self.__threads.remove(thread)\n            return Task.done\n        else:\n            return Task.cont",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_245",
-    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
-    "chunk_number": 4317
-  }
-}

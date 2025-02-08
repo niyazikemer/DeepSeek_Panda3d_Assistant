@@ -1,9 +1,0 @@
-{
-  "content": "# Update our location based on our avatar's position on the grid\n    # Assumes our position is correct, relative to the grid\n    def addObjectToGrid(self, av):\n        assert self.notify.debug(\"addObjectToGrid %s\" % av)\n        # Get our pos relative to the island grid\n        pos = av.getPos(self)\n        # Figure out what zone in that island grid\n        zoneId = self.getZoneFromXYZ(pos)\n        # Do the wrtReparenting to the grid node\n        messenger.send(\"avatarZoneChanged\", [av, self.doId, zoneId])\n        #self.handleAvatarZoneChange(av, zoneId)\n\n    def removeObjectFromGrid(self, av):\n        assert self.notify.debug(\"removeObjectFromGrid %s\" % av)\n        # TODO: WHAT LOCATION SHOULD WE SET THIS TO?\n        #av.reparentTo(hidden)\n        if av.getParent() == self:\n            # only detach if object is directly parented\n            av.detachNode()\n        #av.b_setLocation(0, 0)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5287
-  }
-}

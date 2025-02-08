@@ -1,9 +1,0 @@
-{
-  "content": "The cross product is not sufficient to indicate the direction of the binormal vector, so the tangent is stored as a 4-component value, with the w component indicating the sign of the binormal vector. This component always contains either the value 1 or -1.\n\nWith this information, the binormal vector can be reconstructed as follows in the vertex shader:\n\nbinormal = cross(p3d_Normal, p3d_Tangent.xyz) * p3d_Tangent.w\n\nDistributing glTF Models\n\npython\n\nWhen building your application <distribution>, the plug-ins responsible for loading glTF models are not distributed along by default. It is much better to convert the model to the optimized .bam format for this purpose. As of Panda3D 1.10.13, this can be done automatically, by adding the extensions to the bam_model_extensions list:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_610",
-    "parent": "processed_documents/context_documents/e7861abe_e146aead_gltf-files.json",
-    "chunk_number": 7227
-  }
-}

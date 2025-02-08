@@ -1,9 +1,0 @@
-{
-  "content": "plane1 = Plane((0, 0, 1), (0, 0, 5))\nplane1_np = render.attachNewNode(PlaneNode(\"plane1\", plane1))\nplane1_np.show()\nteapot.setClipPlane(plane1_np)\n\nplane2 = Plane((1, 0, 0), (-10, 0, 0))\nplane2_np = render.attachNewNode(PlaneNode(\"plane2\", plane2))\nplane2_np.show()\nteapot.setClipPlane(plane2_np)\n\nbase.cam.setPos(10, -200, 30)\nbase.run()\n\nNote\n\nClip planes work normally in the fixed-function pipeline and with the shader generator, but if you are using a custom shader, it is your responsibility to implement the effect of the clip planes. In GLSL shaders, you can use the built-in p3d_ClipPlane[] input, which contains the view-space coordinates of each active plane. One way to implement it is to put something like this in the fragment shader:\n\nuniform vec4 p3d_ClipPlane[2];\n\n// View-space vertex position passed in from vertex shader\nin vec4 vpos;\n\nvoid main() {\n  if (dot(p3d_ClipPlane[0], vpos) < 0) {\n    discard;\n  }\n  if (dot(p3d_ClipPlane[1], vpos) < 0) {\n    discard;\n  }",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_370",
-    "parent": "processed_documents/context_documents/3c8dcf09_94575662_clip-planes.json",
-    "chunk_number": 5912
-  }
-}

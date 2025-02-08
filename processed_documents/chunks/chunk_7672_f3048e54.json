@@ -1,9 +1,0 @@
-{
-  "content": "https://discourse.panda3d.org/t/using-c-20-coroutines-with-panda3d/27323\n\nAwaitables\n\npython\n\nIn the examples so far have only used Task.pause(), but there are in fact many things that can be used as our argument to await:\n\nAll intervals. This is very useful for transitions or cutscenes, where it is desirable to disable user input, await a sequence of intervals, and then re-enable user input when they are done. With coroutines, this can all happen in a single function.\n\nAll tasks. When awaiting a task, it is automatically scheduled with the task manager (on the current task chain), if not already.\n\nAny .AsyncFuture object. Such an object is returned by various Panda3D operations that take a long time to complete.\n\nAny Python object that implements a suitable __await__ method.\n\nSome examples of operations that satisfy one or more of the above conditions:\n\nModel load operations, see async-loading.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_689",
-    "parent": "processed_documents/context_documents/0a46205a_9afad06b_coroutines.json",
-    "chunk_number": 7672
-  }
-}

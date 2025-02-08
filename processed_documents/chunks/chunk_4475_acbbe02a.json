@@ -1,9 +1,0 @@
-{
-  "content": "def destroy(self):\n        # re-entrant\n        self.dictKey = NoDictKey\n\n    def acquire(self):\n        self._refCount += 1\n\n    def release(self):\n        self._refCount -= 1\n        if self._refCount == 0:\n            self.destroy()\n\n    def isDictKey(self):\n        # is this an indirection through a dictionary?\n        return self.dictKey is not NoDictKey\n\n    def _getNonWeakDictKey(self):\n        if not self._isWeakRef:\n            return self.dictKey\n        else:\n            key = self.dictKey()\n            if key is None:\n                return '<garbage-collected dict key>'\n            return key\n\n    def dereferenceDictKey(self, parentDict):\n        # look ourselves up in parentDict\n        key = self._getNonWeakDictKey()\n        # objects in builtins will have parentDict==None\n        if parentDict is None:\n            return key\n        return parentDict[key]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4475
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "rendezvous = PointerToConnection()\n        netAddress = NetAddress()\n        newConnection = PointerToConnection()\n\n        if cListener.getNewConnection(rendezvous,netAddress,newConnection):\n            newConnection = newConnection.p()\n            activeConnections.append(newConnection) # Remember connection\n            cReader.addConnection(newConnection)     # Begin reading connection\n    return Task.cont\n\nOnce a connection has been opened, the QueuedConnectionReader may begin processing incoming packets. This is similar to the flow of the listener's task, but it is up to the server code to handle the incoming data.\n\nfrom panda3d.core import NetDatagram",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_579",
-    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
-    "chunk_number": 7066
-  }
-}

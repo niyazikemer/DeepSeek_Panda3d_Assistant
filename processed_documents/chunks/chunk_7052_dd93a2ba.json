@@ -1,9 +1,0 @@
-{
-  "content": "The object passed to taskMgr->add() <.AsyncTaskManager.add> is an .AsyncTask object. We can use GenericAsyncTask to wrap a global function or static method around a task. We can also pass an additional void* parameter that we can cast into a pointer of any data type we like, which is passed as argument to the task function. A GenericAsyncTask function must look like the following:\n\nAsyncTask::DoneStatus your_task(GenericAsyncTask *task, void *data) {\n  // Do your stuff here.\n\n  // Tell the task manager to continue this task the next frame.\n  // You can also pass DS_done if this task should not be run again.\n  return AsyncTask::DS_cont;\n}\n\nFor more advanced usage, you can subclass AsyncTask and override the do_task method to make it do what you want.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_573",
-    "parent": "processed_documents/context_documents/b65a5ded_bdbb3389_controlling-the-camera.json",
-    "chunk_number": 7052
-  }
-}

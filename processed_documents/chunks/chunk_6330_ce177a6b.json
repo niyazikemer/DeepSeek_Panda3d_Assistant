@@ -1,9 +1,0 @@
-{
-  "content": "vertex normal color texcoord 0 (1, 0, 0) (0, 0, 1) (0, 0, 1, 1) (1, 0) 1 (1, 1, 0) (0, 0, 1) (0, 0, 1, 1) (1, 1) 2 (0, 1, 0) (0, 0, 1) (0, 0, 1, 1) (0, 1) 3 (0, 0, 0) (0, 0, 1) (0, 0, 1, 1) (0, 0)\n\nNote that there is no relationship between the different GeomVertexWriters, other than the fact that they are operating on the same table. Each GeomVertexWriter maintains its own counter of its current row. This means you must fill in the data for every row of each column, even if you don't care about writing the data for some particular column on certain rows. For instance, even if you want to allow the default color for vertex 1 and 2, you must still call color.addData4() four times, in order to fill in the color value for vertex 3.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_457",
-    "parent": "processed_documents/context_documents/8ea7083f_03f8bce3_creating-vertex-data.json",
-    "chunk_number": 6330
-  }
-}

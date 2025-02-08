@@ -1,9 +1,0 @@
-{
-  "content": "def doGenerate(self, parentId, zoneId, classId, doId, di):\n        # Look up the dclass\n        assert parentId == self.GameGlobalsId or parentId in self.doId2do\n        dclass = self.dclassesByNumber[classId]\n        assert self.notify.debug(f\"performing generate for {dclass.getName()} {doId}\")\n        dclass.startGenerate()\n        # Create a new distributed object, and put it in the dictionary\n        distObj = self.generateWithRequiredOtherFields(dclass, doId, di, parentId, zoneId)\n        dclass.stopGenerate()\n\n    def flushGenerates(self):\n        \"\"\" Forces all pending generates to be performed immediately. \"\"\"\n        while self.deferredGenerates:\n            msgType, extra = self.deferredGenerates[0]\n            del self.deferredGenerates[0]\n            self.replayDeferredGenerate(msgType, extra)\n\n        taskMgr.remove('deferredGenerate')",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5596
-  }
-}

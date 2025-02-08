@@ -1,9 +1,0 @@
-{
-  "content": "pickerNode = new CollisionNode(\"mouseRay\");\npickerNP = camera.attach_new_node (pickerNode);\npickerNode->set_from_collide_mask(GeomNode::get_default_collide_mask());\npickerRay = new CollisionRay();\npickerNode->add_solid(pickerRay);\nmyHandler = new CollisionHandlerQueue();\nmyTraverser.add_collider(pickerNP, myHandler);\n\nFor any object that you want to be pickable you should add a flag to it. The easiest way is to use the ~.NodePath.set_tag() function:\n\npython\n\nobject1.setTag('myObjectTag', '1')\nobject2.setTag('myObjectTag', '2')\n\ncpp\n\nobject1.set_tag(\"myObjectTag\", \"1\");\nobject2.set_tag(\"myObjectTag\", \"2\");\n\nThe above example sets the tag 'myObjectTag' on two objects in your graph that you want to designate as pickable. We will check for the presence of this tag after we get the response back from the collision system.\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_642",
-    "parent": "processed_documents/context_documents/89de807b_91a421cd_clicking-on-3d-objects.json",
-    "chunk_number": 7419
-  }
-}

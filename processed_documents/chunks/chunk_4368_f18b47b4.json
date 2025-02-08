@@ -1,9 +1,0 @@
-{
-  "content": "def gotObject(self, index, object):\n            self.objects[index] = object\n\n            if not self.requests:\n                self._loader = None\n                if self.callback:\n                    if self.gotList:\n                        self.callback(self.objects, *self.extraArgs)\n                    else:\n                        self.callback(*(self.objects + self.extraArgs))\n\n        def cancel(self):\n            \"Cancels the request.  Callback won't be called.\"\n            if self._loader:\n                for request in self.requests:\n                    self._loader.loader.remove(request)\n                    del self._loader._requests[request]\n                self._loader = None\n                self.requests = None\n                self.requestList = None\n\n        def cancelled(self):\n            \"Returns true if the request was cancelled.\"\n            return self.requestList is None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4368
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "self.neededObjects[key] = None\n\n        self.air.queryObjectField(dclassName, fieldName, doId, context)\n        self._resetTimeoutTask()\n\n    def askForObjectFields(\n            self, dclassName, fieldNames, doId, key = None, context = None):\n        \"\"\"\n        Request an already created object, i.e. read from database.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        if key is None:\n            # default the dictionary key to the fieldName\n            key = fieldNames[0]\n        assert doId\n        if context is None:\n            context = self.air.allocateContext()\n        self.air.contextToClassName[context] = dclassName\n        self.acceptOnce(\n            \"doFieldResponse-%s\"%(context,),\n            self._checkCompletion, [key])\n        self.air.queryObjectFields(dclassName, fieldNames, doId, context)\n        self._resetTimeoutTask()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_309",
-    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
-    "chunk_number": 5396
-  }
-}

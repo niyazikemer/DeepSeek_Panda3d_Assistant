@@ -1,9 +1,0 @@
-{
-  "content": "def deleteObjectLocation(self, do, parentId, zoneId):\n        doId = do.doId\n        if doId not in self._allDoIds:\n            self.notify.error(\n                'deleteObjectLocation(%s %s) not in _allDoIds; duplicate delete()? or invalid previous location on a new object?' % (\n                do.__class__.__name__, do.doId))\n        # jbutler: temp hack to get by the assert, this will be fixed soon\n        if doId not in self._allDoIds:\n            return\n        parentZoneDict = self._table.get(parentId)\n        if parentZoneDict is not None:\n            zoneDoSet = parentZoneDict.get(zoneId)\n            if zoneDoSet is not None:\n                if doId in zoneDoSet:\n                    zoneDoSet.remove(doId)\n                    self._allDoIds.remove(doId)\n                    self.notify.debug('deleteObjectLocation: %s(%s) @ (%s, %s)' % (\n                        do.__class__.__name__, doId, parentId, zoneId))\n                    if len(zoneDoSet) == 0:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_320",
-    "parent": "processed_documents/context_documents/79f8b556_DoHierarchy.json",
-    "chunk_number": 5531
-  }
-}

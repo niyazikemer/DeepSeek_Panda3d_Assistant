@@ -1,9 +1,0 @@
-{
-  "content": "from panda3d.core import FilterProperties\n\nThis will allow you to create lists of filters, like this one:\n\nfp = FilterProperties()\n\nThis just adds a blank filter list. From here we can add whatever filter we'd like. To stay consistent with the example below, we'll add a reverb effect.\n\nfp.addReverb(0.6, 0.5, 0.1, 0.1, 0.1)\n\nAll this really does is add this particular reverb to our filter list - sound is not yet affected. To apply these filters to our audio output, use:\n\naudioMgr.configureFilters(fp)\n\nwhere audioMgr is an .AudioManager object, most likely base.sfxManagerList <direct.showbase.ShowBase.ShowBase.sfxManagerList> or base.musicManager <direct.showbase.ShowBase.ShowBase.musicManager>.\n\nDepending on the sound you use, reverb may be very or only slightly noticeable; try using a quick sound at first, like a clap.\n\nYou can add more than just reverb to your sound. The full list of available filters is here:\n\npanda3d.core.FilterProperties",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_679",
-    "parent": "processed_documents/context_documents/15e5330a_629172ef_dsp-effects.json",
-    "chunk_number": 7624
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "$$\\begin{aligned} \\begin{bmatrix} A & 0 & 0 & 0 \\\\ 0 & 0 & B & 1 \\\\ 0 & C & 0 & 0 \\\\ 0 & 0 & D & 0 \\end{bmatrix} \\end{aligned}$$\n\nThe result is that the panda projection matrix boils down to these simple equations:\n\n$$\\begin{aligned} \\begin{aligned} x_{clip} &= x_{view} \\cdot A \\\\ y_{clip} &= z_{view} \\cdot C \\\\ z_{clip} &= y_{view} \\cdot B + D \\\\ w_{clip} &= y_{view} \\end{aligned} \\end{aligned}$$\n\nLook out, there has been a coordinate system change! In the scene graph, Z corresponds to \"up\", but in clip-space, Z is the depth value (and X,Y address a pixel).\n\nAfter panda calculates clip-space coordinates, it divides by W. Finally, it rescales the depth-value:\n\n$$\\begin{aligned} \\begin{aligned} x_{screen} &= \\frac{x_{clip}}{w_{clip}} \\\\ y_{screen} &= \\frac{y_{clip}}{w_{clip}} \\\\ z_{screen} &= \\frac{z_{clip}}{w_{clip}} \\\\ depth &= 0.5 \\cdot z_{screen} + 0.5 \\end{aligned} \\end{aligned}$$",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_522",
-    "parent": "processed_documents/context_documents/7430db66_5763024b_fireflies.json",
-    "chunk_number": 6631
-  }
-}

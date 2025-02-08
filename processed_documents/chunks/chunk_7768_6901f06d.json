@@ -1,9 +1,0 @@
-{
-  "content": "// Use this to print all key mappings\nmap->write(std::cout);\n\n// Find out which virtual key is associated with the ANSI US \"w\"\nButtonHandle w_button = map.get_mapped_button(\"w\");\n\n// Get a textual representation for the button\nstd::string w_label = map.get_mapped_button_label(\"w\");\nif (w_label) {\n  // There is none, use the event name instead.\n  w_label = w_button.get_name();\n}\nw_label = downcase(w_label); // from string_utils.h\nw_label[0] = toupper(w_label[0]);\n\n// Use this label to tell the player which button to press.\nstd::ostringstream str;\nstr << \"Press \" << w_label << \" to move forward.\";\n\n// Poll to check if the button is pressed...\nif (mouse_watcher->is_button_down(w_button)) {\n  std::cout << w_label << \" is currently pressed\" << std::endl;\n}\n\n// ...or register event handlers\nframework->define_key(w_button.get_name(), start_moving_forward, nullptr);\nframework->define_key(w_button.get_name() + \"-up\", stop_moving_forward, nullptr);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_711",
-    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
-    "chunk_number": 7768
-  }
-}

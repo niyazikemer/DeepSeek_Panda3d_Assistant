@@ -1,9 +1,0 @@
-{
-  "content": "def queueAllInterestsCompleteEvent(self, frames=5):\n        # wait for N frames, if no new interests, send out all-done event\n        # calling this is OK even if there are no pending interest completes\n        def checkMoreInterests():\n            # if there are new interests, cancel this delayed callback, another\n            # will automatically be scheduled when all interests complete\n            # print 'checkMoreInterests(',self._completeEventCount.num,'):',base.clock.getFrameCount()\n            return self._completeEventCount.num > 0\n        def sendEvent():\n            messenger.send(self.getAllInterestsCompleteEvent())\n            for callback in self._allInterestsCompleteCallbacks:\n                callback()\n            self._allInterestsCompleteCallbacks = []\n        self.cleanupWaitAllInterestsComplete()\n        self._completeDelayedCallback = FrameDelayedCall(\n            'waitForAllInterestCompletes',\n            callback=sendEvent,\n            frames=frames,",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5234
-  }
-}

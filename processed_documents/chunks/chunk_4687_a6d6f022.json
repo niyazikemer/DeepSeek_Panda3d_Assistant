@@ -1,9 +1,0 @@
-{
-  "content": "def indent(str):\n        global __report_indent\n        return ' '*__report_indent+str\n\n    def decorator(f):\n        return f\n\n    try:\n        if not __dev__ and not ConfigVariableBool('force-reports', False):\n            return decorator\n\n        # determine whether we should use the decorator\n        # based on the value of dConfigParam.\n        dConfigParamList = []\n        doPrint = False\n        if not dConfigParam:\n            doPrint = True\n        else:\n            if not isinstance(dConfigParam, (list,tuple)):\n                dConfigParams = (dConfigParam,)\n            else:\n                dConfigParams = dConfigParam\n\n            dConfigParamList = [param for param in dConfigParams \\\n                                if ConfigVariableBool('want-%s-report' % (param,), False)]\n\n            doPrint = bool(dConfigParamList)\n\n        if not doPrint:\n            return decorator",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4687
-  }
-}

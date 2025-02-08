@@ -1,9 +1,0 @@
-{
-  "content": "Playing MPG and AVI files\n\nPanda now supports AVI format for textures in Panda.\n\nUsage\n\nmyMovieTexture = loader.loadTexture(\"myMovie.avi\")\nmyObject.setTexture(myMovieTexture)\n\nThe movie subsystem is implemented using FFMPEG. Therefore, it supports all of the formats that FFMPEG supports. The functions to control the movie are as follows:\n\nmovie.play()\nmovie.stop()\nmovie.setTime(t)\nmovie.getTime()\nmovie.setLoopCount(n)\nmovie.getLoopCount()\nmovie.setPlayRate(speed)\nmovie.getPlayRate()\nmovie.isPlaying()\n\nIf you want to hear the movie's audio as well, you need to load it twice: once as a texture, and once as a sound file:\n\nmySound = loader.loadSfx(\"myMovie.avi\")\n\nThen, you can synchronize the video to the audio:\n\nmyMovieTexture.synchronizeTo(mySound)\n\nFrom that point forward, playing the audio will cause the texture to update. This is more accurate than synchronizing the video manually.\n\nFor powers-of-two limited graphics hardware",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_381",
-    "parent": "processed_documents/context_documents/467cba1f_7800ff28_playing-mpg-and-avi-files.json",
-    "chunk_number": 5966
-  }
-}

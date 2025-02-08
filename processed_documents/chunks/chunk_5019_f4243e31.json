@@ -1,9 +1,0 @@
-{
-  "content": "def __doStartDirect(self):\n        if self.__directStarted:\n            return\n        self.__directStarted = False\n\n        # Start Tk, Wx and DIRECT if specified by Config.prc\n        fTk = ConfigVariableBool('want-tk', False).value\n        fWx = ConfigVariableBool('want-wx', False).value\n        # Start DIRECT if specified in Config.prc or in cluster mode\n        fDirect = (ConfigVariableBool('want-directtools', 0).value or\n                   (not ConfigVariableString(\"cluster-mode\", '').empty()))\n        # Set fWantTk to 0 to avoid starting Tk with this call\n        self.startDirect(fWantDirect = fDirect, fWantTk = fTk, fWantWx = fWx)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5019
-  }
-}

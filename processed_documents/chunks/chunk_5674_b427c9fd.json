@@ -1,9 +1,0 @@
-{
-  "content": "# If we're processing a lot of datagrams within one frame, we\n        # may forget to send heartbeats.  Keep them coming!\n        self.considerHeartbeat()\n\n    def handleMessageType(self, msgType, di):\n        self.notify.error(\"unrecognized message type %s\" % (msgType))\n\n    def handleUpdateField(self, di):\n        # The CMU update message starts with an additional field, not\n        # present in the Disney update message: the doIdBase of the\n        # original sender.  Extract that and call up to the parent.\n        self.currentSenderId = di.getUint32()\n        ClientRepositoryBase.handleUpdateField(self, di)\n\n    def handleDisable(self, di):\n        # Receives a list of doIds.\n        while di.getRemainingSize() > 0:\n            doId = di.getUint32()\n\n            # We should never get a disable message for our own object.\n            assert not self.isLocalId(doId)\n            self.disableDoId(doId)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5674
-  }
-}

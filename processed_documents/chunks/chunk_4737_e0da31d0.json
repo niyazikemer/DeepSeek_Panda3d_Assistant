@@ -1,9 +1,0 @@
-{
-  "content": "def update(self, postName, value):\n        \"\"\"can use this to set value the first time\"\"\"\n        if postName in self._dict:\n            BulletinBoard.notify.info('update: posting %s' % (postName))\n        self._dict[postName] = value\n        messenger.send(self.getEvent(postName))\n\n    def remove(self, postName):\n        if postName in self._dict:\n            del self._dict[postName]\n            messenger.send(self.getRemoveEvent(postName))\n\n    def removeIfEqual(self, postName, value):\n        # only remove the post if its value is a particular value\n        if self.has(postName):\n            if self.get(postName) == value:\n                self.remove(postName)\n\n    def __repr__(self):\n        str  = 'Bulletin Board Contents\\n'\n        str += '======================='\n        for postName in sorted(self._dict):\n            str += '\\n%s: %s' % (postName, self._dict[postName])\n        return str",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_266",
-    "parent": "processed_documents/context_documents/393ed3f2_BulletinBoard.json",
-    "chunk_number": 4737
-  }
-}

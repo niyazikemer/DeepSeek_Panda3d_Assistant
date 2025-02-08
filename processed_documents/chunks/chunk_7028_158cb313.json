@@ -1,9 +1,0 @@
-{
-  "content": "Modulate mode\n\nThis is the default blend mode. In this mode, the top texture color is multiplied by the bottom texture color to produce the result. This means the resulting texture color will be darker (or at least, no brighter) than both of the original texture colors.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MModulate)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_modulate);\nsmiley.set_texture(ts, tex);\n\nNote that in this mode, an alpha cutout in the top texture produces an alpha cutout in the resulting image.\n\nAdd mode\n\nIn this mode, the top texture color is added to the bottom texture color, and clamped to 1 (white). This means the resulting texture color will be brighter (or at least, no darker) than both of the original texture colors.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MAdd)\nsmiley.setTexture(ts, tex)\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_569",
-    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
-    "chunk_number": 7028
-  }
-}

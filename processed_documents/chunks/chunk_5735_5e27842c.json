@@ -1,9 +1,0 @@
-{
-  "content": "def removeChildren(self):\n    \"\"\"Deprecated.  Deletes the children of the bottom node of a node path\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.removeChildren() is deprecated.  Use get_children().detach() instead.\", DeprecationWarning, stacklevel=2)\n    self.getChildren().detach()\nDtool_funcToMethod(removeChildren, NodePath)\ndel removeChildren\n#####################################################################\n\ndef toggleVis(self):\n    \"\"\"Deprecated.  Toggles visibility of a nodePath\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.toggleVis() is deprecated.  Use is_hidden(), show() and hide() instead.\", DeprecationWarning, stacklevel=2)\n    if self.isHidden():\n        self.show()\n        return 1\n    else:\n        self.hide()\n        return 0\nDtool_funcToMethod(toggleVis, NodePath)\ndel toggleVis\n#####################################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5735
-  }
-}

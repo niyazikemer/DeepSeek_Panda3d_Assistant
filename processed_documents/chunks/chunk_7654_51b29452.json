@@ -1,9 +1,0 @@
-{
-  "content": "In this case we have set the following limits:\n\nAngle of the cone opening in first direction (swing span 1)\n\nAngle of the cone opening in second direction (swing span 2)\n\nMaximum twist angle (twist)\n\nIn addition we could also add the following parameters: softness, bias factor, relaxation factor.\n\nWhich limits are available depends on the constraint type. Please refer to the API documentation.\n\nConstraint between one rigid body and the world\n\nAdding a constraint between a single body and a fixed point in the global world is similar to adding a constraint between two rigid bodies. The difference is that you pass only one body and one frame to the constructor of the constraint, for example like in the following snippet\n\npython\n\nframeA = TransformState.makePosHpr(Point3(0, 0, -5), Vec3(0, 0, -90))\n\ncs = BulletConeTwistConstraint(npA.node(), frameA)\nworld.attachConstraint(cs)\n\ncpp\n\nCPT(TransformState) frame_a = TransformState::make_pos_hpr(LPoint3(0, 0, -5), LVector3(0, 0, -90));",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_685",
-    "parent": "processed_documents/context_documents/57dfcc59_ec61c3af_constraints.json",
-    "chunk_number": 7654
-  }
-}

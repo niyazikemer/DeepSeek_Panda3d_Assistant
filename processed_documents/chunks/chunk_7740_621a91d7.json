@@ -1,9 +1,0 @@
-{
-  "content": "// Set terrain properties\nterrain.set_block_size(32);\nterrain.set_near(40);\nterrain.set_far(100);\nterrain.set_focal_point(camera);\n\n// Store the root NodePath for convenience\nNodePath root = terrain.get_root();\nroot.reparent_to(window->get_render());\nroot.set_sz(100);\n\n// Generate it.\nterrain.generate();\n\n// Add a task to keep updating the terrain\ntaskMgr->add(new GenericAsyncTask(\"Updates terrain\", &UpdateTerrain, nullptr));\n\n// And the task, outside main:\nAsyncTask::DoneStatus UpdateTerrain(GenericAsyncTask *task, void *data) {\n  terrain.update();\n  return AsyncTask::DS_cont;\n}",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_707",
-    "parent": "processed_documents/context_documents/6da47c38_34a01633_geometrical-mipmapping.json",
-    "chunk_number": 7740
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "To print the list of tasks currently running, simply print out taskMgr. Among your own tasks, you may see the following system tasks listed:\n\nThere also is graphical interface for managing tasks. This is very useful for having a look at the tasks while your application is running.\n\ntaskMgr.popupControls()\n\ncpp\n\nTo print the list of tasks currently running, simply call task_mgr->write(cout);.\n\nTask timing\n\npython\n\nTo see the specific timing information for each task when you print taskMgr, add the following line to your Config.prc file:\n\ntask-timer-verbose #t\n\n(see the-configuration-file for config syntax)\n\nExamples\n\npython\n\nuponDeath\n\ntaskAccumulator = 0\n\ndef cleanUp(task):\n    global taskAccumulator\n    print(\"Task func has accumulated %d\" % taskAccumulator)\n    # Reset the accumulator\n    taskAccumulator = 0\n\n# A task that runs forever\ndef taskFunc(task):\n    global taskAccumulator\n    taskAccumulator += 1\n    return task.cont\n\ndef taskStop(task):\n    taskMgr.remove('Accumulator')",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_499",
-    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
-    "chunk_number": 6516
-  }
-}

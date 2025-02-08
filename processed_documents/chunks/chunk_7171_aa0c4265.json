@@ -1,9 +1,0 @@
-{
-  "content": "Example shader\n\nA typical compute shader (GLSL) looks as follows. All that the shader does is copy the contents of one texture to another, except that it swaps two channels.\n\n#version 430\n\n// Set the number of invocations in the work group.\n// In this case, we operate on the image in 16x16 pixel tiles.\nlayout (local_size_x = 16, local_size_y = 16) in;\n\n// Declare the texture inputs\nuniform readonly image2D fromTex;\nuniform writeonly image2D toTex;\n\nvoid main() {\n  // Acquire the coordinates to the texel we are to process.\n  ivec2 texelCoords = ivec2(gl_GlobalInvocationID.xy);\n\n  // Read the pixel from the first texture.\n  vec4 pixel = imageLoad(fromTex, texelCoords);\n\n  // Swap the red and green channels.\n  pixel.rg = pixel.gr;\n\n  // Now write the modified pixel to the second texture.\n  imageStore(toTex, texelCoords, pixel);\n}\n\nThis page does not attempt to teach how to make GLSL compute shaders - please refer to the GLSL documentation for that information.\n\nLoading a compute shader",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_599",
-    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
-    "chunk_number": 7171
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "flush = self.needsFlush\n        self.needsFlush = set()\n        for client in flush:\n            client.connection.flush()\n\n        return Task.again\n\n    def setTcpHeaderSize(self, headerSize):\n        \"\"\"Sets the header size of TCP packets.  At the present, legal\n        values for this are 0, 2, or 4; this specifies the number of\n        bytes to use encode the datagram length at the start of each\n        TCP datagram.  Sender and receiver must independently agree on\n        this.\"\"\"\n        self.qcr.setTcpHeaderSize(headerSize)\n        self.cw.setTcpHeaderSize(headerSize)\n\n    def getTcpHeaderSize(self):\n        \"\"\"Returns the current setting of TCP header size. See\n        setTcpHeaderSize(). \"\"\"\n        return self.qcr.getTcpHeaderSize()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5170
-  }
-}

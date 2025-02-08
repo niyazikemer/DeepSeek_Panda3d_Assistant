@@ -1,9 +1,0 @@
-{
-  "content": "# Now create an offscreen buffer for rendering the mirror's point\n    # of view.  The parameters here control the resolution of the\n    # texture.\n    buffer = base.win.makeTextureBuffer(name, bufferSize, bufferSize)\n    if clearColor is None:\n        buffer.setClearColor(base.win.getClearColor())\n        #buffer.setClearColor(VBase4(0, 0, 1, 1))\n    else:\n        buffer.setClearColor(clearColor)\n\n    # Set up a display region on this buffer, and create a camera.\n    dr = buffer.makeDisplayRegion()\n    camera = Camera('mirrorCamera')\n    lens = PerspectiveLens()\n    lens.setFilmSize(width, height)\n    camera.setLens(lens)\n    cameraNP = planeNP.attachNewNode(camera)\n    dr.setCamera(cameraNP)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_285",
-    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
-    "chunk_number": 5030
-  }
-}

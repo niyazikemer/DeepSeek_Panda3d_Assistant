@@ -1,9 +1,0 @@
-{
-  "content": "def isUsed(self, item):\n        \"\"\"\n        Returns true if this item has already been checked out.\n        \"\"\"\n        return item in self.__used\n\n    def getNumItems(self):\n        \"\"\"\n        Returns the number of free items and the number of used items.\n        \"\"\"\n        return len(self.__free), len(self.__used)\n\n    def cleanup(self, cleanupFunc=None):\n        \"\"\"\n        Completely cleanup the pool and all of its objects.\n        cleanupFunc will be called on every free and used item.\n        \"\"\"\n        if cleanupFunc:\n            # Make a list of all the items first in case the act of\n            # calling cleanupFunc moves some from used to free.\n            allItems = self.__free + self.__used\n            for item in allItems:\n                cleanupFunc(item)\n        del self.__free\n        del self.__used\n\n    def __repr__(self):\n        return \"free = %s\\nused = %s\" % (self.__free, self.__used)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_274",
-    "parent": "processed_documents/context_documents/a48c79c0_Pool.json",
-    "chunk_number": 4782
-  }
-}

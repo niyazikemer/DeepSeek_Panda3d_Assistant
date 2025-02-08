@@ -1,9 +1,0 @@
-{
-  "content": "def exitRecording(self):\n        if self.scaleIval:\n            self.scaleIval.finish()\n\n    def enterUsing(self, args = []):\n        localAvatar.b_setGameState('Camera')\n        base.camera.setPosHpr(0,0,0,0,0,0)\n        base.camera.reparentTo(self)\n        self.hide()\n\n        base.cam.node().setLens(self.lens)\n\n        if args and args[0]:\n            self.accept('arrow_left', self.adjustFov, [-0.5,0])\n            self.accept('arrow_left-repeat', self.adjustFov, [-2,0])\n            self.accept('arrow_right', self.adjustFov, [0.5,0])\n            self.accept('arrow_right-repeat', self.adjustFov, [2,0])\n            self.accept('arrow_down', self.adjustFov, [0,-0.5])\n            self.accept('arrow_down-repeat', self.adjustFov, [0,-2])\n            self.accept('arrow_up', self.adjustFov, [0,0.5])\n            self.accept('arrow_up-repeat', self.adjustFov, [0,2])",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_329",
-    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
-    "chunk_number": 5631
-  }
-}

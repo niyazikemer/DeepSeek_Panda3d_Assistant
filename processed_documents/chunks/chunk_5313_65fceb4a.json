@@ -1,9 +1,0 @@
-{
-  "content": "#if not dcFile.allObjectsValid():\n        #    names = []\n        #    for i in range(dcFile.getNumTypedefs()):\n        #        td = dcFile.getTypedef(i)\n        #        if td.isBogusTypedef():\n        #            names.append(td.getName())\n        #    nameList = ', '.join(names)\n        #    self.notify.error(\"Undefined types in DC file: \" + nameList)\n\n        self.hashVal = dcFile.getHash()\n\n        # Now import all of the modules required by the DC file.\n        for n in range(dcFile.getNumImportModules()):\n            moduleName = dcFile.getImportModule(n)[:]\n\n            # Maybe the module name is represented as \"moduleName/AI\".\n            suffix = moduleName.split('/')\n            moduleName = suffix[0]\n            suffix=suffix[1:]\n            if self.dcSuffix in suffix:\n                moduleName += self.dcSuffix\n            elif self.dcSuffix == 'UD' and 'AI' in suffix: #HACK:\n                moduleName += 'AI'",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5313
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def printInterestSets(self):\n            print(\"******************* Interest Sets **************\")\n            format = '%6s %' + str(DoInterestManager._debug_maxDescriptionLen) + 's %11s %11s %8s %8s %8s'\n            print(format % (\n                \"Handle\", \"Description\",\n                \"ParentId\", \"ZoneIdList\",\n                \"State\", \"Context\",\n                \"Event\"))\n            for id, state in DoInterestManager._interests.items():\n                if len(state.events) == 0:\n                    event = ''\n                elif len(state.events) == 1:\n                    event = state.events[0]\n                else:\n                    event = state.events\n                print(format % (id, state.desc,\n                                state.parentId, state.zoneIdList,\n                                state.state, state.context,\n                                event))\n            print(\"************************************************\")",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5228
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "# if we have any pending children, add them\n        if token in self.pendingParentToken2children:\n            children = self.pendingParentToken2children[token]\n            del self.pendingParentToken2children[token]\n            for child in children:\n                # NOTE: We do a plain-old reparentTo here (non-wrt)\n                # under the assumption that the node has been\n                # positioned as if it is already under the new parent.\n                #\n                # The only case that I can think of where the parent\n                # node would not have been registered at the time of\n                # the reparent request is when we're entering a new\n                # zone and manifesting remote toons along with\n                # other distributed objects, and a remote toon is\n                # requesting to be parented to geometry owned by a\n                # distributed object that has not yet been manifested.\n                #",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_316",
-    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
-    "chunk_number": 5480
-  }
-}

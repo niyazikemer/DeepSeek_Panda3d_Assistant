@@ -1,9 +1,0 @@
-{
-  "content": "AsyncTask::DoneStatus update_scene(GenericAsyncTask* task, void* data) {\n    // Get dt (from Python example) and apply to do_physics(float, int, int);\n    ClockObject *co = ClockObject::get_global_clock();\n    get_physics_world()->do_physics(co->get_dt(), 10, 1.0 / 180.0);\n\n    return AsyncTask::DS_cont;\n}\n\nint main(int argc, char *argv[]) {\n    // All variables.\n    PandaFramework framework;\n    WindowFramework *window;\n    PT(AsyncTaskManager) task_mgr;\n\n    // Init everything :D\n    framework.open_framework(argc, argv);\n    framework.set_window_title(\"Bullet Physics\");\n\n    window = framework.open_window();\n    window->enable_keyboard();\n    window->setup_trackball();\n\n    task_mgr = AsyncTaskManager::get_global_ptr();\n\n    // Make physics simulation.\n    // Static world stuff.\n    get_physics_world()->set_gravity(0, 0, -9.8);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_603",
-    "parent": "processed_documents/context_documents/5e747db8_2c6507d0_debug-renderer.json",
-    "chunk_number": 7200
-  }
-}

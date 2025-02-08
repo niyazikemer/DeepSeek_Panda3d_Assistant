@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nfrom panda3d.core import GeomVertexFormat\nfrom panda3d.bulletimport BulletHelper\n\nfmt = GeomVertexFormat.getV3n3t2()\ngeom = BulletHelper.makeGeomFromFaces(bodyNode, fmt, True)\nbodyNode.linkGeom(geom)\nvisNode = GeomNode('')\nvisNode.addGeom(geom)\nvisNP = bodyNP.attachNewNode(visNode)\n\ncpp\n\nTODO\n\nThe third parameter to makeGeomFromFaces is set to True, making the created geometry be two-sided. If set to False we would get a one-sided geometry, which might be enough, depending on your requirements.\n\nSo far the generated geometry has no texture and no texture coordinates. But the texture has already a column for texcoords, so we just need to write texcoords using a GeomVertexRewriter. The following code shows a convenience method which will do this for us.\n\npython\n\ntex = loader.loadTexture('models/panda.jpg')\nvisNP.setTexture(tex)\nBulletHelper.makeTexcoordsForPatch(geom, resx, resy)\n\ncpp\n\nTODO",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_427",
-    "parent": "processed_documents/context_documents/7f01e2c4_8fed4065_softbody-patch.json",
-    "chunk_number": 6170
-  }
-}

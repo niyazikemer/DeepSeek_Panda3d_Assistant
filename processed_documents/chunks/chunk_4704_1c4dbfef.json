@@ -1,9 +1,0 @@
-{
-  "content": "#detailed profile, stored in base.stats under (\n                    if not hasattr(base, \"stats\"):\n                        base.stats = {}\n                    if not base.stats.get(name):\n                        base.stats[name] = []\n\n                    prof.runctx('f(*args, **kArgs)', {'f':f,'args':args,'kArgs':kArgs},None,\"t.prof\")\n                    s=pstats.Stats(\"t.prof\")\n                    #p=hotshot.Profile(\"t.prof\")\n                    #p.runctx('f(*args, **kArgs)', {'f':f,'args':args,'kArgs':kArgs},None)\n                    #s = hotshot.stats.load(\"t.prof\")\n                    s.strip_dirs()\n                    s.sort_stats(\"cumulative\")\n                    base.stats[name].append(s)\n\n            _profiled.__doc__ = f.__doc__\n            return _profiled\n        return profileDecorator",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4704
-  }
-}

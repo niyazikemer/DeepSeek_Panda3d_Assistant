@@ -1,9 +1,0 @@
-{
-  "content": "def __removePending(self, tuple, doIdsPending):\n        # Removes all the pending events for the doIdsPending list.\n        while len(doIdsPending) > 0:\n            # We pop doId's off the list instead of simply iterating\n            # through the list, so that we will shorten the list (and\n            # all other outstanding instances of the list) as we go.\n            doId = doIdsPending.pop()\n            pendingList = self.pendingObjects[doId]\n            pendingList.remove(tuple)\n            if len(pendingList) == 0:\n                del self.pendingObjects[doId]\n                self.__noListenFor(doId)\n\n\n    def __listenFor(self, doId):\n        # Start listening for the indicated object to be generated.\n        assert self.notify.debug(\"Now listening for generate from %s\" % (doId))\n        announceGenerateName = \"generate-%s\" % (doId)\n        self.acceptOnce(announceGenerateName, self.__generated)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_308",
-    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
-    "chunk_number": 5386
-  }
-}

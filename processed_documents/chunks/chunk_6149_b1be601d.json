@@ -1,9 +1,0 @@
-{
-  "content": "Now, you will need to call interrogate_module and generate an interrogate_module.cxx file based on your two files from the previous step:\n\ninterrogate_module -module test -library test -oc test_module.cxx -python-native test.in\n\nNote that you can also run interrogate with the -do-module option which will automatically make sure interrogate_module gets called too. However, this is the disadvantage that you cannot combine the result of multiple interrogate runs into a single module.\n\nCompile and link these C++ files together into a dynamic library. Instead of giving it the .dll extension, give it the .pyd extension, which will make it directly importable from Python. Note that the name of the library must be the same as the one passed to the -module option.\n\nYou can now put it on your Python path (or make sure it's in the same directory) and import it directly by the name of your library:\n\nfrom test import TestClass\n\nIf you get this error message:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_423",
-    "parent": "processed_documents/context_documents/2e2b4b89_ca6cf7a0_interrogate.json",
-    "chunk_number": 6149
-  }
-}

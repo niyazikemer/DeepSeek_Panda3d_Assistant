@@ -1,9 +1,0 @@
-{
-  "content": "def _installProfileCustomFuncs(filename):\n        assert filename not in profileFilenames\n        profileFilenames.add(filename)\n        profileFilenameList.push(filename)\n        movedOpenFuncs.append(builtins.open)\n        builtins.open = _profileOpen\n        movedDumpFuncs.append(marshal.dump)\n        marshal.dump = _profileMarshalDump\n        movedLoadFuncs.append(marshal.load)\n        marshal.load = _profileMarshalLoad\n\n    def _getProfileResultFileInfo(filename):\n        return (profileFilename2file.get(filename, None),\n                profileFilename2marshalData.get(filename, None))\n\n    def _setProfileResultsFileInfo(filename, info):\n        f, m = info\n        if f:\n            profileFilename2file[filename] = f\n        if m:\n            profileFilename2marshalData[filename] = m\n\n    def _clearProfileResultFileInfo(filename):\n        profileFilename2file.pop(filename, None)\n        profileFilename2marshalData.pop(filename, None)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4629
-  }
-}

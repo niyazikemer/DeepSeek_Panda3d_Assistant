@@ -1,9 +1,0 @@
-{
-  "content": "def suggestResync(self, avId, timestampA, timestampB,\n                      serverTimeSec, serverTimeUSec, uncertainty):\n        \"\"\"\n        This message is sent from one client to another when the other\n        client receives a timestamp from this client that is so far\n        out of date as to suggest that one or both clients needs to\n        resynchronize their clock information.\n        \"\"\"\n        serverTime = float(serverTimeSec) + float(serverTimeUSec) / 10000.0\n        result = self.peerToPeerResync(\n            avId, timestampA, serverTime, uncertainty)\n        if result >= 0 and \\\n           globalClockDelta.getUncertainty() is not None:\n            other = self.cr.doId2do.get(avId)\n            if not other:\n                assert self.notify.info(\n                    \"Warning: couldn't find the avatar %d\" % (avId))\n            elif hasattr(other, \"d_returnResync\") and \\\n                 hasattr(self.cr, 'localAvatarDoId'):",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5363
-  }
-}

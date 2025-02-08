@@ -1,9 +1,0 @@
-{
-  "content": "def getDoId(self):\n        \"\"\"\n        Return the distributed object id\n        \"\"\"\n        return self.doId\n\n    #This message was moved out of announce generate\n    #to avoid ordering issues.\n\n    def postGenerateMessage(self):\n        if self.activeState != ESGenerated:\n            self.activeState = ESGenerated\n            messenger.send(self.uniqueName(\"generate\"), [self])\n\n    def updateRequiredFields(self, dclass, di):\n        dclass.receiveUpdateBroadcastRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateAllRequiredFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateRequiredOtherFields(self, dclass, di):\n        # First, update the required fields\n        dclass.receiveUpdateBroadcastRequired(self, di)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5563
-  }
-}

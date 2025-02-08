@@ -1,9 +1,0 @@
-{
-  "content": "Doing this would really only make sense if you've asked the renderer to put something of interest into the auxiliary buffer. To do this, see AuxBitplaneAttrib.\n\nUsing Intermediate Stages\n\nThe setup shown above works for any filter that can be computed in one stage. However, for certain filters, you want to perform intermediate computations before putting the output into the window.\n\nThe method renderQuadInto creates a quad, and then causes that quad to be rendered into a texture. This is the classic intermediate processing step for image postprocessing. Using renderQuadInto, we can create a simple two-stage filter:\n\nmanager = FilterManager(base.win, base.cam)\ntex1 = Texture()\ntex2 = Texture()\nfinalquad = manager.renderSceneInto(colortex=tex1)\ninterquad = manager.renderQuadInto(colortex=tex2)\ninterquad.setShader(Shader.load(\"stage1.sha\"))\ninterquad.setShaderInput(\"tex1\", tex1)\nfinalquad.setShader(Shader.load(\"stage2.sha\"))\nfinalquad.setShaderInput(\"tex2\", tex2)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_392",
-    "parent": "processed_documents/context_documents/abbc8ed0_b80495da_generalized-image-filters.json",
-    "chunk_number": 6005
-  }
-}

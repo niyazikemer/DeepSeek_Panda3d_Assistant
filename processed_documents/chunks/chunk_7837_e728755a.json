@@ -1,9 +1,0 @@
-{
-  "content": "Before the solids in a \"from\" CollisionNode are tested for collisions with another CollisionNode or with a GeomNode, the collide masks are compared. Specifically, the \"from\" mask of the from object, and the \"into\" mask of the into object, are ANDed together. If the result is not zero--meaning the two masks have at least one bit in common--then the collision test is attempted; otherwise, the two objects are ignored.\n\nThe collide masks are represented using a .BitMask32 object, which is really just a 32-bit integer with some additional methods for getting and setting particular bits.\n\nYou can only set the from collide mask on a collision node, and you must set it directly on the node itself, not on the NodePath:\n\npython\n\nnodePath.node().setFromCollideMask(BitMask32(0x10))\n\ncpp\n\nnode_path.node()->set_from_collide_mask(BitMask32(0x10));",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_725",
-    "parent": "processed_documents/context_documents/8c4f78b1_4a8f1002_collision-bitmasks.json",
-    "chunk_number": 7837
-  }
-}

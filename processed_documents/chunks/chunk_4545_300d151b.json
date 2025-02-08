@@ -1,9 +1,0 @@
-{
-  "content": "def _resync(self):\n        if self._sync.isSynced(self._SyncMaster):\n            return\n        if hasattr(self, '_filteredPool'):\n            ExclusiveObjectPool.removeExclObjs(*self._filteredPool._getInternalObjs())\n            ExclusiveObjectPool.removeExclObjs(self._filteredPool)\n            del self._filteredPool\n        del self._postFilterObjs[:]\n        for obj in self._objects:\n            if id(obj) not in ExclusiveObjectPool._ExclObjIds:\n                self._postFilterObjs.append(obj)\n        self._filteredPool = ExclusiveObjectPool(self._postFilterObjs)\n        ExclusiveObjectPool.addExclObjs(self._filteredPool)\n        ExclusiveObjectPool.addExclObjs(*self._filteredPool._getInternalObjs())\n        self._sync.sync(self._SyncMaster)\n\n    def getObjsOfType(self, type):\n        self._resync()\n        return self._filteredPool.getObjsOfType(type)\n\n    def printObjsOfType(self, type):\n        self._resync()\n        return self._filteredPool.printObjsOfType(type)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_258",
-    "parent": "processed_documents/context_documents/edd88549_ObjectReport.json",
-    "chunk_number": 4545
-  }
-}

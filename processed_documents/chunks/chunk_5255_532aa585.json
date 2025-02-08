@@ -1,9 +1,0 @@
-{
-  "content": "def getGridSizeFromSphere(self, sphereRadius, spherePos, cellWidth, gridRadius):\n        # NOTE: This ensures that the grid is at least a \"gridRadius\" number\n        # of cells larger than the trigger sphere that loads the grid.  This\n        # gives us some room to start setting interest to the grid before we\n        # expect to see any objects on it.\n        xMax = abs(spherePos[0])+sphereRadius\n        yMax = abs(spherePos[1])+sphereRadius\n        sphereRadius = Vec3(xMax,yMax,0).length()\n\n        # sphereRadius = max(sphereRadius, gridRadius*cellWidth)\n        return max(2 * (sphereRadius // cellWidth), 1)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_298",
-    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
-    "chunk_number": 5255
-  }
-}

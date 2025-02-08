@@ -1,9 +1,0 @@
-{
-  "content": "Load the Animation\n\nwindow->load_model(actor, \"panda-walk\");\n\nBind the Model and the Animation\n\n// don't use PT or CPT with AnimControlCollection\nAnimControlCollection anim_collection;\n\n//bind the animations to the model\nauto_bind(actor.node(), anim_collection);\n\nControl the Animations\n\n// the name of an animation is preceded in the .egg file with <Bundle>:\n// loop a specific animation\nanim_collection.loop(\"panda_soft\", true);\n\n// loop all animations\nanim_collection.loop_all(true);\n\n// play an animation once:\nanim_collection.play(\"panda_soft\");\n\n// pose\nanim_collection.pose(\"panda_soft\", 5);\n\nto display names of loaded animations you could use:\n\nfor (int n = 0; n < anim_controls.get_num_anims(); ++n) {\n  std::cerr << anim_controls.get_anim_name(n) << std::endl;\n}\n\nIf you add more animations to some node after calling: auto_bind(...) they will not be controllable until auto_bind(...) is called again with proper arguments.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_694",
-    "parent": "processed_documents/context_documents/604afc7a_b9f103d9_loading-actors-and-animations.json",
-    "chunk_number": 7693
-  }
-}

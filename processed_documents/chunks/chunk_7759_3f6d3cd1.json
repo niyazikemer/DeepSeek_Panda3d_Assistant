@@ -1,9 +1,0 @@
-{
-  "content": "// Calls when the up arrow key is released\nframework->define_key(\"arrow_up-up\", \"spam and egg\", spamAndEggs, nullptr);\n\nNote\n\nWhen the Panda window is minimized or Panda3D loses focus, the \"-up\" event is sent for all currently held keys. Read this forum thread to learn more: https://discourse.panda3d.org/t/not-a-bug-solved-bug-with-up-events/4266\n\nModifier keys\n\nWhen a key is pressed while a modifier key is pressed, such as shift, control or alt, it is not sent in the usual way. Instead, the event name is modified by prepending the name of the modifier key to the event name, separated by a dash, in the order \"shift\", \"control\", \"alt\", for example:\n\n\"shift-a\" \"shift-control-alt-a\" \"shift-alt-a\"\n\nThese compound events don't send a \"time-\" event. If you need one, use the \"time-\" event sent by one of the keys in the combination.\n\nThe modifier compound events may optionally be turned off, in which case the \"a\" event and the \"shift\" event will be sent separately:\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_711",
-    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
-    "chunk_number": 7759
-  }
-}

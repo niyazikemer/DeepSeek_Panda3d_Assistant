@@ -1,9 +1,0 @@
-{
-  "content": "Special care however must be taken when creating a Python class that subclasses from a C++ class, as there are limitations to it.\n\nThe Theory\n\nThe C++ classes do not exactly exist in the Python namespace. They can't; they're C++ objects, not Python objects. Instead, for each C++ class that must be available through Python, a wrapper class that has the same name as the C++ class and all of the same methods has been created. When you call one of the methods on the Python wrapper, it turns around and calls the underlying C++ method of the same name. Thus, it looks like you're actually dealing directly with the C++ object, even though you're really dealing with a Python object.\n\nWhen you inherit from a C++ class, you are actually inheriting from the Python wrapper class. You can't actually inherit from the C++ class itself, since you're writing a Python class, not a C++ class.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_628",
-    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
-    "chunk_number": 7334
-  }
-}

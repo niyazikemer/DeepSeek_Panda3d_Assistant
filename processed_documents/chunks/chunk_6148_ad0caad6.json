@@ -1,9 +1,0 @@
-{
-  "content": "The Panda3D SDK provides a parser-inc directory that for many standard headers and definitions, as well as headers for the various thirdparty libraries that Panda3D relies on. However, it is always possible to create a custom parser-inc directory and add it to interrogate with the -S option.\n\nCreating Python bindings\n\nThere are a few steps involved in generating Python wrappers using interrogate.\n\nRun interrogate to parse the header files, which will generate a C++ source file and an .in file:\n\ninterrogate -module test -oc test_igate.cxx -od test.in -python-native test.h\n\nMost likely, you want to specify more flags to the interrogate command, like -string, -fnames, -refcount, or -assert. Consult the interrogate help file for more information about that (run interrogate with -h option)\n\nNow, you will need to call interrogate_module and generate an interrogate_module.cxx file based on your two files from the previous step:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_423",
-    "parent": "processed_documents/context_documents/2e2b4b89_ca6cf7a0_interrogate.json",
-    "chunk_number": 6148
-  }
-}

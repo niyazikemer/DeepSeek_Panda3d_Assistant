@@ -1,9 +1,0 @@
-{
-  "content": "def _getObject(self, id):\n        return self._id2object[id][1]\n\n    def _getObjects(self):\n        self.lock.acquire()\n        try:\n            objs = []\n            for refCount, obj in self._id2object.values():\n                objs.append(obj)\n            return objs\n        finally:\n            self.lock.release()\n\n    def _getNumListeners(self, event):\n        return len(self.__callbacks.get(event, {}))\n\n    def _getEvents(self):\n        return list(self.__callbacks.keys())\n\n    def _releaseObject(self, object):\n        # assumes lock is held.\n        id = self._getMessengerId(object)\n        if id in self._id2object:\n            record = self._id2object[id]\n            record[0] -= 1\n            if record[0] <= 0:\n                del self._id2object[id]\n\n    def future(self, event):\n        \"\"\" Returns a future that is triggered by the given event name.  This\n        will function only once. \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_286",
-    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
-    "chunk_number": 5041
-  }
-}

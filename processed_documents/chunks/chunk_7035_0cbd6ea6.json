@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MHeight)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_height);\nsmiley.set_texture(ts, tex);\n\nSince parallax mapping doesn't look very good without normal mapping, they are often used both together. As an optimization, most people prefer to store the height map into the alpha channel of the normal map. If you are using such a packed normal/height map, you need to use the MNormalHeight mode in Panda:\n\npython\n\n# The second parameter to loadTexture will be stored in the texture's alpha channel.\ntex = loader.loadTexture(\"normalmap.png\", \"heightmap.png\")\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MNormalHeight)\nsmiley.setTexture(ts, tex)\n\ncpp\n\n# The second parameter to load_texture will be stored in the texture's alpha channel.\nPT(Texture) tex = TexturePool::load_texture(\"normalmap.png\", \"heightmap.png\");",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_569",
-    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
-    "chunk_number": 7035
-  }
-}

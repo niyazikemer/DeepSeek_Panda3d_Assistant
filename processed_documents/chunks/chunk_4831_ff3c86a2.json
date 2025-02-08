@@ -1,9 +1,0 @@
-{
-  "content": "class ShadowCaster:\n    texXSize = 128\n    texYSize = 128\n\n    def __init__(self, lightPath, objectPath, filmX, filmY):\n        self.lightPath = lightPath\n        self.objectPath = objectPath\n        self.groundPath = None\n\n        # Create an offscreen buffer to render the view of the avatar\n        # into a texture.\n        self.buffer = base.win.makeTextureBuffer(\n            'shadowBuffer', self.texXSize, self.texYSize)\n\n        # The background of this buffer--and the border of the\n        # texture--is pure white.\n        clearColor = VBase4(1, 1, 1, 1)\n        self.buffer.setClearColor(clearColor)\n        self.tex = self.buffer.getTexture()\n        self.tex.setBorderColor(clearColor)\n        self.tex.setWrapU(Texture.WMBorderColor)\n        self.tex.setWrapV(Texture.WMBorderColor)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_282",
-    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
-    "chunk_number": 4831
-  }
-}

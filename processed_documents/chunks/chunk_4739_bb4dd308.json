@@ -1,9 +1,0 @@
-{
-  "content": "def bordercolors(root, colorName):\n    lightRGB = []\n    darkRGB = []\n    for value in Pmw.Color.name2rgb(root, colorName, 1):\n        value40pc = (14 * value) // 10\n        if value40pc > int(Pmw.Color._MAX_RGB):\n            value40pc = int(Pmw.Color._MAX_RGB)\n        valueHalfWhite = (int(Pmw.Color._MAX_RGB) + value) // 2\n        lightRGB.append(max(value40pc, valueHalfWhite))\n\n        darkValue = (60 * value) // 100\n        darkRGB.append(darkValue)\n\n    return (\n        '#%04x%04x%04x' % (lightRGB[0], lightRGB[1], lightRGB[2]),\n        '#%04x%04x%04x' % (darkRGB[0], darkRGB[1], darkRGB[2])\n    )\n\nPmw.Color.bordercolors = bordercolors\ndel bordercolors\n\n\ndef spawnTkLoop():\n    \"\"\"Alias for :meth:`base.spawnTkLoop() <.ShowBase.spawnTkLoop>`.\"\"\"\n    from direct.showbase import ShowBaseGlobal\n    ShowBaseGlobal.base.spawnTkLoop()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_267",
-    "parent": "processed_documents/context_documents/9e4614f0_TkGlobal.json",
-    "chunk_number": 4739
-  }
-}

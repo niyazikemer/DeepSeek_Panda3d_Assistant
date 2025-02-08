@@ -1,9 +1,0 @@
-{
-  "content": "if source and source[-1] != '\\n':\n            source = source + '\\n'\n        code = compile(source, filename.toOsSpecific(), 'exec')\n\n        # try to cache the compiled code\n        pycFilename = Filename(filename)\n        pycFilename.setExtension(compiledExtensions[0])\n        try:\n            f = open(pycFilename.toOsSpecific(), 'wb')\n        except IOError:\n            pass\n        else:\n            f.write(imp.get_magic())\n            f.write((self.timestamp & 0xffffffff).to_bytes(4, 'little'))\n            f.write(b'\\0\\0\\0\\0')\n            f.write(marshal.dumps(code))\n            f.close()\n\n        return code",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4339
-  }
-}

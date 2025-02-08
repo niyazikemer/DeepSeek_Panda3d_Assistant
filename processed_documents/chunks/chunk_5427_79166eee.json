@@ -1,9 +1,0 @@
-{
-  "content": "def handle(self, pickleData):\n        \"\"\"\n        Send pickleData from the net on the local netMessenger.\n        The internal data in pickleData should have a tuple of\n        (messageString, sendArgsList).\n        \"\"\"\n        assert self.notify.debugCall()\n        messageType=self.air.getMsgType()\n        if messageType:\n            message=MESSAGE_TYPES[messageType-1]\n            sentArgs=loads(pickleData)\n        else:\n            (message, sentArgs) = loads(pickleData)\n        Messenger.send(self, message, sentArgs=sentArgs)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_313",
-    "parent": "processed_documents/context_documents/9d0f4180_NetMessenger.json",
-    "chunk_number": 5427
-  }
-}

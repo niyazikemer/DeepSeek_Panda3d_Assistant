@@ -1,9 +1,0 @@
-{
-  "content": "def attachSoundToObject(self, sound, object):\n        \"\"\"\n        Sound will come from the location of the object it is attached to.\n        If the object is deleted, the sound will automatically be removed.\n        \"\"\"\n        # sound is an AudioSound\n        # object is any Panda object with coordinates\n        for known_object in list(self.sound_dict.keys()):\n            if self.sound_dict[known_object].count(sound):\n                # This sound is already attached to something\n                #return 0\n                # detach sound\n                self.sound_dict[known_object].remove(sound)\n                if len(self.sound_dict[known_object]) == 0:\n                    # if there are no other sounds, don't track\n                    # the object any more\n                    del self.sound_dict[known_object]\n\n        if object not in self.sound_dict:\n            self.sound_dict[WeakNodePath(object)] = []\n\n        self.sound_dict[object].append(sound)\n        return 1",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_255",
-    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
-    "chunk_number": 4461
-  }
-}

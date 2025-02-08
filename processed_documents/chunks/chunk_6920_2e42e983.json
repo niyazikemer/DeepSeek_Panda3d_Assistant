@@ -1,9 +1,0 @@
-{
-  "content": "Inspecting and Replacing Materials\n\nWhen loading a model from a file, it may be useful to dynamically inspect which materials are present. This is possible using methods provided on the NodePath object that represents the model to which the materials are applied.\n\npython\n\n# Find all materials\nmats = car.findAllMaterials()\n\n# Find a specific material by name (wildcards allowed)\nblue = car.findMaterial(\"blueMetal\")\n\n# Find all materials whose name end in Metal\ncoloredMetals = car.findAllMaterials(\"*Metal\")\n\ncpp\n\n// Find all materials\nMaterialCollection mats = car.find_all_materials();\n\n// Find a specific material by name (wildcards allowed)\nPT(Material) blue = car.find_material(\"blueMetal\");\n\n// Find all materials whose name end in Metal\nMaterialCollection colored_metals = car.find_all_materials(\"*Metal\");",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_549",
-    "parent": "processed_documents/context_documents/d6e133e8_bf37414e_materials.json",
-    "chunk_number": 6920
-  }
-}

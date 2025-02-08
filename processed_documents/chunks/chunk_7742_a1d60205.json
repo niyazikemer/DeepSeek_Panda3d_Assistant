@@ -1,9 +1,0 @@
-{
-  "content": "Next, for convenience, the terrain root is stored in a separate variable, which is scaled and placed in the scene graph. The terrain is then initially generated, and a task is created which calls terrain.update() <.GeoMipTerrain.update> every frame. This function calculates the new LOD levels based on the movement of the focal point and updates the chunks which have got a new LOD level.\n\nAdvanced Control\n\nThe GeoMipTerrain provides some advanced features over the terrain:\n\nMinimum Level\n\nYou can specify a minimum LOD level to GeoMipTerrain. You can do this if you find the terrain a bit too high quality near the focal point, and this could waste your performance. If you set a minimum LOD level, you can prevent this and force the chunks to have a minimum level of detail:\n\npython\n\nterrain.setMinLevel(2)\n\ncpp\n\nterrain.set_min_level(2);\n\nIf you make the value higher, it will decrease the quality level near the focal point.\n\nAutomatic Flattening",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_707",
-    "parent": "processed_documents/context_documents/6da47c38_34a01633_geometrical-mipmapping.json",
-    "chunk_number": 7742
-  }
-}

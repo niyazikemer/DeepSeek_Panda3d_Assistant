@@ -1,9 +1,0 @@
-{
-  "content": "def addInterest(self, zoneId, note=\"\", event=None):\n        return self.cr.addInterest(self.getDoId(), zoneId, note, event)\n\n    def removeInterest(self, handle, event=None):\n        return self.cr.removeInterest(handle, event)\n\n    def b_setLocation(self, parentId, zoneId):\n        self.d_setLocation(parentId, zoneId)\n        self.setLocation(parentId, zoneId)\n\n    def d_setLocation(self, parentId, zoneId):\n        self.cr.sendSetLocation(self.doId, parentId, zoneId)\n\n    def setLocation(self, parentId, zoneId):\n        self.cr.storeObjectLocation(self, parentId, zoneId)\n\n    def getLocation(self):\n        try:\n            if self.parentId == 0 and self.zoneId == 0:\n                return None\n            # This is a -1 stuffed into a uint32\n            if self.parentId == 0xffffffff and self.zoneId == 0xffffffff:\n                return None\n            return (self.parentId, self.zoneId)\n        except AttributeError:\n            return None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5571
-  }
-}

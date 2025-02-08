@@ -1,9 +1,0 @@
-{
-  "content": "To set the position and direction of an OdeRayGeom, you must call OdeRayGeom.set(Vec3(<position>), Vec3(<direction>)). The length of the direction vector is always set to the ray length specified during instantiation.\n\nA trimesh geometry allows you to create collision geometry of an arbitrary shape from a 3d model. However collision detection with a trimesh is the most expensive and might be unreliable, for most applications you are better off approximating the shape with another collision solid. To get the OdeTriMeshGeom from a model requires two steps:\n\npython\n\nmodelTrimesh = OdeTriMeshData(modelNodePath, True)\nmodelGeom = OdeTriMeshGeom(space, modelTrimesh)\n\ncpp\n\nPT(OdeTriMeshData) modelTrimesh = new OdeTriMeshData(modelNodePath, true);\nOdeTriMeshGeom modelGeom (space, modelTrimesh);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_624",
-    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
-    "chunk_number": 7306
-  }
-}

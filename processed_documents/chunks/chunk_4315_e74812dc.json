@@ -1,9 +1,0 @@
-{
-  "content": "def scheduleThread(self, thread):\n        assert self.notify.debugCall()\n        # pass in a TaskThread. TaskThreaded will take over ownership and\n        # cleanup responsibilities\n        thread._init(self)\n        thread.setUp()\n        if thread.isFinished():\n            thread._destroy()\n        else:\n            if not self.__threaded:\n                while not thread.isFinished():\n                    thread.run()\n                thread._destroy()\n            else:\n                assert not thread in self.__threads\n                self.__threads.add(thread)\n                taskName = ('%s-ThreadedTask-%s-%s' %\n                            (self.__name, thread.__class__.__name__,\n                             TaskThreaded._Serial.next()))\n                assert taskName not in self.__taskNames\n                self.__taskNames.add(taskName)\n                self.__threads.add(thread)\n                taskMgr.add(Functor(self._doThreadCallback, thread, taskName),",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_245",
-    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
-    "chunk_number": 4315
-  }
-}

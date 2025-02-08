@@ -1,9 +1,0 @@
-{
-  "content": "class Job(DirectObject):\n    \"\"\"Base class for cpu-intensive or non-time-critical operations that\n    are run through the :class:`.JobManager`.\n\n    To use, subclass and override the `run()` method.\n    \"\"\"\n\n    #: Yielded from the `run()` generator method when the job is done.\n    Done = object()\n\n    #: ``yield None`` is acceptable in place of ``yield Job.Continue``\n    Continue = None\n\n    #: Yield any remaining time for this job until next frame.\n    Sleep = object()\n\n    # These priorities determine how many timeslices a job gets relative to other\n    # jobs. A job with priority of 1000 will run 10 times more often than a job\n    # with priority of 100.\n    Priorities = ScratchPad(Min=1, Low=100, Normal=1000, High=10000)\n    _SerialGen = SerialNumGen()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_287",
-    "parent": "processed_documents/context_documents/c6235696_Job.json",
-    "chunk_number": 5075
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "First thing you should make sure is that your performance issue is indeed caused by too many polygons. Even though modern GPUs can render millions of polygons in realtime, they still can't render more than few hundred meshes (Geoms) at the same speed. So you won't have problem rendering 300 polygons as 1 Geom in realtime, but you will torture your GPU if you'll try to render 300 Geoms, even if each has a single polygon. There are few ways to find out the Geom count and many solutions for lowering it which are discussed in the appropriate page <too-many-meshes>. Another issue might be using too many polygons on animated meshes (Actors). When you play an animation, Panda or your GPU need to calculate the new position of each vertex associated with a joint, even though the GPU will render the mesh at the same speed, the calculations done for the animation can get expensive themselves. You can easily find out the time spent on skinning with PStats:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_629",
-    "parent": "processed_documents/context_documents/13580783_b1cf344d_too-many-polygons.json",
-    "chunk_number": 7343
-  }
-}

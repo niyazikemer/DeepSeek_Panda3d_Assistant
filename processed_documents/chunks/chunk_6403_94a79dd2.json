@@ -1,9 +1,0 @@
-{
-  "content": "geom = BulletHelper.makeGeomFromLinks(bodyNode)\n\nvisNode = GeomNode('')\nvisNode.addGeom(geom)\nvisNP = bodyNP.attachNewNode(visNode)\n\nbodyNode.linkGeom(geom)\n\ncpp\n\nTODO\n\nThe class BulletHelper has a convenience method which creates a ready-to-use Geom for us. We only need to wrap the Geom in a GeomNode, and insert it into the scene graph. Since we want the visualisation of the rope to be at the same place as the rope we insert the GeomNode as a child of the BulletSoftBodyNode.\n\nThere is just one thing missing. The GeomNode doesn't know that it is the visualization of a soft body rope. When advancing the simulation time the soft body rope will deform, but the visualization will always stay the way it has been created. To fix this we can tell the soft body node that this particular Geom is it's visualization. The soft body node will now update the Geom each frame. This is done in the last line, by linking the geom to the soft body node.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_470",
-    "parent": "processed_documents/context_documents/ff1adceb_3635e1a0_softbody-rope.json",
-    "chunk_number": 6403
-  }
-}

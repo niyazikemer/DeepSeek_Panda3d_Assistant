@@ -1,9 +1,0 @@
-{
-  "content": "if self.__dev__:\n            self.__setupProfile()\n\n        # If the aspect ratio is 0 or None, it means to infer the\n        # aspect ratio from the window size.\n        # If you need to know the actual aspect ratio call base.getAspectRatio()\n        self.__configAspectRatio = ConfigVariableDouble('aspect-ratio', 0).value\n        # This variable is used to see if the aspect ratio has changed when\n        # we get a window-event.\n        self.__oldAspectRatio: float | None = None\n\n        #: This is set to the value of the window-type config variable, but may\n        #: optionally be overridden in the Showbase constructor.  Should either\n        #: be 'onscreen' (the default), 'offscreen' or 'none'.\n        self.windowType = windowType\n        if self.windowType is None:\n            self.windowType = ConfigVariableString('window-type', 'onscreen').value\n        self.requireWindow = ConfigVariableBool('require-window', True).value",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4854
-  }
-}

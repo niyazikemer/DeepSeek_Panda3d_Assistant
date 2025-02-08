@@ -1,9 +1,0 @@
-{
-  "content": "def handleObjectLocation(self, di):\n        # CLIENT_OBJECT_LOCATION\n        doId = di.getUint32()\n        parentId = di.getUint32()\n        zoneId = di.getUint32()\n        obj = self.doId2do.get(doId)\n        if obj is not None:\n            self.notify.debug(\n                \"handleObjectLocation: doId: %s parentId: %s zoneId: %s\"%\n                (doId, parentId, zoneId))\n            # Let the object finish the job\n            # calls storeObjectLocation()\n            obj.setLocation(parentId, zoneId)\n        else:\n            self.notify.warning(\n                \"handleObjectLocation: Asked to update non-existent obj: %s\" % (doId))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_314",
-    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
-    "chunk_number": 5441
-  }
-}

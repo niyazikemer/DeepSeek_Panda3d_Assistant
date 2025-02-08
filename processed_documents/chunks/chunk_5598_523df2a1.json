@@ -1,9 +1,0 @@
-{
-  "content": "if deferrable:\n                    self.lastGenerate = ClockObject.getGlobalClock().getFrameTime()\n\n                for dg, di in updates:\n                    # non-DC updates that need to be played back in-order are\n                    # stored as (msgType, (dg, di))\n                    if isinstance(di, tuple):\n                        msgType = dg\n                        dg, di = di\n                        self.replayDeferredGenerate(msgType, (dg, di))\n                    else:\n                        # ovUpdated is set to True since its OV\n                        # is assumbed to have occured when the\n                        # deferred update was originally received\n                        self.__doUpdate(doId, di, True)\n        else:\n            self.notify.warning(\"Ignoring deferred message %s\" % (msgType))\n\n    def doDeferredGenerate(self, task):\n        \"\"\" This is the task that generates an object on the deferred\n        queue. \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5598
-  }
-}

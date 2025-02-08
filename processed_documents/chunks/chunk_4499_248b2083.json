@@ -1,9 +1,0 @@
-{
-  "content": "# grab the next start ref from this sequence and see if it's still valid\n                    while True:\n                        yield None\n                        try:\n                            curObjRef = next(startRefWorkingList.refGen)\n                            break\n                        except StopIteration:\n                            # we've run out of refs, grab a new set\n                            if len(startRefWorkingList.source) == 0:\n                                # ref set is empty, choose another\n                                break\n                            # make a generator that yields containers a # of times that is\n                            # proportional to their length\n                            for fw in makeFlywheelGen(\n                                    list(startRefWorkingList.source.values()),\n                                    countFunc=lambda x: self.getStartObjAffinity(x),",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4499
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "# We can change this position at will to change the angle of the\n    # sun.\n    lightPath.setPos(50, 0, 50)\n\n    # We need a task to keep the shadowCamera rotated in the same\n    # direction relative to render (otherwise, the shadow seems to\n    # rotate when you rotate your avatar, which is strange).  We can't\n    # just use a compass effect, since that doesn't work on cameras.\n    def shadowCameraRotate(task, shadowCamera = shadowCamera):\n        shadowCamera.setHpr(render, 0, 0, 0)\n        lightPath.lookAt(shadowCamera, 0, 0, 3)\n        return Task.cont\n\n    taskMgr.remove('shadowCamera')\n    taskMgr.add(shadowCameraRotate, 'shadowCamera')\n\n    global sc\n    if sc is not None:\n        sc.clear()\n\n    sc = ShadowCaster(lightPath, objectPath, 100, 100)\n\n    # Naively, just apply the shadow to everything in the world.  It\n    # would probably be better to use a little restraint.\n    sc.setGround(render)\n\n    return sc",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_282",
-    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
-    "chunk_number": 4839
-  }
-}

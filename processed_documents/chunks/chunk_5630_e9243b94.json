@@ -1,9 +1,0 @@
-{
-  "content": "def enterOff(self):\n        self.ignore('recordingInProgress')\n\n        if self.scaleIval:\n            self.scaleIval.finish()\n            self.scaleIval = None\n\n        self.hide()\n\n    def enterStandby(self):\n        self.show()\n        if self.id == _camera_id.value:\n            self.setColorScale(3,0,0,1)\n            self.getScaleIval().loop()\n        else:\n            self.setColorScale(3,3,0,1)\n            self.getScaleIval().finish()\n\n    def enterBlinking(self):\n        self.show()\n        self.setColorScale(0,3,0,1)\n        self.getScaleIval().loop()\n\n    def exitBlinking(self):\n        if self.scaleIval:\n            self.scaleIval.finish()\n\n    def enterRecording(self):\n        if _camera_id.value == self.id:\n            self.demand('Using')\n        else:\n            self.show()\n            self.setColorScale(3,0,0,1)\n            self.getScaleIval().loop()\n\n    def exitRecording(self):\n        if self.scaleIval:\n            self.scaleIval.finish()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_329",
-    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
-    "chunk_number": 5630
-  }
-}

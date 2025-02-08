@@ -1,9 +1,0 @@
-{
-  "content": "Here is a basic shader code example, it applies a simple black and white effect:\n\n//Cg\n\nvoid vshader(\n    float4 vtx_position : POSITION,\n    float2 vtx_texcoord0 : TEXCOORD0,\n    out float4 l_position : POSITION,\n    out float2 l_texcoord0 : TEXCOORD0,\n    uniform float4 texpad_tex,\n    uniform float4x4 mat_modelproj)\n{\n    l_position=mul(mat_modelproj, vtx_position);\n    l_texcoord0 = vtx_position.xz * texpad_tex.xy + texpad_tex.xy;\n}\n\nvoid fshader(float2 l_texcoord0 : TEXCOORD0,\n             out float4 o_color : COLOR,\n             uniform sampler2D k_tex : TEXUNIT0)\n{\n    float4 c = tex2D(k_tex, l_texcoord0);\n\n    // To have a useless filter that outputs the original view\n    // without changing anything, just use :\n    //o_color  = c;\n\n    // basic black and white effet\n    float moyenne = (c.x + c.y + c.z)/3;\n    o_color = float4(moyenne, moyenne, moyenne, 1);\n}\n\nExtracting More Information from the Scene",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_392",
-    "parent": "processed_documents/context_documents/abbc8ed0_b80495da_generalized-image-filters.json",
-    "chunk_number": 6003
-  }
-}

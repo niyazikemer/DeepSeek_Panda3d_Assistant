@@ -1,9 +1,0 @@
-{
-  "content": "HDR Tone Mapping\n\nNote\n\nFor a more advanced way to apply High Dynamic Range rendering, see the HDR postprocessing filter described in common-image-filters.\n\nIn HDR tone mapping, the first clamp is removed entirely, and the second one is replaced with the tone mapping operator. The tone mapping operator maps brightness values in the range 0-infinity to new brightness values in the range 0-1, however, it does so without clamping. To turn on HDR tone mapping, use one of the following:\n\npython\n\nnp.setAttrib(LightRampAttrib.makeHdr0())\nnp.setAttrib(LightRampAttrib.makeHdr1())\nnp.setAttrib(LightRampAttrib.makeHdr2())\n\ncpp\n\nnp.set_attrib(LightRampAttrib::make_hdr0());\nnp.set_attrib(LightRampAttrib::make_hdr1());\nnp.set_attrib(LightRampAttrib::make_hdr2());\n\nThe HDR2 tone mapping operator is a familiar operator that is used in many systems. It has the downside that it tends to reduce contrast a lot:\n\nFINAL_RGB = (RGB) / (RGB + 1)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_539",
-    "parent": "processed_documents/context_documents/173324ae_13bf8ef2_light-ramps.json",
-    "chunk_number": 6689
-  }
-}

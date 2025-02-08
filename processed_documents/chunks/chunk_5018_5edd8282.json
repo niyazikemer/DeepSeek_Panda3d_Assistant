@@ -1,9 +1,0 @@
-{
-  "content": "if self.wantDirect == fWantDirect:\n            return\n\n        self.wantDirect = fWantDirect\n\n        if self.wantDirect:\n            # Use importlib to prevent this import from being picked up\n            # by modulefinder when packaging an application.\n            DirectSession = importlib.import_module('direct.directtools.DirectSession')\n            self.direct = DirectSession.DirectSession()\n            self.direct.enable()\n            builtins.direct = self.direct\n        else:\n            builtins.direct = self.direct = None\n\n    def getRepository(self):\n        return None\n\n    def getAxes(self):\n        \"\"\"\n        Loads and returns the ``models/misc/xyzAxis.bam`` model.\n\n        :rtype: panda3d.core.NodePath\n        \"\"\"\n        return self.loader.loadModel(\"models/misc/xyzAxis.bam\")\n\n    def __doStartDirect(self):\n        if self.__directStarted:\n            return\n        self.__directStarted = False",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5018
-  }
-}

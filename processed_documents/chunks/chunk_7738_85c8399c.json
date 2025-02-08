@@ -1,9 +1,0 @@
-{
-  "content": "The set_bruteforce(True) <.GeoMipTerrain.set_bruteforce> call sets the terrain to bruteforce rendering -- this means that the terrain is created at the highest quality (the lowest detail level), and LOD is not applied. In the next section we will explain how to set a LOD level and a Focal Point. The ~.GeoMipTerrain.get_root() call returns the NodePath of the terrain. It is then reparented to render to be a part of the scene graph. You can apply common-state-changes to this NodePath. Finally, the ~.GeoMipTerrain.generate() call generates the terrain geometry. Note that if the terrain is still quite flat, you will have to scale the terrain NodePath in the Z direction, because by default, the Z positions are between 0 and 1. To fix this, scale the terrain up in the Z direction (before generating it, otherwise it might require you to regenerate it):\n\npython\n\nterrain.getRoot().setSz(100)\n\ncpp\n\nterrain.get_root().set_sz(100);\n\nDynamic Terrains",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_707",
-    "parent": "processed_documents/context_documents/6da47c38_34a01633_geometrical-mipmapping.json",
-    "chunk_number": 7738
-  }
-}

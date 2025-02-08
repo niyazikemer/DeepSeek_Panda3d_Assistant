@@ -1,9 +1,0 @@
-{
-  "content": "The problem is that everything that happens within one frame is deemed to happen at the same time. This is the \"frame time\" of the clock object--it is the time as of the start of the frame, and everything you do within that frame is deemed to have happened at the \"frame time\".\n\nThis is usually a good thing, because it makes the simulation internally consistent. Frames are atomic. If you start five animations in a row with five different calls to actor.start(), you want them all to have \"started\" at the exact same time, not within a few milliseconds of each other. If you start an interval, you also want it to have started at the same time as every other atomic operation in that frame.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_459",
-    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
-    "chunk_number": 6338
-  }
-}

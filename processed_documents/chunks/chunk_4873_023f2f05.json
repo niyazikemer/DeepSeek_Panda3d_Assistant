@@ -1,9 +1,0 @@
-{
-  "content": "# optionally restore the default gui sounds from 1.7.2 and earlier\n        if ConfigVariableBool('orig-gui-sounds', False).value:\n            from direct.gui import DirectGuiGlobals as DGG\n            DGG.setDefaultClickSound(self.loader.loadSfx(\"audio/sfx/GUI_click.wav\"))\n            DGG.setDefaultRolloverSound(self.loader.loadSfx(\"audio/sfx/GUI_rollover.wav\"))\n\n        # Create a private DirectObject - allowing base.accept for window-event\n        # as well as allowing ShowBase's default handling of this.\n        self.__directObject = DirectObject.DirectObject()\n\n        # Now hang a hook on the window-event from Panda.  This allows\n        # us to detect when the user resizes, minimizes, or closes the\n        # main window.\n        self.__prevWindowProperties: WindowProperties | None = None\n        self.__directObject.accept('window-event', self.windowEvent)\n\n        # Transition effects (fade, iris, etc)\n        from . import Transitions",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4873
-  }
-}

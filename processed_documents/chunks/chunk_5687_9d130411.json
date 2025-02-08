@@ -1,9 +1,0 @@
-{
-  "content": "self._DOAI_requestedDelete = False\n\n                self.releaseZoneData()\n\n                # Clean up all the pending barriers.\n                for barrier in self.__barriers.values():\n                    barrier.cleanup()\n                self.__barriers = {}\n\n                # DCR: I've re-enabled this block of code so that Toontown's\n                # AI won't leak channels.\n                # Let me know if it causes trouble.\n                ### Asad: As per Roger's suggestion, turn off the following\n                ### block until a solution is thought out of how to prevent\n                ### this delete message or to handle this message better\n                # TODO: do we still need this check?\n                if not getattr(self, \"doNotDeallocateChannel\", False):\n                    if self.air:\n                        self.air.deallocateChannel(self.doId)\n                self.air = None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5687
-  }
-}

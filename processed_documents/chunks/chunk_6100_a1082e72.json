@@ -1,9 +1,0 @@
-{
-  "content": "blob: String but arbitrary byte sequence usually not intended for print or something encoded that is too complicated for the normal dc system\n\nStructures can also be identified as well.\n\nHint on floats: There only exists float64. For single precision floating point numbers you can use integers like:\n\nint16 foo/100\n\nTo conserve bandwidth when passing small float values it is possible to convert them into ints by multiplying them by the given value and dividing them again. int16 / 10 gives single-point precision for values between -3276.7 to 3276.7. int16 / 100 will give two-point precision for values between -327.67 and 327.67.\n\nStructs\n\nstruct BarrierData {\n  uint16 context;\n  string name;\n  uint32 avIds[];\n};",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_411",
-    "parent": "processed_documents/context_documents/c7129d08_ae3cc5ca_dc-definition-files.json",
-    "chunk_number": 6100
-  }
-}

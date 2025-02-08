@@ -1,9 +1,0 @@
-{
-  "content": "// Find all materials whose name end in Metal\nMaterialCollection colored_metals = car.find_all_materials(\"*Metal\");\n\nIn some cases, you may want to replace a material with a different one. An easy way to set the material for a node is just to apply it with an override value, meaning it takes precedence over a material applied to any node below it:\n\npython\n\nred = Material()\n#...set up red material\ncar.setMaterial(red, 1)\n\ncpp\n\nPT(Material) red = new Material;\n//...set up red material\ncar.set_material(red, 1);\n\nHowever, this will set the material on all parts of the model. In this case, it will also give the wheels the same red metal look! As of Panda3D 1.10, there is an easy way to replace all instances of a specific material only:\n\npython\n\nblue = car.findMaterial(\"blueMetal\")\nred = Material()\n#...set up red material\n\ncar.replaceMaterial(blue, red)\n\ncpp\n\nPT(Material) blue = car.find_material(\"blueMetal\");\nPT(Material) red = new Material;\n//...set up red material",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_549",
-    "parent": "processed_documents/context_documents/d6e133e8_bf37414e_materials.json",
-    "chunk_number": 6921
-  }
-}

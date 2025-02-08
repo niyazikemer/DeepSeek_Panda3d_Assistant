@@ -1,9 +1,0 @@
-{
-  "content": "class SceneGraphLeakDetector(LeakDetector):\n    # is a scene graph leaking nodes?\n    def __init__(self, render):\n        LeakDetector.__init__(self)\n        self._render = render\n        if ConfigVariableBool('leak-scene-graph', False):\n            self._leakTaskName = 'leakNodes-%s' % serialNum()\n            self._leakNode()\n\n    def destroy(self):\n        if hasattr(self, '_leakTaskName'):\n            taskMgr.remove(self._leakTaskName)\n        del self._render\n        LeakDetector.destroy(self)\n\n    def __len__(self):\n        return self._render.countNumDescendants()\n\n    def __repr__(self):\n        return 'SceneGraphLeakDetector(%s)' % self._render\n\n    def _leakNode(self, task=None):\n        self._render.attachNewNode('leakNode-%s' % serialNum())\n        taskMgr.doMethodLater(10, self._leakNode, self._leakTaskName)\n\n\nclass CppMemoryUsage(LeakDetector):\n    def __len__(self):\n        return MemoryUsage.getCurrentCppSize()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_269",
-    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
-    "chunk_number": 4747
-  }
-}

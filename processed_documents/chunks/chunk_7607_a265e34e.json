@@ -1,9 +1,0 @@
-{
-  "content": "This code creates a multifile and adds an encrypted file to it:\n\npython\n\nm = Multifile()\nm.openReadWrite(\"foo.mf\")\nm.setEncryptionFlag(True)\nm.setEncryptionPassword(\"foobar\")\n\n# Add a new file to the multifile\nm.addSubfile(\"bar.txt\", Filename(\"/tmp/bar.txt\"), 1)\nm.flush()\nm.close()\n\ncpp\n\nPT(Multifile) m = new Multifile;\nm->open_read_write(\"foo.mf\");\nm->set_encryption_flag(true);\nm->set_encryption_password(\"foobar\");\n\n// Add a new file to the multifile\nm->add_subfile(\"bar.txt\", Filename(\"/tmp/bar.txt\"), 1);\nm->flush();\nm->close();\n\nYou can read encrypted multifiles the same way:\n\npython\n\nm = Multifile()\nm.openRead(\"foo.mf\")\nm.setEncryptionFlag(True)\nm.setEncryptionPassword(\"foobar\")\n# Prints the contents of the multifile\nprint(m.readSubfile(\"bar.txt\"))\n\ncpp\n\nPT(Multifile) m = new Multifile;\nm->open_read(\"foo.mf\");\nm->set_encryption_flag(True);\nm->set_encryption_password(\"foobar\");\n// Prints the contents of the multifile\nstd::cout << m->read_subfile(\"bar.txt\");",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_675",
-    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
-    "chunk_number": 7607
-  }
-}

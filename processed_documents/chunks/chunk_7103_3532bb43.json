@@ -1,9 +1,0 @@
-{
-  "content": "# Plane\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\nworld.attachRigidBody(node)\n\n# Box\nshape = BulletBoxShape(Vec3(0.5, 0.5, 0.5))\nnode = BulletRigidBodyNode('Box')\nnode.setMass(1.0)\nnode.addShape(shape)\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, 2)\nworld.attachRigidBody(node)\nmodel = loader.loadModel('models/box.egg')\nmodel.flattenLight()\nmodel.reparentTo(np)\n\n# Update\ndef update(task):\n    dt = globalClock.getDt()\n    world.doPhysics(dt)\n    return task.cont\n\ntaskMgr.add(update, 'update')\nbase.run()\n\ncpp\n\n// Bullet Physics Example.\n// The following example is done from Python sources, Panda Reference and Panda Manual,\n// for more information, visit Panda3D and/or Bullet physics web site.\n\n// Compiling and Linking documentation and notes are not\n// covered in this file, check manual for more information.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_584",
-    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
-    "chunk_number": 7103
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "# The RelatedObjectMgr helps distributed objects find each\n        # other.\n        self.relatedObjectMgr = RelatedObjectMgr.RelatedObjectMgr(self)\n\n        # This will be filled in when a TimeManager is created.\n        self.timeManager = None\n\n        # Keep track of how recently we last sent a heartbeat message.\n        # We want to keep these coming at heartbeatInterval seconds.\n        self.heartbeatInterval = ConfigVariableDouble('heartbeat-interval', 10).value\n        self.heartbeatStarted = 0\n        self.lastHeartbeat = 0\n\n        self._delayDeletedDOs = {}\n\n        self.specialNameNumber = 0\n\n    def setDeferInterval(self, deferInterval):\n        \"\"\"Specifies the minimum amount of time, in seconds, that must\n        elapse before generating any two DistributedObjects whose\n        class type is marked \"deferrable\".  Set this to 0 to indicate\n        no deferring will occur.\"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5592
-  }
-}

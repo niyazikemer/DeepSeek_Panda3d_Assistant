@@ -1,9 +1,0 @@
-{
-  "content": "#print 'setComponentTLive: %s' % timestamp\n\n        if timestamp is None:\n            # if no timestamp, re-use the most recent timestamp to keep things\n            # from getting out of order\n            if self.smoother.hasMostRecentTimestamp():\n                self.smoother.setTimestamp(self.smoother.getMostRecentTimestamp())\n            else:\n                # no most-recent timestamp, use current time\n                self.smoother.setPhonyTimestamp()\n            self.smoother.markPosition()\n        else:\n            globalClock = ClockObject.getGlobalClock()\n            now = globalClock.getFrameTime()\n            local = globalClockDelta.networkToLocalTime(timestamp, now)\n            realTime = globalClock.getRealTime()\n            chug = realTime - now",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5356
-  }
-}

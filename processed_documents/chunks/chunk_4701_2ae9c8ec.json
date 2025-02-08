@@ -1,9 +1,0 @@
-{
-  "content": "index2objectAndCount[key][1] -= 1\n                if index2objectAndCount[key][1] <= 0:\n                    del index2objectAndCount[key]\n    # if we were not given a list of counts, create it by calling countFunc\n    if countList is None:\n        countList = []\n        for object in objects:\n            yield None\n            countList.append(countFunc(object))\n    if scale is not None:\n        # scale the counts if we've got a scale factor\n        for i in range(len(countList)):\n            yield None\n            if countList[i] > 0:\n                countList[i] = max(1, int(countList[i] * scale))\n    # create a dict for the flywheel to use during its iteration to efficiently select\n    # the objects for the sequence\n    index2objectAndCount = {}\n    for i in range(len(countList)):\n        yield None\n        index2objectAndCount[i] = [objects[i], countList[i]]\n    # create the flywheel generator\n    yield flywheel(index2objectAndCount)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4701
-  }
-}

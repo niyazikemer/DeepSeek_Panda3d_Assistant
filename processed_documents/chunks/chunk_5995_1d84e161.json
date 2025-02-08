@@ -1,9 +1,0 @@
-{
-  "content": "self.pursuer.loop(\"run\")\n\n    def setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"pursuer\",self.pursuer, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        self.AIbehaviors.pursue(self.target)\n\n        # Obstacle avoidance\n        self.AIbehaviors.obstacleAvoidance(1.0)\n        self.AIworld.addObstacle(self.obstacle1)\n        self.AIworld.addObstacle(self.obstacle2)\n\n        #AI World update\n        taskMgr.add(self.AIUpdate,\"AIUpdate\")\n\n    #to update the AIWorld\n    def AIUpdate(self,task):\n        self.AIworld.update()\n        return Task.cont",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_389",
-    "parent": "processed_documents/context_documents/a961692e_828c2d57_obstacle-avoidance.json",
-    "chunk_number": 5995
-  }
-}

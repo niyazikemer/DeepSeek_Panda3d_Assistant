@@ -1,9 +1,0 @@
-{
-  "content": "Bullet Samples\n\nLearning the Bullet module is best done by looking at working samples. A bunch of tutorials can be downloaded from the following link. The samples include all models and textures.\n\nhttps://www.panda3d.org/download/noversion/bullet-samples.zip\n\nMore samples contributed by various users follow below here:\n\nStack of cubes falling on top of each other:\n\npython\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import Vec3\nfrom panda3d.bullet import BulletWorld\nfrom panda3d.bullet import BulletPlaneShape\nfrom panda3d.bullet import BulletRigidBodyNode\nfrom panda3d.bullet import BulletBoxShape\n\nbase.cam.setPos(10, -30, 20)\nbase.cam.lookAt(0, 0, 5)\n\n# World\nworld = BulletWorld()\nworld.setGravity(Vec3(0, 0, -9.81))\n\n# Plane\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\nworld.attachRigidBody(node)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_413",
-    "parent": "processed_documents/context_documents/6d8fd728_3ccbd432_samples.json",
-    "chunk_number": 6105
-  }
-}

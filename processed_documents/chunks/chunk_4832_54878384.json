@@ -1,9 +1,0 @@
-{
-  "content": "# Set up a display region on this buffer, and create a camera.\n        dr = self.buffer.makeDisplayRegion()\n        self.camera = Camera('shadowCamera')\n        self.cameraPath = self.lightPath.attachNewNode(self.camera)\n        self.camera.setScene(self.objectPath)\n        dr.setCamera(self.cameraPath)\n\n        # Use a temporary NodePath to define the initial state for the\n        # camera.  The initial state will render everything in a\n        # flat-shaded gray, as if it were a shadow.\n        initial = NodePath('initial')\n        initial.setColor(0.6, 0.6, 0.6, 1, 1)\n        initial.setTextureOff(2)\n        initial.setLightOff(2)\n        self.camera.setInitialState(initial.getState())",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_282",
-    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
-    "chunk_number": 4832
-  }
-}

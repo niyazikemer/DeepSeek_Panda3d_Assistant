@@ -1,9 +1,0 @@
-{
-  "content": "To generalize that a bit, although render-to-texture is usually done with a hidden window (class .GraphicsBuffer), it can also be done with a visible window (class .GraphicsWindow). You can transfer the contents of any window, hidden or not, into a texture. That's potentially useful - for example, you can transfer the contents of the main window into a texture, which you can then use when rendering the next frame. This can be used to create accumulation-buffer-like effects without an accumulation buffer.\n\nThe Simple API\n\nHere is a short snippet of code that creates a hidden window, creates a camera that renders into that window, and creates a scene graph for that camera:\n\npython\n\nmybuffer = base.win.makeTextureBuffer(\"My Buffer\", 512, 512)\nmytexture = mybuffer.getTexture()\nmybuffer.setSort(-100)\nmycamera = base.makeCamera(mybuffer)\nmyscene = NodePath(\"My Scene\")\nmycamera.reparentTo(myscene)\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_681",
-    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
-    "chunk_number": 7632
-  }
-}

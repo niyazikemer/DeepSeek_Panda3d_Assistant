@@ -1,9 +1,0 @@
-{
-  "content": "class FrameDelayedCall:\n    \"\"\" calls a func after N frames \"\"\"\n\n    def __init__(self, name, callback, frames=None, cancelFunc=None):\n        # checkFunc is optional; called every frame, if returns True, FrameDelay is cancelled\n        # and callback is not called\n        if frames is None:\n            frames = 1\n        self._name = name\n        self._frames = frames\n        self._callback = callback\n        self._cancelFunc = cancelFunc\n        self._taskName = uniqueName('%s-%s' % (self.__class__.__name__, self._name))\n        self._finished = False\n        self._startTask()\n\n    def destroy(self):\n        self._finished = True\n        self._stopTask()\n\n    def finish(self):\n        if not self._finished:\n            self._finished = True\n            self._callback()\n        self.destroy()\n\n    def _startTask(self):\n        taskMgr.add(self._frameTask, self._taskName)\n        self._counter = 0\n\n    def _stopTask(self):\n        taskMgr.remove(self._taskName)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4677
-  }
-}

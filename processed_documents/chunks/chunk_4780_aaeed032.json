@@ -1,9 +1,0 @@
-{
-  "content": "class Pool:\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"Pool\")\n\n    def __init__(self, free=None):\n        if free:\n            self.__free = free\n        else:\n            self.__free = []\n        self.__used = []\n\n    def add(self, item):\n        \"\"\"\n        Add an item to the free list.\n        \"\"\"\n        self.__free.append(item)\n\n    def remove(self, item):\n        \"\"\"\n        Remove an item. Error is flagged if the item is not in the pool.\n        \"\"\"\n        if item in self.__free:\n            self.__free.remove(item)\n        elif item in self.__used:\n            self.__used.remove(item)\n        else:\n            self.notify.error(\"item not in pool\")\n\n    def checkout(self):\n        \"\"\"\n        Get an arbitrary item from the pool.\n        \"\"\"\n        if not self.__free:\n            self.notify.error(\"no items are free\")\n        item = self.__free.pop()\n        self.__used.append(item)\n        return item",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_274",
-    "parent": "processed_documents/context_documents/a48c79c0_Pool.json",
-    "chunk_number": 4780
-  }
-}

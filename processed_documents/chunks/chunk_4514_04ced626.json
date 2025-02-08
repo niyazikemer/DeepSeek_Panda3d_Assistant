@@ -1,9 +1,0 @@
-{
-  "content": "if self.notify.getDebug():\n                        for contName in self._leakDetector.getContainerNameByIdGen(objId):\n                            yield None\n                        self.notify.debug(\n                            '%s is no longer a container, it is now %s (%s)' %\n                            (contName, safeRepr(container), e))\n                    self._leakDetector.removeContainerById(objId)\n                    continue\n                self._leakDetector._index2containerId2len[self._index][objId] = cLen\n            # compare the current len of each container to past lens\n            if self._index > 0:\n                idx2id2len = self._leakDetector._index2containerId2len\n                for objId in idx2id2len[self._index]:\n                    yield None\n                    if objId in idx2id2len[self._index-1]:\n                        diff = idx2id2len[self._index][objId] - idx2id2len[self._index-1][objId]\n                        \"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4514
-  }
-}

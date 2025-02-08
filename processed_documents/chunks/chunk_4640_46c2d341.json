@@ -1,9 +1,0 @@
-{
-  "content": "def formatElapsedSeconds(seconds):\n    \"\"\"\n    Returns a string of the form \"mm:ss\" or \"hh:mm:ss\" or \"n days\",\n    representing the indicated elapsed time in seconds.\n    \"\"\"\n    sign = ''\n    if seconds < 0:\n        seconds = -seconds\n        sign = '-'\n\n    # We use math.floor() instead of casting to an int, so we avoid\n    # problems with numbers that are too large to represent as\n    # type int.\n    seconds = math.floor(seconds)\n    hours = math.floor(seconds / (60 * 60))\n    if hours > 36:\n        days = math.floor((hours + 12) / 24)\n        return \"%s%d days\" % (sign, days)\n\n    seconds -= hours * (60 * 60)\n    minutes = (int)(seconds / 60)\n    seconds -= minutes * 60\n    if hours != 0:\n        return \"%s%d:%02d:%02d\" % (sign, hours, minutes, seconds)\n    else:\n        return \"%s%d:%02d\" % (sign, minutes, seconds)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4640
-  }
-}

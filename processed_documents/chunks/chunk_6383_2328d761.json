@@ -1,9 +1,0 @@
-{
-  "content": "There is a bug in Miles sound system, which requires a workaround in Panda3D. At one time, the workaround was causing problems with FMOD, until we devised a new workaround. This bug no longer exists, you can ignore it.\n\nSo the easiest way to get a reliable looping sound is to use wav files, and to use ~.AudioSound.set_loop(), not sound intervals. Of course, when it comes time to ship your game, you can convert your sounds to mp3, but before you do, test your mp3 encoder to see if it contains the blank-space bug.\n\nCueing Time\n\nThere are ~.AudioSound.get_time(), ~.AudioSound.set_time() and ~.AudioSound.length() functions for sounds. These will respectively, report the current time position, set the current time position and report the length. All these are in seconds.\n\npython\n\nmySound.length()\n\ncpp\n\nmySound->length();\n\nwill return the length of a sound file in seconds.\n\npython\n\nmySound.getTime()\n\ncpp\n\nmySound->get_time();",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_466",
-    "parent": "processed_documents/context_documents/cb008d7e_fe63f3af_manipulating-sounds.json",
-    "chunk_number": 6383
-  }
-}

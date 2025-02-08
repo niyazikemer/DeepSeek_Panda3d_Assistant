@@ -1,9 +1,0 @@
-{
-  "content": "In fact, this method is exactly duplicated by the C++ method\n        cConnectionRepository::handle_update_field(), which was\n        written to optimize the message loop by handling all of the\n        CLIENT_OBJECT_UPDATE_FIELD messages in C++.  That means that\n        nowadays, this Python method will probably never be called,\n        since UPDATE_FIELD messages will not even be passed to the\n        Python message handlers.  But this method remains for\n        documentation purposes, and also as a \"just in case\" handler\n        in case we ever do come across a situation in the future in\n        which python might handle the UPDATE_FIELD message.\n        \"\"\"\n        # Get the DO Id\n        doId = di.getUint32()\n\n        ovUpdated = self.__doUpdateOwner(doId, di)\n\n        if doId in self.deferredDoIds:\n            # This object hasn't really been generated yet.  Sit on\n            # the update.\n            args, deferrable, dg0, updates = self.deferredDoIds[doId]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5612
-  }
-}

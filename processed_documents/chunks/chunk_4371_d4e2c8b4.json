@@ -1,9 +1,0 @@
-{
-  "content": "for req in requestList:\n                yield await req\n\n    # special methods\n    def __init__(self, base=None):\n        self.base = base\n        self.loader = PandaLoader.getGlobalPtr()\n\n        self._requests = {}\n\n        self.hook = \"async_loader_%s\" % (Loader.loaderIndex)\n        Loader.loaderIndex += 1\n\n    def destroy(self):\n        self.ignore(self.hook)\n        self.loader.stopThreads()\n        del self.base\n\n    def _init_base(self, base):\n        self.base = base\n        self.accept(self.hook, self.__gotAsyncObject)\n\n    @classmethod\n    def _loadPythonFileTypes(cls):\n        if cls._loadedPythonFileTypes:\n            return\n\n        if not ConfigVariableBool('loader-support-entry-points', True):\n            return\n\n        from importlib.metadata import entry_points\n        eps = entry_points()\n        if sys.version_info < (3, 10):\n            loaders = eps.get('panda3d.loaders', ())\n        else:\n            loaders = eps.select(group='panda3d.loaders')",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4371
-  }
-}

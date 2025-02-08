@@ -1,9 +1,0 @@
-{
-  "content": "The Panda3D Bullet module has no specialized class for compound shapes. It automatically creates a compound shape if more than one shape is added to a body node.\n\nThe following code snippet will create such a compound shape, resembling the before mentioned table.\n\npython\n\nshape1 = BulletBoxShape((1.3, 1.3, 0.2))\nshape2 = BulletBoxShape((0.1, 0.1, 0.5))\nshape3 = BulletBoxShape((0.1, 0.1, 0.5))\nshape4 = BulletBoxShape((0.1, 0.1, 0.5))\nshape5 = BulletBoxShape((0.1, 0.1, 0.5))\n\nbodyNP.node().addShape(shape1, TransformState.makePos(Point3(0, 0, 0.1)))\nbodyNP.node().addShape(shape2, TransformState.makePos(Point3(-1, -1, -0.5)))\nbodyNP.node().addShape(shape3, TransformState.makePos(Point3(-1, 1, -0.5)))\nbodyNP.node().addShape(shape4, TransformState.makePos(Point3(1, -1, -0.5)))\nbodyNP.node().addShape(shape5, TransformState.makePos(Point3(1, 1, -0.5)))\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_620",
-    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
-    "chunk_number": 7277
-  }
-}

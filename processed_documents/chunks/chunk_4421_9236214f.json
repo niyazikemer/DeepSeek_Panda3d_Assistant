@@ -1,9 +1,0 @@
-{
-  "content": "sampler = SamplerState()\n        if minfilter is not None:\n            sampler.setMinfilter(minfilter)\n        if magfilter is not None:\n            sampler.setMagfilter(magfilter)\n        if anisotropicDegree is not None:\n            sampler.setAnisotropicDegree(anisotropicDegree)\n\n        texture = TexturePool.loadCubeMap(texturePattern, readMipmaps, loaderOptions, sampler)\n        if not texture and not okMissing:\n            message = 'Could not load cube map: %s' % (texturePattern)\n            raise IOError(message)\n\n        return texture\n\n    def unloadTexture(self, texture):\n        \"\"\"\n        Removes the previously-loaded texture from the cache, so\n        that when the last reference to it is gone, it will be\n        released.  This also means that the next time the same texture\n        is loaded, it will be re-read from disk (and duplicated in\n        texture memory if there are still outstanding references to\n        it).",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4421
-  }
-}

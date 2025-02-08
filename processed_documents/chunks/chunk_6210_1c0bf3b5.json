@@ -1,9 +1,0 @@
-{
-  "content": "OdeBallJoint example\n\nTo explain how joints work, look at the following example:\n\nfrom direct.directbase import DirectStart\nfrom direct.directtools.DirectGeometry import LineNodePath\nfrom panda3d.core import *\nfrom panda3d.ode import *\n\n# Load the smiley and frowney models\nsmiley = loader.loadModel(\"smiley.egg\")\nsmiley.reparentTo(render)\nsmiley.setPos(-5, 0, -5)\nfrowney = loader.loadModel(\"frowney.egg\")\nfrowney.reparentTo(render)\nfrowney.setPos(-12.5, 0, -7.5)\n\n# Setup our physics world\nworld = OdeWorld()\nworld.setGravity(0, 0, -9.81)\n\n# Setup the body for the smiley\nsmileyBody = OdeBody(world)\nM = OdeMass()\nM.setSphere(5000, 1.0)\nsmileyBody.setMass(M)\nsmileyBody.setPosition(smiley.getPos(render))\nsmileyBody.setQuaternion(smiley.getQuat(render))\n\n# Now, the body for the frowney\nfrowneyBody = OdeBody(world)\nM = OdeMass()\nM.setSphere(5000, 1.0)\nfrowneyBody.setMass(M)\nfrowneyBody.setPosition(frowney.getPos(render))\nfrowneyBody.setQuaternion(frowney.getQuat(render))",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_435",
-    "parent": "processed_documents/context_documents/0ec0b5a5_f9150a54_attaching-bodies-using-joints.json",
-    "chunk_number": 6210
-  }
-}

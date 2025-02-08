@@ -1,9 +1,0 @@
-{
-  "content": "CollisionHandlerFloor\n\nThis collision handler is designed to serve one very specialized purpose: it keeps an object on the ground, or falling gently onto the ground, even if the floor is not level, without involving physics.\n\nIt is intended to be used with a CollisionRay or CollisionSegment. The idea is that you attach a ray to your object, pointing downward, such that the topmost intersection the ray detects will be the floor your object should be resting on. Each frame, the CollisionHandlerFloor simply sets your object's z value to the detected intersection point (or, if it is so configured, it slowly drops the object towards this point until it reaches it).\n\nUsing the CollisionHandlerFloor can be an easy way to simulate an avatar walking over uneven terrain, without having to set up a complicated physics simulation (or involve physics in any way). Of course, it does have its limitations.\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_485",
-    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
-    "chunk_number": 6452
-  }
-}

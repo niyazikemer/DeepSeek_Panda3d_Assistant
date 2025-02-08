@@ -1,9 +1,0 @@
-{
-  "content": "Note: 'Evade' recalculates the direction every frame and so is less efficient than Flee for a static object.\n\nThe full working code in Panda3D :\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import *\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.task import Task\nfrom direct.actor.Actor import Actor\n#for Pandai\nfrom panda3d.ai import *\n#for Onscreen GUI\nfrom direct.gui.OnscreenText import OnscreenText\n\n# Globals\nspeed = 0.75\n\n# Function to put instructions on the screen.\nfont = loader.loadFont(\"cmss12\")\ndef addInstructions(pos, msg):\n    return OnscreenText(text=msg, style=1, fg=(1, 1, 1, 1), font=font,\n                        pos=(-1.3, pos), align=TextNode.ALeft, scale=.05)\n\nclass World(DirectObject):\n\n    def __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0, 0, 55, 0, -90, 0)\n\n        self.loadModels()\n        self.setAI()\n        self.setMovement()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_587",
-    "parent": "processed_documents/context_documents/d3846491_e4337389_evade.json",
-    "chunk_number": 7116
-  }
-}

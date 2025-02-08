@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nnodePath.setColorScale(r, g, b, a)\n\ncpp\n\nnodePath.set_color_scale(r, g, b, a);\n\nThis color will be modulated (multiplied) with the existing color.\n\nYou can remove a previous ~.NodePath.set_color_scale() using ~.NodePath.clear_color_scale().\n\nDemonstration\n\nTo see the difference between ~.NodePath.set_color() and ~.NodePath.set_color_scale(), try the code sample below. You will need the nik-dragon model from the Cartoon Shading sample program, which has vertex colors and no texture:\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import ColorAttrib\n\n# Load three copies of Nik's dragon, which has vertex colors.\nmodel1 = loader.loadModel(\"nik-dragon\")\nmodel2 = loader.loadModel(\"nik-dragon\")\nmodel3 = loader.loadModel(\"nik-dragon\")\n\n# Put them in the scene.\nmodel1.reparentTo(render)\nmodel2.reparentTo(render)\nmodel3.reparentTo(render)\n\n# Arrange them left-to-right\nmodel1.setPos(-10,50,0)\nmodel2.setPos(  0,50,0)\nmodel3.setPos( 10,50,0)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_658",
-    "parent": "processed_documents/context_documents/3c995b04_158a20ee_tinting-and-recoloring.json",
-    "chunk_number": 7512
-  }
-}

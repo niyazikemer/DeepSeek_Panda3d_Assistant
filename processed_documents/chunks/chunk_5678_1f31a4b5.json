@@ -1,9 +1,0 @@
-{
-  "content": "datagram = distObj.dclass.clientFormatUpdate(\n            fieldName, distObj.doId, args)\n        dgi = PyDatagramIterator(datagram)\n\n        # Reformat the packed datagram to change the message type and\n        # add the target id.\n        dgi.getUint16()\n\n        dg = PyDatagram()\n        dg.addUint16(CLIENT_OBJECT_UPDATE_FIELD_TARGETED_CMU)\n        dg.addUint32(channelId & 0xffffffff)\n        dg.appendData(dgi.getRemainingBytes())\n\n        self.send(dg)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5678
-  }
-}

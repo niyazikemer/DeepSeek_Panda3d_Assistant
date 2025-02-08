@@ -1,9 +1,0 @@
-{
-  "content": "dclass.receiveUpdateOther(self, di)\n\n    def startMessageBundle(self, name):\n        self.air.startMessageBundle(name)\n    def sendMessageBundle(self):\n        self.air.sendMessageBundle(self.doId)\n\n    def getZoneChangeEvent(self):\n        # this event is generated whenever this object changes zones.\n        # arguments are newZoneId, oldZoneId\n        # includes the quiet zone.\n        return DistributedObjectAI.staticGetZoneChangeEvent(self.doId)\n    def getLogicalZoneChangeEvent(self):\n        # this event is generated whenever this object changes to a\n        # non-quiet-zone zone.\n        # arguments are newZoneId, oldZoneId\n        # does not include the quiet zone.\n        return DistributedObjectAI.staticGetLogicalZoneChangeEvent(self.doId)\n\n    @staticmethod\n    def staticGetZoneChangeEvent(doId):\n        return 'DOChangeZone-%s' % doId\n    @staticmethod\n    def staticGetLogicalZoneChangeEvent(doId):\n        return 'DOLogicalChangeZone-%s' % doId",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5693
-  }
-}

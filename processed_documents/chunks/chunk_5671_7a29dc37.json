@@ -1,9 +1,0 @@
-{
-  "content": "def sendHeartbeat(self):\n        datagram = PyDatagram()\n        # Add message type\n        datagram.addUint16(CLIENT_HEARTBEAT_CMU)\n        # Send it!\n        self.send(datagram)\n        self.lastHeartbeat = ClockObject.getGlobalClock().getRealTime()\n        # This is important enough to consider flushing immediately\n        # (particularly if we haven't run readerPollTask recently).\n        self.considerFlush()\n\n    def isLocalId(self, doId):\n        \"\"\" Returns true if this doId is one that we're the owner of,\n        false otherwise. \"\"\"\n\n        return doId >= self.doIdBase and doId < self.doIdLast\n\n    def haveCreateAuthority(self):\n        \"\"\" Returns true if this client has been assigned a range of\n        doId's it may use to create objects, false otherwise. \"\"\"\n\n        return self.doIdLast > self.doIdBase",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5671
-  }
-}

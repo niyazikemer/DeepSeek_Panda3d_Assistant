@@ -1,9 +1,0 @@
-{
-  "content": "if aspectRatio != self.__oldAspectRatio:\n            self.__oldAspectRatio = aspectRatio\n            # Fix up some anything that depends on the aspectRatio\n            if self.camLens:\n                self.camLens.setAspectRatio(aspectRatio)\n            if aspectRatio < 1:\n                # If the window is TALL, lets expand the top and bottom\n                self.aspect2d.setScale(1.0, aspectRatio, aspectRatio)\n                self.a2dTop = 1.0 / aspectRatio\n                self.a2dBottom = - 1.0 / aspectRatio\n                self.a2dLeft = -1\n                self.a2dRight = 1.0\n                # Don't forget 2dp\n                if self.wantRender2dp:\n                    self.aspect2dp.setScale(1.0, aspectRatio, aspectRatio)\n                    self.a2dpTop = 1.0 / aspectRatio\n                    self.a2dpBottom = - 1.0 / aspectRatio\n                    self.a2dpLeft = -1\n                    self.a2dpRight = 1.0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5005
-  }
-}

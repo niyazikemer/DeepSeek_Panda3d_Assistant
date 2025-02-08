@@ -1,9 +1,0 @@
-{
-  "content": "Unlike `screenshot()`, source may only be a GraphicsWindow,\n        GraphicsBuffer, or DisplayRegion; it may not be a Texture.\n\n        camera should be the node to which the cubemap cameras will be\n        parented.  The default is the camera associated with source,\n        if source is a DisplayRegion, or base.camera otherwise.\n\n        :returns: The filename if successful, or None if there is a problem.\n        \"\"\"\n\n        if source is None:\n            source = self.win\n\n        if camera is None:\n            if hasattr(source, \"getCamera\"):\n                camera = source.getCamera()\n            if camera is None:\n                camera = self.camera\n\n        if sourceLens is None:\n            sourceLens = self.camLens\n\n        if hasattr(source, \"getWindow\"):\n            source = source.getWindow()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4992
-  }
-}

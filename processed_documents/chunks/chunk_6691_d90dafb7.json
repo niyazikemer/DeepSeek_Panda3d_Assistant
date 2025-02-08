@@ -1,9 +1,0 @@
-{
-  "content": "FINAL_RGB = (RGB^3 + RGB^2 + RGB) / (RGB^3 + RGB^2 + RGB + 1)\n\nCartoon Shading (Quantized Lighting)\n\nIn cartoon shading, the first clamp is removed entirely, and the second one is replaced with a quantization function. This replaces a continuous gradient of brightness values with a discrete set of light levels. This quantization function only applies to directional lights, not ambient ones.\n\nTo enable quantized lighting, use one of these:\n\npython\n\nnp.setAttrib(LightRampAttrib.makeSingleThreshold(t0, l0))\nnp.setAttrib(LightRampAttrib.makeDoubleThreshold(t0, l0, t1, l1))\n\ncpp\n\nnp.set_attrib(LightRampAttrib::make_single_threshold(t0, l0));\nnp.set_attrib(LightRampAttrib::make_double_threshold(t0, l0, t1, l1));\n\nIn a single-threshold system, the brightness of the diffuse lighting contribution is compared to the threshold t0. If the threshold is not met, the diffuse light contribution is eliminated. If it is met, the pixel's brightness is normalized to the specified level l0.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_539",
-    "parent": "processed_documents/context_documents/173324ae_13bf8ef2_light-ramps.json",
-    "chunk_number": 6691
-  }
-}

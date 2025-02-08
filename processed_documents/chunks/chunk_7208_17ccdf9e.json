@@ -1,9 +1,0 @@
-{
-  "content": "transitions\n\nrankdir=LR node [style=rounded, shape=box]\n\nWalk -> Walk2Swim; Walk2Swim -> Swim; Swim -> Swim2Walk; Swim2Walk -> Walk; Swim -> Drowning;\n\n{ rank=same; Walk2Swim; Swim2Walk; }\n\nIn this diagram, the arrows represent legal transitions. It is legal to transition from 'Walk' to 'Walk2Swim', but not from 'Walk' to 'Swim2Walk'. If you were to request the FSM to enter state 'Swim2Walk' while it is currently in state 'Walk', that's a bug; you might prefer to have the FSM throw an exception, so you can find this bug.\n\nTo enforce this, you can store self.defaultTransitions in the FSM's __init__() method. This should be a map of allowed transitions from each state. That is, each key of the map is a state name; for that key, the value is a list of allowed transitions from the indicated state. Any transition not listed in defaultTransitions is considered invalid. For example:\n\nclass AvatarFSM(FSM):",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_604",
-    "parent": "processed_documents/context_documents/787f0d21_8c41fb3c_simple-fsm-usage.json",
-    "chunk_number": 7208
-  }
-}

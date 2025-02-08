@@ -1,9 +1,0 @@
-{
-  "content": "self.wantStats = ConfigVariableBool('want-pstats', False).value\n        self.wantTk = False\n        self.wantWx = False\n        self.wantDirect = False\n\n        #: Fill this in with a function to invoke when the user \"exits\"\n        #: the program by closing the main window.\n        self.exitFunc: Callable[[], object] | None = None\n\n        #: Add final-exit callbacks to this list.  These will be called\n        #: when sys.exit() is called, after Panda has unloaded, and\n        #: just before Python is about to shut down.\n        self.finalExitCallbacks: list[Callable[[], object]] = []\n\n        # Set up the TaskManager to reset the PStats clock back\n        # whenever we resume from a pause.  This callback function is\n        # a little hacky, but we can't call it directly from within\n        # the TaskManager because he doesn't know about PStats (and\n        # has to run before libpanda is even loaded).\n        taskMgr.resumeFunc = PStatClient.resumeAfterPause",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4853
-  }
-}

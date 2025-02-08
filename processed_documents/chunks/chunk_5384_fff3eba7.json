@@ -1,9 +1,0 @@
-{
-  "content": "if doLaterName:\n                taskMgr.remove(doLaterName)\n            self.__removePending(tuple, doIdsPending)\n\n    def abortAllRequests(self):\n        \"\"\"\n        Call this method to abruptly abort all pending requests, but\n        leave the RelatedObjectMgr in a state for accepting more\n        requests.\n        \"\"\"\n\n        # Stop listening for all events.\n        self.ignoreAll()\n\n        # Iterate through all the pendingObjects and stop any pending\n        # tasks.\n        for pendingList in self.pendingObjects.values():\n            for tuple in pendingList:\n                allCallback, eachCallback, timeoutCallback, doIdsPending, doIdList, doLaterName = tuple\n                if doLaterName:\n                    taskMgr.remove(doLaterName)\n\n        self.pendingObjects = {}",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_308",
-    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
-    "chunk_number": 5384
-  }
-}

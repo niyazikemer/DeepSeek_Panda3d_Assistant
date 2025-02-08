@@ -1,9 +1,0 @@
-{
-  "content": "def goesThroughGen(self, obj=None, objId=None):\n        if obj is None:\n            assert type(objId) is int\n        else:\n            objId = id(obj)\n        o = None\n        evalStr = ''\n        curObj = None\n        # make sure the indirections don't go away on us\n        indirections = self._indirections\n        for indirection in indirections:\n            yield None\n            indirection.acquire()\n        for indirection in indirections:\n            yield None\n            if not indirection.isDictKey():\n                # build up a string to be eval'd\n                evalStr += indirection.getString()\n            else:\n                curObj = self._getContainerByEval(evalStr, curObj=curObj)\n                if curObj is None:\n                    raise FailedEval(evalStr)\n                # try to look up this key in the curObj dictionary\n                curObj = indirection.dereferenceDictKey(curObj)\n                evalStr = ''\n            yield None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4480
-  }
-}

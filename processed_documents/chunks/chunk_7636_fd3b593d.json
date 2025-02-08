@@ -1,9 +1,0 @@
-{
-  "content": "The function ~.GraphicsOutput.make_texture_buffer() usually creates a GraphicsBuffer (hidden window), but if the video card is not powerful enough to create an offscreen window, it may not be able to do so. In that case, ~.GraphicsOutput.make_texture_buffer() will create a parasite buffer instead. A parasite buffer is primarily a trick to emulate a GraphicsBuffer on video cards that are less powerful. The trick is this: instead of rendering to an offscreen window and then transferring the data into a texture, panda renders into the main window and then copies the data into the texture. The limitations of this trick are self-evident. First, it garbles the contents of the main window. This is usually no big deal, since the main window is usually cleared and rendered from scratch every frame anyway. The other problem with this trick is that it fails if the main window is smaller than the desired texture. Since neither of these problems is common in practice,",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_681",
-    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
-    "chunk_number": 7636
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "Keyboard Support\n\nKeyboard events\n\nPanda3D has keyboard support built-in. Keyboard presses send Events <tasks-and-event-handling>. Each keyboard key will send an event when it is first pressed down, when it is released, and one repeatedly while it is pressed.\n\ncpp\n\nBegin first by enabling keyboard events from the WindowFramework object:\n\nwindow->enable_keyboard();\n\nThe events can be accepted with the following code:\n\npython\n\nself.accept(<event name>, <function>)\nself.accept(<event name>, <function>, <parameters list>)\nself.acceptOnce(<event name>, <function>)\nself.acceptOnce(<event name>, <function>, <parameters list>)\n\n<event name> is a string that labels the event. <function> is a python function to be called when the event is sent. <parameters list> is a python list of parameters to use to call <function>.\n\ncpp\n\nframework->define_key(<event name>, <description>, <function>, nullptr);\nframework->define_key(<event name>, <description>, <function>, <data>);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_711",
-    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
-    "chunk_number": 7753
-  }
-}

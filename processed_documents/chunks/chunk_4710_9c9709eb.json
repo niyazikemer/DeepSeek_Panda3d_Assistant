@@ -1,9 +1,0 @@
-{
-  "content": "def formatTimeExact(seconds):\n    # like formatTimeCompact but leaves off '0 seconds', '0 minutes' etc. for\n    # times that are e.g. 1 hour, 3 days etc.\n    # returns string in format '1d3h22m43s'\n    result = ''\n    a = int(seconds)\n    seconds = a % 60\n    a //= 60\n    if a > 0:\n        minutes = a % 60\n        a //= 60\n        if a > 0:\n            hours = a % 24\n            a //= 24\n            if a > 0:\n                days = a\n                result += '%sd' % days\n            if hours or minutes or seconds:\n                result += '%sh' % hours\n        if minutes or seconds:\n            result += '%sm' % minutes\n    if seconds or result == '':\n        result += '%ss' % seconds\n    return result",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4710
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def _getMessengerId(self, object):\n        # TODO: allocate this id in DirectObject.__init__ and get derived\n        # classes to call down (speed optimization, assuming objects\n        # accept/ignore more than once over their lifetime)\n        # get unique messenger id for this object\n        # assumes lock is held.\n        if not hasattr(object, '_MSGRmessengerId'):\n            object._MSGRmessengerId = (object.__class__.__name__, self._messengerIdGen)\n            self._messengerIdGen += 1\n        return object._MSGRmessengerId\n\n    def _storeObject(self, object):\n        # store reference-counted reference to object in case we need to\n        # retrieve it later.  assumes lock is held.\n        id = self._getMessengerId(object)\n        if id not in self._id2object:\n            self._id2object[id] = [1, object]\n        else:\n            self._id2object[id][0] += 1\n\n    def _getObject(self, id):\n        return self._id2object[id][1]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_286",
-    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
-    "chunk_number": 5040
-  }
-}

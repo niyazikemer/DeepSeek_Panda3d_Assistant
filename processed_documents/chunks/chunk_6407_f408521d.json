@@ -1,9 +1,0 @@
-{
-  "content": "Server Repositories\n\nThe server repository manages client connections and keeps track of any connected clients.\n\nDue to Panda3D doing most of the heavy work, setting up this part of the server in a basic form is very easy.\n\nfrom direct.distributed.ServerRepository import ServerRepository\nfrom panda3d.core import ConfigVariableInt\n\nclass GameServerRepository(ServerRepository):\n    def __init__(self):\n        tcpPort = ConfigVariableInt('server-port', 4400).getValue()\n        dcFileNames = ['direct.dc', 'yourOwnDCFile.dc']\n        ServerRepository.__init__(self, tcpPort, dcFileNames=dcFileNames, threadedNet=True)\n\nAs you see in the example above, we simply have to gather the port and a list of DC files, which we will take a closer look in a later section, and pass all of that to the .ServerRepository constructor.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_471",
-    "parent": "processed_documents/context_documents/abf1f226_8011912b_server-repositories.json",
-    "chunk_number": 6407
-  }
-}

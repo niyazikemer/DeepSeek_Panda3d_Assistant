@@ -1,9 +1,0 @@
-{
-  "content": "class DistributedCamera(DistributedObject):\n    def __init__(self, cr):\n        DistributedObject.__init__(self, cr)\n        self.parent = None\n        self.fixtures = {}\n        self.cameraId = _camera_id.value\n\n    def __getitem__(self, index):\n        return self.fixtures.get(index)\n\n    def __str__(self):\n        out = ''\n        for fixture in self.fixtures.values():\n            out = '%s\\n%s' % (out, fixture)\n        return out[1:]\n\n    def pack(self):\n        out = ''\n        for fixture in self.fixtures.values():\n            out = '%s\\n%s' % (out, fixture.pack())\n        return out[1:]\n\n    def disable(self):\n        self.ignore('escape')\n\n        self.parent = None\n\n        for fixture in self.fixtures.values():\n            fixture.cleanup()\n            fixture.detachNode()\n        self.fixtures = {}\n\n        DistributedObject.disable(self)\n\n    def getOV(self):\n        return self.cr.doId2ownerView.get(self.getDoId())",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_329",
-    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
-    "chunk_number": 5633
-  }
-}

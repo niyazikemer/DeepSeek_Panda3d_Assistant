@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\nLPlane plane(0, 0, 1, -2);\nPT(PlaneNode) plane_node = new PlaneNode(\"plane\", plane);\nNodePath plane_np = render.attach_new_node(plane_node);\n\nTo see a debug representation of the plane, call ~.NodePath.show() on the resulting node path.\n\nFinally, we can use ~.NodePath.set_clip_plane() in order to apply it to any node on which the clipping should take effect:\n\npython\n\nrender.setClipPlane(plane_np)\n\ncpp\n\nrender.set_clip_plane(plane_np);\n\nInternally, this will create a .ClipPlaneAttrib and assign it to the node's render state.\n\npython\n\nThis is a complete sample program showing a teapot that is being affected by two clip planes:\n\nfrom direct.showbase.ShowBase import ShowBase\nfrom panda3d.core import *\n\nbase = ShowBase()\n\nteapot = loader.loadModel(\"models/teapot\")\nteapot.setScale(10)\nteapot.reparentTo(render)\n\nplane1 = Plane((0, 0, 1), (0, 0, 5))\nplane1_np = render.attachNewNode(PlaneNode(\"plane1\", plane1))\nplane1_np.show()\nteapot.setClipPlane(plane1_np)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_370",
-    "parent": "processed_documents/context_documents/3c8dcf09_94575662_clip-planes.json",
-    "chunk_number": 5911
-  }
-}

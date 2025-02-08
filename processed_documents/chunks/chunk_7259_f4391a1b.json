@@ -1,9 +1,0 @@
-{
-  "content": "To use raw mouse input under Linux, the panda program needs to open the device files /dev/input/event*. On many Linux distributions, the permission bits are set such that this is not possible.\n\nIt is not a good idea to just change the permission bits. Doing so introduces a huge security hole in which any logged in user can monitor the mice, the joysticks, and the keyboard --- including any passwords that may be typed. The correct solution is to change the ownership of the input devices whenever a user sits down at the console. There is a module, pam_console, that does this, but it is now obsoleted, and has been removed from several distros. The Fedora pam_console removal page states that ACLs set by the HAL should replace pam_console's functionality. Currently, since it does not seem that HAL provides this yet, the best course of action is to make an 'input' group as described on this page.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_615",
-    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
-    "chunk_number": 7259
-  }
-}

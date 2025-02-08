@@ -1,9 +1,0 @@
-{
-  "content": "Light Ramps\n\nIn standard OpenGL and DirectX lighting, the following calculations are performed:\n\nthe lighting value is calculated\n\nit is clamped to the range 0-1\n\nit is combined with the textures\n\nit is clamped to the range 0-1 again\n\nit is written to the frame buffer\n\nThis process contains two clamps. The .LightRampAttrib is a means to specify that you wish to replace these two clamping operators with something a little smarter. This is particularly relevant for two major graphics algorithms: HDR tone mapping, and cartoon shading.\n\nIt must be emphasized that light ramps have no effect unless per-pixel lighting is enabled via the shader generator <the-shader-generator>.\n\nHDR Tone Mapping\n\nNote\n\nFor a more advanced way to apply High Dynamic Range rendering, see the HDR postprocessing filter described in common-image-filters.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_539",
-    "parent": "processed_documents/context_documents/173324ae_13bf8ef2_light-ramps.json",
-    "chunk_number": 6688
-  }
-}

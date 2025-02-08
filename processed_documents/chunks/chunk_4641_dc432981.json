@@ -1,9 +1,0 @@
-{
-  "content": "def solveQuadratic(a, b, c):\n    # quadratic equation: ax^2 + bx + c = 0\n    # quadratic formula:  x = [-b +/- sqrt(b^2 - 4ac)] / 2a\n    # returns None, root, or [root1, root2]\n\n    # a cannot be zero.\n    if a == 0.:\n        return None\n\n    # calculate the determinant (b^2 - 4ac)\n    D = (b * b) - (4. * a * c)\n\n    if D < 0:\n        # there are no solutions (sqrt(negative number) is undefined)\n        return None\n    elif D == 0:\n        # only one root\n        return (-b) / (2. * a)\n    else:\n        # OK, there are two roots\n        sqrtD = math.sqrt(D)\n        twoA = 2. * a\n        root1 = ((-b) - sqrtD) / twoA\n        root2 = ((-b) + sqrtD) / twoA\n        return [root1, root2]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4641
-  }
-}

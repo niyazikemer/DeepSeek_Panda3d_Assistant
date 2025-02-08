@@ -1,9 +1,0 @@
-{
-  "content": "lens = rig.find('**/+Camera').node().getLens()\nlens.setNearFar(1, 100)\n\nIt is especially important when you are using cube maps that you structure your scene graph hierarchically and divide it up spatially so that Panda3D's view-frustum culling can do an effective job of eliminating the parts of the scene that are behind each of the six cameras. (Unfortunately, the street-scene model used in the above example is not at all well-structured, so the example performs very poorly on all but the highest-end hardware.)\n\nIt's also usually a good idea to keep the cube map size (the size parameter to makeCubeMap()) no larger than it absolutely has to be to get the look you want.\n\nYou can also take advantage of the DrawMask to hide things from the cube cameras that are not likely to be important in the reflections. The documentation for this advanced feature of Panda3D will be found in another section of the manual (which, as of the time of this writing, has yet to be written).",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_496",
-    "parent": "processed_documents/context_documents/bf8dabed_8b653f62_dynamic-cube-maps.json",
-    "chunk_number": 6496
-  }
-}

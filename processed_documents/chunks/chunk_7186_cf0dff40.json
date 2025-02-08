@@ -1,9 +1,0 @@
-{
-  "content": "Putting your new geometry in the scene graph\n\nFinally, now that you have a geomvertexdata and one or more geomprimitive objects, you can create a geom object and a geomnode to put the new geometry in the scene graph, so that it will be rendered.\n\npython\n\ngeom = Geom(vdata)\ngeom.addPrimitive(prim)\n\nnode = GeomNode('gnode')\nnode.addGeom(geom)\n\nnodePath = render.attachNewNode(node)\n\ncpp\n\nPT(Geom) geom;\ngeom = new Geom(vdata);\ngeom->add_primitive(prim);\n\nPT(GeomNode) node;\nnode = new GeomNode(\"gnode\");\nnode->add_geom(geom);\n\nNodePath nodePath = window->get_render().attach_new_node(node);\n\nThe Geom constructor requires a pointer to the GeomVertexData object you will be using. There is only one GeomVertexData associated with any particular Geom. You can reset the Geom to use a different GeomVertexData later, if you like, by calling geom.setVertexData() <.Geom.set_vertex_data>.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_601",
-    "parent": "processed_documents/context_documents/e898ffb8_1faeee63_putting-geometry-in-scene-graph.json",
-    "chunk_number": 7186
-  }
-}

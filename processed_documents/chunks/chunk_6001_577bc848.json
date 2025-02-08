@@ -1,9 +1,0 @@
-{
-  "content": "manager = FilterManager(base.win, base.cam)\ntex = Texture()\nquad = manager.renderSceneInto(colortex=tex)\nquad.setShader(Shader.load(\"myfilter.sha\"))\nquad.setShaderInput(\"tex\", tex)\n\nThe first line creates an object of class FilterManager. We have told it that we want to apply filtering to the contents of the main window. We have also told it that we want to filter the stuff that's being rendered by the main camera, and not, for instance, the 2D camera.\n\nThe second line creates a texture - this is the texture that we're going to render the scene into.\n\nThe third line does most of the work. This removes the scene from the window, and instead, directs the rendering of the scene into 'tex'. It puts a quad into the window in place of the scene. The quad is returned.\n\nFinally, we apply a shader to the quad, and pass the scene texture to the shader. Presumably, the shader is rendering the scene onto the quad, which covers the window. Presto, filtered scene.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_392",
-    "parent": "processed_documents/context_documents/abbc8ed0_b80495da_generalized-image-filters.json",
-    "chunk_number": 6001
-  }
-}

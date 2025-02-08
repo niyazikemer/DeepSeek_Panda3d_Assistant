@@ -1,9 +1,0 @@
-{
-  "content": "@report(types = ['args'], dConfigParam = 'smoothnode')\n    def wrtReparentTo(self, parent):\n        # We override this NodePath method to force it to\n        # automatically reset the smoothing position when we call it.\n        if self.smoothStarted:\n            if self._smoothWrtReparents:\n                #print self.getParent(), parent, self.getParent().getPos(parent)\n                self.smoother.handleWrtReparent(self.getParent(), parent)\n                NodePath.wrtReparentTo(self, parent)\n            else:\n                self.forceToTruePosition()\n                NodePath.wrtReparentTo(self, parent)\n                self.reloadPosition()\n        else:\n            NodePath.wrtReparentTo(self, parent)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5361
-  }
-}

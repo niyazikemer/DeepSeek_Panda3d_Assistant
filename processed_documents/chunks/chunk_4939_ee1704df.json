@@ -1,9 +1,0 @@
-{
-  "content": "return buttonThrowers, pointerWatcherNodes\n\n    def enableSoftwareMousePointer(self):\n        \"\"\"\n        Creates some geometry and parents it to render2d to show\n        the currently-known mouse position.  Useful if the mouse\n        pointer is invisible for some reason.\n        \"\"\"\n        mouseViz = self.render2d.attachNewNode('mouseViz')\n        lilsmiley = self.loader.loadModel('lilsmiley')\n        lilsmiley.reparentTo(mouseViz)\n\n        aspectRatio = self.getAspectRatio()\n        # Scale the smiley face to 32x32 pixels.\n        height = self.win.getSbsLeftYSize()\n        lilsmiley.setScale(\n            32.0 / height / aspectRatio,\n            1.0, 32.0 / height)\n        self.mouseWatcherNode.setGeometry(mouseViz.node())\n\n    def getAlt(self):\n        \"\"\"\n        Returns True if the alt key is currently held down.\n        \"\"\"\n        return self.mouseWatcherNode.getModifierButtons().isDown(\n            KeyboardButton.alt())",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4939
-  }
-}

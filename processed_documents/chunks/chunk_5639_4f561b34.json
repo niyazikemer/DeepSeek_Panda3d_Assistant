@@ -1,9 +1,0 @@
-{
-  "content": "def getArg(self, subatomicType, divisor=1):\n        # Import the type numbers\n        if divisor == 1:\n            # See if it is in the handy dict\n            getFunc = self.FuncDict.get(subatomicType)\n            if getFunc:\n                retVal = getFunc(self)\n            # No division necessary\n            elif subatomicType == STInt8array:\n                len = self.getUint16()\n                retVal = []\n                for i in range(len):\n                    retVal.append(self.getInt8())\n            elif subatomicType == STInt16array:\n                len = self.getUint16() >> 1\n                retVal = []\n                for i in range(len):\n                    retVal.append(self.getInt16())\n            elif subatomicType == STInt32array:\n                len = self.getUint16() >> 2\n                retVal = []\n                for i in range(len):\n                    retVal.append(self.getInt32())\n            elif subatomicType == STUint8array:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_330",
-    "parent": "processed_documents/context_documents/cf472b07_PyDatagramIterator.json",
-    "chunk_number": 5639
-  }
-}

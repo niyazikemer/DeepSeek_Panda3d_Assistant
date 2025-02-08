@@ -1,9 +1,0 @@
-{
-  "content": "Geometrical MipMapping\n\nThe GeoMipTerrain generates terrain geometry from a heightfield image, but it does more than any bruteforce terrain generator: the GeoMipTerrain divides the terrain into multiple chunks, where each of them can have a different level of detail. The advantage of this approach is that, when the focal point (the place where the terrain has the highest quality, probably the camera) moves, not the entire terrain has to be regenerated to match the correct detail level, like the HeightfieldTesselator <heightfield-tesselator>, but only the chunks that have a different LOD can be regenerated. Also, it improves culling and collision detection.\n\nBasic Usage\n\nUsing the GeoMipTerrain is quite easy, it does not require to write many complicated calculations:\n\npython\n\nterrain = GeoMipTerrain(\"mySimpleTerrain\")\nterrain.setHeightfield(\"yourHeightField.png\")\n#terrain.setBruteforce(True)\nterrain.getRoot().reparentTo(render)\nterrain.generate()\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_707",
-    "parent": "processed_documents/context_documents/6da47c38_34a01633_geometrical-mipmapping.json",
-    "chunk_number": 7736
-  }
-}

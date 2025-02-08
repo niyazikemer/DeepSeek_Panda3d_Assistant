@@ -1,9 +1,0 @@
-{
-  "content": "if self.groundPath:\n            self.groundPath.clearProjectTexture(self.stage)\n\n        self.groundPath = groundPath\n        self.groundPath.projectTexture(self.stage, self.tex, self.cameraPath)\n\n    def clear(self):\n        \"\"\" Undoes the effect of the ShadowCaster. \"\"\"\n        if self.groundPath:\n            self.groundPath.clearProjectTexture(self.stage)\n            self.groundPath = None\n\n        if self.lightPath:\n            self.lightPath.detachNode()\n            self.lightPath = None\n\n        if self.cameraPath:\n            self.cameraPath.detachNode()\n            self.cameraPath = None\n            self.camera = None\n            self.lens = None\n\n        if self.buffer:\n            base.graphicsEngine.removeWindow(self.buffer)\n            self.tex = None\n            self.buffer = None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_282",
-    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
-    "chunk_number": 4834
-  }
-}

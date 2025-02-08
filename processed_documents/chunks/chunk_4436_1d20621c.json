@@ -1,9 +1,0 @@
-{
-  "content": "def __init__(self, name, postNames, callback, removeNames=None):\n        self.notify.debug('__init__: %s, %s, %s' % (name, postNames, callback))\n        if removeNames is None:\n            removeNames = []\n        self.name = name\n        self.postNames = makeList(postNames)\n        self.removeNames = makeList(removeNames)\n        self.callback = callback\n        self.waitingOn = set()\n        for name in self.postNames:\n            if not bboard.has(name):\n                eventName = bboard.getEvent(name)\n                self.waitingOn.add(eventName)\n                self.acceptOnce(eventName, Functor(self._handleEvent, eventName))\n        for name in self.removeNames:\n            if bboard.has(name):\n                eventName = bboard.getRemoveEvent(name)\n                self.waitingOn.add(eventName)\n                self.acceptOnce(eventName, Functor(self._handleEvent, eventName))\n        self._checkDone()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_251",
-    "parent": "processed_documents/context_documents/bb056ef2_BulletinBoardWatcher.json",
-    "chunk_number": 4436
-  }
-}

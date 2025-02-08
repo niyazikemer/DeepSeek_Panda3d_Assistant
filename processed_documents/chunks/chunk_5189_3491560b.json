@@ -1,9 +1,0 @@
-{
-  "content": "def handleClientDeleteObject(self, datagram, doId):\n        \"\"\" client deletes an object, let everyone who has interest in\n        the object's zone know about it. \"\"\"\n\n        connection = datagram.getConnection()\n        client = self.clientsByConnection[connection]\n        object = client.objectsByDoId.get(doId)\n        if not object:\n            self.notify.warning(\n                \"Ignoring update for unknown object %s from client %s\" % (\n                doId, client.doIdBase))\n            return\n\n        self.sendToZoneExcept(object.zoneId, datagram, [])\n\n        self.objectsByZoneId[object.zoneId].remove(object)\n        if not self.objectsByZoneId[object.zoneId]:\n            del self.objectsByZoneId[object.zoneId]\n        client.objectsByZoneId[object.zoneId].remove(object)\n        if not client.objectsByZoneId[object.zoneId]:\n            del client.objectsByZoneId[object.zoneId]\n        del client.objectsByDoId[doId]\n\n        self.updateClientInterestZones(client)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5189
-  }
-}

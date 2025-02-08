@@ -1,9 +1,0 @@
-{
-  "content": "So for example, if you wanted to alias phase 0 to 'Far' you\n    would define loadPhaseFar() and unloadPhaseFar(). Upon calling\n    setPhase(0), setPhase('Far'), setPhase(<any phase greater than 0>),\n    or setPhase(<any alias greater than 'Far'>), loadPhaseFar() will\n    be invoked.\n\n    For a skeleton example class, see the AnfaPhasedObject class\n    definition lower in this file.\n    \"\"\"\n    notify = directNotify.newCategory(\"PhasedObject\")\n\n    def __init__(self, aliasMap = {}):\n        self.phase = -1\n        self.phaseAliasMap = {}\n        self.aliasPhaseMap = {}\n        self.__phasing = False\n\n        for alias,phase in list(aliasMap.items()):\n            self.setAlias(phase, alias)\n\n    def __repr__(self):\n        return 'PhasedObject(%s)' % str(self.aliasPhaseMap)\n\n    def __str__(self):\n        outStr = PhasedObject.__repr__(self)\n        outStr += ' in phase \\'%s\\'' % self.getPhase()\n        return outStr",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_278",
-    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
-    "chunk_number": 4803
-  }
-}

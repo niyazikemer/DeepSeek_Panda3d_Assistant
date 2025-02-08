@@ -1,9 +1,0 @@
-{
-  "content": "self.a2dpTopLeft.setPos(self.a2dpLeft, 0, self.a2dpTop)\n                self.a2dpTopRight.setPos(self.a2dpRight, 0, self.a2dpTop)\n                self.a2dpBottomLeft.setPos(self.a2dpLeft, 0, self.a2dpBottom)\n                self.a2dpBottomRight.setPos(self.a2dpRight, 0, self.a2dpBottom)\n\n            # If anybody needs to update their GUI, put a callback on this event\n            messenger.send(\"aspectRatioChanged\")\n\n    def userExit(self) -> NoReturn:\n        # The user has requested we exit the program.  Deal with this.\n        if self.exitFunc:\n            self.exitFunc()\n        self.notify.info(\"Exiting ShowBase.\")\n        self.finalizeExit()\n\n    def finalizeExit(self) -> NoReturn:\n        \"\"\"\n        Called by `userExit()` to quit the application.  The default\n        implementation just calls `sys.exit()`.\n        \"\"\"\n        sys.exit()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5009
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "\"\"\"DistributedObjectGlobal module: contains the DistributedObjectGlobal class\"\"\"\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.distributed.DistributedObject import DistributedObject\n\nclass DistributedObjectGlobal(DistributedObject):\n    \"\"\"\n    The Distributed Object Global class is the base class for global\n    network based (i.e. distributed) objects.\n    \"\"\"\n    notify = directNotify.newCategory(\"DistributedObjectGlobal\")\n\n    # A few objects will set neverDisable to 1... Examples are\n    # localToon, and anything that lives in the UberZone. This\n    # keeps them from being disabled when you change zones,\n    # even to the quiet zone.\n    neverDisable = 1\n\n    def __init__(self, cr):\n        assert self.notify.debugStateCall(self)\n        DistributedObject.__init__(self, cr)\n        self.parentId = 0\n        self.zoneId = 0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_334",
-    "parent": "processed_documents/context_documents/5d70e02b_DistributedObjectGlobal.json",
-    "chunk_number": 5679
-  }
-}

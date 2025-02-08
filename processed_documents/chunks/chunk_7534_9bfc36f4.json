@@ -1,9 +1,0 @@
-{
-  "content": "Fog\n\nBasic Fog\n\nTo turn on fog, create an object of class .Fog, and then apply it using the .NodePath.set_fog method:\n\npython\n\nmyFog = Fog(\"Fog Name\")\nmyFog.setColor(R, G, B)\nmyFog.setExpDensity(Float 0 to 1)\nrender.setFog(myFog)\n\ncpp\n\nPT(Fog) my_fog = new Fog(\"Fog Name\");\nmy_fog->set_color(R, G, B);\nmy_fog->set_exp_density(Float 0 to 1);\nrender.set_fog(my_fog);\n\nHowever, there is more here than meets the eye. We have created a fog node, which goes into the scene graph. Therefore, the fog has a position, a place where the fog is (conceptually) thickest.\n\nIf the fog object is not parented into the scene graph (in the example above, for instance), then the fog's position is ignored, and the fog is camera-relative. Likewise, if the fog is exponential, the fog's position is ignored, and the fog is camera-relative.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_663",
-    "parent": "processed_documents/context_documents/92b9a0c0_2014d82f_fog.json",
-    "chunk_number": 7534
-  }
-}

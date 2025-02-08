@@ -1,9 +1,0 @@
-{
-  "content": "def handleMessageType(self, msgType, di):\n        self.notify.warning(\"unrecognized message type %s\" % (msgType))\n\n    def handleClientCreateObject(self, datagram, dgi):\n        \"\"\" client wants to create an object, so we store appropriate\n        data, and then pass message along to corresponding zones \"\"\"\n\n        connection = datagram.getConnection()\n        zoneId  = dgi.getUint32()\n        classId = dgi.getUint16()\n        doId    = dgi.getUint32()\n\n        client = self.clientsByConnection[connection]\n\n        if self.getDoIdBase(doId) != client.doIdBase:\n            self.notify.warning(\n                \"Ignoring attempt to create invalid doId %s from client %s\" % (doId, client.doIdBase))\n            return\n\n        dclass = self.dclassesByNumber[classId]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5182
-  }
-}

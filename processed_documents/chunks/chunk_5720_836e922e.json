@@ -1,9 +1,0 @@
-{
-  "content": "def enableGridInterest(self, enabled = True):\n        self._gridInterestEnabled = enabled\n        if enabled and self.isOnAGrid():\n            # enable all grid interests I may have\n            for currGridId, interestInfo in self._gridInterests.items():\n                currGrid = getBase().getRepository().doId2do.get(currGridId)\n                if currGrid:\n                    self.__setGridInterest(currGrid, interestInfo[1])\n                else:\n                    self.notify.warning(\"unknown grid interest %s\"%currGridId)\n        else:\n            for currGridId, interestInfo in self._gridInterests.items():\n                self.cr.removeTaggedInterest(interestInfo[0])\n            #self.__clearGridInterest()\n\n    def isOnAGrid(self):\n        return self._gridParent is not None\n\n    def getGrid(self):\n        if self._gridParent:\n            return self._gridParent.getGrid()\n        else:\n            return None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_337",
-    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
-    "chunk_number": 5720
-  }
-}

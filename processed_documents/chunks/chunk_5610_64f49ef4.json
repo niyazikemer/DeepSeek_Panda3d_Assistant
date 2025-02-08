@@ -1,9 +1,0 @@
-{
-  "content": "elif doId in self.deferredDoIds:\n            # The object had been deferred.  Great; we don't even have\n            # to generate it now.\n            del self.deferredDoIds[doId]\n            i = self.deferredGenerates.index((CLIENT_ENTER_OBJECT_REQUIRED_OTHER, doId))\n            del self.deferredGenerates[i]\n            if len(self.deferredGenerates) == 0:\n                taskMgr.remove('deferredGenerate')\n\n        else:\n            self._logFailedDisable(doId, ownerView)\n\n    def _logFailedDisable(self, doId, ownerView):\n        self.notify.warning(\n            \"Disable failed. DistObj \"\n            + str(doId) +\n            \" is not in dictionary, ownerView=%s\" % ownerView)\n\n    def handleDelete(self, di):\n        # overridden by ClientRepository\n        assert 0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5610
-  }
-}

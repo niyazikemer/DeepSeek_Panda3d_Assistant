@@ -1,9 +1,0 @@
-{
-  "content": "def flattenMultitex(self, stateFrom = None, target = None,\n                        useGeom = 0, allowTexMat = 0, win = None):\n    from panda3d.core import MultitexReducer\n    mr = MultitexReducer()\n    if target is not None:\n        mr.setTarget(target)\n    mr.setUseGeom(useGeom)\n    mr.setAllowTexMat(allowTexMat)\n\n    if win is None:\n        from direct.showbase import ShowBaseGlobal\n        win = ShowBaseGlobal.base.win\n\n    if stateFrom is None:\n        mr.scan(self)\n    else:\n        mr.scan(self, stateFrom)\n    mr.flatten(win)\nDtool_funcToMethod(flattenMultitex, NodePath)\ndel flattenMultitex\n#####################################################################\ndef getNumDescendants(self):\n    return len(self.findAllMatches('**')) - 1\nDtool_funcToMethod(getNumDescendants, NodePath)\ndel getNumDescendants\n#####################################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5772
-  }
-}

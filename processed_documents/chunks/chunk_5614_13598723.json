@@ -1,9 +1,0 @@
-{
-  "content": "def __doUpdate(self, doId, di, ovUpdated):\n        # Find the DO\n        do = self.doId2do.get(doId)\n        if do is not None:\n            # Let the dclass finish the job\n            do.dclass.receiveUpdate(do, di)\n        elif not ovUpdated:\n            # this next bit is looking for avatar handles so that if you get an update\n            # for an avatar that isn't in your doId2do table but there is a\n            # avatar handle for that object then it's messages will be forwarded to that\n            # object. We are currently using that for whisper echoing\n            # if you need a more general perpose system consider registering proxy objects on\n            # a dict and adding the avatar handles to that dict when they are created\n            # then change/remove the old method. I didn't do that because I couldn't think\n            # of a use for it. -JML\n            try:\n                handle = self.identifyAvatar(doId)\n                if handle:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5614
-  }
-}

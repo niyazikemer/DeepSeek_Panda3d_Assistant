@@ -1,9 +1,0 @@
-{
-  "content": "# The repository is the one that really does the work\n        parentId = self.air.districtId\n        self.air.generateWithRequired(self, parentId, zoneId, optionalFields)\n        self.generate()\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    # this is a special generate used for estates, or anything else that\n    # needs to have a hard coded doId as assigned by the server\n    def generateWithRequiredAndId(self, doId, parentId, zoneId, optionalFields=[]):\n        assert self.notify.debugStateCall(self)\n        # have we already allocated a doId?\n        if self.__preallocDoId:\n            assert doId == self.doId\n            self.__preallocDoId = 0\n\n        # The repository is the one that really does the work\n        self.air.generateWithRequiredAndId(self, doId, parentId, zoneId, optionalFields)\n        self.generate()\n        self.announceGenerate()\n        self.postGenerateMessage()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5698
-  }
-}

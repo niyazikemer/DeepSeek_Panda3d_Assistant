@@ -1,9 +1,0 @@
-{
-  "content": "Accepts a new networkTime value, which is understood to\n        represent the same moment as localTime, plus or minus\n        uncertainty seconds.  Improves our current notion of the time\n        delta accordingly.\n        \"\"\"\n        newDelta = (float(localTime) -\n            (float(networkTime) / NetworkTimePrecision))\n        self.newDelta(\n            localTime, newDelta, newUncertainty, trustNew = trustNew)\n\n    def peerToPeerResync(self, avId, timestamp, serverTime, uncertainty):\n        \"\"\"\n        Accepts an AI time and uncertainty value from another client,\n        along with a local timestamp value of the message from this\n        client which prompted the other client to send us its delta\n        information.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5460
-  }
-}

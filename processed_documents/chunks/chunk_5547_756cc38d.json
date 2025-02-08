@@ -1,9 +1,0 @@
-{
-  "content": "class DistributedObject(DistributedObjectBase):\n    \"\"\"\n    The Distributed Object class is the base class for all network based\n    (i.e. distributed) objects.  These will usually (always?) have a\n    dclass entry in a \\\\*.dc file.\n    \"\"\"\n    notify = directNotify.newCategory(\"DistributedObject\")\n\n    # A few objects will set neverDisable to 1... Examples are\n    # localToon, and anything that lives in the UberZone. This\n    # keeps them from being disabled when you change zones,\n    # even to the quiet zone.\n    neverDisable = 0\n\n    def __init__(self, cr):\n        assert self.notify.debugStateCall(self)\n        if not hasattr(self, 'DistributedObject_initialized'):\n            self.DistributedObject_initialized = 1\n            DistributedObjectBase.__init__(self, cr)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_324",
-    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
-    "chunk_number": 5547
-  }
-}

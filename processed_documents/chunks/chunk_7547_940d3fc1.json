@@ -1,9 +1,0 @@
-{
-  "content": "base.accept(\"escape\", sys.exit)\n\nbase.accept(\"o\", base.oobe)\n\ndef animate(t):\n    for i in range(len(cubes)):\n        cubes[i].setH(t * (2.0 ** i))\n\ninterval = LerpFunc(animate, 5.0, 0.0, 360.0)\n\nbase.accept(\"i\", interval.start)\n\ndef move(x, y, z):\n    root.setX(root.getX() + x)\n    root.setY(root.getY() + y)\n    root.setZ(root.getZ() + z)\n\nbase.accept(\"d\", move, [1.0, 0.0, 0.0])\nbase.accept(\"a\", move, [-1.0, 0.0, 0.0])\nbase.accept(\"w\", move, [0.0, 1.0, 0.0])\nbase.accept(\"s\", move, [0.0, -1.0, 0.0])\nbase.accept(\"e\", move, [0.0, 0.0, 1.0])\nbase.accept(\"q\", move, [0.0, 0.0, -1.0])\n\nbase.run()\n\nIf you run that script, you'll get the following output below. The controls are q, w, e, a, s, d for moving the camera; 'o' for moving the camera via the mouse, 'i' to start the cubes rotating and 'esc' to quit. You will be modifying this script as you follow this tutorial series.\n\n3D Models, Shaders and Hardware",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_664",
-    "parent": "processed_documents/context_documents/84ac09f0_3f7e393a_part-1.json",
-    "chunk_number": 7547
-  }
-}

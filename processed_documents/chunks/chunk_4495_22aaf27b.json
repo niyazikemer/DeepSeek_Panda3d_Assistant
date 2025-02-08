@@ -1,9 +1,0 @@
-{
-  "content": "def _hasLength(self, obj):\n        return hasattr(obj, '__len__')\n\n    def _addContainerGen(self, cont, objRef):\n        contId = id(cont)\n        # if this container is new, or the objRef repr is shorter than what we already have,\n        # put it in the table\n        if contId in self._id2ref:\n            for existingRepr in self._id2ref[contId].getEvalStrGen():\n                yield None\n            for newRepr in objRef.getEvalStrGen():\n                yield None\n        if contId not in self._id2ref or len(newRepr) < len(existingRepr):\n            if contId in self._id2ref:\n                self._leakDetector.removeContainerById(contId)\n            self._id2ref[contId] = objRef",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4495
-  }
-}

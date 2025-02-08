@@ -1,9 +1,0 @@
-{
-  "content": "def sendGenerateWithRequired(self, repository, parentId, zoneId, optionalFields=[]):\n        assert self.notify.debugStateCall(self)\n        dg = self.dclass.aiFormatGenerate(\n            self, self.doId, parentId, zoneId,\n            #repository.serverId,\n            self.generateTargetChannel(repository),\n            repository.ourChannel,\n            optionalFields)\n        repository.send(dg)\n\n    def initFromServerResponse(self, valDict):\n        assert self.notify.debugStateCall(self)\n        # This is a special method used for estates, etc., which get\n        # their fields set from the database indirectly by way of the\n        # AI.  The input parameter is a dictionary of field names to\n        # datagrams that describes the initial field values from the\n        # database.\n\n        dclass = self.dclass\n        for key, value in valDict.items():\n            # Update the field\n            dclass.directUpdate(self, key, value)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5701
-  }
-}

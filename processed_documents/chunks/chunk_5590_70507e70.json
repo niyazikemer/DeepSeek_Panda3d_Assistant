@@ -1,9 +1,0 @@
-{
-  "content": "class ClientRepositoryBase(ConnectionRepository):\n    \"\"\"\n    This maintains a client-side connection with a Panda server.\n\n    This base class exists to collect the common code between\n    ClientRepository, which is the CMU-provided, open-source version\n    of the client repository code, and OTPClientRepository, which is\n    the VR Studio's implementation of the same.\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"ClientRepositoryBase\")\n\n    def __init__(self, dcFileNames = None, dcSuffix = '',\n                 connectMethod = None, threadedNet = None):\n        if connectMethod is None:\n            connectMethod = self.CM_HTTP\n        ConnectionRepository.__init__(self, connectMethod, base.config, hasOwnerView = True, threadedNet = threadedNet)\n        self.dcSuffix = dcSuffix\n        if hasattr(self, 'setVerbose'):\n            if ConfigVariableBool('verbose-clientrepository', False):\n                self.setVerbose(1)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5590
-  }
-}

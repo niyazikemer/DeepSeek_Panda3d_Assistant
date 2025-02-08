@@ -1,9 +1,0 @@
-{
-  "content": "if allowInstance:\n            loaderOptions.setFlags(loaderOptions.getFlags() | LoaderOptions.LFAllowInstance)\n\n        if not isinstance(modelPath, (tuple, list, set)):\n            # We were given a single model pathname.\n            modelList = [modelPath]\n            if phaseChecker:\n                phaseChecker(modelPath, loaderOptions)\n\n            gotList = False\n        else:\n            # Assume we were given a list of model pathnames.\n            modelList = modelPath\n            gotList = True\n\n        if blocking is None:\n            blocking = callback is None\n\n        if blocking:\n            # We got no callback, so it's a synchronous load.\n\n            result = []\n            for modelPath in modelList:\n                node = self.loader.loadSync(Filename(modelPath), loaderOptions)\n                if node is not None:\n                    nodePath = NodePath(node)\n                else:\n                    nodePath = None\n\n                result.append(nodePath)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4378
-  }
-}

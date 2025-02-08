@@ -1,9 +1,0 @@
-{
-  "content": "Manipulating a Piece of a Model\n\nEvery model, when loaded, becomes a ~.ModelNode in the scene graph. Beneath the ~.ModelNode are one or more GeomNodes <.GeomNode> containing the actual polygons. If you want to manipulate a piece of a model, for instance, if you want to change the texture of just part of a model, you need a pointer to the relevant GeomNode.\n\nIn order to obtain such a pointer, you must first ensure that the relevant geometry is in a ~.GeomNode of its own (and not merged with all the other geometry). In other words, you must ensure that panda's optimization mechanisms do not cause the geometry to be merged with the geometry of the rest of the model. While normally this optimization is a good thing, if you want to change textures on a specific part of the model (for example, just a character's face) you will need this geometry to be separate.\n\nThere are two different ways that you should do this, according to the type of model it is.\n\nAnimated (skeleton animation) models",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_695",
-    "parent": "processed_documents/context_documents/07fa1e34_32778465_manipulating-a-piece-of-a-model.json",
-    "chunk_number": 7695
-  }
-}

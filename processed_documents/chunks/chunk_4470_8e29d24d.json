@@ -1,9 +1,0 @@
-{
-  "content": "def _createTaskLeak():\n    leakTaskName = uniqueName('leakedTask')\n    leakDoLaterName = uniqueName('leakedDoLater')\n\n    def nullTask(task=None):\n        return task.cont\n\n    def nullDoLater(task=None):\n        return task.done\n\n    def leakTask(task=None, leakTaskName=leakTaskName):\n        base = getBase()\n        taskMgr.add(nullTask, uniqueName(leakTaskName))\n        taskMgr.doMethodLater(1 << 31, nullDoLater, uniqueName(leakDoLaterName))\n        taskMgr.doMethodLater(10, leakTask, 'doLeakTask-%s' % serialNum())\n        if task:\n            return task.done\n    leakTask()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4470
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "if not className:\n            if not distObj:\n                self.notify.error(\"Must specify either a className or a distObj.\")\n            className = distObj.__class__.__name__\n\n        if doId is None:\n            doId = self.allocateDoId()\n        elif reserveDoId:\n            self.reserveDoId(doId)\n\n        dclass = self.dclassesByName.get(className)\n        if not dclass:\n            self.notify.error(\"Unknown distributed class: %s\" % (distObj.__class__))\n        classDef = dclass.getClassDef()\n        if classDef is None:\n            self.notify.error(\"Could not create an undefined %s object.\" % (\n                dclass.getName()))\n\n        if not distObj:\n            distObj = classDef(self)\n        if not isinstance(distObj, classDef):\n            self.notify.error(\"Object %s is not an instance of %s\" % (distObj.__class__.__name__, classDef.__name__))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5667
-  }
-}

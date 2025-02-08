@@ -1,9 +1,0 @@
-{
-  "content": "Environment Mapping with Cube Maps\n\nAlthough there are other applications for cube maps, one very common use of cube maps is as an environment map, similar to sphere mapping <simple-environment-mapping>. In fact, it works very much the same as sphere mapping.\n\nJust as with a sphere map, you can have Panda3D generate a cube map for you:\n\nscene = loader.loadModel('bvw-f2004--streetscene/street-scene.egg')\nscene.reparentTo(render)\nscene.setZ(-2)\nbase.saveCubeMap('streetscene_cube_#.jpg', size = 256)\n\nWith the cube map saved out as above, you could apply it as an environment map to the teapot like this:\n\ntex = loader.loadCubeMap('streetscene_cube_#.jpg')\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MEyeCubeMap)\nteapot.setTexture(tex)\n\nAnd the result looks very similar to the sphere map:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_475",
-    "parent": "processed_documents/context_documents/948b4838_20446138_environment-mapping-with-cube-maps.json",
-    "chunk_number": 6417
-  }
-}

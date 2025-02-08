@@ -1,9 +1,0 @@
-{
-  "content": "AsyncTask::DoneStatus task_stop(GenericAsyncTask *task, void *data) {\n  ((GenericAsyncTask *)data)->remove();\n  return AsyncTask::DS_done;\n}\n\n// Note that we skip the initialization and finalization of\n// the application for the sake of simplifying the example.\nint main(int argc, char *argv[]) {\n  /* Insert here your app initialization code */\n  /* ... */\n\n  AsyncTaskManager *task_mgr = AsyncTaskManager::get_global_ptr();\n\n  PT(GenericAsyncTask) task, stopper_task;\n\n  // Add the task_func function with an upon_death callback\n  task = new GenericAsyncTask(\"Accumulator\", &task_func, nullptr);\n  task->set_upon_death(&clean_up);\n  task_mgr->add(task);\n\n  // Adds another task to stop the main task 2 seconds later\n  stopper_task = new GenericAsyncTask(\"Task stopper\", &task_stop, task);\n  stopper_task->set_delay(2);\n  task_mgr->add(stopper_task);\n\n  /* Insert here your app finalization code */\n  /* ... */\n}",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_499",
-    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
-    "chunk_number": 6518
-  }
-}

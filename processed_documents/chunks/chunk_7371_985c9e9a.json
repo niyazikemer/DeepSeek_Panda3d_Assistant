@@ -1,9 +1,0 @@
-{
-  "content": "myDirectObject.resetFrameSize()\n\nIf you don't do this, you may find, for example, that a button isn't clickable because it believes it has a zero-width frame.\n\nTo permanently remove a DirectGUI object, you should use the method:\n\nmyDirectObject.destroy()\n\nIt is not sufficient to simply call ~.NodePath.removeNode(), since the DirectGUI system adds a number of messenger hooks that need to be cleaned up. However, if you have a hierarchy of DirectGUI objects, for instance a number of buttons parented to a frame, it is sufficient to call destroy() only on the topmost object; it will propagate downwards.\n\ncpp\n\nSince DirectGUI is implemented in Python, it is useless to C++ programmers. However, there is another GUI system, PGui, that forms the foundation of DirectGUI and is in fact implemented in C++.\n\nLet's take a look at some PGui functions.\n\nThe PGui C++ modules\n\n[PGButton]\n\n#include \"pgButton.h\"\n\nwith PGButton you can create a freely definable clickable button.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_631",
-    "parent": "processed_documents/context_documents/5bc2b973_67d10b58_index.json",
-    "chunk_number": 7371
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "# eliminate the memory leak\n            del prof.dispatcher\n\n            # store the RAM file for later\n            profData = _getProfileResultFileInfo(filename)\n            self._filename2ramFile[filename] = profData\n            # calculate the duration (this is dependent on the internal Python profile data format.\n            # see profile.py and pstats.py, this was copied from pstats.Stats.strip_dirs)\n            maxTime = 0.\n            for cc, nc, tt, ct, callers in profData[1].values():\n                if ct > maxTime:\n                    maxTime = ct\n            self._duration = maxTime\n            # clean up the RAM file support\n            _removeProfileCustomFuncs(filename)\n\n            # clean up the globals\n            result = builtins.globalProfileSessionResult[0]\n            del builtins.globalProfileSessionFunc\n            del builtins.globalProfileSessionResult\n\n            self._successfulProfiles += 1",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_288",
-    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
-    "chunk_number": 5089
-  }
-}

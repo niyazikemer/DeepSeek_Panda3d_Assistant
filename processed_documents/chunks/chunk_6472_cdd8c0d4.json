@@ -1,9 +1,0 @@
-{
-  "content": "self.seeker.loop(\"run\")\n\n    def setAI(self):\n        # Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"seeker\", self.seeker, 60, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        # Path follow (note the order is reveresed)\n        self.AIbehaviors.pathFollow(1.0)\n        self.AIbehaviors.addToPath(self.target4.getPos())\n        self.AIbehaviors.addToPath(self.target3.getPos())\n        self.AIbehaviors.addToPath(self.target2.getPos())\n        self.AIbehaviors.addToPath(self.target1.getPos())\n\n        self.AIbehaviors.startFollow()\n\n        #AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n    def AIUpdate(self,task):\n        self.AIworld.update()\n        return Task.cont\n\nw = World()\nbase.run()\n\nTo get the full working demo, please visit:",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_490",
-    "parent": "processed_documents/context_documents/b574a7d5_53624206_path-follow.json",
-    "chunk_number": 6472
-  }
-}

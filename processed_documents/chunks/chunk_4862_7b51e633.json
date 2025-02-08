@@ -1,9 +1,0 @@
-{
-  "content": "seed = self.recorder.getRandomSeed()\n            random.seed(seed)\n            #whrandom.seed(seed & 0xff, (seed >> 8) & 0xff, (seed >> 16) & 0xff)\n\n        # For some reason, wx needs to be initialized before the graphics window\n        if sys.platform == \"darwin\":\n            if ConfigVariableBool(\"want-wx\", False):\n                wx = importlib.import_module('wx')\n                self.wxApp = wx.App()\n\n            # Same goes for Tk, which uses a conflicting NSApplication\n            if ConfigVariableBool(\"want-tk\", False):\n                Pmw = importlib.import_module('Pmw')\n                self.tkRoot = Pmw.initialise()\n\n        # Open the default rendering window.\n        if self.windowType != 'none':\n            props = WindowProperties.getDefault()\n            if ConfigVariableBool('read-raw-mice', False):\n                props.setRawMice(1)\n            self.openDefaultWindow(startDirect = False, props=props)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4862
-  }
-}

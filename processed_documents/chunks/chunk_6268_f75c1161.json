@@ -1,9 +1,0 @@
-{
-  "content": "Transparency and Blending\n\nDealing with Depth-Sorting Note: this page is cut-and-pasted from a howto we found. We'll polish it later.\n\nUsually transparency works as expected in Panda automatically, but sometimes it just seems to go awry, where a semitransparent object in the background seems to partially obscure a semitransparent object in front of it. This is especially likely to happen with large flat polygon cutouts, or when a transparent object is contained within another transparent object, or when parts of a transparent object can be seen behind other parts of the same object.\n\nThe fundamental problem is that correct transparency, in the absence of special hardware support involving extra framebuffer bits, requires drawing everything in order from farthest away to nearest. This means sorting each polygon--actually, each pixel, for true correctness--into back-to-front order before drawing the scene.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_448",
-    "parent": "processed_documents/context_documents/d4aa489f_64e02051_transparency-and-blending.json",
-    "chunk_number": 6268
-  }
-}

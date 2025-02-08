@@ -1,9 +1,0 @@
-{
-  "content": "def handleWxEvents(task):\n    while app.Pending():\n        app.Dispatch()\n\n    return Task.cont\n\ntaskMgr.add(handleWxEvents, 'handleWxEvents')\nbase.run()  # Panda handles the main loop\n\nIn the case that wxPython handles the main loop using app.MainLoop(), to keep the framerate quick and reduce the CPU, add sleep(0.001) in the body of the program. This will yield to Panda. After the sleep is over, control will return to wxPython. wxPython can then check for user events. wxPython's user generated callback events are generally generated only at infrequent intervals (based on when the user is interacting with the window). This is appropriate for a 2-D application that is completely response-driven, but not very useful for a 3-D application that continues to be active even when a user is not interacting with it.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_404",
-    "parent": "processed_documents/context_documents/ba8da20a_c90a4174_main-loop.json",
-    "chunk_number": 6064
-  }
-}

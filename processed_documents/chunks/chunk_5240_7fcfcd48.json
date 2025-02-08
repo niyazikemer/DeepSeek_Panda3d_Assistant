@@ -1,9 +1,0 @@
-{
-  "content": "class AsyncTextTestRunner(unittest.TextTestRunner):\n        def run(self, test):\n            result = self._makeResult()\n            startTime = time.time()\n            test(result)\n            stopTime = time.time()\n            timeTaken = stopTime - startTime\n            result.printErrors()\n            self.stream.writeln(result.separator2)\n            run = result.testsRun\n            self.stream.writeln(\"Ran %d test%s in %.3fs\" %\n                                (run, run != 1 and \"s\" or \"\", timeTaken))\n            self.stream.writeln()\n            if not result.wasSuccessful():\n                self.stream.write(\"FAILED (\")\n                failed, errored = map(len, (result.failures, result.errors))\n                if failed:\n                    self.stream.write(\"failures=%d\" % failed)\n                if errored:\n                    if failed:\n                        self.stream.write(\", \")\n                    self.stream.write(\"errors=%d\" % errored)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5240
-  }
-}

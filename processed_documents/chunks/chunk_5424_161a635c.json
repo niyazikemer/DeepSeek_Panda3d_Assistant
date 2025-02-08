@@ -1,9 +1,0 @@
-{
-  "content": "from direct.directnotify import DirectNotifyGlobal\nfrom direct.distributed.PyDatagram import PyDatagram\nfrom direct.showbase.Messenger import Messenger\nfrom pickle import dumps, loads\n\n\n# Messages do not need to be in the MESSAGE_TYPES list.\n# This is just an optimization.  If the message is found\n# in this list, it is reduced to an integer index and\n# the message string is not sent.  Otherwise, the message\n# string is sent in the datagram.\nMESSAGE_TYPES=(\n    \"avatarOnline\",\n    \"avatarOffline\",\n    \"create\",\n    \"needUberdogCreates\",\n    \"transferDo\",\n)\n\n# This is the reverse look up for the recipient of the\n# datagram:\nMESSAGE_STRINGS = {}\nfor i in zip(MESSAGE_TYPES, range(1, len(MESSAGE_TYPES) + 1)):\n    MESSAGE_STRINGS[i[0]] = i[1]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_313",
-    "parent": "processed_documents/context_documents/9d0f4180_NetMessenger.json",
-    "chunk_number": 5424
-  }
-}

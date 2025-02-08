@@ -1,9 +1,0 @@
-{
-  "content": "class MiniLog:\n    def __init__(self, name):\n        self.indent = 1\n        self.name = name\n        self.lines = []\n\n    def __str__(self):\n        return '%s\\nMiniLog: %s\\n%s\\n%s\\n%s' % \\\n               ('*'*50, self.name, '-'*50, '\\n'.join(self.lines), '*'*50)\n\n    def enterFunction(self, funcName, *args, **kw):\n        rArgs = [repr(x) + ', ' for x in args] + \\\n                [x + ' = ' + '%s, ' % repr(y) for x, y in kw.items()]\n\n        if not rArgs:\n            rArgs = '()'\n        else:\n            rArgs = '(' + functools.reduce(str.__add__, rArgs)[:-2] + ')'\n\n        line = '%s%s' % (funcName, rArgs)\n        self.appendFunctionCall(line)\n        self.indent += 1\n\n        return line\n\n    def exitFunction(self):\n        self.indent -= 1\n        return self.indent\n\n    def appendFunctionCall(self, line):\n        self.lines.append(' '*(self.indent*2) + line)\n        return line",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4706
-  }
-}

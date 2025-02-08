@@ -1,9 +1,0 @@
-{
-  "content": "If dclassName is None then all objects in the zone are returned;\n        otherwise the list is filtered to only include objects of that type.\n        \"\"\"\n        parent=self._table.get(parentId)\n        if parent is None:\n            return []\n        if zoneId is None:\n            r = []\n            for zone in parent.values():\n                for obj in zone:\n                    r.append(obj)\n        else:\n            r = parent.get(zoneId, [])\n        if classType is not None:\n            a = []\n            for doId in r:\n                obj = getDo(doId)\n                if isinstance(obj, classType):\n                    a.append(doId)\n            r = a\n        return r",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_320",
-    "parent": "processed_documents/context_documents/79f8b556_DoHierarchy.json",
-    "chunk_number": 5529
-  }
-}

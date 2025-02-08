@@ -1,9 +1,0 @@
-{
-  "content": "def getLastResync(self):\n        # Returns the local time at which we last resynchronized the\n        # clock delta.\n        return self.lastResync\n\n    def __resetClock(self, timeDelta):\n        \"\"\"\n        this is called when the global clock gets adjusted\n        timeDelta is equal to the amount of time, in seconds,\n        that has been added to the global clock\n        \"\"\"\n        assert self.notify.debug(\n            \"adjusting timebase by %f seconds\" % timeDelta)\n        # adjust our timebase by the same amount\n        self.delta += timeDelta\n\n    def clear(self):\n        \"\"\"\n        Throws away any previous synchronization information.\n        \"\"\"\n        self.delta = 0\n        self.uncertainty = None\n        self.lastResync = 0.0\n\n    def resynchronize(self, localTime, networkTime, newUncertainty,\n                      trustNew = 1):\n        \"\"\"resynchronize(self, float localTime, int32 networkTime,\n                         float newUncertainty)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5459
-  }
-}

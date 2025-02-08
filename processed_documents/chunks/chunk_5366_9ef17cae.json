@@ -1,9 +1,0 @@
-{
-  "content": "def peerToPeerResync(self, avId, timestamp, serverTime, uncertainty):\n        gotSync = globalClockDelta.peerToPeerResync(\n            avId, timestamp, serverTime, uncertainty)\n\n        # If we didn't get anything useful from the other client,\n        # maybe our clock is just completely hosed.  Go ask the AI.\n        if not gotSync:\n            if self.cr.timeManager is not None:\n                self.cr.timeManager.synchronize(\"suggested by %d\" % (avId))\n\n        return gotSync\n\n    def activateSmoothing(self, smoothing, prediction):\n        \"\"\"\n        Enables or disables the smoothing of other avatars' motion.\n        This used to be a global flag, but now it is specific to each\n        avatar instance.  However, see globalActivateSmoothing() in\n        this module.\n\n        If smoothing is off, no kind of smoothing will be performed,\n        regardless of the setting of prediction.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5366
-  }
-}

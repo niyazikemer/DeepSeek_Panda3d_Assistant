@@ -1,9 +1,0 @@
-{
-  "content": "class PriorityCallbacks:\n    \"\"\" manage a set of prioritized callbacks, and allow them to be invoked in order of priority \"\"\"\n\n    def __init__(self):\n        self._callbacks = []\n\n    def clear(self):\n        del self._callbacks[:]\n\n    def add(self, callback, priority=None):\n        if priority is None:\n            priority = 0\n        callbacks = self._callbacks\n        lo = 0\n        hi = len(callbacks)\n        while lo < hi:\n            mid = (lo + hi) // 2\n            if priority < callbacks[mid][0]:\n                hi = mid\n            else:\n                lo = mid + 1\n        item = (priority, callback)\n        callbacks.insert(lo, item)\n        return item\n\n    def remove(self, item):\n        self._callbacks.remove(item)\n\n    def __call__(self):\n        for priority, callback in self._callbacks:\n            callback()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4714
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def _checkCompletion(self, name, context, distObj):\n        \"\"\"\n        This checks whether we have all the needed objects and calls\n        finish() if we do.\n        \"\"\"\n        if name is not None:\n            self.neededObjects[name] = distObj\n        else:\n            self.neededObjects[distObj.doId] = distObj\n        for i in self.neededObjects.values():\n            if i is None:\n                return\n        self.finish()\n\n    def _resetTimeoutTask(self, createAnew = True):\n        if self.timeoutTask:\n            taskMgr.remove(self.timeoutTask)\n            self.timeoutTask = None\n        if createAnew:\n            self.numRetries = self._initialNumRetries\n            self.timeoutTask = taskMgr.doMethodLater(\n                self._timeoutTime, self.timeout,\n                \"AsyncRequestTimer-%s\"%(id(self,)))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_309",
-    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
-    "chunk_number": 5403
-  }
-}

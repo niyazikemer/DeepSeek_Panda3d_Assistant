@@ -1,9 +1,0 @@
-{
-  "content": "# Plane\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\nworld.attachRigidBody(node)\n\n# Boxes\nmodel = loader.loadModel('models/box.egg')\nmodel.setPos(-0.5, -0.5, -0.5)\nmodel.flattenLight()\nshape = BulletBoxShape(Vec3(0.5, 0.5, 0.5))\nfor i in range(10):\n    node = BulletRigidBodyNode('Box')\n    node.setMass(1.0)\n    node.addShape(shape)\n    np = render.attachNewNode(node)\n    np.setPos(0, 0, 2+i*2)\n    world.attachRigidBody(node)\n    model.copyTo(np)\n\n# Update\ndef update(task):\n  dt = globalClock.getDt()\n  world.doPhysics(dt)\n  return task.cont\n\ntaskMgr.add(update, 'update')\nbase.run()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_413",
-    "parent": "processed_documents/context_documents/6d8fd728_3ccbd432_samples.json",
-    "chunk_number": 6106
-  }
-}

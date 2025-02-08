@@ -1,9 +1,0 @@
-{
-  "content": "\"\"\"DistributedSmoothNode module: contains the DistributedSmoothNode class\"\"\"\n\nimport math\nfrom panda3d.core import ClockObject, ConfigVariableBool, ConfigVariableDouble, NodePath\nfrom panda3d.direct import SmoothMover\nfrom .ClockDelta import globalClockDelta\nfrom . import DistributedNode\nfrom . import DistributedSmoothNodeBase\nfrom direct.task.Task import cont\nfrom direct.task.TaskManagerGlobal import taskMgr\nfrom direct.showbase.PythonUtil import report\n\n# This number defines our tolerance for out-of-sync telemetry packets.\n# If a packet appears to have originated from more than MaxFuture\n# seconds in the future, assume we're out of sync with the other\n# avatar and suggest a resync for both.\nMaxFuture = ConfigVariableDouble(\"smooth-max-future\", 0.2)\n\n# How frequently can we suggest a resynchronize with another client?\nMinSuggestResync = ConfigVariableDouble(\"smooth-min-suggest-resync\", 15)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5339
-  }
-}

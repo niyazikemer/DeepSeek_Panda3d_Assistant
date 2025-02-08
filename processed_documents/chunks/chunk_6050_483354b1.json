@@ -1,9 +1,0 @@
-{
-  "content": "Problem: GLSL Versions on macOS\n\nProblem: On macOS, loading a GLSL shader newer than 1.20 will fail, even if the hardware is capable of higher versions.\n\nWorkaround: To use GLSL 1.50 and 3.30 shaders on macOS, it is necessary to turn off the fixed-function pipeline. Note that this means it becomes necessary to use shaders for all objects, it is no longer possible to mix-and-match custom shaders and the fixed-function pipeline. To do this, set this in Config.prc:\n\ngl-version 3 2\n\nThe following table lists which shader languages and versions are supported in which situation on macOS:\n\nSituation NVIDIA Cg GLSL 1.20 GLSL 1.50 GLSL 3.30 No gl-version , Intel \u2714\ufe0f \u2714\ufe0f \u274c \u274c No gl-version , ARM64 \u274c \u2714\ufe0f \u274c \u274c With gl-version 3 2 \u274c \u274c \u2714\ufe0f \u2714\ufe0f\n\nIn Panda3D 1.11, this situation will be improved as Panda3D will be able to automatically back-translate GLSL 1.50+ shaders to 1.20 as required by the driver.\n\nProblem: Register Allocation",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_401",
-    "parent": "processed_documents/context_documents/b94e6c02_f8c75e0b_known-shader-issues.json",
-    "chunk_number": 6050
-  }
-}

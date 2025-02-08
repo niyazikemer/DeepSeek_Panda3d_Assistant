@@ -1,9 +1,0 @@
-{
-  "content": "bodyNode = BulletSoftBodyNode.makeRope(info, p1, p2, res, fixeds)\nbodyNode.setTotalMass(50.0)\nbodyNP = worldNP.attachNewNode(bodyNode)\nworld.attachSoftBody(bodyNode)\n\ncpp\n\nTODO\n\nVisualisation\n\nSo far we have a physical object, the soft body rope, but aside from the debug renderer this object is not shown in our scene. We need something to visualize the rope.\n\nThere are two ways of rendering the rope. First we can make use of a NURBS curve, or we can simple render the rope using geom lines. First we have a look at how to render the rope using geom lines.\n\npython\n\nfrom panda3d.core import GeomNode\n\ngeom = BulletHelper.makeGeomFromLinks(bodyNode)\n\nvisNode = GeomNode('')\nvisNode.addGeom(geom)\nvisNP = bodyNP.attachNewNode(visNode)\n\nbodyNode.linkGeom(geom)\n\ncpp\n\nTODO",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_470",
-    "parent": "processed_documents/context_documents/ff1adceb_3635e1a0_softbody-rope.json",
-    "chunk_number": 6402
-  }
-}

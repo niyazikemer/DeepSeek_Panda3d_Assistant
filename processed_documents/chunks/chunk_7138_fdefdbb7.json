@@ -1,9 +1,0 @@
-{
-  "content": "TXO file format\n\nPanda has a native file format for storing texture images, called TXO (the abbreviation is for \"texture object\"). This is similar to BAM files. A TXO file contains all of the texture image data in a format very similar to Panda's internal representation, so it loads into memory very quickly.\n\nMore importantly, perhaps, TXO files can optionally store pre-compressed texture images. You can use the command: egg2bam -txo -ctex model.egg -o model.bam to convert your model to a BAM file, and all of its textures to TXO files, with the image data pre-compressed within the TXO file so that it will not need to be compressed at runtime later. (You may need to specify \"pandagl\" instead of \"pandadx9\" as your rendering engine while you run the egg2bam command--at the time of this writing, there were issues with using Panda's DirectX driver in an offline mode like this. However, the resulting TXO files will load on either OpenGL or DirectX at runtime.)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_591",
-    "parent": "processed_documents/context_documents/e855bf7e_76bdc2be_texture-compression.json",
-    "chunk_number": 7138
-  }
-}

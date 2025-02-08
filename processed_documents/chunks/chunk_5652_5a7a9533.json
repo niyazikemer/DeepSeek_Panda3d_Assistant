@@ -1,9 +1,0 @@
-{
-  "content": "class DistributedSmoothNodeBase:\n    \"\"\"common base class for DistributedSmoothNode and DistributedSmoothNodeAI\n    \"\"\"\n\n    class BroadcastTypes(IntEnum):\n        FULL = 0\n        XYH = 1\n        XY = 2\n\n    def __init__(self):\n        self.__broadcastPeriod = None\n\n    def generate(self):\n        self.cnode = CDistributedSmoothNodeBase()\n        self.cnode.setClockDelta(globalClockDelta)\n        self.d_broadcastPosHpr = None\n\n    def disable(self):\n        del self.cnode\n        # make sure our task is gone\n        self.stopPosHprBroadcast()\n\n    def delete(self):\n        pass\n\n    def b_clearSmoothing(self):\n        self.d_clearSmoothing()\n        self.clearSmoothing()\n\n    def d_clearSmoothing(self):\n        self.sendUpdate(\"clearSmoothing\", [0])\n\n    ### posHprBroadcast ###\n\n    def getPosHprBroadcastTaskName(self):\n        # presumably, we have a doId at this point\n        return \"sendPosHpr-%s\" % self.doId",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_332",
-    "parent": "processed_documents/context_documents/8613714e_DistributedSmoothNodeBase.json",
-    "chunk_number": 5652
-  }
-}

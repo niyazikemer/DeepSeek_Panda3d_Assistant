@@ -1,9 +1,0 @@
-{
-  "content": "Managing Reference Counts\n\nThere are several ways that the reference count can be manipulated in code. To get the number of references to an object, use the ~.ReferenceCount.get_ref_count() method.\n\nThe reference counted can be incremented and decremented manually using the ~.ReferenceCount.ref() and ~.ReferenceCount.unref() methods, but be careful! This messes up Panda's internal bookkeeping, and will likely cause crashes and memory leaks. Do not do this unless you know exactly what you're doing!\n\ncpp\n\nSmart Pointers\n\nTo correctly track references in C++ code, Panda3D needs to know whenever a new reference to the class is created. Therefore, Panda3D defines a template class PointerTo<T> which is just like the ordinary pointer T*, except that the reference count is incremented when it is created or assigned, and decremented when it goes out of scope. There is a convenience macro PT(T) to save typing.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_614",
-    "parent": "processed_documents/context_documents/34116fa8_637658a3_reference-counting.json",
-    "chunk_number": 7241
-  }
-}

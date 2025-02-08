@@ -1,9 +1,0 @@
-{
-  "content": "def toggleVerbose(self):\n        isVerbose = 1 - Messenger.notify.getDebug()\n        Messenger.notify.setDebug(isVerbose)\n        if isVerbose:\n            print(\"Verbose mode true.  quiet list = %s\"%(\n                list(self.quieting.keys()),))\n\n    if __debug__:\n        def watch(self, needle):\n            \"\"\"\n            return a matching event (needle) if found (in haystack).\n            This is primarily a debugging tool.\n\n            This is intended for debugging use only.\n            This function is not defined if python is ran with -O (optimize).\n\n            See Also: `unwatch`\n            \"\"\"\n            if not self.__watching.get(needle):\n                self.__isWatching += 1\n                self.__watching[needle]=1\n\n        def unwatch(self, needle):\n            \"\"\"\n            return a matching event (needle) if found (in haystack).\n            This is primarily a debugging tool.",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_286",
-    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
-    "chunk_number": 5065
-  }
-}

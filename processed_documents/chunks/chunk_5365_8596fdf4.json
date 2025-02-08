@@ -1,9 +1,0 @@
-{
-  "content": "def d_returnResync(self, avId, timestampB, serverTime, uncertainty):\n        serverTimeSec = math.floor(serverTime)\n        serverTimeUSec = (serverTime - serverTimeSec) * 10000.0\n        self.sendUpdate(\"returnResync\", [\n            avId, timestampB, serverTimeSec, serverTimeUSec, uncertainty])\n\n    def returnResync(self, avId, timestampB, serverTimeSec, serverTimeUSec,\n                     uncertainty):\n        \"\"\"\n        A reply sent by a client whom we recently sent suggestResync\n        to, this reports the client's new delta information so we can\n        adjust our clock as well.\n        \"\"\"\n        serverTime = float(serverTimeSec) + float(serverTimeUSec) / 10000.0\n        self.peerToPeerResync(avId, timestampB, serverTime, uncertainty)\n\n    def peerToPeerResync(self, avId, timestamp, serverTime, uncertainty):\n        gotSync = globalClockDelta.peerToPeerResync(\n            avId, timestamp, serverTime, uncertainty)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_305",
-    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
-    "chunk_number": 5365
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "class DistributedCameraOV(DistributedObjectOV):\n    def __init__(self, cr):\n        DistributedObjectOV.__init__(self, cr)\n        self.parent = 0\n        self.fixtures = []\n        self.accept('refresh-fixture', self.refreshFixture)\n\n    def delete(self):\n        self.ignore('escape')\n        self.ignore('refresh-fixture')\n        DistributedObjectOV.delete(self)\n\n    def getObject(self):\n        return self.cr.getDo(self.getDoId())\n\n    def setCamParent(self, doId):\n        self.parent = doId\n\n    def setFixtures(self, fixtures):\n        self.fixtures = fixtures\n\n    def storeToFile(self, name):\n        f = open('cameras-%s.txt' % name, 'w')\n        f.writelines(self.getObject().pack())\n        f.close()\n\n    def unpackFixture(self, data):\n        data = data.strip().replace('Camera','')\n        pos,hpr,fov = eval(data)\n        return pos,hpr,fov",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_331",
-    "parent": "processed_documents/context_documents/3deb3265_DistributedCameraOV.json",
-    "chunk_number": 5646
-  }
-}

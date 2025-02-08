@@ -1,9 +1,0 @@
-{
-  "content": "if pipe is None:\n                self.makeDefaultPipe()\n                pipe = self.pipe\n\n            if pipe is None:\n                # We couldn't get a pipe.\n                return None\n\n        if isinstance(gsg, GraphicsOutput):\n            # If the gsg is a window or buffer, it means to use the\n            # GSG from that buffer.\n            host = gsg\n            gsg = gsg.getGsg()\n\n        # If we are using DirectX, force a new GSG to be created,\n        # since at the moment DirectX seems to misbehave if we do\n        # not do this.  This will cause a delay while all textures\n        # etc. are reloaded, so we should revisit this later if we\n        # can fix the underlying bug in our DirectX support.\n        if pipe.getType().getName().startswith('wdx'):\n            gsg = None\n\n        if type is None:\n            type = self.windowType\n\n        if props is None:\n            props = WindowProperties.getDefault()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4890
-  }
-}

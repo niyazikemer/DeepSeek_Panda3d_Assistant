@@ -1,9 +1,0 @@
-{
-  "content": "Different GeomPrimitive types have different requirements for the number of vertices per primitive. Some always have a fixed amount of vertices, like GeomTriangles, GeomLines and GeomPoints. You should simply add all of the vertices for these primitives. Some people call ~.GeomPrimitive.close_primitive() after adding every primitive, but this is not strictly necessary. Other GeomPrimitive types have a variable number of vertices, like GeomTristrips, GeomTrifans and GeomLinestrips. Because you need to tell Panda3D how many vertices are in every primitive, you should call ~.GeomPrimitive.close_primitive() after adding every primitive.\n\nFor example:\n\npython\n\nprim = GeomTriangles(Geom.UHStatic)\n\nprim.addVertex(0)\nprim.addVertex(1)\nprim.addVertex(2)\n# thats the first triangle\n\n# you can also add a few at once\nprim.addVertices(2, 1, 3)\n\nprim.addVertices(0, 5, 6)\n\ncpp\n\n// In order for this to work you need to have included \"geomTriangles.h\"",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_665",
-    "parent": "processed_documents/context_documents/ac32205b_13f08c03_creating-primitives.json",
-    "chunk_number": 7558
-  }
-}

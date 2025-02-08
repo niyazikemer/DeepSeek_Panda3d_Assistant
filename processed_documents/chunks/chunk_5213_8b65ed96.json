@@ -1,9 +1,0 @@
-{
-  "content": "assert DoInterestManager.notify.debugCall()\n        assert isinstance(handle, InterestHandle)\n        existed = False\n        if not event:\n            event = self._getAnonymousEvent('removeInterest')\n        handle = handle.asInt()\n        if handle in DoInterestManager._interests:\n            existed = True\n            intState = DoInterestManager._interests[handle]\n            if event:\n                messenger.send(self._getRemoveInterestEvent(),\n                               [event, intState.parentId, intState.zoneIdList])\n            if intState.isPendingDelete():\n                self.notify.warning(\n                    'removeInterest: interest %s already pending removal' %\n                    handle)\n                # this interest is already pending delete, so let's just tack this\n                # callback onto the list\n                if event is not None:\n                    intState.addEvent(event)\n            else:\n                if len(intState.events) > 0:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5213
-  }
-}

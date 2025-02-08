@@ -1,9 +1,0 @@
-{
-  "content": "for symbolName in importSymbols:\n                if hasattr(module, symbolName):\n                    dcImports[symbolName] = getattr(module, symbolName)\n\n                else:\n                    raise Exception('Symbol %s not defined in module %s.' % (symbolName, moduleName))\n\n        else:\n            # \"import moduleName\"\n\n            # Copy the root module name into the dictionary.\n\n            # Follow the dotted chain down to the actual module.\n            components = moduleName.split('.')\n            dcImports[components[0]] = module\n\n    def readDCFile(self, dcFileNames = None):\n        \"\"\"\n        Reads in the dc files listed in dcFileNames, or if\n        dcFileNames is None, reads in all of the dc files listed in\n        the Configrc file.\n        \"\"\"\n        dcFile = self.dcFile\n        dcFile.clear()\n        self.dclassesByName = {}\n        self.dclassesByNumber = {}\n        self.hashVal = 0",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_293",
-    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
-    "chunk_number": 5172
-  }
-}

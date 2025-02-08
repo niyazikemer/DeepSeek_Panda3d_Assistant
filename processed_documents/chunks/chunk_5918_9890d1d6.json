@@ -1,9 +1,0 @@
-{
-  "content": "A NodePath isn't exactly a pointer to a node; it's a \"handle\" to a node. Conceptually, this is almost a distinction without a difference. However, there are certain API functions that expect you to pass in a NodePath, and there are other API functions that expect you to pass in a node pointer. Because of this, although there is little conceptual difference between them, you still need to know that both exist.\n\nYou can convert a NodePath into a \"regular\" pointer at any time by calling nodePath.node() <.NodePath.node>. However, there is no unambiguous way to convert back. That's important: sometimes you need a NodePath, sometimes you need a node pointer. Because of this, it is recommended that you store NodePaths, not node pointers. When you pass parameters, you should probably pass NodePaths, not node pointers. The callee can always convert the NodePath to a node pointer if it needs to.\n\nNodePath methods and Node methods",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_371",
-    "parent": "processed_documents/context_documents/f4be8456_0bb50ac6_index.json",
-    "chunk_number": 5918
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "One important thing to note is that the size of a memoryview cannot be changed. So it is necessary to set the size of the vertex array before creating a view of it. In the code above, the number of vertex data rows is set to 4. This implicitly also sets the row count of all of its arrays to that same number.\n\nFilling in the newly created vertex data can be done like this:\n\nimport array\n\n# all of the coordinates can be put into a Python array...\ncoordinates = array.array('f', [\n    -1.0, 0.0, -1.0,  # the coordinates of the 1st vertex\n    1.0, 2.0, -1.0,   # the coordinates of the 2nd vertex\n    1.0, 0.0, 1.0,    # the coordinates of the 3rd vertex\n    -1.0, 0.0, 1.0    # the coordinates of the 4th vertex\n])\n# ...and assigned to the memoryview all at once\nview[:] = coordinates\n# it's also possible to assign a single float value to a particular element\n# of the memoryview:\nview[4] = 0.0  # modify the y-coordinate of the 2nd vertex",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_561",
-    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
-    "chunk_number": 6968
-  }
-}

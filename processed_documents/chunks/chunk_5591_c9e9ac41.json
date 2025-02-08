@@ -1,9 +1,0 @@
-{
-  "content": "self.context=100000\n        self.setClientDatagram(1)\n\n        self.deferredGenerates = []\n        self.deferredDoIds = {}\n        self.lastGenerate = 0\n        self.setDeferInterval(ConfigVariableDouble('deferred-generate-interval', 0.2).value)\n        self.noDefer = False  # Set this True to temporarily disable deferring.\n\n        self.recorder = base.recorder\n\n        self.readDCFile(dcFileNames)\n        self.cache=CRCache.CRCache()\n        self.doDataCache = CRDataCache()\n        self.cacheOwner=CRCache.CRCache()\n        self.serverDelta = 0\n\n        self.bootedIndex = None\n        self.bootedText = None\n\n        # create a parentMgr to handle distributed reparents\n        # this used to be 'token2nodePath'\n        self.parentMgr = ParentMgr.ParentMgr()\n\n        # The RelatedObjectMgr helps distributed objects find each\n        # other.\n        self.relatedObjectMgr = RelatedObjectMgr.RelatedObjectMgr(self)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5591
-  }
-}

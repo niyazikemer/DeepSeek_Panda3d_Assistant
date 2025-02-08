@@ -1,9 +1,0 @@
-{
-  "content": "vfs = VirtualFileSystem.getGlobalPtr()\nvfs.mount(mf, \".\", VirtualFileSystem.MFReadOnly)\n\ncpp\n\nPT(Multifile) mf = new Multifile;\n//... now do something with mf\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nvfs->mount(mf, \".\", VirtualFileSystem::MF_read_only);\n\nSubfiles\n\nFiles that are added to a multifile are called subfiles. You can add existing files to a multifile object using the ~.Multifile.add_subfile() method. This method takes three arguments: the target filename, the existing source file and the compression level (1-9). There is also ~.Multifile.update_subfile(), which does the same thing but if the file already exists, only updates it if the content is different.\n\nThere are several other methods which operate on subfiles, which you can find on the ~panda3d.core.Multifile page in the API Reference. Here are a few examples of working with subfiles:\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_675",
-    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
-    "chunk_number": 7602
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def render(self):\n        if not self.enabled:\n            return\n        if not self.onScreenText:\n            self.load()\n        self.onScreenText.clearText()\n        for k, v in sorted(self.data.items()):\n            if v[0] == self.frame:\n                # It was updated this frame (key equals value):\n                #isNew = \" is\"\n                isNew = \"=\"\n            else:\n                # This data is not for the current\n                # frame (key roughly equals value):\n                #isNew = \"was\"\n                isNew = \"~\"\n            value = v[1]\n            if isinstance(value, float):\n                value = \"% 10.4f\"%(value,)\n            # else: other types will be converted to str by the \"%s\"\n            self.onScreenText.appendText(\"%20s %s %-44s\\n\"%(k, isNew, value))\n        self.onScreenText.appendText(self.text)\n        self.frame += 1\n\n    def clear(self):\n        self.text = \"\"\n        if self.onScreenText:\n            self.onScreenText.clearText()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_262",
-    "parent": "processed_documents/context_documents/a76bfde3_OnScreenDebug.json",
-    "chunk_number": 4593
-  }
-}

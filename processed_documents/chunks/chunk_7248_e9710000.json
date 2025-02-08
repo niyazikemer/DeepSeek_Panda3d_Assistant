@@ -1,9 +1,0 @@
-{
-  "content": "Mouse Support\n\nPanda3D has mouse support built in.\n\npython\n\nIn Python, the default action of the mouse is to control the camera. If you want to disable this functionality you can use the command:\n\nbase.disableMouse()\n\nThis function's name is slightly misleading. It only disables the task that drives the camera around, it doesn't disable the mouse itself. You can still get the position of the mouse, as well as the mouse clicks.\n\ncpp\n\nIn C++, you need to do the following if you want the mouse to control the camera:\n\nwindow->setup_trackball();\n\nYou don't need to do this to enable the mouse itself, only to enable a task that drives the camera around. You can still get the position of the mouse, as well as the mouse clicks, even if you don't enable this \"trackball mode\".\n\nTo get the position:\n\npython\n\nif base.mouseWatcherNode.hasMouse():\n  x = base.mouseWatcherNode.getMouseX()\n  y = base.mouseWatcherNode.getMouseY()\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_615",
-    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
-    "chunk_number": 7248
-  }
-}

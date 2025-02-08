@@ -1,9 +1,0 @@
-{
-  "content": "def importModule(self, dcImports, moduleName, importSymbols):\n        \"\"\"\n        Imports the indicated moduleName and all of its symbols\n        into the current namespace.  This more-or-less reimplements\n        the Python import command.\n        \"\"\"\n        module = __import__(moduleName, globals(), locals(), importSymbols)\n\n        if importSymbols:\n            # \"from moduleName import symbolName, symbolName, ...\"\n            # Copy just the named symbols into the dictionary.\n            if importSymbols == ['*']:\n                # \"from moduleName import *\"\n                if hasattr(module, \"__all__\"):\n                    importSymbols = module.__all__\n                else:\n                    importSymbols = module.__dict__.keys()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_303",
-    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
-    "chunk_number": 5321
-  }
-}

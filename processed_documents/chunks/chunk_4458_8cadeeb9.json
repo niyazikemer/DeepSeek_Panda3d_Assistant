@@ -1,9 +1,0 @@
-{
-  "content": "def setSoundVelocityAuto(self, sound):\n        \"\"\"\n        If velocity is set to auto, the velocity will be determined by the\n        previous position of the object the sound is attached to and the frame dt.\n        Make sure if you use this method that you remember to clear the previous\n        transformation between frames.\n        \"\"\"\n        self.vel_dict[sound]=None\n\n    def getSoundVelocity(self, sound):\n        \"\"\"\n        Get the velocity of the sound.\n        \"\"\"\n        if sound in self.vel_dict:\n            vel = self.vel_dict[sound]\n            if vel is not None:\n                return vel\n\n            for known_object in list(self.sound_dict.keys()):\n                if self.sound_dict[known_object].count(sound):\n                    node_path = known_object.getNodePath()\n                    if not node_path:\n                        # The node has been deleted.\n                        del self.sound_dict[known_object]\n                        continue",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_255",
-    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
-    "chunk_number": 4458
-  }
-}

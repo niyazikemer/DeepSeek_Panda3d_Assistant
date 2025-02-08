@@ -1,9 +1,0 @@
-{
-  "content": "# add vertices to each NurbsCurveEvaluator\n                    segment_index = 0\n                    while segment_index < total_segments:\n                        motion_trail_frame_start = self.frame_list[segment_index]\n                        motion_trail_frame_end = self.frame_list[segment_index + 1]\n\n                        vertex_segment_index = 0\n\n                        if self.calculate_relative_matrix:\n                            start_transform = Mat4()\n                            end_transform = Mat4()\n\n                            start_transform.multiply(motion_trail_frame_start.transform, inverse_matrix)\n                            end_transform.multiply(motion_trail_frame_end.transform, inverse_matrix)\n\n                        else:\n                            start_transform = motion_trail_frame_start.transform\n                            end_transform = motion_trail_frame_end.transform",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5132
-  }
-}

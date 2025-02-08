@@ -1,9 +1,0 @@
-{
-  "content": "class World(DirectObject):\n\n    def __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0,0,55,0,-90,0)\n\n        self.loadModels()\n        self.setAI()\n\n    def loadModels(self):\n        # Seeker\n        ralphStartPos = Vec3(2, 0, 0)\n        self.fleer = Actor(\"models/ralph\",\n                                 {\"run\":\"models/ralph-run\"})\n        self.fleer.reparentTo(render)\n        self.fleer.setScale(0.5)\n        self.fleer.setPos(ralphStartPos)\n        # Target\n        self.target = loader.loadModel(\"models/arrow\")\n        self.target.setColor(1,0,0)\n        self.target.setPos(5,0,0)\n        self.target.setScale(1)\n        self.target.reparentTo(render)\n\n    def setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"fleer\",self.fleer, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_461",
-    "parent": "processed_documents/context_documents/6e27ca21_7765537e_flee.json",
-    "chunk_number": 6357
-  }
-}

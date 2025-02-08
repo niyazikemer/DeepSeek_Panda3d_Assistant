@@ -1,9 +1,0 @@
-{
-  "content": "maya2egg6 dog-walk.mb -a model -cn dog -o dog-model.egg\n\nNote, we can grab the model from any of the animations, as long as they are all using the exact same rig:\n\nmaya2egg6 dog-walk.mb -a chan -cn dog -o dog-walk.egg\nmaya2egg6 dog-sit.mb -a chan -cn dog -o dog-sit.egg\nmaya2egg6 dog-run.mb -a chan -cn dog -o dog-run.egg\n\nI'm using the lookAt() method on a NodePath to point it at another object. It works fine until I point upwards, and then it starts to spin my object around randomly\n\nlookAt() works as long as you aren't telling it to look in the direction of its up vector. The up vector can be specified as the second argument of lookAt().\n\nlookAt(object, Vec3(0, 0, 1))\n\nI'm building a 3D game, and I have a huge world. When my world starts up, the program hangs for a few seconds the first time I look around. Is there any way to avoid this?\n\nIt can take a while to prepare objects to be rendered.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_459",
-    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
-    "chunk_number": 6341
-  }
-}

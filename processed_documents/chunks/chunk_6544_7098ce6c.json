@@ -1,9 +1,0 @@
-{
-  "content": "Note that in blend mode each contributing animation still affects the actor's entire body. If you want to play one animation on, say, the left arm, while a different animation is playing on the legs, then you need to use half-body animation, which is different from blending.\n\nTo use blending, you must first call enableBlend() to activate the blending mode and indicate your intention to play multiple animations at once. While the actor is in blend mode, playing a new animation does not automatically stop the previously playing animation. Also, while in blend mode, you must explicitly specify how much each animation contributes to the overall effect, with the setControlEffect() method (the default for each animation is 0.0, or no contribution). For example:\n\npython\n\nactor.enableBlend()\nactor.setControlEffect('animation1', 0.2)\nactor.setControlEffect('animation2', 0.8)\nactor.loop('animation1')\nactor.loop('animation2')",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_505",
-    "parent": "processed_documents/context_documents/4f3e2d7a_0bcb2e3d_actor-animations.json",
-    "chunk_number": 6544
-  }
-}

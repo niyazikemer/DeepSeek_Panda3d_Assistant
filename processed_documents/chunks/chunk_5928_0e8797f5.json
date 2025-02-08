@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\nvoid processGeomNode(GeomNode *geomnode) {\n  for (size_t j = 0; j < geomnode->get_num_geoms(); ++j) {\n    PT(Geom) geom = geomnode->get_geom(j);\n    geom->write(nout); // Outputs basic info on the geom\n    geomnode->get_geom_state(j)->write(nout); // Basic renderstate info\n    processGeom(geom);\n  }\n}\n\nNote that geomNode.getGeom() is only appropriate if you will be reading, but not modifying, the data. If you intend to modify the geom data in any way (including any nested data like vertices or primitives), you should use geomNode.modifyGeom() instead.\n\nEach Geom has an associated geomvertexdata, and one or more GeomPrimitives <geomprimitive>. Some GeomVertexData objects may be shared by more than one Geom, especially if you have used flattenStrong() to optimize a model.\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_373",
-    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
-    "chunk_number": 5928
-  }
-}

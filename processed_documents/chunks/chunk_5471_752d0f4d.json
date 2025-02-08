@@ -1,9 +1,0 @@
-{
-  "content": "def localElapsedTime(self, networkTime, bits=16,\n                         ticksPerSec=NetworkTimePrecision):\n        \"\"\"localElapsedTime(self, int networkTime)\n\n        Returns the amount of time elapsed (in seconds) on the client\n        since the server message was sent.  Negative values are\n        clamped to zero.\n        \"\"\"\n        now = self.globalClock.getFrameTime()\n        dt = now - self.networkToLocalTime(networkTime, now, bits=bits,\n                                           ticksPerSec=ticksPerSec)\n\n        return max(dt, 0.0)\n\n    ### Private functions ###\n\n    def __signExtend(self, networkTime):\n        \"\"\"__signExtend(self, int networkTime)\n\n        Preserves the lower NetworkTimeBits of the networkTime value,\n        and extends the sign bit all the way up.\n        \"\"\"\n        r = ((networkTime+32768) & NetworkTimeMask) - 32768\n        assert -32768 <= r <= 32767\n        return r\n\n\nglobalClockDelta = ClockDelta()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_315",
-    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
-    "chunk_number": 5471
-  }
-}

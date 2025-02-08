@@ -1,9 +1,0 @@
-{
-  "content": "if __debug__:\n    import traceback\n    import marshal\n\n    class StackTrace:\n        def __init__(self, label=\"\", start=0, limit=None):\n            \"\"\"\n            label is a string (or anything that be be a string)\n            that is printed as part of the trace back.\n            This is just to make it easier to tell what the\n            stack trace is referring to.\n            start is an integer number of stack frames back\n            from the most recent.  (This is automatically\n            bumped up by one to skip the __init__ call\n            to the StackTrace).\n            limit is an integer number of stack frames\n            to record (or None for unlimited).\n            \"\"\"\n            self.label = label\n            if limit is not None:\n                self.trace = traceback.extract_stack(sys._getframe(1+start),\n                                                     limit=limit)\n            else:\n                self.trace = traceback.extract_stack(sys._getframe(1+start))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4604
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "// New in 1.10.0.  Contains the matrix generated from texture pos and scale.\nuniform mat4 p3d_TextureMatrix[];\n\n// Access the color scale applied to the node.\nuniform vec4 p3d_ColorScale;\n\n// Access the material attributes assigned via a Material object.\n// Unused struct parameters may be omitted without consequence.\nuniform struct p3d_MaterialParameters {\n  vec4 ambient;\n  vec4 diffuse;\n  vec4 emission;\n  vec3 specular;\n  float shininess;\n\n  // These properties are new in 1.10.\n  vec4 baseColor;\n  float roughness;\n  float metallic;\n  float refractiveIndex;\n} p3d_Material;\n\n// The sum of all active ambient light colors.\nuniform struct p3d_LightModelParameters {\n  vec4 ambient;\n} p3d_LightModel;\n\n// Active clip planes, in apiview space.  If there is no clip plane for a given\n// index, it is guaranteed to contain vec4(0, 0, 0, 0).\nuniform vec4 p3d_ClipPlane[...];",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_659",
-    "parent": "processed_documents/context_documents/f02f1382_244963d7_list-of-glsl-inputs.json",
-    "chunk_number": 7523
-  }
-}

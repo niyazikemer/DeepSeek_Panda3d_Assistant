@@ -1,9 +1,0 @@
-{
-  "content": "motion_trail_vertex_start = self.vertex_list[vertex_segment_index]\n                            motion_trail_vertex_end = self.vertex_list[vertex_segment_index + 1]\n\n                            v1 = start_transform.xform(motion_trail_vertex_end.vertex)\n                            v3 = end_transform.xform(motion_trail_vertex_end.vertex)\n\n                            nurbs_curve_evaluator = nurbs_curve_evaluator_list[vertex_segment_index + 1]\n\n                            nurbs_curve_evaluator.setVertex(segment_index, v1)\n\n                            if vertex_segment_index == (total_vertex_segments - 1):\n                                v = v1 - v3\n                                vector.set(v[0], v[1], v[2])\n                                distance = vector.length()\n                                total_distance += distance\n\n                            vertex_segment_index += 1\n\n                        segment_index += 1",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5134
-  }
-}

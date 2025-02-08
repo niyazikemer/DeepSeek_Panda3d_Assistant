@@ -1,9 +1,0 @@
-{
-  "content": "The ~.PandaNode.reset_prev_transform() call should be made once per frame, at the very beginning of the frame. It ensures that the current frame's position is copied to the previous frame's position, before beginning the processing for that frame. Note that if you have multiple CollisionTraversers handling the same scene graph, you still only need to (and only should) call this function once.\n\n3. Whenever you move an object from one point to another in your scene (except when you put it into your scene the first time), instead of using:\n\npython\n\nobject.setPos(newPos)\n\ncpp\n\nobject.set_pos(new_pos);\n\nYou should use:\n\npython\n\nobject.setFluidPos(newPos)\n\ncpp\n\nobject.set_fluid_pos(new_pos);\n\nIn general, ~.NodePath.set_pos() means \"teleport the object here\" and ~.NodePath.set_fluid_pos() means \"slide the object here, testing for collisions along the way\". It is important to make a clear distinction between these two calls, and make the appropriate call for each situation.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_650",
-    "parent": "processed_documents/context_documents/df1bf3af_582a2f76_rapidly-moving-objects.json",
-    "chunk_number": 7457
-  }
-}

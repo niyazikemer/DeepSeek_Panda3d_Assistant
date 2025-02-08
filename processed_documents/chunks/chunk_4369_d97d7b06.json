@@ -1,9 +1,0 @@
-{
-  "content": "def cancelled(self):\n            \"Returns true if the request was cancelled.\"\n            return self.requestList is None\n\n        def done(self):\n            \"Returns true if all the requests were finished or cancelled.\"\n            return not self.requests\n\n        def result(self):\n            \"Returns the results, suspending the thread to wait if necessary.\"\n            for r in list(self.requests):\n                r.wait()\n            if self.gotList:\n                return self.objects\n            else:\n                return self.objects[0]\n\n        def exception(self):\n            assert self.done() and not self.cancelled()\n            return None\n\n        def __await__(self):\n            \"\"\" Returns a generator that raises StopIteration when the loading\n            is complete.  This allows this class to be used with 'await'.\"\"\"",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4369
-  }
-}

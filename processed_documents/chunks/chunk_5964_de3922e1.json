@@ -1,9 +1,0 @@
-{
-  "content": "#define VECTOR4_MATRIX4_PRODUCT(output, input, M)  \\\noutput._0 = input._0*M._00 + input._1*M._10 + input._2*M._20 + input._3*M._30;  \\\noutput._1 = input._0*M._01 + input._1*M._11 + input._2*M._21 + input._3*M._31;  \\\noutput._2 = input._0*M._02 + input._1*M._12 + input._2*M._22 + input._3*M._32;  \\\noutput._3 = input._0*M._03 + input._1*M._13 + input._2*M._23 + input._3*M._33;\n\nThen, if you look in the corresponding header file for matrices, you will see the matrix class definition:\n\nstruct {\n  FLOATTYPE  _00, _01, _02, _03;\n  FLOATTYPE  _10, _11, _12, _13;\n  FLOATTYPE  _20, _21, _22, _23;\n  FLOATTYPE  _30, _31, _32, _33;\n} m;\n\nSo this class definition shows not only how the coefficients of the four equations are stored, but also the layout in which they were intended to be typeset. So from this, you can see that panda stores derivatives wrt xi first, and it typesets in row-vector-compatible notation.\n\nInteroperability with OpenGL and DirectX",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_380",
-    "parent": "processed_documents/context_documents/b47f4c51_26b6fb2e_matrix-representation.json",
-    "chunk_number": 5964
-  }
-}

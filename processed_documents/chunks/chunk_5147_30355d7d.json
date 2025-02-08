@@ -1,9 +1,0 @@
-{
-  "content": "# the following functions are not currently supported in the C++ version\n\n    def set_fade(self, time, current_time):\n        if not self.pause:\n            self.fade_color_scale = 1.0\n\n            if time == 0.0:\n                self.fade = False\n            else:\n                self.fade_start_time = current_time\n                self.fade_time = time\n                self.fade = True\n\n    def pause_motion_trail(self, current_time):\n        if not self.pause:\n            self.pause_time = current_time\n            self.pause = True\n\n    def resume_motion_trail(self, current_time):\n        if self.pause:\n            delta_time = current_time - self.pause_time\n\n            frame_index = 0\n            total_frames = len(self.frame_list)\n            while frame_index < total_frames:\n                motion_trail_frame = self.frame_list[frame_index]\n                motion_trail_frame.time += delta_time\n                frame_index += 1",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5147
-  }
-}

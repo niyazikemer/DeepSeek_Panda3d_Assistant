@@ -1,9 +1,0 @@
-{
-  "content": "def generateOtpObject(self, parentId, zoneId, optionalFields=[], doId=None):\n        assert self.notify.debugStateCall(self)\n        # have we already allocated a doId?\n        if self.__preallocDoId:\n            assert doId is None or doId == self.doId\n            doId=self.doId\n            self.__preallocDoId = 0\n\n        # Assign it an id\n        if doId is None:\n            self.doId = self.air.allocateChannel()\n        else:\n            self.doId = doId\n        # Put the new DO in the dictionaries\n        self.air.addDOToTables(self, location=(parentId, zoneId))\n        # Send a generate message\n        self.sendGenerateWithRequired(self.air, parentId, zoneId, optionalFields)\n        self.generate()\n        self.announceGenerate()\n        self.postGenerateMessage()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5699
-  }
-}

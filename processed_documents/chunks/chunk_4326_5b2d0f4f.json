@@ -1,9 +1,0 @@
-{
-  "content": "# Look for a C/C++ extension module.\n        for desc in imp.get_suffixes():\n            if desc[2] != imp.C_EXTENSION:\n                continue\n\n            filename = Filename(path + desc[0])\n            vfile = vfs.getFile(filename, True)\n            if vfile:\n                return VFSLoader(dir_path, vfile, filename, desc=desc)\n\n        # Finally, consider a package, i.e. a directory containing\n        # __init__.py.\n        filename = Filename(path, '__init__.py')\n        vfile = vfs.getFile(filename, True)\n        if vfile:\n            return VFSLoader(dir_path, vfile, filename, packagePath=path,\n                             desc=('.py', 'r', imp.PY_SOURCE))\n        for ext in compiledExtensions:\n            filename = Filename(path, '__init__.' + ext)\n            vfile = vfs.getFile(filename, True)\n            if vfile:\n                return VFSLoader(dir_path, vfile, filename, packagePath=path,\n                                 desc=('.'+ext, 'rb', imp.PY_COMPILED))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4326
-  }
-}

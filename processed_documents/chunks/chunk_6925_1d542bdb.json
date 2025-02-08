@@ -1,9 +1,0 @@
-{
-  "content": "frame-rate-meter-milliseconds true\n\nThe Scene Graph Analyzer\n\nTo inspect the complexity of a scene or object, the .NodePath.analyze() method is extremely useful. This will quickly tell you if your scene has too many meshes <too-many-meshes>, for example.\n\npython\n\nrender.analyze()\n\ncpp\n\nSceneGraphAnalyzer sga;\nsga.add_node(render.node());\nsga.write(std::cerr);\n\nThe response is printed to the command window. It may look something like this:\n\n371 total nodes (including 43 instances).\n21 transforms; 16% of nodes have some render attribute.\n205 Geoms, with 94 GeomVertexDatas, appear on 133 GeomNodes.\n21665 vertices, 21573 normals, 21557 texture coordinates.\n35183 triangles:\n   3316 of these are on 662 tristrips (5.00906 average tris per strip).\n   0 of these are on 0 trifans.\n   31867 of these are independent triangles.\n0 lines, 0 points.\n99 textures, estimated minimum 326929K texture memory required.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_550",
-    "parent": "processed_documents/context_documents/1b8754eb_00560618_basic-performance-diagnostics.json",
-    "chunk_number": 6925
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "base.accept(\"escape\", sys.exit)\nbase.accept(\"o\", base.oobe)\n\ndef move(x, y, z):\n    root.setX(root.getX() + x)\n    root.setY(root.getY() + y)\n    root.setZ(root.getZ() + z)\n\nbase.accept(\"d\", move, [1.0, 0.0, 0.0])\nbase.accept(\"a\", move, [-1.0, 0.0, 0.0])\nbase.accept(\"w\", move, [0.0, 1.0, 0.0])\nbase.accept(\"s\", move, [0.0, -1.0, 0.0])\nbase.accept(\"e\", move, [0.0, 0.0, 1.0])\nbase.accept(\"q\", move, [0.0, 0.0, -1.0])\n\nbase.run()\n\nModifying the Shader\n\nLet's modify the shader to get some idea of what we can do in Cg. We still won't be producing any output yet but it will give you a good overview of how to write in Cg.\n\nFirst lets see what happens when we try to use a float3 as the shader output. Try changing the vertex shader to the sample below and then running the panda script. Examine the console output carefully.\n\nvoid vshader(\n    out float4 l_position : POSITION)\n{\n    l_position = float3(0.0, 0.0, 0.0, 1.0);\n}",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_552",
-    "parent": "processed_documents/context_documents/c21812f2_917f801a_part-2.json",
-    "chunk_number": 6936
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "class DistributedNodeAI(DistributedObjectAI.DistributedObjectAI, NodePath):\n    def __init__(self, air, name=None):\n        # Be careful not to create multiple NodePath objects\n        if not hasattr(self, 'DistributedNodeAI_initialized'):\n            self.DistributedNodeAI_initialized = 1\n            DistributedObjectAI.DistributedObjectAI.__init__(self, air)\n            if name is None:\n                name = self.__class__.__name__\n            NodePath.__init__(self, name)\n            self.gridParent = None\n\n    def delete(self):\n        if self.gridParent:\n            self.gridParent.delete()\n            self.gridParent = None\n        if not self.isEmpty():\n            self.removeNode()\n        DistributedObjectAI.DistributedObjectAI.delete(self)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_326",
-    "parent": "processed_documents/context_documents/e6633f02_DistributedNodeAI.json",
-    "chunk_number": 5583
-  }
-}

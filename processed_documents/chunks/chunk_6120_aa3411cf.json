@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\nTODO\n\nWhen comparing the soft body setup with the previous page, the soft body patch setup, we will find that there are two differences:\n\nFirst, there are three lines which get the configuration objects for this soft body (getCfg), and then set different parameters on this configuration object, in particular the \"pressure coefficient\". For more detailed information on what these parameters do it is best to fall back to the original Bullet documentation. A mapping between the original Bullet members of the btSoftBodyConfig class and the Panda3D BulletSoftBodyConfig object returned by getCfg is given on the manual page softbody-config.\n\nSecond, the method setPose is called. This method sets the current state of the soft body as a \"default pose\" or \"lowest energy state\". The soft body will try to return to this state if possible. The first parameter to this method is the volume flag, and the second parameter the frame flag. It is usually the best thing to set both flags to True.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_418",
-    "parent": "processed_documents/context_documents/64bc5cd8_ade68381_softbody-triangles.json",
-    "chunk_number": 6120
-  }
-}

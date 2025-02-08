@@ -1,9 +1,0 @@
-{
-  "content": "class MessageListenerTypesLeakDetector(LeakDetector):\n    def __init__(self):\n        LeakDetector.__init__(self)\n        self._typeName2detector = {}\n        self._createJob = None\n        if ConfigVariableBool('leak-message-listeners', False):\n            self._leakers = []\n            self._leakTaskName = uniqueName('leak-message-listeners')\n            taskMgr.add(self._leak, self._leakTaskName)\n\n    def _leak(self, task):\n        self._leakers.append(DirectObject())\n        self._leakers[-1].accept(uniqueName('leak-msg-listeners'), self._leak)\n        return task.cont",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_269",
-    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
-    "chunk_number": 4760
-  }
-}

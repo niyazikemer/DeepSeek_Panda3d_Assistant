@@ -1,9 +1,0 @@
-{
-  "content": "So, when your avatar switches from walking to swimming, you would need to stop the footsteps sound effect, disable the door collisions, start playing the \"swim\" animation, start the underwater sound effect, enable the fog on the camera, and start the air timer.\n\nYou could do all this by hand, of course. But using an FSM can make it easier. In this simple model, you could define an FSM with two states, \"Walk\" and \"Swim\". This might be represented graphically like this:\n\ntransitions\n\nrankdir=LR node [style=rounded, shape=box]\n\nWalk -> Swim; Swim -> Walk;\n\nTo implement this as a Panda3D FSM, you would declare an new class that inherits from FSM, and within this class you would define four methods: enterWalk(), exitWalk(), enterSwim(), and exitSwim(). This might look something like this:\n\nfrom direct.fsm.FSM import FSM",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_537",
-    "parent": "processed_documents/context_documents/1ec143d1_47834cc9_fsm-introduction.json",
-    "chunk_number": 6679
-  }
-}

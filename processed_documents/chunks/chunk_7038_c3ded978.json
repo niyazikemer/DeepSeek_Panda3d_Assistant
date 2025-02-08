@@ -1,9 +1,0 @@
-{
-  "content": "A gloss map must be an alpha-texture:\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MGloss)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_gloss);\nsmiley.set_texture(ts, tex);\n\nIf you wish, you can pack a modulate-texture and a gloss-map into a single RGBA texture. In that case, the RGB components are just regular color values that are modulated onto the model, and the A controls gloss:\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MModulateGloss)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_modulate_gloss);\nsmiley.set_texture(ts, tex);\n\nCurrently, Panda3D only allows one gloss map per polygon, additional gloss maps will be ignored.\n\nGloss maps only function when shader generation <the-shader-generator> is enabled.\n\nGlow Map Mode",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_569",
-    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
-    "chunk_number": 7038
-  }
-}

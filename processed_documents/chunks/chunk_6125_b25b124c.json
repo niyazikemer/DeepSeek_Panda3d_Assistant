@@ -1,9 +1,0 @@
-{
-  "content": "The bloom filter causes bright objects to have a glowing halo around them. To enable a bloom filter, use setBloom. To disable, use delBloom:\n\nfilters.setBloom( ... options ...)\nfilters.delBloom()\n\nThe bloom filter works as follows. First, it renders the scene into a texture. It also asks the renderer to render any glow-maps into the alpha channel of the texture. After rendering the scene, it generates a second copy of the scene which has been darkened until only the brightest pixels are visible, and all the others go to black. It then blurs that texture, yielding soft halos where the bright pixels used to be, and black everywhere else. It then adds the soft halos back onto the scene in the window.\n\nNote: If you want to use glow maps to indicate which parts of the image should receive bloom, you should assign a nonzero value to the alpha value of the blend-weight parameter, and you should enable the shader generator <the-shader-generator> for the models that have glow maps applied.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_419",
-    "parent": "processed_documents/context_documents/8f076aff_14d9d4de_common-image-filters.json",
-    "chunk_number": 6125
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def oneTimeCollide(self):\n        \"\"\"\n        Makes one quick collision pass for the avatar, for instance as\n        a one-time straighten-things-up operation after collisions\n        have been disabled.\n        \"\"\"\n        assert self.notify.debugCall()\n        tempCTrav = CollisionTraverser(\"oneTimeCollide\")\n        tempCTrav.addCollider(self.cRayNodePath, self.lifter)\n        tempCTrav.traverse(render)\n\n    def resetToOrigin(self):\n        if self.shadowNodePath:\n            self.shadowNodePath.setPos(0,0,0)\n\n    if __debug__:\n        def debugDisplay(self):\n            \"\"\"for debugging\"\"\"\n            if self.notify.getDebug():\n                message = \"%d active (%d total), %d colliders\"%(\n                self.activeCount, self.count, self.cTrav.getNumColliders())\n                self.notify.debug(message)\n                onScreenDebug.add(\"ShadowPlacers\", message)\n            return 1 # to allow assert self.debugDisplay()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_265",
-    "parent": "processed_documents/context_documents/ee959aee_ShadowPlacer.json",
-    "chunk_number": 4734
-  }
-}

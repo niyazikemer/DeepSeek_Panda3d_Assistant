@@ -1,9 +1,0 @@
-{
-  "content": "def reloadSharedPackage(mod):\n    \"\"\" Reloads the specific module as a shared package, adding any\n    new directories that might have appeared on the search path. \"\"\"\n\n    fullname = mod.__name__\n    path = None\n    if '.' in fullname:\n        parentname = fullname.rsplit('.', 1)[0]\n        parent = sys.modules[parentname]\n        path = parent.__path__\n\n    importer = VFSSharedImporter()\n    loader = importer.find_module(fullname, path = path, reload = True)\n    if loader:\n        loader.load_module(fullname)\n\n    # Also force any child packages to become shared packages, if\n    # they aren't already.\n    for basename, child in list(mod.__dict__.items()):\n        if isinstance(child, types.ModuleType):\n            childname = child.__name__\n            if childname == fullname + '.' + basename and \\\n               hasattr(child, '__path__') and \\\n               childname not in sharedPackages:\n                sharedPackages[childname] = True\n                reloadSharedPackage(child)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4348
-  }
-}

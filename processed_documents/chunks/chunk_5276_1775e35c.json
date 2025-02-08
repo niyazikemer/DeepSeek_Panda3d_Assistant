@@ -1,9 +1,0 @@
-{
-  "content": "if __debug__:\n            if self.VisualizeGrid:\n                self.visualizeGrid()\n\n    def getCenterPos(self):\n        return self.centerPos\n\n    def handleChildArrive(self, child, zoneId):\n        DistributedNode.handleChildArrive(self, child, zoneId)\n        if zoneId >= self.startingZone:\n            if not child.gridParent:\n                child.gridParent = GridParent(child)\n            child.gridParent.setGridParent(self, zoneId)\n        elif child.gridParent:\n            child.gridParent.delete()\n            child.gridParent = None\n\n    def handleChildArriveZone(self, child, zoneId):\n        DistributedNode.handleChildArrive(self, child, zoneId)\n        if zoneId >= self.startingZone:\n            if not child.gridParent:\n                child.gridParent = GridParent(child)\n            child.gridParent.setGridParent(self, zoneId)\n        elif child.gridParent:\n            child.gridParent.delete()\n            child.gridParent = None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5276
-  }
-}

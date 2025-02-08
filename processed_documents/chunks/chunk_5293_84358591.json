@@ -1,9 +1,0 @@
-{
-  "content": "def labelCells(self):\n            if self.cellLabelParent:\n                self.cellLabelParent.removeNode()\n            self.cellLabelParent = self.attachNewNode('cellLabels')\n            cw = self.cellWidth\n            scale = cw / 10.0\n            dx = cw * self.gridSize * .5\n            font = DirectGuiGlobals.getDefaultFont()\n            color = self.gridColor\n            for i in range(self.gridSize):\n                for j in range(self.gridSize):\n                    zoneId = self.startingZone + ((j * self.gridSize) + i)\n                    zoneStr = str(zoneId)\n                    textNode = TextNode(zoneStr)\n                    textNode.setText(zoneStr)\n                    textNode.setFont(font)\n                    textNode.setTextColor(color)\n                    textNode.setAlign(TextNode.ACenter)\n                    genTextNode = textNode.generate()\n                    textNodePath = self.cellLabelParent.attachNewNode(genTextNode)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5293
-  }
-}

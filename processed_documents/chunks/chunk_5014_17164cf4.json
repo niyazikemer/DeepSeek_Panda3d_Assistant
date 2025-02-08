@@ -1,9 +1,0 @@
-{
-  "content": "if self.tkRootCreated:\n            # Don't do this twice.\n            return\n\n        # Use importlib to prevent this import from being picked up\n        # by modulefinder when packaging an application.\n        tkinter = importlib.import_module('_tkinter')\n        Pmw = importlib.import_module('Pmw')\n\n        # Create a new Tk root.\n        if not self.tkRoot:\n            self.tkRoot = Pmw.initialise()\n        builtins.tkroot = self.tkRoot\n\n        init_app_for_gui()\n\n        # Disable the Windows message loop, since Tcl wants to handle this all\n        # on its own, except if the Panda window is on a separate thread.\n        if self.graphicsEngine.getThreadingModel().getDrawStage() == 0:\n            ConfigVariableBool('disable-message-loop', False).value = True",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 5014
-  }
-}

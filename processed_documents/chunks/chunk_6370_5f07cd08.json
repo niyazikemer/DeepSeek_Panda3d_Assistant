@@ -1,9 +1,0 @@
-{
-  "content": "Shader inputs propagate down the scene graph, and accumulate as they go. For example, if you store set_shader_input(\"x\", 1) <.NodePath.set_shader_input> on a node, and set_shader_input(\"y\", 2) <.NodePath.set_shader_input> on its child, then the child will contain both values. If you store set_shader_input(\"z\", 1) <.NodePath.set_shader_input> on a node, and set_shader_input(\"z\", 2) <.NodePath.set_shader_input> on its child, then the latter will override the former.\n\nThis method also accepts a third parameter, priority, which defaults to zero. If you store set_shader_input(\"w\", 1, priority=1000) <.NodePath.set_shader_input> on a node, and set_shader_input(\"w\", 2, priority=500) <.NodePath.set_shader_input> on the child, then the child will contain a \"w\" value of 1, because the priority 1000 overrides the priority 500.\n\npython\n\nTo set multiple shader inputs at once, it is most efficient to use a single call to ~.NodePath.set_shader_inputs():",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_462",
-    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
-    "chunk_number": 6370
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "## assert not hasattr(self, 'parentId') or self.parentId is None\n        ## self.parentId = parentId\n        ## self.zoneId = zoneId\n        self.generate()\n\n    def generate(self):\n        \"\"\"\n        Inheritors should put functions that require self.zoneId or\n        other networked info in this function.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        self.__generates += 1\n        self.air.storeObjectLocation(self, self.parentId, self.zoneId)\n\n    def generateInit(self, repository=None):\n        \"\"\"\n        First generate (not from cache).\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n\n    def generateTargetChannel(self, repository):\n        \"\"\"\n        Who to send this to for generate messages\n        \"\"\"\n        if hasattr(self, \"dbObject\"):\n            return self.doId\n        return repository.serverId",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_318",
-    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
-    "chunk_number": 5508
-  }
-}

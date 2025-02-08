@@ -1,9 +1,0 @@
-{
-  "content": "All nondirectional light is reflected after being modulated by the model's color.\n\nAll directional light is scattered after being modulated by the model's color.\n\nAll directional light is reflected specularly after being modulated by the explicit specular color.\n\nNo emissivity occurs.\n\nCreating and Using Materials\n\nTo use explicit materials, import the Materials module when you first begin your script. Then creating Materials is a matter of creating instances of the .Material class and setting the relevant properties:\n\npython\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import Material\n\nmyMaterial = Material()\nmyMaterial.setShininess(5.0) # Make this material shiny\nmyMaterial.setAmbient((0, 0, 1, 1)) # Make this material blue\n\nmyNode = loader.loadModel(\"panda\") # Load the model to apply the material to\nmyNode.setMaterial(myMaterial) # Apply the material to this nodePath\n\ncpp",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_549",
-    "parent": "processed_documents/context_documents/d6e133e8_bf37414e_materials.json",
-    "chunk_number": 6915
-  }
-}

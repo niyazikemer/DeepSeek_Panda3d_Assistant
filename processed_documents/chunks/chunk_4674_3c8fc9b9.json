@@ -1,9 +1,0 @@
-{
-  "content": "def printNumberedTyped(items, maxLen=5000):\n    \"\"\"print out each item of the list on its own line,\n    with each item numbered on the left from zero\"\"\"\n    digits = 0\n    n = len(items)\n    while n > 0:\n        digits += 1\n        n //= 10\n    format = '%0' + '%s' % digits + 'i:%s \\t%s'\n    for i in range(len(items)):\n        objStr = fastRepr(items[i])\n        if len(objStr) > maxLen:\n            snip = '<SNIP>'\n            objStr = '%s%s' % (objStr[:(maxLen-len(snip))], snip)\n        print(format % (i, itype(items[i]), objStr))\n\n\ndef printNumberedTypesGen(items, maxLen=5000):\n    digits = 0\n    n = len(items)\n    while n > 0:\n        digits += 1\n        n //= 10\n    format = '%0' + '%s' % digits + 'i:%s'\n    for i in range(len(items)):\n        print(format % (i, itype(items[i])))\n        yield None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4674
-  }
-}

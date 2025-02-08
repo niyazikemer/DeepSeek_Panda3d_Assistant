@@ -1,9 +1,0 @@
-{
-  "content": "class Audio3DManager:\n\n    def __init__(self, audio_manager, listener_target = None, root = None,\n                 taskPriority = 51):\n        self.audio_manager = audio_manager\n        self.listener_target = listener_target\n\n        if root is None:\n            self.root = base.render\n        else:\n            self.root = root\n\n        self.sound_dict = {}\n        self.vel_dict = {}\n        self.listener_vel = VBase3(0, 0, 0)\n\n        taskMgr.add(self.update, \"Audio3DManager-updateTask\", taskPriority)\n\n    def loadSfx(self, name):\n        \"\"\"\n        Use Audio3DManager.loadSfx to load a sound with 3D positioning enabled\n        \"\"\"\n        sound = None\n        if name:\n            sound = self.audio_manager.getSound(name, 1)\n        return sound",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_255",
-    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
-    "chunk_number": 4453
-  }
-}

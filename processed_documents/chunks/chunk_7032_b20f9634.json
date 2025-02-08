@@ -1,9 +1,0 @@
-{
-  "content": "Blend mode can only be used with a grayscale texture, and it does not use alpha. Since the sample texture above is not a grayscale texture, we will use a different texture for this example:\n\nThis texture does not have an alpha channel; it is simply a grayscale image with a large white \"A\" on a field of black. Blend mode will produce the original color where the image is black, and the color we specify with TextureStage.setColor() where the image is white. Where the image is shades of gray, there will be a smooth blending between the colors.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MBlend)\nts.setColor((1, 0, 0, 1))\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_blend);\nts->set_color(LColor(1, 0, 0, 1));\nsmiley.set_texture(ts, tex);\n\nAnd we can change the color of the decal at will, simply with:\n\npython\n\nts.setColor((0, 0, 1, 1))\n\ncpp\n\nts->set_color(LColor(0, 0, 1, 1));",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_569",
-    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
-    "chunk_number": 7032
-  }
-}

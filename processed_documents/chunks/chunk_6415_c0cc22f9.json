@@ -1,9 +1,0 @@
-{
-  "content": "Example 2: Rotary Thruster\n\nHere is another example of applying forces to objects and the way in which the ForceNode alters the effect:\n\nthruster=NodePath(\"thruster\") # make a thruster for the jetpack\nthruster.reparentTo(jetpackGuy)\nthruster.setPos(0,-2,3)\n\nthrusterFN=ForceNode('jetpackGuy-thruster') # Attach a thruster force\nthrusterFNP=thruster.attachNewNode(thrusterFN)\nthrusterForce=LinearVectorForce(0,0,4000)\nthrusterForce.setMassDependent(1)\nthrusterFN.addForce(thrusterForce)\n\nan.getPhysical(0).addLinearForce(thrusterForce)\n\nthruster.setP(-45) # bend the thruster nozzle out at 45 degrees\n\nWhen this force is applied to the jetpack guy, it will push upwards and forwards. If the thruster's pitch and roll were controlled (say, by a joystick), then the jetpack could be moved around merely by changing the pitch and roll values; the ForceNode would inherit the orientation of the thruster and automatically change the direction it pushes.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_474",
-    "parent": "processed_documents/context_documents/8c4ba017_99cfb284_applying-physics-to-a-node.json",
-    "chunk_number": 6415
-  }
-}

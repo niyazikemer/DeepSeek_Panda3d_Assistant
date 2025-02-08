@@ -1,9 +1,0 @@
-{
-  "content": "# types.CellType was added in Python 3.8\n            if type(parentObj) is types.CellType:\n                child = parentObj.cell_contents\n                if self._examine(child):\n                    assert (self._queue.back() is child)\n                    self._instanceDictIds.add(id(child))\n                    self._id2pathStr[id(child)] = str(self._id2pathStr[id(parentObj)]) + '.cell_contents'\n                continue\n\n            if hasattr(parentObj, '__dict__'):\n                # Instance of a class\n                child = parentObj.__dict__\n                if self._examine(child):\n                    assert (self._queue.back() is child)\n                    self._instanceDictIds.add(id(child))\n                    self._id2pathStr[id(child)] = str(self._id2pathStr[id(parentObj)])\n                continue",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_247",
-    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
-    "chunk_number": 4356
-  }
-}

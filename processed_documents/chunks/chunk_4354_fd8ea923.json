@@ -1,9 +1,0 @@
-{
-  "content": "if isinstance(parentObj, dict):\n                key = None\n                attr = None\n                keys = list(parentObj.keys())\n                try:\n                    keys.sort()\n                except TypeError as e:\n                    self.notify.warning('non-sortable dict keys: %s: %s' % (self._id2pathStr[id(parentObj)], repr(e)))\n                for key in keys:\n                    try:\n                        attr = parentObj[key]\n                    except KeyError as e:\n                        self.notify.warning('could not index into %s with key %s' % (self._id2pathStr[id(parentObj)],\n                                                                                     key))\n                    if id(attr) not in self._visitedIds:\n                        self._visitedIds.add(id(attr))\n                        if self._examine(attr):\n                            assert self._queue.back() is attr\n                            if parentObj is __builtins__:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_247",
-    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
-    "chunk_number": 4354
-  }
-}

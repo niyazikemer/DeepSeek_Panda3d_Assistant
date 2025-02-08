@@ -1,9 +1,0 @@
-{
-  "content": "def getGrid(self):\n        if self._gridParent:\n            return self._gridParent.getGrid()\n        else:\n            return None\n\n    def getGridZone(self):\n        if self._gridParent:\n            return self._gridParent.getGridZone()\n        else:\n            return None\n\n    def __setGridParent(self, gridParent):\n        if self._gridParent and self._gridParent is not gridParent:\n            self._gridParent.delete()\n        self._gridParent = gridParent\n\n\n    def __setGridInterest(self, grid, zoneId):\n        assert not self.cr.noNewInterests()\n        if self.cr.noNewInterests():\n            self.notify.warning(\n                'startProcessVisibility(%s): tried to open a new interest during logout'\n                % self.doId)\n            return",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_337",
-    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
-    "chunk_number": 5721
-  }
-}

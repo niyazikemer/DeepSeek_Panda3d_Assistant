@@ -1,9 +1,0 @@
-{
-  "content": "# We can only import an extension module if it already exists on\n        # disk.  This means if it's a truly virtual file that has no\n        # on-disk equivalent, we have to write it to a temporary file\n        # first.\n        if hasattr(vfile, 'getMount') and \\\n           isinstance(vfile.getMount(), VirtualFileMountSystem):\n            # It's a real file.\n            filename = self.filename\n        elif self.filename.exists():\n            # It's a virtual file, but it's shadowing a real file in\n            # the same directory.  Assume they're the same, and load\n            # the real one.\n            filename = self.filename\n        else:\n            # It's a virtual file with no real-world existence.  Dump\n            # it to disk.  TODO: clean up this filename.\n            filename = Filename.temporary('', self.filename.getBasenameWoExtension(),\n                                          '.' + self.filename.getExtension(),",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_246",
-    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
-    "chunk_number": 4333
-  }
-}

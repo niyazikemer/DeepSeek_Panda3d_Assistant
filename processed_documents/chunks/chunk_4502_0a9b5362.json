@@ -1,9 +1,0 @@
-{
-  "content": "try:\n                    for curObj in curObjRef.getContainerGen():\n                        yield None\n                except Exception:\n                    self.notify.debug('lost current container, ref.getContainerGen() failed')\n                    # that container is gone, try again\n                    curObjRef = None\n                    continue\n\n                self.notify.debug('--> %s' % curObjRef)\n                #import pdb;pdb.set_trace()\n\n                # store a copy of the current objRef\n                parentObjRef = curObjRef\n                # if we hit a dead end, start over from another container\n                curObjRef = None",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4502
-  }
-}

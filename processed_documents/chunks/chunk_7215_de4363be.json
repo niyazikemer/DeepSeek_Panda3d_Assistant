@@ -1,9 +1,0 @@
-{
-  "content": "Asteroids Sample\n\nBelow is an example of a setup.py that can be used to build the Asteroids sample program.\n\nfrom setuptools import setup\n\nsetup(\n    name=\"asteroids\",\n    options = {\n        'build_apps': {\n            'include_patterns': [\n                '**/*.png',\n                '**/*.jpg',\n                '**/*.egg',\n            ],\n            'gui_apps': {\n                'asteroids': 'main.py',\n            },\n            'plugins': [\n                'pandagl',\n                'p3openal_audio',\n            ],\n        }\n    }\n)\n\nWith the setup.py in place, it can be run with: python setup.py bdist_apps\n\nThe name field and options dictionary in the above setup.py can also be replaced by the following setup.cfg file:\n\n[metadata]\nname = asteroids\n\n[build_apps]\ninclude_patterns =\n    **/*.png\n    **/*.jpg\n    **/*.egg\ngui_apps =\n    asteroids = main.py\nplugins =\n    pandagl\n    p3openal_audio",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_606",
-    "parent": "processed_documents/context_documents/9ca6b974_86e8ee76_setuptools-examples.json",
-    "chunk_number": 7215
-  }
-}

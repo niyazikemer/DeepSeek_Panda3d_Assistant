@@ -1,9 +1,0 @@
-{
-  "content": "def openAutoInterests(self, obj):\n        if hasattr(obj, '_autoInterestHandle'):\n            # must be multiple inheritance\n            self.notify.debug('openAutoInterests(%s): interests already open' % obj.__class__.__name__)\n            return\n        autoInterests = obj.getAutoInterests()\n        obj._autoInterestHandle = None\n        if len(autoInterests) == 0:\n            return\n        obj._autoInterestHandle = self.addAutoInterest(obj.doId, autoInterests, '%s-autoInterest' % obj.__class__.__name__)\n    def closeAutoInterests(self, obj):\n        if not hasattr(obj, '_autoInterestHandle'):\n            # must be multiple inheritance\n            self.notify.debug('closeAutoInterests(%s): interests already closed' % obj)\n            return\n        if obj._autoInterestHandle is not None:\n            self.removeAutoInterest(obj._autoInterestHandle)\n        del obj._autoInterestHandle",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5222
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def getSetterName(valueName, prefix='set'):\n    # getSetterName('color') -> 'setColor'\n    # getSetterName('color', 'get') -> 'getColor'\n    return '%s%s%s' % (prefix, valueName[0].upper(), valueName[1:])\n\n\ndef getSetter(targetObj, valueName, prefix='set'):\n    # getSetter(smiley, 'pos') -> smiley.setPos\n    return getattr(targetObj, getSetterName(valueName, prefix))\n\n\ndef mostDerivedLast(classList):\n    \"\"\"pass in list of classes. sorts list in-place, with derived classes\n    appearing after their bases\"\"\"\n\n    class ClassSortKey(object):\n        __slots__ = 'classobj',\n\n        def __init__(self, classobj):\n            self.classobj = classobj\n\n        def __lt__(self, other):\n            return issubclass(other.classobj, self.classobj)\n\n    classList.sort(key=ClassSortKey)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4635
-  }
-}

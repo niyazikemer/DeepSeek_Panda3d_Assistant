@@ -1,9 +1,0 @@
-{
-  "content": "flag = ConfigVariableBool('show-frame-rate-meter', False)\n            self.setFrameRateMeter(flag.value)\n            flag = ConfigVariableBool('show-scene-graph-analyzer-meter', False)\n            self.setSceneGraphAnalyzerMeter(flag.value)\n        return success\n\n    def setSleep(self, amount: float) -> None:\n        \"\"\"\n        Sets up a task that calls python 'sleep' every frame.  This is a simple\n        way to reduce the CPU usage (and frame rate) of a panda program.\n        \"\"\"\n        if self.clientSleep == amount:\n            return\n        self.clientSleep = amount\n        if amount == 0.0:\n            self.taskMgr.remove('clientSleep')\n        else:\n            # Spawn it after igloop (at the end of each frame)\n            self.taskMgr.remove('clientSleep')\n            self.taskMgr.add(self.__sleepCycleTask, 'clientSleep', sort = 55)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4902
-  }
-}

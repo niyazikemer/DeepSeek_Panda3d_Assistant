@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nterrain = GeoMipTerrain(\"mySimpleTerrain\")\nterrain.setHeightfield(\"yourHeightField.png\")\n#terrain.setBruteforce(True)\nterrain.getRoot().reparentTo(render)\nterrain.generate()\n\ncpp\n\nGeoMipTerrain terrain(\"mySimpleTerrain\");\nterrain.set_heightfield(Filename(\"maps/yourHeightField.png\"));\nterrain.set_bruteforce(true);\nterrain.get_root().reparent_to(window->get_render());\nterrain.generate();\n\nFirst, the code creates a GeoMipTerrain instance. The ~.GeoMipTerrain.set_heightfield() call loads in a heightfield image. Preferably this is a size of a power of two plus one (like 129, 257, 513, 1025, etc.), but if it is not, the GeoMipTerrain will automatically scale it up to the nearest correct size (which is quite slow). ~.GeoMipTerrain.set_heightfield() can take a PNMImage <creating-new-textures-from-scratch>, Texture or a path according to the filename-syntax.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_707",
-    "parent": "processed_documents/context_documents/6da47c38_34a01633_geometrical-mipmapping.json",
-    "chunk_number": 7737
-  }
-}

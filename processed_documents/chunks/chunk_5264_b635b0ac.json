@@ -1,9 +1,0 @@
-{
-  "content": "delayDeleted.append(distObj)\n            if distObj.getDelayDeleteCount() <= 0:\n                # make sure we're not leaking\n                distObj.detectLeaks()\n        # now that all objects have had a chance to delete, are there any objects left\n        # that are still delayDeleted?\n        delayDeleteLeaks = []\n        for distObj in delayDeleted:\n            if distObj.getDelayDeleteCount() != 0:\n                delayDeleteLeaks.append(distObj)\n        if len(delayDeleteLeaks) > 0:\n            s = 'CRCache.flush:'\n            for obj in delayDeleteLeaks:\n                s += ('\\n  could not delete %s (%s), delayDeletes=%s' %\n                      (safeRepr(obj), itype(obj), obj.getDelayDeleteNames()))\n            self.notify.error(s)\n        # Null out all references to the objects so they will get gcd\n        self.dict = {}\n        self.fifo = []",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_299",
-    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
-    "chunk_number": 5264
-  }
-}

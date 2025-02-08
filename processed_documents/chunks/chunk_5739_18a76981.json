@@ -1,9 +1,0 @@
-{
-  "content": "def lsNames(self):\n    \"\"\"Deprecated. Walk down a tree and print out the path\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.lsNames() is deprecated.\", DeprecationWarning, stacklevel=2)\n    if self.isEmpty():\n        print(\"(empty)\")\n    else:\n        type = self.node().getType().getName()\n        name = self.getName()\n        print(type + \"  \" + name)\n        self.lsNamesRecurse()\n\nDtool_funcToMethod(lsNames, NodePath)\ndel lsNames\n#####################################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5739
-  }
-}

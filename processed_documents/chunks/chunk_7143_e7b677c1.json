@@ -1,9 +1,0 @@
-{
-  "content": "python\n\ntexture.setMagfilter(type)\ntexture.setMinfilter(type)\n\ncpp\n\ntexture->set_magfilter(type);\ntexture->set_minfilter(type);\n\nThe type value is a value from the FilterType enum of .SamplerState. There is a separate filter type setting for magnification and for minification. For both magnification and minification, the filter type may be one of:\n\nFor minification only, in addition to the above two choices, you can also choose from:\n\nThe default filter type for both magnification and minification is FT_linear.\n\nConsider the visual effects of the various filter types on magnification and minification of the following texture:\n\nFT_nearest\n\npython\n\ntexture.setMagfilter(SamplerState.FT_nearest)\ntexture.setMinfilter(SamplerState.FT_nearest)\n\ncpp\n\ntexture->set_magfilter(SamplerState::FT_nearest);\ntexture->set_minfilter(SamplerState::FT_nearest);\n\nUsually, FT_nearest is used only to achieve a special pixelly effect.\n\nFT_linear\n\npython",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_592",
-    "parent": "processed_documents/context_documents/53d984fb_f9100a09_texture-filter-types.json",
-    "chunk_number": 7143
-  }
-}

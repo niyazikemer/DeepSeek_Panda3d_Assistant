@@ -1,9 +1,0 @@
-{
-  "content": "Example\n\nimport direct.directbase.DirectStart\nfrom direct.gui.OnscreenText import OnscreenText\nfrom direct.gui.DirectGui import *\nfrom panda3d.core import *\n\n#add some text\nbk_text = \"This is my Demo\"\ntextObject = OnscreenText(text=bk_text, pos=(0.95, -0.95), scale=0.07,\n                          fg=(1, 0.5, 0.5, 1), align=TextNode.ACenter,\n                          mayChange=1)\n\n#callback function to set  text\ndef setText(textEntered):\n    textObject.setText(textEntered)\n\n#clear the text\ndef clearText():\n    entry.enterText('')\n\n#add text entry\nentry = DirectEntry(text = \"\", scale=.05, command=setText,\ninitialText=\"Type Something\", numLines = 2, focus=1, focusInCommand=clearText)\n\n#run the tutorial\nbase.run()\n\nThis example implements a text entry widget typically seen in web pages.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_442",
-    "parent": "processed_documents/context_documents/1b25a9b9_6bd45a6f_directentry.json",
-    "chunk_number": 6244
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def handleSetLocation(self, di):\n        # This was initially added because creating a distributed quest\n        # object would cause a message like this to be generated.\n        assert self.notify.debugStateCall(self)\n        parentId = di.getUint32()\n        zoneId = di.getUint32()\n        distObj = self.doId2do.get(self.getMsgChannel())\n        if distObj is not None:\n            distObj.setLocation(parentId, zoneId)\n        else:\n            self.notify.warning('handleSetLocation: object %s not present' % self.getMsgChannel())",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_314",
-    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
-    "chunk_number": 5442
-  }
-}

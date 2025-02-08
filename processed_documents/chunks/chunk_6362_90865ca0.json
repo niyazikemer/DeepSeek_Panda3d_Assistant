@@ -1,9 +1,0 @@
-{
-  "content": "This is the fragment shader, named myshader.frag:\n\n#version 150\n\nuniform sampler2D p3d_Texture0;\n\n// Input from vertex shader\nin vec2 texcoord;\n\n// Output to the screen\nout vec4 p3d_FragColor;\n\nvoid main() {\n  vec4 color = texture(p3d_Texture0, texcoord);\n  p3d_FragColor = color.bgra;\n}\n\nLoading a GLSL Shader\n\nTo load the above shader and apply it to a model, we can use the following code:\n\npython\n\nshader = Shader.load(Shader.SL_GLSL,\n                     vertex=\"myshader.vert\",\n                     fragment=\"myshader.frag\")\nmodel.setShader(shader)\n\ncpp\n\nPT(Shader) shader = Shader::load(Shader.SL_GLSL, \"myvertexshader.vert\", \"myfragmentshader.frag\");\nmodel.set_shader(shader);\n\nTo add a geometry shader, simply add the filename of the geometry shader as additional parameter, following the fragment shader.\n\nCg Shaders\n\nCaution\n\nSupport for Cg shaders will be deprecated in an upcoming version of Panda3D.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_462",
-    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
-    "chunk_number": 6362
-  }
-}

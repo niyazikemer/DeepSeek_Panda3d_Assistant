@@ -1,9 +1,0 @@
-{
-  "content": "class Avatar:\n    def getName(self):\n        return self.name\n\n    def setName(self, name):\n        self.name = name\n\n    def d_setName(self, name):\n        self.sendUpdate(\"setName\", [name])\n\n    def b_setName(self, name):\n        self.setName(name)\n        self.d_setName(name)\n\nNote if, for example, the name value gets changed locally after generation of the DO, it doesn't automatically change the value of the DO on the server. This has to be done manually. Though, calling the distributed versions of these functions (as defined in the dc file) will automatically call the corresponding functions of the representing python class on the client.\n\nPython Imports\n\nfrom direct.distributed import DistributedObject/AI\nfrom direct.distributed import TimeManager/AI\nfrom direct.distributed import DistributedNode/AI\nfrom direct.distributed import DistributedSmoothNode/AI",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_411",
-    "parent": "processed_documents/context_documents/c7129d08_ae3cc5ca_dc-definition-files.json",
-    "chunk_number": 6098
-  }
-}

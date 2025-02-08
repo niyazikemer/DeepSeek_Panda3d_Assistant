@@ -1,9 +1,0 @@
-{
-  "content": "Call ~direct.actor.Actor.Actor.delete() on all Actors \u2013 Just calling ~.NodePath.remove_node() on an Actor isn\u2019t enough. Calling ~direct.actor.Actor.Actor.delete() will remove ties to animations, exposed joints, and so on to ensure that all the extra components of the Actor are removed from memory as well.\n\nSet all Intervals, Sequences, and Parallels equal to None \u2013 It\u2019s very common for Intervals, Sequences, and Parallels to retain references to something in the class and prevent the class instance from being cleaned up. To be safe, it\u2019s best to remove the references to these Intervals so that they get cleaned up themselves and any references they have to the class are removed.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_493",
-    "parent": "processed_documents/context_documents/34bfddd9_5e9b18c7_removing-custom-class-instances.json",
-    "chunk_number": 6480
-  }
-}

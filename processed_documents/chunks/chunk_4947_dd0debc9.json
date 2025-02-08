@@ -1,9 +1,0 @@
-{
-  "content": "def toggleParticles(self):\n        \"\"\"\n        Calls `enableParticles()` or `disableParticles()` depending on the\n        current state.\n        \"\"\"\n        if self.particleMgrEnabled == 0:\n            self.enableParticles()\n        else:\n            self.disableParticles()\n\n    def isParticleMgrEnabled(self):\n        \"\"\"\n        Returns True if `enableParticles()` has been called.\n        \"\"\"\n        return self.particleMgrEnabled\n\n    def isPhysicsMgrEnabled(self):\n        \"\"\"\n        Returns True if `enableParticles()` has been called.\n        \"\"\"\n        return self.physicsMgrEnabled\n\n    def updateManagers(self, state):\n        dt = self.clock.dt\n        if self.particleMgrEnabled:\n            self.particleMgr.doParticles(dt)\n        if self.physicsMgrEnabled:\n            self.physicsMgr.doPhysics(dt)\n        return Task.cont",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4947
-  }
-}

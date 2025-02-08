@@ -1,9 +1,0 @@
-{
-  "content": "# Transmit other buttons.\n        messenger.send(button + suffix)\n\n    def oobeCull(self, cam = None):\n        \"\"\"\n        While in OOBE mode (see above), cull the viewing frustum as if\n        it were still attached to our original camera.  This allows us\n        to visualize the effectiveness of our bounding volumes.\n        \"\"\"\n        if cam is None:\n            cam = self.cam\n\n        # First, make sure OOBE mode is enabled.\n        if not getattr(self, 'oobeMode', False):\n            self.oobe(cam = cam)\n\n        if self.oobeCullFrustum is None:\n            # Enable OOBE culling.\n            pnode = LensNode('oobeCull')\n            pnode.setLens(self.camLens)\n            pnode.showFrustum()\n            self.oobeCullFrustum = self.camera.attachNewNode(pnode)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4985
-  }
-}

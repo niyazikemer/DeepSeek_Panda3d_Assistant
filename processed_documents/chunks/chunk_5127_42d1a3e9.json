@@ -1,9 +1,0 @@
-{
-  "content": "self.geom_node.removeAllGeoms()\n        self.geom_node.addGeom(self.geometry)\n\n    def check_for_update(self, current_time):\n        \"\"\"Returns true if the motion trail is overdue for an update based on\n        the configured `sampling_time` (by default 0.0 to update continuously),\n        and is not currently paused.\n        \"\"\"\n        state = False\n        if (current_time - self.last_update_time) >= self.sampling_time:\n            state = True\n\n        if self.pause:\n            state = False\n\n        update = state and self.enable\n\n        return state\n\n    def update_motion_trail(self, current_time, transform):\n        \"\"\"If the trail is overdue for an update based on the given time in\n        seconds, updates it, extracting the new object position from the given\n        transform matrix.\n        \"\"\"\n        if len(self.frame_list) >= 1:\n            if transform == self.frame_list[0].transform:\n                # ignore duplicate transform updates\n                return",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_290",
-    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
-    "chunk_number": 5127
-  }
-}

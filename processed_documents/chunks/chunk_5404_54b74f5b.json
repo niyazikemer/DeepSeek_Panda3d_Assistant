@@ -1,9 +1,0 @@
-{
-  "content": "def timeout(self, task):\n        assert AsyncRequest.notify.debugCall(\n            \"neededObjects: %s\"%(self.neededObjects,))\n        if self.numRetries > 0:\n            assert AsyncRequest.notify.debug(\n                'Timed out. Trying %d more time(s) : %s' %\n                (self.numRetries + 1, repr(self.neededObjects)))\n            self.numRetries -= 1\n            return Task.again\n        else:\n            if __debug__:\n                if _breakOnTimeout:\n                    if hasattr(self, \"avatarId\"):\n                        print(\"\\n\\nself.avatarId =\", self.avatarId)\n                    print(\"\\nself.neededObjects =\", self.neededObjects)\n                    print(\"\\ntimed out after %s seconds.\\n\\n\"%(task.delayTime,))\n                    import pdb\n                    pdb.set_trace()\n            self.delete()\n            return Task.done",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_309",
-    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
-    "chunk_number": 5404
-  }
-}

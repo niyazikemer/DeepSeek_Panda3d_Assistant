@@ -1,9 +1,0 @@
-{
-  "content": "def beginBarrier(self, name, avIds, timeout, callback):\n        # Begins waiting for a set of avatars.  When all avatars in\n        # the list have reported back in or the callback has expired,\n        # calls the indicated callback with the list of toons that\n        # made it through.  There may be multiple barriers waiting\n        # simultaneously on different lists of avatars, although they\n        # should have different names.\n\n        from otp.ai import Barrier  # type: ignore[import-not-found]\n        context = self.__nextBarrierContext\n        # We assume the context number is passed as a uint16.\n        self.__nextBarrierContext = (self.__nextBarrierContext + 1) & 0xffff\n\n        assert self.notify.debug('beginBarrier(%s, %s, %s, %s)' % (context, name, avIds, timeout))",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_318",
-    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
-    "chunk_number": 5511
-  }
-}

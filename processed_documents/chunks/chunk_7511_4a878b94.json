@@ -1,9 +1,0 @@
-{
-  "content": "If you wish, you can manually override the color attribute which has been specified by the model loader.\n\npython\n\nnodePath.setColor(r, g, b, a)\n\ncpp\n\nnodePath.set_color(r, g, b, a);\n\nAgain, this is an override. If the model already had vertex colors, these will disappear: the ~.NodePath.set_color() method is replacing those colors with a new one. If the model already had a flat color, that will be replaced with the new flat color.\n\nIt should be mentioned that the color attribute created by the model loader has low priority. That means that even a default-priority ~.NodePath.set_color() is enough to override it.\n\nYou can remove a previous ~.NodePath.set_color() using ~.NodePath.clear_color().\n\nTinting the Model\n\nSometimes, you don't want to replace the existing color; sometimes, you want to tint the existing colors. For this, you need setColorScale:\n\npython\n\nnodePath.setColorScale(r, g, b, a)\n\ncpp\n\nnodePath.set_color_scale(r, g, b, a);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_658",
-    "parent": "processed_documents/context_documents/3c995b04_158a20ee_tinting-and-recoloring.json",
-    "chunk_number": 7511
-  }
-}

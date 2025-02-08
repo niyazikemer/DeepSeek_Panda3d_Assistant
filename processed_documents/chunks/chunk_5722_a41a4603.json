@@ -1,9 +1,0 @@
-{
-  "content": "gridDoId = grid.getDoId()\n        existingInterest = self._gridInterests.get(gridDoId)\n        if self._gridInterestEnabled:\n            if existingInterest and existingInterest[0]:\n                self.cr.alterInterest(existingInterest[0],\n                                      grid.getDoId(), zoneId)\n                existingInterest[1] = zoneId\n            else:\n                newInterest = self.cr.addTaggedInterest(gridDoId, zoneId,\n                                                        self.cr.ITAG_GAME,\n                                                        self.uniqueName('gridvis'))\n                self._gridInterests[gridDoId] = [newInterest,zoneId]\n        else:\n            # indicate we want this grid interest once gridInterestEnabled is True\n            if game.process == 'client':\n                # we only care about interests on the client\n                self._gridInterests[gridDoId] = [None,zoneId]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_337",
-    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
-    "chunk_number": 5722
-  }
-}

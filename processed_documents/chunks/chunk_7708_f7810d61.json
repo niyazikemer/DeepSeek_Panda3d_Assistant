@@ -1,9 +1,0 @@
-{
-  "content": "Here is an equivalent SConstruct file, organized for clarity:\n\npandaInc = '/usr/include/panda3d'\npandaLib = '/usr/lib/panda3d'\n\nProgram('filename.cpp',\n    CCFLAGS=['-fPIC', '-O2', '-std=gnu++11'],\n    CPPPATH=[pandaInc],\n    LIBPATH=pandaLib,\n    LIBS=[\n        'libp3framework',\n        'libpanda',\n        'libpandafx',\n        'libpandaexpress',\n        'libp3dtoolconfig',\n        'libp3dtool',\n        'libp3direct'])\n\nTo run your newly created executable, type:\n\n./filename\n\nIf it runs, congratulations! You have successfully compiled your own Panda3D program!\n\nNote\n\nOn macOS, Panda3D versions 1.10.4.1 and below were compiled with libstdc++, and so require passing -stdlib=libstdc++ to the compiler. Panda3D 1.10.5 offers a choice: the download marked \"MacOSX10.6\" is compiled with libstdc++, whereas the download marked \"MacOSX10.9\" is compiled with libc++. It is recommended to use the download marked \"MacOSX10.9\".",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_696",
-    "parent": "processed_documents/context_documents/aaa30a21_73dc92f9_running-your-program.json",
-    "chunk_number": 7708
-  }
-}

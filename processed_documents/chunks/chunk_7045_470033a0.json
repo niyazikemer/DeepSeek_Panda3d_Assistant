@@ -1,9 +1,0 @@
-{
-  "content": "NodePath myRender2d(\"myRender2d\");\nmyRender2d.set_depth_test(false);\nmyRender2d.set_depth_write(false);\nmyCamera2d.reparent_to(myRender2d);\ndr->set_camera(myCamera2d)\n\nThe first group of commands creates a new DisplayRegion on the window and sets its sort value to 20, so that it will be drawn after the main DisplayRegion has been drawn. This is important in order to layer text on top of the 3-D scene, of course.\n\nThe second group of commands creates a camera with an OrthographicLens. The lens is created with a wide near/far clipping plane: -1000 to 1000. This probably doesn't matter too much since we expect that everything we parent to this scene graph will have a Y value of 0 (which is easily between -1000 and 1000), but this allows us to accept a wide range of Y values.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_571",
-    "parent": "processed_documents/context_documents/baabada6_80cd6c1e_2d-display-region.json",
-    "chunk_number": 7045
-  }
-}

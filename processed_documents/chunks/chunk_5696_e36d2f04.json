@@ -1,9 +1,0 @@
-{
-  "content": "def getParentMgr(self):\n        #return self.air.getParentMgr(self.zoneId)\n        return self.getZoneData().getParentMgr()\n\n    def getCollTrav(self, *args, **kArgs):\n        return self.getZoneData().getCollTrav(*args, **kArgs)\n\n    def sendUpdate(self, fieldName, args = []):\n        assert self.notify.debugStateCall(self)\n        if self.air:\n            self.air.sendUpdate(self, fieldName, args)\n\n    def GetPuppetConnectionChannel(self, doId):\n        return doId + (1001 << 32)\n\n    def GetAccountConnectionChannel(self, doId):\n        return doId + (1003 << 32)\n\n    def GetAccountIDFromChannelCode(self, channel):\n        return channel >> 32\n\n    def GetAvatarIDFromChannelCode(self, channel):\n        return channel & 0xffffffff\n\n    def sendUpdateToAvatarId(self, avId, fieldName, args):\n        assert self.notify.debugStateCall(self)\n        channelId = self.GetPuppetConnectionChannel(avId)\n        self.sendUpdateToChannel(channelId, fieldName, args)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_335",
-    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
-    "chunk_number": 5696
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "See Also: `unquiet`\n            \"\"\"\n            if not self.quieting.get(message):\n                self.quieting[message]=1\n\n        def unquiet(self, message):\n            \"\"\"\n            Remove a message from the list of messages that are not reported\n            in verbose mode.\n            This is primarily a debugging tool.\n\n            This is intended for debugging use only.\n            This function is not defined if python is ran with -O (optimize).\n\n            See Also: `quiet`\n            \"\"\"\n            if self.quieting.get(message):\n                del self.quieting[message]\n\n    def find(self, needle):\n        \"\"\"\n        return a matching event (needle) if found (in haystack).\n        This is primarily a debugging tool.\n        \"\"\"\n        for event in sorted(self.__callbacks):\n            if repr(event).find(needle) >= 0:\n                return {event: self.__callbacks[event]}",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_286",
-    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
-    "chunk_number": 5067
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "exists = False\n        if event is None:\n            event = self._getAnonymousEvent('alterInterest')\n        if handle in DoInterestManager._interests:\n            if description is not None:\n                DoInterestManager._interests[handle].desc = description\n            else:\n                description = DoInterestManager._interests[handle].desc\n\n            # are we overriding an existing change?\n            if DoInterestManager._interests[handle].context != NO_CONTEXT:\n                DoInterestManager._interests[handle].clearEvents()\n\n            contextId = self._getNextContextId()\n            DoInterestManager._interests[handle].context = contextId\n            DoInterestManager._interests[handle].parentId = parentId\n            DoInterestManager._interests[handle].zoneIdList = zoneIdList\n            DoInterestManager._interests[handle].addEvent(event)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_294",
-    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
-    "chunk_number": 5220
-  }
-}

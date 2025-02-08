@@ -1,9 +1,0 @@
-{
-  "content": "my_style.set_texture(button_ready);    my_button->set_frame_style(0, my_style);\nmy_style.set_texture(button_rollover); my_button->set_frame_style(1, my_style);\nmy_style.set_texture(button_pressed);  my_button->set_frame_style(2, my_style);\nmy_style.set_texture(button_inactive); my_button->set_frame_style(3, my_style);\n\nNodePath button_np = window->get_aspect_2d().attach_new_node(my_button);\nbutton_np.set_scale(0.1);\n\n// Setup callback function\nframework.define_key(my_button->get_click_event(MouseButton::one()), \"button press\", &GUI_Callback_Button_Clicked, my_button);\n\nAn example of a callback function:\n\nstatic void GUI_Callback_Button_Clicked(const Event *ev, void *data) {\n  PGButton *button = (PGButton *)data;\n  // Your action here\n  printf(\"%s has been pressed.\\n\", button->get_name().c_str());\n}\n\n[PGSliderBar]\n\n#include \"pgSliderBar.h\"\n\nA simple sliderbar.\n\nThis slider basically has four components:\n\nThe thumb button. This is the sliding part.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_631",
-    "parent": "processed_documents/context_documents/5bc2b973_67d10b58_index.json",
-    "chunk_number": 7373
-  }
-}

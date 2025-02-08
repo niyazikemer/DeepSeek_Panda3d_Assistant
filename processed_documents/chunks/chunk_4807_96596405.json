@@ -1,9 +1,0 @@
-{
-  "content": "def __unloadPhase(self, phase):\n        aPhase = self.phaseAliasMap.get(phase, phase)\n        getattr(self, f'unloadPhase{aPhase}',\n                lambda: self.__phaseNotFound('unload', aPhase))()\n        self.phase = phase - 1\n\n    def __phaseNotFound(self, mode, aPhase):\n        assert self.notify.debug(f'{mode}{aPhase}() not found!\\n')\n\nif __debug__:\n    class AnfaPhasedObject(PhasedObject):\n        \"\"\"\n        This is an example class to demonstrate the concept of\n        alias mapping for PhasedObjects.\n\n        As the distance between an observer and this object closes,\n        we would set the phase level succesively higher, with an initial\n        phase of 'Away' being set in __init__:\n\n        setPhase('Far') -> invokes loadPhaseFar()\n        setPhase('Near') -> invokes loadPhaseNear()\n\n        Now let's say the objects start moving away from each other:\n\n        setPhase('Far') -> invokes unloadPhaseNear()\n        setPhase('Away') -> invokes unloadPhaseFar()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_278",
-    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
-    "chunk_number": 4807
-  }
-}

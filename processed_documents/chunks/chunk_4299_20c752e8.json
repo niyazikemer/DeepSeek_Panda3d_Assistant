@@ -1,9 +1,0 @@
-{
-  "content": "scale = 0.18 * max(base.a2dRight, base.a2dTop)\n        transitionIval = Sequence(Func(self.iris.reparentTo, ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX),\n                                  LerpScaleInterval(self.iris, t,\n                                                    scale = 0.01,\n                                                    startScale = scale,\n                                                    blendType=blendType),\n                                 Func(self.iris.detachNode),\n                                 # Use the fade to cover up the hole that the iris would leave\n                                 Func(self.fadeOut, 0),\n                                 Func(self.__finishTransition),\n                                 name = self.irisTaskName,\n                                 )\n\n        if finishIval:\n            transitionIval.append(finishIval)\n        return transitionIval",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_244",
-    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
-    "chunk_number": 4299
-  }
-}

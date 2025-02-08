@@ -1,9 +1,0 @@
-{
-  "content": "self._indirections.append(indirection)\n\n        # make sure our indirections don't get destroyed while we're using them\n        for ind in self._indirections:\n            ind.acquire()\n        self.notify.debug(repr(self))\n\n    def destroy(self):\n        for indirection in self._indirections:\n            indirection.release()\n        del self._indirections\n\n    def getNumIndirections(self):\n        return len(self._indirections)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4479
-  }
-}

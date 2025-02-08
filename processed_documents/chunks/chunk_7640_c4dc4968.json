@@ -1,9 +1,0 @@
-{
-  "content": "// Don't open a window - force it to be an offscreen buffer.\nint flags = GraphicsPipe::BF_refuse_window;\n\nGraphicsEngine *engine = GraphicsEngine::get_global_ptr();\nengine->make_output(pipe, \"My Buffer\", -100, fb_prop, win_prop, flags, win->get_gsg(), win);\n\nThe method takes a .FrameBufferProperties object describing the requested amount of bits that are available in GPU memory, as well as a WindowProperties object describing the properties of the window to be opened. In the case of an offscreen buffer, which is acquired by passing BF_refuse_window as a flag, only the size setting of the WindowProperties object is used.\n\nOffscreen buffers may require passing in a host window and a host GSG, since the graphics API may require an existing graphics context in order to create an offscreen buffer. When creating a window, the last two parameters may be omitted.\n\nFor the meaning of the various flags, consult the GraphicsPipe API documentation.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_681",
-    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
-    "chunk_number": 7640
-  }
-}

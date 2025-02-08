@@ -1,9 +1,0 @@
-{
-  "content": "class ContainerReport(Job):\n    notify = directNotify.newCategory(\"ContainerReport\")\n    # set of containers that should not be included in the report\n    PrivateIds: set[int] = set()\n\n    def __init__(self, name, log=False, limit=None, threaded=False):\n        Job.__init__(self, name)\n        self._log = log\n        self._limit = limit\n        # set up our data structures\n        self._visitedIds = set()\n        self._id2pathStr = {}\n        self._id2container = {}\n        self._type2id2len = {}\n        self._instanceDictIds = set()\n        # for breadth-first searching\n        self._queue = Queue()\n        jobMgr.add(self)\n        if not threaded:\n            jobMgr.finish(self)\n\n    def destroy(self):\n        del self._queue\n        del self._instanceDictIds\n        del self._type2id2len\n        del self._id2container\n        del self._id2pathStr\n        del self._visitedIds\n        del self._limit\n        del self._log",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_247",
-    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
-    "chunk_number": 4351
-  }
-}

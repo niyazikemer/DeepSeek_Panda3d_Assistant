@@ -1,9 +1,0 @@
-{
-  "content": "Creating the light and putting it in the scene graph doesn't, by itself, have any visible effect. Your next step is to tell some object to be illuminated by the light. To do this, use the .NodePath.set_light() method, which turns on the light for the indicated NodePath and everything below it in the scene graph.\n\nIn the simplest case, you want all of your lights to illuminate everything they can, so you turn them on at render, the top of the scene graph:\n\npython\n\nrender.setLight(plnp)\n\ncpp\n\nwindow->get_render().set_light(pnlp);\n\nYou can remove the light setting from render:\n\npython\n\nrender.clearLight(plnp)\n\ncpp\n\nwindow->get_render().clear_light(pnlp);\n\nYou could also apply the ~.NodePath.set_light() call to a sub-node in the scene graph, so that a given light only affects a particular object or group of objects:\n\npython\n\nsofa.setLight(plnp)\n\ncpp\n\nsofa.set_light(plnp)",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_365",
-    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
-    "chunk_number": 5872
-  }
-}

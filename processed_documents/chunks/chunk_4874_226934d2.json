@@ -1,9 +1,0 @@
-{
-  "content": "# Transition effects (fade, iris, etc)\n        from . import Transitions\n\n        #: `.Transitions.Transitions` object.\n        self.transitions = Transitions.Transitions(self.loader)\n\n        if self.win:\n            # Setup the window controls - handy for multiwindow applications\n            self.setupWindowControls()\n\n        # Client sleep\n        sleepTime = ConfigVariableDouble('client-sleep', 0.0)\n        self.clientSleep = 0.0\n        self.setSleep(sleepTime.value)\n\n        # Extra sleep for running 4+ clients on a single machine\n        # adds a sleep right after the main render in igloop\n        # tends to even out the frame rate and keeps it from going\n        # to zero in the out of focus windows\n        self.multiClientSleep = ConfigVariableBool('multi-sleep', False)\n\n        #: Utility for viewing offscreen buffers, see :mod:`.BufferViewer`.\n        self.bufferViewer = BufferViewer(self.win, self.render2dp if self.wantRender2dp else self.render2d)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_283",
-    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
-    "chunk_number": 4874
-  }
-}

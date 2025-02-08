@@ -1,9 +1,0 @@
-{
-  "content": "def makeFlywheelGen(objects, countList=None, countFunc=None, scale=None):\n    # iterates and finally yields a flywheel generator object\n    # the number of appearances for each object is controlled by passing in\n    # a list of counts, or a functor that returns a count when called with\n    # an object from the 'objects' list.\n    # if scale is provided, all counts are scaled by the scale value and then int()'ed.\n    def flywheel(index2objectAndCount):\n        # generator to produce a sequence whose elements appear a specific number of times\n        while len(index2objectAndCount) > 0:\n            keyList = list(index2objectAndCount.keys())\n            for key in keyList:\n                if index2objectAndCount[key][1] > 0:\n                    yield index2objectAndCount[key][0]\n                    index2objectAndCount[key][1] -= 1\n                if index2objectAndCount[key][1] <= 0:\n                    del index2objectAndCount[key]",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4700
-  }
-}

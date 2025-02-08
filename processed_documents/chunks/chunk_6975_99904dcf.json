@@ -1,9 +1,0 @@
-{
-  "content": "Altering geometry\n\nIf you require your model geometry to be dynamically altered at runtime, then the use of memoryviews is very efficient, as it can reduce or even avoid any unnecessary copy operations.\n\nAdding geometry\n\nConsider the square from the previous sample code to be a side of a cube. To add another side to that cube, you could use code like this:\n\nold_count = v_data.get_num_rows()\n# increase the number of data rows by 4 (since the new side has 4 vertices)\nvertex_data.set_num_rows(old_count + 4)\nv_array = vertex_data.modify_array(0)\nview = memoryview(v_array).cast('B')\nview[old_count * stride:] = values  # bytearray with new side values\n\ntris_array = tris_prim.modify_vertices()\nold_count = tris_array.get_num_rows()\n# increase the number of index rows by 6 (2 triangles, thus 6 vertex indices)\ntris_array.set_num_rows(old_count + 6)\nview = memoryview(tris_array).cast('B').cast('H')\nview[old_count:] = indices  # array.array filled with 6 new vertex indices\n\nRemoving geometry",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_561",
-    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
-    "chunk_number": 6975
-  }
-}

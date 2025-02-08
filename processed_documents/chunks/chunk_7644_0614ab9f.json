@@ -1,9 +1,0 @@
-{
-  "content": "cpp\n\n#include \"odeBody.h\"\n#include \"odeMass.h\"\n\nOdeBody myBody (myWorld);\nmyBody.set_position(somePandaObject.get_pos(render));\nmyBody.set_quaternion(somePandaObject.get_quat(render));\nOdeMass myMass;\nmyMass.set_box(11340, 1, 1, 1);\nmyBody.set_mass(myMass);\n\nFirst, the position and quaternion are set of the body, this is directly copied from the NodePath's pos and quat; do note that when using getPos and getQuat, you need to get them in global coordinate space, this is done here by specifying render as first argument.\n\nThen, a mass is set for the body. The first argument specified in the setBox call is the density of the object, the second is the dimensions (lx, ly, lz) of the box. Each material has it's own density, for example, water has a density of 1000 kg/m\u00b3, copper usually between 8920 and 8960 kg/m\u00b3. The value shown in the example above is the density for lead.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_682",
-    "parent": "processed_documents/context_documents/38bb6ad4_c8821add_worlds-bodies-masses.json",
-    "chunk_number": 7644
-  }
-}

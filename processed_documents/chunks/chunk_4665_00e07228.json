@@ -1,9 +1,0 @@
-{
-  "content": "def convertTree(objTree, idList):\n    newTree = {}\n    for key in list(objTree.keys()):\n        obj = (idList[key],)\n        newTree[obj] = {}\n        r_convertTree(objTree[key], newTree[obj], idList)\n    return newTree\n\n\ndef r_convertTree(oldTree, newTree, idList):\n    for key in list(oldTree.keys()):\n        obj = idList.get(key)\n        if not obj:\n            continue\n        obj = str(obj)[:100]\n\n        newTree[obj] = {}\n        r_convertTree(oldTree[key], newTree[obj], idList)\n\n\ndef pretty_print(tree):\n    for name in tree.keys():\n        print(name)\n        r_pretty_print(tree[name], 0)\n\n\ndef r_pretty_print(tree, num):\n    num += 1\n    for name in tree.keys():\n        print(\"  \" * num, name)\n        r_pretty_print(tree[name], num)\n\n\ndef isDefaultValue(x):\n    return x == type(x)()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_263",
-    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
-    "chunk_number": 4665
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "def doDeferredGenerate(self, task):\n        \"\"\" This is the task that generates an object on the deferred\n        queue. \"\"\"\n\n        now = ClockObject.getGlobalClock().getFrameTime()\n        while self.deferredGenerates:\n            if now - self.lastGenerate < self.deferInterval:\n                # Come back later.\n                return Task.again\n\n            # Generate the next deferred object.\n            msgType, extra = self.deferredGenerates[0]\n            del self.deferredGenerates[0]\n            self.replayDeferredGenerate(msgType, extra)\n\n        # All objects are generaetd.\n        return Task.done",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_327",
-    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
-    "chunk_number": 5599
-  }
-}

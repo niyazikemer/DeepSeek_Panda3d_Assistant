@@ -1,9 +1,0 @@
-{
-  "content": "For example, let's say that Panda3D's configuration file contains this line:\n\nfullscreen #f\n\nBy default, Panda3D programs will run in a window, not fullscreen. However, if you do this, then by the time you instantiate ShowBase, you will have changed the fullscreen-flag to true, and your program will run in fullscreen.\n\npython\n\nfrom panda3d.core import loadPrcFileData\n\nloadPrcFileData('', 'fullscreen true')\n\ncpp\n\n#include \"load_prc_file.h\"\n\nload_prc_file_data(\"\", \"fullscreen true\");\n\nThere are other ways to go to fullscreen. This is not necessarily the most straightforward approach, but it illustrates the point.\n\nYou can get a more complete list of available config variables at runtime, with the ~.ConfigVariableManager.list_variables() method:\n\npython\n\ncvMgr = ConfigVariableManager.getGlobalPtr()\ncvMgr.listVariables()\n\ncpp\n\nConfigVariableManager::get_global_ptr()->list_variables();",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_626",
-    "parent": "processed_documents/context_documents/9165eb63_bae543ea_accessing-config-vars-in-a-program.json",
-    "chunk_number": 7325
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "stop = tkinter.Button(bf, text = 'Stop',\n                  command = lambda s=self: s.pause())\n    play = tkinter.Button(\n        bf, text = 'Play',\n        command = doPlay)\n    jumpToEnd = tkinter.Button(bf, text = '>>', command = toEnd)\n    jumpToStart.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n    play.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n    stop.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n    jumpToEnd.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n    bf.pack(expand = 1, fill = tkinter.X)\n    outerFrame.pack(expand = 1, fill = tkinter.X)\n    # Add function to update slider during setT calls\n    def update(t, es=es):\n        es.set(t, fCommand = 0)\n    if not hasattr(self, \"setTHooks\"):\n        self.setTHooks = []\n    self.setTHooks.append(update)\n    self.setWantsTCallback(1)\n    # Clear out function on destroy\n    def onDestroy(e, s=self, u=update):\n        if u in s.setTHooks:\n            s.setTHooks.remove(u)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_342",
-    "parent": "processed_documents/context_documents/f82a7e89_CInterval_extensions.json",
-    "chunk_number": 5788
-  }
-}

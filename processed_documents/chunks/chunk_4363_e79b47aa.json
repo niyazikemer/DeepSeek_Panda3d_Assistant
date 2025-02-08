@@ -1,9 +1,0 @@
-{
-  "content": "def _output(self, **kArgs):\n        print(\"===== ContainerReport: \\'%s\\' =====\" % (self._name,))\n        initialTypes = (dict, list, tuple)\n        for type in initialTypes:\n            for i in self._outputType(type, **kArgs):\n                yield None\n        otherTypes = set(self._type2id2len).difference(initialTypes)\n        for type in sorted(otherTypes, key=lambda obj: obj.__name__):\n            for i in self._outputType(type, **kArgs):\n                yield None\n\n    def log(self, **kArgs):\n        self._output(**kArgs)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_247",
-    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
-    "chunk_number": 4363
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "extraFields.append(field.getName())\n\n        datagram = self.formatGenerate(obj, extraFields)\n        self.send(datagram)\n\n    def handleGenerate(self, di):\n        self.currentSenderId = di.getUint32()\n        zoneId = di.getUint32()\n        classId = di.getUint16()\n        doId = di.getUint32()\n\n        # Look up the dclass\n        dclass = self.dclassesByNumber[classId]\n\n        distObj = self.doId2do.get(doId)\n        if distObj and distObj.dclass == dclass:\n            # We've already got this object.  Probably this is just a\n            # repeat-generate, synthesized for the benefit of someone\n            # else who just entered the zone.  Accept the new updates,\n            # but don't make a formal generate.\n            assert self.notify.debug(\"performing generate-update for %s %s\" % (dclass.getName(), doId))\n            dclass.receiveUpdateBroadcastRequired(distObj, di)\n            dclass.receiveUpdateOther(distObj, di)\n            return",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_333",
-    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
-    "chunk_number": 5662
-  }
-}

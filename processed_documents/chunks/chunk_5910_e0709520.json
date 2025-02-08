@@ -1,9 +1,0 @@
-{
-  "content": "python\n\n# Create a plane going through these three points\nplane = Plane((100, 0, 2), (100, 100, 2), (0, 100, 2))\n\n# Create an identical plane pointing upward with a height of 2\nplane = Plane((0, 0, 1), (0, 0, 2))\n\n# Create the same plane by directly specifying its parameters\nplane = Plane(0, 0, 1, -2)\n\ncpp\n\n// Create a plane going through these three points\nLPlane plane((100, 0, 2), (100, 100, 2), (0, 100, 2));\n\n// Create an identical plane pointing upward with a height of 2\nLPlane plane((0, 0, 1), (0, 0, 2));\n\n// Create the same plane by directly specifying its parameters\nLPlane plane(0, 0, 1, -2);\n\nBefore we can use it as a clip plane, we need to place it in the scene graph. This is done by creating a .PlaneNode:\n\npython\n\nplane = Plane(0, 0, 1, -2)\nplane_node = PlaneNode(\"plane\", plane)\nplane_np = render.attach_new_node(plane_node)\n\ncpp\n\nLPlane plane(0, 0, 1, -2);\nPT(PlaneNode) plane_node = new PlaneNode(\"plane\", plane);\nNodePath plane_np = render.attach_new_node(plane_node);",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_370",
-    "parent": "processed_documents/context_documents/3c8dcf09_94575662_clip-planes.json",
-    "chunk_number": 5910
-  }
-}

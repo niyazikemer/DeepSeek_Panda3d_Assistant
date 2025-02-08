@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nBecause Actors <loading-actors-and-animations> use a different set-up, the collision system will return the geometry but not the NodePath. Use object.set_python_tag('myObjectTag', 1) <.NodePath.set_python_tag> and object.get_python_tag('myObjectTag') <.NodePath.get_python_tag> instead to return the node path of an Actor.\n\nNow assume that the function myFunction() is set up to be called for the 'mouse1' event. In myFunction() is where you call pickerRay.set_from_lens(origin, destX, destY) <.CollisionRay.set_from_lens>. This makes the ray's origin origin and the ray's vector the direction from origin to the point (destX, destY).\n\npython\n\ndef myFunction():\n    # First we check that the mouse is not outside the screen.\n    if base.mouseWatcherNode.hasMouse():\n        # This gives up the screen coordinates of the mouse.\n        mpos = base.mouseWatcherNode.getMouse()",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_642",
-    "parent": "processed_documents/context_documents/89de807b_91a421cd_clicking-on-3d-objects.json",
-    "chunk_number": 7420
-  }
-}

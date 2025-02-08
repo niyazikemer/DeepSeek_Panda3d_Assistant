@@ -1,9 +1,0 @@
-{
-  "content": "At the beginning of this page we promised to deal with the fixeds parameter later on the page. This is the place. Using the fixeds parameter we can attach the rope to a position in the world (global coordinates!). Depending on the value of this parameter we can attach different nodes/vertices of the rope:\n\n0: No node/vertex is attached.\n\n1: Only the first node/vertex is attached.\n\n2: Only the last node/vertex is attached.\n\n3: Both the first and the last node/vertex are attached.\n\nOr we want to attach the soft body rope to a rigid body. In the following code snippet the last node/vertex of a soft body rope is attached to a rigid body.\n\npython\n\n# NodePath for some BulletSoftBody \"rope\"\nsoftNP = ...\n\n# NodePath for some BulletRigidBody\nrigidNP = ...\n\n# Index of the last node of the rope\nidx = softNP.node().getNumNodes() - 1\n\n# Attach the last node of the rope with the rigid body\nsoftNP.node().appendAnchor(idx, rigidNP.node())\n\ncpp\n\nTODO",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_470",
-    "parent": "processed_documents/context_documents/ff1adceb_3635e1a0_softbody-rope.json",
-    "chunk_number": 6406
-  }
-}

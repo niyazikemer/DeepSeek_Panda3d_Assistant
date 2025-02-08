@@ -1,9 +1,0 @@
-{
-  "content": "Creating New MouseWatchers for Display Regions\n\nWhen working with multiple display regions in a single window, it can be difficult to get accurate mouse interaction. base.mouseWatcherNode, the default MouseWatcher in Panda3D, reports the mouse coordinates for the entire window. To get mouse coordinates relative to a specific display region the MouseWatcher needs to be restricted to that region with the setDisplayRegion() method.\n\nmyDR = base.win.makeDisplayRegion(0, 1, 0, 1)\nbase.mouseWatcherNode.setDisplayRegion(myDR)\n\nHowever, restricting the default MouseWatcher to a display region will prevent the mouse from being used outside of that region. For example, the image below shows two display regions, a 3D view in the top portion, and a menu in the bottom portion.\n\nIf base.mouseWatcherNode is restricted to the 3D view display region, the mouse won't interact with the menu buttons.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_464",
-    "parent": "processed_documents/context_documents/0b03c102_f3c3ec03_creating-mouse-watchers.json",
-    "chunk_number": 6376
-  }
-}

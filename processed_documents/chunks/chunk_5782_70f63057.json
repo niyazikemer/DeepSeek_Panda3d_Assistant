@@ -1,9 +1,0 @@
-{
-  "content": "def analyze(self):\n    \"\"\"\n    Analyzes the geometry below this node and reports the\n    number of vertices, triangles, etc.  This is the same\n    information reported by the bam-info program.\n    \"\"\"\n    from panda3d.core import SceneGraphAnalyzer\n    sga = SceneGraphAnalyzer()\n    sga.addNode(self.node())\n    if sga.getNumLodNodes() == 0:\n        print(sga)\n    else:\n        print(\"At highest LOD:\")\n        sga2 = SceneGraphAnalyzer()\n        sga2.setLodMode(sga2.LMHighest)\n        sga2.addNode(self.node())\n        print(sga2)\n\n        print(\"\\nAt lowest LOD:\")\n        sga2.clear()\n        sga2.setLodMode(sga2.LMLowest)\n        sga2.addNode(self.node())\n        print(sga2)\n\n        print(\"\\nAll nodes:\")\n        print(sga)\n\nDtool_funcToMethod(analyze, NodePath)\ndel analyze\n#####################################################################",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_341",
-    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
-    "chunk_number": 5782
-  }
-}

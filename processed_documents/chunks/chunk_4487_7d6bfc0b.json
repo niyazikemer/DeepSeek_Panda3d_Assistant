@@ -1,9 +1,0 @@
-{
-  "content": "def getEvalStrGen(self, getInstance=False):\n        str = ''\n        prevIndirection = None\n        curIndirection = None\n        nextIndirection = None\n        # make sure the indirections don't go away on us\n        indirections = self._indirections\n        for indirection in indirections:\n            indirection.acquire()\n        for i in range(len(indirections)):\n            yield None\n            if i > 0:\n                prevIndirection = indirections[i-1]\n            else:\n                prevIndirection = None\n            curIndirection = indirections[i]\n            if i < len(indirections)-1:\n                nextIndirection = indirections[i+1]\n            else:\n                nextIndirection = None\n            str += curIndirection.getString(prevIndirection=prevIndirection,\n                                            nextIndirection=nextIndirection)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_256",
-    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
-    "chunk_number": 4487
-  }
-}

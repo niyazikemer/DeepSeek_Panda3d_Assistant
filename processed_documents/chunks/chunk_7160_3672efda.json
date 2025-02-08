@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nwin.setClearColorActive(flag)\nwin.setClearColor((r, g, b, a))\n\ncpp\n\nwin->set_clear_color_active(flag);\nwin->set_clear_color(LVecBase4(r, g, b, a));\n\nIn the above, flag is a boolean flag--True or False, indicating whether this window or DisplayRegion should perform a clear to the background color. If False, no clear will be performed. If True, the color will be cleared before drawing, and the specific background color used will be specified by r, g, b, a.\n\nIn addition to clearing the color, you will also need to clear the depth or Z buffer. This buffer is used to determine which objects are in front of other objects, and if you fail to clear it, some objects may not draw. It has a similar interface:\n\npython\n\nwin.setClearDepthActive(flag)\nwin.setClearDepth(depthValue)\n\ncpp\n\nwin->set_clear_depth_active(flag);\nwin->set_clear_depth(depthValue);\n\nThe depthValue should almost always be 1.0, which is the default.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_597",
-    "parent": "processed_documents/context_documents/e33eb321_9af630d5_clearing-display-regions.json",
-    "chunk_number": 7160
-  }
-}

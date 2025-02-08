@@ -1,9 +1,0 @@
-{
-  "content": "python\n\n# Use a 512x512 resolution shadow map\nlight.setShadowCaster(True, 512, 512)\n# Enable the shader generator for the receiving nodes\nrender.setShaderAuto()\n\ncpp\n\n// Use a 512x512 resolution shadow map\nlight->set_shadow_caster(true, 512, 512);\n// Enable the shader generator for the receiving nodes\nwindow->get_render().set_shader_auto();\n\nNote that, even though in general shadowing is easy to set-up, you will want to tweak the light's lens settings to get the best depth buffer precision. Use the ~.Lens.set_near_far() method on the Lens to get a perfect fit of what is being rendered. Also, for directional lights, you will need to call ~.Lens.set_film_size() on the Lens and position the light properly so that the light camera will get an optimal view of the scene.\n\nAlso note that every Light is in fact also a Camera, so you can easily exclude objects from being shadowed (e.g. for performance reasons) by use of camera masks.",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_365",
-    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
-    "chunk_number": 5885
-  }
-}

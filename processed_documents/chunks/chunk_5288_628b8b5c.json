@@ -1,9 +1,0 @@
-{
-  "content": "def handleAvatarZoneChange(self, av, zoneId):\n        assert self.notify.debug(\"handleAvatarZoneChange(%s, %s)\" % (av.doId, zoneId))\n        # This method can be overridden by derived classes that\n        # want to do some special management when the avatar changes\n        # zones.\n        # Make sure this is a valid zone\n        if not self.isValidZone(zoneId):\n            assert self.notify.warning(\"handleAvatarZoneChange: not a valid zone (%s)\" % zoneId)\n            return\n\n        # Set the location on the server\n        av.b_setLocation(self.doId, zoneId)\n\n    def turnOff(self):\n        self._onOffState = False\n        self.stopProcessVisibility()\n\n    def turnOn(self, av = None):\n        self._onOffState = True\n        if av:\n            self.startProcessVisibility(av)\n\n    ##################################################\n    # Visualization Tools\n    ##################################################\n\n    if __debug__:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_302",
-    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
-    "chunk_number": 5288
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "python\n\nfrom panda3d.core import Filename\npandafile = Filename(\"/c/MyGame/Model1.egg\")\nwinfile = pandafile.toOsSpecific()\nprint(winfile)\n\ncpp\n\n#include \"filename.h\"\n\nFilename pandafile(\"/c/MyGame/Model1.egg\");\nconst std::string winfile = pandafile.to_os_specific();\nstd::cout << winfile << \"\\n\";\n\npython\n\nStarting with Python 3.6, the .Filename class is fully interoperable with the filesystem manipulation functions in the Python standard library. Conversely, pathlib paths will seamlessly work in all Panda3D calls that accept a .Filename object.\n\nLet's say, for instance, that you want to load a model, and the model is in the \"model\" directory that is in the same directory as the program's main file.\n\nHere is how you would load the model:\n\npython\n\nimport sys, os\nimport direct.directbase.DirectStart\nfrom panda3d.core import Filename\n\n# Get the location of the 'py' file I'm running:\nmydir = os.path.dirname(os.path.abspath(__file__))",
-  "metadata": {
-    "doc_type": "rst",
-    "doc_id": "doc_638",
-    "parent": "processed_documents/context_documents/ff34a7e6_33cbbc72_filename-syntax.json",
-    "chunk_number": 7406
-  }
-}

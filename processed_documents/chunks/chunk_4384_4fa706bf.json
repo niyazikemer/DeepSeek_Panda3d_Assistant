@@ -1,9 +1,0 @@
-{
-  "content": "return self.loadModel(modelPath, loaderOptions = loaderOptions, noCache = False)\n\n    def loadModelNode(self, modelPath):\n        \"\"\"\n        modelPath is a string.\n\n        This is like loadModelOnce in that it loads a model from the\n        modelPool, but it does not then instance it to hidden and it\n        returns a Node instead of a NodePath.  This is particularly\n        useful for special models like fonts that you don't care about\n        where they're parented to, and you don't want a NodePath\n        anyway--it prevents accumulation of instances of the font\n        model under hidden.\n\n        However, if you're loading a font, see loadFont(), below.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"loader.loadModelNode() is deprecated; use loader.loadModel() instead.\", DeprecationWarning, stacklevel=2)\n\n        model = self.loadModel(modelPath, noCache = False)\n        if model is not None:\n            model = model.node()\n\n        return model",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_250",
-    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
-    "chunk_number": 4384
-  }
-}

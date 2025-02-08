@@ -1,9 +1,0 @@
-{
-  "content": "def putArg(self, arg, subatomicType, divisor=1):\n        if divisor == 1:\n            funcSpecs = self.FuncDict.get(subatomicType)\n            if funcSpecs:\n                addFunc, argFunc = funcSpecs\n                if argFunc:\n                    arg = argFunc(arg)\n                addFunc(self, arg)\n            # Ok, arrays are not handled by the FuncDict yet\n            elif subatomicType == STInt8array:\n                self.addUint16(len(arg))\n                for i in arg:\n                    self.addInt8(int(i))\n            elif subatomicType == STInt16array:\n                self.addUint16(len(arg) << 1)\n                for i in arg:\n                    self.addInt16(int(i))\n            elif subatomicType == STInt32array:\n                self.addUint16(len(arg) << 2)\n                for i in arg:\n                    self.addInt32(int(i))\n            elif subatomicType == STUint8array:\n                self.addUint16(len(arg))\n                for i in arg:",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_317",
-    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
-    "chunk_number": 5487
-  }
-}
