@@ -1,9 +1,0 @@
-{
-  "content": "The provided code chunk represents the `__init__` method of the `DistancePhasedNode` class. This initialization method is responsible for setting up the node path, phase parameters, and collision detection components. It initializes the phase parameters from a provided map, sorts them in descending order by their distance values, and sets up the necessary attributes for managing phases, including auto-cleanup flags, event prefixes, collision masks, and traversal setup. The method also prepares the collision spheres for each phase, ensuring proper initialization of the node's collision detection capabilities.\n\ndef __init__(self, name, phaseParamMap = {},\n                 autoCleanup = True,\n                 enterPrefix = 'enter', exitPrefix = 'exit',\n                 phaseCollideMask = BitMask32.allOn(),\n                 fromCollideNode = None):\n        NodePath.__init__(self, name)\n        self.phaseParamMap = phaseParamMap\n        self.phaseParamList = sorted(list(phaseParamMap.items()),\n                                     key = lambda x: x[1],\n                                     reverse = True)\n        PhasedObject.__init__(self,\n                              dict([(alias,phase) for (phase,alias) in enumerate([item[0] for item in self.phaseParamList])]))\n        self.__id = self.__allocateId()\n\n        self.autoCleanup = autoCleanup\n        self.enterPrefix = enterPrefix\n        self.exitPrefix = exitPrefix\n        self.phaseCollideMask = phaseCollideMask\n        self.cTrav = base.cTrav\n        self.fromCollideNode = fromCollideNode\n        self._colSpheres = []",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_0",
-    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
-    "chunk_number": 5
-  }
-}

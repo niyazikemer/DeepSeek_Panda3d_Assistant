@@ -1,9 +1,0 @@
-{
-  "content": "The provided chunk is part of an introduction to several classes designed for object phasing in a 3D scene. The main document explains how these classes work together to manage the loading and unloading of objects based on their proximity to a collider, such as an avatar. This specific chunk introduces `DistancePhasedNode`, which serves as the foundational class for handling distance-based phase transitions, while subsequent sections discuss more specialized implementations like `BufferedDistancePhasedNode` to address common issues like flickering during boundary crossings.\n\nclass DistancePhasedNode(PhasedObject, DirectObject, NodePath):\n    \"\"\"\n    This class defines a PhasedObject,NodePath object that will handle\n    the phasing of an object in the scene graph according to its\n    distance from some other collider object(such as an avatar).\n\n    Since it's a NodePath, you can parent it to another object in the\n    scene graph, or even inherit from this class to get its functionality.\n\n    What you will need to define to use this class:\n\n     - The distances at which you want the phases to load/unload\n     - Whether you want the object to clean itself up or not when\n       exitting the largest distance sphere\n     - What the load/unload functions are\n     - What sort of events to listen for when a collision occurs\n     - (Optional) A collision bitmask for the phase collision spheres\n     - (Optional) A 'from' collision node to collide into our 'into' spheres",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_0",
-    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
-    "chunk_number": 1
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "content": "The code chunk enables event handling for entering a new phase in the DistancePhasedNode class by checking if there is a valid next phase (phase+1) within bounds. If so, it retrieves the corresponding phase alias, accepts an enter-phase event with that alias, and un-stashes the associated sphere, making it visible to trigger proximity events.\n\nif 0 <= phase+1 < len(self._colSpheres):\n            phaseName = self.getPhaseAlias(phase+1)\n            self.accept(self.__getEnterEvent(phaseName),\n                        self.__handleEnterEvent,\n                        extraArgs = [phaseName])\n            self._colSpheres[phase+1].unstash()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_0",
-    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
-    "chunk_number": 12
-  }
-}

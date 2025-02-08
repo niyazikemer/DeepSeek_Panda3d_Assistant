@@ -1,9 +1,0 @@
-{
-  "content": "The chunk contains methods (`__repr__`, `__str__`, `setPhase`) from the `BufferedDistancePhasedNode` class, which manages node phases with collision detection. These methods handle object representation, string conversion, and adjusting collisions based on buffer parameters during phase changes.\n\ndef __repr__(self):\n        outStr = 'BufferedDistancePhasedNode('\n        outStr += repr(self.getName())\n        for param, value in zip(('bufferParamMap', 'autoCleanup', 'enterPrefix', 'exitPrefix', 'phaseCollideMask', 'fromCollideNode'),\n                                ({}, True, 'enter', 'exit', BitMask32.allOn(), None)):\n            pv = getattr(self, param)\n            if pv != value:\n                outStr += ', %s = %r' % (param, pv)\n        outStr += ')'\n        return outStr\n\n    def __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())\n\n    def setPhase(self, aPhase):\n        \"\"\"\n        see DistancePhasedNode.setPhase()\n        \"\"\"\n        DistancePhasedNode.setPhase(self, aPhase)\n        phase = self.getAliasPhase(aPhase)\n        self.__adjustCollisions(phase)",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_0",
-    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
-    "chunk_number": 18
-  }
-}

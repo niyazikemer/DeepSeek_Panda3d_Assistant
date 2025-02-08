@@ -1,9 +1,0 @@
-{
-  "content": "def __adjustCollisions(self, phase):\n        for x,sphere in enumerate(self._colSpheres[:phase+1]):\n            sphere.node().modifySolid(0).setRadius(self.bufferParamList[x][1][1])\n            sphere.node().markInternalBoundsStale()\n\n        for x,sphere in enumerate(self._colSpheres[phase+1:]):\n            sphere.node().modifySolid(0).setRadius(self.bufferParamList[x+phase+1][1][0])\n            sphere.node().markInternalBoundsStale()",
-  "metadata": {
-    "doc_type": "python",
-    "doc_id": "doc_0",
-    "parent": "processed_documents/5be12928_DistancePhasedNode.json",
-    "chunk_number": 19
-  }
-}
