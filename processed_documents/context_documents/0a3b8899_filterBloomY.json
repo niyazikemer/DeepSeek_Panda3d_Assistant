@@ -1,0 +1,9 @@
+{
+  "content": "BLOOM_Y = \"\"\"\n//Cg\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float4 l_texcoord0 : TEXCOORD0,\n             out float4 l_texcoord1 : TEXCOORD1,\n             out float4 l_texcoord2 : TEXCOORD2,\n             uniform float4 texpad_src,\n             uniform float4 texpix_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position=mul(mat_modelproj, vtx_position);\n  float2 c = vtx_texcoord * texpad_src.xy * 2;\n  float offset = texpix_src.y;\n  float pad = texpad_src.y * 2;\n  l_texcoord0 = float4(min(c.y-offset* -4, pad), min(c.y-offset* -3, pad), min(c.y-offset* -2, pad), c.x);\n  l_texcoord1 = float4(min(c.y-offset* -1, pad), c.y-offset*  0, c.y-offset*  1, c.x);\n  l_texcoord2 = float4(c.y-offset*  2, c.y-offset*  3, c.y-offset*  4, c.x);\n}\n\nvoid fshader(float4 l_texcoord0 : TEXCOORD0,\n             float4 l_texcoord1 : TEXCOORD1,\n             float4 l_texcoord2 : TEXCOORD2,\n             uniform sampler2D k_src : TEXUNIT0,\n             uniform float4 k_intensity,\n             out float4 o_color : COLOR) {\n  float4 color = float4(0,0,0,0);\n  color  =  50 * tex2D(k_src, l_texcoord0.wx);\n  color += 100 * tex2D(k_src, l_texcoord0.wy);\n  color += 150 * tex2D(k_src, l_texcoord0.wz);\n  color += 200 * tex2D(k_src, l_texcoord1.wx);\n  color += 200 * tex2D(k_src, l_texcoord1.wy);\n  color += 200 * tex2D(k_src, l_texcoord1.wz);\n  color += 150 * tex2D(k_src, l_texcoord2.wx);\n  color += 100 * tex2D(k_src, l_texcoord2.wy);\n  color +=  50 * tex2D(k_src, l_texcoord2.wz);\n  o_color = color / 1200.0;\n  o_color = o_color * k_intensity;\n}\n\"\"\"\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/filter/filterBloomY.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/0a3b8899_filterBloomY.json",
+    "doc_id": "doc_220"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.guiItem.setThumbButton(self.thumb.guiItem)\n        self.guiItem.setLeftButton(self.decButton.guiItem)\n        self.guiItem.setRightButton(self.incButton.guiItem)\n\n        # Bind command function\n        self.bind(DGG.ADJUST, self.commandFunc)\n\n        # Call option initialization functions\n        self.initialiseoptions(DirectScrollBar)\n\n    def setRange(self):\n        # Try to preserve the value across a setRange call.\n        v = self['value']\n        r = self['range']\n        self.guiItem.setRange(r[0], r[1])\n        self['value'] = v\n\n    def __setValue(self):\n        # This is the internal function that is called when\n        # self['value'] is directly assigned.\n        self.guiItem.setValue(self['value'])\n\n    def setValue(self, value):\n        # This is the public function that is meant to be called by a\n        # user that doesn't like to use (or doesn't understand) the\n        # preferred interface of self['value'].\n        self['value'] = value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_88",
+    "parent": "processed_documents/context_documents/c8becc07_DirectScrollBar.json",
+    "chunk_number": 1538
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if request == 'Off':\n            # We can always go to the \"Off\" state.\n            return (request,) + args\n\n        if self.defaultTransitions is None:\n            # If self.defaultTransitions is None, it means to accept\n            # all requests whose name begins with a capital letter.\n            # These are direct requests to a particular state.\n            if request[0].isupper():\n                return (request,) + args\n        else:\n            # If self.defaultTransitions is not None, it is a map of\n            # allowed transitions from each state.  That is, each key\n            # of the map is the current state name; for that key, the\n            # value is a list of allowed transitions from the\n            # indicated state.\n            if request in self.defaultTransitions.get(self.state, []):\n                # This transition is listed in the defaultTransitions map;\n                # accept it.\n                return (request,) + args",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2643
+  }
+}

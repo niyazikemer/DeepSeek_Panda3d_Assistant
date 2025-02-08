@@ -1,0 +1,9 @@
+{
+  "content": "return node\n\n    def stopJoint(self, partName, jointName, lodName=\"lodRoot\"):\n        \"\"\"stopJoint(self, string, string, key=\"lodRoot\")\n        Stops the joint from animating external nodes.  If the joint\n        is animating a transform on a node, this will permanently stop\n        it.  However, this does not affect vertex animations.\"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return None\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef:\n            bundle = partDef.getBundle()\n        else:\n            Actor.notify.warning(\"no part named %s!\" % (partName))\n            return None\n\n        # Get a handle to the joint.\n        joint = bundle.findChild(jointName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3091
+  }
+}

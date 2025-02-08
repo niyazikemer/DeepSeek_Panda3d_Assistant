@@ -1,0 +1,9 @@
+{
+  "content": "if point[1] >= 0.0 and point[1] <= float(self.h):\n            if point[0] >= 0.0 and point[0] <= float(self.w):\n                self._mouseIn = True\n\n        if self._mouseIn:\n            self.CaptureMouse()\n            self.pos = point\n\n    def OnLeftUp(self, evt):\n        if self.GetCapture():\n            self.ReleaseMouse()\n            self._mouseIn = False\n            self._selectRec = False\n            self.setSelection()\n            self.SetGraphEditorData(self.property, self.curFrame)\n\n    def OnMiddleDown(self, evt):\n        point = (evt.GetX(), evt.GetY())\n\n        if point[1] >= 0.0 and point[1] <= float(self.h):\n            if point[0] >= 0.0 and point[0] <= float(self.w):\n                self._mouseIn = True\n\n        if self._mouseIn:\n            self.CaptureMouse()\n            self.midPos = point\n\n    def OnMiddleUp(self, evt):\n        if self.GetCapture():\n            self.ReleaseMouse()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 268
+  }
+}

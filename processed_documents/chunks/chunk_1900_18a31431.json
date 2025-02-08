@@ -1,0 +1,9 @@
+{
+  "content": "flags = 0x40000040 # readable, contains initialized data\n        section = self.add_section('.rsrc', flags, data)\n        self.res_rva = RVASize(section.vaddr, section.vsize)\n\n    def write_changes(self):\n        \"\"\" Assuming the file was opened in read-write mode, writes back the\n        changes made via this class to the .exe file. \"\"\"\n\n        fp = self.fp\n        # Read position of header.\n        fp.seek(0x3c)\n        offset, = unpack('<I', fp.read(4))\n\n        fp.seek(offset)\n        if fp.read(4) != b'PE\\0\\0':\n            raise ValueError(\"Invalid PE file.\")\n\n        # Sync read/write pointer.  Necessary before write.  Bug in Python?\n        fp.seek(fp.tell())\n\n        # Rewrite the first part of the COFF header.\n        timdat = int(time.time())\n        fp.write(pack('<HHI', self.machine, len(self.sections), timdat))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1900
+  }
+}

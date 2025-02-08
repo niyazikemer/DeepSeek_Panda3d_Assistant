@@ -1,0 +1,9 @@
+{
+  "content": "if self.use_optimized_wheels:\n            if not self.optimized_wheel_index:\n                # Try to find an appropriate wheel index\n\n                # Start with the release index\n                self.optimized_wheel_index = 'https://archive.panda3d.org/simple/opt'\n\n                # See if a buildbot build is being used\n                with open(self.requirements_path) as reqsfile:\n                    reqsdata = reqsfile.read()\n                matches = re.search(r'--extra-index-url (https*://archive.panda3d.org/.*\\b)', reqsdata)\n                if matches and matches.group(1):\n                    self.optimized_wheel_index = matches.group(1)\n                    if not matches.group(1).endswith('opt'):\n                        self.optimized_wheel_index += '/opt'\n\n            assert self.optimized_wheel_index, 'An index for optimized wheels must be defined if use_optimized_wheels is set'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1943
+  }
+}

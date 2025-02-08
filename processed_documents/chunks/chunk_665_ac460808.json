@@ -1,0 +1,9 @@
+{
+  "content": "def InitBuffer(self):\n        self.w,self.h = self.GetClientSize()\n        self.buffer = wx.EmptyBitmap(self.w, self.h)\n        dc = wx.BufferedDC(wx.ClientDC(self), self.buffer)\n        self.DrawTimeRange(dc)\n\n    def SetTimeRangeData(self, startFrame = 1, endFrame = 24, sliderStartFrame = 1, sliderEndFrame = 24):\n        self.startFrame = startFrame\n        self.endFrame = endFrame\n        self.sliderStartFrame = sliderStartFrame\n        self.sliderEndFrame = sliderEndFrame\n        self.frameNum = self.endFrame-self.startFrame+1\n\n        self.InitBuffer()\n        self.Refresh()\n\n    def OnPaint(self, evt):\n        dc = wx.BufferedPaintDC(self, self.buffer)\n\n    def DrawTimeRange(self,dc):\n        dc.SetBackground(wx.Brush(wx.Colour(150, 150, 150)))\n        dc.Clear()\n\n        dc.SetPen(wx.Pen(self.GetBackgroundColour()))\n        dc.SetBrush(wx.Brush(self.GetBackgroundColour()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 665
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# the divisions square/spherical\n    if extentX < (maxExtent * .75) or extentX > (maxExtent * 1.25):\n        midX += maxExtent\n    if extentY < (maxExtent * .75) or extentY > (maxExtent * 1.25):\n        midY += maxExtent\n    if extentZ < (maxExtent * .75) or extentZ > (maxExtent * 1.25):\n        midZ += maxExtent\n    for i, solid in enumerate(solids):\n        origin = origins[i]\n        x = origin.getX()\n        y = origin.getY()\n        z = origin.getZ()\n        if x < midX:\n            if y < midY:\n                if z < midZ:\n                    xyzSolids.append(solids[i])\n                else:\n                    xyZSolids.append(solids[i])\n            else:\n                if z < midZ:\n                    xYzSolids.append(solids[i])\n                else:\n                    xYZSolids.append(solids[i])\n        else:\n            if y < midY:\n                if z < midZ:\n                    XyzSolids.append(solids[i])\n                else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5778
+  }
+}

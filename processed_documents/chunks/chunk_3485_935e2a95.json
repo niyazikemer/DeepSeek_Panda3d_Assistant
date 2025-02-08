@@ -1,0 +1,9 @@
+{
+  "content": "def getScreenXY(nodePath):\n    # Where does the node path's projection fall on the near plane\n    nearVec = getNearProjectionPoint(nodePath)\n    # Clamp these coordinates to visible screen\n    nearX = CLAMP(nearVec[0], base.direct.dr.left, base.direct.dr.right)\n    nearY = CLAMP(nearVec[2], base.direct.dr.bottom, base.direct.dr.top)\n    # What percentage of the distance across the screen is this?\n    percentX = (nearX - base.direct.dr.left)/base.direct.dr.nearWidth\n    percentY = (nearY - base.direct.dr.bottom)/base.direct.dr.nearHeight\n    # Map this percentage to the same -1 to 1 space as the mouse\n    screenXY = Vec3((2 * percentX) - 1.0, nearVec[1], (2 * percentY) - 1.0)\n    # Return the resulting value\n    return screenXY\n\n\ndef getCrankAngle(center):\n    # Used to compute current angle of mouse (relative to the coa's\n    # origin) in screen space\n    x = base.direct.dr.mouseX - center[0]\n    y = base.direct.dr.mouseY - center[2]\n    return 180 + rad2Deg(math.atan2(y, x))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3485
+  }
+}

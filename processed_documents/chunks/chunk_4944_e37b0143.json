@@ -1,0 +1,9 @@
+{
+  "content": "idn.removeNode()\n        del self.__inputDeviceNodes[device]\n\n    def addAngularIntegrator(self):\n        \"\"\"\n        Adds a :class:`~panda3d.physics.AngularEulerIntegrator` to the default\n        physics manager.  By default, only a\n        :class:`~panda3d.physics.LinearEulerIntegrator` is attached.\n        \"\"\"\n        if not self.physicsMgrAngular:\n            physics = importlib.import_module('panda3d.physics')\n            self.physicsMgrAngular = 1\n            integrator = physics.AngularEulerIntegrator()\n            self.physicsMgr.attachAngularIntegrator(integrator)\n\n    def enableParticles(self):\n        \"\"\"\n        Enables the particle and physics managers, which are stored in\n        `particleMgr` and `physicsMgr` members, respectively.  Also starts a\n        task to periodically update these managers.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4944
+  }
+}

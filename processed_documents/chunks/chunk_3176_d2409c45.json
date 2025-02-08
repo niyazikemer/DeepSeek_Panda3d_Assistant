@@ -1,0 +1,9 @@
+{
+  "content": "# these functions compensate for actors that are modeled facing the viewer but need\n    # to face away from the camera in the game\n    def faceAwayFromViewer(self):\n        self.getGeomNode().setH(180)\n    def faceTowardsViewer(self):\n        self.getGeomNode().setH(0)\n\n    def renamePartBundles(self, partName, newBundleName):\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        for partBundleDict in self.__partBundleDict.values():\n            partDef = partBundleDict.get(subpartDef.truePartName)\n            partDef.getBundle().setName(newBundleName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3176
+  }
+}

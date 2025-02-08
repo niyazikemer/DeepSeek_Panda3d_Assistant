@@ -1,0 +1,9 @@
+{
+  "content": "class _CFGLGlobals:\n    # for checkForGarbageLeaks\n    LastNumGarbage = 0\n    LastNumCycles = 0\n\n\ndef checkForGarbageLeaks():\n    gc.collect()\n    numGarbage = len(gc.garbage)\n    if numGarbage > 0 and ConfigVariableBool('auto-garbage-logging', False):\n        if numGarbage != _CFGLGlobals.LastNumGarbage:\n            print(\"\")\n            gr = GarbageReport('found garbage', threaded=False, collect=False)\n            print(\"\")\n            _CFGLGlobals.LastNumGarbage = numGarbage\n            _CFGLGlobals.LastNumCycles = gr.getNumCycles()\n            messenger.send(GarbageCycleCountAnnounceEvent, [gr.getDesc2numDict()])\n            gr.destroy()\n        notify = directNotify.newCategory(\"GarbageDetect\")\n        if ConfigVariableBool('allow-garbage-cycles', True):\n            func = notify.warning\n        else:\n            func = notify.error\n        func('%s garbage cycles found, see info above' % _CFGLGlobals.LastNumCycles)\n    return numGarbage",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4280
+  }
+}

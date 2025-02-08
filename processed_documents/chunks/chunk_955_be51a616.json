@@ -1,0 +1,9 @@
+{
+  "content": "def toggleDirectGrid(self):\n        if self.directGridEnabled.get():\n            ShowBaseGlobal.direct.grid.enable()\n        else:\n            ShowBaseGlobal.direct.grid.disable()\n\n    def toggleWidgetOnTop(self):\n        if self.directWidgetOnTop.get():\n            ShowBaseGlobal.direct.widget.setBin('gui-popup', 0)\n            ShowBaseGlobal.direct.widget.setDepthTest(0)\n        else:\n            ShowBaseGlobal.direct.widget.clearBin()\n            ShowBaseGlobal.direct.widget.setDepthTest(1)\n\n    def selectedNodePathHook(self, nodePath):\n        # Make sure node path is in nodePathDict\n        # MRM: Do we need to truncate list?\n        if isinstance(nodePath, NodePath):\n            self.addNodePath(nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 955
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def GetAccountIDFromChannelCode(self, channel):\n        return channel >> 32\n\n    def GetAvatarIDFromChannelCode(self, channel):\n        return channel & 0xffffffff\n\n    def sendUpdateToAvatarId(self, avId, fieldName, args):\n        assert self.notify.debugStateCall(self)\n        channelId = self.GetPuppetConnectionChannel(avId)\n        self.sendUpdateToChannel(channelId, fieldName, args)\n\n    def sendUpdateToAccountId(self, accountId, fieldName, args):\n        assert self.notify.debugStateCall(self)\n        channelId = self.GetAccountConnectionChannel(accountId)\n        self.sendUpdateToChannel(channelId, fieldName, args)\n\n    def sendUpdateToChannel(self, channelId, fieldName, args):\n        assert self.notify.debugStateCall(self)\n        if self.air:\n            self.air.sendUpdateToChannel(self, channelId, fieldName, args)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5504
+  }
+}

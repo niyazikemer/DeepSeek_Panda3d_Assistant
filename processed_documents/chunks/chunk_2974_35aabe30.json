@@ -1,0 +1,9 @@
+{
+  "content": "if self.isolate:\n            # If we're currently showing an isolated texture, refresh\n            # that display so we get its size right.  And when we come\n            # back to the main window (but not now), repack it.\n            self.needsRepack = True\n            self.isolateTexture(self.isolated)\n\n        else:\n            # If we're showing the main window, just repack it\n            # immediately.\n            self.repack()\n\n    def updateTextures(self, task):\n        \"\"\" Gets the current list of resident textures and adds new\n        textures or removes old ones from the onscreen display, as\n        necessary. \"\"\"\n\n        if self.isolate:\n            # never mind for now.\n            return task.again\n\n        if self.needsRepack:\n            self.needsRepack = False\n            self.repack()\n            return task.again\n\n        pgo = self.gsg.getPreparedObjects()\n        totalSize = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2974
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class AvatarFSM(FSM):\n\n    def __init__(self):\n        FSM.__init__(self, 'myAvatar')\n        self.defaultTransitions = {\n            'Walk' : [ 'Walk2Swim' ],\n            'Walk2Swim' : [ 'Swim' ],\n            'Swim' : [ 'Swim2Walk', 'Drowning' ],\n            'Swim2Walk' : [ 'Walk' ],\n            'Drowning' : [ ],\n        }\n\nIf you do not assign anything to self.defaultTransitions(), then all transitions are legal. However, if you do assign a map like the above, then requesting a transition that is not listed in the map will raise the exception FSM.RequestDenied <direct.fsm.FSM.RequestDenied>.\n\ncpp\n\nThis section does not apply to C++ users.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_604",
+    "parent": "processed_documents/context_documents/787f0d21_8c41fb3c_simple-fsm-usage.json",
+    "chunk_number": 7209
+  }
+}

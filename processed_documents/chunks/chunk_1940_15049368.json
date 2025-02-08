@@ -1,0 +1,9 @@
+{
+  "content": "# Android\n            'libc.so', 'libm.so', 'liblog.so', 'libdl.so', 'libandroid.so',\n            'libGLESv1_CM.so', 'libGLESv2.so', 'libjnigraphics.so', 'libEGL.so',\n            'libOpenSLES.so', 'libandroid.so', 'libOpenMAXAL.so', 'libz.so',\n        ]\n\n        self.package_data_dirs = {}\n        self.hidden_imports = {}\n\n        # We keep track of the zip files we've opened.\n        self._zip_files = {}\n\n    def _get_zip_file(self, path):\n        if path in self._zip_files:\n            return self._zip_files[path]\n\n        zip = zipfile.ZipFile(path)\n        self._zip_files[path] = zip\n        return zip\n\n    def finalize_options(self):\n        # We need to massage the inputs a bit in case they came from a\n        # setup.cfg file.\n        self.gui_apps = _parse_dict(self.gui_apps)\n        self.console_apps = _parse_dict(self.console_apps)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1940
+  }
+}

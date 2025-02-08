@@ -1,0 +1,9 @@
+{
+  "content": "Setuptools Examples\n\nSimple Console Application\n\nThe most basic and simplest application to package is a simple console app with no dependencies:\n\nprint(\"Hello world\")\n\nAssuming this is saved as main.py, we can use the following requirements.txt file:\n\npanda3d\n\nThe corresponding setup.py file could look like so:\n\nimport setuptools\n\nsetup(\n    name=\"Hello World\",\n    options = {\n        'build_apps': {\n            'console_apps': {'hello_world': 'main.py'},\n        }\n    }\n)\n\nThen, we can build the binaries using python setup.py build_apps.\n\nA build directory will be created and contain a directory for each platform that binaries were built for. Since no platforms were specified, the defaults were used (manylinux1_x86_64, macosx_10_6_x86_64, win_amd64).\n\nNote, win32 is missing from the defaults. If a win32 build is desired, then platforms must be defined in setup.py and win_amd64 added to the list:\n\nimport setuptools",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_606",
+    "parent": "processed_documents/context_documents/9ca6b974_86e8ee76_setuptools-examples.json",
+    "chunk_number": 7213
+  }
+}

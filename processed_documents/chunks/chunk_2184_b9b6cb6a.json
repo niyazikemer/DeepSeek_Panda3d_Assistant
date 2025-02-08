@@ -1,0 +1,9 @@
+{
+  "content": "if not basename:\n        usage(1, 'You did not specify an output file.')\n\n    if len(args) > 1:\n        usage(1, 'Only one main file may be specified.')\n\n    outputType = 'exe'\n    bl = basename.lower()\n    if bl.endswith('.mf'):\n        outputType = 'mf'\n    elif bl.endswith('.c'):\n        outputType = 'c'\n    elif bl.endswith('.dll') or bl.endswith('.pyd') or bl.endswith('.so'):\n        basename = os.path.splitext(basename)[0]\n        outputType = 'dll'\n    elif bl.endswith('.exe'):\n        basename = os.path.splitext(basename)[0]\n\n    compileToExe = False\n    if args:\n        startfile = args[0]\n        startmod = startfile\n        if startfile.endswith('.py') or startfile.endswith('.pyw') or \\\n        startfile.endswith('.pyc') or startfile.endswith('.pyo'):\n            startmod = os.path.splitext(startfile)[0]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_134",
+    "parent": "processed_documents/context_documents/619969b9_pfreeze.json",
+    "chunk_number": 2184
+  }
+}

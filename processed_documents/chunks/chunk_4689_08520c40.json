@@ -1,0 +1,9 @@
+{
+  "content": "if 'args' in types:\n                rArgs += [repr(x) + ', ' for x in args[1:]] + \\\n                         [x + ' = ' + '%s, ' % repr(y) for x, y in kwargs.items()]\n\n            if not rArgs:\n                rArgs = '()'\n            else:\n                rArgs = '(' + functools.reduce(str.__add__, rArgs)[:-2] + ')'\n\n            outStr = '%s%s' % (f.__name__, rArgs)\n\n            # Insert prefix place holder, if needed\n            if prefixes:\n                outStr = '%%s %s' % (outStr,)\n\n            globalClock = ClockObject.getGlobalClock()\n\n            if 'module' in types:\n                outStr = '%s {M:%s}' % (outStr, f.__module__.split('.')[-1])\n\n            if 'frameCount' in types:\n                outStr = '%-8d : %s' % (globalClock.getFrameCount(), outStr)\n\n            if 'timeStamp' in types:\n                outStr = '%-8.3f : %s' % (globalClock.getFrameTime(), outStr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4689
+  }
+}

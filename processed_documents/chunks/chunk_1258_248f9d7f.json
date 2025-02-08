@@ -1,0 +1,9 @@
+{
+  "content": "# Enable particles by default\n        self.fEnabled = 0\n        #self.enable()\n        self.geomReference = \"\"\n\n    def cleanup(self):\n        self.disable()\n        self.clearLinearForces()\n        self.clearAngularForces()\n        self.setRenderParent(self.node)\n        self.node.removePhysical(self)\n        self.nodePath.removeNode()\n        del self.node\n        del self.nodePath\n        del self.factory\n        del self.renderer\n        del self.emitter\n\n    def enable(self):\n        if self.fEnabled == 0:\n            base.physicsMgr.attachPhysical(self)\n            base.particleMgr.attachParticlesystem(self)\n            self.fEnabled = 1\n\n    def disable(self):\n        if self.fEnabled == 1:\n            base.physicsMgr.removePhysical(self)\n            base.particleMgr.removeParticlesystem(self)\n            self.fEnabled = 0\n\n    def isEnabled(self):\n        return self.fEnabled\n\n    def getNode(self):\n        return self.node",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1258
+  }
+}

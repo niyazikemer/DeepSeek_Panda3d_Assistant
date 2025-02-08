@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\n// Set up a texture for procedural generation.\nPT(Texture) tex = new Texture(\"procedural-normal-map\");\ntex->setup_2d_texture(512, 512, Texture::T_unsigned_byte, Texture::F_rgb8);\n\n// Set the initial color of the texture.\nLColor clear_color(0.5f, 0.5f, 1.0f, 0.0f);\ntex->set_clear_color(clear_color);\n\nThe initial clear is implicit, but clearing a texture in a later frame requires explicit use of the ~.Texture.clear_image() function, which instructs Panda3D to clear the texture the next time it is used. It also clears any RAM images that may have been associated with the texture (similar to ~.Texture.clear_ram_image()).\n\npython\n\n# Tell Panda to fill the texture with a red color on the GPU.\ntex.set_clear_color((1.0, 0.0, 0.0, 0.0))\ntex.clear_image()\n\ncpp\n\n// Tell Panda to fill the texture with a red color on the GPU.\nLColor clear_color(1.0f, 0.0f, 0.0f, 0.0f);\ntex->set_clear_color(clear_color);\ntex->clear_image();",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7181
+  }
+}

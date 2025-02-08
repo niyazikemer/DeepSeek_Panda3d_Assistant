@@ -1,0 +1,9 @@
+{
+  "content": "3D Audio\n\nA wrapper ~direct.showbase.Audio3DManager class has been implemented to help do positional audio. ~direct.showbase.Audio3DManager takes as input an .AudioManager and a listener for the sound. A listener is the point of reference from where the sound should be heard. For a player in a Panda3D session, this will most likely be the camera. Sounds further away from the camera will not be loud. Objects nearer to the camera will be loud. Make sure to use a mono sound source for your 3D audio as stereo sound sources will not be able to be spatialized and hence can't be used for 3D audio.\n\nfrom direct.showbase import Audio3DManager\naudio3d = Audio3DManager.Audio3DManager(base.sfxManagerList[0], camera)\n\nTo create a sound that is positional, you need to use the ~direct.showbase.Audio3DManager.Audio3DManager.loadSfx() function on the ~direct.showbase.Audio3DManager rather than the normal loader.loadSfx() <direct.showbase.Loader.Loader.loadSfx> which is for non-positional sounds. e.g.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_644",
+    "parent": "processed_documents/context_documents/3e30e0d3_68e87296_3d-audio.json",
+    "chunk_number": 7429
+  }
+}

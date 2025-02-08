@@ -1,0 +1,9 @@
+{
+  "content": "def hidePopupMenu(self, event = None):\n        \"\"\" Put away popup and cancel frame \"\"\"\n        self.popupMenu.hide()\n        self.cancelFrame.hide()\n\n    def _highlightItem(self, item, index):\n        \"\"\" Set frame color of highlighted item, record index \"\"\"\n        self._prevItemTextScale = item['text_scale']\n        item['frameColor'] = self['highlightColor']\n        item['frameSize'] = (self['highlightScale'][0]*self.minX, self['highlightScale'][0]*self.maxX, self['highlightScale'][1]*self.minZ, self['highlightScale'][1]*self.maxZ)\n        item['text_scale'] = self['highlightScale']\n        self.highlightedIndex = index\n\n    def _unhighlightItem(self, item, frameColor):\n        \"\"\" Clear frame color, clear highlightedIndex \"\"\"\n        item['frameColor'] = frameColor\n        item['frameSize'] = (self.minX, self.maxX, self.minZ, self.maxZ)\n        item['text_scale'] = self._prevItemTextScale\n        self.highlightedIndex = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1329
+  }
+}

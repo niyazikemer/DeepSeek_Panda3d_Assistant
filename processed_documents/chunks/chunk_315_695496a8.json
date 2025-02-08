@@ -1,0 +1,9 @@
+{
+  "content": "class AnimFileDrop(wx.FileDropTarget):\n    def __init__(self, editor):\n        wx.FileDropTarget.__init__(self)\n        self.editor = editor\n\n    def OnDropFiles(self, x, y, filenames):\n        obj = self.editor.objectMgr.findObjectByNodePath(base.direct.selected.last)\n        if obj is None:\n            return\n\n        objDef = obj[OG.OBJ_DEF]\n        if not objDef.actor:\n            return\n\n        objNP = obj[OG.OBJ_NP]\n\n        for filename in filenames:\n            name = os.path.basename(filename)\n            animName = Filename.fromOsSpecific(filename).getFullpath()\n            if name.endswith('.mb') or\\\n               name.endswith('.ma'):\n                self.editor.convertMaya(animName, self.editor.ui.protoPaletteUI.addNewItem, obj, isAnim=True)\n                return\n\n            if animName not in objDef.anims:\n                objDef.anims.append(animName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 315
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "diff = networkTime - ntime\n\n        return now + float(diff) / ticksPerSec\n\n    def localToNetworkTime(self, localTime, bits = 16,\n                           ticksPerSec=NetworkTimePrecision):\n        \"\"\"localToNetworkTime(self, float localTime)\n\n        Converts the indicated localTime to the corresponding\n        networkTime value.\n        \"\"\"\n        ntime = int(math.floor(((localTime - self.delta) * ticksPerSec) + 0.5))\n        if bits == 16:\n            return self.__signExtend(ntime)\n        else:\n            # Assume the bits is either 16 or 32.  If it's 32, no need\n            # to sign-extend.  32 bits gives us about 227 days of\n            # continuous timestamp.\n            return ntime\n\n\n    ### Convenience functions ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_315",
+    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
+    "chunk_number": 5469
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Downloading a File\n\nTo download a file while the game is running without blocking the connections one has to use .HTTPClient and .HTTPChannel objects. This will allow the file to be downloaded in the background using the downloadTask task.\n\nself.http = HTTPClient()\nself.channel = self.http.makeChannel(True)\nself.channel.beginGetDocument(DocumentSpec('http://my.url/'))\nself.rf = Ramfile()\nself.channel.downloadToRam(self.rf)\ntaskMgr.add(self.downloadTask, 'download')\n\ndef downloadTask(self, task):\n    if self.channel.run():\n        # Still waiting for file to finish downloading.\n        return task.cont\n    if not self.channel.isDownloadComplete():\n        print(\"Error downloading file.\")\n        return task.done\n    data = self.rf.getData()\n    print(\"got data:\")\n    print(data)\n    return task.done\n\nYou can also download to file\n\nchannel.downloadToFile(Filename(fileName))\n\nThe file channel can be queried for further information while the game is running to get the current download state.\n\nmbDownloaded = self.channel.getBytesDownloaded() / 1024 / 1024\npercentDownloaded = 100. * self.channel.getBytesDownloaded() / channel.getFileSize()",
+  "metadata": {
+    "source": "corpus_panda3d/collected_docs/3dd25c9b_downloading.rst",
+    "doc_type": "rst",
+    "file_path": "processed_documents/context_documents/b9ef9b37_3dd25c9b_downloading.json",
+    "doc_id": "doc_417"
+  }
+}

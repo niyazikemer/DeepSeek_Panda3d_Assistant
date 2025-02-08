@@ -1,0 +1,9 @@
+{
+  "content": "class ActionUpdateObjectProp(ActionBase):\n    \"\"\" Action class for updating object property \"\"\"\n\n    def __init__(self, editor, fSelectObject, obj, propName, val, oldVal, function, undoFunc, *args, **kargs):\n        self.editor = editor\n        self.fSelectObject = fSelectObject\n        self.obj = obj\n        self.propName = propName\n        self.newVal = val\n        self.oldVal = oldVal\n        self.undoFunc = undoFunc\n        ActionBase.__init__(self, function, *args, **kargs)\n\n    def saveStatus(self):\n        self.obj[OG.OBJ_PROP][self.propName] = self.newVal\n\n    def redo(self):\n        self.result = self._do__call__()#uid=self.uid, xformMat=self.xformMat)\n        if self.editor and self.fSelectObject:\n            base.direct.select(self.obj[OG.OBJ_NP], fUndo=0)\n        return self.result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 616
+  }
+}

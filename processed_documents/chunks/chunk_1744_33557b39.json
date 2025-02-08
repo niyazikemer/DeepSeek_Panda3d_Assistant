@@ -1,0 +1,9 @@
+{
+  "content": "def makeSelectedMovementDatagram(self, xyz, hpr, scale):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_SELECTED_MOVEMENT)\n        datagram.addFloat32(xyz[0])\n        datagram.addFloat32(xyz[1])\n        datagram.addFloat32(xyz[2])\n        datagram.addFloat32(hpr[0])\n        datagram.addFloat32(hpr[1])\n        datagram.addFloat32(hpr[2])\n        datagram.addFloat32(scale[0])\n        datagram.addFloat32(scale[1])\n        datagram.addFloat32(scale[2])\n        #datagram.addBool(hidden)\n        return datagram",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1744
+  }
+}

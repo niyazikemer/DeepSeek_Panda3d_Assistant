@@ -1,0 +1,9 @@
+{
+  "content": "def getIsAirborne(self):\n        return self.isAirborne\n\n    def setAvatar(self, avatar):\n        self.avatar = avatar\n        if avatar is not None:\n            pass # setup the avatar\n\n    def setupRay(self, bitmask, floorOffset, reach):\n        assert self.notify.debugStateCall(self)\n        # This is a ray cast from your head down to detect floor polygons.\n        # This ray start is arbitrarily high in the air.  Feel free to use\n        # a higher or lower value depending on whether you want an avatar\n        # that is outside of the world to step up to the floor when they\n        # get under valid floor:\n        self.cRay = CollisionRay(0.0, 0.0, CollisionHandlerRayStart, 0.0, 0.0, -1.0)\n        cRayNode = CollisionNode('GW.cRayNode')\n        cRayNode.addSolid(self.cRay)\n        self.cRayNodePath = self.avatarNodePath.attachNewNode(cRayNode)\n        cRayNode.setFromCollideMask(bitmask)\n        cRayNode.setIntoCollideMask(BitMask32.allOff())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4073
+  }
+}

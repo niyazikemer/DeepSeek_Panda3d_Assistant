@@ -1,0 +1,9 @@
+{
+  "content": "self.camGroundRay = CollisionRay()\n        self.camGroundRay.setOrigin(0, 0, 1000)\n        self.camGroundRay.setDirection(0, 0, -1)\n        self.camGroundCol = CollisionNode('camRay')\n        self.camGroundCol.addSolid(self.camGroundRay)\n        self.camGroundCol.setFromCollideMask(BitMask32.bit(0))\n        self.camGroundCol.setIntoCollideMask(BitMask32.allOff())\n        self.camGroundColNp = base.camera.attachNewNode(self.camGroundCol)\n        self.camGroundHandler = CollisionHandlerQueue()\n        self.cTrav.addCollider(self.camGroundColNp, self.camGroundHandler)\n\n        # Uncomment this line to see the collision rays\n        #self.ralphGroundColNp.show()\n        #self.camGroundColNp.show()\n\n        #Uncomment this line to show a visual representation of the\n        #collisions occuring\n        #self.cTrav.showCollisions(render)\n\n        self.setAI()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 13
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def sendCamFrustum(self, focalLength, filmSize, filmOffset):\n        ClusterClient.notify.info(\"send cam frustum...\")\n        ClusterClient.notify.info(\n            ((\"packet %d\" % self.msgHandler.packetNumber) +\n             (\" fl, fs, fo=%0.3f, (%0.3f, %0.3f), (%0.3f, %0.3f)\" %\n              (focalLength, filmSize[0], filmSize[1],\n               filmOffset[0], filmOffset[1])))\n        )\n        datagram = self.msgHandler.makeCamFrustumDatagram(\n            focalLength, filmSize, filmOffset)\n        self.cw.send(datagram, self.tcpConn)\n\n    def sendNamedMovementDone(self):\n\n        datagram = self.msgHandler.makeNamedMovementDone()\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1712
+  }
+}

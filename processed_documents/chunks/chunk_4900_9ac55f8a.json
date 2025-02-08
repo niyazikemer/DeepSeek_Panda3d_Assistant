@@ -1,0 +1,9 @@
+{
+  "content": "success = 1\n        oldWin = self.win\n        oldLens = self.camLens\n        oldClearColorActive = None\n        if self.win is not None:\n            # Close the previous window.\n            oldClearColorActive = self.win.getClearColorActive()\n            oldClearColor = VBase4(self.win.getClearColor())\n            oldClearDepthActive = self.win.getClearDepthActive()\n            oldClearDepth = self.win.getClearDepth()\n            oldClearStencilActive = self.win.getClearStencilActive()\n            oldClearStencil = self.win.getClearStencil()\n            self.closeWindow(self.win, keepCamera = keepCamera)\n\n        # Open a new window.\n        self.openWindow(*args, **kw)\n        if self.win is None:\n            self.win = oldWin\n            self.winList.append(oldWin)\n            success = 0\n\n        if self.win is not None:\n            if isinstance(self.win, GraphicsWindow):\n                self.setupMouse(self.win)\n            self.makeCamera2d(self.win)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4900
+  }
+}

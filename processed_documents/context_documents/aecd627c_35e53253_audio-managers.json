@@ -1,0 +1,9 @@
+{
+  "content": "Audio Managers\n\nSound effects and music in code are implemented as .AudioManager objects. You can access these audio managers with the following code:\n\nsfxMgr = base.sfxManagerList[0]\nmusicMgr = base.musicManager\n\nIn ~builtins.base, sfxManagerList <direct.showbase.ShowBase.ShowBase.sfxManagerList> is a list of .AudioManager objects intended to be used for sound effects, and musicManager <direct.showbase.ShowBase.ShowBase.musicManager> is an .AudioManager object intended to be used for music.\n\nEach .AudioManager object can have 16 different sounds cached at a given time. This value is actually set as the audio-cache-limit in the panda config.prc (found in your install directory) and can be changed.\n\npython\n\nBy default, base.musicManager <direct.showbase.ShowBase.ShowBase.musicManager> has a limit of 1 concurrent sound, however. This limit can be explicitly increased using the following code:\n\n# Allow playing two music files at the same time.\nbase.musicManager.setConcurrentSoundLimit(2)\n\nThere are times where either sound effects, music, or both should be disabled and later enabled. These commands affect entire categories of sounds. Passing True or False in the last 2 functions will disable or enable the respective groups.\n\nbase.disableAllAudio()\nbase.enableAllAudio()\nbase.enableMusic(True)\nbase.enableSoundEffects(True)\n\nPositional audio is implemented through a wrapper of these objects and is covered in the next section, 3d-audio.",
+  "metadata": {
+    "source": "corpus_panda3d/collected_docs/35e53253_audio-managers.rst",
+    "doc_type": "rst",
+    "file_path": "processed_documents/context_documents/aecd627c_35e53253_audio-managers.json",
+    "doc_id": "doc_506"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getLocalizedVolume(self, node, listenerNode = None, cutoff = None):\n        \"\"\"\n        Get the volume that a sound should be played at if it is\n        localized at this node. We compute this wrt the camera\n        or to listenerNode.\n        \"\"\"\n        d = None\n        if not node.isEmpty():\n            if listenerNode and not listenerNode.isEmpty():\n                d = node.getDistance(listenerNode)\n            else:\n                d = node.getDistance(base.cam)\n        if not cutoff:\n            cutoff = self.cutoffDistance\n        if d is None or d > cutoff:\n            volume = 0\n        else:\n            if SfxPlayer.UseInverseSquare:\n                sd = d*self.distanceScale\n                volume = min(1, 1 / (sd*sd or 1))\n                #print d, sd, volume\n            else:\n                volume = 1 - (d / (cutoff or 1))\n                #print d, volume\n\n        return volume",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_289",
+    "parent": "processed_documents/context_documents/cac8bf59_SfxPlayer.json",
+    "chunk_number": 5099
+  }
+}

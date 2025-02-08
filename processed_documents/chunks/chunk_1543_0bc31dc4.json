@@ -1,0 +1,9 @@
+{
+  "content": "def setManageButtons(self):\n        self.guiItem.setManagePieces(self['manageButtons'])\n\n    def setResizeThumb(self):\n        self.guiItem.setResizeThumb(self['resizeThumb'])\n\n    def destroy(self):\n        self.thumb.destroy()\n        del self.thumb\n        self.incButton.destroy()\n        del self.incButton\n        self.decButton.destroy()\n        del self.decButton\n        DirectFrame.destroy(self)\n\n    def commandFunc(self):\n        # Store the updated value in self['value']\n        self._optionInfo['value'][DGG._OPT_VALUE] = self.guiItem.getValue()\n\n        if self['command']:\n            self['command'](*self['extraArgs'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_88",
+    "parent": "processed_documents/context_documents/c8becc07_DirectScrollBar.json",
+    "chunk_number": 1543
+  }
+}

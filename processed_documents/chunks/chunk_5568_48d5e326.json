@@ -1,0 +1,9 @@
+{
+  "content": "def setBarrierData(self, data):\n        # This message is sent by the AI to tell us the barriers and\n        # avIds for which the AI is currently waiting.  The client\n        # needs to look up its pending context in the table (and\n        # ignore the other contexts).  When the client is done\n        # handling whatever it should handle in its current state, it\n        # should call doneBarrier(), which will send the context\n        # number back to the AI.\n        for context, name, avIds in data:\n            for avId in avIds:\n                if self.cr.isLocalId(avId):\n                    # We found the local avatar's id; stop here.\n                    self.__barrierContext = (context, name)\n                    assert self.notify.debug('setBarrierData(%s, %s)' % (context, name))\n                    return\n\n        # This barrier didn't involve this client; ignore it.\n        assert self.notify.debug('setBarrierData(%s)' % (None))\n        self.__barrierContext = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5568
+  }
+}

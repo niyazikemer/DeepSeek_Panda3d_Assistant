@@ -1,0 +1,9 @@
+{
+  "content": "def __callFromToFunc(self, oldState, newState, *args):\n        # Calls the appropriate fromTo function when transitioning into\n        # a new state, if it exists.\n        assert self.state is None and self.oldState == oldState and self.newState == newState\n\n        func = getattr(self, \"from%sTo%s\" % (oldState,newState), None)\n        if func:\n            func(*args)\n            return True\n        return False\n\n    def __callExitFunc(self, name):\n        # Calls the appropriate exit function when leaving a\n        # state, if it exists.\n        assert self.state is None and self.oldState == name\n\n        func = getattr(self, \"exit\" + name, None)\n        if not func:\n            # If there's no matching exitFoo() function, call\n            # defaultExit() instead.\n            func = self.defaultExit\n        return func()\n\n    def __repr__(self):\n        return self.__str__()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2652
+  }
+}

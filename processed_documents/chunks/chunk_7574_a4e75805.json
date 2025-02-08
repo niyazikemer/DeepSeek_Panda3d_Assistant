@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\ntexture->set_wrap_u(Texture::WM_repeat);\ntexture->set_wrap_v(Texture::WM_clamp);\n\nOne caution about a common wrap mode error\n\nWhen you apply a texture that is intended to exactly fill a polygon--that is, the texture coordinates range from 0 to 1, but no further--you should usually set its wrap mode to clamp. This is because if you let it keep the default value of repeat, the color may bleed in from the opposite edge, producing a thin line along the edge of your polygon, like this:\n\nThis is a particularly common error with a texture that is painted as an alpha cutout, where there is an image with a fully transparent background: you will often see a thin, barely-visible edge floating along the top (for instance) of the polygon. This edge is actually the bottom edge of the texture bleeding onto the top, because the designer specified WM_repeat instead of the correct mode, WM_clamp.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_668",
+    "parent": "processed_documents/context_documents/46006720_0b25daa5_texture-wrap-modes.json",
+    "chunk_number": 7574
+  }
+}

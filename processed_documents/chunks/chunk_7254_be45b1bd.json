@@ -1,0 +1,9 @@
+{
+  "content": "Of course, the mouse must initially be centered, or else the first event will yield a large \"movement\" depending where the cursor happened to be at program start.\n\nValidating mouse mode\n\nNote that not all desktops support relative or confined modes. Unfortunately, you cannot tell in a portable way if a given mode is supported; also, since the window properties request is asynchronous, you will not be able to immediately detect if it took effect.\n\nThe way to test this is to check whether your request was honored, after events have been processed, using the TaskManager method ~direct.task.Task.TaskManager.doMethodLater().\n\npython\n\nFor example:\n\ndef setMouseMode(...):\n    ...\n    base.win.requestProperties(props)\n    base.taskMgr.doMethodLater(0, resolveMouse, \"Resolve mouse setting\")\n    ...\n\ndef resolveMouse(task):\n    props = base.win.getProperties()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_615",
+    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
+    "chunk_number": 7254
+  }
+}

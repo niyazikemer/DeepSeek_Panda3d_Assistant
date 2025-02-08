@@ -1,0 +1,9 @@
+{
+  "content": "class TestClass(DirectObject):\n            def doTask(self, task):\n                return task.done\n        obj = TestClass()\n        startRefCount = sys.getrefcount(obj)\n        print('sys.getrefcount(obj): %s' % sys.getrefcount(obj))\n        print('** addTask')\n        t = obj.addTask(obj.doTask, 'test')\n        print('sys.getrefcount(obj): %s' % sys.getrefcount(obj))\n        print('task.getRefCount(): %s' % t.getRefCount())\n        print('** removeTask')\n        obj.removeTask('test')\n        print('sys.getrefcount(obj): %s' % sys.getrefcount(obj))\n        print('task.getRefCount(): %s' % t.getRefCount())\n        print('** step')\n        taskMgr.step()\n        taskMgr.step()\n        taskMgr.step()\n        print('sys.getrefcount(obj): %s' % sys.getrefcount(obj))\n        print('task.getRefCount(): %s' % t.getRefCount())\n        print('** task release')\n        t = None\n        print('sys.getrefcount(obj): %s' % sys.getrefcount(obj))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3908
+  }
+}

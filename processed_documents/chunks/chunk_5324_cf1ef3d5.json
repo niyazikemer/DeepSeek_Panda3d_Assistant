@@ -1,0 +1,9 @@
+{
+  "content": "## if self.recorder and self.recorder.isPlaying():\n\n        ##     # If we have a recorder and it's already in playback mode,\n        ##     # don't actually attempt to connect to a gameserver since\n        ##     # we don't need to.  Just let it play back the data.\n        ##     self.notify.info(\"Not connecting to gameserver; using playback data instead.\")\n\n        ##     self.connectHttp = 1\n        ##     self.tcpConn = SocketStreamRecorder()\n        ##     self.recorder.addRecorder('gameserver', self.tcpConn)\n\n        ##     self.startReaderPollTask()\n        ##     if successCallback:\n        ##         successCallback(*successArgs)\n        ##     return\n\n        hasProxy = 0\n        if self.checkHttp():\n            proxies = self.http.getProxiesForUrl(serverList[0])\n            hasProxy = proxies != 'DIRECT'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5324
+  }
+}

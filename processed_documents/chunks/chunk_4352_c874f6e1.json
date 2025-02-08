@@ -1,0 +1,9 @@
+{
+  "content": "def finished(self):\n        if self._log:\n            self.destroy()\n\n    def run(self):\n        ContainerReport.PrivateIds.update(set([\n            id(ContainerReport.PrivateIds),\n            id(self._visitedIds),\n            id(self._id2pathStr),\n            id(self._id2container),\n            id(self._type2id2len),\n            id(self._queue),\n            id(self._instanceDictIds),\n        ]))\n        # push on a few things that we want to give priority\n        # for the sake of the variable-name printouts\n        try:\n            base\n        except NameError:\n            pass\n        else:\n            self._enqueueContainer(base.__dict__,\n                                   'base')\n        try:\n            simbase\n        except NameError:\n            pass\n        else:\n            self._enqueueContainer(simbase.__dict__,\n                                   'simbase')\n        self._queue.push(__builtins__)\n        self._id2pathStr[id(__builtins__)] = ''",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4352
+  }
+}

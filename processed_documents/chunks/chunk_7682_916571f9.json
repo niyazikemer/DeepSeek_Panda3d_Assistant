@@ -1,0 +1,9 @@
+{
+  "content": "// This stepSize makes the simulation run at 90 frames per second\nfloat stepSize = 1.0f / 90.0f;\n\nAsyncTask::DoneStatus simulationTask(GenericAsyncTask *task, void *data);\n\nvoid simulation() {\n  // Load the cube where the ball will fall from\n  NodePath cube window->load_model(framework.get_models(), \"models/box\");\n  cube.reparent_to(window->get_render());\n  cube.set_scale(0.25, 0.25, 0.25);\n  cube.set_pos(0, 0, 0);\n\n  // Load the smiley model which will act as our iron ball\n  sphere = window->load_model(framework.get_models(), \"models/smiley\");\n  sphere.reparent_to(window->get_render());\n  sphere.set_scale(0.25, 0.25, 0.25);\n  sphere.set_pos(0, 0, 1);\n\n  // Setup our physics world and the body\n  world.set_gravity(0, 0, -9.81);\n  body = new OdeBody(world);\n  OdeMass M;\n  M.set_sphere(7874, 1.0);\n  body->set_mass(M);\n  body->set_position(sphere.get_pos(window->get_render()));\n  body->set_quaternion(sphere.get_quat(window->get_render()));",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_691",
+    "parent": "processed_documents/context_documents/19b1c5f9_f606c2b9_simulating-physics-world.json",
+    "chunk_number": 7682
+  }
+}

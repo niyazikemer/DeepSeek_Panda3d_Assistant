@@ -1,0 +1,9 @@
+{
+  "content": "icon = self.icon_objects.get(\n            appname,\n            self.icon_objects.get('*', None),\n        )\n\n        if icon is not None or self.prefer_discrete_gpu:\n            pef = pefile.PEFile()\n            pef.open(runtime, 'r+')\n            if icon is not None:\n                pef.add_icon(icon)\n                pef.add_resource_section()\n            if self.prefer_discrete_gpu:\n                if not pef.rename_export(\"SymbolPlaceholder___________________\", \"AmdPowerXpressRequestHighPerformance\") or \\\n                   not pef.rename_export(\"SymbolPlaceholder__\", \"NvOptimusEnablement\"):\n                    self.warn(\"Failed to apply prefer_discrete_gpu, newer target Panda3D version may be required\")\n            pef.write_changes()\n            pef.close()\n\n    def bundle_macos_app(self, builddir):\n        \"\"\"Bundle built runtime into a .app for macOS\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1958
+  }
+}

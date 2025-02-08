@@ -1,0 +1,9 @@
+{
+  "content": "# These are some special init functions for some built-in Python modules that\n# deviate from the standard naming convention.  A value of None means that a\n# dummy entry should be written to the inittab.\nbuiltinInitFuncs = {\n    'builtins': None,\n    'sys': None,\n    'exceptions': None,\n    '_warnings': '_PyWarnings_Init',\n    'marshal': 'PyMarshal_Init',\n}\nif sys.version_info < (3, 7):\n    builtinInitFuncs['_imp'] = 'PyInit_imp'\n\n# These are modules that are not found normally for these modules. Add them\n# to an include list so users do not have to do this manually.\ntry:\n    from pytest import freeze_includes as pytest_imports\nexcept ImportError:\n    def pytest_imports():\n        return []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2026
+  }
+}

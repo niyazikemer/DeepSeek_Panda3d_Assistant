@@ -1,0 +1,9 @@
+{
+  "content": "def _read_dependencies_macho(self, fp, endian, flatten=False):\n        \"\"\" Having read the first 4 bytes of the Mach-O file, fetches the\n        dependent libraries and returns those as a list.\n\n        If flatten is True, if the dependencies contain paths like\n        @loader_path/../.dylibs/libsomething.dylib, it will rewrite them to\n        instead contain @loader_path/libsomething.dylib if possible.\n        This requires the file pointer to be opened in rb+ mode. \"\"\"\n\n        cputype, cpusubtype, filetype, ncmds, sizeofcmds, flags = \\\n            struct.unpack(endian + 'IIIIII', fp.read(24))\n\n        is_64bit = (cputype & 0x1000000) != 0\n        if is_64bit:\n            fp.read(4)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2011
+  }
+}

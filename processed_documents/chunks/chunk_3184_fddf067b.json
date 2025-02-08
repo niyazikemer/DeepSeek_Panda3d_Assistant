@@ -1,0 +1,9 @@
+{
+  "content": "def create(self, ltype):\n        ltype = ltype.lower()\n        if ltype == 'ambient':\n            self.ambientCount += 1\n            light = AmbientLight('ambient-' + repr(self.ambientCount))\n            light.setColor(VBase4(.3, .3, .3, 1))\n        elif ltype == 'directional':\n            self.directionalCount += 1\n            light = DirectionalLight('directional-' + repr(self.directionalCount))\n            light.setColor(VBase4(1))\n        elif ltype == 'point':\n            self.pointCount += 1\n            light = PointLight('point-' + repr(self.pointCount))\n            light.setColor(VBase4(1))\n        elif ltype == 'spot':\n            self.spotCount += 1\n            light = Spotlight('spot-' + repr(self.spotCount))\n            light.setColor(VBase4(1))\n            light.setLens(PerspectiveLens())\n        else:\n            print('Invalid light type')\n            return None\n        # Add the new light\n        directLight = DirectLight(light, self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_178",
+    "parent": "processed_documents/context_documents/94320a32_DirectLights.json",
+    "chunk_number": 3184
+  }
+}

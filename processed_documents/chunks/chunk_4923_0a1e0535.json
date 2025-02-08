@@ -1,0 +1,9 @@
+{
+  "content": "If useCamera is not None, it is a NodePath to be used as the\n        camera to apply to the window, rather than creating a new\n        camera.\n\n        :rtype: panda3d.core.NodePath\n        \"\"\"\n        # self.camera is the parent node of all cameras: a node that\n        # we can move around to move all cameras as a group.\n        if self.camera is None:\n            # We make it a ModelNode with the PTLocal flag, so that\n            # a wayward flatten operations won't attempt to mangle the\n            # camera.\n            self.camera = self.render.attachNewNode(ModelNode('camera'))\n            self.camera.node().setPreserveTransform(ModelNode.PTLocal)\n            builtins.camera = self.camera\n\n            self.mouse2cam.node().setNode(self.camera.node())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4923
+  }
+}

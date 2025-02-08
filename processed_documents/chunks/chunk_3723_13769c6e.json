@@ -1,0 +1,9 @@
+{
+  "content": "# Set window size\n        self.parent.geometry('%dx%d' % (self.frameWidth, self.frameHeight))\n        self.parent.title(self['title'])\n        # Create unique id\n        AppShell.panelCount += 1\n        self.id = self.appname + '-' + repr(AppShell.panelCount)\n        # Create a dictionary in the widgetDict to hold this panel's widgets\n        self.widgetDict = builtins.widgetDict[self.id] = {}\n        # And one to hold this panel's variables\n        self.variableDict = builtins.variableDict[self.id] = {}\n        # Get handle to the toplevels hull\n        self._hull = self.component('hull')\n        # Initialize the application\n        self.appInit()\n        # create the interface\n        self.__createInterface()\n        # Set focus to ourselves\n        self.focus_set()\n        # initialize our options\n        self.initialiseoptions(AppShell)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3723
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Now that we have disabled collisions, make one more pass\n                # right now to ensure we aren't standing in a wall.\n                self.oneTimeCollide()\n\n    def oneTimeCollide(self):\n        \"\"\"\n        Makes one quick collision pass for the avatar, for instance as\n        a one-time straighten-things-up operation after collisions\n        have been disabled.\n        \"\"\"\n        tempCTrav = CollisionTraverser(\"oneTimeCollide\")\n        tempCTrav.addCollider(self.cSphereNodePath, self.pusher)\n        tempCTrav.traverse(render)\n\n    def enableAvatarControls(self):\n        \"\"\"\n        Activate the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"enableAvatarControls\")\n\n    def disableAvatarControls(self):\n        \"\"\"\n        Ignore the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"disableAvatarControls\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_235",
+    "parent": "processed_documents/context_documents/0ce09327_ObserverWalker.json",
+    "chunk_number": 4169
+  }
+}

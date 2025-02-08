@@ -1,0 +1,9 @@
+{
+  "content": "for table in tables:\n            table.pack_header(data, tbl_offs)\n\n            tbl_offs += 16\n\n            for name, leaf in table._name_leaves:\n                if isinstance(leaf, ResourceTable):\n                    pack_into('<II', data, tbl_offs, str_offs | 0x80000000, leaf._offset | 0x80000000)\n                else:\n                    pack_into('<II', data, tbl_offs, str_offs | 0x80000000, desc_offs)\n                    resdata = leaf.get_data()\n                    pack_into('<IIII', data, desc_offs, data_addr, len(resdata), leaf.code_page, 0)\n                    data += resdata\n                    desc_offs += 16\n                    data_addr += len(resdata)\n                    align = len(resdata) & 3\n                    if align:\n                        data += bytearray(4 - align)\n                        data_addr += 4 - align\n                tbl_offs += 8",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1897
+  }
+}

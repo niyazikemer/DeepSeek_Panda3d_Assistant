@@ -1,0 +1,9 @@
+{
+  "content": "def updateTaskListBox(self):\n        # Get a list of task names\n        taskNames = []\n        self.__taskDict = {}\n        count = 0\n        for task in sorted(self.taskMgr.getTasks(), key=lambda t: t.getName()):\n            taskNames.append(task.getName())\n            self.__taskDict[count] = task\n            count += 1\n\n        if taskNames:\n            self.taskListBox.setlist(taskNames)\n            # And set current index (so keypresses will start with index 0)\n            self.taskListBox.component('listbox').activate(0)\n            # Select first item\n            #self.taskListBox.select_set(0) # [gjeon] commented out to avoid focus problem with other lists\n            self.setCurrentTask()\n\n    def toggleTaskMgrVerbose(self):\n        if self.taskMgrVerbose.get():\n            self.updateTaskListBox()\n\n    def spawnTaskHook(self, task):\n        if self.taskMgrVerbose.get():\n            self.updateTaskListBox()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 906
+  }
+}

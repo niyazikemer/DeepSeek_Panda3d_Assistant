@@ -1,0 +1,9 @@
+{
+  "content": "class IndirectInterval(Interval.Interval):\n    \"\"\"\n    This class can be used to play samples of another interval, so\n    that only a subset of the interval is played, or the time is\n    compressed, or some such nonsense.\n\n    It keeps a reference to the interval itself and repeatedly calls\n    setT() on it, rather than actually starting the interval or\n    copying its members like Sequence() or Parallel().  This means two\n    IndirectIntervals that operate on the same nested interval may\n    have some interaction that you should be aware of.\n    \"\"\"\n\n    # Interval counter\n    indirectIntervalNum = 1\n\n    notify = directNotify.newCategory('IndirectInterval')\n\n    # Class methods\n    def __init__(self, interval,\n                 startT = 0, endT = None, playRate = 1,\n                 duration = None, blendType = 'noBlend', name = None):\n        self.interval = interval\n\n        self.startAtStart = (startT == 0)\n        self.endAtEnd = (endT is None or endT == interval.getDuration())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_152",
+    "parent": "processed_documents/context_documents/43d373be_IndirectInterval.json",
+    "chunk_number": 2719
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nThe string \"modelRoot\" represents the name of the model node - the string \"modelRoot\" is usually the correct value.\n\nThe string \"Joint Name\" represents the name of the joint. Typically it would be something like \"Femur\", or \"Neck\", or \"L Finger1\". This is usually set inside the modeling package. For example, in MAX, each object in the scene has a name, including the bones. If necessary, you can determine the joint names by scanning the egg file for strings like <Joint> Femur or, in the case of a glTF file, by looking at the \"name\" property in the \"nodes\" array. The call actor.listJoints() <direct.actor.Actor.Actor.listJoints> can also be used to show the complete hierarchy of joints.\n\npython\n\nTo undo a previous ~direct.actor.Actor.Actor.controlJoint() call, use the ~direct.actor.Actor.Actor.releaseJoint() method:\n\nactor.releaseJoint(\"modelRoot\", \"Joint Name\")\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_438",
+    "parent": "processed_documents/context_documents/af9e2093_889fa28f_controlling-joints.json",
+    "chunk_number": 6225
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(quat, startHpr, startQuat)\n        if self.paramSetup:\n            self.endQuat = quat\n            self.startHpr = startHpr\n            self.startQuat = startQuat\n            self.inPython = 1\n        else:\n            self.setEndQuat(quat)\n            if startHpr is not None:\n                self.setStartHpr(startHpr)\n            if startQuat is not None:\n                self.setStartQuat(startQuat)\n\n    def privDoEvent(self, t, event):\n        # This function is only used if Python functors were passed in\n        # for some of the input parameters.\n        if self.paramSetup and event == CInterval.ETInitialize:\n            self.setupParam(self.setEndQuat, self.endQuat)\n            self.setupParam(self.setStartHpr, self.startHpr)\n            self.setupParam(self.setStartQuat, self.startQuat)\n        LerpNodePathInterval.privDoEvent(self, t, event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2751
+  }
+}

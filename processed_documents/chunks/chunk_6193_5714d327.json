@@ -1,0 +1,9 @@
+{
+  "content": "wheel.setWheelDirectionCs(Vec3(0, 0, -1))\nwheel.setWheelAxleCs(Vec3(1, 0, 0))\nwheel.setWheelRadius(0.25)\nwheel.setMaxSuspensionTravelCm(40.0)\n\nwheel.setSuspensionStiffness(40.0)\nwheel.setWheelsDampingRelaxation(2.3)\nwheel.setWheelsDampingCompression(4.4)\nwheel.setFrictionSlip(100.0)\nwheel.setRollInfluence(0.1)\n\nSteering and Engine/Brake\n\nFinally we need to control steering and engine/brakes. This is best done using a task, and keeping the current steering angle around somewhere in a variable.\n\nHere we use a very simple model of controlling the steering angle. If 'turnLeft' or 'turnRight' keys are pressed the steering angle will increase/decrease at a constant rate, until a maximum steering angle is achieved. No relaxation is applied. Therefor we also define constants for the maximum steering angle (here: steeringClamp) and the rate at which the steering angle increases/decreases (here: steeringIncrement).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_432",
+    "parent": "processed_documents/context_documents/e8a9ae27_79b9f95b_vehicles.json",
+    "chunk_number": 6193
+  }
+}

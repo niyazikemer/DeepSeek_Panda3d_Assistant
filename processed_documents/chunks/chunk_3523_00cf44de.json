@@ -1,0 +1,9 @@
+{
+  "content": "def _scaleBtnRelease(self, event):\n        # Do post callback if any\n        if self['postCallback']:\n            self['postCallback'](*self['callbackData'])\n\n    def _widgetBtnRelease(self, event):\n        # Do post callback if any\n        if self._fUpdate and self['postCallback']:\n            self['postCallback'](*self['callbackData'])\n        if self._fUnpost or not (self._firstPress or self._fPressInside):\n            self._unpostSlider()\n        # Otherwise, continue\n        self._fUpdate = 0\n        self._firstPress = 0\n        self._fPressInside = 0\n\n    def _unpostOnNextRelease(self, event = None):\n        self._fUnpost = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3523
+  }
+}

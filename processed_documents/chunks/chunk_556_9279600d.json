@@ -1,0 +1,9 @@
+{
+  "content": "class UniversalDropTarget(wx.DropTarget):\n    \"\"\"Implements drop target functionality to receive files, bitmaps and text\"\"\"\n    def __init__(self, editor):\n        wx.DropTarget.__init__(self)\n        self.editor = editor\n        self.do = wx.DataObjectComposite()  # the dataobject that gets filled with the appropriate data\n        self.filedo = wx.FileDataObject()\n        self.textdo = wx.TextDataObject()\n        self.bmpdo = wx.BitmapDataObject()\n        self.do.Add(self.filedo)\n        self.do.Add(self.bmpdo)\n        self.do.Add(self.textdo)\n        self.SetDataObject(self.do)\n\n    def OnData(self, x, y, d):\n        \"\"\"\n        Handles drag/dropping files/text or a bitmap\n        \"\"\"\n        if self.GetData():\n            df = self.do.GetReceivedFormat().GetType()\n            if df in [wx.DF_UNICODETEXT, wx.DF_TEXT]:\n                text = self.textdo.GetText()\n                self.editor.ui.protoPaletteUI.tree.ChangeHierarchy(text, x, y)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 556
+  }
+}

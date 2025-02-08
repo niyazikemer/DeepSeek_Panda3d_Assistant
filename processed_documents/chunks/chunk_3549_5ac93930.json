@@ -1,0 +1,9 @@
+{
+  "content": "# Initialize the superclass, make sure dim makes it to superclass\n        VectorEntry.__init__(self, parent, dim = self['dim'])\n        # Add menu item to popup color picker\n        self.addMenuItem(\n            'Popup color picker',\n            command = lambda s = self: s.popupColorPicker())\n        # Needed because this method checks if self.__class__ is myClass\n        # where myClass is the argument passed into inialiseoptions\n        self.initialiseoptions(ColorEntry)\n\n    def popupColorPicker(self):\n        # Can pass in current color with: color = (255, 0, 0)\n        color = askcolor(\n            parent = self.interior(),\n            # Initialize it to current color\n            initialcolor = tuple(self.get()[:3]))[0]\n        if color:\n            self.set((color[0], color[1], color[2], self.getAt(3)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3549
+  }
+}

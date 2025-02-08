@@ -1,0 +1,9 @@
+{
+  "content": "def notify(self, n=1):\n        assert self._is_owned(), \"notify() of un-acquire()d lock\"\n        __waiters = self.__waiters\n        waiters = __waiters[:n]\n        if not waiters:\n            if __debug__:\n                self._note(\"%s.notify(): no waiters\", self)\n            return\n        self._note(\"%s.notify(): notifying %d waiter%s\", self, n,\n                   n!=1 and \"s\" or \"\")\n        for waiter in waiters:\n            waiter.release()\n            try:\n                __waiters.remove(waiter)\n            except ValueError:\n                pass\n\n    def notifyAll(self):\n        self.notify(len(self.__waiters))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3818
+  }
+}

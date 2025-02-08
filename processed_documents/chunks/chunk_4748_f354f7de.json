@@ -1,0 +1,9 @@
+{
+  "content": "class CppMemoryUsage(LeakDetector):\n    def __len__(self):\n        return MemoryUsage.getCurrentCppSize()\n\n\nclass TaskLeakDetectorBase:\n    def _getTaskNamePattern(self, taskName):\n        # get a generic string pattern from a task name by removing numeric characters\n        for i in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9):\n            taskName = taskName.replace('%s' % i, '')\n        return taskName",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4748
+  }
+}

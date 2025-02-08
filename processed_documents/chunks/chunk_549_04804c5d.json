@@ -1,0 +1,9 @@
+{
+  "content": "def onControlerDelete(self):\n        if self.editor.mode == self.editor.EDIT_CURVE_MODE:\n            self.curve.remove(self.curve[self.point[0]])\n            #reset the controller list\n            for item in self.curveControl:\n                if item[0] > self.point[0]:\n                    newname = 'controler%d' % (item[0]-1)\n                    item[1].setName(newname)\n                    self.curveControl[item[0]] = (item[0]-1, item[1])\n            self.curveControl.remove(self.point)\n            self.currentRope.setup(self.degree,self.curve)\n\n    def ropeUpdate(self, curve):\n        self.currentRope = Rope()\n        self.currentRope.setup(self.degree, curve)\n        self.currentRope.reparentTo(render)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 549
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Start listening for the response\n        self.daemon.listenTo(clusterClientDaemonPort)\n        # Contact server daemons and start up remote server application\n        for serverConfig in configList:\n            # First kill existing application\n            self.daemon.tellServer(serverConfig.serverName,\n                                   serverConfig.serverDaemonPort,\n                                   'ka')\n            # Now start up new application\n            serverCommand = (SERVER_STARTUP_STRING %\n                             (serverConfig.serverMsgPort,\n                              clusterSyncFlag,\n                              clusterClientDaemonHost,\n                              clusterClientDaemonPort))\n            self.daemon.tellServer(serverConfig.serverName,\n                                   serverConfig.serverDaemonPort,\n                                   serverCommand)\n        print('Begin waitForServers')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1688
+  }
+}

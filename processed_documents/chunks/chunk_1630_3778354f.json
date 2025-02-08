@@ -1,0 +1,9 @@
+{
+  "content": "def translateFunctionName(name):\n    if name.startswith(\"__\"):\n        return name\n\n    new = \"\"\n    for i in name.split(\"_\"):\n        if new == \"\":\n            new += i\n        elif i == \"\":\n            pass\n        elif len(i) == 1:\n            new += i[0].upper()\n        else:\n            new += i[0].upper() + i[1:]\n    return new\n\n\ndef translateTypeName(name, mangle=True):\n    # Equivalent to C++ classNameFromCppName\n    class_name = \"\"\n    bad_chars = \"!@#$%^&*()<>,.-=+~{}? \"\n    next_cap = False\n    first_char = mangle\n\n    for chr in name:\n        if (chr == '_' or chr == ' ') and mangle:\n            next_cap = True\n        elif chr in bad_chars:\n            if not mangle:\n                class_name += '_'\n        elif next_cap or first_char:\n            class_name += chr.upper()\n            next_cap = False\n            first_char = False\n        else:\n            class_name += chr\n\n    return class_name",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1630
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def debugCall(self, debugString: object = '') -> int:\n        \"\"\"\n        If this notify is in debug mode, print the time of the\n        call followed by the notifier category and\n        the function call (with parameters).\n        \"\"\"\n        if __debug__ and self.__debug:\n            message = str(debugString)\n            string = \":%s:%s \\\"%s\\\" %s\"%(\n                self.getOnlyTime(),\n                self.__name,\n                message,\n                PythonUtil.traceParentCall())\n            self.__log(string)\n            self.__print(string)\n        return 1 # to allow assert self.notify.debugCall(\"blah\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1684
+  }
+}

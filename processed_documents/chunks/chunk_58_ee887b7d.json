@@ -1,0 +1,9 @@
+{
+  "content": "def resolve_reference(ref, rel, domain='py'):\n    \"\"\"Looks up an interrogate symbol to its canonical name.  The second\n    argument is the fully qualified name it should be seen relative to, which\n    may be a module name, or a module name followed by an object name.\n\n    If found, returns a 2-tuple (type, fqname), else None.\"\"\"\n\n    if not build_api_reference:\n        return None\n\n    # Find out which module we should be looking in.\n    modname = None\n    relpath = None\n    rel_parts = rel.replace('::', '.').split('.')\n    for i in range(len(rel_parts), 0, -1):\n        try_modname = '.'.join(rel_parts[:i])\n        if idb.has_module(try_modname):\n            modname = try_modname\n            relpath = rel_parts[i:]\n            break\n\n    if not modname:\n        return None\n\n    refpath = ref.replace('::', '.').split('.')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 58
+  }
+}

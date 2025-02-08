@@ -1,0 +1,9 @@
+{
+  "content": "# Call spamAndEggs when up is pressed and at autorepeat if held.\nself.accept('arrow_up', self.spamAndEggs)\nself.accept('arrow_up-repeat', self.spamAndEggs)\n\n# Calls when the up arrow key is released.\nself.accept('arrow_up-up', self.spamAndEggs)\n\ncpp\n\n// Calls the function __spam(const Event* eventPtr, void* dataPtr) on the k key event.\nframework->define_key(\"k\", \"call k\", __spam, nullptr);\nframework->define_key(\"k\", \"call k\", __spam, &data);\n\n// Call spamAndEggs(const Event* eventPtr, void* dataPtr) when up is pressed\n// and at autorepeat if held.\nframework->define_key(\"arrow_up\", \"spam and egg\", spamAndEggs, nullptr);\nframework->define_key(\"arrow_up-repeat\", \"spam and egg\", spamAndEggs, nullptr);\n\n// Calls when the up arrow key is released\nframework->define_key(\"arrow_up-up\", \"spam and egg\", spamAndEggs, nullptr);\n\nNote",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_711",
+    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
+    "chunk_number": 7758
+  }
+}

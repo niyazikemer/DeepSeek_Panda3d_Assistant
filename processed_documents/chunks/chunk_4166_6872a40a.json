@@ -1,0 +1,9 @@
+{
+  "content": "class ObserverWalker(NonPhysicsWalker.NonPhysicsWalker):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"ObserverWalker\")\n\n    # Ghosts slide instead of jump:\n    slideName = \"jump\"\n\n    def initializeCollisions(self, collisionTraverser, avatarNodePath,\n            avatarRadius = 1.4, floorOffset = 1.0, reach = 1.0):\n        \"\"\"\n        Set up the avatar for collisions\n        \"\"\"\n        assert not avatarNodePath.isEmpty()\n\n        self.cTrav = collisionTraverser\n        self.avatarNodePath = avatarNodePath\n\n        # Set up the collision sphere\n        # This is a sphere on the ground to detect barrier collisions\n        self.cSphere = CollisionSphere(0.0, 0.0, 0.0, avatarRadius)\n        cSphereNode = CollisionNode('Observer.cSphereNode')\n        cSphereNode.addSolid(self.cSphere)\n        self.cSphereNodePath = avatarNodePath.attachNewNode(cSphereNode)\n\n        cSphereNode.setFromCollideMask(self.cSphereBitMask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_235",
+    "parent": "processed_documents/context_documents/0ce09327_ObserverWalker.json",
+    "chunk_number": 4166
+  }
+}

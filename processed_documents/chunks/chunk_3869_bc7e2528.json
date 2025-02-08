@@ -1,0 +1,9 @@
+{
+  "content": "self._frameProfileQueue: list[tuple[int, Any, Callable[[], object] | None]] = []\n\n        # this will be set when it's safe to import StateVar\n        self._profileFrames: Any = None\n        self._frameProfiler = None\n        self._profileTasks: Any = None\n        self._taskProfiler = None\n        self._taskProfileInfo = ScratchPad(\n            taskId = None,\n            profiled = False,\n            session = None,\n        )\n\n    def finalInit(self) -> None:\n        # This function should be called once during startup, after\n        # most things are imported.\n        from direct.fsm.StatePush import StateVar\n        self._profileTasks = StateVar(False)\n        self.setProfileTasks(ConfigVariableBool('profile-task-spikes', 0).getValue())\n        self._profileFrames = StateVar(False)\n        self.setProfileFrames(ConfigVariableBool('profile-frames', 0).getValue())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3869
+  }
+}

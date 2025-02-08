@@ -1,0 +1,9 @@
+{
+  "content": "self.modules[moduleName] = self.ModuleDef(\n            moduleName, exclude = True,\n            forbid = forbid, allowChildren = allowChildren,\n            fromSource = fromSource)\n\n    def handleCustomPath(self, moduleName):\n        \"\"\" Indicates a module that may perform runtime manipulation\n        of its __path__ variable, and which must therefore be actually\n        imported at runtime in order to determine the true value of\n        __path__. \"\"\"\n\n        str = 'import %s' % (moduleName)\n        exec(str)\n\n        module = sys.modules[moduleName]\n        for path in module.__path__:\n            modulefinder.AddPackagePath(moduleName, path)\n\n    def getModulePath(self, moduleName):\n        \"\"\" Looks for the indicated directory module and returns the\n        __path__ member: the list of directories in which its python\n        files can be found.  If the module is a .py file and not a\n        directory, returns None. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2075
+  }
+}

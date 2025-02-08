@@ -1,0 +1,9 @@
+{
+  "content": "def _build_apps_options(self):\n        return [opt[0].replace('-', '_').replace('=', '') for opt in build_apps.user_options]\n\n    def initialize_options(self):\n        self.installers = {}\n        self.dist_dir = os.path.join(os.getcwd(), 'dist')\n        self.skip_build = False\n        self.signing_certificate = None\n        self.signing_private_key = None\n        self.signing_passphrase = None\n        self.installer_functions = {}\n        self._current_platform = None\n        for opt in self._build_apps_options():\n            setattr(self, opt, None)\n\n    def finalize_options(self):\n        from importlib.metadata import entry_points\n\n        # We need to massage the inputs a bit in case they came from a\n        # setup.cfg file.\n        self.installers = {\n            key: _parse_list(value)\n            for key, value in _parse_dict(self.installers).items()\n        }",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2020
+  }
+}

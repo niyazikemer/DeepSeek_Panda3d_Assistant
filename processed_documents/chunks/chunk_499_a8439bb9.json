@@ -1,0 +1,9 @@
+{
+  "content": "elif objDef.model is not None:\n                    # since this obj is simple model let's load the model\n                    if model is None:\n                        model = objDef.model\n                    try:\n                        newobjModel = base.loader.loadModel(model)\n                    except Exception:\n                        newobjModel = base.loader.loadModel(Filename.fromOsSpecific(model).getFullpath(), okMissing=True)\n                    if newobjModel:\n                        self.flatten(newobjModel, model, objDef, uid)\n                        newobj = PythonNodePath(newobjModel)\n                    else:\n                        newobj = None\n\n                else:\n                    newobj = hidden.attachNewNode(objDef.name)\n            else:\n                newobj = nodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 499
+  }
+}

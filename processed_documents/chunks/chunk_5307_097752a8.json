@@ -1,0 +1,9 @@
+{
+  "content": "return retVal\n\n    def generateGlobalObject(self, doId, dcname, values=None):\n        # Look up the dclass\n        dclass = self.dclassesByName.get(dcname+self.dcSuffix)\n        if dclass is None:\n            #print \"\\n\\n\\nNeed to define\", dcname+self.dcSuffix\n            self.notify.warning(\"Need to define %s\" % (dcname+self.dcSuffix))\n            dclass = self.dclassesByName.get(dcname+'AI')\n        if dclass is None:\n            dclass = self.dclassesByName.get(dcname)\n        # Create a new distributed object, and put it in the dictionary\n        #distObj = self.generateWithRequiredFields(dclass, doId, di)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5307
+  }
+}

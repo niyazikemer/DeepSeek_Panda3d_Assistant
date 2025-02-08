@@ -1,0 +1,9 @@
+{
+  "content": "if (new_count == 0) {\n    /* Trivial no-op. */\n    return orig_count;\n  }\n\n  /* Reallocate the PyImport_FrozenModules array bigger to make room\n     for the additional frozen modules.  We just leak the original\n     array; it's too risky to try to free it. */\n  realloc_FrozenModules = (struct _frozen *)malloc((orig_count + new_count + 1) * sizeof(struct _frozen));\n\n  /* The new frozen modules go at the front of the list. */\n  memcpy(realloc_FrozenModules, new_modules, new_count * sizeof(struct _frozen));\n\n  /* Then the original set of frozen modules. */\n  memcpy(realloc_FrozenModules + new_count, PyImport_FrozenModules, orig_count * sizeof(struct _frozen));\n\n  /* Finally, a single 0-valued entry marks the end of the array. */\n  memset(realloc_FrozenModules + orig_count + new_count, 0, sizeof(struct _frozen));\n\n  /* Assign the new pointer. */\n  PyImport_FrozenModules = realloc_FrozenModules;\n\n  return orig_count + new_count;\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2055
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def OnTimer(self, evt):\n        if self.prePlay is True and self.stop is False and self.play is False:\n            if self.curFrame-1>=self.sliderStartFrame:\n                self.curFrame -= 1\n                self.OnControl()\n            elif self.curFrame == self.sliderStartFrame:\n                self.curFrame = self.sliderEndFrame\n                self.OnControl()\n\n        if self.play is True and self.stop is False and self.prePlay is False:\n            if self.curFrame+1<=self.sliderEndFrame:\n                self.curFrame += 1\n                self.OnControl()\n            elif self.curFrame == self.sliderEndFrame:\n                self.curFrame = self.sliderStartFrame\n                self.OnControl()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 682
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "image = tk.PhotoImage(master=self.canvas, file=fn.toOsSpecific())\n        self.iconimages[name] = image\n        return image\n\n    def select(self, event=None):\n        if self.selected:\n            return\n        self.deselectall()\n        self.selected = 1\n        self.canvas.delete(self.image_id)\n        self.drawicon()\n        self.drawtext()\n        self.item.OnSelect()\n\n    def deselect(self, event=None):\n        if not self.selected:\n            return\n        self.selected = 0\n        self.canvas.delete(self.image_id)\n        self.drawicon()\n        self.drawtext()\n\n    def deselectall(self):\n        if self.parent:\n            self.parent.deselectall()\n        else:\n            self.deselecttree()\n\n    def deselecttree(self):\n        if self.selected:\n            self.deselect()\n        for key in self.kidKeys:\n            child = self.children[key]\n            child.deselecttree()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3675
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedLargeBlobSenderAI(DistributedObjectAI.DistributedObjectAI):\n    \"\"\"DistributedLargeBlobSenderAI: for sending large chunks of data through\n    the DC system to a specific avatar\"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory('DistributedLargeBlobSenderAI')\n\n    def __init__(self, air, zoneId, targetAvId, data, useDisk=0):\n        DistributedObjectAI.DistributedObjectAI.__init__(self, air)\n        self.targetAvId = targetAvId\n\n        self.mode = 0\n        if useDisk:\n            self.mode |= LargeBlobSenderConsts.USE_DISK\n\n        self.generateWithRequired(zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_126",
+    "parent": "processed_documents/context_documents/6b9e3599_DistributedLargeBlobSenderAI.json",
+    "chunk_number": 1849
+  }
+}

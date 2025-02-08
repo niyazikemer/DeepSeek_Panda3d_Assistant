@@ -1,0 +1,9 @@
+{
+  "content": "else:\n                button.bind('press-' + hotKey + '-', self.buttonCommand,\n                            extraArgs = [value])\n                self.bind('press-' + hotKey + '-', self.buttonCommand,\n                          extraArgs = [value])\n        # Position buttons and text\n        pad = self['pad']\n        if self.hascomponent('image0'):\n            image = self.component('image0')\n        else:\n            image = None\n        # Get size of text/geom without image (for state 0)\n        if image:\n            image.reparentTo(ShowBaseGlobal.hidden)\n        bounds = self.stateNodePath[0].getTightBounds()\n        if image:\n            image.reparentTo(self.stateNodePath[0])\n        if bounds is None:\n            l = 0\n            r = 0\n            b = 0\n            t = 0\n        else:\n            l = bounds[0][0]\n            r = bounds[1][0]\n            b = bounds[0][2]\n            t = bounds[1][2]\n        # Center text and geom around origin",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1557
+  }
+}

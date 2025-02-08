@@ -1,0 +1,9 @@
+{
+  "content": "self.entryScaleList = []\n        for index in range(self['dim']):\n            # Add a group alias so you can configure the entryScales via:\n            #   fg.configure(Valuator_XXX = YYY)\n            f = self.createcomponent(\n                'entryScale%d' % index, (), 'Valuator', EntryScale,\n                (interior,), value = self._value[index],\n                text = self['labels'][index])\n            # Do this separately so command doesn't get executed during construction\n            f['command'] = lambda val, s=self, i=index: s._entryScaleSetAt(i, val)\n            f['callbackData'] = [self]\n            # Callbacks\n            f.onReturn = self.__onReturn\n            f.onReturnRelease = self.__onReturnRelease\n            f['preCallback'] = self.__onPress\n            f['postCallback'] = self.__onRelease\n            f.pack(side = self['side'], expand = 1, fill = tk.X)\n            self.entryScaleList.append(f)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3570
+  }
+}

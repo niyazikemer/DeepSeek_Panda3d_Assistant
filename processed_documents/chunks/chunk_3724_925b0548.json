@@ -1,0 +1,9 @@
+{
+  "content": "self.pack(fill = tk.BOTH, expand = 1)\n\n    def __createInterface(self):\n        self.__createBalloon()\n        self.__createMenuBar()\n        self.__createDataArea()\n        self.__createCommandArea()\n        self.__createMessageBar()\n        self.__createAboutBox()\n        # Add binding for panel cleanup code\n        self.interior().bind('<Destroy>', self.onDestroy)\n        #\n        # Create the parts of the interface\n        # which can be modified by subclasses\n        #\n        self.createMenuBar()\n        self.createInterface()\n\n    def __createBalloon(self):\n        # Create the balloon help manager for the frame.\n        # Create the manager for the balloon help\n        self.__balloon = self.createcomponent('balloon', (), None,\n                                              Pmw.Balloon, (self._hull,))\n        self.__balloon.configure(state = self.balloonState)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3724
+  }
+}

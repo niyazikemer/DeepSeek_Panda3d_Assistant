@@ -1,0 +1,9 @@
+{
+  "content": "if endFrame is not None:\n            self.endFrame = endFrame\n        elif endTime is not None:\n            self.endFrame = endTime * self.frameRate\n        elif duration is not None:\n            if startTime is None:\n                startTime = float(self.startFrame) / float(self.frameRate)\n            endTime = startTime + duration\n            self.endFrame = duration * self.frameRate\n        else:\n            # No end frame specified.  Choose the maximum of all\n            # of the controls' numbers of frames.\n            numFrames = self.controls.getAnim(0).getNumFrames()\n            self.endFrame = numFrames - 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_165",
+    "parent": "processed_documents/context_documents/0899ec70_AnimControlInterval.json",
+    "chunk_number": 2861
+  }
+}

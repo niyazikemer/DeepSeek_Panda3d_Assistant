@@ -1,0 +1,9 @@
+{
+  "content": "self.controlMappings[objectName] = [controlledName,serverList]\n            self.controlOffsets[objectName]  = offset\n            self.controlPriorities[objectName] = priority\n        else:\n            oldList = self.controlMappings[objectName]\n            mergedList = []\n            for item in oldList:\n                mergedList.append(item)\n            for item in serverList:\n                if item not in mergedList:\n                    mergedList.append(item)\n\n        self.redoSortedPriorities()\n            #self.notify.debug('attempt to add duplicate controlled object: '+name)\n\n    def setControlMappingOffset(self, objectName, offset):\n        if objectName in self.controlMappings:\n            self.controlOffsets[objectName] = offset",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1699
+  }
+}

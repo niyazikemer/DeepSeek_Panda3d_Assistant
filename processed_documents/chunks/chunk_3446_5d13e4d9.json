@@ -1,0 +1,9 @@
+{
+  "content": "def getSelectedAsList(self):\n        \"\"\"\n        Return a list of all selected node paths.  No verification of\n        connectivity is performed on the members of the list\n        \"\"\"\n        #return self.selectedDict.values()[:]\n        return self.selectedList[:] # [gjeon] now return the list with selected order\n\n    def __getitem__(self, index):\n        return self.getSelectedAsList()[index]\n\n    def getSelectedDict(self, id):\n        \"\"\"\n        Search selectedDict for node path, try to repair broken node paths.\n        \"\"\"\n        dnp = self.selectedDict.get(id, None)\n        if dnp:\n            return dnp\n        else:\n            # Not in selected dictionary\n            return None\n\n    def getDeselectedAsList(self):\n        return list(self.deselectedDict.values())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3446
+  }
+}

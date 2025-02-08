@@ -1,0 +1,9 @@
+{
+  "content": "# Now extract out the Character and integrate it with\n            # the Actor.\n\n            if lodName != \"lodRoot\":\n                # parent to appropriate node under LOD switch\n                bundleNP.reparentTo(self.__LODNode.find(str(lodName)))\n            else:\n                bundleNP.reparentTo(self.__geomNode)\n            self.__prepareBundle(bundleNP, model.node(), partName, lodName)\n\n            # we rename this node to make Actor copying easier\n            bundleNP.node().setName(\"%s%s\"%(Actor.partPrefix,partName))\n\n            if numAnims != 0:\n                # If the model had some animations, store them in the\n                # dict so they can be played.\n                Actor.notify.info(\"model contains %s animations.\" % (numAnims))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3139
+  }
+}

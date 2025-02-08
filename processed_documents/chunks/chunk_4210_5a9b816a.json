@@ -1,0 +1,9 @@
+{
+  "content": "job = self._pri2jobId2job[pri][jobId]\n                gen = job._getGenerator()\n                if __debug__:\n                    job._pstats.start()\n                job.resume()\n                while clock.getRealTime() < endT:\n                    try:\n                        result = next(gen)\n                    except StopIteration:\n                        # Job didn't yield Job.Done, it ran off the end and returned\n                        # treat it as if it returned Job.Done\n                        self.notify.warning('job %s never yielded Job.Done' % job)\n                        result = Job.Done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4210
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def stop(self):\n        taskMgr.remove(self.name + '-play')\n\n    def __playTask(self, task):\n        time = ClockObject.getGlobalClock().getFrameTime()\n        dTime = time - task.lastTime\n        task.lastTime = time\n        if self.loop:\n            cTime = (task.currentTime + dTime) % self.getMaxT()\n        else:\n            cTime = task.currentTime + dTime\n        if self.loop == 0 and cTime > self.getMaxT():\n            self.stop()\n            messenger.send(self.name + '-done')\n            self.node = None\n            return task.done\n        self.goTo(self.node, cTime)\n        task.currentTime = cTime\n        return task.cont\n\n    def draw(self, subdiv = 1000):\n        \"\"\" Draws a quick and cheesy visualization of the Mopath using\n        LineSegs.  Returns the NodePath representing the drawing. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1838
+  }
+}

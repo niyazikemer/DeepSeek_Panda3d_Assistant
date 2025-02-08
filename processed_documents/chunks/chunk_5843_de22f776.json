@@ -1,0 +1,9 @@
+{
+  "content": "A .Camera is a kind of .PandaNode, so you can simply create one and wrap a .NodePath around it:\n\npython\n\ncamNode = Camera('cam')\ncamNP = NodePath(camNode)\nregion.setCamera(camNP)\n\ncpp\n\nPT(Camera) camNode = new Camera(\"cam\");\nNodePath camNP(camNode);\nregion->set_camera(camNP);\n\nOnce you have a Camera, you need to decide where to attach it to the scene graph. If you parent it to base.camera, it will inherit the transform of that node and so it will move with the system trackball controls, if enabled, and will view the scene that base.camera is attached to (usually render). The default Camera that Panda creates is attached to base.camera.\n\npython\n\n# View render, as seen by the default camera\ncamNP.reparentTo(base.camera)\n\ncpp\n\n// View render, as seen by the default camera\ncamNP.reparent_to(windowFramework->get_camera_group());",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_358",
+    "parent": "processed_documents/context_documents/235f12e7_72c18777_display-regions.json",
+    "chunk_number": 5843
+  }
+}

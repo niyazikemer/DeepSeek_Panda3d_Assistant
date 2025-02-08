@@ -1,0 +1,9 @@
+{
+  "content": "DSP Effects\n\nDSP, or Digital Signal Processing, allows you to apply effect filters to your in-game audio. As of now, DSP effects are only available in Panda if you use the FMOD audio library. By default, Panda ships using the OpenAL audio library but FMOD can be enabled simply by editing Config.prc <configuring-panda3d>. Please keep in mind that using FMOD in a commercial application will require purchasing a license.\n\nYou will need to change this line in your Config.prc: (some versions of Panda3D might already be set to FMOD)\n\naudio-library-name p3openal_audio\n\nTo this:\n\naudio-library-name p3fmod_audio\n\nThe FilterProperties Object\n\nAny DSP you add to your sound will require the use of .FilterProperties, which is a list of filters and their coefficients. Start with this import:\n\nfrom panda3d.core import FilterProperties\n\nThis will allow you to create lists of filters, like this one:\n\nfp = FilterProperties()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_679",
+    "parent": "processed_documents/context_documents/15e5330a_629172ef_dsp-effects.json",
+    "chunk_number": 7623
+  }
+}

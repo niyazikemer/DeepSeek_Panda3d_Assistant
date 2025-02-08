@@ -1,0 +1,9 @@
+{
+  "content": "sublist = self.item._GetSubList()\n        if not sublist:\n            return\n        self.kidKeys = []\n        for item in sublist:\n            key = item.GetKey()\n            if fUseCachedChildren and key in self.children:\n                child = self.children[key]\n            else:\n                child = TreeNode(self.canvas, self, item, self.menuList)\n\n            self.children[key] = child\n            self.kidKeys.append(key)\n\n        # Remove unused children\n        for key in list(self.children.keys()):\n            if key not in self.kidKeys:\n                del self.children[key]\n\n        for key in self.kidKeys:\n            child = self.children[key]\n            child.updateAll(fMode, depth=depth)\n\n        # [gjeon] to update the tree one time only\n        if depth == 1:\n            self.update()\n            self.view()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3680
+  }
+}

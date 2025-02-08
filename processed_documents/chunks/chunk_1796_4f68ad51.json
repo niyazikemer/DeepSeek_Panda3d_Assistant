@@ -1,0 +1,9 @@
+{
+  "content": "def updateTask(self, state):\n        # old optimization\n        #self.updateValsUnrolled()\n        self.updateVals()\n        self.updateFunc()\n        return Task.cont\n\n    def updateVals(self):\n        # Update delta time\n        cTime = ClockObject.getGlobalClock().getFrameTime()\n        self.deltaTime = cTime - self.lastTime\n        self.lastTime = cTime\n        # Update analogs\n        for i in range(len(self.analogs)):\n            self.aList[i] = self.normalizeChannel(i)\n        # Update buttons\n        for i in range(len(self.buttons)):\n            try:\n                self.bList[i] = self.buttons[i]\n            except IndexError:\n                # That channel may not have been updated yet\n                self.bList[i] = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1796
+  }
+}

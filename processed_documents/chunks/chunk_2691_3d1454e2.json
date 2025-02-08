@@ -1,0 +1,9 @@
+{
+  "content": "def enterStateN(self, stateIndex, nextStateIndex):\n        assert self.__debugPrint(\n            \"enterStateN(stateIndex=%s, nextStateIndex=%s)\"%\n            (stateIndex, nextStateIndex))\n        self.stateIndex = stateIndex\n        self.nextStateIndex = nextStateIndex\n        self.distributeStateChange()\n        if self.durations[stateIndex] is not None:\n            assert self.doLaterTask is None\n            self.doLaterTask=taskMgr.doMethodLater(\n                self.durations[stateIndex],\n                self.switchToNextStateTask,\n                \"enterStateN-timer-%s\"%id(self))\n\n    def exitStateN(self):\n        assert self.__debugPrint(\"exitStateN()\")\n        if self.doLaterTask:\n            taskMgr.remove(self.doLaterTask)\n            self.doLaterTask=None\n\n    ##### state 0 #####\n\n    def enterState0(self):\n        assert self.__debugPrint(\"enter0()\")\n        self.enterStateN(0, 0)\n\n    def exitState0(self):\n        assert self.__debugPrint(\"exit0()\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_148",
+    "parent": "processed_documents/context_documents/ee9f969a_FourStateAI.json",
+    "chunk_number": 2691
+  }
+}

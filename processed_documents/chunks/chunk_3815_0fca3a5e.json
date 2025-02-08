@@ -1,0 +1,9 @@
+{
+  "content": "def __enter__(self):\n        return self.__lock.__enter__()\n\n    def __exit__(self, *args):\n        return self.__lock.__exit__(*args)\n\n    def __repr__(self):\n        return \"<Condition(%s, %d)>\" % (self.__lock, len(self.__waiters))\n\n    def _release_save(self): # pylint: disable=method-hidden\n        self.__lock.release()           # No state to save\n\n    def _acquire_restore(self, x): # pylint: disable=method-hidden\n        self.__lock.acquire()           # Ignore saved state\n\n    def _is_owned(self): # pylint: disable=method-hidden\n        # Return True if lock is owned by currentThread.\n        # This method is called only if __lock doesn't have _is_owned().\n        if self.__lock.acquire(0):\n            self.__lock.release()\n            return False\n        else:\n            return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3815
+  }
+}

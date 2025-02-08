@@ -1,0 +1,9 @@
+{
+  "content": "self._DOUD_requestedDelete = False\n\n            # These are used to implement beginBarrier().\n            self.__nextBarrierContext = 0\n            self.__barriers = {}\n\n            self.__generated = False\n            # reference count for multiple inheritance\n            self.__generates = 0\n\n    # Uncomment if you want to debug DO leaks\n    #def __del__(self):\n    #    \"\"\"\n    #    For debugging purposes, this just prints out what got deleted\n    #    \"\"\"\n    #    print (\"Destructing: \" + self.__class__.__name__)\n\n    if __debug__:\n        def status(self, indent=0):\n            \"\"\"\n            print out doId(parentId, zoneId) className\n                and conditionally show generated or deleted\n            \"\"\"\n            spaces = ' ' * (indent + 2)\n            try:\n                print(\"%s%s:\" % (' ' * indent, self.__class__.__name__))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5494
+  }
+}

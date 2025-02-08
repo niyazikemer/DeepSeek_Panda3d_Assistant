@@ -1,0 +1,9 @@
+{
+  "content": "materials\n\n1D, 2D, 3D, cube textures\n\nmost texture stage and combine modes\n\nlight ramps (for cartoon shading)\n\nmost texgen modes (sphere / cube map modes require Panda3D 1.10.14)\n\ntexmatrix\n\nfog\n\nNote that although vertex colors are supported by the ShaderGenerator, in order to render vertex colors you need to apply a .ColorAttrib.make_vertex() attrib to the render state. One easy way to do this is to call .NodePath.set_color_off() (that is, turn off scene graph color, and let vertex color be visible). In the fixed-function renderer, vertex colors will render with or without this attrib, so you might not notice if you fail to apply it. Models that come in via the egg loader should have this attribute applied already. However, if you are using your own model loader or generating models procedurally you will need to set it yourself.\n\nHow the Shader Generator Works",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_545",
+    "parent": "processed_documents/context_documents/f47095f0_6d2d98fe_shader-generator.json",
+    "chunk_number": 6895
+  }
+}

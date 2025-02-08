@@ -1,0 +1,9 @@
+{
+  "content": "self.startAtStart = (startT == 0)\n        self.endAtEnd = (endT is None or endT == interval.getDuration())\n\n        if endT is None:\n            endT = interval.getDuration()\n\n        if duration is None:\n            duration = abs(endT - startT) / playRate\n\n        if name is None:\n            name = ('IndirectInterval-%d' %\n                    IndirectInterval.indirectIntervalNum)\n            IndirectInterval.indirectIntervalNum += 1\n\n        self.startT = startT\n        self.endT = endT\n        self.deltaT = endT - startT\n        self.blendType = LerpBlendHelpers.getBlend(blendType)\n\n        Interval.Interval.__init__(self, name, duration)\n\n    def __calcT(self, t):\n        return self.startT + self.deltaT * self.blendType(t / self.duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_152",
+    "parent": "processed_documents/context_documents/43d373be_IndirectInterval.json",
+    "chunk_number": 2720
+  }
+}

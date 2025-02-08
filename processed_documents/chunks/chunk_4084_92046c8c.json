@@ -1,0 +1,9 @@
+{
+  "content": "self.cTrav.addCollider(self.cWallSphereNodePath, self.pusher)\n                if self.wantFloorSphere:\n                    self.cTrav.addCollider(self.cFloorSphereNodePath, self.pusherFloor)\n                # Add the lifter to the shadow traverser, which runs after\n                # our traverser. This prevents the \"fall through wall and\n                # off ledge\" bug. The problem was that we couldn't control\n                # which collided first, the wall pusher or the lifter, if\n                # they're in the same collision traverser. If the lifter\n                # collided first, we'd start falling before getting pushed\n                # back behind the wall.\n                base.shadowTrav.addCollider(self.cRayNodePath, self.lifter)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4084
+  }
+}

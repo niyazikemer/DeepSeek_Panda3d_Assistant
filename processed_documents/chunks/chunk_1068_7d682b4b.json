@@ -1,0 +1,9 @@
+{
+  "content": "def selectRefNodePathNamed(self, name):\n        nodePath = None\n        if name == 'self':\n            nodePath = self.tempCS\n        elif name == 'selected':\n            nodePath = ShowBaseGlobal.direct.selected.last\n            # Add Combo box entry for this selected object\n            self.addRefNodePath(nodePath)\n        elif name == 'parent':\n            nodePath = self['nodePath'].getParent()\n        else:\n            nodePath = self.refNodePathDict.get(name, None)\n            if nodePath is None:\n                # See if this evaluates into a node path\n                try:\n                    nodePath = eval(name)\n                    if isinstance(nodePath, NodePath):\n                        self.addRefNodePath(nodePath)\n                    else:\n                        # Good eval but not a node path, give up\n                        nodePath = None\n                except Exception:\n                    # Bogus eval\n                    nodePath = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1068
+  }
+}

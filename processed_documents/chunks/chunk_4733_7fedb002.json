@@ -1,0 +1,9 @@
+{
+  "content": "def off(self):\n        \"\"\"\n        Turn off the shadow placement.  The shadow will still be\n        there, but the z position will not be updated until a call\n        to on() is made.\n        \"\"\"\n        assert self.notify.debugCall(\"activeCount=%s\"%(self.activeCount,))\n        if not self.isActive:\n            assert not self.cTrav.hasCollider(self.cRayNodePath)\n            return\n        assert self.cTrav.hasCollider(self.cRayNodePath)\n        didIt = self.cTrav.removeCollider(self.cRayNodePath)\n        assert didIt\n        # Now that we have disabled collisions, make one more pass\n        # right now to ensure we aren't standing in a wall.\n        self.oneTimeCollide()\n        self.cRayNodePath.detachNode()\n        self.isActive = 0\n        if __debug__:\n            self.activeCount -= 1\n            self.debugDisplay()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_265",
+    "parent": "processed_documents/context_documents/ee959aee_ShadowPlacer.json",
+    "chunk_number": 4733
+  }
+}

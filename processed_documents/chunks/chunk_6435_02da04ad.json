@@ -1,0 +1,9 @@
+{
+  "content": "Defining your own GeomVertexFormat\n\nBefore you can create any geometry in Panda3D, you must have a valid geomvertexformat. You can decide exactly which columns you want to have in your format, by building the format up one column at a time. (But you might be able to avoid this effort by taking advantage of one of the pre-defined formats <pre-defined-vertex-formats> listed on the next page.)\n\nTo build up your custom format, you need to first create an empty .GeomVertexArrayFormat, and add columns one at a time by calling ~.GeomVertexArrayFormat.add_column():\n\npython\n\narray = GeomVertexArrayFormat()\narray.addColumn(\"vertex\", 3, Geom.NTFloat32, Geom.CPoint)\n\ncpp\n\nPT(GeomVertexArrayFormat) array;\narray = new GeomVertexArrayFormat();\narray->add_column(InternalName::make(\"vertex\"), 3,\n                  Geom::NT_float32, Geom::C_point);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_482",
+    "parent": "processed_documents/context_documents/98868df0_5990f8cd_custom-vertex-format.json",
+    "chunk_number": 6435
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "dcImports = {}\n        if dcFileNames is None:\n            readResult = dcFile.readAll()\n            if not readResult:\n                self.notify.error(\"Could not read dc file.\")\n        else:\n            searchPath = getModelPath().getValue()\n            for dcFileName in dcFileNames:\n                pathname = Filename(dcFileName)\n                vfs = VirtualFileSystem.getGlobalPtr()\n                vfs.resolveFilename(pathname, searchPath)\n                readResult = dcFile.read(pathname)\n                if not readResult:\n                    self.notify.error(\"Could not read dc file: %s\" % (pathname))\n\n        self.hashVal = dcFile.getHash()\n\n        # Now import all of the modules required by the DC file.\n        for n in range(dcFile.getNumImportModules()):\n            moduleName = dcFile.getImportModule(n)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5173
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if signal:\n            self.__prevHandler = signal.signal(signal.SIGINT, self.keyboardInterruptHandler)\n\n        try:\n            self.mgr.poll()\n\n            # This is the spot for an internal yield function\n            nextTaskTime = self.mgr.getNextWakeTime()\n            self.doYield(startFrameTime, nextTaskTime)\n\n        finally:\n            # Restore previous interrupt handler\n            if signal:\n                signal.signal(signal.SIGINT, self.__prevHandler)\n                self.__prevHandler = signal.default_int_handler\n\n        if self.fKeyboardInterrupt:\n            raise KeyboardInterrupt\n\n    def run(self) -> None:\n        \"\"\"Starts the task manager running.  Does not return until an\n        exception is encountered (including KeyboardInterrupt). \"\"\"\n\n        if sys.platform == 'emscripten':\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3893
+  }
+}

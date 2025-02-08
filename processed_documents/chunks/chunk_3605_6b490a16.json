@@ -1,0 +1,9 @@
+{
+  "content": "class MemoryExplorerItem:\n    def __init__(self, parent, nodePath):\n        self.parent = parent\n        self.nodePath = nodePath\n        self.children = []\n\n        self.selfVertexBytes = 0\n        self.childrenVertexBytes = 0\n\n        self.numFaces = 0\n        self.textureBytes = 0\n\n        if parent:\n            self.pathName = parent.pathName + \"/\" +  nodePath.getName()\n        else:\n            self.pathName = nodePath.getName()\n\n    def getParent(self):\n        return self.parent\n\n    def addChild(self, child):\n        self.children.append(child)\n\n    def getNumChildren(self):\n        return len(self.children)\n\n    def getChildren(self):\n        return self.children\n\n    def getName(self):\n        return self.nodePath.getName()\n\n    def getPathName(self):\n        return self.pathName\n\n    def getVertexBytes(self):\n        return self.selfVertexBytes + self.childrenVertexBytes\n\n    def getSelfVertexBytes(self):\n        return self.selfVertexBytes",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3605
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class HprScaleInterval(FunctionInterval):\n    # HprScaleInterval counter\n    hprScaleIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, hpr, scale, duration = 0.0,\n                 name = None, other = None):\n        \"\"\"__init__(nodePath, hpr, scale, duration, other, name)\n        \"\"\"\n        # Create function\n        def hprScaleFunc(np=nodePath, hpr=hpr, scale=scale,\n                            other = other):\n            if other:\n                np.setHprScale(other, hpr, scale)\n            else:\n                np.setHprScale(hpr, scale)\n        # Determine name\n        if name is None:\n            name = ('HprScale-%d' %\n                    HprScaleInterval.hprScaleIntervalNum)\n            HprScaleInterval.hprScaleIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, hprScaleFunc, name = name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2915
+  }
+}

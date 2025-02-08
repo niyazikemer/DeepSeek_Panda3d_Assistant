@@ -1,0 +1,9 @@
+{
+  "content": "elif request in self.defaultTransitions.get(FSM.EnumStates.DEFAULT, []):\n                # This is the fallback state that we use whenever no\n                # other trnasition was possible\n                return (request,) + args\n\n            # If self.defaultTransitions is not None, it is an error\n            # to request a direct state transition (capital letter\n            # request) not listed in defaultTransitions and not\n            # handled by an earlier filter.\n            if request[0].isupper():\n                raise RequestDenied(\"%s (from state: %s)\" % (request, self.state))\n\n        # In either case, we quietly ignore unhandled command\n        # (lowercase) requests.\n        assert self.notify.debug(\"%s ignoring request %s from state %s.\" % (self._name, request, self.state))\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2645
+  }
+}

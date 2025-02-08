@@ -1,0 +1,9 @@
+{
+  "content": "self.state may be queried at any time other than during the\n    handling of the enter() and exit() functions.  During these\n    functions, self.state contains the value None (you are not really\n    in any state during the transition).  However, during a transition\n    you *can* query the outgoing and incoming states, respectively,\n    via self.oldState and self.newState.  At other times, self.state\n    contains the name of the current state.\n\n    Initially, the FSM is in state 'Off'.  It does not call enterOff()\n    at construction time; it is simply in Off already by convention.\n    If you need to call code in enterOff() to initialize your FSM\n    properly, call it explicitly in the constructor.  Similarly, when\n    `cleanup()` is called or the FSM is destructed, the FSM transitions\n    back to 'Off' by convention.  (It does call enterOff() at this\n    point, but does not call exitOff().)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2628
+  }
+}

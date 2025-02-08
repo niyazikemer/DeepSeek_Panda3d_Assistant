@@ -1,0 +1,9 @@
+{
+  "content": "if ConfigVariableBool('tk-main-loop', True):\n            # Put Tkinter in charge of the main loop.  It really\n            # seems to like this better; the GUI otherwise becomes\n            # largely unresponsive on Mac OS X unless this is true.\n\n            # Set a timer to run the Panda frame 60 times per second.\n            tkFrameRate = ConfigVariableDouble('tk-frame-rate', 60.0)\n            self.tkDelay = int(1000.0 / tkFrameRate.value)\n            self.tkRoot.after(self.tkDelay, self.__tkTimerCallback)\n\n            # wx is now the main loop, not us any more.\n            self.run = self.tkRun\n            self.taskMgr.run = self.tkRun\n            builtins.run = self.tkRun\n            if self.appRunner:\n                self.appRunner.run = self.tkRun",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5015
+  }
+}

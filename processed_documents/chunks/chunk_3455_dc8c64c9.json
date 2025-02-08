@@ -1,0 +1,9 @@
+{
+  "content": "# Create and return bbox lines\n        lines.create()\n\n        # Make sure bbox is never lit or drawn in wireframe\n        useDirectRenderStyle(lines)\n\n        return lines\n\n    def setBoxColorScale(self, r, g, b, a):\n        if self.lines:\n            self.lines.reset()\n            self.lines = None\n        self.lines = self.createBBoxLines((r, g, b, a))\n        self.show()\n\n    def updateBBoxLines(self):\n        ls = self.lines.lineSegs\n\n        minX = self.min[0]\n        minY = self.min[1]\n        minZ = self.min[2]\n        maxX = self.max[0]\n        maxY = self.max[1]\n        maxZ = self.max[2]\n\n        # Bottom face\n        ls.setVertex(0, minX, minY, minZ)\n        ls.setVertex(1, maxX, minY, minZ)\n        ls.setVertex(2, maxX, maxY, minZ)\n        ls.setVertex(3, minX, maxY, minZ)\n        ls.setVertex(4, minX, minY, minZ)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3455
+  }
+}

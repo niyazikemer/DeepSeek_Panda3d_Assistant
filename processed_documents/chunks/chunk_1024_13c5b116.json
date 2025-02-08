@@ -1,0 +1,9 @@
+{
+  "content": "class SequenceInspector(Inspector):\n    def initializePartsList(self):\n        Inspector.initializePartsList(self)\n        for each in range(len(self.object)):\n            self._partsList.append(each)\n\n    def partNumber(self, partNumber):\n        self.lastPartNumber = partNumber\n        if partNumber == 0:\n            return self.object\n        index = self.privatePartNumber(partNumber)\n        if isinstance(index, int):\n            return self.object[index]\n        else:\n            return getattr(self.object, index)\n\n\nclass SliceInspector(Inspector):\n    def namedParts(self):\n        return ['start', 'stop', 'step']\n\n\n### Initialization\ninitializeInspectorMap()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1024
+  }
+}

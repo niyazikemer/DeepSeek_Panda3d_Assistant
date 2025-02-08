@@ -1,0 +1,9 @@
+{
+  "content": "def fadeOutActive(self):\n        return self.fade and self.fade.getColor()[3] > 0\n\n    def fadeScreen(self, alpha=0.5):\n        \"\"\"\n        Put a semitransparent screen over the camera plane\n        to darken out the world. Useful for drawing attention to\n        a dialog box for instance\n        \"\"\"\n        #print \"transitiosn: fadeScreen\"\n        self.noTransitions()\n        self.loadFade()\n\n        self.fade.reparentTo(ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX)\n        self.fade.setColor(self.alphaOn[0],\n                           self.alphaOn[1],\n                           self.alphaOn[2],\n                           alpha)\n\n    def fadeScreenColor(self, color):\n        \"\"\"\n        Put a semitransparent screen over the camera plane\n        to darken out the world. Useful for drawing attention to\n        a dialog box for instance\n        \"\"\"\n        #print \"transitiosn: fadeScreenColor\"\n        self.noTransitions()\n        self.loadFade()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4294
+  }
+}

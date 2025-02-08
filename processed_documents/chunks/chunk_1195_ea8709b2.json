@@ -1,0 +1,9 @@
+{
+  "content": "def playbackTask(self, state):\n        time = ClockObject.getGlobalClock().getFrameTime()\n        dTime = self.playbackSF * (time - state.lastTime)\n        state.lastTime = time\n        if self.loopPlayback:\n            cTime = (state.currentTime + dTime) % self.maxT\n        else:\n            cTime = state.currentTime + dTime\n        # Stop task if not looping and at end of curve\n        # Or if refining curve and past recordStop\n        if self.recordingType.get() == 'Refine' and cTime > self.recordStop:\n            # Go to recordStop\n            self.getWidget('Playback', 'Time').set(self.recordStop)\n            # Then stop playback\n            self.stopPlayback()\n            # Also kill record task\n            self.toggleRecordVar()\n            return Task.done\n        elif self.loopPlayback == 0 and cTime > self.maxT:\n            # Go to maxT\n            self.getWidget('Playback', 'Time').set(self.maxT)\n            # Then stop playback\n            self.stopPlayback()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1195
+  }
+}

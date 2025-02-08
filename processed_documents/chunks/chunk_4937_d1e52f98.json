@@ -1,0 +1,9 @@
+{
+  "content": "buttonThrowers = []\n        pointerWatcherNodes = []\n        for i in range(win.getNumInputDevices()):\n            name = win.getInputDeviceName(i)\n            mk = self.dataRoot.attachNewNode(MouseAndKeyboard(win, i, name))\n            mw = mk.attachNewNode(MouseWatcher(\"watcher%s\" % (i)))\n\n            if win.getSideBySideStereo():\n                # If the window has side-by-side stereo enabled, then\n                # we should constrain the MouseWatcher to the window's\n                # DisplayRegion.  This will enable the MouseWatcher to\n                # track the left and right halves of the screen\n                # individually.\n                mw.node().setDisplayRegion(win.getOverlayDisplayRegion())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4937
+  }
+}

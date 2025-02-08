@@ -1,0 +1,9 @@
+{
+  "content": "def sendDeleteEvent(self):\n        # this is called just before we get deleted\n        delEvent = self.getDeleteEvent()\n        if delEvent:\n            messenger.send(delEvent)\n\n    def delete(self):\n        \"\"\"\n        Inheritors should redefine this to take appropriate action on delete\n        Note that this may be called multiple times if a class inherits\n        from DistributedObjectUD more than once.\n        \"\"\"\n        self.__generates -= 1\n        if self.__generates < 0:\n            self.notify.debug('DistributedObjectUD: delete() called more times than generate()')\n        if self.__generates == 0:\n            # prevent this code from executing multiple times\n            if self.air is not None:\n                # self.doId may not exist.  The __dict__ syntax works around that.\n                assert self.notify.debug('delete(): %s' % (self.__dict__.get(\"doId\")))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5496
+  }
+}

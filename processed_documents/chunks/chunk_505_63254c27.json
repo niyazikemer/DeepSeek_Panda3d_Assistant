@@ -1,0 +1,9 @@
+{
+  "content": "def selectObject(self, nodePath, fLEPane=0):\n        obj = self.findObjectByNodePath(nodePath)\n        if obj is None:\n            return\n        self.selectObjectCB(obj, fLEPane)\n\n    def selectObjectCB(self, obj, fLEPane):\n        self.currNodePath = obj[OG.OBJ_NP]\n        self.objectsLastXform[obj[OG.OBJ_UID]] = Mat4(self.currNodePath.getMat())\n        # [gjeon] to connect transform UI with nodepath's transform\n        self.spawnUpdateObjectUITask()\n        self.updateObjectPropertyUI(obj)\n        #import pdb;pdb.set_trace()\n        if fLEPane == 0:\n            self.editor.ui.sceneGraphUI.select(obj[OG.OBJ_UID])\n\n        if not obj[OG.OBJ_DEF].movable:\n            if base.direct.widget.fActive:\n                base.direct.widget.toggleWidget()\n\n    def updateObjectPropertyUI(self, obj):\n        objDef = obj[OG.OBJ_DEF]\n        objProp = obj[OG.OBJ_PROP]\n        self.editor.ui.objectPropertyUI.updateProps(obj, objDef.movable)\n        self.editor.fNeedToSave = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 505
+  }
+}

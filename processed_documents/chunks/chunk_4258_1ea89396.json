@@ -1,0 +1,9 @@
+{
+  "content": "for index in range(startIndex, endIndex):\n                        if numToSkip:\n                            numToSkip -= 1\n                            continue\n                        obj = objs[index]\n                        if hasattr(obj, '__dict__'):\n                            if not objAlreadyRepresented:\n                                cycleBySyntax += '%s' % obj.__class__.__name__\n                            cycleBySyntax += '.'\n                            # skip past the instance dict and get the member obj\n                            numToSkip += 1\n                            member = objs[index+2]\n                            for key, value in obj.__dict__.items():\n                                if value is member:\n                                    break\n                                yield None\n                            else:\n                                key = '<unknown member name>'\n                            cycleBySyntax += '%s' % key",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4258
+  }
+}

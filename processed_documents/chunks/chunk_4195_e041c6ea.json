@@ -1,0 +1,9 @@
+{
+  "content": "def restart(self):\n        if self.eventQueue is None:\n            self.eventQueue = EventQueue.getGlobalEventQueue()\n\n        if self.eventHandler is None:\n            if self.eventQueue == EventQueue.getGlobalEventQueue():\n                # If we are using the global event queue, then we also\n                # want to use the global event handler.\n                self.eventHandler = EventHandler.getGlobalEventHandler()\n            else:\n                # Otherwise, we need our own event handler.\n                self.eventHandler = EventHandler(self.eventQueue)\n\n        taskMgr.add(self.eventLoopTask, 'eventManager')\n\n    def shutdown(self):\n        taskMgr.remove('eventManager')\n\n        # Flush the event queue.  We do this after removing the task\n        # since the task removal itself might also fire off an event.\n        if self.eventQueue is not None:\n            self.eventQueue.clear()\n\n    do_events = doEvents\n    process_event = processEvent",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4195
+  }
+}

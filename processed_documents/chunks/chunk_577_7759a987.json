@@ -1,0 +1,9 @@
+{
+  "content": "def addLayer(self):\n        #import pdb;set_trace()\n        count = self.llist.GetItemCount()\n        i = 1\n        text = \"Layer%s\"%(count + i)\n        found = self.findLabel(text)\n        while found:\n            i = i + 1\n            text = \"Layer%s\"%(count + i)\n            found = self.findLabel(text)\n\n        self.layersDataDictNextKey = self.layersDataDictNextKey + 1\n        self.addLayerEntry(text, self.layersDataDictNextKey)\n\n    def deleteLayer(self):\n        index = self.llist.GetFirstSelected()\n        if index != -1:\n            key = self.llist.GetItemData(index)\n            del self.layersDataDict[key]\n            item = self.llist.DeleteItem(index)\n\n    def renameLayer(self):\n        index = self.llist.GetFirstSelected()\n        if index != -1:\n            self.llist.SetItemState(index, wx.LIST_STATE_SELECTED, wx.LIST_STATE_SELECTED)\n            self.llist.SetItemState(index, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 577
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "elif FSM.EnumStates.ANY in self.defaultTransitions.get(self.state, []):\n                # Whenever we have a '*' as our to transition, we allow\n                # to transit to any other state\n                return (request,) + args\n\n            elif request in self.defaultTransitions.get(FSM.EnumStates.ANY, []):\n                # If the requested state is in the default transitions\n                # from any state list, we also alow to transit to the\n                # new state\n                return (request,) + args\n\n            elif FSM.EnumStates.ANY in self.defaultTransitions.get(FSM.EnumStates.ANY, []):\n                # This is like we had set the defaultTransitions to None.\n                # Any state can transit to any other state\n                return (request,) + args",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2644
+  }
+}

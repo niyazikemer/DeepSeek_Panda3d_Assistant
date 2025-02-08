@@ -1,0 +1,9 @@
+{
+  "content": "def _getDestroyEvent(self):\n        # sent when leak detector is about to be destroyed\n        return 'cldDestroy-%s' % self._serialNum\n\n    def getLeakEvent(self):\n        # sent when a leak is detected\n        # passes description string as argument\n        return 'containerLeakDetected-%s' % self._serialNum\n\n    @classmethod\n    def addPrivateObj(cls, obj):\n        cls.PrivateIds.add(id(obj))\n\n    @classmethod\n    def removePrivateObj(cls, obj):\n        cls.PrivateIds.remove(id(obj))\n\n    def _getCheckTaskName(self):\n        return 'checkForLeakingContainers-%s' % self._serialNum\n\n    def _getPruneTaskName(self):\n        return 'pruneLeakingContainerRefs-%s' % self._serialNum\n\n    def getContainerIds(self):\n        return list(self._id2ref.keys())\n\n    def getContainerByIdGen(self, id, **kwArgs):\n        # return a generator to look up a container\n        return self._id2ref[id].getContainerGen(**kwArgs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4536
+  }
+}

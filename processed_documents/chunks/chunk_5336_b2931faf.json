@@ -1,0 +1,9 @@
+{
+  "content": "class StagedObject:\n    \"\"\"\n    Use this class as a mixin to provide an interface for onStage/offStage objects.\n\n    The idea here is that a DistributedObject could be present and active due to\n    simple visibility, but we want to hide or otherwise disable it for some reason.\n    \"\"\"\n\n    UNKNOWN = -1\n    OFF     = 0\n    ON      = 1\n\n    def __init__(self, initState = UNKNOWN):\n        \"\"\"\n        Only sets the initial state of this object.  This will not\n        call any \"handle\" functions.\n        \"\"\"\n        self.__state = initState\n\n    def goOnStage(self, *args, **kw):\n        \"\"\"\n        If a stage switch is needed, the correct \"handle\" function\n        will be called.  Otherwise, nothing happens.\n        \"\"\"\n        # This is the high level function that clients of\n        # your class should call to set the on/off stage state.\n\n        if not self.isOnStage():\n            self.handleOnStage(*args, **kw)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_304",
+    "parent": "processed_documents/context_documents/9b325622_StagedObject.json",
+    "chunk_number": 5336
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if self.fScaling1D == 0 and\\\n           self.fScaling3D == 0:\n\n            # Check for a widget hit point\n            entry = ShowBaseGlobal.direct.iRay.pickWidget(skipFlags = DG.SKIP_WIDGET)\n            # Did we hit a widget?\n            if entry:\n                # Yes!\n                self.hitPt.assign(entry.getSurfacePoint(entry.getFromNodePath()))\n                self.hitPtDist = Vec3(self.hitPt).length()\n                # Constraint determined by nodes name\n                self.constraint = entry.getIntoNodePath().getName()\n            else:\n                # Nope, off the widget, no constraint\n                self.constraint = None\n                # [gjeon] to prohibit unwanted object movement while direct window doesn't have focus\n                if ShowBaseGlobal.direct.cameraControl.useMayaCamControls and not ShowBaseGlobal.direct.gotControl(modifiers) \\\n                   and not self.fAllowMarquee:\n                    return\n        else:\n            entry = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3195
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def resetToZero(self):\n        # This flag forces self.currT to be updated to new value\n        self.fOneShot = 1\n        self.goToT(0)\n\n    def resetToEnd(self):\n        # This flag forces self.currT to be updated to new value\n        self.fOneShot = 1\n        self.goToT(self.duration)\n\n    def nextFrame(self):\n        \"\"\"\n        There needed to be a better way to select an exact frame number\n        as the control slider doesn't have the desired resolution\n        \"\"\"\n        self.fOneShot = 1\n        self.goToT((self.currT+(1/self.fps))%self.duration)\n\n    def previousFrame(self):\n        \"\"\"\n        There needed to be a better way to select an exact frame number\n        as the control slider doesn't have the desired resolution\n        \"\"\"\n        self.fOneShot = 1\n        self.goToT((self.currT-(1/self.fps))%self.duration)\n\n\n\"\"\"\n# EXAMPLE CODE\nfrom direct.actor import Actor\nimport AnimPanel",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1008
+  }
+}

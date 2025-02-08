@@ -1,0 +1,9 @@
+{
+  "content": "# we found a cycle! mark it down and move on to the next refId\n                    normCandidateCycle = self._getNormalizedCycle(candidateCycle)\n                    normCandidateCycleTuple = tuple(normCandidateCycle)\n                    if not normCandidateCycleTuple in uniqueCycleSets:\n                        # cycles with no instances that define __del__ will be\n                        # cleaned up by Python\n                        if (not self._args.delOnly) or numDelInstances >= 1:\n                            if self.notify.getDebug():\n                                print('  FOUND: ', normCandidateCycle + [normCandidateCycle[0],])\n                            cycles.append(normCandidateCycle + [normCandidateCycle[0],])\n                            uniqueCycleSets.add(normCandidateCycleTuple)\n                elif refId in candidateCycle:\n                    pass\n                elif refId is not None:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4277
+  }
+}

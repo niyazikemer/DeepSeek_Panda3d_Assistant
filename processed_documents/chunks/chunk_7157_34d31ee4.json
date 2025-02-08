@@ -1,0 +1,9 @@
+{
+  "content": "python\n\ngeom = BulletHelper.makeGeomFromFaces(node)\nvisNode = GeomNode('TetraVisual')\nvisNode.addGeom(geom)\nvisNP = softNP.attachNewNode(visNode)\nbodyNode.linkGeom(geom)\n\ncpp\n\nTODO\n\nThe second way is to use an already existing model - maybe the model which has been used to calculate the tetrahedron mesh - and link it to the soft body, like the following code snippet shows. Panda3D will compare the vertices of the model with the nodes of the soft body, and link each vertex to the closest soft body node.\n\npython\n\nvisNP = loader.loadModel('models/cube.egg')\nvisNP.reparentTo(softNP)\n\ngeom = visNP \\\n    .findAllMatches('**/+GeomNode').getPath(0).node() \\\n    .modifyGeom(0)\nbodyNode.linkGeom(geom)\n\ncpp\n\nTODO",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_596",
+    "parent": "processed_documents/context_documents/44951a7f_af197370_softbody-tetrahedron.json",
+    "chunk_number": 7157
+  }
+}

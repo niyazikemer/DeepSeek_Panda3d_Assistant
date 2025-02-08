@@ -1,0 +1,9 @@
+{
+  "content": "file.write((targ + '.emitter.setOffsetForce(Vec3(%.4f, %.4f, %.4f))\\n' % (oForce[0], oForce[1], oForce[2])))\n        oForce = self.emitter.getExplicitLaunchVector()\n        file.write((targ + '.emitter.setExplicitLaunchVector(Vec3(%.4f, %.4f, %.4f))\\n' % (oForce[0], oForce[1], oForce[2])))\n        orig = self.emitter.getRadiateOrigin()\n        file.write((targ + '.emitter.setRadiateOrigin(Point3(%.4f, %.4f, %.4f))\\n' % (orig[0], orig[1], orig[2])))\n        if self.emitterType == \"BoxEmitter\":\n            file.write('# Box parameters\\n')\n            bound = self.emitter.getMinBound()\n            file.write((targ + '.emitter.setMinBound(Point3(%.4f, %.4f, %.4f))\\n' % (bound[0], bound[1], bound[2])))\n            bound = self.emitter.getMaxBound()\n            file.write((targ + '.emitter.setMaxBound(Point3(%.4f, %.4f, %.4f))\\n' % (bound[0], bound[1], bound[2])))\n        elif self.emitterType == \"DiscEmitter\":\n            file.write('# Disc parameters\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1293
+  }
+}

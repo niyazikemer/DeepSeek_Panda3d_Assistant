@@ -1,0 +1,9 @@
+{
+  "content": "dc.SetPen(wx.Pen(\"brown\", 1))\n                        dc.DrawLine(X1, Y1, X, Y)\n\n    def DrawSelectRec(self, dc):\n        if self._selectRec is True:\n            dc.SetPen(wx.Pen(\"navy\", 1))\n            dc.SetBrush(wx.Brush(\"navy\"))\n            ## dc.SetLogicalFunction(wx.AND)\n            dc.DrawLine(self.pos[0], self.pos[1], self.pos[0], self.newPos[1])\n            dc.DrawLine(self.pos[0], self.pos[1], self.newPos[0], self.pos[1])\n            dc.DrawLine(self.newPos[0], self.newPos[1], self.pos[0], self.newPos[1])\n            dc.DrawLine(self.newPos[0], self.newPos[1], self.newPos[0], self.pos[1])\n\n    def OnSize(self, evt):\n        self.InitBuffer()\n\n    def OnLeftDown(self, evt):\n        point = (evt.GetX(), evt.GetY())\n\n        if point[1] >= 0.0 and point[1] <= float(self.h):\n            if point[0] >= 0.0 and point[0] <= float(self.w):\n                self._mouseIn = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 267
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "If lodName is None or omitted, all LOD's are returned.\n        \"\"\"\n\n        if partName is None and self.__subpartsComplete:\n            # If we have the __subpartsComplete flag, and no partName\n            # is specified, it really means to play the animation on\n            # all subparts, not on the overall Actor.\n            partName = list(self.__subpartDict.keys())\n\n        controls = []\n        # build list of lodNames and corresponding animControlDicts\n        # requested.\n        if lodName is None or self.mergeLODBundles:\n            # Get all LOD's\n            animControlDictItems = self.__animControlDict.items()\n        else:\n            partDict = self.__animControlDict.get(lodName)\n            if partDict is None:\n                Actor.notify.warning(\"couldn't find lod: %s\" % (lodName))\n                animControlDictItems = []\n            else:\n                animControlDictItems = [(lodName, partDict)]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3129
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Separate this row into (l, r) tuples.\n            bm = self.bitmasks[b]\n            if bm == lastBitmask:\n                # This row is exactly the same as the row below; no\n                # need to reexamine.\n                b += 1\n                continue\n\n            lastBitmask = bm\n\n            tuples = self.findEmptyRuns(bm)\n            newTuples = tuples.difference(lastTuples)\n\n            for l, r in newTuples:\n                # Is this region wide enough?\n                if r - l < w:\n                    continue\n\n                # Is it tall enough?\n                r = l + w\n                mask = BitArray.range(l, r - l)\n\n                t = b + 1\n                while t < b + h and \\\n                      (t >= len(self.bitmasks) or (self.bitmasks[t] & mask).isZero()):\n                    t += 1\n\n                if t < b + h:\n                    # Not tall enough.\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2995
+  }
+}

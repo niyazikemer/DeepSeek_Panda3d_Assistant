@@ -1,0 +1,9 @@
+{
+  "content": "if (inspect && isatty((int)fileno(stdin)))\n        sts = PyRun_AnyFile(stdin, \"<stdin>\") != 0;\n\n#ifdef MS_WINDOWS\n    PyWinFreeze_ExeTerm();\n#endif\n    Py_Finalize();\n\n#if PY_MAJOR_VERSION >= 3\nerror:\n    if (argv_copy2) {\n        for (i = 0; i < argc; i++) {\n#if PY_MINOR_VERSION >= 4\n            PyMem_RawFree(argv_copy2[i]);\n#else\n            PyMem_Free(argv_copy2[i]);\n#endif\n        }\n    }\n#endif\n    return sts;\n}\n\"\"\"\n\n# The code from frozen_dllmain.c in the Python source repository.\n# Windows only.\nfrozenDllMainCode = \"\"\"\n#include <windows.h>\n\nstatic char *possibleModules[] = {\n    \"pywintypes\",\n    \"pythoncom\",\n    \"win32ui\",\n    NULL,\n};\n\nBOOL CallModuleDllMain(char *modName, DWORD dwReason);",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2050
+  }
+}

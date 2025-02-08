@@ -1,0 +1,9 @@
+{
+  "content": "self.ReParent(item, newItem)\n            self.Delete(item)\n\n    def onBeginDrag(self, event):\n        item = event.GetItem()\n\n        if item != self.GetRootItem(): # prevent dragging root item\n            text = self.GetItemText(item)\n            print(\"Starting drag'n'drop with %s...\" % repr(text))\n\n            tdo = wx.TextDataObject(text)\n            tds = wx.DropSource(self)\n            tds.SetData(tdo)\n            tds.DoDragDrop(True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 312
+  }
+}

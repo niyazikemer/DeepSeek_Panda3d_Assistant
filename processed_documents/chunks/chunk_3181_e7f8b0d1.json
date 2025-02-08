@@ -1,0 +1,9 @@
+{
+  "content": "from panda3d.core import (\n    AmbientLight,\n    DirectionalLight,\n    LightAttrib,\n    Material,\n    NodePath,\n    PerspectiveLens,\n    PointLight,\n    Spotlight,\n    VBase4,\n)\nfrom direct.showbase.MessengerGlobal import messenger\n\n\nclass DirectLight(NodePath):\n    def __init__(self, light, parent):\n        # Initialize the superclass\n        NodePath.__init__(self)\n        # Record light and name\n        self.light = light\n\n        # Attach node to self\n        self.assign(parent.attachNewNode(self.light))\n\n    def getName(self):\n        return self.light.getName()\n\n    def getLight(self):\n        return self.light",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_178",
+    "parent": "processed_documents/context_documents/94320a32_DirectLights.json",
+    "chunk_number": 3181
+  }
+}

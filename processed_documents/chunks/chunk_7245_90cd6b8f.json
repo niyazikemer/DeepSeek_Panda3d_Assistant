@@ -1,0 +1,9 @@
+{
+  "content": "Weak Pointer\n\nA weak pointer stores a reference to an object without incrementing its reference count. In this respect it is just like a regular C++ pointer, except that weak pointers have extra advantages: they can know when the underlying object has been destructed.\n\nWeak pointers are implemented by WeakPointerTo<T> and WeakConstPointerTo<T>, abbreviated to WPT(T) and WCPT(T), respectively. They work just like regular pointers, but be careful not to dereference it if it may have already been deleted! To see if it has been deleted, call ptr.was_deleted(). The only thread safe way to access its value is to call ptr.lock(), which returns nullptr if the pointer has been deleted (or is about to be), and otherwise returns a regular reference-counted PointerTo that ensures you can access it for as long as you hold it. This is a common idiom to access a weak pointer:\n\nif (auto ptr = weak_ptr.lock()) {\n  // Safely use ptr in here.\n} else {\n  // The pointer has been deleted.\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_614",
+    "parent": "processed_documents/context_documents/34116fa8_637658a3_reference-counting.json",
+    "chunk_number": 7245
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def index(self, ival):\n        # Returns the position of the indicated interval within the list.\n        return self.ivals.index(ival)\n\n    def insert(self, index, ival):\n        # Inserts the given interval into the middle of the list.\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals.insert(index, ival)\n        self.__ivalsDirty = 1\n        assert self.validateComponent(ival)\n\n    def pop(self, index = None):\n        # Returns element index (or the last element) and removes it\n        # from the list.\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.__ivalsDirty = 1\n        if index is None:\n            return self.ivals.pop()\n        else:\n            return self.ivals.pop(index)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2874
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.eventQueue = eventQueue\n        self.eventHandler = None\n\n        self._wantPstats = ConfigVariableBool('pstats-eventmanager', False)\n\n    def doEvents(self):\n        \"\"\"\n        Process all the events on the C++ event queue\n        \"\"\"\n        # use different methods for handling events with and without pstats tracking\n        # for efficiency\n        if self._wantPstats:\n            processFunc = self.processEventPstats\n        else:\n            processFunc = self.processEvent\n        isEmptyFunc = self.eventQueue.isQueueEmpty\n        dequeueFunc = self.eventQueue.dequeueEvent\n        while not isEmptyFunc():\n            processFunc(dequeueFunc())\n\n    def eventLoopTask(self, task):\n        \"\"\"\n        Process all the events on the C++ event queue\n        \"\"\"\n        self.doEvents()\n        messenger.send(\"event-loop-done\")\n        return task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4187
+  }
+}

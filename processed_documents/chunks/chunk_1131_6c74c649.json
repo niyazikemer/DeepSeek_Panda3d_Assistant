@@ -1,0 +1,9 @@
+{
+  "content": "# Record button\n        mainFrame = tk.Frame(interior, relief = tk.SUNKEN, borderwidth = 2)\n        frame = tk.Frame(mainFrame)\n        # Active node path\n        # Button to select active node path\n        widget = self.createButton(frame, 'Recording', 'Node Path:',\n                                   'Select Active Mopath Node Path',\n                                   lambda s = self: base.direct.select(s.nodePath),\n                                   side = tk.LEFT, expand = 0)\n        widget['relief'] = tk.FLAT\n        self.nodePathMenu = Pmw.ComboBox(\n            frame, entry_width = 20,\n            selectioncommand = self.selectNodePathNamed,\n            scrolledlist_items = self.nodePathNames)\n        self.nodePathMenu.selectitem('camera')\n        self.nodePathMenuEntry = (\n            self.nodePathMenu.component('entryfield_entry'))\n        self.nodePathMenuBG = (\n            self.nodePathMenuEntry.configure('background')[3])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1131
+  }
+}

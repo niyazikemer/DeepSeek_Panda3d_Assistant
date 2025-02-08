@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Contains the ObjectPool utility class.\"\"\"\n\n__all__ = ['Diff', 'ObjectPool']\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.showbase.PythonUtil import invertDictLossless, makeList, safeRepr, itype\nfrom direct.showbase.PythonUtil import getNumberedTypedString, getNumberedTypedSortedString\nimport gc\n\n\nclass Diff:\n    def __init__(self, lost, gained):\n        self.lost = lost\n        self.gained = gained\n\n    def printOut(self, full=False):\n        print('lost %s objects, gained %s objects' % (len(self.lost), len(self.gained)))\n        print('\\n\\nself.lost\\n')\n        print(self.lost.typeFreqStr())\n        print('\\n\\nself.gained\\n')\n        print(self.gained.typeFreqStr())\n        if full:\n            self.gained.printObjsByType()\n            print('\\n\\nGAINED-OBJECT REFERRERS\\n')\n            self.gained.printReferrers(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_276",
+    "parent": "processed_documents/context_documents/8fef47ef_ObjectPool.json",
+    "chunk_number": 4791
+  }
+}

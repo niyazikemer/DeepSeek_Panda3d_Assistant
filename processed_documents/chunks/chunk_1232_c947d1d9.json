@@ -1,0 +1,9 @@
+{
+  "content": "def makeCameraWindow(self):\n        # First, we need to make a new layer on the window.\n        chan = base.win.getChannel(0)\n        self.cLayer = chan.makeLayer(1)\n        self.layerIndex = 1\n        self.cDr = self.cLayer.makeDisplayRegion(0.6, 1.0, 0, 0.4)\n        self.cDr.setClearDepthActive(1)\n        self.cDr.setClearColorActive(1)\n        self.cDr.setClearColor(Vec4(0))\n\n        # It gets its own camera\n        self.cCamera = render.attachNewNode('cCamera')\n        self.cCamNode = Camera('cCam')\n        self.cLens = PerspectiveLens()\n        self.cLens.setFov(40, 40)\n        self.cLens.setNear(0.1)\n        self.cLens.setFar(100.0)\n        self.cCamNode.setLens(self.cLens)\n        self.cCamNode.setScene(render)\n        self.cCam = self.cCamera.attachNewNode(self.cCamNode)\n\n        self.cDr.setCamera(self.cCam)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1232
+  }
+}

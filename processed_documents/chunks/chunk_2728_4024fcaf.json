@@ -1,0 +1,9 @@
+{
+  "content": "self.state = CInterval.SStarted\n        #self.particleEffect.enable()\n        #if self.particleEffect.renderParent is not None:\n        #    for p in self.particleEffect.particlesDict.values():\n        #        p.setRenderParent(self.particleEffect.renderParent.node())\n        for f in self.particleEffect.forceGroupDict.values():\n            f.enable()\n        #for p in self.particleEffect.particlesDict.values():\n        #    p.enable()\n        #self.particleEffect.fEnabled = 1\n        self.__step(t-self.currT)\n        self.currT = t\n\n    def privStep(self, t):\n        if self.state == CInterval.SPaused:\n            # Restarting from a pause.\n            self.privInitialize(t)\n        else:\n            self.state = CInterval.SStarted\n            self.__step(t-self.currT)\n            self.currT = t\n\n    def privFinalize(self):\n        self.__step(self.getDuration()-self.currT)\n        self.currT = self.getDuration()\n\n        self.state = CInterval.SFinal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_153",
+    "parent": "processed_documents/context_documents/010bb77d_TestInterval.json",
+    "chunk_number": 2728
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "shortname = command.distribution.get_name()\n\n    # Create the .nsi installer script\n    nsifile = p3d.Filename(build_cmd.build_base, shortname + \".nsi\")\n    nsifile.unlink()\n    nsi = open(nsifile.to_os_specific(), \"w\")\n\n    # Some global info\n    nsi.write('Name \"%s\"\\n' % shortname)\n    nsi.write('OutFile \"%s\"\\n' % os.path.join(command.dist_dir, basename+'.exe'))\n    if is_64bit:\n        nsi.write('InstallDir \"$PROGRAMFILES64\\\\%s\"\\n' % shortname)\n    else:\n        nsi.write('InstallDir \"$PROGRAMFILES\\\\%s\"\\n' % shortname)\n    nsi.write('SetCompress auto\\n')\n    nsi.write('SetCompressor lzma\\n')\n    nsi.write('ShowInstDetails nevershow\\n')\n    nsi.write('ShowUninstDetails nevershow\\n')\n    nsi.write('InstType \"Typical\"\\n')\n\n    # Tell Vista that we require admin rights\n    nsi.write('RequestExecutionLevel admin\\n')\n    nsi.write('\\n')\n\n    # TODO offer run and desktop shortcut after we figure out how to deal\n    # with multiple apps",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1908
+  }
+}

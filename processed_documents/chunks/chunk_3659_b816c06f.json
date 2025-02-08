@@ -1,0 +1,9 @@
+{
+  "content": "# Initialize the toplevel widget\n        Pmw.MegaToplevel.__init__(self, parent)\n\n        # Create the components\n        interior = self.interior()\n\n        # The Menu Bar\n        self.balloon = Pmw.Balloon()\n        menubar = self.createcomponent('menubar', (), None,\n                                       Pmw.MenuBar, (interior,),\n                                       balloon = self.balloon)\n        menubar.pack(fill=tk.X)\n\n        # ValuatorGroup Menu\n        menubar.addmenu('Valuator Group', 'Valuator Group Operations')\n        menubar.addmenuitem(\n            'Valuator Group', 'command', 'Reset the Valuator Group panel',\n            label = 'Reset',\n            command = lambda s = self: s.reset())\n\n        if self['fDestroy']:\n            dismissCommand = self.destroy\n        else:\n            dismissCommand = self.withdraw",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3659
+  }
+}

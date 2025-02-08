@@ -1,0 +1,9 @@
+{
+  "content": "# Excluding a parent module also excludes all its\n        # (non-explicit) children, unless the parent has allowChildren\n        # set.\n\n        # Walk through the list in sorted order, so we reach parents\n        # before children.\n        excludeDict = {}\n        implicitParentDict = {}\n        includes = []\n        autoIncludes = []\n        origToNewName = {}\n        for newName, mdef in sorted(self.modules.items()):\n            moduleName = mdef.moduleName\n            origToNewName[moduleName] = newName\n            if mdef.implicit and '.' in newName:\n                # For implicit modules, check if the parent is excluded.\n                parentName, baseName = newName.rsplit('.', 1)\n                if parentName in excludeDict:\n                    mdef = excludeDict[parentName]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2084
+  }
+}

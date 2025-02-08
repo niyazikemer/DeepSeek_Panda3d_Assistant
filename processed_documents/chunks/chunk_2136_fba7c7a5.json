@@ -1,0 +1,9 @@
+{
+  "content": "if (cputype & 0x1000000) != 0:\n                    bitnesses.add(64)\n                else:\n                    bitnesses.add(32)\n            return tuple(bitnesses)\n\n        elif data[:4] in (b'\\xCA\\xFE\\xBA\\xBF', b'\\xBF\\xBA\\xFE\\xCA'):\n            # Universal binary with 64-bit offsets.\n            num_fat, = struct.unpack_from('>I', data, 4)\n            bitnesses = set()\n            ptr = 8\n            for i in range(num_fat):\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack_from('>QQQQQ', data, ptr)\n                ptr += 40\n\n                if (cputype & 0x1000000) != 0:\n                    bitnesses.add(64)\n                else:\n                    bitnesses.add(32)\n            return tuple(bitnesses)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2136
+  }
+}

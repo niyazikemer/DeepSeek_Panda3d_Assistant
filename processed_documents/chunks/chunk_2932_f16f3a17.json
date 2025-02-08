@@ -1,0 +1,9 @@
+{
+  "content": "def __calcPos(self, t):\n        return self.parabola.calcPoint(t)\n\n    def privStep(self, t):\n        self.node.setFluidPos(self.__calcPos(t))\n        Interval.privStep(self, t)\n        if self.collNode and self.collNode.getNumSolids() > 0:\n            csolid = self.collNode.modifySolid(0)\n            csolid.setT1(csolid.getT2())\n            csolid.setT2(t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2932
+  }
+}

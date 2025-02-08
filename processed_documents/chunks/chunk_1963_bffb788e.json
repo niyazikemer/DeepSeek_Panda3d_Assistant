@@ -1,0 +1,9 @@
+{
+  "content": "manifest = ET.Element('manifest')\n        manifest.set('xmlns:android', 'http://schemas.android.com/apk/res/android')\n        manifest.set('package', self.application_id)\n        manifest.set('android:versionCode', str(int(self.android_version_code)))\n        manifest.set('android:versionName', version)\n        manifest.set('android:installLocation', 'auto')\n\n        uses_sdk = ET.SubElement(manifest, 'uses-sdk')\n        uses_sdk.set('android:minSdkVersion', str(int(self.android_min_sdk_version)))\n        uses_sdk.set('android:targetSdkVersion', str(int(self.android_target_sdk_version)))\n        if self.android_max_sdk_version:\n            uses_sdk.set('android:maxSdkVersion', str(int(self.android_max_sdk_version)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1963
+  }
+}

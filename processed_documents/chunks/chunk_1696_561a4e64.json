@@ -1,0 +1,9 @@
+{
+  "content": "for server in serverList:\n            self.serverList[server].sendNamedMovementDone()\n\n    def redoSortedPriorities(self):\n        self.sortedControlMappings = sorted(\n            [self.controlPriorities[key], key] for key in self.controlMappings\n        )\n\n    def moveObject(self, nodePath, object, serverList, offset, hasColor = True):\n        self.notify.debug('moving object '+object)\n        xyz = nodePath.getPos(render) + offset\n        hpr = nodePath.getHpr(render)\n        scale = nodePath.getScale(render)\n        hidden = nodePath.isHidden()\n        if hasColor:\n            color = nodePath.getColor()\n        else:\n            color = [1,1,1,1]\n        for server in serverList:\n            self.serverList[server].sendMoveNamedObject(xyz,hpr,scale,color,hidden,object)\n\n    def moveCameraTask(self, task):\n        self.moveCamera(\n            base.camera.getPos(render),\n            base.camera.getHpr(render))\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1696
+  }
+}

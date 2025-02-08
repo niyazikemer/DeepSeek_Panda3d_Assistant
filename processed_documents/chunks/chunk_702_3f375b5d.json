@@ -1,0 +1,9 @@
+{
+  "content": "saveData = self.editor.objectMgr.getSaveData()\n            for data in saveData:\n                f.write(data)\n                f.write('\\n')\n            saveDataLayers = self.editor.ui.layerEditorUI.getSaveData()\n            for data in saveDataLayers:\n                f.write(data)\n                f.write('\\n')\n            f.close()\n            self.editor.updateStatusReadout('Sucessfully saved to %s'%fileName)\n            self.editor.fNeedToSave = False\n        except IOError:\n            print('failed to save %s'%fileName)\n            if f:\n                f.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_52",
+    "parent": "processed_documents/context_documents/10b6518e_FileMgr.json",
+    "chunk_number": 702
+  }
+}

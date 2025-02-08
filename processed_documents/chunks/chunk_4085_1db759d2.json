@@ -1,0 +1,9 @@
+{
+  "content": "if self.earlyEventSphere:\n                    # If we want to trigger the events at the same\n                    # time as we intersect walls (e.g. Toontown, for\n                    # backward compatibility issues), add the event\n                    # sphere to the main traverser.  This allows us to\n                    # hit door triggers that are just slightly behind\n                    # the door itself.\n                    self.cTrav.addCollider(self.cEventSphereNodePath, self.event)\n                else:\n                    # Normally, we'd rather trigger the events after\n                    # the pusher has had a chance to fix up our\n                    # position, so we never trigger things that are\n                    # behind other polygons.\n                    base.shadowTrav.addCollider(self.cEventSphereNodePath, self.event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4085
+  }
+}

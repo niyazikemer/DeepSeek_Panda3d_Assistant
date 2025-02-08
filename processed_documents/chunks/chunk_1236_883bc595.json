@@ -1,0 +1,9 @@
+{
+  "content": "def birthLitter(self):\n        for p in self.particlesDict.values():\n            p.birthLitter()\n\n    def cleanup(self):\n        self.removeNode()\n        self.disable()\n        if self.__isValid():\n            for f in self.forceGroupDict.values():\n                f.cleanup()\n            for p in self.particlesDict.values():\n                p.cleanup()\n            del self.forceGroupDict\n            del self.particlesDict\n        del self.renderParent\n\n    def getName(self):\n        # override NodePath.getName()\n        return self.name\n\n    def reset(self):\n        self.removeAllForces()\n        self.removeAllParticles()\n        self.forceGroupDict = {}\n        self.particlesDict = {}\n\n    def start(self, parent=None, renderParent=None):\n        assert self.notify.debug('start() - name: %s' % self.name)\n        self.renderParent = renderParent\n        self.enable()\n        if parent is not None:\n            self.reparentTo(parent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1236
+  }
+}

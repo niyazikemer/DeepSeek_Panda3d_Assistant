@@ -1,0 +1,9 @@
+{
+  "content": "# use the self.upVectorNodePath position if it exists to\n            # create an up vector for lookAt\n            if self.upVectorNodePath is None:\n                node.lookAt(lookPoint)\n            else:\n                if not self.reverseUpVector:\n                    node.lookAt(lookPoint,\n                                self.upVectorNodePath.getPos() - self.posPoint)\n                else:\n                    node.lookAt(lookPoint,\n                                self.posPoint - self.upVectorNodePath.getPos())\n\n    def play(self, node, time = 0.0, loop = 0):\n        if self.xyzNurbsCurve is None and self.hprNurbsCurve is None:\n            print('Mopath: Mopath has no curves')\n            return\n        self.node = node\n        self.loop = loop\n        self.stop()\n        t = taskMgr.add(self.__playTask, self.name + '-play')\n        t.currentTime = time\n        t.lastTime = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1837
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "python\n\ncm = CardMaker('card')\ncard = render.attachNewNode(cm.generate())\n\ncpp\n\nCardMaker cm(\"card\");\nNodePath card = render.attach_new_node(cm.generate());\n\nThen you can load up a texture and apply it to the card like this:\n\npython\n\ntex = loader.loadTexture('maps/noise.rgb')\ncard.setTexture(tex)\n\ncpp\n\nPT(Texture) tex = TexturePool::load_texture(\"maps/noise.rgb\");\ncard.set_texture(tex);\n\n(Note that it is not necessary to use the override parameter to the ~.NodePath.set_texture() call--that is, you do not need to do card.set_texture(tex, 1)--because in this case, the card does not already have any other texture applied to it, so your texture will be visible even without the override.)\n\nIn order for this to work, the model you apply it to must already have texture coordinates defined (see simple-texturing). As it happens, the CardMaker generates texture coordinates by default when it generates a card, so no problem there.\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_439",
+    "parent": "processed_documents/context_documents/86c0a6eb_814d539f_simple-texture-replacement.json",
+    "chunk_number": 6229
+  }
+}

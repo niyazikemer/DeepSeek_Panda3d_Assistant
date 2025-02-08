@@ -1,0 +1,9 @@
+{
+  "content": "else:\n        vfile = None\n\n        if isinstance(file, core.VirtualFile):\n            # We can also \"open\" a VirtualFile object for reading.\n            vfile = file\n            filename = vfile.getFilename()\n        elif isinstance(file, str):\n            # If a raw string is given, assume it's an os-specific\n            # filename.\n            filename = core.Filename.fromOsSpecificW(file)\n        else:\n            # It's either a Filename object or an os.PathLike.\n            # If a Filename is given, make a writable copy anyway.\n            filename = core.Filename(file)\n\n        filename.setBinary()\n\n        if not vfile:\n            vfile = _vfs.getFile(filename)\n\n        if not vfile:\n            if reading:\n                raise FileNotFoundError(\"No such file or directory: '%s'\" % (filename))\n\n            vfile = _vfs.createFile(filename)\n            if not vfile:\n                raise IOError(\"Failed to create file: '%s'\" % (filename))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3780
+  }
+}

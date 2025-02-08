@@ -1,0 +1,9 @@
+{
+  "content": "__all__ = ['GlobalForceGroup']\n\nfrom . import ForceGroup\nfrom direct.showbase.PhysicsManagerGlobal import physicsMgr\n\n\nclass GlobalForceGroup(ForceGroup.ForceGroup):\n\n    def __init__(self, name = None):\n        ForceGroup.ForceGroup.__init__(self, name)\n\n    def addForce(self, force):\n        ForceGroup.ForceGroup.addForce(self, force)\n        if force.isLinear():\n            physicsMgr.addLinearForce(force)\n        else:\n            # Physics manager will need an angular integrator\n            base.addAngularIntegrator()\n            physicsMgr.addAngularForce(force)\n\n    def removeForce(self, force):\n        ForceGroup.ForceGroup.removeForce(self, force)\n        if force.isLinear():\n            physicsMgr.removeLinearForce(force)\n        else:\n            physicsMgr.removeAngularForce(force)\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/particles/GlobalForceGroup.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/46329a8b_GlobalForceGroup.json",
+    "doc_id": "doc_70"
+  }
+}

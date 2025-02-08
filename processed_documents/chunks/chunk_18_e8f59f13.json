@@ -1,0 +1,9 @@
+{
+  "content": "#print(self.ralphGroundHandler.getNumEntries())\n\n        entries = []\n        for i in range(self.ralphGroundHandler.getNumEntries()):\n            entry = self.ralphGroundHandler.getEntry(i)\n            entries.append(entry)\n        entries.sort(lambda x, y: cmp(y.getSurfacePoint(render).z,\n                                      x.getSurfacePoint(render).z))\n        if entries and entries[0].getIntoNode().getName() == \"terrain\":\n            self.ralph.setZ(entries[0].getSurfacePoint(render).z)\n        else:\n            self.ralph.setPos(startpos)\n\n        # Keep the camera at one foot above the terrain,\n        # or two feet above ralph, whichever is greater.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 18
+  }
+}

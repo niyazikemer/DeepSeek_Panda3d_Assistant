@@ -1,0 +1,9 @@
+{
+  "content": "def privFinalize(self):\n        if self.implicitDuration and not self.loopAnim:\n            # As a special case, we ensure we end up posed to the last\n            # frame of the animation if the original duration was\n            # implicit.  This is necessary only to guard against\n            # possible roundoff error in computing the final frame\n            # from the duration.  We don't do this in the case of a\n            # looping animation, however, because this would introduce\n            # a hitch in the animation when it plays back-to-back with\n            # the next cycle.\n            if self.reverse:\n                for control in self.controls:\n                    control.pose(self.startFrame)\n            else:\n                for control in self.controls:\n                    control.pose(self.endFrame)\n            if self.forceUpdate:\n                self.actor.update()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2819
+  }
+}

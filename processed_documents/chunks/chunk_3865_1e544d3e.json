@@ -1,0 +1,9 @@
+{
+  "content": "# For historical purposes, we remap the C++-defined enumeration to\n# these Python names, and define them both at the module level, here,\n# and at the class level (below).  The preferred access is via the\n# class level.\ndone: Final = AsyncTask.DSDone\ncont: Final = AsyncTask.DSCont\nagain: Final = AsyncTask.DSAgain\npickup: Final = AsyncTask.DSPickup\nexit: Final = AsyncTask.DSExit\n\n#: Task aliases to :class:`panda3d.core.PythonTask` for historical purposes.\nTask = PythonTask\n\n# Copy the module-level enums above into the class level.  This funny\n# syntax is necessary because it's a C++-wrapped extension type, not a\n# true Python class.\n# We can't override 'done', which is already a known method.  We have a\n# special check in PythonTask for when the method is being returned.\n#Task.DtoolClassDict['done'] = done\nTask.DtoolClassDict['cont'] = cont\nTask.DtoolClassDict['again'] = again\nTask.DtoolClassDict['pickup'] = pickup\nTask.DtoolClassDict['exit'] = exit",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3865
+  }
+}

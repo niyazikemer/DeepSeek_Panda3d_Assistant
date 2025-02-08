@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nfrom panda3d.core import BitMask32\n\nmask1 = BitMask32.allOn()\nmask2 = BitMask32.allOff()\nmask3 = BitMask32.bit(2)\nmask4 = BitMask32.bit(5)\nmask5 = BitMask32(0x3)\n\ncpp\n\n#include \"panda3d/bitMask.h\"\n\nBitMask32 mask1 = BitMask32::all_on();\nBitMask32 mask2 = BitMask32::all_off();\nBitMask32 mask3 = BitMask32::bit(2);\nBitMask32 mask4 = BitMask32::bit(5);\nBitMask32 mask5 = BitMask32(0x3);\n\nGiven the above bit masks we would get the following results for collision:\n\nmask1 and mask2 = false\nmask1 vs. mask3 = true\nmask3 vs. mask4 = false\nmask3 vs. mask5 = true\nmask4 vs. mask5 = false\n\nGroup Masks",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_726",
+    "parent": "processed_documents/context_documents/d4378174_cadceabb_collision-filtering.json",
+    "chunk_number": 7844
+  }
+}

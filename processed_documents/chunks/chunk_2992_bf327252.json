@@ -1,0 +1,9 @@
+{
+  "content": "If w and h are non-None, this will short-circuit on the first\n        hole it finds that fits w x h, and return just that hole in a\n        singleton list.\n        \"\"\"\n\n        holes = []\n        lastTuples = set()\n        lastBitmask = None\n        b = 0\n        while b < self.h:\n            # Separate this row into (l, r) tuples.\n            bm = self.bitmasks[b]\n            if bm == lastBitmask:\n                # This row is exactly the same as the row below; no\n                # need to reexamine.\n                b += 1\n                continue\n\n            lastBitmask = bm\n\n            tuples = self.findEmptyRuns(bm)\n            newTuples = tuples.difference(lastTuples)\n\n            for l, r in newTuples:\n                # Find out how high we can go with this bitmask.\n                mask = BitArray.range(l, r - l)\n                t = b + 1\n                while t < self.h and (self.bitmasks[t] & mask).isZero():\n                    t += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2992
+  }
+}

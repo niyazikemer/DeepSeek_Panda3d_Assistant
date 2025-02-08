@@ -1,0 +1,9 @@
+{
+  "content": "# clear the queue\n        self.serverQueues[server] = []\n\n    def handleNamedMovement(self, data):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n\n        (name,x, y, z, h, p, r, sx, sy, sz,red,g,b,a, hidden) = data\n        #print \"name\"\n        #if name == \"camNode\":\n        #    print x,y,z,h,p,r, sx, sy, sz,red,g,b,a, hidden\n        if name in self.objectMappings:\n            self.objectMappings[name].setPosHpr(render, x, y, z, h, p, r)\n            self.objectMappings[name].setScale(render,sx,sy,sz)\n            if self.objectHasColor[name]:\n                self.objectMappings[name].setColor(red,g,b,a)\n            if hidden:\n                self.objectMappings[name].hide()\n            else:\n                self.objectMappings[name].show()\n        else:\n            self.notify.debug(\"recieved unknown named object command: \"+name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1705
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "old_count = v_data.get_num_rows()\n# the size, in bytes, of the data associated with a cube side\nsize = 4 * stride  # 4 (vertices per side) times the size of a data row\n# in this case, the start index of the data to be removed can simply be\n# calculated as the index of the corresponding side (`n` if it was the `nth`\n# side to be added to the cube) multiplied by the size of that side\nstart = side_index * size\nv_array = v_data.modify_array(0)\nview = memoryview(v_array).cast('B')\n# instead of actually deleting the data, it is overwritten with the data that\n# follows it;\n# the end index of the data to overwrite equals the maximum index minus the\n# size of the side data, such that the subview (slice) of that data and the\n# subview of the data that follows the data to be overwritten have the exact\n# same size; only then can the latter be copied to the former\nview[start:-size] = view[start+size:]\n# now all that remains to be done is to update the number of data rows by",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_561",
+    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
+    "chunk_number": 6977
+  }
+}

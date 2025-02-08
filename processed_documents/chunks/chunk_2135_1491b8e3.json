@@ -1,0 +1,9 @@
+{
+  "content": "elif data.startswith(b\"\\177ELF\"):\n            # A Linux/FreeBSD ELF executable.\n            elfclass = ord(data[4:5])\n            assert elfclass in (1, 2)\n            return (elfclass * 32,)\n\n        elif data[:4] in (b'\\xFE\\xED\\xFA\\xCE', b'\\xCE\\xFA\\xED\\xFE'):\n            # 32-bit Mach-O file, as used on macOS.\n            return (32,)\n\n        elif data[:4] in (b'\\xFE\\xED\\xFA\\xCF', b'\\xCF\\xFA\\xED\\xFE'):\n            # 64-bit Mach-O file, as used on macOS.\n            return (64,)\n\n        elif data[:4] in (b'\\xCA\\xFE\\xBA\\xBE', b'\\xBE\\xBA\\xFE\\xCA'):\n            # Universal binary with 32-bit offsets.\n            num_fat, = struct.unpack_from('>I', data, 4)\n            bitnesses = set()\n            ptr = 8\n            for i in range(num_fat):\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack_from('>IIIII', data, ptr)\n                ptr += 20",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2135
+  }
+}

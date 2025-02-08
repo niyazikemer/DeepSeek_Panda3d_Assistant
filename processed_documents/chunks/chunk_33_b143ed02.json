@@ -1,0 +1,9 @@
+{
+  "content": "from direct.directbase.DirectStart import *\nfrom panda3d.core import *\nimport math\n\n# These constants define the RGB colors of the light and dark bands in\n# the woodgrain.\nlightGrain = (0.72, 0.72, 0.45)\ndarkGrain = (0.49, 0.33, 0.11)\n\n\ndef chooseGrain(p, xi, yi, radius):\n    \"\"\" Applies the appropriate color to pixel (xi, yi), based on\n    radius, the computed distance from the center of the trunk. \"\"\"\n\n    # Get the fractional part of radius.\n    t = radius - math.floor(radius)\n\n    # Now t ranges from 0 to 1.  Make it see-saw from 0 to 1 and back.\n    t = abs(t - 0.5) * 2\n\n    # Now interpolate colors.\n    p.setXel(xi, yi,\n             lightGrain[0] + t * (darkGrain[0] - lightGrain[0]),\n             lightGrain[1] + t * (darkGrain[1] - lightGrain[1]),\n             lightGrain[2] + t * (darkGrain[2] - lightGrain[2]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_3",
+    "parent": "processed_documents/context_documents/d207d691_675b1c1c_woodgrain-example.json",
+    "chunk_number": 33
+  }
+}

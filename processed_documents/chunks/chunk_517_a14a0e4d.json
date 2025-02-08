@@ -1,0 +1,9 @@
+{
+  "content": "def updateObjectPropValue(self, obj, propName, val, fSelectObject=False, fUndo=True):\n        \"\"\"\n        Update object property value and\n        call update function if defined.\n        \"\"\"\n        objDef = obj[OG.OBJ_DEF]\n        objProp = obj[OG.OBJ_PROP]\n\n        propDef = objDef.properties[propName]\n        propDataType = propDef[OG.PROP_DATATYPE]\n\n        if propDataType != OG.PROP_BLIND:\n            val = OG.TYPE_CONV[propDataType](val)\n            oldVal = objProp[propName]\n\n            if propDef[OG.PROP_FUNC] is None:\n                func = None\n                undoFunc = None\n            else:\n                funcName = propDef[OG.PROP_FUNC][OG.FUNC_NAME]\n                funcArgs = propDef[OG.PROP_FUNC][OG.FUNC_ARGS]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 517
+  }
+}

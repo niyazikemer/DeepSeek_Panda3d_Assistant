@@ -1,0 +1,9 @@
+{
+  "content": "# Generate a list of cards and the corresponding windows.\n        cards = []\n        wins = []\n        for iwin in range(self.engine.getNumWindows()):\n            win = self.engine.getWindow(iwin)\n            for itex in range(win.countTextures()):\n                tex = win.getTexture(itex)\n                if (tex in include) and (tex not in exclude):\n                    if tex.getTextureType() == Texture.TTCubeMap:\n                        for face in range(6):\n                            self.cardmaker.setUvRangeCube(face)\n                            card = NodePath(self.cardmaker.generate())\n                            card.setTexture(tex, sampler)\n                            cards.append(card)\n                    elif tex.getTextureType() == Texture.TT2dTextureArray:\n                        for layer in range(tex.getZSize()):\n                            self.cardmaker.setUvRange((0, 1, 1, 0), (0, 0, 1, 1),\\",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4232
+  }
+}

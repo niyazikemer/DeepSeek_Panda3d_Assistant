@@ -1,0 +1,9 @@
+{
+  "content": "class PStatScope:\n    collectors: dict = {}\n\n    def __init__(self, level = None):\n        self.levels = []\n        if level:\n            self.levels.append(level)\n\n    def copy(self, push = None):\n        c = PStatScope()\n        c.levels = self.levels[:]\n        if push:\n            c.push(push)\n        return c\n\n    def __repr__(self):\n        return 'PStatScope - \\'%s\\'' % (self,)\n\n    def __str__(self):\n        return ':'.join(self.levels)\n\n    def push(self, level):\n        self.levels.append(level.replace('_',''))\n\n    def pop(self):\n        return self.levels.pop()\n\n    def start(self, push = None):\n        if push:\n            self.push(push)\n        self.getCollector().start()\n\n    def stop(self, pop = False):\n        self.getCollector().stop()\n        if pop:\n            self.pop()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4681
+  }
+}

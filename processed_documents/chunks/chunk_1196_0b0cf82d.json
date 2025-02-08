@@ -1,0 +1,9 @@
+{
+  "content": "# Go to maxT\n            self.getWidget('Playback', 'Time').set(self.maxT)\n            # Then stop playback\n            self.stopPlayback()\n            return Task.done\n        elif self.recordingType.get() == 'Extend' and cTime > self.controlStart:\n            # Go to final point\n            self.getWidget('Playback', 'Time').set(self.controlStart)\n            # Stop playback\n            self.stopPlayback()\n            return Task.done\n        # Otherwise go to specified time and continue\n        self.getWidget('Playback', 'Time').set(cTime)\n        state.currentTime = cTime\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1196
+  }
+}

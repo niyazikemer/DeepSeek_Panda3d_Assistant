@@ -1,0 +1,9 @@
+{
+  "content": "def menuAppendGenItems(self):\n        for item in self.menuItemsGen:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n\n    def menuAppendSelItems(self):\n        for item in self.menuItemsSel:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n\n    def onShowPopup(self, event):\n        pos = event.GetPosition()\n        pos = self.ScreenToClient(pos)\n\n        for menuItem in self.popupmenu.GetMenuItems():\n            self.popupmenu.RemoveItem(menuItem)\n\n        hitItem, flags = self.tree.HitTest(pos)\n        if hitItem.IsOk():\n            itemText = self.tree.GetItemText(hitItem)\n            if itemText != self.tree.rootName:\n                self.menuAppendSelItems()\n            else:\n                self.menuAppendGenItems()\n        else:\n            self.menuAppendGenItems()\n\n        self.PopupMenu(self.popupmenu, pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 563
+  }
+}

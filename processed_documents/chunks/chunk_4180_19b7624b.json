@@ -1,0 +1,9 @@
+{
+  "content": "def handleAvatarControls(self, task):\n        \"\"\"\n        Check on the arrow keys and update the avatar.\n        \"\"\"\n        if not self.lifter.hasContact():\n            # hack fix for falling through the floor:\n            messenger.send(\"walkerIsOutOfWorld\", [self.avatarNodePath])\n\n        self._calcSpeeds()\n\n        if __debug__:\n            debugRunning = inputState.isSet(\"debugRunning\")\n            if debugRunning:\n                self.speed*=4.0\n                self.slideSpeed*=4.0\n                self.rotationSpeed*=1.25",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4180
+  }
+}

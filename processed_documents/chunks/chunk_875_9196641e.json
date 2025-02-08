@@ -1,0 +1,9 @@
+{
+  "content": "self.variableDict['Sprite Renderer-'+animName+' Anim Node'] = nStrVar\n        self.widgetDict['Sprite Renderer-'+animName+' Anim Node'] = entry\n\n        def checkForNode(modelStrVar=mStrVar, nodeStrVar=nStrVar):\n            mod = base.loader.loadModel(modelStrVar.get())\n            if mod:\n                node = mod.find(nodeStrVar.get())\n                if node:\n                    frame.valid = True\n                else:\n                    frame.valid = False\n            else:\n                frame.valid = False\n\n            self.writeSpriteRendererAnimations()\n\n        tk.Button(mlf, text = 'Update',\n                  command = checkForNode).pack(side=tk.LEFT)\n        tk.Button(nlf, text = 'Update',\n                  command = checkForNode).pack(side=tk.LEFT)\n\n        return frame\n\n    # get animation info from renderer into panel\n    def readSpriteRendererAnimations(self):\n        ren = self.particles.getRenderer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 875
+  }
+}

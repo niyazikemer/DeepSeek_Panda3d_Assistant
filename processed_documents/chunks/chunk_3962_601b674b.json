@@ -1,0 +1,9 @@
+{
+  "content": "if \"AmbientOcclusion\" in configuration:\n                ssao0 = self.textures[\"ssao0\"]\n                ssao1 = self.textures[\"ssao1\"]\n                ssao2 = self.textures[\"ssao2\"]\n                self.ssao.append(self.manager.renderQuadInto(\"filter-ssao0\", colortex=ssao0))\n                self.ssao.append(self.manager.renderQuadInto(\"filter-ssao1\", colortex=ssao1, div=2))\n                self.ssao.append(self.manager.renderQuadInto(\"filter-ssao2\", colortex=ssao2))\n                self.ssao[0].setShaderInput(\"depth\", self.textures[\"depth\"])\n                self.ssao[0].setShaderInput(\"normal\", self.textures[\"aux\"])\n                self.ssao[0].setShaderInput(\"random\", base.loader.loadTexture(\"maps/random.rgb\"))\n                self.ssao[0].setShader(Shader.make(SSAO_BODY % configuration[\"AmbientOcclusion\"].numsamples, Shader.SL_Cg))\n                self.ssao[1].setShaderInput(\"src\", ssao0)\n                self.ssao[1].setShader(Shader.make(BLUR_X, Shader.SL_Cg))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3962
+  }
+}

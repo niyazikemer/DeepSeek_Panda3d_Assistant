@@ -1,0 +1,9 @@
+{
+  "content": "def blockingRead(self, qcr):\n        \"\"\"\n        Block until data is available on the queued connection reader.\n        Returns a datagram iterator and type\n        \"\"\"\n        while not qcr.dataAvailable():\n            # The following may not be necessary.\n            # I just wanted some\n            # time given to the operating system while\n            # busy waiting.\n            time.sleep(0.002)\n        # Data is available, create a datagram iterator\n        datagram = NetDatagram()\n        if qcr.getData(datagram):\n            (dgi, dtype) = self.readHeader(datagram)\n        else:\n            (dgi, dtype) = (None, CLUSTER_NONE)\n            self.notify.warning(\"getData returned false\")\n        # Note, return datagram to keep a handle on the data\n        return (datagram, dgi, dtype)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1737
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "try:\n            stack = None\n            frame = None\n            try:\n                stack = inspect.stack()\n                # add one to skip the frame associated with this function\n                frame = stack[depth+1]\n                filename = frame[1]\n                if baseFileName:\n                    filename = os.path.basename(filename)\n                lineNum = frame[2]\n                funcName = frame[3]\n                result = (filename, lineNum, funcName)\n            finally:\n                del stack\n                del frame\n        except Exception:\n            result = (None, None, None)\n\n        return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4643
+  }
+}

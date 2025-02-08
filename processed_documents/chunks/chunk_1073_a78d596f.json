@@ -1,0 +1,9 @@
+{
+  "content": "def updateAuxiliaryCoordinateSystems(self):\n        # Temp CS\n        self.tempCS.setPosHpr(self['nodePath'], 0, 0, 0, 0, 0, 0)\n        # Orbit CS\n        # At reference\n        self.orbitFromCS.setPos(self.refCS, 0, 0, 0)\n        # But aligned with target\n        self.orbitFromCS.setHpr(self['nodePath'], 0, 0, 0)\n        # Also update to CS\n        self.orbitToCS.setPosHpr(self.orbitFromCS, 0, 0, 0, 0, 0, 0)\n        # Get offset from origin\n        self.posOffset.assign(self['nodePath'].getPos(self.orbitFromCS))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1073
+  }
+}

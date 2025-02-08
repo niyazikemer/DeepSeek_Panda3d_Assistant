@@ -1,0 +1,9 @@
+{
+  "content": "def reset(self):\n        self.sceneGraphUI.reset()\n        self.layerEditorUI.reset()\n\n    def onNew(self, evt=None):\n        self.editor.reset()\n\n    def onOpen(self, evt=None):\n        dialog = wx.FileDialog(None, \"Choose a file\", os.getcwd(), \"\", \"*.py\", style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)\n        if dialog.ShowModal() == wx.ID_OK:\n            self.editor.load(dialog.GetPath())\n            self.editor.setTitleWithFilename(dialog.GetPath())\n        dialog.Destroy()\n\n    def onSave(self, evt=None):\n        if self.editor.currentFile is None or\\\n           not self.editor.currentFile.endswith('.py'):\n            return self.onSaveAs(evt)\n        else:\n            self.editor.save()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 450
+  }
+}

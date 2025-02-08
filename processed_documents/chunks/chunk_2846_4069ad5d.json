@@ -1,0 +1,9 @@
+{
+  "content": "# Advance the clock for the next loop cycle.\n                if self.__endT == self.__startT:\n                    # If the interval has no length, we loop exactly once.\n                    self.__loopCount += 1\n\n                else:\n                    # Otherwise, figure out how many loops we need to\n                    # skip.\n                    timePerLoop = (self.__endT - self.__startT) / self.__playRate\n                    numLoops = math.floor((now - self.__clockStart) / timePerLoop)\n                    self.__loopCount += numLoops\n                    self.__clockStart += numLoops * timePerLoop\n\n        else:\n            # Playing backwards\n            t = (now - self.__clockStart) * self.__playRate + self.__endT",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2846
+  }
+}

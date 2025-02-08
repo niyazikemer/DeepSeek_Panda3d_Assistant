@@ -1,0 +1,9 @@
+{
+  "content": "text += initCode\n\n        if filename is not None:\n            file = open(filename, 'w')\n            file.write(text)\n            file.close()\n\n    def generateCode(self, basename, compileToExe = False):\n        \"\"\" After a call to done(), this freezes all of the\n        accumulated python code into either an executable program (if\n        compileToExe is true) or a dynamic library (if compileToExe is\n        false).  The basename is the name of the file to write,\n        without the extension.\n\n        The return value is the newly-generated filename, including\n        the filename extension.  Additional extension modules are\n        listed in self.extras. \"\"\"\n\n        if compileToExe:\n            # We must have a __main__ module to make an exe file.\n            if not self.__writingModule('__main__'):\n                message = \"Can't generate an executable without a __main__ module.\"\n                raise Exception(message)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2114
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# See if any of the general analog parameters are dconfig'd\n        self.analogDeadband = self._analogDeadband.getValue()\n        self.analogMin = self._analogMin.getValue()\n        self.analogMax = self._analogMax.getValue()\n        self.analogCenter = self._analogCenter.getValue()\n        self.analogRange = self.analogMax - self.analogMin\n\n    def __getitem__(self, index):\n        if (index < 0) or (index >= self.getNumControls()):\n            raise IndexError\n        return self.getControlState(index)\n\n    def __len__(self):\n        return self.getNumControls()\n\n    def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)\n\n    def disable(self):\n        self.nodePath.reparentTo(self._base.dataUnused)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1778
+  }
+}

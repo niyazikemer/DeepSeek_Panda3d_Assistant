@@ -1,0 +1,9 @@
+{
+  "content": "class InspectorWindow:\n    def __init__(self, inspector):\n        self.inspectors = [inspector]\n\n    def topInspector(self):\n        return self.inspectors[len(self.inspectors) - 1]\n\n    def selectedPart(self):\n        return self.topInspector().selectedPart()\n\n    def inspectedObject(self):\n        return self.topInspector().object\n\n    def open(self):\n        self.top= tk.Toplevel()\n        self.top.geometry('650x315')\n        self.createViews()\n        self.update()\n\n    #Private - view construction\n    def createViews(self):\n        self.createMenus()\n        # Paned widget for dividing two halves\n        self.framePane = Pmw.PanedWidget(self.top, orient = tk.HORIZONTAL)\n        self.createListWidget()\n        self.createTextWidgets()\n        self.framePane.pack(expand = 1, fill = tk.BOTH)\n\n    def setTitle(self):\n        self.top.title('Inspecting: ' + self.topInspector().title())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1025
+  }
+}

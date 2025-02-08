@@ -1,0 +1,9 @@
+{
+  "content": "gamepad = base.devices.getDevices(InputDevice.DeviceClass.gamepad)[0]\nleft_x = gamepad.findAxis(InputDevice.Axis.left_x)\n\n# Access and use the value for whatever you need it\nleft_x.value\n\nWith the ~.InputDevice.find_axis() method we tell the device which axis we are interested in and finally get the axis value using the value member. The state member will give you a double precision representation of the control's current position and should be called within a task method to get a constant update of the controls position changes if desired. It sometimes is also prudent to store the centered position of each control early in an application to simplify the calculation of the distance the control has been moved in any direction. Some applications and devices also do this automatically in a given idle time or provide the user a dedicated re-calibrate action.\n\nNote",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_405",
+    "parent": "processed_documents/context_documents/568dd257_001f45da_joystick-support.json",
+    "chunk_number": 6071
+  }
+}

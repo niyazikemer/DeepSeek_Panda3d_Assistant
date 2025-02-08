@@ -1,0 +1,9 @@
+{
+  "content": "The return value is true if the other client's measurement was\n        reasonably close to our own, or false if the other client's\n        time estimate was wildly divergent from our own; the return\n        value is negative if the test was not even considered (because\n        it happened too soon after another recent request).\n        \"\"\"\n\n        now = self.globalClock.getRealTime()\n        if now - self.lastResync < P2PResyncDelay:\n            # We can't process this request; it came in on the heels\n            # of some other request, and our local timestamp may have\n            # been resynced since then: ergo, the timestamp in this\n            # request is meaningless.\n            assert self.notify.debug(\n                \"Ignoring request for resync from %s within %.3f s.\" %\n                (avId, now - self.lastResync))\n            return -1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_315",
+    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
+    "chunk_number": 5461
+  }
+}

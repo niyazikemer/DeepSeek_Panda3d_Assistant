@@ -1,0 +1,9 @@
+{
+  "content": "notify = directNotify.newCategory(\"MotionTrail\")\n\n    task_added = False\n    motion_trail_list: list[MotionTrail] = []\n    motion_trail_task_name = \"motion_trail_task\"\n\n    global_enable = True\n\n    @classmethod\n    def setGlobalEnable(cls, enable):\n        \"\"\"Set this to False to have the task stop updating all motion trails.\n        This does not prevent updating them manually using the\n        `update_motion_trail()` method.\n        \"\"\"\n        cls.global_enable = enable\n\n    def __init__(self, name, parent_node_path):\n        \"\"\"Creates the motion trail with the given name and parents it to the\n        given root node.\n        \"\"\"\n        NodePath.__init__(self, name)\n\n        # required initialization\n        self.active = True\n        self.enable = True\n\n        self.pause = False\n        self.pause_time = 0.0\n\n        self.fade = False\n        self.fade_end = False\n        self.fade_start_time = 0.0\n        self.fade_color_scale = 1.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5107
+  }
+}

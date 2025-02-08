@@ -1,0 +1,9 @@
+{
+  "content": "# Transform to global coordinates\npFrom = render.getRelativePoint(base.cam, pFrom)\npTo = render.getRelativePoint(base.cam, pTo)\n\ncpp\n\nTODO\n\nSweep Test\n\nThe sweep test is similar to the ray test. There are two differences: (1) The sweep test does not use an infinite thin ray, like the ray test, but checks for collisions with a convex shape which is \"moved\" along the from from-position to to-position. (2) The sweep test wants to have \"from\" and \"to\" specified as TransformState. The sweep test can for example be used to predict if an object would collide with something else if it was moving from it's current position to some other position.\n\nThe sweep test can only be used with shapes that are convex, otherwise the call will fail. Many primitive shapes (sphere, box, etc.) are convex, but a triangle mesh is not. (If you have geometry that is convex, use a BulletConvexHullShape instead of a BulletTriangleMeshShape.)\n\npython\n\nExample for sweep testing:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_444",
+    "parent": "processed_documents/context_documents/1bf2fda4_32b65eff_queries.json",
+    "chunk_number": 6249
+  }
+}

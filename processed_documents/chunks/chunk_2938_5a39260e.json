@@ -1,0 +1,9 @@
+{
+  "content": "self.order = order\n        self.verts = verts\n        self.knots = knots\n\n        self.recompute()\n\n    def recompute(self):\n        \"\"\"Recomputes the curve after its properties have changed.\n        Normally it is not necessary for the user to call this\n        directly.\"\"\"\n\n        if not self.showRope:\n            return\n        numVerts = len(self.verts)\n        self.curve.reset(numVerts)\n        self.curve.setOrder(self.order)\n\n        defaultNodePath = None\n        defaultPoint = (0, 0, 0)\n        defaultColor = (1, 1, 1, 1)\n        defaultThickness = 1\n\n        useVertexColor = self.ropeNode.getUseVertexColor()\n        useVertexThickness = self.ropeNode.getUseVertexThickness()\n\n        vcd = self.ropeNode.getVertexColorDimension()\n        vtd = self.ropeNode.getVertexThicknessDimension()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_169",
+    "parent": "processed_documents/context_documents/b78c6f86_Rope.json",
+    "chunk_number": 2938
+  }
+}

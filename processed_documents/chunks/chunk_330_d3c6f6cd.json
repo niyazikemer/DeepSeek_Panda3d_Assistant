@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectPropertyUI(ScrolledPanel):\n    def __init__(self, parent, editor):\n        self.editor = editor\n        self.colorPicker = None\n        self.lastColorPickerPos = None\n        self.lastPropTab = None\n        ScrolledPanel.__init__(self, parent)\n\n        parentSizer = wx.BoxSizer(wx.VERTICAL)\n        parentSizer.Add(self, 1, wx.EXPAND, 0)\n        parent.SetSizer(parentSizer)\n        parent.Layout()\n\n        self.SetDropTarget(AnimFileDrop(self.editor))\n\n    def clearPropUI(self):\n        sizer = self.GetSizer()\n        if sizer is not None:\n            self.lastPropTab = self.nb.GetCurrentPage().GetName()\n            sizer.Remove(self.propPane)\n            self.propPane.Destroy()\n            self.SetSizer(None)\n        self.Layout()\n        self.SetupScrolling(self, scroll_y=True, rate_y=20)\n\n    def colorPickerExitCB(self, evt=None):\n        self.lastColorPickerPos = self.colorPicker.GetPosition()\n        self.colorPicker.Destroy()\n        self.colorPicker = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 330
+  }
+}

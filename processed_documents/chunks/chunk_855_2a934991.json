@@ -1,0 +1,9 @@
+{
+  "content": "if ren.__class__.__name__ == 'SpriteParticleRendererExt':\n            parent = self.rendererSpriteSegmentFrame\n            segName = repr(len(self.rendererSegmentWidgetList))+':Constant'\n            self.rendererSegmentWidgetList.append(\n                self.createConstantInterpolationSegmentWidget(parent, segName, seg))\n        elif ren.__class__.__name__ == 'GeomParticleRenderer':\n            parent = self.rendererGeomSegmentFrame\n            segName = repr(len(self.rendererSegmentWidgetList))+':Constant'\n            self.rendererSegmentWidgetList.append(\n                self.createConstantInterpolationSegmentWidget(parent, segName, seg))\n        parent.pack(fill=tk.BOTH, expand=1)\n\n    def addLinearInterpolationSegment(self, id = None):\n        ren = self.particles.getRenderer()\n        cim = ren.getColorInterpolationManager()\n        if id is None:\n            seg = cim.getSegment(cim.addLinear())\n        else:\n            seg = cim.getSegment(id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 855
+  }
+}

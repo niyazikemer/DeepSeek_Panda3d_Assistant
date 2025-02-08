@@ -1,0 +1,9 @@
+{
+  "content": "def getNode(self):\n        return self.node\n\n    def getNodePath(self):\n        return self.nodePath\n\n    # Utility functions\n    def __getitem__(self, index):\n        numForces = self.node.getNumForces()\n        if index < 0 or index >= numForces:\n            raise IndexError\n        return self.node.getForce(index)\n\n    def __len__(self):\n        return self.node.getNumForces()\n\n    def asList(self):\n        l = []\n        for i in range(self.node.getNumForces()):\n            l.append(self.node.getForce(i))\n        return l",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1306
+  }
+}

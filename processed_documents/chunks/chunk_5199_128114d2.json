@@ -1,0 +1,9 @@
+{
+  "content": "def sendToAllExcept(self, datagram, exceptionList):\n        \"\"\" sends a message to all connected clients, except for\n        clients on exceptionList. \"\"\"\n\n        if self.notify.getDebug():\n            self.notify.debug(\n                \"ServerRepository sending to all except %s:\" % ([c.doIdBase for c in exceptionList],))\n            #datagram.dumpHex(ostream)\n\n        for client in self.clientsByConnection.values():\n            if client not in exceptionList:\n                if self.notify.getDebug():\n                    self.notify.debug(\n                        \"  -> %s\" % (client.doIdBase))\n                self.cw.send(datagram, client.connection)\n                self.needsFlush.add(client)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5199
+  }
+}

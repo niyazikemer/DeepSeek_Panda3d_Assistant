@@ -1,0 +1,9 @@
+{
+  "content": "newItem = self.AppendItem(newParent, itemName)\n            self.SetItemPyData(newItem, itemData)\n\n            # if an item had children, we need to re-parent them as well\n            if self.ItemHasChildren(item):\n                # recursing...\n                self.ReParent(item, newItem, )\n\n            # continue iteration to the next child\n            item, cookie = self.GetNextChild(parent, cookie)\n\n    def ChangeHierarchy(self, itemName, x, y):\n        parent = self.GetRootItem()\n        item = self.traverse(parent, itemName)\n        if item is None:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 310
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "It used to be legal to let the animName default to the\n        currently-playing anim, but this was confusing and could lead\n        to the wrong anim's play rate getting set.  Better to insist\n        on this parameter.\n        NOTE: sets play rate on all LODs\"\"\"\n        for control in self.getAnimControls(animName, partName):\n            control.setPlayRate(rate)\n\n    def getDuration(self, animName=None, partName=None,\n                    fromFrame=None, toFrame=None):\n        \"\"\"\n        Return duration of given anim name and given part.\n        If no anim specified, use the currently playing anim.\n        If no part specified, return anim duration of first part.\n        NOTE: returns info for arbitrary LOD\n        \"\"\"\n        lodName = next(iter(self.__animControlDict))\n        controls = self.getAnimControls(animName, partName)\n        if len(controls) == 0:\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3078
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Worlds, Bodies and Masses\n\nWorlds\n\nTo use the ODE physics system, you need to have an OdeWorld. A world is an essential component in the physics structure, it holds all your rigid bodies and joints, and controls global parameters, such as gravity, for the scene.\n\npython\n\nfrom panda3d.ode import OdeWorld\nmyWorld = OdeWorld()\nmyWorld.setGravity(0, 0, -9.81)\n\ncpp\n\n#include \"odeWorld.h\"\n\nOdeWorld myWorld;\nmyWorld.set_gravity(0, 0, -9.81);\n\nAs you can see, the gravity is set to a downward vector with length 9.81. This value is the average gravity acceleration on Earth. If you want objects to fall faster or slower, (e.g. if your game plays on the Moon, where the gravity acceleration is 1.62 m/s\u00b2) you need to change this value, but in most cases you want to leave it around 9.81 m/s\u00b2.\n\nBodies and masses\n\nIn physics space, the objects that matter are called bodies. In order to have something affected by physics, you need to create an OdeBody, and set an OdeMass on it.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_682",
+    "parent": "processed_documents/context_documents/38bb6ad4_c8821add_worlds-bodies-masses.json",
+    "chunk_number": 7642
+  }
+}

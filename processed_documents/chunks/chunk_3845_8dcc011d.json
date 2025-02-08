@@ -1,0 +1,9 @@
+{
+  "content": "def active_count():\n    _active_limbo_lock.acquire()\n    count = len(_active) + len(_limbo)\n    _active_limbo_lock.release()\n    return count\n\nactiveCount = active_count\n\ndef enumerate():\n    _active_limbo_lock.acquire()\n    active = list(_active.values()) + list(_limbo.values())\n    _active_limbo_lock.release()\n    return active\n\n#from thread import stack_size\n\n# Create the main thread object,\n# and make it available for the interpreter\n# (Py_Main) as threading._shutdown.\n\n_main_thread = _MainThread()\n_shutdown = _main_thread._exitfunc\n\ndef _pickSomeNonDaemonThread():\n    for t in enumerate():\n        if not t.isDaemon() and t.isAlive():\n            return t\n    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3845
+  }
+}

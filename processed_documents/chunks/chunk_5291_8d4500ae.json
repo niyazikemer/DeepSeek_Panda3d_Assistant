@@ -1,0 +1,9 @@
+{
+  "content": "def updateGrid(self):\n            # Update grid lines based upon current grid spacing and grid size\n            # First reset existing grid lines\n            self.minorLines.reset()\n            self.majorLines.reset()\n            self.centerLines.reset()\n            # Now redraw lines\n            numLines = self.gridSize\n            scaledSize = numLines * self.cellWidth / 2.0\n            center = self.centerLines\n            minor = self.minorLines\n            major = self.majorLines\n            cw = self.cellWidth\n            dx = cw * self.gridSize * .5\n            for i in range(numLines+1):\n                icw = i * cw - dx\n                if i == numLines/2:\n                    center.moveTo(icw, -scaledSize, GRID_Z_OFFSET)\n                    center.drawTo(icw, scaledSize, GRID_Z_OFFSET)\n                    center.moveTo(-scaledSize, icw, GRID_Z_OFFSET)\n                    center.drawTo(scaledSize, icw, GRID_Z_OFFSET)\n                else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5291
+  }
+}

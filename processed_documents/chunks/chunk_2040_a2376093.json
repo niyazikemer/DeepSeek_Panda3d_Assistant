@@ -1,0 +1,9 @@
+{
+  "content": "elif self.platform.startswith('osx_'):\n            # macOS\n            proc = self.platform.split('_', 1)[1]\n            if proc == 'i386':\n                self.arch = '-arch i386'\n            elif proc == 'ppc':\n                self.arch = '-arch ppc'\n            elif proc == 'amd64':\n                self.arch = '-arch x86_64'\n            elif proc in ('arm64', 'aarch64'):\n                self.arch = '-arch arm64'\n            self.compileObjExe = \"clang -c %(arch)s -o %(basename)s.o -O2 -I%(pythonIPath)s %(filename)s\"\n            self.compileObjDll = \"clang -fPIC -c %(arch)s -o %(basename)s.o -O2 -I%(pythonIPath)s %(filename)s\"\n            self.linkExe = \"clang %(arch)s -o %(basename)s %(basename)s.o\"\n            if '/Python.framework/' in self.PythonIPath:\n                framework_dir = self.PythonIPath.split(\"/Python.framework/\", 1)[0]\n                if framework_dir != \"/System/Library/Frameworks\":\n                    self.linkExe += \" -F \" + framework_dir",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2040
+  }
+}

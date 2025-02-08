@@ -1,0 +1,9 @@
+{
+  "content": "@classmethod\n    def getCount(cls):\n        return cls.RESOURCE_COUNTER\n\n    @classmethod\n    def acquire(cls):\n        pass\n\n    @classmethod\n    def release(cls):\n        pass\n\n    def __init__(self):\n        cls = type(self)\n        cls.RESOURCE_COUNTER_INIT_FAILED = True\n        assert cls.mro()[1] == CountedResource, \\\n               (lambda: \\\n                '%s cannot be subclassed.' \\\n                 % cls.mro()[list(cls.mro()).index(CountedResource) - 1].__name__)()\n        del cls.RESOURCE_COUNTER_INIT_FAILED\n        self.incrementCounter()\n\n    def __del__(self):\n        self.decrementCounter()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_277",
+    "parent": "processed_documents/context_documents/283aed1f_CountedResource.json",
+    "chunk_number": 4800
+  }
+}

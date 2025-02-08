@@ -1,0 +1,9 @@
+{
+  "content": "# Now, find the location of the 'blobinfo' symbol in the binary,\n            # to which we will write our header.\n            if not self._replace_symbol(stub_data, b'blobinfo', header, bitness=bitness):\n                # This must be a legacy deploy-stub, which requires the offset to\n                # be appended to the end.\n                append_offset = True\n\n        # Add the string/code pool.\n        assert len(blob) == pool_offset\n        blob += pool\n        del pool\n\n        # Now pad out the blob to the calculated blob size.\n        if len(blob) < blob_size:\n            blob += b'\\0' * (blob_size - len(blob))\n        assert len(blob) == blob_size\n\n        if append_offset:\n            # This is for legacy deploy-stub.\n            warnings.warn(\"Could not find blob header. Is deploy-stub outdated?\")\n            blob += struct.pack('<Q', blob_offset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2133
+  }
+}

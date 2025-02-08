@@ -1,0 +1,9 @@
+{
+  "content": "def updateBTWidth(self):\n        self.buttons[0]['width'] = self.getBTWidth(self.rootItem.getSelfVertexBytes(),\n                                                   self.rootItem.getVertexBytes())\n\n        btIndex = 1\n        for item in self.rootItem.getChildren():\n            self.buttons[btIndex]['width'] = self.getBTWidth(item.getVertexBytes(),\n                                                             self.rootItem.getVertexBytes())\n            btIndex += 1\n\n    def updateDefaultBTWidth(self):\n        if self.renderItem is None or self.render2dItem is None:\n            return\n        totalBytes = self.renderItem.getVertexBytes() + self.render2dItem.getVertexBytes()\n        self.buttons[0]['width'] = self.getBTWidth(self.renderItem.getVertexBytes(), totalBytes)\n        self.buttons[1]['width'] = self.getBTWidth(self.render2dItem.getVertexBytes(), totalBytes)\n\n    def onSelfButtonLClick(self, item):\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3601
+  }
+}

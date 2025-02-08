@@ -1,0 +1,9 @@
+{
+  "content": "#include \"panda3d/bulletWorld.h\"\n#include \"panda3d/bulletDebugNode.h\"\n#include \"panda3d/bulletPlaneShape.h\"\n#include \"panda3d/bulletBoxShape.h\"\n\nBulletWorld *get_physics_world() {\n    // physics_world is supposed to be an global variable,\n    // but declaring global variables is not cool\n    // for good programmers lol, instead, should use static keyword.\n    static BulletWorld *physics_world = new BulletWorld();\n    return physics_world;\n}\n\nBulletDebugNode *get_physics_debug_node() {\n    // Global variable.\n    static BulletDebugNode *bullet_dbg_node = new BulletDebugNode(\"Debug\");\n    return bullet_dbg_node;\n}\n\nvoid toggle_physics_debug(const Event *e, void *data) {\n    static bool show_state = true;\n    show_state = !show_state;\n    get_physics_debug_node()->show_bounding_boxes(show_state);\n    get_physics_debug_node()->show_constraints(show_state);\n    get_physics_debug_node()->show_normals(show_state);\n    get_physics_debug_node()->show_wireframe(show_state);\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_603",
+    "parent": "processed_documents/context_documents/5e747db8_2c6507d0_debug-renderer.json",
+    "chunk_number": 7199
+  }
+}

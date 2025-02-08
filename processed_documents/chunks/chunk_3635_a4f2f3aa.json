@@ -1,0 +1,9 @@
+{
+  "content": "if self['fAdjustable']:\n            # The popup menu\n            self._popupMenu = tk.Menu(interior, tearoff = 0)\n            self.addValuatorMenuEntries()\n            self._popupMenu.add_command(label = 'Reset',\n                                        command = self.reset)\n            self._popupMenu.add_command(label = 'Set to Zero',\n                                        command = self.zero)\n            self._popupMenu.add_command(\n                label = 'Properties...',\n                command = self._popupPropertiesDialog)\n            # Add key bindings\n            if self._label:\n                self._label.bind(\n                    '<ButtonPress-3>', self._popupValuatorMenu)\n            self._entry.bind(\n                '<ButtonPress-3>', self._popupValuatorMenu)\n            self._valuator._widget.bind(\n                '<ButtonPress-3>', self._popupValuatorMenu)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3635
+  }
+}

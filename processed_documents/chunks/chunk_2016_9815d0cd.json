@@ -1,0 +1,9 @@
+{
+  "content": "if magic in (b'\\xCE\\xFA\\xED\\xFE', b'\\xCF\\xFA\\xED\\xFE'):\n                endian = '<'\n            elif magic in (b'\\xFE\\xED\\xFA\\xCE', b'\\xFE\\xED\\xFA\\xCF'):\n                endian = '>'\n            else:\n                # Not a Mach-O file we can read.\n                continue\n\n            for dep in self._read_dependencies_macho(fp, endian, flatten=flatten):\n                if dep not in deps:\n                    deps.append(dep)\n\n        return deps\n\n    def expand_path(self, path, platform):\n        \"Substitutes variables in the given path string.\"\n\n        if path is None:\n            return None\n\n        t = string.Template(path)\n        if platform.startswith('win'):\n            return t.substitute(HOME='~', USER_APPDATA='~/AppData/Local')\n        elif platform.startswith('macosx'):\n            return t.substitute(HOME='~', USER_APPDATA='~/Documents')\n        else:\n            return t.substitute(HOME='~', USER_APPDATA='~/.local/share')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2016
+  }
+}

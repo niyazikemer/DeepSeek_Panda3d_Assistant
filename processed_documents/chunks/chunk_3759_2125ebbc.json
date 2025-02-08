@@ -1,0 +1,9 @@
+{
+  "content": "However, if you don't need such strict adherence to Python's original\nsemantics, this module is probably a better choice.  It is likely to\nbe slighly faster than the threading2 module (and even slightly faster\nthan Python's own threading module).  It is also better integrated\nwith Panda's threads, so that Panda's thread debug mechanisms will be\neasier to use and understand.\n\nIt is permissible to mix-and-match both threading and threading2\nwithin the same application. \"\"\"\n\nfrom panda3d import core\nfrom direct.stdpy import thread as _thread\nimport sys as _sys\n\nimport weakref\n\n__all__ = [\n    'Thread',\n    'Lock', 'RLock',\n    'Condition',\n    'Semaphore', 'BoundedSemaphore',\n    'Event',\n    'Timer',\n    'ThreadError',\n    'local',\n    'current_thread',\n    'main_thread',\n    'enumerate', 'active_count',\n    'settrace', 'setprofile', 'stack_size',\n    'TIMEOUT_MAX',\n]\n\nTIMEOUT_MAX = _thread.TIMEOUT_MAX\n\nlocal = _thread._local\n_newname = _thread._newname\nThreadError = _thread.error",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3759
+  }
+}

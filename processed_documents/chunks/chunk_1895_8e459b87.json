@@ -1,0 +1,9 @@
+{
+  "content": "self.resources[16][1][lang] = res\n\n    def add_resource_section(self):\n        \"\"\" Adds a resource section to the file containing the resources that\n        were previously added via add_icon et al.  Assumes the file does not\n        contain a resource section yet. \"\"\"\n\n        # Calculate how much space to reserve.\n        tables = [self.resources] + list(self.resources.get_nested_tables())\n        table_size = 0\n        string_size = 0\n        desc_size = 16 * self.resources.count_resources()\n\n        for table in tables:\n            table._offset = table_size\n            table_size += 16 + 8 * len(table)\n            string_size += table._strings_size\n            desc_size += table._descs_size",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1895
+  }
+}

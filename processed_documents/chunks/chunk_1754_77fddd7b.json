@@ -1,0 +1,9 @@
+{
+  "content": "def listenerPollTask(self, task):\n        \"\"\" Task to listen for a new connection from the client \"\"\"\n        # Run this task after the dataLoop\n        if self.qcl.newConnectionAvailable():\n            self.notify.info(\"New connection is available\")\n            rendezvous = PointerToConnection()\n            netAddress = NetAddress()\n            newConnection = PointerToConnection()\n            if self.qcl.getNewConnection(rendezvous, netAddress, newConnection):\n                # Crazy dereferencing\n                newConnection=newConnection.p()\n                self.qcr.addConnection(newConnection)\n                self.lastConnection = newConnection\n                self.notify.info(\"Got a connection!\")\n            else:\n                self.notify.warning(\"getNewConnection returned false\")\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1754
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Loading Particle Systems\n\nThe Panda3D engine uses text files for storing particle configurations, which are usually created with the Particle Panel. Before being able to use particles, you'll need to tell Panda3D to enable particles:\n\nbase.enableParticles()\n\nThis function tells Panda3D to enable its built-in physics engine which is also used by particles.\n\nTo be able to create ParticleEffect objects, you'll need this import:\n\nfrom direct.particles.ParticleEffect import ParticleEffect\n\nNext, create a ParticleEffect object and tell it to use a particle configuration file.\n\np = ParticleEffect()\np.loadConfig(filename)\n\nTo start the ParticleEffect, do this:\n\np.start(parent = render, renderParent = render)\n\nstart() takes two arguments: parent is the node the particles will be \"birth-relative\" to. renderParent is the node level the particles will be rendered at. If you want your particles to spawn from your node, but not follow it around, set renderParent to something else like render.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_382",
+    "parent": "processed_documents/context_documents/4a9b1659_b3a396db_loading-particle-systems.json",
+    "chunk_number": 5969
+  }
+}

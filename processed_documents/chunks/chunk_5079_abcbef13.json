@@ -1,0 +1,9 @@
+{
+  "content": "def run(self):\n            self.printingBegin()\n            while True:\n                while self._accum < 100:\n                    self._accum += 1\n                    print('counter = %s, accum = %s' % (self._counter, self._accum))\n                    yield None\n\n                self._accum = 0\n                self._counter += 1\n\n                if self._counter >= 100:\n                    print('Job.Done')\n                    self.printingEnd()\n                    yield Job.Done\n                else:\n                    yield None\n\n    def addTestJob():\n        from direct.showbase.JobManagerGlobal import jobMgr\n        jobMgr.add(TestJob())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_287",
+    "parent": "processed_documents/context_documents/c6235696_Job.json",
+    "chunk_number": 5079
+  }
+}

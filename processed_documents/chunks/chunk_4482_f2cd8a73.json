@@ -1,0 +1,9 @@
+{
+  "content": "yield id(o) == objId\n\n    def goesThrough(self, obj=None, objId=None):\n        # since we cache the ids involved in this reference,\n        # this isn't perfect, for example if base.myObject is reassigned\n        # to a different object after this Ref was created this would return\n        # false, allowing a ref to base.myObject.otherObject.myObject\n        for goesThrough in self.goesThroughGen(obj=obj, objId=objId):\n            pass\n        return goesThrough",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4482
+  }
+}

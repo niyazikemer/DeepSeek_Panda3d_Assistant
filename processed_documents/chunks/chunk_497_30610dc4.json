@@ -1,0 +1,9 @@
+{
+  "content": "if isinstance(funcName, str):\n                        if funcName.startswith('.'):\n                            # when it's using default objectHandler\n                            if self.editor:\n                                func = Functor(getattr(self.editor, \"objectHandler%s\"%funcName))\n                            else: # when loaded outside of LE\n                                func = Functor(getattr(base, \"objectHandler%s\"%funcName))\n                        else:\n                            # when it's not using default objectHandler, whole name of the handling obj\n                            # should be included in function name\n                            func = Functor(eval(funcName))\n                    else:\n                        func = funcName\n                    # create new obj using function and keyword arguments defined in ObjectPalette\n                    newobj = func(**funcArgs)\n                elif objDef.actor:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 497
+  }
+}

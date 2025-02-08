@@ -1,0 +1,9 @@
+{
+  "content": "def __str__(self) -> str:\n        \"\"\"\n        Print handling routine\n        \"\"\"\n        return \"%s: info = %d, warning = %d, debug = %d, logging = %d\" % \\\n               (self.__name, self.__info, self.__warning, self.__debug, self.__logging)\n\n    # Severity funcs\n    def setSeverity(self, severity: int) -> None:\n        from panda3d.core import NSDebug, NSInfo, NSWarning, NSError\n        if severity >= NSError:\n            self.setWarning(False)\n            self.setInfo(False)\n            self.setDebug(False)\n        elif severity == NSWarning:\n            self.setWarning(True)\n            self.setInfo(False)\n            self.setDebug(False)\n        elif severity == NSInfo:\n            self.setWarning(True)\n            self.setInfo(True)\n            self.setDebug(False)\n        elif severity <= NSDebug:\n            self.setWarning(True)\n            self.setInfo(True)\n            self.setDebug(True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1676
+  }
+}

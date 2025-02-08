@@ -1,0 +1,9 @@
+{
+  "content": "def drawicon(self):\n        if self.selected:\n            imagename = (self.item.GetSelectedIconName() or\n                         self.item.GetIconName() or\n                         \"openfolder\")\n        else:\n            imagename = self.item.GetIconName() or \"folder\"\n        image = self.geticonimage(imagename)\n        id = self.canvas.create_image(self.x, self.y, anchor=\"nw\", image=image)\n        self.image_id = id\n        self.canvas.tag_bind(id, \"<1>\", self.select)\n        self.canvas.tag_bind(id, \"<Double-1>\", self.flip)\n        self.canvas.tag_bind(id, \"<3>\", self.popupMenu)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3687
+  }
+}

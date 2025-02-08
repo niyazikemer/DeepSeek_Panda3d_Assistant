@@ -1,0 +1,9 @@
+{
+  "content": "def toggleLights(self):\n        if self.enableLights.get():\n            ShowBaseGlobal.direct.lights.allOn()\n        else:\n            ShowBaseGlobal.direct.lights.allOff()\n\n    def toggleActiveLight(self):\n        if self.activeLight:\n            if self.lightActive.get():\n                ShowBaseGlobal.direct.lights.setOn(self.activeLight)\n            else:\n                ShowBaseGlobal.direct.lights.setOff(self.activeLight)\n\n    def setLightColor(self, color):\n        if self.activeLight:\n            self.activeLight.getLight().setColor(Vec4(color[0]/255.0,\n                                                      color[1]/255.0,\n                                                      color[2]/255.0,\n                                                      color[3]/255.0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 967
+  }
+}

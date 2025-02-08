@@ -1,0 +1,9 @@
+{
+  "content": "def isEnabled(self):\n        return self.fEnabled\n\n    def getNode(self):\n        return self.node\n\n    def setFactory(self, type):\n        if self.factoryType == type:\n            return None\n        if self.factory:\n            self.factory = None\n        self.factoryType = type\n        if type == \"PointParticleFactory\":\n            self.factory = PointParticleFactory()\n        elif type == \"ZSpinParticleFactory\":\n            self.factory = ZSpinParticleFactory()\n        #elif type == \"OrientedParticleFactory\":\n        #    self.factory = OrientedParticleFactory()\n        else:\n            print(\"unknown factory type: %s\" % type)\n            return None\n        self.factory.setLifespanBase(0.5)\n        ParticleSystem.setFactory(self, self.factory)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1259
+  }
+}

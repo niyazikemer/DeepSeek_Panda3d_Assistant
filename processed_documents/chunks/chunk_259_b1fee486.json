@@ -1,0 +1,9 @@
+{
+  "content": "def drawSingleCurve(self, list, dc):\n        if len(list) == 1:\n            dc.DrawPoint(list[0][AG.KEYFRAME][AG.LOCAL_VALUE][0], list[0][AG.KEYFRAME][AG.LOCAL_VALUE][1])\n            return\n\n        if len(list) == 2:\n            dc.DrawLine(list[0][AG.KEYFRAME][AG.LOCAL_VALUE][0], list[0][AG.KEYFRAME][AG.LOCAL_VALUE][1], list[1][AG.KEYFRAME][AG.LOCAL_VALUE][0], list[1][AG.KEYFRAME][AG.LOCAL_VALUE][1])\n            return\n\n        if len(list) >= 3:\n            for i in range(len(list)-1):\n                x1 = list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0]\n                y1 = list[i][AG.KEYFRAME][AG.LOCAL_VALUE][1]\n\n                x4 = list[i+1][AG.KEYFRAME][AG.LOCAL_VALUE][0]\n                y4 = list[i+1][AG.KEYFRAME][AG.LOCAL_VALUE][1]\n\n                t1x = list[i][AG.OUT_SLOPE][0]\n                t1y = list[i][AG.OUT_SLOPE][1]\n\n                t2x = list[i+1][AG.IN_SLOPE][0]\n                t2y = list[i+1][AG.IN_SLOPE][1]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 259
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def privInitialize(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(t)\n\n    def privInstant(self):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(self.getDuration())\n        self.state = CInterval.SFinal\n        self.intervalDone()\n\n    def privStep(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.currT = t\n\n    def privFinalize(self):\n        # Subclasses may redefine this function\n        self.privStep(self.getDuration())\n        self.state = CInterval.SFinal\n        self.intervalDone()\n\n    def privReverseInitialize(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2841
+  }
+}

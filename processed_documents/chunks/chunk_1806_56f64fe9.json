@@ -1,0 +1,9 @@
+{
+  "content": "def walkthruMode(self):\n        self.mapping = [R_LEFT_RIGHT, R_FWD_BACK, L_TWIST,\n                        R_TWIST, L_FWD_BACK, L_LEFT_RIGHT]\n        self.modifier = [1, 1, -1, -1, -1, 1]\n        self.setMode(self.joyboxFly, 'Walkthru Mode')\n\n    def spaceMode(self):\n        self.setMode(self.spaceFly, 'Space Mode')\n\n    def nullFly(self):\n        return\n\n    def tankFly(self):\n\n        leftTreadSpeed  = (self.normalizeChannel(L_SLIDE,.1,100) *\n                           DirectJoybox.xyzMultiplier) * self.aList[L_FWD_BACK]\n        rightTreadSpeed = (self.normalizeChannel(R_SLIDE,.1,100) *\n                           DirectJoybox.xyzMultiplier) * self.aList[R_FWD_BACK]\n\n        forwardSpeed = (leftTreadSpeed + rightTreadSpeed)*.5\n        headingSpeed = math.atan2(leftTreadSpeed - rightTreadSpeed,\n                                  JOYBOX_TREAD_SEPERATION)\n        headingSpeed = 180/3.14159 * headingSpeed",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1806
+  }
+}

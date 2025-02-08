@@ -1,0 +1,9 @@
+{
+  "content": "rootdir = os.getcwd()\n        for dirname, subdirlist, filelist in os.walk(rootdir):\n            subdirlist.sort()\n            dirpath = os.path.relpath(dirname, rootdir)\n            if skip_directory(dirpath):\n                self.announce('skipping directory {}'.format(dirpath))\n                continue\n\n            for fname in filelist:\n                src = os.path.join(dirpath, fname)\n                dst = os.path.join(data_dir, update_path(src))\n\n                copy_file(src, dst)\n\n    def add_dependency(self, name, target_dir, search_path, referenced_by):\n        \"\"\" Searches for the given DLL on the search path.  If it exists,\n        copies it to the target_dir. \"\"\"\n\n        if os.path.exists(os.path.join(target_dir, name)):\n            # We've already added it earlier.\n            return\n\n        for dep in self.exclude_dependencies:\n            if dep.matches_file(name):\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1999
+  }
+}

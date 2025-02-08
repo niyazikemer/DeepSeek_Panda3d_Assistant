@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" This module is now vestigial.  \"\"\"\n\nimport sys\nimport Pmw\n\n\n# This is required by the ihooks.py module used by Squeeze (used by\n# pandaSqueezer.py) so that Pmw initializes properly\nif '_Pmw' in sys.modules:\n    sys.modules['_Pmw'].__name__ = '_Pmw'\n\n# Don't export this from the module.\ndel sys\n\n# Hack to workaround broken Pmw.NoteBook in Python 3\ndef bordercolors(root, colorName):\n    lightRGB = []\n    darkRGB = []\n    for value in Pmw.Color.name2rgb(root, colorName, 1):\n        value40pc = (14 * value) // 10\n        if value40pc > int(Pmw.Color._MAX_RGB):\n            value40pc = int(Pmw.Color._MAX_RGB)\n        valueHalfWhite = (int(Pmw.Color._MAX_RGB) + value) // 2\n        lightRGB.append(max(value40pc, valueHalfWhite))\n\n        darkValue = (60 * value) // 100\n        darkRGB.append(darkValue)\n\n    return (\n        '#%04x%04x%04x' % (lightRGB[0], lightRGB[1], lightRGB[2]),\n        '#%04x%04x%04x' % (darkRGB[0], darkRGB[1], darkRGB[2])\n    )\n\nPmw.Color.bordercolors = bordercolors\ndel bordercolors\n\n\ndef spawnTkLoop():\n    \"\"\"Alias for :meth:`base.spawnTkLoop() <.ShowBase.spawnTkLoop>`.\"\"\"\n    from direct.showbase import ShowBaseGlobal\n    ShowBaseGlobal.base.spawnTkLoop()\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/showbase/TkGlobal.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/9e4614f0_TkGlobal.json",
+    "doc_id": "doc_267"
+  }
+}

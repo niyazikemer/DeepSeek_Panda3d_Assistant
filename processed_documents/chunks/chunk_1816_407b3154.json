@@ -1,0 +1,9 @@
+{
+  "content": "# We need to override the DirectAnalog normalizeChannel to\n    # correct the ranges of the two twist axes of the joybox.\n\n    def normalizeChannel(self, chan, minVal = -1, maxVal = 1):\n        try:\n            if chan == L_TWIST or chan == R_TWIST:\n                # These channels have reduced range\n                return self.analogs.normalize(\n                    self.analogs.getControlState(chan), minVal, maxVal, 3.0)\n            else:\n                return self.analogs.normalize(\n                    self.analogs.getControlState(chan), minVal, maxVal)\n        except IndexError:\n            return 0.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1816
+  }
+}

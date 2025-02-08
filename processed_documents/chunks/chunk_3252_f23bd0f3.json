@@ -1,0 +1,9 @@
+{
+  "content": "return\n        # Scale the selected node based upon up down mouse motion\n        # Mouse motion from edge to edge results in a factor of 4 scaling\n        # From midpoint to edge doubles or halves objects scale\n        if self.fScaleInit:\n            self.fScaleInit = 0\n            self.manipRef.setPos(direct.widget, 0, 0, 0)\n            self.manipRef.setHpr(direct.camera, 0, 0, 0)\n            self.initScaleMag = Vec3(\n                self.objectHandles.getWidgetIntersectPt(\n                self.manipRef, 'y')).length()\n            # record initial scale\n            self.initScale = direct.widget.getScale()\n        # Reset fHitInitFlag\n        self.fHitInit = 1\n        # Begin\n        # Scale factor is ratio current mag with init mag\n        currScale = (\n            self.initScale *\n            (self.objectHandles.getWidgetIntersectPt(\n            self.manipRef, 'y').length() /\n                self.initScaleMag)\n        )\n        direct.widget.setScale(currScale)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3252
+  }
+}

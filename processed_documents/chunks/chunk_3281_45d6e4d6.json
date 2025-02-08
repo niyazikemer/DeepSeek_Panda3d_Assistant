@@ -1,0 +1,9 @@
+{
+  "content": "#Y scale\n        self.yScale = self.yScaleGroup.attachNewNode('y-scale-visible')\n        lines = LineNodePath(self.yScale)\n        lines.setColor(VBase4(0, 1, 0, 1))\n        lines.setThickness(5)\n        lines.moveTo(0, 1.3, 0)\n        lines.drawTo(0, -1.5, 0)\n\n        drawBox(lines, (0, 1.4, 0), 0.2)\n\n        lines.create()\n        lines.setName('y-scale-line')\n\n        # Y ring\n        self.yRing = self.yRingGroup.attachNewNode('y-ring-visible')\n        lines = LineNodePath(self.yRing)\n        lines.setColor(VBase4(0, 1, 0, 1))\n        lines.setThickness(3)\n        lines.moveTo(1, 0, 0)\n        for ang in range(15, 370, 15):\n            lines.drawTo(math.cos(deg2Rad(ang)),\n                          0,\n                          math.sin(deg2Rad(ang)))\n        lines.create()\n        lines.setName('y-ring-line')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3281
+  }
+}

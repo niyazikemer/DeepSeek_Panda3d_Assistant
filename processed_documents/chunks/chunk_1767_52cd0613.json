@@ -1,0 +1,9 @@
+{
+  "content": "def handleTimeData(self, dgi):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (frameCount, frameTime, dt) = self.msgHandler.parseTimeDataDatagram(dgi)\n        # Use frame time from client for both real and frame time\n        clock = ClockObject.getGlobalClock()\n        clock.setFrameCount(frameCount)\n        clock.setFrameTime(frameTime)\n        clock.dt = dt\n\n    def handleCommandString(self, dgi):\n        \"\"\" Handle arbitrary command string from client \"\"\"\n        command = self.msgHandler.parseCommandStringDatagram(dgi)\n        try:\n            exec(command, __builtins__)\n        except Exception:\n            pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1767
+  }
+}

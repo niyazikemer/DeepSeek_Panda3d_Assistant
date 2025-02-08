@@ -1,0 +1,9 @@
+{
+  "content": "class DirectScrolledListItem(DirectButton):\n    \"\"\"\n    While you are not required to use a DirectScrolledListItem for a\n    DirectScrolledList, doing so takes care of the highlighting and\n    unhighlighting of the list items.\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"DirectScrolledListItem\")\n\n    def __init__(self, parent=None, **kw):\n        assert self.notify.debugStateCall(self)\n        self._parent = parent\n        if \"command\" in kw:\n            self.nextCommand = kw.get(\"command\")\n            del kw[\"command\"]\n        if \"extraArgs\" in kw:\n            self.nextCommandExtraArgs = kw.get(\"extraArgs\")\n            del kw[\"extraArgs\"]\n        optiondefs = (\n            ('parent', self._parent,    None),\n            ('command', self.select, None),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n        DirectButton.__init__(self)\n        self.initialiseoptions(DirectScrolledListItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1597
+  }
+}

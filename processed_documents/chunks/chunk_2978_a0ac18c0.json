@@ -1,0 +1,9 @@
+{
+  "content": "else:\n                # Pack in just the newly-loaded textures.\n\n                # Sort the regions from largest to smallest to maximize\n                # packing effectiveness.\n                texRecords.sort(key = lambda tr: (tr.tw, tr.th), reverse = True)\n\n                for tr in texRecords:\n                    self.placeTexture(tr)\n                    self.texRecordsByTex[tr.tex] = tr\n                    self.texRecordsByKey[tr.key] = tr\n\n        return task.again\n\n\n    def repack(self):\n        \"\"\" Repacks all of the current textures. \"\"\"\n\n        self.canvas.getChildren().detach()\n        self.texRecordsByTex = {}\n        self.texRecordsByKey = {}\n        self.texPlacements = {}\n        self.bitmasks = []\n        self.mw.clearRegions()\n        self.setRollover(None, None)\n        self.w = 1\n        self.h = 1\n        self.placedSize = 0\n        self.placedQSize = 0\n\n        pgo = self.gsg.getPreparedObjects()\n        totalSize = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2978
+  }
+}

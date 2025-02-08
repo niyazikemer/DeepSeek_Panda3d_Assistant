@@ -1,0 +1,9 @@
+{
+  "content": "self.writeCode(filename, initCode=initCode)\n\n        # Keep track of the files we should clean up after use.\n        cleanFiles = [filename, basename + self.objectExtension]\n\n        extraLink = []\n        if self.linkExtensionModules:\n            for mod, fn in self.extras:\n                if not fn:\n                    continue\n                if sys.platform == 'win32':\n                    # We can't link with a .pyd directly on Windows.  Check\n                    # if there is a corresponding .lib file in the Python libs\n                    # directory.\n                    libsdir = os.path.join(sys.exec_prefix, 'libs')\n                    libfile = os.path.join(libsdir, mod + '.lib')\n                    if os.path.isfile(libfile):\n                        extraLink.append(mod + '.lib')\n                        continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2118
+  }
+}

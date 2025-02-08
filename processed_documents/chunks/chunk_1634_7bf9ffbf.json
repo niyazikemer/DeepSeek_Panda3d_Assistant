@@ -1,0 +1,9 @@
+{
+  "content": "def processFunction(handle, function, isConstructor = False):\n    for i_wrapper in range(interrogate_function_number_of_python_wrappers(function)):\n        wrapper = interrogate_function_python_wrapper(function, i_wrapper)\n        if interrogate_wrapper_has_comment(wrapper):\n            print(block_comment(interrogate_wrapper_comment(wrapper)), file=handle)\n\n        if not isConstructor:\n            if interrogate_function_is_method(function):\n                if not interrogate_wrapper_number_of_parameters(wrapper) > 0 or not interrogate_wrapper_parameter_is_this(wrapper, 0):\n                    print(\"static\", end=' ', file=handle)\n\n            if interrogate_wrapper_has_return_value(wrapper):\n                print(translated_type_name(interrogate_wrapper_return_type(wrapper)), end=' ', file=handle)\n            else:\n                pass#print >>handle, \"void\",",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1634
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self._report = s\n\n        if self._args.log:\n            self.printingBegin()\n            for i in range(len(self._report)):\n                if self.numGarbage > 0:\n                    yield None\n                self.notify.info(self._report[i])\n            self.notify.info('===== Garbage Report Done =====')\n            self.printingEnd()\n\n        yield Job.Done\n\n    def finished(self):\n        if self._args.doneCallback:\n            self._args.doneCallback(self)\n        if self._args.autoDestroy:\n            self.destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4269
+  }
+}

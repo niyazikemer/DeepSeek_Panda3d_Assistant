@@ -1,0 +1,9 @@
+{
+  "content": "distObj.dclass = dclass\n        distObj.doId = doId\n        self.doId2do[doId] = distObj\n        distObj.generateInit()\n        distObj._retrieveCachedData()\n        distObj.generate()\n        distObj.setLocation(0, zoneId)\n        distObj.announceGenerate()\n        datagram = self.formatGenerate(distObj, optionalFields)\n        self.send(datagram)\n        return distObj\n\n    def formatGenerate(self, distObj, extraFields):\n        \"\"\" Returns a datagram formatted for sending the generate message for the indicated object. \"\"\"\n        return distObj.dclass.clientFormatGenerateCMU(distObj, distObj.doId, distObj.zoneId, extraFields)\n\n    def sendDeleteMsg(self, doId):\n        datagram = PyDatagram()\n        datagram.addUint16(OBJECT_DELETE_CMU)\n        datagram.addUint32(doId)\n        self.send(datagram)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5668
+  }
+}

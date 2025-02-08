@@ -1,0 +1,9 @@
+{
+  "content": "class DirectSessionPanel(AppShell):\n    # Override class variables here\n    appname = 'Direct Session Panel'\n    frameWidth      = 600\n    frameHeight     = 365\n    usecommandarea = 0\n    usestatusarea  = 0\n\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('title',       self.appname,       None),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Call superclass initialization function\n        AppShell.__init__(self, parent)\n\n        # Active light\n        if len(ShowBaseGlobal.direct.lights) > 0:\n            name = ShowBaseGlobal.direct.lights.getNameList()[0]\n            self.lightMenu.selectitem(name)\n            self.selectLightNamed(name)\n        else:\n            self.activeLight = None\n        # Active display region\n        self.drMenu.selectitem('Display Region 0')\n        self.selectDisplayRegionNamed('Display Region 0')\n        # Make sure we've got valid initial values\n        self.updateInfo()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 921
+  }
+}

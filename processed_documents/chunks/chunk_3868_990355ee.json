@@ -1,0 +1,9 @@
+{
+  "content": "class TaskManager:\n    notify = directNotify.newCategory(\"TaskManager\")\n\n    taskTimerVerbose = ConfigVariableBool('task-timer-verbose', False)\n    extendedExceptions = ConfigVariableBool('extended-exceptions', False)\n    pStatsTasks = ConfigVariableBool('pstats-tasks', False)\n\n    MaxEpochSpeed = 1.0/30.0\n\n    __prevHandler: Any\n\n    def __init__(self) -> None:\n        self.mgr = AsyncTaskManager.getGlobalPtr()\n\n        self.resumeFunc: Callable[[], object] | None = None\n        self.globalClock = self.mgr.getClock()\n        self.stepping = False\n        self.running = False\n        self.destroyed = False\n        self.fKeyboardInterrupt = False\n        self.interruptCount = 0\n        if signal:\n            self.__prevHandler = signal.default_int_handler\n\n        self._frameProfileQueue: list[tuple[int, Any, Callable[[], object] | None]] = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3868
+  }
+}

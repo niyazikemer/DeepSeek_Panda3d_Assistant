@@ -1,0 +1,9 @@
+{
+  "content": "class World(DirectObject):\n\n    def __init__(self):\n\n        self.keyMap = {\"left\": 0, \"right\": 0, \"up\": 0, \"down\": 0}\n\n        addTitle(\"Pandai Tutorial: Adding Dynamic Obstacles\")\n        addInstructions(0.95, \"[ESC]: Quit\")\n        addInstructions(0.90, \"[Enter]: Start Pathfinding\")\n        addInstructions(0.85, \"[Arrow Keys]: Move Arrow\")\n        addInstructions(0.80, \"[1]: Small box\")\n        addInstructions(0.75, \"[2]: Big box\")\n        addInstructions(0.70, \"[Space]: Place box\")\n\n        #base.disableMouse()\n        base.cam.setPosHpr(0, -210, 135, 0, 327, 0)\n        self.box = 0\n        self.pointer_move = False\n\n        self.loadModels()\n        self.setAI()\n\n    def loadModels(self):\n\n        self.environ1 = loader.loadModel(\"models/skydome\")\n        self.environ1.reparentTo(render)\n        self.environ1.setScale(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_10",
+    "parent": "processed_documents/context_documents/db6dae55_1bbd6cf1_static-obstacles.json",
+    "chunk_number": 172
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def walk(top, topdown = True, onerror = None, followlinks = True):\n    \"\"\" Implements os.walk over vfs.\n\n    Note: we don't support onerror or followlinks; errors are ignored\n    and links are always followed. \"\"\"\n\n    dirnames = []\n    filenames = []\n\n    dirlist = _vfs.scanDirectory(top)\n    if dirlist:\n        for file in dirlist:\n            if file.isDirectory():\n                dirnames.append(file.getFilename().getBasename())\n            else:\n                filenames.append(file.getFilename().getBasename())\n\n    if topdown:\n        yield (top, dirnames, filenames)\n\n    for dir in dirnames:\n        next = join(top, dir)\n        for tuple in walk(next, topdown = topdown):\n            yield tuple\n\n    if not topdown:\n        yield (top, dirnames, filenames)\n\n\ndef isfile(path):\n    return _vfs.isRegularFile(core.Filename.fromOsSpecific(path))\n\n\ndef isdir(path):\n    return _vfs.isDirectory(core.Filename.fromOsSpecific(path))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3791
+  }
+}

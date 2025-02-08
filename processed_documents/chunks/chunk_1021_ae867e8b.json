@@ -1,0 +1,9 @@
+{
+  "content": "def selectedPart(self):\n        return self.partNumber(self.getLastPartNumber())\n\n    def namedParts(self):\n        return dir(self.object)\n\n    def stringForPartNumber(self, partNumber):\n        object = self.partNumber(partNumber)\n        doc = None\n        if callable(object):\n            doc = getattr(object, '__doc__', None)\n        if doc:\n            return str(object) + '\\n' + str(doc)\n        else:\n            return str(object)\n\n    def partNumber(self, partNumber):\n        self.lastPartNumber = partNumber\n        if partNumber == 0:\n            return self.object\n        else:\n            part = self.privatePartNumber(partNumber)\n            return getattr(self.object, part)\n\n    def inspectorFor(self, part):\n        return inspectorFor(part)\n\n    def privatePartNumber(self, partNumber):\n        return self._partsList[partNumber - 1]\n\n    def partNames(self):\n        return self._partNames\n\n    def objectType(self):\n        return type(self.object)\n\n###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1021
+  }
+}

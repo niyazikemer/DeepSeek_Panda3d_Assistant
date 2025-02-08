@@ -1,0 +1,9 @@
+{
+  "content": "def isLocalId(self, id):\n        # By default, no ID's are local.  See also\n        # ClientRepository.isLocalId().\n        return 0\n\n    # methods for tracking delaydeletes\n    def _addDelayDeletedDO(self, do):\n        # use the id of the object, it's possible to have multiple DelayDeleted instances\n        # with identical doIds if an object gets deleted then re-generated\n        key = id(do)\n        assert key not in self._delayDeletedDOs\n        self._delayDeletedDOs[key] = do\n\n    def _removeDelayDeletedDO(self, do):\n        key = id(do)\n        del self._delayDeletedDOs[key]\n\n    def printDelayDeletes(self):\n        print('DelayDeletes:')\n        print('=============')\n        for obj in self._delayDeletedDOs.values():\n            print('%s\\t%s (%s)\\tdelayDeletes=%s' % (\n                obj.doId, safeRepr(obj), itype(obj), obj.getDelayDeleteNames()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5621
+  }
+}

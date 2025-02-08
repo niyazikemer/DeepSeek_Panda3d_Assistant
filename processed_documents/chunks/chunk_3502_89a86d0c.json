@@ -1,0 +1,9 @@
+{
+  "content": "def createValuator(self):\n        self._valuator = self.createcomponent(\n            'valuator',\n            (('slider', 'valuator'),),\n            None,\n            SliderWidget,\n            (self.interior(),),\n            style = self['style'],\n            command = self.setEntry,\n            value = self['value'])\n        #self._valuator._widget.bind('<Double-ButtonPress-1>', self.mouseReset)\n\n        # Add popup bindings to slider widget\n        try:\n            self._valuator._arrowBtn.bind(\n                '<ButtonPress-3>', self._popupValuatorMenu)\n        except AttributeError:\n            pass\n        self._valuator._minLabel.bind(\n            '<ButtonPress-3>', self._popupValuatorMenu)\n        self._valuator._maxLabel.bind(\n            '<ButtonPress-3>', self._popupValuatorMenu)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3502
+  }
+}

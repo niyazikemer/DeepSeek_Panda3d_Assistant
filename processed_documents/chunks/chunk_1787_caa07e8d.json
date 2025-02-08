@@ -1,0 +1,9 @@
+{
+  "content": "def getName(self):\n        return self.name\n\n    def getNodePath(self):\n        return self.nodePath\n\n    def getTime(self):\n        # Assume only one card, use channel 0\n        timeBits = int(self.getControlState(0))\n        self.frames = ((timeBits & 0xF) +\n                       (((timeBits & 0xF0) >> 4) * 10))\n        self.seconds = (((timeBits & 0x0F00) >> 8) +\n                        (((timeBits & 0xF000) >> 12) * 10))\n        self.minutes = (((timeBits & 0x0F0000) >> 16) +\n                        (((timeBits & 0xF00000) >> 20) * 10))\n        self.hours = (((timeBits & 0xF000000) >> 24) +\n                      (((timeBits & 0xF0000000) >> 28) * 10))\n        self.totalSeconds = ((self.hours * 3600) +\n                             (self.minutes * 60) +\n                             self.seconds +\n                             (self.frames / 30.0))\n        return (self.hours, self.minutes, self.seconds, self.frames,\n                self.totalSeconds)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1787
+  }
+}

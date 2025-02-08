@@ -1,0 +1,9 @@
+{
+  "content": "def stickToWidgetTask(self, state):\n        # Move the objects with the widget\n        ShowBaseGlobal.direct.selected.moveWrtWidgetAll()\n        # Continue\n        return Task.cont\n\n    def enableMouseFly(self, fKeyEvents = 1):\n        # disable C++ fly interface\n        base = ShowBaseGlobal.base\n        base.disableMouse()\n        # Enable events\n        for event in self.actionEvents:\n            self.accept(event[0], event[1], extraArgs = event[2:])\n        if fKeyEvents:\n            for event in self.keyEvents:\n                self.accept(event[0], event[1], extraArgs = event[2:])\n        # Show marker\n        self.coaMarker.reparentTo(ShowBaseGlobal.direct.group)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3349
+  }
+}

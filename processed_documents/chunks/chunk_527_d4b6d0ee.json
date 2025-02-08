@@ -1,0 +1,9 @@
+{
+  "content": "newObjNP = self.addNewObject(objDef.name, parent=parent, fSelectObject = False)\n\n        # copy transform data\n        newObjNP.setPos(obj[OG.OBJ_NP].getPos())\n        newObjNP.setHpr(obj[OG.OBJ_NP].getHpr())\n        newObjNP.setScale(obj[OG.OBJ_NP].getScale())\n\n        newObj = self.findObjectByNodePath(NodePath(newObjNP))\n        if newObj is None:\n            return None\n        # copy model info\n        self.updateObjectModel(obj[OG.OBJ_MODEL], newObj, fSelectObject=False)\n\n        # copy anim info\n        self.updateObjectAnim(obj[OG.OBJ_ANIM], newObj, fSelectObject=False)\n\n        # copy other properties\n        for key in obj[OG.OBJ_PROP]:\n            self.updateObjectPropValue(newObj, key, obj[OG.OBJ_PROP][key])\n        return newObjNP",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 527
+  }
+}

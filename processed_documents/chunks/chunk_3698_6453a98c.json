@@ -1,0 +1,9 @@
+{
+  "content": "def packValuator(self):\n        if self['style'] == VALUATOR_FULL:\n            self._valuator.grid(rowspan = 2, columnspan = 2,\n                                padx = 2, pady = 2)\n            if self._label:\n                self._label.grid(row = 0, column = 2, sticky = tk.EW)\n            self._entry.grid(row = 1, column = 2, sticky = tk.EW)\n            self.interior().columnconfigure(2, weight = 1)\n        else:\n            if self._label:\n                self._label.grid(row=0, column=0, sticky = tk.EW)\n            self._entry.grid(row=0, column=1, sticky = tk.EW)\n            self._valuator.grid(row=0, column=2, padx = 2, pady = 2)\n            self.interior().columnconfigure(0, weight = 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3698
+  }
+}

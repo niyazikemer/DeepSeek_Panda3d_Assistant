@@ -1,0 +1,9 @@
+{
+  "content": "self.nodePathMenuEntry = (\n            self.nodePathMenu.component('entryfield_entry'))\n        self.nodePathMenuBG = (\n            self.nodePathMenuEntry.configure('background')[3])\n        self.nodePathMenu.pack(side = tk.LEFT, fill = tk.X, expand = 1)\n        self.bind(self.nodePathMenu,\n                  'Select active node path used for recording and playback')\n        # Recording type\n        self.recordingType = tk.StringVar()\n        self.recordingType.set('New Curve')\n        widget = self.createRadiobutton(\n            frame, 'left',\n            'Recording', 'New Curve',\n            ('Next record session records a new path'),\n            self.recordingType, 'New Curve', expand = 0)\n        widget = self.createRadiobutton(\n            frame, 'left',\n            'Recording', 'Refine',\n            ('Next record session refines existing path'),\n            self.recordingType, 'Refine', expand = 0)\n        widget = self.createRadiobutton(\n            frame, 'left',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1132
+  }
+}

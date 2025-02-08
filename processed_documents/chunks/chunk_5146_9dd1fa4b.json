@@ -1,0 +1,9 @@
+{
+  "content": "def reset_motion_trail_geometry(self):\n        \"\"\"Destroys the currently generated motion trail geometry immediately.\n        However, it will be fully regenerated on the next call to update, see\n        `reset_motion_trail()` to prevent this.\n        \"\"\"\n        if self.geom_node is not None:\n            self.geom_node.removeAllGeoms()\n\n    def attach_motion_trail(self):\n        \"\"\"Alias of `reset_motion_trail()`.\n        \"\"\"\n        self.reset_motion_trail()\n\n    def begin_motion_trail(self):\n        if not self.continuous_motion_trail:\n            self.reset_motion_trail()\n            self.active = True\n            self.playing = True\n\n    def end_motion_trail(self):\n        if not self.continuous_motion_trail:\n            self.active = False\n            self.reset_motion_trail()\n            self.reset_motion_trail_geometry()\n            self.playing = False\n\n    # the following functions are not currently supported in the C++ version",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5146
+  }
+}

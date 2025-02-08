@@ -1,0 +1,9 @@
+{
+  "content": "segIdList = [int(seg) for seg in cim.getSegmentIdList().split()]\n            for sid in segIdList:\n                seg = cim.getSegment(sid)\n                if seg.isEnabled():\n                    t_b = seg.getTimeBegin()\n                    t_e = seg.getTimeEnd()\n                    mod = seg.isModulated()\n                    fun = seg.getFunction()\n                    typ = type(fun).__name__\n                    if typ == 'ColorInterpolationFunctionConstant':\n                        c_a = fun.getColorA()\n                        file.write(targ+'.renderer.getColorInterpolationManager().addConstant('+repr(t_b)+','+repr(t_e)+','+ \\\n                                   'Vec4('+repr(c_a[0])+','+repr(c_a[1])+','+repr(c_a[2])+','+repr(c_a[3])+'),'+repr(mod)+')\\n')\n                    elif typ == 'ColorInterpolationFunctionLinear':\n                        c_a = fun.getColorA()\n                        c_b = fun.getColorB()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1288
+  }
+}

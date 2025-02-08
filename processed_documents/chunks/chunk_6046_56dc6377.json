@@ -1,0 +1,9 @@
+{
+  "content": "A tree of <Joint> nodes only makes sense within a character definition, which is created by applying the <DART> flag to a group. See <DART>, above.\n\nThe vertex assignment is crucial. This is how the geometry of a character is made to move with the joints. The character's geometry is actually defined outside the joint tree, and each vertex must be assigned to one or more joints within the tree.\n\nThis is done with zero or more <VertexRef> entries per joint, as the following:\n\n\u00a0<VertexRef>\u00a0{\u00a0indices\u00a0[<Scalar>\u00a0membership\u00a0{\u00a0m\u00a0}]\u00a0<Ref>\u00a0{\u00a0pool-name\u00a0}\u00a0}\n\nThis is syntactically similar to the way vertices are assigned to polygons. Each <VertexRef> entry can assign vertices from only one vertex pool (but there may be many <VertexRef> entries per joint). Indices is a list of vertex numbers from the specified vertex pool, in an arbitrary order.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_400",
+    "parent": "processed_documents/context_documents/fe5417d7_2644dc0c_syntax.json",
+    "chunk_number": 6046
+  }
+}

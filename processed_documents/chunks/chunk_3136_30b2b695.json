@@ -1,0 +1,9 @@
+{
+  "content": "assert Actor.notify.debug(\"in loadModel: %s, part: %s, lod: %s, copy: %s\" % \\\n                                  (modelPath, partName, lodName, copy))\n\n        if isinstance(modelPath, NodePath):\n            # If we got a NodePath instead of a string, use *that* as\n            # the model directly.\n            if copy:\n                model = modelPath.copyTo(NodePath())\n            else:\n                model = modelPath\n        else:\n            # otherwise, we got the name of the model to load.\n            loaderOptions = self.modelLoaderOptions\n            if not copy:\n                # If copy = 0, then we should always hit the disk.\n                loaderOptions = LoaderOptions(loaderOptions)\n                loaderOptions.setFlags(loaderOptions.getFlags() & ~LoaderOptions.LFNoRamCache)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3136
+  }
+}

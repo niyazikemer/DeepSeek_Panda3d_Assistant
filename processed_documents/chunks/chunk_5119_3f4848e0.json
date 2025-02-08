@@ -1,0 +1,9 @@
+{
+  "content": "self.total_vertices = len(self.vertex_list)\n\n        self.modified_vertices = True\n\n        return motion_trail_vertex\n\n    def set_vertex_color(self, vertex_id, start_color, end_color):\n        \"\"\"Sets the start and end color of the vertex with the given index,\n        which must have been previously added by `add_vertex()`.  The motion\n        trail will contain a smooth gradient between these colors.  By default,\n        the motion trail fades from white to black (which, with the default\n        additive blending mode, makes it show up as a purely white motion trail\n        that fades out towards the end).\n        \"\"\"\n        if vertex_id >= 0 and vertex_id < self.total_vertices:\n            motion_trail_vertex = self.vertex_list[vertex_id]\n            motion_trail_vertex.start_color = start_color\n            motion_trail_vertex.end_color = end_color\n\n        self.modified_vertices = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5119
+  }
+}

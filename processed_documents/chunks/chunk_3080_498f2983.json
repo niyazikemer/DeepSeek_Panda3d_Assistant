@@ -1,0 +1,9 @@
+{
+  "content": "def getCurrentAnim(self, partName=None):\n        \"\"\"\n        Return the anim currently playing on the actor. If part not\n        specified return current anim of an arbitrary part in dictionary.\n        NOTE: only returns info for an arbitrary LOD\n        \"\"\"\n        if len(self.__animControlDict) == 0:\n            return\n\n        lodName, animControlDict = next(iter(self.__animControlDict.items()))\n        if partName is None:\n            partName, animDict = next(iter(animControlDict.items()))\n        else:\n            animDict = animControlDict.get(partName)\n            if animDict is None:\n                # part was not present\n                Actor.notify.warning(\"couldn't find part: %s\" % (partName))\n                return None\n\n        # loop through all anims for named part and find if any are playing\n        for animName, anim in animDict.items():\n            if anim.animControl and anim.animControl.isPlaying():\n                return animName",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3080
+  }
+}

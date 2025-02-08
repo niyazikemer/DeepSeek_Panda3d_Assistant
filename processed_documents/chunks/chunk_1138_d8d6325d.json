@@ -1,0 +1,9 @@
+{
+  "content": "# Speed control\n        frame = tk.Frame(playbackFrame)\n        widget = tk.Button(frame, text = 'PB Speed Vernier', relief = tk.FLAT,\n                           command = lambda s = self: s.setSpeedScale(1.0))\n        widget.pack(side = tk.LEFT, expand = 0)\n        self.speedScale = tk.Scale(frame, from_ = -1, to = 1,\n                                   resolution = 0.01, showvalue = 0,\n                                   width = 10, orient = 'horizontal',\n                                   command = self.setPlaybackSF)\n        self.speedScale.pack(side = tk.LEFT, fill = tk.X, expand = 1)\n        self.speedVar = tk.StringVar()\n        self.speedVar.set(\"0.00\")\n        self.speedEntry = tk.Entry(frame, textvariable = self.speedVar,\n                                width = 8)\n        self.speedEntry.bind(\n            '<Return>',\n            lambda e = None, s = self: s.setSpeedScale(\n            float(s.speedVar.get())))\n        self.speedEntry.pack(side = tk.LEFT, expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1138
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "for lodName, partDict in animControlDictItems:\n            # Now, build the list of partNames and the corresponding\n            # animDicts.\n            if partName is None:\n                # Get all main parts, but not sub-parts.\n                animDictItems = []\n                for thisPart, animDict in partDict.items():\n                    if thisPart not in self.__subpartDict:\n                        animDictItems.append((thisPart, animDict))\n\n            else:\n                # Get exactly the named part or parts.\n                if isinstance(partName, str):\n                    partNameList = [partName]\n                else:\n                    partNameList = partName\n\n                animDictItems = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3130
+  }
+}

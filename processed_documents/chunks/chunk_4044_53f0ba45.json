@@ -1,0 +1,9 @@
+{
+  "content": "def avatarPhysicsIndicator(self, task):\n        #assert self.debugPrint(\"avatarPhysicsIndicator()\")\n        # Velocity:\n        self.physVelocityIndicator.setPos(self.avatarNodePath, 0.0, 0.0, 6.0)\n        physObject=self.actorNode.getPhysicsObject()\n        a=physObject.getVelocity()\n        self.physVelocityIndicator.setScale(math.sqrt(a.length()))\n        a+=self.physVelocityIndicator.getPos()\n        self.physVelocityIndicator.lookAt(Point3(a))\n        # Contact:\n        contact=self.actorNode.getContactVector()\n        if contact==Vec3.zero():\n            self.physContactIndicator.hide()\n        else:\n            self.physContactIndicator.show()\n            self.physContactIndicator.setPos(self.avatarNodePath, 0.0, 0.0, 5.0)\n            #contact=self.actorNode.getContactVector()\n            point=Point3(contact+self.physContactIndicator.getPos())\n            self.physContactIndicator.lookAt(point)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4044
+  }
+}

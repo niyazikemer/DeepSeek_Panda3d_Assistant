@@ -1,0 +1,9 @@
+{
+  "content": "class ClusterClientSync(ClusterClient):\n    def __init__(self, configList, clusterSyncFlag):\n        ClusterClient.__init__(self, configList, clusterSyncFlag)\n        #I probably don't need this\n        self.waitForSwap = 0\n        self.ready = 0\n        print(\"creating synced client\")\n        self.startSwapCoordinatorTask()\n\n    def startSwapCoordinatorTask(self):\n        taskMgr.add(self.swapCoordinator, \"clientSwapCoordinator\", 51)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1707
+  }
+}

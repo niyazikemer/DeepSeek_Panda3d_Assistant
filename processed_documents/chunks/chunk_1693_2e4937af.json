@@ -1,0 +1,9 @@
+{
+  "content": "def startReaderPollTask(self):\n        \"\"\" Task to handle datagrams from server \"\"\"\n        # Run this task just after the listener poll task\n        taskMgr.add(self._readerPollTask, \"clientReaderPollTask\", -39)\n\n    def _readerPollTask(self, state):\n        \"\"\" Non blocking task to read all available datagrams \"\"\"\n\n        for i in range(len(self.serverList)):\n            server = self.serverList[i]\n            datagrams = server.poll()\n            for data in datagrams:\n                self.handleDatagram(data[0],data[1],i)\n\n        return Task.cont\n\n    def startControlObjectTask(self):\n        self.notify.debug(\"moving control objects\")\n        taskMgr.add(self.controlObjectTask,\"controlObjectTask\",50)\n\n    def startSynchronizeTimeTask(self):\n        self.notify.debug('broadcasting frame time')\n        taskMgr.add(self.synchronizeTimeTask, \"synchronizeTimeTask\", -40)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1693
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def OnPlay(self, evt):\n        if self.play is False and self.stop is True and self.prePlay is False:\n            self.buttonPlay = wx.BitmapButton(self.mainPanel1, -1, self.bmpStop, size = (30,30), style = wx.BU_AUTODRAW)\n            self.DoLayout()\n            self.play = True\n            self.stop = False\n            self.timer.Start(self.timeUnit)\n            evt.Skip()\n\n        elif self.play is True and self.stop is False and self.prePlay is False:\n            self.buttonPlay = wx.BitmapButton(self.mainPanel1, -1, self.bmpPlay, size = (30,30), style = wx.BU_AUTODRAW)\n            self.DoLayout()\n            self.play = False\n            self.stop = True\n            self.timer.Stop()\n            evt.Skip()\n        else:\n            evt.Skip()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 684
+  }
+}

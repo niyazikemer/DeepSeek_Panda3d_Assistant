@@ -1,0 +1,9 @@
+{
+  "content": "class ClassicStyle(FSM.FSM):\n\n    def __init__(self, name):\n        FSM.FSM.__init__(self, name)\n\n        self.defaultTransitions = {\n            'Red': ['Green'],\n            'Yellow': ['Red'],\n            'Green': ['Yellow'],\n        }\n\n    def enterRed(self):\n        print(\"enterRed(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def exitRed(self):\n        print(\"exitRed(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def enterYellow(self):\n        print(\"enterYellow(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def exitYellow(self):\n        print(\"exitYellow(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def enterGreen(self):\n        print(\"enterGreen(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def exitGreen(self):\n        print(\"exitGreen(self, '%s', '%s')\" % (self.oldState, self.newState))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_149",
+    "parent": "processed_documents/context_documents/c3ea557f_SampleFSM.json",
+    "chunk_number": 2695
+  }
+}

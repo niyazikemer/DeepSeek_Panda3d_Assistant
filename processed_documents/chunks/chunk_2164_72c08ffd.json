@@ -1,0 +1,9 @@
+{
+  "content": "code += b'\\n' if isinstance(code, bytes) else '\\n'\n            co = compile(code, pathname, 'exec', optimize=self.optimize)\n        elif type == _PY_COMPILED:\n            if sys.version_info >= (3, 7):\n                try:\n                    data = fp.read()\n                    importlib._bootstrap_external._classify_pyc(data, fqname, {})\n                except ImportError as exc:\n                    self.msgout(2, \"raise ImportError: \" + str(exc), pathname)\n                    raise\n\n                co = marshal.loads(memoryview(data)[16:])\n            else:\n                try:\n                    marshal_data = importlib._bootstrap_external._validate_bytecode_header(fp.read())\n                except ImportError as exc:\n                    self.msgout(2, \"raise ImportError: \" + str(exc), pathname)\n                    raise\n\n                co = marshal.loads(marshal_data)\n        else:\n            co = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2164
+  }
+}

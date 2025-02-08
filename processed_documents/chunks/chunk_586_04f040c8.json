@@ -1,0 +1,9 @@
+{
+  "content": "def updateUI(self):\n        vbox = wx.BoxSizer(wx.VERTICAL)\n        self.label = wx.StaticText(self.panel, label='')\n        vbox.Add(self.label)\n        self.modifierRadio = wx.RadioBox(self.panel, -1, \"\", choices=['None', 'Shift', 'Control'], majorDimension=1, style=wx.RA_SPECIFY_ROWS)\n        self.modifierRadio.Bind(wx.EVT_RADIOBOX, self.onChangeModifier)\n        vbox.Add(self.modifierRadio)\n        itemPanel = wx.Panel(self.panel)\n        hbox = wx.BoxSizer(wx.HORIZONTAL)\n        keyList = ['']\n        keyList.extend(base.direct.specialKeys)\n        self.specialKeyCombo = wx.Choice(itemPanel, -1, choices=keyList)\n        self.specialKeyCombo.Bind(wx.EVT_CHOICE, self.onChangeSpecialKey)\n        self.keyEntry = wx.TextCtrl(itemPanel, -1, size=(30, 20))\n        button = wx.Button(itemPanel, -1, 'Apply', size=(50, 20))\n        button.Bind(wx.EVT_BUTTON, self.onApply)\n        hbox.Add(self.specialKeyCombo)\n        hbox.Add(self.keyEntry)\n        hbox.Add(button)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_41",
+    "parent": "processed_documents/context_documents/64346f52_HotKeyUI.json",
+    "chunk_number": 586
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "nodePath.setTexTransform(textureStage, fromNodePath.getTransform(toNodePath))\n\nThere is no need for either fromNodePath or toNodePath to have any relation to the nodePath that is receiving the ~.NodePath.set_tex_projector() call; they can be any two arbitrary NodePaths. If either of them is just NodePath(), it stands for the top of the graph.\n\nThis has several useful applications. We have already introduced one application <automatic-texture-coordinates>, in conjunction with MWorldPosition, to move the generated texture coordinates from the root of the graph to the model itself.\n\nInterval-animated texture transforms\n\nAnother handy application for a TexProjector is to enable the use of the various LerpIntervals <lerp-intervals> to animate a texture transform. Although there are no LerpIntervals that directly animate texture transforms, you can make a LerpInterval animate a NodePath--and then set up a TexProjector effect to follow that NodePath. For example:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_433",
+    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
+    "chunk_number": 6198
+  }
+}

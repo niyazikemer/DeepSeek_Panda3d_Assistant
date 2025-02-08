@@ -1,0 +1,9 @@
+{
+  "content": "# direct session that spawned me, if any, used\n        # for certain interactions with the session such\n        # as being able to see selected objects/actors\n        self.session = session\n\n        self.frameHeight = 60 + (50 * len(self['actorList']))\n        self.playList =  []\n        self.id = 'AnimPanel_%d' % AnimPanel.index\n        AnimPanel.index += 1\n        # current index used for creating new actor controls\n        self.actorControlIndex = 0\n        # Initialize the superclass\n        AppShell.__init__(self)\n\n        # Execute option callbacks\n        self.initialiseoptions(AnimPanel)\n        # We need to know when AnimPanel is closed\n        self.destroyCallBack = None\n\n    def createInterface(self):\n        # Handle to the toplevels interior\n        interior = self.interior()\n        menuBar = self.menuBar",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 978
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"This module defines various dialog windows for the DirectGUI system.\n\nSee the :ref:`directdialog` page in the programming manual for a more\nin-depth explanation and an example of how to use this class.\n\"\"\"\n\nfrom __future__ import annotations\n\n__all__ = [\n    'findDialog', 'cleanupDialog', 'DirectDialog', 'OkDialog',\n    'OkCancelDialog', 'YesNoDialog', 'YesNoCancelDialog', 'RetryCancelDialog',\n]\n\nfrom panda3d.core import NodePath, Point3, TextNode, VBase3\nfrom direct.showbase import ShowBaseGlobal\nfrom . import DirectGuiGlobals as DGG\nfrom .DirectFrame import DirectFrame\nfrom .DirectButton import DirectButton\n\n\ndef findDialog(uniqueName):\n    \"\"\"\n    Returns the panel whose uniqueName is given.  This is mainly\n    useful for debugging, to get a pointer to the current onscreen\n    panel of a particular type.\n    \"\"\"\n    if uniqueName in DirectDialog.AllDialogs:\n        return DirectDialog.AllDialogs[uniqueName]\n    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1544
+  }
+}

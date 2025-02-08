@@ -1,0 +1,9 @@
+{
+  "content": "self.editor.fNeedToSave = True\n\n    def removeObjectByNodePath(self, nodePath):\n        uid = self.npIndex.get(nodePath)\n        if uid:\n            for i in range(0, len(self.Actor)):\n                if self.Actor[i][OG.OBJ_UID] == uid:\n                    del self.Actor[i]\n                    break\n            for i in range(0, len(self.Nodes)):\n                if self.Nodes[i][OG.OBJ_UID] == uid:\n                    del self.Nodes[i]\n                    break\n            self.editor.animMgr.removeAnimInfo(uid)\n\n            del self.objects[uid]\n            del self.npIndex[nodePath]\n\n        # remove children also\n        for child in nodePath.getChildren():\n            if child.hasTag('OBJRoot'):\n                self.removeObjectByNodePath(child)\n        self.editor.fNeedToSave = True\n\n    def findObjectById(self, uid):\n        return self.objects.get(uid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 503
+  }
+}

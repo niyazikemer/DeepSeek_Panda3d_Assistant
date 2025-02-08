@@ -1,0 +1,9 @@
+{
+  "content": "# Set up the environment\n        #\n        # This environment model contains collision meshes.  If you look\n        # in the egg file, you will see the following:\n        #\n        #    <Collide> { Polyset keep descend }\n        #\n        # This tag causes the following mesh to be converted to a collision\n        # mesh -- a mesh which is optimized for collision, not rendering.\n        # It also keeps the original mesh, so there are now two copies ---\n        # one optimized for rendering, one for collisions.\n\n        self.environ = loader.loadModel(\"models/world\")\n        self.environ.reparentTo(render)\n        self.environ.setPos(12, 0, 0)\n\n        self.box = loader.loadModel(\"models/box\")\n        self.box.reparentTo(render)\n        self.box.setPos(-29.83, 0, 0)\n        self.box.setScale(1)\n\n        self.box1 = loader.loadModel(\"models/box\")\n        self.box1.reparentTo(render)\n        self.box1.setPos(-51.14, -17.90, 0)\n        self.box1.setScale(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 7
+  }
+}

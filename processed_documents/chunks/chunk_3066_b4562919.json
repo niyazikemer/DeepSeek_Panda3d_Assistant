@@ -1,0 +1,9 @@
+{
+  "content": "def getGeomNode(self):\n        \"\"\"\n        Return the node that contains all actor geometry\n        \"\"\"\n        return self.__geomNode\n\n    def setGeomNode(self, node):\n        \"\"\"\n        Set the node that contains all actor geometry\n        \"\"\"\n        self.__geomNode = node\n\n    def getLODNode(self):\n        \"\"\"\n        Return the node that switches actor geometry in and out\"\"\"\n        return self.__LODNode.node()\n\n    def setLODNode(self, node=None):\n        \"\"\"\n        Set the node that switches actor geometry in and out.\n        If one is not supplied as an argument, make one\n        \"\"\"\n        if node is None:\n            node = LODNode.makeDefaultLod(\"lod\")\n\n        if self.__LODNode:\n            self.__LODNode = node\n        else:\n            self.__LODNode = self.__geomNode.attachNewNode(node)\n            self.__hasLOD = 1\n            self.switches = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3066
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "minVal = float(self.uiMin.GetStringSelection())\n        value = float(hourVal) + minVal / 60.0\n        return value\n\n    def bindFunc(self, inFunc, outFunc, valFunc = None):\n        self.uiAmPm.Bind(wx.EVT_ENTER_WINDOW, inFunc)\n        self.uiAmPm.Bind(wx.EVT_LEAVE_WINDOW, outFunc)\n        self.uiHour.Bind(wx.EVT_ENTER_WINDOW, inFunc)\n        self.uiHour.Bind(wx.EVT_LEAVE_WINDOW, outFunc)\n        self.uiMin.Bind(wx.EVT_ENTER_WINDOW, inFunc)\n        self.uiMin.Bind(wx.EVT_LEAVE_WINDOW, outFunc)\n        if valFunc:\n            self.uiAmPm.Bind(self.eventType, valFunc)\n            self.uiHour.Bind(self.eventType, valFunc)\n            self.uiMin.Bind(self.eventType, valFunc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 328
+  }
+}

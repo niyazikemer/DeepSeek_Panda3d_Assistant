@@ -1,0 +1,9 @@
+{
+  "content": "def processElement(handle, element):\n    if interrogate_element_has_comment(element):\n        print(comment(interrogate_element_comment(element)), file=handle)\n    elif interrogate_element_has_getter(element):\n        # If the property has no comment, use the comment of the getter.\n        getter = interrogate_element_getter(element)\n        if interrogate_function_has_comment(getter):\n            print(block_comment(interrogate_function_comment(getter)), file=handle)\n\n    if interrogate_element_is_mapping(element) or \\\n       interrogate_element_is_sequence(element):\n        suffix = \"[]\"\n    else:\n        suffix = \"\"\n\n    print(translated_type_name(interrogate_element_type(element)), end=' ', file=handle)\n    print(interrogate_element_name(element) + suffix + ';', file=handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1633
+  }
+}

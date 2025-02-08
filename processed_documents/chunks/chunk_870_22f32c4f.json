@@ -1,0 +1,9 @@
+{
+  "content": "def createSpriteAnimationFrame(self, parent, anim, animName):\n        ren = self.particles.getRenderer()\n        frame = tk.Frame(parent, relief = tk.RAISED, borderwidth = 2)\n        frame.pack(pady = 1, fill = tk.X, expand = 0)\n\n        lFrame = tk.Frame(frame, relief = tk.FLAT)\n        lFrame.pack(fill = tk.X, expand = 1)\n\n        def delete(s = self, fr = frame):\n            i = s.rendererSpriteAnimationWidgetList.index(fr)\n            s.rendererSpriteAnimationWidgetList[i] = None\n            fr.pack_forget()\n            fr.destroy()\n            s.writeSpriteRendererAnimations()\n            s.readSpriteRendererAnimations()\n\n        tk.Button(lFrame, text = 'X', foreground = 'Red', font = ('MSSansSerif', 8, 'bold'),\n                  command = delete).pack(side = tk.RIGHT, expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 870
+  }
+}

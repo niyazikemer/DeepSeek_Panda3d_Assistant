@@ -1,0 +1,9 @@
+{
+  "content": "class DummyClusterClient(DirectObject.DirectObject):\n    \"\"\" Dummy class to handle command strings when not in cluster mode \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"DummyClusterClient\")\n\n    def __init__(self):\n        pass\n\n    def __call__(self, commandString, fLocally = 1, serverList = None):\n        if fLocally:\n            # Execute locally\n            exec(commandString, __builtins__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1722
+  }
+}

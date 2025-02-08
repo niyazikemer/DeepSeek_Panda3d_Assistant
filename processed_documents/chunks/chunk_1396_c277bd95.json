@@ -1,0 +1,9 @@
+{
+  "content": "# Remove aliases from the constructor keyword arguments by\n            # replacing any keyword arguments that begin with *alias*\n            # with corresponding keys beginning with *component*.\n            alias = alias + '_'\n            aliasLen = len(alias)\n            for option in keywords.copy():\n                if len(option) > aliasLen and option[:aliasLen] == alias:\n                    newkey = component + '_' + option[aliasLen:]\n                    keywords[newkey] = keywords[option]\n                    del keywords[option]\n\n        # Find any keyword arguments for this component\n        componentPrefix = componentName + '_'\n        nameLen = len(componentPrefix)\n\n        # First, walk through the option list looking for arguments\n        # than refer to this component's group.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1396
+  }
+}

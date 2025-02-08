@@ -1,0 +1,9 @@
+{
+  "content": "for param in params:\n            if callable(param):\n                return 1\n        return 0\n\n    def setupParam(self, func, param):\n        # Stores the indicated parameter by passing it to the given\n        # function (probably a C++ setter function).  If the param is\n        # a callable functor, calls it; otherwise, uses the param\n        # directly.\n        if param is not None:\n            if callable(param):\n                func(param())\n            else:\n                func(param)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2743
+  }
+}

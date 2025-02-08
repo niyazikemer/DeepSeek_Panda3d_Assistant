@@ -1,0 +1,9 @@
+{
+  "content": "# copy the anim dictionary from other\n        self.__copyAnimControls(other)\n\n    def __cmp__(self, other):\n        # Actor inherits from NodePath, which inherits a definition of\n        # __cmp__ from FFIExternalObject that uses the NodePath's\n        # compareTo() method to compare different NodePaths.  But we\n        # don't want this behavior for Actors; Actors should only be\n        # compared pointerwise.  A NodePath that happens to reference\n        # the same node is still different from the Actor.\n        if self is other:\n            return 0\n        else:\n            return 1\n\n    def __str__(self):\n        \"\"\"\n        Actor print function\n        \"\"\"\n        return \"Actor %s, parts = %s, LODs = %s, anims = %s\" % \\\n               (self.getName(), self.getPartNames(), self.getLODNames(), self.getAnimNames())\n\n    def listJoints(self, partName=\"modelRoot\", lodName=\"lodRoot\"):\n        \"\"\"Handy utility function to list the joint hierarchy of the\n        actor. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3054
+  }
+}

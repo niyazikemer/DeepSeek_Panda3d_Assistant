@@ -1,0 +1,9 @@
+{
+  "content": "def createOptionMenu(self, parent, category, text, balloonHelp,\n                         items, command):\n        optionVar = tk.StringVar()\n        if len(items) > 0:\n            optionVar.set(items[0])\n        widget = Pmw.OptionMenu(parent, labelpos = tk.W, label_text = text,\n                                label_width = 12, menu_tearoff = 1,\n                                menubutton_textvariable = optionVar,\n                                items = items)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget.component('menubutton'), balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        self.variableDict[category + '-' + text] = optionVar\n        return optionVar",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1229
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def hasLOD(self):\n        \"\"\"\n        Return 1 if the actor has LODs, 0 otherwise\n        \"\"\"\n        return self.__hasLOD\n\n    def setCenter(self, center):\n        if center is None:\n            center = Point3(0, 0, 0)\n        self.__LODCenter = center\n        if self.__LODNode:\n            self.__LODNode.node().setCenter(self.__LODCenter)\n        if self.__LODAnimation:\n            self.setLODAnimation(*self.__LODAnimation)\n\n    def setLODAnimation(self, farDistance, nearDistance, delayFactor):\n        \"\"\" Activates a special mode in which the Actor animates less\n        frequently as it gets further from the camera.  This is\n        intended as a simple optimization to minimize the effort of\n        computing animation for lots of characters that may not\n        necessarily be very important to animate every frame.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3071
+  }
+}

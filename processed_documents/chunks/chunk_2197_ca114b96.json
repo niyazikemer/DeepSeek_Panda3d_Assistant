@@ -1,0 +1,9 @@
+{
+  "content": "assert ico.tell() == dataoffs\n        ico.close()\n\n        return True\n\n    def makeICNS(self, fn):\n        \"\"\" Writes the images to an Apple ICNS file.  Returns True on success. \"\"\"\n\n        if not isinstance(fn, Filename):\n            fn = Filename.fromOsSpecific(fn)\n        fn.setBinary()\n\n        icns = open(fn, 'wb')\n        icns.write(b'icns\\0\\0\\0\\0')\n\n        icon_types = {16: b'is32', 32: b'il32', 48: b'ih32', 128: b'it32'}\n        mask_types = {16: b's8mk', 32: b'l8mk', 48: b'h8mk', 128: b't8mk'}\n        png_types = {256: b'ic08', 512: b'ic09', 1024: b'ic10'}\n\n        pngtype = PNMFileTypeRegistry.getGlobalPtr().getTypeFromExtension(\"png\")\n\n        for size, image in sorted(self.images.items(), key=lambda item:item[0]):\n            if size in png_types and pngtype is not None:\n                stream = StringStream()\n                image.write(stream, \"\", pngtype)\n                pngdata = stream.data",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2197
+  }
+}

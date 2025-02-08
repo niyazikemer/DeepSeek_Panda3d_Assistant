@@ -1,0 +1,9 @@
+{
+  "content": "class ClusterMsgHandler:\n    \"\"\"ClusterMsgHandler: wrapper for PC clusters/multi-piping networking\"\"\"\n    def __init__(self, packetStart, notify):\n        # packetStart can be used to distinguish which ClusterMsgHandler\n        # sends a given packet.\n        self.packetNumber = packetStart\n        self.notify = notify\n\n    def nonBlockingRead(self, qcr):\n        \"\"\"\n        Return a datagram iterator and type if data is available on the\n        queued connection reader\n        \"\"\"\n        if qcr.dataAvailable():\n            datagram = NetDatagram()\n            if qcr.getData(datagram):\n                (dgi, dtype) = self.readHeader(datagram)\n            else:\n                dgi = None\n                dtype = CLUSTER_NONE\n                self.notify.warning(\"getData returned false\")\n        else:\n            datagram = None\n            dgi = None\n            dtype = CLUSTER_NONE\n        # Note, return datagram to keep a handle on the data\n        return (datagram, dgi, dtype)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1736
+  }
+}

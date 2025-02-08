@@ -1,0 +1,9 @@
+{
+  "content": "def addBlastForce(self, vector):\n        pass\n\n    def displayDebugInfo(self):\n        \"\"\"\n        For debug use.\n        \"\"\"\n        onScreenDebug.add(\"w controls\", \"DevWalker\")\n\n    def handleAvatarControls(self, task):\n        \"\"\"\n        Check on the arrow keys and update the avatar.\n        \"\"\"\n        # get the button states:\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\")\n        turnRight = inputState.isSet(\"turnRight\")\n        slideLeft = inputState.isSet(\"slideLeft\")\n        slideRight = inputState.isSet(\"slideRight\")\n        levitateUp = inputState.isSet(\"levitateUp\")\n        levitateDown = inputState.isSet(\"levitateDown\")\n        run = inputState.isSet(\"run\") and self.runMultiplier.getValue() or 1.0\n\n        # Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_227",
+    "parent": "processed_documents/context_documents/dffaf03d_DevWalker.json",
+    "chunk_number": 4109
+  }
+}

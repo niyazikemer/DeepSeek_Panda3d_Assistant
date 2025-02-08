@@ -1,0 +1,9 @@
+{
+  "content": "if name is None:\n            name = self.__class__.__name__ + '-%d'\n\n        if '%' in name:\n            name = name % (self.SequenceNum)\n            MetaInterval.SequenceNum += 1\n\n        CMetaInterval.__init__(self, name)\n        self.__manager = ivalMgr\n        self.setAutoPause(autoPause)\n        self.setAutoFinish(autoFinish)\n\n        self.pstats = None\n        if __debug__ and TaskManager.taskTimerVerbose:\n            self.pname = name.split('-', 1)[0]\n            self.pstats = PStatCollector(\"App:Tasks:ivalLoop:%s\" % (self.pname))\n\n        self.pythonIvals = []\n\n        # If we are running in debug mode, we validate the intervals\n        # in the list right away.  There's no good reason to do this,\n        # except that it makes it easier for the programmer to detect\n        # when a MetaInterval is misdefined at creation time.\n        assert self.validateComponents(self.ivals)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2872
+  }
+}

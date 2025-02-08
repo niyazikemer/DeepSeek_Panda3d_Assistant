@@ -1,0 +1,9 @@
+{
+  "content": "# Playback controls\n        playbackFrame = tk.Frame(interior, relief = tk.SUNKEN,\n                                 borderwidth = 2)\n        tk.Label(playbackFrame, text = 'PLAYBACK CONTROLS',\n                 font=('MSSansSerif', 12, 'bold')).pack(fill = tk.X)\n        # Main playback control slider\n        widget = self.createEntryScale(\n            playbackFrame, 'Playback', 'Time', 'Set current playback time',\n            resolution = 0.01, command = self.playbackGoTo, side = tk.TOP)\n        widget.component('hull')['relief'] = tk.RIDGE\n        # Kill playback task if drag slider\n        widget['preCallback'] = self.stopPlayback\n        # Jam duration entry into entry scale\n        self.createLabeledEntry(widget.labelFrame, 'Resample', 'Path Duration',\n                                'Set total curve duration',\n                                command = self.setPathDuration,\n                                side = tk.LEFT, expand = 0)\n        # Start stop buttons",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1135
+  }
+}

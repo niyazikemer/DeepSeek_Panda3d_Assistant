@@ -1,0 +1,9 @@
+{
+  "content": "# Allow index style references\n    def __setitem__(self, key, value):\n        self.configure(*(), **{key: value})\n\n    def cget(self, option):\n        # Get current configuration setting.\n        # This is for compatibility with DirectGui functions\n        if option == 'pos':\n            return self.__pos\n        elif option == 'roll':\n            return self.__roll\n        elif option == 'scale':\n            return self.__scale\n        elif option == 'x':\n            return self.__pos[0]\n        elif option == 'y':\n            return self.__pos[1]\n\n        getter = getattr(self, 'get' + option[0].upper() + option[1:])\n        return getter()\n\n    def __getAlign(self):\n        return self.textNode.getAlign()\n\n    def setAlign(self, align):\n        self.textNode.setAlign(align)\n\n    align = property(__getAlign, setAlign)\n\n    # Allow index style refererences\n    __getitem__ = cget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1480
+  }
+}

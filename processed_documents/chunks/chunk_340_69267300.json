@@ -1,0 +1,9 @@
+{
+  "content": "propNames = objDef.orderedProperties[:]\n        for key in list(objDef.properties.keys()):\n            if key not in propNames:\n                propNames.append(key)\n\n        for key in propNames:\n            # handling properties mask\n            propMask = BitMask32()\n            for modeKey in list(objDef.propertiesMask.keys()):\n                if key in objDef.propertiesMask[modeKey]:\n                    propMask |= modeKey\n\n            if not propMask.isZero():\n                if (self.editor.mode & propMask).isZero():\n                    continue\n\n            propDef = objDef.properties[key]\n            propType = propDef[OG.PROP_TYPE]\n            propDataType = propDef[OG.PROP_DATATYPE]\n            value = obj[OG.OBJ_PROP].get(key)\n\n            if propType == OG.PROP_UI_ENTRY:\n                propUI = ObjectPropUIEntry(self.propsPane, key)\n                propUI.setValue(value)\n                sizer.Add(propUI)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 340
+  }
+}

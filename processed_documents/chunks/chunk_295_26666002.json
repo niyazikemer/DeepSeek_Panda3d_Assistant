@@ -1,0 +1,9 @@
+{
+  "content": "def Poll(self, input=''):\n        if (input or self.b) and self.process and self.process._stdin_:\n            if self.b or len(input) > 512:\n                if input:\n                    #if we don't chop up our input into resonably sized chunks,\n                    #some platforms (like Windows) will send some small number\n                    #of bytes per .write() call (sometimes 2 in the case of\n                    #Windows).\n                    self.b.extend([input[i:i+512] for i in range(0, len(input), 512)])\n                input = self.b.pop(0)\n            self.process._stdin_.write(input)\n            if hasattr(self.process._stdin_, \"LastWrite\"):\n                y = self.process._stdin_.LastWrite()\n                if y != len(input):\n                    self.b.insert(0, input[y:])\n        x = []\n        for s in (self.process._stderr_, self.process._stdout_):\n            if s and s.CanRead():\n                x.append(s.read())\n            else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 295
+  }
+}

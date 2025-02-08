@@ -1,0 +1,9 @@
+{
+  "content": "def updateObjectProperties(self, nodePath, propValues):\n        \"\"\"\n        When a saved level is loaded,\n        update an object's properties\n        And call update function if defined.\n        \"\"\"\n        obj = self.findObjectByNodePath(nodePath)\n\n        if obj:\n            for propName in propValues:\n                self.updateObjectPropValue(obj, propName, propValues[propName])\n\n    def traverse(self, parent, parentId = None):\n        \"\"\"\n        Trasverse scene graph to gather data for saving\n        \"\"\"\n        for child in parent.getChildren():\n            if child.hasTag('OBJRoot') and not child.hasTag('Controller'):\n                obj = self.findObjectByNodePath(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 521
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Python 3 case.\n            text += '#if PY_MAJOR_VERSION >= 3\\n'\n            for module, fn in self.extras:\n                if sys.platform != \"win32\" or fn:\n                    libName = module.split('.')[-1]\n                    initFunc = builtinInitFuncs.get(module, 'PyInit_' + libName)\n                    if initFunc:\n                        text += 'extern PyAPI_FUNC(PyObject) *%s(void);\\n' % (initFunc)\n            text += '\\n'\n\n            if sys.platform == \"win32\":\n                text += 'static struct _inittab extensions[] = {\\n'\n            else:\n                text += 'struct _inittab _PyImport_Inittab[] = {\\n'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2111
+  }
+}

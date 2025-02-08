@@ -1,0 +1,9 @@
+{
+  "content": "def setCenterRadius(self, i, center, radius):\n        c = self.colliders[i]\n        c.setCenter(center)\n        c.setRadius(radius)\n\n    def isEntryBackfacing(self, entry):\n        # If dot product of collision point surface normal and\n        # ray from sphere origin to collision point is positive,\n        # center is on the backside of the polygon\n        fromNodePath = entry.getFromNodePath()\n        v = Vec3(entry.getSurfacePoint(fromNodePath) -\n                 entry.getFrom().getCenter())\n        n = entry.getSurfaceNormal(fromNodePath)\n        # If points almost on top of each other, reject face\n        # (treat as backfacing)\n        if v.length() < 0.05:\n            return 1\n        # Normalize and check angle between to vectors\n        v.normalize()\n        return v.dot(n) >= 0\n\n    def pick(self, targetNodePath, skipFlags):\n        self.ct.traverse(targetNodePath)\n        self.sortEntries()\n        return self.findCollisionEntry(skipFlags)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3476
+  }
+}

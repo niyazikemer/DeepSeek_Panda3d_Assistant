@@ -1,0 +1,9 @@
+{
+  "content": "if loaderOptions is None:\n            loaderOptions = LoaderOptions()\n        else:\n            loaderOptions = LoaderOptions(loaderOptions)\n\n        if not isinstance(modelPath, (tuple, list, set)):\n            # We were given a single model pathname.\n            modelList = [modelPath]\n            nodeList = [node]\n            if phaseChecker:\n                phaseChecker(modelPath, loaderOptions)\n\n            gotList = False\n        else:\n            # Assume we were given a list of model pathnames.\n            modelList = modelPath\n            nodeList = node\n            gotList = True\n\n        assert len(modelList) == len(nodeList)\n\n        # Make sure we have PandaNodes, not NodePaths.\n        for i, node in enumerate(nodeList):\n            if isinstance(node, NodePath):\n                nodeList[i] = node.node()\n\n        # From here on, we deal with a list of (filename, node) pairs.\n        modelList = list(zip(modelList, nodeList))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4388
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "for item in itemList:\n            self.tree.Delete(item)\n\n    def traversePandaObjects(self, parent, objNodePath):\n        itemId = self.tree.GetItemData(parent)\n        i = 0\n        for child in objNodePath.getChildren():\n            if child.hasTag('OBJRoot'):\n                # since they are already shown in scene graph tree\n                continue\n            namestr = \"%s.%s\"%(child.node().getType(), child.node().getName())\n            newItem = self.tree.PrependItem(parent, namestr)\n            newItemId = \"%s.%s\"%(itemId, i)\n            self.tree.SetItemPyData(newItem, newItemId)\n\n            # recursing...\n            self.traversePandaObjects(newItem, child)\n            i = i + 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 360
+  }
+}

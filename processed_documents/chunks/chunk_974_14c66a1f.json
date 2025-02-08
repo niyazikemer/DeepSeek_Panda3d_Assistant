@@ -1,0 +1,9 @@
+{
+  "content": "def updateGridInfo(self):\n        self.enableGrid.set(ShowBaseGlobal.direct.grid.isEnabled())\n        self.xyzSnap.set(ShowBaseGlobal.direct.grid.getXyzSnap())\n        self.hprSnap.set(ShowBaseGlobal.direct.grid.getHprSnap())\n        self.gridSpacing.set(ShowBaseGlobal.direct.grid.getGridSpacing(), 0)\n        self.gridSize.set(ShowBaseGlobal.direct.grid.getGridSize(), 0)\n        self.gridSnapAngle.set(ShowBaseGlobal.direct.grid.getSnapAngle(), 0)\n\n    # UNDO/REDO\n    def pushUndo(self, fResetRedo = 1):\n        ShowBaseGlobal.direct.pushUndo([self['nodePath']])\n\n    def undoHook(self, nodePathList = []):\n        pass\n\n    def pushUndoHook(self):\n        # Make sure button is reactivated\n        self.undoButton.configure(state = 'normal')\n\n    def undoListEmptyHook(self):\n        # Make sure button is deactivated\n        self.undoButton.configure(state = 'disabled')\n\n    def pushRedo(self):\n        ShowBaseGlobal.direct.pushRedo([self['nodePath']])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 974
+  }
+}

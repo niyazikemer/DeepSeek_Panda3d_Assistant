@@ -1,0 +1,9 @@
+{
+  "content": "# The following variables are typing constructs used in annotations\n# to succinctly express all the types that can be converted into tasks.\n_T = TypeVar('_T', covariant=True)\n_TaskCoroutine = Union[Coroutine[Any, None, _T], Generator[Any, None, _T]]\n_TaskFunction = Callable[..., Union[int, _TaskCoroutine[Union[int, None]], None]]\n_FuncOrTask = Union[_TaskFunction, _TaskCoroutine[Any], AsyncTask]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3861
+  }
+}

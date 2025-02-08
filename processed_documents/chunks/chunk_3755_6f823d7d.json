@@ -1,0 +1,9 @@
+{
+  "content": "def update(self):\n        # Trim the values to be between min and max\n        value=self.value\n        if value > self.max:\n            value = self.max\n        if value < self.min:\n            value = self.min\n        # Adjust the rectangle\n        if self.orientation == \"horizontal\":\n            self.canvas.coords(self.scale, 0, 0,\n                     float(value) / self.max * self.width, self.height)\n        else:\n            self.canvas.coords(self.scale, 0,\n                     self.height - (float(value) / self.max*self.height),\n                     self.width, self.height)\n        # Now update the colors\n        self.canvas.itemconfig(self.scale, fill=self.fillColor)\n        self.canvas.itemconfig(self.label, fill=self.labelColor)\n        # And update the label\n        if self.doLabel:\n            if value:\n                if value >= 0:\n                    pvalue = int((float(value) / float(self.max)) * 100.0)\n                else:\n                    value = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_200",
+    "parent": "processed_documents/context_documents/cbb584a2_ProgressBar.json",
+    "chunk_number": 3755
+  }
+}

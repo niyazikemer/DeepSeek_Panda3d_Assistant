@@ -1,0 +1,9 @@
+{
+  "content": "def updateEffectsMenus(self):\n        # Get rid of old effects entries if any\n        self.effectsEnableMenu.delete(0, 'end')\n        self.effectsLabelMenu.delete(5, 'end')\n        self.effectsLabelMenu.add_separator()\n        # Add in a checkbutton for each effect (to toggle on/off)\n        keys = sorted(self.effectsDict.keys())\n        for name in keys:\n            effect = self.effectsDict[name]\n            self.effectsLabelMenu.add_command(\n                label = effect.getName(),\n                command = (lambda s = self,\n                           e = effect: s.selectEffectNamed(e.getName()))\n            )\n            effectActive = tk.IntVar()\n            effectActive.set(effect.isEnabled())\n            self.effectsEnableMenu.add_checkbutton(\n                label = effect.getName(),\n                variable = effectActive,\n                command = (lambda s = self,\n                           e = effect,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 793
+  }
+}

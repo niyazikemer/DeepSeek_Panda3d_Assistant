@@ -1,0 +1,9 @@
+{
+  "content": "class ExternalThread(ThreadBase):\n    \"\"\" Returned for a Thread object that wasn't created by this\n    interface. \"\"\"\n\n    def __init__(self, extThread, threadId):\n        ThreadBase.__init__(self)\n\n        self.__thread = extThread\n        self.__dict__['daemon'] = True\n        self.__dict__['name'] = self.__thread.getName()\n        self.__dict__['ident'] = threadId\n\n    def is_alive(self):\n        return self.__thread.isStarted()\n\n    def isAlive(self):\n        return self.__thread.isStarted()\n\n    def start(self):\n        raise RuntimeError\n\n    def run(self):\n        raise RuntimeError\n\n    def join(self, timeout = None):\n        raise RuntimeError\n\n    def setDaemon(self, daemon):\n        raise RuntimeError\n\n\nclass MainThread(ExternalThread):\n    \"\"\" Returned for the MainThread object. \"\"\"\n\n    def __init__(self, extThread, threadId):\n        ExternalThread.__init__(self, extThread, threadId)\n        self.__dict__['daemon'] = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3764
+  }
+}

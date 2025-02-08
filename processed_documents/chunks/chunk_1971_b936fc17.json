@@ -1,0 +1,9 @@
+{
+  "content": "for fn in sorted(os.listdir(etcdir), reverse=True):\n                if fn.lower().endswith('.prc'):\n                    with open(os.path.join(etcdir, fn)) as f:\n                        prcstring += f.read()\n        else:\n            for fn in sorted((i for i in p3dwhl.namelist() if i.endswith('.prc')), reverse=True):\n                with p3dwhl.open(fn) as f:\n                    prcstring += f.read().decode('utf8')\n\n        user_prcstring = self.extra_prc_data\n        for fn in self.extra_prc_files:\n            with open(fn) as f:\n                user_prcstring += f.read()\n\n        # Clenup PRC data\n        check_plugins = [\n            #TODO find a better way to get this list\n            'pandaegg',\n            'p3ffmpeg',\n            'p3ptloader',\n            'p3assimp',\n        ]\n        def parse_prc(prcstr, warn_on_missing_plugin):\n            out = []\n            for ln in prcstr.split('\\n'):\n                ln = ln.strip()\n                useline = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1971
+  }
+}

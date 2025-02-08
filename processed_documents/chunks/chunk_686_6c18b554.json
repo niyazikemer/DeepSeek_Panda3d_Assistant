@@ -1,0 +1,9 @@
+{
+  "content": "def OnLastFrame(self, evt):\n        self.curFrame = self.sliderEndFrame\n        self.OnControl()\n\n    def OnTime(self):\n        preFrame = self.curFrame\n        self.curFrameSpin.SetRange(self.startFrame,self.endFrame)\n        self.curFrame = preFrame\n        self.timeSlider.SetTimeSliderData(self.sliderStartFrame, self.sliderEndFrame, self.curFrame)\n        self.timeRange.SetTimeRangeData(self.startFrame, self.endFrame, self.sliderStartFrame, self.sliderEndFrame)\n        self.parallel = self.editor.animMgr.createParallel(self.startFrame,self.endFrame)\n\n    def OnTimeStartSpin(self, evt):\n        self.startFrame = evt.GetInt()\n        self.timeSliderStartSpin.SetRange(self.startFrame, self.sliderEndFrame)\n        if self.startFrame >= self.sliderStartFrame:\n            self.sliderStartFrame = self.startFrame\n            self.timeSliderStartSpin.SetValue(self.sliderStartFrame)\n            self.OnTime()\n        else:\n            self.OnTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 686
+  }
+}

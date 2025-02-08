@@ -1,0 +1,9 @@
+{
+  "content": "# standard input sources\n    WASD = 'WASD'\n    QE = 'QE'\n    ArrowKeys = 'ArrowKeys'\n    Keyboard = 'Keyboard'\n    Mouse = 'Mouse'\n\n    def __init__(self):\n        # stateName->set(SourceNames)\n        self._state = {}\n        # stateName->set(SourceNames)\n        self._forcingOn = {}\n        # stateName->set(SourceNames)\n        self._forcingOff = {}\n        # tables to look up the info needed to undo operations\n        self._token2inputSource = {}\n        self._token2forceInfo = {}\n        # inputSource->token->(name, eventOn, eventOff)\n        self._watching = {}\n        assert self.debugPrint(\"InputState()\")\n\n    def delete(self):\n        del self._watching\n        del self._token2forceInfo\n        del self._token2inputSource\n        del self._forcingOff\n        del self._forcingOn\n        del self._state\n        self.ignoreAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4150
+  }
+}

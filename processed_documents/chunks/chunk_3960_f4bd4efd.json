@@ -1,0 +1,9 @@
+{
+  "content": "fbprops = None\n            clamping = None\n            if \"HighDynamicRange\" in configuration:\n                fbprops = FrameBufferProperties()\n                fbprops.setFloatColor(True)\n                fbprops.setSrgbColor(False)\n                clamping = False\n\n            if \"MSAA\" in configuration:\n                if fbprops is None:\n                    fbprops = FrameBufferProperties()\n                fbprops.setMultisamples(configuration[\"MSAA\"].samples)\n\n            self.finalQuad = self.manager.renderSceneInto(textures = self.textures, auxbits=auxbits, fbprops=fbprops, clamping=clamping)\n            if self.finalQuad is None:\n                self.cleanup()\n                return False\n\n            if \"MSAA\" in configuration:\n                camNode = self.manager.camera.node()\n                state = camNode.getInitialState()\n                state.setAttrib(AntialiasAttrib.make(AntialiasAttrib.M_multisample))\n                camNode.setInitialState(state)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3960
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def announceGenerate(self):\n        \"\"\"\n        Called after the object has been generated and all\n        of its required fields filled in. Overwrite when needed.\n        \"\"\"\n\n    def b_setLocation(self, parentId, zoneId):\n        self.d_setLocation(parentId, zoneId)\n        self.setLocation(parentId, zoneId)\n\n    def d_setLocation(self, parentId, zoneId):\n        self.air.sendSetLocation(self, parentId, zoneId)\n\n    def setLocation(self, parentId, zoneId):\n        # Prevent Duplicate SetLocations for being Called\n        if self.parentId == parentId and self.zoneId == zoneId:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5689
+  }
+}

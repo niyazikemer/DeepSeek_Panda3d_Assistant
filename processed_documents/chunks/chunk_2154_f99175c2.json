@@ -1,0 +1,9 @@
+{
+  "content": "modulefinder.ModuleFinder.__init__(self, *args, **kw)\n\n        # Make sure we don't open a .whl/.zip file more than once.\n        self._zip_files = {}\n\n    def _open_file(self, path, mode):\n        \"\"\" Opens a module at the given path, which may contain a zip file.\n        Returns None if the module could not be found. \"\"\"\n\n        if os.path.isfile(path):\n            if 'b' not in mode:\n                return io.open(path, mode, encoding='utf8')\n            else:\n                return open(path, mode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2154
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class LockType:\n    \"\"\" Implements a mutex lock.  Instead of directly subclassing\n    PandaModules.Mutex, we reimplement the lock here, to allow us to\n    provide the described Python lock semantics.  In particular, this\n    allows a different thread to release the lock than the one that\n    acquired it. \"\"\"\n\n    def __init__(self):\n        self.__lock = core.Mutex('PythonLock')\n        self.__cvar = core.ConditionVar(self.__lock)\n        self.__locked = False\n\n    def acquire(self, waitflag = 1, timeout = -1):\n        self.__lock.acquire()\n        try:\n            if self.__locked and not waitflag:\n                return False\n\n            if timeout >= 0:\n                while self.__locked:\n                    self.__cvar.wait(timeout)\n            else:\n                while self.__locked:\n                    self.__cvar.wait()\n\n            self.__locked = True\n            return True\n\n        finally:\n            self.__lock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3795
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Defines the `FSMInspector` class, which opens a Tkinter window for\ninspecting :ref:`finite-state-machines`.\n\nUsing the Finite State Inspector\n--------------------------------\n\n1) In your Config.prc add::\n\n    want-tk #t\n\n2) Start up the show and create a Finite State Machine::\n\n    from direct.showbase.ShowBaseGlobal import *\n\n    from direct.fsm import ClassicFSM\n    from direct.fsm import State\n\n    def enterState():\n        print('enterState')\n\n    def exitState():\n        print 'exitState'\n\n    fsm = ClassicFSM.ClassicFSM('stopLight',\n              [State.State('red', enterState, exitState, ['green']),\n                State.State('yellow', enterState, exitState, ['red']),\n                State.State('green', enterState, exitState, ['yellow'])],\n              'red',\n              'red')\n\n    import FSMInspector\n\n    inspector = FSMInspector.FSMInspector(fsm, title = fsm.getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1087
+  }
+}

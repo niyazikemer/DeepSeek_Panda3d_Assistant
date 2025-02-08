@@ -1,0 +1,9 @@
+{
+  "content": "relTime = tupleObj[0]\n        ival = tupleObj[1]\n        if len(tupleObj) >= 3:\n            relTo = tupleObj[2]\n        else:\n            relTo = TRACK_START\n\n        if not (isinstance(relTime, float) or \\\n                isinstance(relTime, int)):\n            # First parameter is not a number.\n            return 0\n        if not MetaInterval.validateComponent(self, ival):\n            # Second parameter is not an interval.\n            return 0\n        if relTo != PREVIOUS_END and \\\n           relTo != PREVIOUS_START and \\\n           relTo != TRACK_START:\n            # Third parameter is an invalid value.\n            return 0\n\n        # Looks good.\n        return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2900
+  }
+}

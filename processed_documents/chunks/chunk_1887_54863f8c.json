@@ -1,0 +1,9 @@
+{
+  "content": "nptr = expdir.names\n        for i in range(expdir.nnames):\n            name_rva, = unpack('<I', self.vmem[nptr:nptr+4])\n            if name_rva != 0:\n                name = _unpack_zstring(self.vmem, name_rva)\n                if name == old_name:\n                    self.vmem[name_rva:name_rva+len(new_name)] = new_name\n                    self._mark_address_modified(name_rva)\n                    return True\n            nptr += 4\n\n        return False\n\n    def get_export_address(self, symbol_name):\n        \"\"\" Finds the virtual address for a named export symbol. \"\"\"\n\n        if isinstance(symbol_name, bytes):\n            symbol_name = symbol_name.decode('ascii')\n\n        start = self.exp_rva.addr\n        expdir = expdirtab(*unpack('<IIHHIIIIIII', self.vmem[start:start+40]))\n        if expdir.nnames == 0 or expdir.ordinals == 0 or expdir.names == 0:\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1887
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Set the cameras roll to the roll of the mirror. Otherwise\n        # mirrored objects will be moved unexpectedly\n        cameraNP.setR(planeNP.getR()-180)\n\n        # And reset the frustum to exactly frame the mirror's corners.\n        # This is a minor detail, but it helps to provide a realistic\n        # reflection and keep the subject centered.\n        ul = cameraNP.getRelativePoint(card, Point3(-width / 2.0, 0, height / 2.0))\n        ur = cameraNP.getRelativePoint(card, Point3(width / 2.0, 0, height / 2.0))\n        ll = cameraNP.getRelativePoint(card, Point3(-width / 2.0, 0, -height / 2.0))\n        lr = cameraNP.getRelativePoint(card, Point3(width / 2.0, 0, -height / 2.0))\n\n        # get the distance from the mirrors camera to the mirror plane\n        camvec = planeNP.getPos() - cameraNP.getPos()\n        camdist = camvec.length()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_285",
+    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
+    "chunk_number": 5033
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Add a plane to collide with\ncm = CardMaker(\"ground\")\ncm.setFrame(-20, 20, -20, 20)\nground = render.attachNewNode(cm.generate())\nground.setPos(0, 0, 0); ground.lookAt(0, 0, -1)\ngroundGeom = OdePlaneGeom(space, Vec4(0, 0, 1, 0))\ngroundGeom.setCollideBits(BitMask32(0x00000001))\ngroundGeom.setCategoryBits(BitMask32(0x00000002))\n\n# Set the camera position\nbase.disableMouse()\nbase.camera.setPos(40, 40, 20)\nbase.camera.lookAt(0, 0, 0)\n\n# The task for our simulation\ndef simulationTask(task):\n    space.autoCollide() # Setup the contact joints\n    # Step the simulation and set the new positions\n    world.quickStep(globalClock.getDt())\n    for np, body in boxes:\n        np.setPosQuat(render, body.getPosition(), Quat(body.getQuaternion()))\n    contactgroup.empty() # Clear the contact joints\n    return task.cont\n\n# Wait a split second, then start the simulation\ntaskMgr.doMethodLater(0.5, simulationTask, \"Physics Simulation\")\n\nbase.run()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_624",
+    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
+    "chunk_number": 7312
+  }
+}

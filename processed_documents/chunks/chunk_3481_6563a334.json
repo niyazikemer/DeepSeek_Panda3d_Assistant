@@ -1,0 +1,9 @@
+{
+  "content": "def getVertexColor(self):\n        return self.lineSegs.getVertexColor()\n\n    def drawArrow(self, sv, ev, arrowAngle, arrowLength):\n        \"\"\"\n        Do the work of moving the cursor around to draw an arrow from\n        sv to ev. Hack: the arrows take the z value of the end point\n        \"\"\"\n        self.moveTo(sv)\n        self.drawTo(ev)\n        v = sv - ev\n        # Find the angle of the line\n        angle = math.atan2(v[1], v[0])\n        # Get the arrow angles\n        a1 = angle + deg2Rad(arrowAngle)\n        a2 = angle - deg2Rad(arrowAngle)\n        # Get the arrow points\n        a1x = arrowLength * math.cos(a1)\n        a1y = arrowLength * math.sin(a1)\n        a2x = arrowLength * math.cos(a2)\n        a2y = arrowLength * math.sin(a2)\n        z = ev[2]\n        self.moveTo(ev)\n        self.drawTo(Point3(ev + Point3(a1x, a1y, z)))\n        self.moveTo(ev)\n        self.drawTo(Point3(ev + Point3(a2x, a2y, z)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3481
+  }
+}

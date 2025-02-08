@@ -1,0 +1,9 @@
+{
+  "content": "def __getitem__(self, key):\n        if isinstance(key, int):\n            leaves = self._id_leaves\n        else:\n            leaves = self._name_leaves\n\n        i = 0\n        while i < len(leaves):\n            idname, leaf = leaves[i]\n            if idname >= key:\n                if key == idname:\n                    return leaf\n                break\n            i += 1\n        if not isinstance(key, int):\n            self._strings_size += _padded(len(key) * 2 + 2, 4)\n        leaf = ResourceTable(ident=self._ident + (key,))\n        leaves.insert(i, (key, leaf))\n        return leaf\n\n    def __setitem__(self, key, value):\n        \"\"\" Adds the given item to the table.  Maintains sort order. \"\"\"\n        if isinstance(key, int):\n            leaves = self._id_leaves\n        else:\n            leaves = self._name_leaves\n\n        if not isinstance(value, ResourceTable):\n            self._descs_size += 16",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1875
+  }
+}

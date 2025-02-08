@@ -1,0 +1,9 @@
+{
+  "content": "if sourceLens is None:\n            sourceLens = self.camLens\n\n        if hasattr(source, \"getWindow\"):\n            source = source.getWindow()\n\n        rig = NodePath(namePrefix)\n        buffer = source.makeCubeMap(namePrefix, size, rig, cameraMask, 1)\n        if buffer is None:\n            raise Exception(\"Could not make cube map.\")\n\n        # Set the near and far planes from the default lens.\n        lens = rig.find('**/+Camera').node().getLens()\n\n        lens.setNearFar(sourceLens.getNear(), sourceLens.getFar())\n\n        # Now render a frame to fill up the texture.\n        rig.reparentTo(camera)\n        self.graphicsEngine.openWindows()\n        self.graphicsEngine.renderFrame()\n        self.graphicsEngine.renderFrame()\n        self.graphicsEngine.syncFrame()\n\n        tex = buffer.getTexture()\n        saved = self.screenshot(namePrefix = namePrefix,\n                                defaultFilename = defaultFilename,\n                                source = tex)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4993
+  }
+}

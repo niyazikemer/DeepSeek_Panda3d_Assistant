@@ -1,0 +1,9 @@
+{
+  "content": "def setVFov(self, vFov):\n        dr = self.activeDisplayRegion\n        if dr:\n            if self.lockedFov.get():\n                sf = vFov/dr.getVfov()\n                hFov = min(dr.getHfov() * sf, 170.0)\n                dr.setFov(hFov, vFov)\n                # Update scale\n                self.hFov.set(hFov, 0)\n            else:\n                # Just set horizontal\n                dr.setVfov(vFov)\n\n    def resetFov(self):\n        dr = self.activeDisplayRegion\n        if dr:\n            dr.setFov(45.0, 33.75)\n            self.hFov.set(45.0, 0)\n            self.vFov.set(33.75, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 963
+  }
+}

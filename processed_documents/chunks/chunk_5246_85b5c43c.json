@@ -1,0 +1,9 @@
+{
+  "content": "def getLocation(self):\n        try:\n            if self.parentId == 0 and self.zoneId == 0:\n                return None\n            # This is a -1 stuffed into a uint32\n            if self.parentId == 0xffffffff and self.zoneId == 0xffffffff:\n                return None\n            return (self.parentId, self.zoneId)\n        except AttributeError:\n            return None\n\n    def handleChildArrive(self, childObj, zoneId):\n        \"\"\"\n        A new child has just setLocation beneath us.  Give us a\n        chance to run code when a new child sets location to us. For\n        example, we may want to scene graph reparent the child to\n        some subnode we own.\n        \"\"\"\n        assert self.notify.debugCall()\n        # Inheritors should override",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_296",
+    "parent": "processed_documents/context_documents/084461fa_DistributedObjectBase.json",
+    "chunk_number": 5246
+  }
+}

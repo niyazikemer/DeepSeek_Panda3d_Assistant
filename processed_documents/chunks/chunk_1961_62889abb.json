@@ -1,0 +1,9 @@
+{
+  "content": "icon = self.icon_objects.get(\n            self.macos_main_app,\n            self.icon_objects.get('*', None)\n        )\n        if icon is not None:\n            plist['CFBundleIconFile'] = 'iconfile'\n            icon.makeICNS(os.path.join(resdir, 'iconfile.icns'))\n\n        with open(os.path.join(contentsdir, 'Info.plist'), 'wb') as f:\n            plistlib.dump(plist, f)\n\n    def generate_android_manifest(self, path):\n        import xml.etree.ElementTree as ET\n\n        name = self.distribution.get_name()\n        version = self.distribution.get_version()\n        classifiers = self.distribution.get_classifiers()\n\n        # If we have no app category, determine it based on the classifiers.\n        category = self.android_app_category\n        if not category:\n            for classifier in classifiers:\n                classifier = tuple(classifier.split(' :: '))\n                if len(classifier) < 2 or classifier[0] != 'Topic':\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1961
+  }
+}

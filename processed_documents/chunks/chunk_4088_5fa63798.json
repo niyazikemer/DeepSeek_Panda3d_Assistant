@@ -1,0 +1,9 @@
+{
+  "content": "def oneTimeCollide(self):\n        \"\"\"\n        Makes one quick collision pass for the avatar, for instance as\n        a one-time straighten-things-up operation after collisions\n        have been disabled.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        if not hasattr(self, 'cWallSphereNodePath'):\n            return\n        self.isAirborne = 0\n        self.mayJump = 1\n        tempCTrav = CollisionTraverser(\"oneTimeCollide\")\n        tempCTrav.addCollider(self.cWallSphereNodePath, self.pusher)\n        if self.wantFloorSphere:\n            tempCTrav.addCollider(self.cFloorSphereNodePath, self.event)\n        tempCTrav.addCollider(self.cRayNodePath, self.lifter)\n        tempCTrav.traverse(render)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4088
+  }
+}

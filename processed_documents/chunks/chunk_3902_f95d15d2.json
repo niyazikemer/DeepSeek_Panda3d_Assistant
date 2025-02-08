@@ -1,0 +1,9 @@
+{
+  "content": "def getProfileTasks(self):\n        return self._profileTasks.get()\n\n    def getProfileTasksSV(self):\n        return self._profileTasks\n\n    def setProfileTasks(self, profileTasks):\n        self._profileTasks.set(profileTasks)\n        if (not self._taskProfiler) and profileTasks:\n            # import here due to import dependencies\n            TP = importlib.import_module('direct.task.TaskProfiler')\n            self._taskProfiler = TP.TaskProfiler()\n\n    def logTaskProfiles(self, name=None):\n        if self._taskProfiler:\n            self._taskProfiler.logProfiles(name)\n\n    def flushTaskProfiles(self, name=None):\n        if self._taskProfiler:\n            self._taskProfiler.flush(name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3902
+  }
+}

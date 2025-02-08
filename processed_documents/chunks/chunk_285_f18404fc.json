@@ -1,0 +1,9 @@
+{
+  "content": "class GraphEditorUI(wx.Dialog):\n    \"\"\"\n    This is the graph editor main class implementation.\n    \"\"\"\n\n    def __init__(self, parent, editor, object):\n        wx.Dialog.__init__(self, parent, id=wx.ID_ANY, title=\"Graph Editor\",\n                           pos=wx.DefaultPosition, size=(735, 535))\n\n        self.editor = editor\n        self.editor.GRAPH_EDITOR = True\n        self.object = object\n        self.xRange = 24+1\n        self.yRange = 50\n        if self.editor.mode == self.editor.ANIM_MODE:\n            self.curFrame = self.editor.ui.animUI.curFrame\n        self.curFrame = 1\n\n        self.mainPanel1 = wx.Panel(self, -1)\n\n        bmpZoomIn = ZoomIn.GetBitmap()\n        bmpZoomOut = ZoomOut.GetBitmap()\n        bmpOneTangent = OneTangent.GetBitmap()\n        bmpTwoTangents = TwoTangents.GetBitmap()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 285
+  }
+}

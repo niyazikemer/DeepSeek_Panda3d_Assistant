@@ -1,0 +1,9 @@
+{
+  "content": "# Subtables/entries specified by string name.\n        self._name_leaves = []\n        for i in range(nnames):\n            name_p, data = unpack('<II', mem[start:start+8])\n            if name_p & 0x80000000:\n                name = _unpack_wstring(mem, addr + (name_p & 0x7fffffff))\n            else:\n                # Not sure what to do with this; I don't have a file with this.\n                name = str(name_p)\n\n            if data & 0x80000000:\n                entry = ResourceTable(self._ident + (name,))\n                entry.unpack_from(mem, addr, data & 0x7fffffff)\n            else:\n                entry = self._unpack_data_entry(mem, addr + data, ident=self._ident+(name,))\n                self._descs_size += 16\n            self._name_leaves.append((name, entry))\n            self._strings_size += _padded(len(name) * 2 + 2, 4)\n            start += 8",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1879
+  }
+}

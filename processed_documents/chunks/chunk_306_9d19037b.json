@@ -1,0 +1,9 @@
+{
+  "content": "class PaletteTreeCtrl(wx.TreeCtrl):\n    def __init__(self, parent, treeStyle, rootName):\n        wx.TreeCtrl.__init__(self, parent, style=treeStyle)\n\n        self.rootName = rootName\n        self.root = self.AddRoot(self.rootName)\n\n        self.paletteUI = parent\n\n        self.opSortAlpha = \"Sort Alphabetical Order\"\n        self.opSortOrig  = \"Sort Original Order\"\n        self.opSort = self.opSortOrig\n\n        self.Bind(wx.EVT_TREE_BEGIN_DRAG, self.onBeginDrag)\n\n    def OnCompareItems(self, item1, item2):\n        return self.paletteUI.compareItems(item1, item2)\n\n    def SortTreeNodes(self, parent):\n        self.SortChildren(parent)\n        item, cookie = self.GetFirstChild(parent)\n        while item:\n            if self.ItemHasChildren(item):\n                self.SortTreeNodes(item)\n\n            # continue iteration to the next child\n            item, cookie = self.GetNextChild(parent, cookie)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 306
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def filterOff(self, request, args):\n        \"\"\"From the off state, we can always go directly to any other\n        state.\"\"\"\n        if request[0].isupper():\n            return (request,) + args\n        return self.defaultFilter(request, args)\n\n    def setStateArray(self, stateArray):\n        \"\"\"array of unique states to iterate through\"\"\"\n        self.fsmLock.acquire()\n        try:\n            self.stateArray = stateArray\n        finally:\n            self.fsmLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2646
+  }
+}

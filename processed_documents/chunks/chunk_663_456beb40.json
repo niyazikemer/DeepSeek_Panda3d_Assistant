@@ -1,0 +1,9 @@
+{
+  "content": "def OnLeftUp(self, evt):\n        if self.GetCapture():\n            self.ReleaseMouse()\n            self._mouseIn = False\n\n    def OnMotion(self, evt):\n        self._mouseIn = False\n        if evt.Dragging() and evt.LeftIsDown():\n            point = (evt.GetX(), evt.GetY())\n            if point[1]>= float(0) and point[1]<= (float(self.h)-2.0):\n                if point[0]>= float(0) and point[0]<= float(self.w):\n                    self._mouseIn = True\n\n            if self._mouseIn:\n                self.curFrame = int(float(point[0])/self.unitWidth)+self.sliderStartFrame\n                self._mainDialog.curFrame = self.curFrame\n                self._mainDialog.curFrameSpin.SetValue(self.curFrame)\n                self._mainDialog.OnAnimation(self.curFrame)\n                self.SetTimeSliderData(self.sliderStartFrame, self.sliderEndFrame, self.curFrame)\n\n        evt.Skip()\n        self._mouseIn = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 663
+  }
+}

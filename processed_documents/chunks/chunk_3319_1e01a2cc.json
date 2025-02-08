@@ -1,0 +1,9 @@
+{
+  "content": "if self.useMayaCamControls: # use maya controls\n            moveDir.assign(moveDir * ((direct.dr.mouseDeltaX -1.0 * direct.dr.mouseDeltaY)\n                                    * state.zoomSF))\n            hVal = 0.0\n        else:\n            moveDir.assign(moveDir * (-1.0 * direct.dr.mouseDeltaY *\n                                        state.zoomSF))\n            if direct.dr.mouseDeltaY > 0.0:\n                moveDir.setY(moveDir[1] * 1.0)\n\n            hVal = 0.5 * direct.dr.mouseDeltaX * direct.dr.fovH\n\n        direct.camera.setPosHpr(direct.camera,\n                                moveDir[0],\n                                moveDir[1],\n                                moveDir[2],\n                                hVal,\n                                0.0, 0.0)\n        if self.lockRoll:\n            # flatten roll\n            direct.camera.setR(0)\n\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3319
+  }
+}

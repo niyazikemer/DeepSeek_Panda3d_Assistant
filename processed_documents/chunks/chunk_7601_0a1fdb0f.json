@@ -1,0 +1,9 @@
+{
+  "content": "If you have made important structural changes to a Multifile, it is recommended to rewrite the multifile using the ~.Multifile.repack() method. (This won't work if you've opened it using ~.Multifile.open_read().) If you are uncertain about whether it has become suboptimal, you can call ~.Multifile.neesd_repack() which returns True if the Multifile is suboptimal and should be repacked.\n\nTo write it back to disk, you can use the ~.Multifile.flush() method which flushes the changes you've made to the multifile back to disk, or the ~.Multifile.close() method if you're done with the file.\n\nTo mount Multifile objects into the VirtualFileSystem without writing them to disk first, here's an example on how to mount them:\n\npython\n\nmf = Multifile()\n#... now do something with mf\n\nvfs = VirtualFileSystem.getGlobalPtr()\nvfs.mount(mf, \".\", VirtualFileSystem.MFReadOnly)\n\ncpp\n\nPT(Multifile) mf = new Multifile;\n//... now do something with mf",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7601
+  }
+}

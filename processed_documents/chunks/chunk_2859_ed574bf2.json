@@ -1,0 +1,9 @@
+{
+  "content": "if isinstance(controls, AnimControlCollection):\n            self.controls = controls\n            if ConfigVariableBool(\"strict-anim-ival\", 0):\n                checkSz = self.controls.getAnim(0).getNumFrames()\n                for i in range(1,self.controls.getNumAnims()):\n                    if checkSz != self.controls.getAnim(i).getNumFrames():\n                        self.notify.error(\"anim controls don't have the same number of frames!\")\n        elif isinstance(controls, AnimControl):\n            self.controls = AnimControlCollection()\n            self.controls.storeAnim(controls,\"\")\n        else:\n            self.notify.error(\"invalid input control(s) for AnimControlInterval\")\n\n        self.loopAnim = loop\n        self.constrainedLoop = constrainedLoop\n        self.playRate = playRate\n\n        # If no name specified, use id as name\n        if name is None:\n            name = id",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_165",
+    "parent": "processed_documents/context_documents/0899ec70_AnimControlInterval.json",
+    "chunk_number": 2859
+  }
+}

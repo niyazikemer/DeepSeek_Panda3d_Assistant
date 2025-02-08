@@ -1,0 +1,9 @@
+{
+  "content": "def get(self):\n        return self._value\n\n    def getAt(self, index):\n        return self._value[index]\n\n    def _setNumDigits(self):\n        self['valuator_numDigits'] = self['numDigits']\n        self.formatString = '%0.' + '%df' % self['numDigits']\n\n    def _updateLabels(self):\n        if self['labels']:\n            for index in range(self['dim']):\n                self._valuatorList[index]['text'] = self['labels'][index]\n\n    def _preCallback(self, valGroup):\n        # Execute pre callback\n        if self['preCallback']:\n            self['preCallback'](*valGroup.get())\n\n    def _postCallback(self, valGroup):\n        # Execute post callback\n        if self['postCallback']:\n            self['postCallback'](*valGroup.get())\n\n    def __len__(self):\n        return self['dim']\n\n    def __repr__(self):\n        str = '[' + self.formatString % self._value[0]\n        for val in self._value[1:]:\n            str += ', ' + self.formatString % val\n        str += ']'\n        return str",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3655
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Condition(core.ConditionVar):\n    \"\"\" This class provides a wrapper around Panda's ConditionVar\n    object.  The wrapper is designed to emulate Python's own\n    threading.Condition object. \"\"\"\n\n    def __init__(self, lock = None):\n        if not lock:\n            lock = Lock()\n\n        # Panda doesn't support RLock objects used with condition\n        # variables.\n        assert isinstance(lock, Lock)\n\n        self.__lock = lock\n        core.ConditionVar.__init__(self, self.__lock)\n\n    def acquire(self, *args, **kw):\n        return self.__lock.acquire(*args, **kw)\n\n    def release(self):\n        self.__lock.release()\n\n    def wait(self, timeout = None):\n        if timeout is None:\n            core.ConditionVar.wait(self)\n        else:\n            core.ConditionVar.wait(self, timeout)\n\n    def notifyAll(self):\n        core.ConditionVar.notifyAll(self)\n\n    notify_all = notifyAll\n\n    __enter__ = acquire\n\n    def __exit__(self, t, v, tb):\n        self.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3766
+  }
+}

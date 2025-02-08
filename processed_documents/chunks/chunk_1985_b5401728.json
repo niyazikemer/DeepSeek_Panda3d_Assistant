@@ -1,0 +1,9 @@
+{
+  "content": "base = os.path.basename(i)\n                module, _, ext = base.partition('.')\n                whl_modules[module] = i\n\n        # Make sure to copy any builtins that have shared objects in the\n        # deploy libs, assuming they are not already in freezer_extras.\n        for mod, source_path in freezer_extras:\n            freezer_modules.discard(mod)\n\n        for mod in freezer_modules:\n            if mod in whl_modules:\n                freezer_extras.add((mod, None))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1985
+  }
+}

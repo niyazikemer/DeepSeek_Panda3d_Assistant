@@ -1,0 +1,9 @@
+{
+  "content": "# log profiles when it's time, and aggregate them upwards into the\n        # next-longer profile\n        for pi in range(len(self._logSchedule)):\n            period = self._logSchedule[pi]\n            if (self._timeElapsed % period) == 0:\n                if period in p2ap:\n                    # delay until the next frame if we've already processed N profiles this frame\n                    if counter >= 3:\n                        counter = 0\n                        yield Task.cont\n                    self.notify.info('aggregate profile of sampled frames over last %s\\n%s' %\n                                     (formatTimeExact(period), p2ap[period].getResults()))\n                    counter += 1\n                    # aggregate this profile into the next larger profile\n                    nextIndex = pi + 1\n                    if nextIndex >= len(self._logSchedule):\n                        # if we're adding a new period to the end of the log period table,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3928
+  }
+}

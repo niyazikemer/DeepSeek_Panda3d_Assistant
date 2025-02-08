@@ -1,0 +1,9 @@
+{
+  "content": "# we must have found none, or gotten an error\n        return None\n\n    def getCurrentFrame(self, animName=None, partName=None):\n        \"\"\"\n        Return the current frame number of the named anim, or if no\n        anim is specified, then the anim current playing on the\n        actor. If part not specified return current anim of first part\n        in dictionary.  NOTE: only returns info for an arbitrary LOD\n        \"\"\"\n        lodName, animControlDict = next(iter(self.__animControlDict.items()))\n        if partName is None:\n            partName, animDict = next(iter(animControlDict.items()))\n        else:\n            animDict = animControlDict.get(partName)\n            if animDict is None:\n                # part was not present\n                Actor.notify.warning(\"couldn't find part: %s\" % (partName))\n                return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3081
+  }
+}

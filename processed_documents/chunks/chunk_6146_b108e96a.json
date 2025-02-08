@@ -1,0 +1,9 @@
+{
+  "content": "It has one or more methods marked with __published access.\n\nThe -promiscuous option is passed to Interrogate.\n\nIt is specified by a forcetype directive in a special .N file.\n\nThe first method is the most common approach. It is conventional to define a PUBLISHED macro that will expand to public when compiling the C++ code and __published macro when parsing the source with Interrogate, as follows:\n\n// dtoolbase.h defines the PUBLISHED macro if the CPPPARSER macro is defined\n#include \"dtoolbase.h\"\n\nclass MyBufferClass {\nPUBLISHED:\n  // This method is publicly accessible to Python and C++\n  void set_data(const string &str);\n\npublic:\n  // C++-only method\n  char *get_buffer();\n};\n\nParser Includes\n\nSometimes, a project may use a header file that Interrogate has difficulty parsing. In many cases, this is simply due to Interrogate not having been configured correctly, but it is nevertheless easier to tell Interrogate to skip these external headers.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_423",
+    "parent": "processed_documents/context_documents/2e2b4b89_ca6cf7a0_interrogate.json",
+    "chunk_number": 6146
+  }
+}

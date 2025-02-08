@@ -1,0 +1,9 @@
+{
+  "content": "def mouseRotateTask(self, state):\n        # If the cam is orthogonal, don't rotate.\n        direct = ShowBaseGlobal.direct\n        if (hasattr(direct.cam.node(), \"getLens\") and\n            direct.cam.node().getLens().__class__.__name__ == \"OrthographicLens\"):\n            return\n        # If moving outside of center, ignore motion perpendicular to edge\n        if ((state.constrainedDir == 'y') and (abs(direct.dr.mouseX) > 0.9)):\n            deltaX = 0\n            deltaY = direct.dr.mouseDeltaY\n        elif ((state.constrainedDir == 'x') and (abs(direct.dr.mouseY) > 0.9)):\n            deltaX = direct.dr.mouseDeltaX\n            deltaY = 0\n        else:\n            deltaX = direct.dr.mouseDeltaX\n            deltaY = direct.dr.mouseDeltaY\n        if direct.fShift:\n            direct.camera.setHpr(direct.camera,\n                                 (deltaX * direct.dr.fovH),\n                                 (-deltaY * direct.dr.fovV),\n                                 0.0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3323
+  }
+}

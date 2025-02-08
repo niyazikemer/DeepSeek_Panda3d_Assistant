@@ -1,0 +1,9 @@
+{
+  "content": "if tuple(self.GetClientSize()) != size:\n                    # The window has changed size during the idle call.\n                    # This seems to be possible in Linux.\n                    wp = WindowProperties()\n                    wp.setSize(*self.GetClientSize())\n                    self.win.requestProperties(wp)\n\n            event.Skip()\n\n# Choose the best implementation of WxPandaWindow for the platform.\nWxPandaWindow = None\nif platform.system() == 'Darwin' or platform.system() == 'Linux':\n    WxPandaWindow = OpenGLPandaWindow\n\nif not WxPandaWindow:\n    WxPandaWindow = EmbeddedPandaWindow",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 216
+  }
+}

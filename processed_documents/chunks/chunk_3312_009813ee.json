@@ -1,0 +1,9 @@
+{
+  "content": "# Do this when not trying to manipulate camera\n        direct = ShowBaseGlobal.direct\n        if not self.altDown and len(direct.selected.getSelectedAsList()) == 0:\n            # Check for a hit point based on\n            # current mouse position\n            # Allow intersection with unpickable objects\n            # And then spawn task to determine mouse mode\n            # Don't intersect with hidden or backfacing objects\n            skipFlags = DG.SKIP_HIDDEN | DG.SKIP_BACKFACE\n            # Skip camera (and its children), unless control key is pressed\n            skipFlags |= DG.SKIP_CAMERA * (1 - base.getControl())\n            self.computeCOA(direct.iRay.pickGeom(skipFlags = skipFlags))\n            # Record reference point\n            self.coaMarkerRef.setPosHprScale(base.cam, 0, 0, 0, 0, 0, 0, 1, 1, 1)\n            # Record entries\n            self.cqEntries = []\n            for i in range(direct.iRay.getNumEntries()):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3312
+  }
+}

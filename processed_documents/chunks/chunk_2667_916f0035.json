@@ -1,0 +1,9 @@
+{
+  "content": "class Pulse(PushesStateChanges):\n    # changes state to True then immediately to False whenever sendPulse is called\n    def __init__(self):\n        PushesStateChanges.__init__(self, False)\n\n    def sendPulse(self):\n        self._handlePotentialStateChange(True)\n        self._handlePotentialStateChange(False)\n\n\nclass EventPulse(Pulse, DirectObject):\n    # sends a True-False \"pulse\" whenever a specific messenger message is sent\n    def __init__(self, event):\n        Pulse.__init__(self)\n        self.accept(event, self.sendPulse)\n\n    def destroy(self):\n        self.ignoreAll()\n        Pulse.destroy(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2667
+  }
+}

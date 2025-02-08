@@ -1,0 +1,9 @@
+{
+  "content": "self.loadSettings()\n        self.reset()\n\n    def setTitleWithFilename(self, filename=\"\"):\n        title = self.ui.appname\n        if filename != \"\":\n            filenameshort = os.path.basename(filename)\n            title = title + \" (%s)\"%filenameshort\n        self.ui.SetLabel(title)\n\n    def removeNodePathHook(self, nodePath):\n        if nodePath is None:\n            return\n        base.direct.deselect(nodePath)\n        self.objectMgr.removeObjectByNodePath(nodePath)\n\n        if base.direct.selected.last is not None and nodePath == base.direct.selected.last:\n            # if base.direct.selected.last is refering to this\n            # removed obj, clear the reference\n            if hasattr(__builtins__, 'last'):\n                __builtins__.last = None\n            else:\n                __builtins__['last'] = None\n            base.direct.selected.last = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 404
+  }
+}

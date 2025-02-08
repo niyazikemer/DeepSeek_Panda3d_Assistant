@@ -1,0 +1,9 @@
+{
+  "content": "def removeObjData(self, objUID):\n        layersDataDictKeys = list(self.layersDataDict.keys())\n        for i in range(len(layersDataDictKeys)):\n            layersData = self.layersDataDict[layersDataDictKeys[i]]\n            for j in range(len(layersData)):\n                if layersData[j] == objUID:\n                    del layersData[j]\n\n    def removeObj(self):\n        objNodePath = base.direct.selected.last\n        if objNodePath is None:\n            wx.MessageBox(\"No object was selected.\", self.editorTxt, wx.OK | wx.ICON_EXCLAMATION)\n            return\n        obj = self.editor.objectMgr.findObjectByNodePath(objNodePath)\n        if obj is not None:\n            self.removeObjData(obj[OG.OBJ_UID])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 578
+  }
+}

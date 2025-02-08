@@ -1,0 +1,9 @@
+{
+  "content": "Hence, the original window which used to contain the actual\n        scene, now contains a pink-tinted quad with a texture of the\n        scene.  It is assumed that the user will replace the shader\n        on the quad with a more interesting filter. \"\"\"\n\n        if textures:\n            colortex = textures.get(\"color\", None)\n            depthtex = textures.get(\"depth\", None)\n            auxtex = textures.get(\"aux\", None)\n            auxtex0 = textures.get(\"aux0\", auxtex)\n            auxtex1 = textures.get(\"aux1\", None)\n        else:\n            auxtex0 = auxtex\n            auxtex1 = None\n\n        if colortex is None:\n            colortex = Texture(\"filter-base-color\")\n            colortex.setWrapU(Texture.WMClamp)\n            colortex.setWrapV(Texture.WMClamp)\n\n        texgroup = (depthtex, colortex, auxtex0, auxtex1)\n\n        # Choose the size of the offscreen buffer.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4009
+  }
+}

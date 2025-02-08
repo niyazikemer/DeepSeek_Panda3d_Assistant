@@ -1,0 +1,9 @@
+{
+  "content": "tb = sys.exc_info()[2]\n    assert tb is not None\n    while 1:\n        if not tb.tb_next:\n            break\n        tb = tb.tb_next\n    stack = []\n    f: types.FrameType | None = tb.tb_frame\n    while f:\n        stack.append(f)\n        f = f.f_back\n    stack.reverse()\n    traceback.print_exc()\n    print(\"Locals by frame, innermost last\")\n    for frame in stack:\n        print(\"\")\n        print(\"Frame %s in %s at line %s\" % (frame.f_code.co_name,\n                                             frame.f_code.co_filename,\n                                             frame.f_lineno))\n        for key, value in list(frame.f_locals.items()):\n            #We have to be careful not to cause a new error in our error\n            #printer! Calling str() on an unknown object could cause an\n            #error we don't want.\n            try:\n                valueStr = str(value)\n            except Exception:\n                valueStr = \"<ERROR WHILE PRINTING VALUE>\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3863
+  }
+}

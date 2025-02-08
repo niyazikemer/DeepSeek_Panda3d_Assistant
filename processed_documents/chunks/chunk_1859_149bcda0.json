@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" Tools for manipulating Portable Executable files.\n\nThis can be used, for example, to extract a list of dependencies from an .exe\nor .dll file, or to add version information and an icon resource to it. \"\"\"\n\n__all__ = [\"PEFile\"]\n\nfrom struct import Struct, unpack, pack, pack_into\nfrom collections import namedtuple\nfrom array import array\nimport time\nfrom io import BytesIO\n\n\n# Define some internally used structures.\nRVASize = namedtuple('RVASize', ('addr', 'size'))\nimpdirtab = namedtuple('impdirtab', ('lookup', 'timdat', 'forward', 'name', 'impaddr'))\nexpdirtab = namedtuple('expdirtab', ('flags', 'timdat', 'majver', 'minver', 'name', 'ordinal_base', 'nentries', 'nnames', 'entries', 'names', 'ordinals'))\n\n\ndef _unpack_zstring(mem, offs=0):\n    \"Read a zero-terminated string from memory.\"\n    c = mem[offs]\n    str = \"\"\n    while c:\n        str += chr(c)\n        offs += 1\n        c = mem[offs]\n    return str",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1859
+  }
+}

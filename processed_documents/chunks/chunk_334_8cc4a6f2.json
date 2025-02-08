@@ -1,0 +1,9 @@
+{
+  "content": "self.propPane = wx.Panel(self)\n        mainSizer = wx.BoxSizer(wx.VERTICAL)\n        mainSizer.Add(self.propPane, 1, wx.EXPAND, 0)\n        self.SetSizer(mainSizer)\n\n        self.nb = wx.Notebook(self.propPane, style=wx.NB_BOTTOM)\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.nb, 1, wx.EXPAND)\n        self.propPane.SetSizer(sizer)\n\n        self.transformPane = wx.Panel(self.nb, -1, name='Transform')\n        self.nb.AddPage(self.transformPane, 'Transform')\n\n        self.propX = ObjectPropUIEntry(self.transformPane, 'X')\n        self.propY = ObjectPropUIEntry(self.transformPane, 'Y')\n        self.propZ = ObjectPropUIEntry(self.transformPane, 'Z')\n\n        self.propH = ObjectPropUISlider(self.transformPane, 'H', 0, 0, 360)\n        self.propP = ObjectPropUISlider(self.transformPane, 'P', 0, 0, 360)\n        self.propR = ObjectPropUISlider(self.transformPane, 'R', 0, 0, 360)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 334
+  }
+}

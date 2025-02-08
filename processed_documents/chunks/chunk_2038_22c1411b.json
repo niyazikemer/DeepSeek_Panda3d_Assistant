@@ -1,0 +1,9 @@
+{
+  "content": "# If it is run by makepanda, it handles the MSVC and PlatformSDK paths itself.\n            if 'MAKEPANDA' in os.environ:\n                self.compileObjExe = 'cl /wd4996 /Fo%(basename)s.obj /nologo /c %(MD)s /Zi /O2 /Ob2 /EHsc /Zm300 /W3 /I\"%(pythonIPath)s\" %(filename)s'\n                self.compileObjDll = self.compileObjExe\n                self.linkExe = 'link /nologo /MAP:NUL /FIXED:NO /OPT:REF /STACK:4194304 /INCREMENTAL:NO /LIBPATH:\"%(python)s\\\\libs\"  /out:%(basename)s.exe %(basename)s.obj'\n                self.linkDll = 'link /nologo /DLL /MAP:NUL /FIXED:NO /OPT:REF /INCREMENTAL:NO /LIBPATH:\"%(python)s\\\\libs\"  /out:%(basename)s%(dllext)s.pyd %(basename)s.obj'\n            else:\n                os.environ['PATH'] += ';' + self.MSVC + '\\\\bin' + self.suffix64 + ';' + self.MSVC + '\\\\Common7\\\\IDE;' + self.PSDK + '\\\\bin'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2038
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "elif magic == b'\\x7FELF':\n            # Elf magic.  Used on (among others) Linux and FreeBSD.\n            deps = self._read_dependencies_elf(fp, target_dir, search_path)\n\n        elif magic in (b'\\xCE\\xFA\\xED\\xFE', b'\\xCF\\xFA\\xED\\xFE'):\n            # A Mach-O file, as used on macOS.\n            deps = self._read_dependencies_macho(fp, '<', flatten=True)\n\n        elif magic in (b'\\xFE\\xED\\xFA\\xCE', b'\\xFE\\xED\\xFA\\xCF'):\n            rel_dir = os.path.relpath(target_dir, os.path.dirname(target_path))\n            deps = self._read_dependencies_macho(fp, '>', flatten=True)\n\n        elif magic in (b'\\xCA\\xFE\\xBA\\xBE', b'\\xBE\\xBA\\xFE\\xCA'):\n            # A fat file, containing multiple Mach-O binaries.  In the future,\n            # we may want to extract the one containing the architecture we\n            # are building for.\n            deps = self._read_dependencies_fat(fp, False, flatten=True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2006
+  }
+}

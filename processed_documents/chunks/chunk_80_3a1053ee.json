@@ -1,0 +1,9 @@
+{
+  "content": "def on_missing_reference(app, env, node, contnode):\n    # Resolver for interrogate classes that supports either snake case or camel\n    # case naming.  Depending on the variation that is active, it will link to\n    # either the Python or C++ reference as appropriate.\n\n    target = node['reftarget']\n\n    variation = getattr(env.app.builder, 'current_variation', None)\n    if variation and variation[0] == 'cpp':\n        domain = env.domains['cpp']\n    else:\n        domain = env.domains['py']\n\n    typ = node['reftype']\n    if domain.name == 'cpp' and typ == 'meth':\n        # C++ domain doesn't have \"meth\", everything is \"func\" there.\n        typ = 'func'\n\n    # Figure out which part is the module and which part is the class.\n    prefix = ''\n    module = 'panda3d.core'\n    if target.startswith('panda3d.'):\n        parts = target.split('.', 2)\n        if len(parts) == 2:\n            # It's trying to resolve a reference to a module; we can't help\n            # with that.\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 80
+  }
+}

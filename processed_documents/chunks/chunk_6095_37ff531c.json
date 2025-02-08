@@ -1,0 +1,9 @@
+{
+  "content": "import direct.directbase.DirectStart\nfrom direct.showbase import DirectObject\nfrom panda3d.core import *\n\nclass Test(DirectObject.DirectObject):\n    def __init__(self):\n        self.accept(\"FireZeMissiles\", self._fireMissiles)\n\n    def _fireMissiles(self):\n        print(\"Missiles fired! Oh noes!\")\n\n    # function to get rid of me\n    def destroy(self):\n        self.ignoreAll()\n\nfoo = Test()  # create our test object\nfoo.destroy() # get rid of our test object\n\ndel foo\n\nmessenger.send(\"FireZeMissiles\") # No missiles fire\nbase.run()\n\nCoroutine Event Handlers\n\nIt is permissible for any event handler to be a coroutine (i.e. marked as an async def), which permits use of the await keyword inside the handler. Usage is otherwise identical to a regular event handler.\n\nclass Test(DirectObject):\n    def __init__(self):\n        self.accept('space', self.on_space)\n\n    async def on_space(self):\n        await Task.pause(1.0)\n        print(\"The space key was pressed one second ago!\")",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_410",
+    "parent": "processed_documents/context_documents/26c3d669_149a857c_event-handlers.json",
+    "chunk_number": 6095
+  }
+}

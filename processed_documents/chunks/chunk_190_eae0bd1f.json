@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] do not use the old way of finding current DR\n            direct.drList.tryToGetCurrentDr = False\n\n        else:\n            base.direct = None\n        #base.closeWindow(base.win)\n        base.win = base.winList[3]\n\n    def wxStep(self, task = None):\n        \"\"\"A step in the WX event loop. You can either call this yourself or use as task.\"\"\"\n        while self.evtLoop.Pending():\n            self.evtLoop.Dispatch()\n        self.evtLoop.ProcessIdle()\n        if task is not None:\n            return task.cont\n\n    def appInit(self):\n        \"\"\"Overridden from WxAppShell.py.\"\"\"\n        # Create a new event loop (to overide default wxEventLoop)\n        self.evtLoop = wx.GUIEventLoop()\n        self.oldLoop = wx.GUIEventLoop.GetActive()\n        wx.GUIEventLoop.SetActive(self.evtLoop)\n        taskMgr.add(self.wxStep, \"evtLoopTask\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 190
+  }
+}

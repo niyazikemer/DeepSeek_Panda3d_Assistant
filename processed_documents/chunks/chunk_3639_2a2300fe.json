@@ -1,0 +1,9 @@
+{
+  "content": "# Make sure input variables processed\n        self.fInit = self['fCommandOnInit']\n        self.initialiseoptions(Valuator)\n\n    def set(self, value, fCommand = 1):\n        \"\"\"\n        Update widget's value by setting valuator, which will in\n        turn update the entry.  fCommand flag (which is passed to the\n        valuator as commandData, which is then passed in turn to\n        self.setEntry) controls command execution.\n        \"\"\"\n        self._valuator['commandData'] = [fCommand]\n        self._valuator.set(value)\n        # Restore commandData to 1 so that interaction via valuator widget\n        # will result in command being executed, otherwise a set with\n        # commandData == 0 will stick and commands will not be executed\n        self._valuator['commandData'] = [1]\n\n    def get(self):\n        \"\"\" Return current widget value \"\"\"\n        return self.adjustedValue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3639
+  }
+}

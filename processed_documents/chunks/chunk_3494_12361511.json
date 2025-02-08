@@ -1,0 +1,9 @@
+{
+  "content": "# Add update parent label\n        def updateLabel(nodePath = None, s = self):\n            s._label['text'] = 'Active Reparent Target: ' + nodePath.getName()\n        self.accept('DIRECT_activeParent', updateLabel)\n\n        # Add update hook\n        self.accept('SGE_Update Explorer',\n                    lambda np, s = self: s.update())\n\n        # Check keywords and initialise options based on input values.\n        self.initialiseoptions(SceneGraphExplorer)\n\n    # [gjeon] to set childrenTag and fModeChildrenTag of tree node\n    def setChildrenTag(self, tag, fModeChildrenTag):\n        self._node.setChildrenTag(tag, fModeChildrenTag)\n        self._node.update()\n\n    # [gjeon] to set fSortChildren of tree node\n    def setFSortChildren(self, fSortChildren):\n        self._node.setFSortChildren(fSortChildren)\n        self._node.update()\n\n    def update(self, fUseCachedChildren = 1):\n        \"\"\" Refresh scene graph explorer \"\"\"\n        self._node.update(fUseCachedChildren)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3494
+  }
+}

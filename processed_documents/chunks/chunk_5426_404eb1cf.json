@@ -1,0 +1,9 @@
+{
+  "content": "def send(self, message, sentArgs=[]):\n        \"\"\"\n        Send message to All AI and Uber Dog servers.\n        \"\"\"\n        assert self.notify.debugCall()\n        datagram = PyDatagram()\n        # To:\n        datagram.addUint8(1)\n        datagram.addChannel(self.channels[0])\n        # From:\n        datagram.addChannel(self.air.ourChannel)\n        #if 1: # We send this just because the air expects it:\n        #    # Add an 'A' for AI\n        #    datagram.addUint8(ord('A'))\n\n        messageType=MESSAGE_STRINGS.get(message, 0)\n        datagram.addUint16(messageType)\n        if messageType:\n            datagram.addString(str(dumps(sentArgs)))\n        else:\n            datagram.addString(str(dumps((message, sentArgs))))\n        self.air.send(datagram)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_313",
+    "parent": "processed_documents/context_documents/9d0f4180_NetMessenger.json",
+    "chunk_number": 5426
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.sendNamedMovementDone()\n        return Task.cont\n\n    def sendNamedMovementDone(self):\n        self.notify.debug(\"named movement done\")\n        datagram = self.msgHandler.makeNamedMovementDone()\n        self.cw.send(datagram,self.lastConnection)\n\n    def moveObject(self, nodePath, object, offset, hasColor):\n        self.notify.debug('moving object '+object)\n        #print \"moving object\",object\n        xyz = nodePath.getPos(render) + offset\n        hpr = nodePath.getHpr(render)\n        scale = nodePath.getScale(render)\n        if hasColor:\n            color = nodePath.getColor()\n        else:\n            color = [1,1,1,1]\n        hidden = nodePath.isHidden()\n        datagram = self.msgHandler.makeNamedObjectMovementDatagram(xyz,hpr,scale,color,hidden,object)\n        self.cw.send(datagram, self.lastConnection)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1758
+  }
+}

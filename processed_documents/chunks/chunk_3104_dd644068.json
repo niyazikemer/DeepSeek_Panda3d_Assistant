@@ -1,0 +1,9 @@
+{
+  "content": "def attach(self, partName, anotherPartName, jointName, lodName=\"lodRoot\"):\n        \"\"\"attach(self, string, string, string, key=\"lodRoot\")\n        Attach one actor part to another at a joint called jointName\"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if partBundleDict:\n            subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n            partDef = partBundleDict.get(subpartDef.truePartName)\n            if partDef:\n                anotherPartDef = partBundleDict.get(anotherPartName)\n                if anotherPartDef:\n                    joint = anotherPartDef.partBundleNP.find(\"**/\" + jointName)\n                    if joint.isEmpty():\n                        Actor.notify.warning(\"%s not found!\" % (jointName))\n                    else:\n                        partDef.partBundleNP.reparentTo(joint)\n                else:\n                    Actor.notify.warning(\"no part named %s!\" % (anotherPartName))\n            else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3104
+  }
+}

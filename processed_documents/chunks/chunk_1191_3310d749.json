@@ -1,0 +1,9 @@
+{
+  "content": "def setNodePath(self, nodePath):\n        self.playbackNodePath = self.nodePath = nodePath\n        if self.nodePath:\n            # Record nopath's parent\n            self.nodePathParent = self.nodePath.getParent()\n            # Put curve drawer under record node path's parent\n            self.curveNodePath.reparentTo(self.nodePathParent)\n            # Set entry color\n            self.nodePathMenuEntry.configure(\n                background = self.nodePathMenuBG)\n        else:\n            # Flash entry\n            self.nodePathMenuEntry.configure(background = 'Pink')\n\n    def setPlaybackNodePath(self, nodePath):\n        self.playbackNodePath = nodePath\n\n    def addNodePath(self, nodePath):\n        self.addNodePathToDict(nodePath, self.nodePathNames,\n                               self.nodePathMenu, self.nodePathDict)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1191
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def spawnMouseRotateTask(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        direct = ShowBaseGlobal.direct\n        if self.perspCollPlane:\n            iRay = SelectionRay(direct.camera)\n            iRay.collider.setFromLens(direct.camNode, 0.0, 0.0)\n            iRay.collideWithBitMask(1)\n\n            if direct.camera.getPos().getZ() >=0:\n                iRay.ct.traverse(self.perspCollPlane)\n            else:\n                iRay.ct.traverse(self.perspCollPlane2)\n\n            if iRay.getNumEntries() > 0:\n                entry = iRay.getEntry(0)\n                hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n\n                # create a temp nodePath to get the position\n                np = NodePath('temp')\n                np.setPos(direct.camera, hitPt)\n                self.coaMarkerPos = np.getPos()\n                np.removeNode()\n                self.coaMarker.setPos(self.coaMarkerPos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3321
+  }
+}

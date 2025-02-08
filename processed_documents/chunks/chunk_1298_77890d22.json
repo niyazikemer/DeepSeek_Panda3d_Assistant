@@ -1,0 +1,9 @@
+{
+  "content": "def getPoolSizeRanges(self):\n        litterRange = [max(1,self.getLitterSize()-self.getLitterSpread()),\n                       self.getLitterSize(),\n                       self.getLitterSize()+self.getLitterSpread()]\n        lifespanRange = [self.factory.getLifespanBase()-self.factory.getLifespanSpread(),\n                         self.factory.getLifespanBase(),\n                         self.factory.getLifespanBase()+self.factory.getLifespanSpread()]\n        birthRateRange = [self.getBirthRate()] * 3\n\n        print('Litter Ranges:    %s' % litterRange)\n        print('LifeSpan Ranges:  %s' % lifespanRange)\n        print('BirthRate Ranges: %s' % birthRateRange)\n\n        return dict(zip(('min','median','max'),[l*s/b for l,s,b in zip(litterRange,lifespanRange,birthRateRange)]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1298
+  }
+}

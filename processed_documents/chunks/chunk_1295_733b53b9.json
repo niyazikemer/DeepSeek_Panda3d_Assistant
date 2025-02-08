@@ -1,0 +1,9 @@
+{
+  "content": "elif self.emitterType == \"LineEmitter\":\n            file.write('# Line parameters\\n')\n            point = self.emitter.getEndpoint1()\n            file.write((targ + '.emitter.setEndpoint1(Point3(%.4f, %.4f, %.4f))\\n' % (point[0], point[1], point[2])))\n            point = self.emitter.getEndpoint2()\n            file.write((targ + '.emitter.setEndpoint2(Point3(%.4f, %.4f, %.4f))\\n' % (point[0], point[1], point[2])))\n        elif self.emitterType == \"PointEmitter\":\n            file.write('# Point parameters\\n')\n            point = self.emitter.getLocation()\n            file.write((targ + '.emitter.setLocation(Point3(%.4f, %.4f, %.4f))\\n' % (point[0], point[1], point[2])))\n        elif self.emitterType == \"RectangleEmitter\":\n            file.write('# Rectangle parameters\\n')\n            point = self.emitter.getMinBound()\n            file.write((targ + '.emitter.setMinBound(Point2(%.4f, %.4f))\\n' % (point[0], point[1])))\n            point = self.emitter.getMaxBound()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1295
+  }
+}

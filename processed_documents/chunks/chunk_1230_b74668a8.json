@@ -1,0 +1,9 @@
+{
+  "content": "def createComboBox(self, parent, category, text, balloonHelp,\n                       items, command, history = 0,\n                       side = tk.LEFT, expand = 0, fill = tk.X):\n        widget = Pmw.ComboBox(parent,\n                              labelpos = tk.W,\n                              label_text = text,\n                              label_anchor = 'e',\n                              label_width = 12,\n                              entry_width = 16,\n                              history = history,\n                              scrolledlist_items = items)\n        # Don't allow user to edit entryfield\n        widget.configure(entryfield_entry_state = 'disabled')\n        # Select first item if it exists\n        if len(items) > 0:\n            widget.selectitem(items[0])\n        # Bind selection command\n        widget['selectioncommand'] = command\n        widget.pack(side = side, fill = fill, expand = expand)\n        # Bind help\n        self.bind(widget, balloonHelp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1230
+  }
+}

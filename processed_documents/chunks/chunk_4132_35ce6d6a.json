@@ -1,0 +1,9 @@
+{
+  "content": "def get(self, name):\n        return self.controls.get(name)\n\n    def remove(self, name):\n        \"\"\"Remove a control instance from the list of available control\n        systems.\n\n        Args:\n            name: any key that was used to refer to the controls when they were\n                added (e.g. using the add(<controls>, <name>) call).\n\n        See also: :meth:`add()`.\n        \"\"\"\n        assert self.notify.debugCall(id(self))\n        oldControls = self.controls.pop(name,None)\n        if oldControls is not None:\n            assert self.notify.debug(\"Removing controls: %s\" % name)\n            oldControls.disableAvatarControls()\n            oldControls.setCollisionsActive(0)\n\n    if __debug__:\n        def lockControls(self):\n            self.ignoreUse=True\n\n        def unlockControls(self):\n            if hasattr(self, \"ignoreUse\"):\n                del self.ignoreUse",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4132
+  }
+}

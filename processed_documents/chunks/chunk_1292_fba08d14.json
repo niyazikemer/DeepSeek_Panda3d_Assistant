@@ -1,0 +1,9 @@
+{
+  "content": "file.write('# Emitter parameters\\n')\n        emissionType = self.emitter.getEmissionType()\n        eType = \"ETEXPLICIT\"\n        if emissionType == BaseParticleEmitter.ETEXPLICIT:\n            eType = \"ETEXPLICIT\"\n        elif emissionType == BaseParticleEmitter.ETRADIATE:\n            eType = \"ETRADIATE\"\n        elif emissionType == BaseParticleEmitter.ETCUSTOM:\n            eType = \"ETCUSTOM\"\n        file.write(targ + '.emitter.setEmissionType(BaseParticleEmitter.' + eType + ')\\n')\n        file.write(targ + '.emitter.setAmplitude(%.4f)\\n' % self.emitter.getAmplitude())\n        file.write(targ + '.emitter.setAmplitudeSpread(%.4f)\\n' % self.emitter.getAmplitudeSpread())\n        oForce = self.emitter.getOffsetForce()\n        file.write((targ + '.emitter.setOffsetForce(Vec3(%.4f, %.4f, %.4f))\\n' % (oForce[0], oForce[1], oForce[2])))\n        oForce = self.emitter.getExplicitLaunchVector()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1292
+  }
+}

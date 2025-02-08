@@ -1,0 +1,9 @@
+{
+  "content": "def filePath(self) -> str:\n        dateString = time.strftime(\"%Y_%m_%d_%H\", time.localtime())\n        for i in range(26):\n            limit = self.sizeLimit\n            path = \"%s_%s_%s.log\" % (self.path, dateString, chr(i+97))\n            if limit is None or not os.path.exists(path) or os.stat(path)[6] < limit:\n                return path\n        # Hmm, 26 files are full?  throw the rest in z:\n        # Maybe we should clear the self.sizeLimit here... maybe.\n        return path\n\n    def rotate(self) -> None:\n        \"\"\"\n        Rotate the log now.  You normally shouldn't need to call this.\n        See write().\n        \"\"\"\n        path=self.filePath()\n        file=open(path, \"a\")\n        if file:\n            self.close()\n            # This should be redundant with \"a\" open() mode,\n            # but on some platforms tell() will return 0\n            # until the first write:\n            file.seek(0, 2)\n            self.file=file",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_102",
+    "parent": "processed_documents/context_documents/f7306926_RotatingLog.json",
+    "chunk_number": 1664
+  }
+}

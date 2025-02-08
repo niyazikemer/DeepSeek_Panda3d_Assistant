@@ -1,0 +1,9 @@
+{
+  "content": "def lerpFuncCA(self,A,np):\n        obj = self.editor.objectMgr.findObjectByNodePath(np)\n        r = obj[OG.OBJ_RGBA][0]\n        g = obj[OG.OBJ_RGBA][1]\n        b = obj[OG.OBJ_RGBA][2]\n        a = obj[OG.OBJ_RGBA][3]\n        self.colorUpdate(r,g,b,A,np)\n\n    def colorUpdate(self, r, g, b, a, np):\n        if base.direct.selected.last is None:\n            self.editor.objectMgr.updateObjectColor(r, g, b, a, np)\n        elif self.editor.objectMgr.findObjectByNodePath(np) == self.editor.objectMgr.findObjectByNodePath(base.direct.selected.last):\n            self.editor.ui.objectPropertyUI.propCR.setValue(r)\n            self.editor.ui.objectPropertyUI.propCG.setValue(g)\n            self.editor.ui.objectPropertyUI.propCB.setValue(b)\n            self.editor.ui.objectPropertyUI.propCA.setValue(a)\n            self.editor.objectMgr.updateObjectColor(r, g, b, a, np)\n        else:\n            self.editor.objectMgr.updateObjectColor(r, g, b, a, np)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 397
+  }
+}

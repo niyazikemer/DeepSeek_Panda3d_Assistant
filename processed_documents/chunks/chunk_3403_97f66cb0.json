@@ -1,0 +1,9 @@
+{
+  "content": "#Pass along certain events if this display is a cluster client\n        if self.clusterMode == 'client':\n            if input in self.passThroughKeys:\n                self.cluster('messenger.send(\"%s\")' % input, 0)\n\n    def doSetActiveParent(self):\n        if self.selected.last:\n            self.setActiveParent(self.selected.last)\n\n    def doReparent(self):\n        if self.selected.last:\n            self.reparent(self.selected.last)\n\n    def doWrtReparent(self):\n        if self.selected.last:\n            self.reparent(self.selected.last, fWrt = 1)\n\n    def doSelect(self):\n        if self.selected.last:\n            self.select(self.selected.last)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3403
+  }
+}

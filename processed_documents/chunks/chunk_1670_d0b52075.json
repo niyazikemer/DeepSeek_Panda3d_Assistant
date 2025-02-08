@@ -1,0 +1,9 @@
+{
+  "content": "# logging control\n\n    def resetStartTime(self) -> None:\n        \"\"\"\n        Reset the start time of the log file for time stamps\n        \"\"\"\n        self.__startTime = time.time()\n\n    def log(self, entryString: str) -> None:\n        \"\"\"log(self, string)\n        Print the given string to the log file\"\"\"\n        if self.__logFile is None:\n            self.__openLogFile()\n        assert self.__logFile is not None\n        if self.__timeStamp:\n            self.__logFile.write(self.__getTimeStamp())\n        self.__logFile.write(entryString + '\\n')\n\n    # logging functions\n\n    def __openLogFile(self) -> None:\n        \"\"\"\n        Open a file for logging error/warning messages\n        \"\"\"\n        self.resetStartTime()\n        t = time.localtime(self.__startTime)\n        st = time.strftime(\"%m-%d-%Y-%H-%M-%S\", t)\n        logFileName = self.__logFileName + \".\" + st\n        self.__logFile = open(logFileName, \"w\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_103",
+    "parent": "processed_documents/context_documents/ec704797_Logger.json",
+    "chunk_number": 1670
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def removeObjectTag(self,object):\n\n        self.taggedObjects.pop(object)\n\n    def selectNodePath(self, nodePath):\n        name = self.getNodePathName(nodePath)\n        if name in self.taggedObjects:\n            taskMgr.remove(\"moveSelectedTask\")\n            tag = self.taggedObjects[name]\n            function = tag[\"selectFunction\"]\n            args     = tag[\"selectArgs\"]\n            if function is not None:\n                function(*args)\n        else:\n            self(self.getNodePathFindCmd(nodePath) + '.select()', 0)\n\n    def deselectNodePath(self, nodePath):\n        name = self.getNodePathName(nodePath)\n        if name in self.taggedObjects:\n            tag = self.taggedObjects[name]\n            function = tag[\"deselectFunction\"]\n            args     = tag[\"deselectArgs\"]\n            if function is not None:\n                function(*args)\n            self.startMoveSelectedTask()\n        self(self.getNodePathFindCmd(nodePath) + '.deselect()', 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1702
+  }
+}

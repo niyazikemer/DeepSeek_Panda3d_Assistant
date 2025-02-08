@@ -1,0 +1,9 @@
+{
+  "content": "# This section defines the uninstaller.\n    nsi.write('Section Uninstall\\n')\n    nsi.write('  RMDir /r \"$INSTDIR\"\\n')\n    nsi.write('  ; Desktop icon\\n')\n    nsi.write('  Delete \"$DESKTOP\\\\%s.lnk\"\\n' % shortname)\n    nsi.write('  ; Start menu items\\n')\n    nsi.write('  !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder\\n')\n    nsi.write('  RMDir /r \"$SMPROGRAMS\\\\$StartMenuFolder\"\\n')\n    nsi.write('SectionEnd\\n')\n    nsi.close()\n\n    cmd = ['makensis']\n    for flag in [\"V2\"]:\n        cmd.append(\n            '{}{}'.format('/' if sys.platform.startswith('win') else '-', flag)\n        )\n    cmd.append(nsifile.to_os_specific())\n    subprocess.check_call(cmd)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1912
+  }
+}

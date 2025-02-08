@@ -1,0 +1,9 @@
+{
+  "content": "def getCurrentFilter(self):\n        if not self.state:\n            error = \"FSM cannot determine current filter while in transition (%s -> %s).\" % (self.oldState, self.newState)\n            raise AlreadyInTransition(error)\n\n        filter = getattr(self, \"filter\" + self.state, None)\n        if not filter:\n            # If there's no matching filterState() function, call\n            # defaultFilter() instead.\n            filter = self.defaultFilter\n\n        return filter\n\n    def getCurrentOrNextState(self):\n        # Returns the current state if we are in a state now, or the\n        # state we are transitioning into if we are currently within\n        # the enter or exit function for a state.\n        self.fsmLock.acquire()\n        try:\n            if self.state:\n                return self.state\n            return self.newState\n        finally:\n            self.fsmLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2633
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# The task for our simulation\ndef simulationTask(task):\n    # Step the simulation and set the new positions\n    world.quickStep(globalClock.getDt())\n    frowney.setPosQuat(render, frowneyBody.getPosition(), frowneyBody.getQuaternion())\n    smiley.setPosQuat(render, smileyBody.getPosition(), smileyBody.getQuaternion())\n    drawLines()\n    return task.cont\n\ndrawLines()\ntaskMgr.doMethodLater(0.5, simulationTask, \"Physics Simulation\")\n\nbase.run()\n\nThe part of the code that does the magic is this:\n\n# Create the joints\nsmileyJoint = OdeBallJoint(world)\nsmileyJoint.attach(smileyBody, None) # Attach it to the environment\nsmileyJoint.setAnchor(0, 0, 0)\nfrowneyJoint = OdeBallJoint(world)\nfrowneyJoint.attach(smileyBody, frowneyBody)\nfrowneyJoint.setAnchor(-5, 0, -5)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_435",
+    "parent": "processed_documents/context_documents/0ec0b5a5_f9150a54_attaching-bodies-using-joints.json",
+    "chunk_number": 6212
+  }
+}

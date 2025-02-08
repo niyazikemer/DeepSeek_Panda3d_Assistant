@@ -1,0 +1,9 @@
+{
+  "content": "# If no name specified, use id as name\n        if name is None:\n            name = id\n\n        if len(self.controls) == 0:\n            self.notify.warning(\"Unknown animation for actor: %s\" % (self.animName))\n            self.frameRate = 1.0\n            self.startFrame = 0\n            self.endFrame = 0\n        else:\n\n            self.frameRate = self.controls[0].getFrameRate() * abs(playRate)\n            # Compute start and end frames.\n            if startFrame is not None:\n                self.startFrame = startFrame\n            elif startTime is not None:\n                self.startFrame = startTime * self.frameRate\n            else:\n                self.startFrame = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2813
+  }
+}

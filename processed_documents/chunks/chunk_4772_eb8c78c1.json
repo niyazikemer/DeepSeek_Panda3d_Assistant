@@ -1,0 +1,9 @@
+{
+  "content": "def _excepthookDumpVars(eType, eValue, tb):\n    origTb = tb\n    excStrs = traceback.format_exception(eType, eValue, origTb)\n    s = 'printing traceback in case variable repr crashes the process...\\n'\n    for excStr in excStrs:\n        s += excStr\n    notify.info(s)\n    s = 'DUMPING STACK FRAME VARIABLES'\n    #import pdb;pdb.set_trace()\n    #foundRun = False\n    foundRun = True\n    while tb is not None:\n        frame = tb.tb_frame\n        code = frame.f_code\n        # this is a list of every string identifier used in this stack frame's code\n        codeNames = set(code.co_names)\n        # skip everything before the 'run' method, those frames have lots of\n        # not-useful information\n        if not foundRun:\n            if code.co_name == 'run':\n                foundRun = True\n            else:\n                tb = tb.tb_next\n                continue\n        s += '\\n  File \"%s\", line %s, in %s' % (\n            code.co_filename, frame.f_lineno, code.co_name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_273",
+    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
+    "chunk_number": 4772
+  }
+}

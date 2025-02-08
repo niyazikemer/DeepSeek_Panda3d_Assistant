@@ -1,0 +1,9 @@
+{
+  "content": "def addSfxManager(self, extraSfxManager):\n        \"\"\"\n        Adds an additional SFX audio manager to `sfxManagerList`, the list of\n        managers managed by ShowBase.\n        \"\"\"\n        # keep a list of sfx manager objects to apply settings to,\n        # since there may be others in addition to the one we create here\n        self.sfxManagerList.append(extraSfxManager)\n        newSfxManagerIsValid = extraSfxManager is not None and extraSfxManager.isValid()\n        self.sfxManagerIsValidList.append(newSfxManagerIsValid)\n        if newSfxManagerIsValid:\n            extraSfxManager.setActive(self.sfxActive)\n\n    def createBaseAudioManagers(self):\n        \"\"\"\n        Creates the default SFX and music manager.  Called automatically from\n        the ShowBase constructor.\n        \"\"\"\n        self.sfxPlayer = SfxPlayer.SfxPlayer()\n        sfxManager = AudioManager.createAudioManager()\n        self.addSfxManager(sfxManager)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4949
+  }
+}

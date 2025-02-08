@@ -1,0 +1,9 @@
+{
+  "content": "def getAxisIntersectPt(self, axis):\n        if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView and\\\n           ShowBaseGlobal.direct.camera.getName() != 'persp':\n            # create ray from the camera to detect 3d position\n            iRay = SelectionRay(ShowBaseGlobal.direct.camera)\n            iRay.collider.setFromLens(ShowBaseGlobal.direct.camNode, ShowBaseGlobal.direct.dr.mouseX, ShowBaseGlobal.direct.dr.mouseY)\n            #iRay.collideWithBitMask(1)\n            iRay.collideWithBitMask(BitMask32.bit(21))\n            iRay.ct.traverse(ShowBaseGlobal.direct.grid)\n\n            if iRay.getNumEntries() == 0:\n                del iRay\n                return self.hitPt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3285
+  }
+}

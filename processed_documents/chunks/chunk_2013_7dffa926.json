@@ -1,0 +1,9 @@
+{
+  "content": "if cmd == 0x0c: # LC_LOAD_DYLIB\n                dylib = cmd_data[16:].decode('ascii').split('\\x00', 1)[0]\n                orig = dylib\n\n                if dylib.startswith('@loader_path/../Frameworks/'):\n                    dylib = dylib.replace('@loader_path/../Frameworks/', '')\n                elif dylib.startswith('@executable_path/../Frameworks/'):\n                    dylib = dylib.replace('@executable_path/../Frameworks/', '')\n                else:\n                    for prefix in ('@loader_path/', '@rpath/'):\n                        if dylib.startswith(prefix):\n                            dylib = dylib.replace(prefix, '')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2013
+  }
+}

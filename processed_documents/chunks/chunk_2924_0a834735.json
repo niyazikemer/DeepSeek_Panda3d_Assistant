@@ -1,0 +1,9 @@
+{
+  "content": "Interval.__init__(self, name, self.duration)\n\n    def __calcTrajectory(self, startPos = None,\n                         endPos = None, duration = None,\n                         startVel = None, endZ = None,\n                         wayPoint = None, timeToWayPoint = None,\n                         gravityMult = None):\n        if startPos is None:\n            startPos = self.node.getPos()\n\n        def doIndirections(*items):\n            result = []\n            for item in items:\n                if callable(item):\n                    item = item()\n                result.append(item)\n            return result\n\n        startPos, endPos, startVel, endZ, gravityMult, wayPoint, \\\n                  timeToWayPoint = \\\n                  doIndirections(startPos, endPos, startVel, endZ, gravityMult,\n                                 wayPoint, timeToWayPoint)\n\n        # we're guaranteed to know the starting position at this point\n        self.startPos = startPos",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2924
+  }
+}

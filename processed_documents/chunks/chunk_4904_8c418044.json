@@ -1,0 +1,9 @@
+{
+  "content": "def setSceneGraphAnalyzerMeter(self, flag: bool) -> None:\n        \"\"\"\n        Turns on or off (according to flag) a standard frame rate\n        meter in the upper-right corner of the main window.\n        \"\"\"\n        if flag:\n            if not self.sceneGraphAnalyzerMeter:\n                self.sceneGraphAnalyzerMeter = SceneGraphAnalyzerMeter('sceneGraphAnalyzerMeter', self.render.node())\n                self.sceneGraphAnalyzerMeter.setupWindow(self.win)\n        else:\n            if self.sceneGraphAnalyzerMeter:\n                self.sceneGraphAnalyzerMeter.clearWindow()\n                self.sceneGraphAnalyzerMeter = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4904
+  }
+}

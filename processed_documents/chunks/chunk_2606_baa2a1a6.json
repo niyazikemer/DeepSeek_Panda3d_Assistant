@@ -1,0 +1,9 @@
+{
+  "content": "ClassicFSM constructor: takes name, list of states, initial state and\n        final state as::\n\n            fsm = ClassicFSM.ClassicFSM('stopLight',\n              [State.State('red', enterRed, exitRed, ['green']),\n                State.State('yellow', enterYellow, exitYellow, ['red']),\n                State.State('green', enterGreen, exitGreen, ['yellow'])],\n              'red',\n              'red')\n\n        each state's last argument, a list of allowed state transitions,\n        is optional; if left out (or explicitly specified to be\n        State.State.Any) then any transition from the state is 'defined'\n        and allowed\n\n        'onUndefTransition' flag determines behavior when undefined\n        transition is requested; see flag definitions above\n        \"\"\"\n        self.setName(name)\n        self.setStates(states)\n        self.setInitialState(initialStateName)\n        self.setFinalState(finalStateName)\n\n        self.onUndefTransition = onUndefTransition",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2606
+  }
+}

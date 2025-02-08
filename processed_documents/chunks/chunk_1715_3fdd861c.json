@@ -1,0 +1,9 @@
+{
+  "content": "# the following should only be called by a synchronized cluster manger\n    def getSwapReady(self):\n        while 1:\n            (datagram, dgi, type) = self.msgHandler.blockingRead(self.qcr)\n            if type == CLUSTER_SWAP_READY:\n                break\n            else:\n                self.notify.warning('was expecting SWAP_READY, got %d' % type)\n\n    # the following should only be called by a synchronized cluster manger\n    def sendSwapNow(self):\n        ClusterClient.notify.debug(\n            \"display connect send swap now, packet %d\" %\n            self.msgHandler.packetNumber)\n        datagram = self.msgHandler.makeSwapNowDatagram()\n        self.cw.send(datagram, self.tcpConn)\n\n    def sendCommandString(self, commandString):\n        ClusterClient.notify.debug(\"send command string: %s\" % commandString)\n        datagram = self.msgHandler.makeCommandStringDatagram(commandString)\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1715
+  }
+}

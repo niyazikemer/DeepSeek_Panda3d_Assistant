@@ -1,0 +1,9 @@
+{
+  "content": "@staticmethod\n    def makePerspective(parent):\n        v = Viewport('persp', parent)\n        v.camPos = Point3(-19, -19, 19)\n        v.camLookAt = Point3(0, 0, 0)\n\n        v.grid = DirectGrid(parent=render)\n        collPlane = CollisionNode('PerspGridCol')\n        collPlane.addSolid(CollisionPlane(Plane(0, 0, 1, 0)))\n        #oldBitmask = collPlane.getIntoCollideMask()\n        #collPlane.setIntoCollideMask(BitMask32.bit(21)|oldBitmask)\n        collPlane.setIntoCollideMask(BitMask32.bit(21))\n        v.collPlane = NodePath(collPlane)\n        v.collPlane.reparentTo(v.grid)\n\n        collPlane2 = CollisionNode('PerspGridCol2')\n        collPlane2.addSolid(CollisionPlane(Plane(0, 0, -1, 0)))\n        #oldBitmask = collPlane2.getIntoCollideMask()\n        #collPlane2.setIntoCollideMask(BitMask32.bit(21)|oldBitmask)\n        collPlane2.setIntoCollideMask(BitMask32.bit(21))\n        v.collPlane2 = NodePath(collPlane2)\n        v.collPlane2.reparentTo(v.grid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 227
+  }
+}

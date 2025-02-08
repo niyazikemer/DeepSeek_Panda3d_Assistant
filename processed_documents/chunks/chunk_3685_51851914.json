@@ -1,0 +1,9 @@
+{
+  "content": "# Remove unused children\n        for key in list(self.children.keys()):\n            if key not in self.kidKeys:\n                del self.children[key]\n        cx = x+20\n        cy = y+17\n        cylast = 0\n        for key in self.kidKeys:\n            child = self.children[key]\n            cylast = cy\n            self.canvas.create_line(x+9, cy+7, cx, cy+7, fill=\"gray50\")\n            cy = child.draw(cx, cy, fUseCachedChildren)\n            if child.item.IsExpandable():\n                if child.state == 'expanded':\n                    iconname = \"minusnode\"\n                    callback = child.collapse\n                else:\n                    iconname = \"plusnode\"\n                    callback = child.expand\n                image = self.geticonimage(iconname)\n                id = self.canvas.create_image(x+9, cylast+7, image=image)\n                # XXX This leaks bindings until canvas is deleted:\n                self.canvas.tag_bind(id, \"<1>\", callback)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3685
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getIntervalsMatching(self, pattern):\n        ivals = []\n\n        count = 0\n        maxIndex = self.getMaxIndex()\n        for index in range(maxIndex):\n            ival = self.getCInterval(index)\n            if ival and \\\n               fnmatch.fnmatchcase(ival.getName(), pattern):\n                # Finish and remove this interval.  Finishing it\n                # automatically removes it.\n                count += 1\n                if index < len(self.ivals) and self.ivals[index]:\n                    # Get the python version if we have it\n                    ivals.append(self.ivals[index])\n                else:\n                    # Otherwise, it's a C-only interval.\n                    ivals.append(ival)\n\n        return ivals\n\n    def finishIntervalsMatching(self, pattern):\n        ivals = self.getIntervalsMatching(pattern)\n        for ival in ivals:\n            ival.finish()\n        return len(ivals)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_160",
+    "parent": "processed_documents/context_documents/493662c0_IntervalManager.json",
+    "chunk_number": 2805
+  }
+}

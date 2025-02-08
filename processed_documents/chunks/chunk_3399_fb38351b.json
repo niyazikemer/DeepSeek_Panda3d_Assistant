@@ -1,0 +1,9 @@
+{
+  "content": "# Deal with keyboard and mouse input\n        if input in self.hotKeyMap:\n            keyDesc = self.hotKeyMap[input]\n            messenger.send(keyDesc[1])\n        elif input in self.speicalKeyMap:\n            messenger.send(self.speicalKeyMap[input])\n        elif input in self.directOnlyKeyMap:\n            if self.fIgnoreDirectOnlyKeyMap:\n                return\n            keyDesc = self.directOnlyKeyMap[input]\n            messenger.send(keyDesc[1])\n        elif input == 'mouse1-up':\n            self.fMouse1 = 0 # [gjeon] to update alt key information while mouse1 is pressed\n            messenger.send('DIRECT-mouse1Up')\n        elif input.find('mouse1') != -1:\n            self.fMouse1 = 1 # [gjeon] to update alt key information while mouse1 is pressed\n            modifiers = self.getModifiers(input, 'mouse1')\n            messenger.send('DIRECT-mouse1', sentArgs = [modifiers])\n        elif input == 'mouse2-up':\n            self.fMouse2 = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3399
+  }
+}

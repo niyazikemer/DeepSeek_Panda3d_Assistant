@@ -1,0 +1,9 @@
+{
+  "content": "# Move it to its correct position on the popup\n            item.setPos(-self.minX, 0, -self.maxZ - i * self.maxHeight)\n            item.bind(DGG.B1RELEASE, self.hidePopupMenu)\n            # Highlight background when mouse is in item\n            item.bind(DGG.WITHIN,\n                      lambda x, i=i, item=item:self._highlightItem(item, i))\n            # Restore specified color upon exiting\n            fc = item['frameColor']\n            item.bind(DGG.WITHOUT,\n                      lambda x, item=item, fc=fc: self._unhighlightItem(item, fc))\n        # Set popup menu frame size to encompass all items\n        f = self.component('popupMenu')\n        f['frameSize'] = (0, self.maxWidth, -self.maxHeight * itemIndex, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1322
+  }
+}

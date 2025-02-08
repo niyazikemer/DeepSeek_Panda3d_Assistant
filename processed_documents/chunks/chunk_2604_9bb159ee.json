@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Finite State Machine module: contains the ClassicFSM class.\n\nNote:\n    This module and class exist only for backward compatibility with\n    existing code.  New code should use the :mod:`.FSM` module instead.\n\"\"\"\n\nfrom __future__ import annotations\n\n__all__ = ['ClassicFSM']\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.showbase.MessengerGlobal import messenger\nimport weakref\n\nif __debug__:\n    _debugFsms: dict[str, weakref.ref] = {}\n\n    def printDebugFsmList():\n        for k in sorted(_debugFsms.keys()):\n            print(\"%s %s\" % (k, _debugFsms[k]()))\n    __builtins__['debugFsmList'] = printDebugFsmList",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2604
+  }
+}

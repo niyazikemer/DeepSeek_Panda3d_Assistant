@@ -1,0 +1,9 @@
+{
+  "content": "def moveToFit(self):\n        # How big is the active widget?\n        direct = ShowBaseGlobal.direct\n        widgetScale = direct.widget.scalingNode.getScale(ShowBaseGlobal.base.render)\n        maxScale = max(widgetScale[0], widgetScale[1], widgetScale[2])\n        # At what distance does the widget fill 50% of the screen?\n        camY = ((2 * direct.dr.near * (1.5 * maxScale)) /\n                min(direct.dr.nearWidth, direct.dr.nearHeight))\n        # Find a point this distance along the Y axis\n        # MRM: This needs to be generalized to support non uniform frusta\n        centerVec = Y_AXIS * camY\n        # Before moving, record the relationship between the selected nodes\n        # and the widget, so that this can be maintained\n        direct.selected.getWrtAll()\n        # Push state onto undo stack\n        direct.pushUndo(direct.selected)\n        # Remove the task to keep the widget attached to the object\n        taskMgr.remove('followSelectedNodePath')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3347
+  }
+}

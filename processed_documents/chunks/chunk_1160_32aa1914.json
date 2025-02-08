@@ -1,0 +1,9 @@
+{
+  "content": "def getChildIds(self, nodePath):\n        ids = [nodePath.id()]\n        kids = nodePath.getChildren()\n        for kid in kids:\n            ids += self.getChildIds(kid)\n        return ids\n\n    def deselectedNodePathHook(self, nodePath):\n        \"\"\"\n        Hook called upon deselection of a node path used to select playback\n        marker if subnode selected\n        \"\"\"\n        if nodePath.id() == self.playbackMarker.id() or \\\n           nodePath.id() == self.tangentMarker.id():\n            self.tangentGroup.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1160
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"MopathInterval module: contains the MopathInterval class\"\"\"\n\n__all__ = ['MopathInterval']\n\nfrom . import LerpInterval\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\n\n# import Mopath\n\nclass MopathInterval(LerpInterval.LerpFunctionInterval):\n    # Name counter\n    mopathNum = 1\n    # create MopathInterval DirectNotify category\n    notify = directNotify.newCategory('MopathInterval')\n    # Class methods\n    def __init__(self, mopath, node, fromT = 0, toT = None,\n                 duration = None, blendType = 'noBlend', name = None):\n        if toT is None:\n            toT = mopath.getMaxT()\n\n        if duration is None:\n            duration = abs(toT - fromT)\n\n        # Generate unique name if necessary\n        if name is None:\n            name = 'Mopath-%d' % MopathInterval.mopathNum\n            MopathInterval.mopathNum += 1\n\n        LerpInterval.LerpFunctionInterval.__init__(\n            self, self.__doMopath, fromData = fromT, toData = toT,\n            duration = duration, blendType = blendType,\n            name = name)\n\n        self.mopath = mopath\n        self.node = node\n\n    def destroy(self):\n        \"\"\"Cleanup to avoid a garbage cycle.\"\"\"\n        self.function = None\n\n    def __doMopath(self, t):\n        \"\"\"\n        Go to time t\n        \"\"\"\n        self.mopath.goTo(self.node, t)\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/interval/MopathInterval.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/7e2ecfd2_MopathInterval.json",
+    "doc_id": "doc_158"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def stopPlayback(self):\n        self.getVariable('Playback', 'Play').set(0)\n        taskMgr.remove(self.name + '-playbackTask')\n\n    def jumpToStartOfPlayback(self):\n        self.stopPlayback()\n        self.getWidget('Playback', 'Time').set(0.0)\n\n    def jumpToEndOfPlayback(self):\n        self.stopPlayback()\n        if self.curveCollection is not None:\n            self.getWidget('Playback', 'Time').set(self.maxT)\n\n    def startStopPlayback(self):\n        if self.getVariable('Playback', 'Play').get():\n            self.startPlayback()\n        else:\n            self.stopPlayback()\n\n    def setDesampleFrequency(self, frequency):\n        self.desampleFrequency = frequency",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1197
+  }
+}

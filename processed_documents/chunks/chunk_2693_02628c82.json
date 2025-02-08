@@ -1,0 +1,9 @@
+{
+  "content": "def exitState3(self):\n        assert self.__debugPrint(\"exitState3()\")\n        self.exitStateN()\n\n    ##### state 4 #####\n\n    def enterState4(self):\n        assert self.__debugPrint(\"enterState4()\")\n        self.enterStateN(4, 1)\n        self.changedOnState(1)\n\n    def exitState4(self):\n        assert self.__debugPrint(\"exitState4()\")\n        self.exitStateN()\n        self.changedOnState(0)\n\n    if __debug__:\n        def __debugPrint(self, message):\n            \"\"\"for debugging\"\"\"\n            return self.notify.debug(\"%d (%d) %s\"%(\n                    id(self), self.stateIndex==4, message))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_148",
+    "parent": "processed_documents/context_documents/ee9f969a_FourStateAI.json",
+    "chunk_number": 2693
+  }
+}

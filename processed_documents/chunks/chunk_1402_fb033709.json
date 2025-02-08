@@ -1,0 +1,9 @@
+{
+  "content": "def components(self):\n        # Return a list of all components.\n        return sorted(self.__componentInfo)\n\n    def hascomponent(self, component):\n        return component in self.__componentInfo\n\n    def destroycomponent(self, name):\n        # Remove a megawidget component.\n        # This command is for use by megawidget designers to destroy a\n        # megawidget component.\n        self.__componentInfo[name][0].destroy()\n        del self.__componentInfo[name]\n\n    def destroy(self):\n        # Clean out any hooks\n        self.ignoreAll()\n        del self._optionInfo\n        del self.__componentInfo\n        del self.postInitialiseFuncList",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1402
+  }
+}

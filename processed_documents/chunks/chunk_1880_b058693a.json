@@ -1,0 +1,9 @@
+{
+  "content": "# Subtables/entries specified by integer ID.\n        self._id_leaves = []\n        for i in range(nids):\n            id, data = unpack('<II', mem[start:start+8])\n            if data & 0x80000000:\n                entry = ResourceTable(self._ident + (id,))\n                entry.unpack_from(mem, addr, data & 0x7fffffff)\n            else:\n                entry = self._unpack_data_entry(mem, addr + data, ident=self._ident+(id,))\n                self._descs_size += 16\n            self._id_leaves.append((id, entry))\n            start += 8\n\n    def _unpack_data_entry(self, mem, addr, ident):\n        rva, size, code_page = unpack('<III', mem[addr:addr+12])\n        type, name, lang = ident\n        #print(\"%s/%s/%s: %s [%s]\" % (type, name, lang, size, code_page))\n\n        data = mem[rva:rva+size]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1880
+  }
+}

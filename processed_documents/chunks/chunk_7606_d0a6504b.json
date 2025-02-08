@@ -1,0 +1,9 @@
+{
+  "content": "# models is the original directory\n# models.mf it the new target multifile\nmultify -c -f models.mf -v models\n\nIn the game, from the multifile models.mf, load the .ttf file.\n\npython\n\nfont = loader.loadFont(\"models/arial.ttf\")\n\ncpp\n\nPT(TextFont) font = FontPool::load_font(\"models/arial.ttf\");\n\nEncryption\n\nMultifiles can also encrypt your files with a password. To do so, you need to set the encryption flag and password using the ~.Multifile.set_encryption_flag() and ~.Multifile.set_encryption_password() methods, before adding, extracting or reading multifiles.\n\nAt the OS prompt, to create a password protected multifile and print out the contents do the following.\n\n# models is the original directory\n# models.mf it the new target multifile\nmultify -c -f models.mf -ep \"mypass\" -v models\n\nThis code creates a multifile and adds an encrypted file to it:\n\npython\n\nm = Multifile()\nm.openReadWrite(\"foo.mf\")\nm.setEncryptionFlag(True)\nm.setEncryptionPassword(\"foobar\")",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7606
+  }
+}

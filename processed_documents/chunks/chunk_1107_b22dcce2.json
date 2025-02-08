@@ -1,0 +1,9 @@
+{
+  "content": "class StateInspector(Pmw.MegaArchetype):\n    def __init__(self, inspector, state, **kw):\n\n        # Record inspector and state\n        self.inspector = inspector\n        self.state = state\n        # Create a unique tag which you can use to move a marker and\n        # and its corresponding text around together\n        self.tag = state.getName()\n        self.fsm = inspector.fsm\n\n        # Pointers to the inspector's components\n        self.scrolledCanvas = inspector.component('scrolledCanvas')\n        self._canvas = self.scrolledCanvas.component('canvas')\n\n        #define the megawidget options\n        optiondefs = (\n            ('radius', '0.375i', self._setRadius),\n            ('gridSize', '0.25i', self._setGridSize),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Initialize the parent class\n        Pmw.MegaArchetype.__init__(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1107
+  }
+}

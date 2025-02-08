@@ -1,0 +1,9 @@
+{
+  "content": "self.floaterList = []\n        for index in range(self['dim']):\n            # Add a group alias so you can configure the floaters via:\n            #   fg.configure(Valuator_XXX = YYY)\n            f = self.createcomponent(\n                'floater%d' % index, (), 'Valuator', Floater,\n                (interior,), value = self._value[index],\n                text = self['labels'][index])\n            # Do this separately so command doesn't get executed during construction\n            f['command'] = lambda val, s=self, i=index: s._floaterSetAt(i, val)\n            f.pack(side = self['side'], expand = 1, fill = tk.X)\n            self.floaterList.append(f)\n\n        # Make sure floaters are initialized\n        self.set(self['value'])\n\n        # Make sure input variables processed\n        self.initialiseoptions(FloaterGroup)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3625
+  }
+}

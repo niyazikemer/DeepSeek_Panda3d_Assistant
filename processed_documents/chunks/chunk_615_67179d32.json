@@ -1,0 +1,9 @@
+{
+  "content": "class ActionDeselectAll(ActionBase):\n    \"\"\" Action class for adding new object \"\"\"\n\n    def __init__(self, editor, *args, **kargs):\n        self.editor = editor\n        function = base.direct.deselectAllCB\n        ActionBase.__init__(self, function, *args, **kargs)\n        self.selectedUIDs = []\n\n    def saveStatus(self):\n        selectedNPs = base.direct.selected.getSelectedAsList()\n        for np in selectedNPs:\n            obj = self.editor.objectMgr.findObjectByNodePath(np)\n            if obj:\n                uid = obj[OG.OBJ_UID]\n                self.selectedUIDs.append(uid)\n\n    def undo(self):\n        print(\"Undo : deselectAll\")\n        base.direct.deselectAllCB()\n        for uid in self.selectedUIDs:\n            obj = self.editor.objectMgr.findObjectById(uid)\n            if obj:\n                self.editor.select(obj[OG.OBJ_NP], fMultiSelect=1, fUndo=0)\n        self.selectedUIDs = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 615
+  }
+}

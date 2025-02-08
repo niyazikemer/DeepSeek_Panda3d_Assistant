@@ -1,0 +1,9 @@
+{
+  "content": "def setNoNewInterests(self, flag):\n        self._noNewInterests = flag\n\n    def noNewInterests(self):\n        return self._noNewInterests\n\n    def setAllInterestsCompleteCallback(self, callback):\n        if ((self._completeEventCount.num == 0) and\n            (self._completeDelayedCallback is None)):\n            callback()\n        else:\n            self._allInterestsCompleteCallbacks.append(callback)\n\n    def getAllInterestsCompleteEvent(self):\n        return 'allInterestsComplete-%s' % DoInterestManager._SerialNum\n\n    def resetInterestStateForConnectionLoss(self):\n        DoInterestManager._interests.clear()\n        self._completeEventCount = ScratchPad(num=0)\n        if __debug__:\n            self._addDebugInterestHistory(\"RESET\", \"\", 0, 0, 0, [])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5206
+  }
+}

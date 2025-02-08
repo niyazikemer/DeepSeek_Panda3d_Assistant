@@ -1,0 +1,9 @@
+{
+  "content": "In order to use raw mouse input, you first need to enable it. To do so, add the following line to your panda configuration file:\n\nread-raw-mice #t\n\nThis causes the panda main window to be created with the \"raw_mice\" window property. That window property, in turn, causes the window to track and store the positions and buttons of the raw mice. Then, that data is extracted from the main window by objects of class .MouseWatcher. The application program can fetch the mouse data from the MouseWatchers. The global variable base.pointerWatcherNodes contains the MouseWatcher s.\n\nThe first MouseWatcher on the list always represents the system mouse pointer - a virtual mouse that moves around whenever any of the physical mice do. Usually, you do not want to use this virtual mouse. If you're accessing raw mice, you usually want to access the real, physical mice. The list base.pointerWatcherNodes always contains the virtual system mouse first, followed by all the physical mice.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_615",
+    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
+    "chunk_number": 7256
+  }
+}

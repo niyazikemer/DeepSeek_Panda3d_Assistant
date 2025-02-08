@@ -1,0 +1,9 @@
+{
+  "content": "def _postCallback(self):\n        # Exectute post callback if one defined\n        if self['postCallback']:\n            self['postCallback'](*self['callbackData'])\n\n    def setState(self):\n        \"\"\" Enable/disable widget \"\"\"\n        if self['state'] == tk.NORMAL:\n            self._entry['state'] = tk.NORMAL\n            self._entry['background'] = self._entryBackground\n            self._valuator._widget['state'] = tk.NORMAL\n        elif self['state'] == tk.DISABLED:\n            self._entry['background'] = 'grey75'\n            self._entry['state'] = tk.DISABLED\n            self._valuator._widget['state'] = tk.DISABLED\n\n    def setLabel(self):\n        \"\"\" Update label's text \"\"\"\n        if self._label:\n            self._label['text'] = self['text']\n\n    def zero(self):\n        \"\"\"\n        self.zero()\n        Set valuator to zero\n        \"\"\"\n        self.set(0.0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3645
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "/* Assign the new pointer. */\n  PyImport_FrozenModules = realloc_FrozenModules;\n\n  return orig_count + new_count;\n}\n\n#if PY_MAJOR_VERSION >= 3\nstatic PyModuleDef mdef = {\n  PyModuleDef_HEAD_INIT,\n  \"%(moduleName)s\",\n  \"\",\n  -1,\n  NULL, NULL, NULL, NULL, NULL\n};\n\n%(dllexport)sPyObject *PyInit_%(moduleName)s(void) {\n  extend_frozen_modules(_PyImport_FrozenModules, sizeof(_PyImport_FrozenModules) / sizeof(struct _frozen));\n  return PyModule_Create(&mdef);\n}\n#else\nstatic PyMethodDef nullMethods[] = {\n  {NULL, NULL}\n};\n\n%(dllexport)svoid init%(moduleName)s(void) {\n  extend_frozen_modules(_PyImport_FrozenModules, sizeof(_PyImport_FrozenModules) / sizeof(struct _frozen));\n  Py_InitModule(\"%(moduleName)s\", nullMethods);\n}\n#endif\n\"\"\"\n\nprogramFile = \"\"\"\n#include <Python.h>\n#ifdef _WIN32\n#include <malloc.h>\n#endif\n\n%(moduleDefs)s\n\nstruct _frozen _PyImport_FrozenModules[] = {\n%(moduleList)s\n  {NULL, NULL, 0}\n};\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2056
+  }
+}

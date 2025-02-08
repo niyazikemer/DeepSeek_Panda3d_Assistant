@@ -1,0 +1,9 @@
+{
+  "content": "class Dial(Valuator):\n    \"\"\"\n    Valuator widget which includes an angle dial and an entry for setting\n    floating point values\n    \"\"\"\n\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('style',             VALUATOR_FULL,  INITOPT),\n            ('base',              0.0,            self.setBase),\n            ('delta',             1.0,            self.setDelta),\n            ('fSnap',             0,              self.setSnap),\n            ('fRollover',         1,              self.setRollover),\n        )\n        self.defineoptions(kw, optiondefs)\n        Valuator.__init__(self, parent)\n        self.initialiseoptions(Dial)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3696
+  }
+}

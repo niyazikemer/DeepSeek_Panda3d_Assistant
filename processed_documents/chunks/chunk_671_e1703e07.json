@@ -1,0 +1,9 @@
+{
+  "content": "class AnimControlUI(wx.Dialog):\n    \"\"\"\n    This is the Animation Control main class implementation.\n    \"\"\"\n    def __init__(self, parent, editor):\n        wx.Dialog.__init__(self, parent, id=wx.ID_ANY, title=\"Animation Controller\",\n                           pos=wx.DefaultPosition, size=(920, 110))\n\n        self.editor = editor\n        self._initOver = False\n\n        self.parallel = []\n        if self.editor.animMgr.keyFramesInfo != []:\n            self.editor.animMgr.generateKeyFrames()\n        self.keys = self.editor.animMgr.keyFrames\n        self.editor.objectMgr.findActors(render)\n        self.editor.objectMgr.findNodes(render)\n\n        self.prePlay = False\n        self.play = False\n        self.stop = True\n\n        self.curFrame = 1\n        self.startFrame = 1\n        self.sliderStartFrame = 1\n        self.endFrame = 24\n        self.sliderEndFrame = 24\n\n        self.mainPanel1 = wx.Panel(self, -1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 671
+  }
+}

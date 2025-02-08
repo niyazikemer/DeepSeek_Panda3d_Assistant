@@ -1,0 +1,9 @@
+{
+  "content": "def OnCreateAnim(self, evt):\n        self.time = self.duritionTimeSpin.GetValue()\n        if self.nodePath is None or self.curve is None:\n            dlg = wx.MessageDialog(None, 'Please select an object and a curve first.', 'NOTICE', wx.OK)\n            dlg.ShowModal()\n            dlg.Destroy()\n        else:\n            self.curveSequence = self.editor.animMgr.singleCurveAnimation(self.nodePath, self.curve, self.time)\n            self.curveSequence.start()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_30",
+    "parent": "processed_documents/context_documents/258ea79b_CurveAnimUI.json",
+    "chunk_number": 469
+  }
+}

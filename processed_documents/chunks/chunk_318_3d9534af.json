@@ -1,0 +1,9 @@
+{
+  "content": "self.setKeyButton.Bind(wx.EVT_BUTTON, self.onKey)\n\n    def onKey(self, evt):\n        self.parent = wx.GetTopLevelParent(self)\n        if self.parent.editor.mode == self.parent.editor.ANIM_MODE:\n            obj = self.parent.editor.objectMgr.findObjectByNodePath(base.direct.selected.last)\n\n            value = self.getValue()\n            frame = self.parent.editor.ui.animUI.curFrame\n\n            if property in self.parent.editor.animMgr.keyFramesInfo:\n                for i in range(len(self.parent.editor.animMgr.keyFramesInfo[property])):\n                    if self.parent.editor.animMgr.keyFramesInfo[property][i][AG.FRAME] == frame:\n                        del self.parent.editor.animMgr.keyFramesInfo[property][i]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 318
+  }
+}

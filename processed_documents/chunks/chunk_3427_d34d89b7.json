@@ -1,0 +1,9 @@
+{
+  "content": "self.orthoFactor = 0.1\n        # A Camera node can have more than one display region\n        # associated with it.  Here I assume that there is only\n        # one display region per camera, since we are defining a\n        # display region on a per-camera basis.  See note in\n        # DisplayRegionList.__init__()\n        self.dr = self.camNode.getDisplayRegion(0)\n        left = self.dr.getLeft()\n        right = self.dr.getRight()\n        bottom = self.dr.getBottom()\n        top = self.dr.getTop()\n        self.originX = left+right-1\n        self.originY = top+bottom-1\n        self.scaleX = 1.0/(right-left)\n        self.scaleY = 1.0/(top-bottom)\n        self.setOrientation()\n        self.camUpdate()\n\n    def __getitem__(self, key):\n        return self.__dict__[key]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3427
+  }
+}

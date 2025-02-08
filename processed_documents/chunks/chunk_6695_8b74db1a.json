@@ -1,0 +1,9 @@
+{
+  "content": "In order for pip to know which dependencies to fetch, a requirements file is required. This should list all of the dependencies that are packaged along with the application, including Panda3D itself. Third-party dependencies available via pip are therefore supported, as long as they provide wheel files for the different supported platforms (as the vast majority of packages do).\n\nExample\n\nAt minimum, a requirements.txt file needs to be present with a reference to Panda3D, such as the following, which tells pip that a release of Panda3D 1.10 of at least 1.10.9 is required:\n\npanda3d~=1.10.9\n\nThis is an example setup.py showing how to package the Asteroids <asteroids> sample program into a self-contained executable:\n\nfrom setuptools import setup\n\nsetup(\n    name='asteroids',\n    options={\n        'build_apps': {\n            # Build asteroids.exe as a GUI application\n            'gui_apps': {\n                'asteroids': 'main.py',\n            },",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_541",
+    "parent": "processed_documents/context_documents/c8ca6be0_d7215213_building-binaries.json",
+    "chunk_number": 6695
+  }
+}

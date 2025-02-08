@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, name = None, fluid = 1, objectToLoad = None, upVectorNodePath = None, reverseUpVector = False):\n        if name is None:\n            name = f'mopath{self.nameIndex}'\n            self.nameIndex = self.nameIndex + 1\n        self.name = name\n        self.fluid = fluid\n        self.tPoint = Point3(0)\n        self.posPoint = Point3(0)\n        self.hprPoint = Point3(0)\n        self.tangentVec = Vec3(0)\n        self.fFaceForward = 0\n        self.faceForwardDelta = None\n        self.faceForwardNode = None\n        self.timeScale = 1\n        self.upVectorNodePath = upVectorNodePath\n        self.reverseUpVector = reverseUpVector\n        self.reset()\n        if isinstance(objectToLoad, NodePath):\n            self.loadNodePath(objectToLoad)\n        elif isinstance(objectToLoad, str):\n            self.loadFile(objectToLoad)\n        elif objectToLoad is not None:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1830
+  }
+}

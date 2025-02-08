@@ -1,0 +1,9 @@
+{
+  "content": "return collisionNodepath\n\n    def switchCollisionMask(self):\n        if self.maskPos == len(self.maskList) - 1:\n            self.maskPos = 0\n        else:\n            self.maskPos += 1\n\n        # Changing the from collide mask of objects allows you to selectively\n        # test collisions against different objects.\n        name, mask = self.maskList[self.maskPos]\n        self.mainColNode.setFromCollideMask(mask)\n        self.title.setText(\"Colliding with %s\" % (name))\n\n\nbase = ShowBase()\nworld = World()\nbase.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_9",
+    "parent": "processed_documents/context_documents/b8eb20fa_40f997b9_bitmask-example.json",
+    "chunk_number": 169
+  }
+}

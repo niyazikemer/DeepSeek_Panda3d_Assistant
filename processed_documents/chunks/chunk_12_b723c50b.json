@@ -1,0 +1,9 @@
+{
+  "content": "self.cTrav = CollisionTraverser()\n\n        self.ralphGroundRay = CollisionRay()\n        self.ralphGroundRay.setOrigin(0, 0, 1000)\n        self.ralphGroundRay.setDirection(0, 0, -1)\n        self.ralphGroundCol = CollisionNode('ralphRay')\n        self.ralphGroundCol.addSolid(self.ralphGroundRay)\n        self.ralphGroundCol.setFromCollideMask(BitMask32.bit(0))\n        self.ralphGroundCol.setIntoCollideMask(BitMask32.allOff())\n        self.ralphGroundColNp = self.ralph.attachNewNode(self.ralphGroundCol)\n        self.ralphGroundHandler = CollisionHandlerQueue()\n        self.cTrav.addCollider(self.ralphGroundColNp, self.ralphGroundHandler)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 12
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def dump(obj, file, protocol=None):\n    Pickler(file, protocol).dump(obj)\n\ndef dumps(obj, protocol=None):\n    file = BytesIO()\n    Pickler(file, protocol).dump(obj)\n    return file.getvalue()\n\ndef load(file):\n    return Unpickler(file).load()\n\ndef loads(str):\n    file = BytesIO(str)\n    return Unpickler(file).load()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3856
+  }
+}

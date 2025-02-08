@@ -1,0 +1,9 @@
+{
+  "content": "moduleDefs = []\n\n        for newName, mdef in list(self.modules.items()):\n            prev = self.previousModules.get(newName, None)\n            if not mdef.exclude:\n                # Include this module (even if a previous pass\n                # excluded it).  But don't bother if we exported it\n                # previously.\n                if prev and not prev.exclude:\n                    # Previously exported.\n                    pass\n                elif mdef.moduleName in self.mf.modules or \\\n                     mdef.moduleName in startupModules or \\\n                     mdef.filename:\n                    moduleDefs.append((newName, mdef))\n            elif mdef.forbid:\n                if not prev or not prev.forbid:\n                    moduleDefs.append((newName, mdef))\n\n        moduleDefs.sort()\n        return moduleDefs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2096
+  }
+}

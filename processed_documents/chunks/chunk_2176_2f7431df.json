@@ -1,0 +1,9 @@
+{
+  "content": "# This may be a namespace package.\n            if self._dir_exists(basename):\n                ns_dirs.append(basename)\n\n        # It wasn't found through the normal channels.  Maybe it's one of\n        # ours, or maybe it's frozen?\n        if not path:\n            # Only if we're not looking on a particular path, though.\n            if p3extend_frozen and p3extend_frozen.is_frozen_module(name):\n                # It's a frozen module.\n                return (None, name, ('', '', _PY_FROZEN))\n\n        # If we found folders on the path with this module name without an\n        # __init__.py file, we should consider this a namespace package.\n        if ns_dirs:\n            return (None, ns_dirs, ('', '', _PKG_NAMESPACE_DIRECTORY))\n\n        raise ImportError(name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2176
+  }
+}

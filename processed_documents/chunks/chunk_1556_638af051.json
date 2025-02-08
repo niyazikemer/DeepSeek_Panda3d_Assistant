@@ -1,0 +1,9 @@
+{
+  "content": "# Update dialog when everything has been initialised\n        self.postInitialiseFuncList.append(self.configureDialog)\n        self.initialiseoptions(DirectDialog)\n\n    def configureDialog(self):\n        # Set up hot key bindings\n        bindList = zip(self.buttonList, self['buttonHotKeyList'],\n                       self['buttonValueList'])\n        for button, hotKey, value in bindList:\n            if isinstance(hotKey, (list, tuple)):\n                for key in hotKey:\n                    button.bind('press-' + key + '-', self.buttonCommand,\n                                extraArgs = [value])\n                    self.bind('press-' + key + '-', self.buttonCommand,\n                              extraArgs = [value])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1556
+  }
+}

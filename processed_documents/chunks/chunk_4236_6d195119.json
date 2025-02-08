@@ -1,0 +1,9 @@
+{
+  "content": "# Choose an aspect ratio for the cards.  All card size\n        # calculations are done in pixel-units, using integers,\n        # in order to ensure that everything ends up neatly on\n        # a pixel boundary.\n\n        aspectx = wins[0].getXSize()\n        aspecty = wins[0].getYSize()\n        for win in wins:\n            if win.getXSize() * aspecty != win.getYSize() * aspectx:\n                aspectx = 1\n                aspecty = 1\n\n        # Choose a card size.  If the user didn't specify a size,\n        # use a heuristic, otherwise, just follow orders.  The\n        # heuristic uses an initial card size of 42.66666667% of\n        # the screen vertically, which comes to 256 pixels on\n        # an 800x600 display.  Then, it double checks that the\n        # readout will fit on the screen, and if not, it shrinks it.\n\n        bordersize = 4.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4236
+  }
+}

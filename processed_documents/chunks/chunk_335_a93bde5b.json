@@ -1,0 +1,9 @@
+{
+  "content": "self.propSX = ObjectPropUIEntry(self.transformPane, 'SX')\n        self.propSY = ObjectPropUIEntry(self.transformPane, 'SY')\n        self.propSZ = ObjectPropUIEntry(self.transformPane, 'SZ')\n\n        transformProps = [\n            self.propX, self.propY, self.propZ,\n            self.propH, self.propP, self.propR,\n            self.propSX, self.propSY, self.propSZ,\n        ]\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.AddMany(transformProps)\n        self.transformPane.SetSizer(sizer)\n        for transformProp in transformProps:\n            transformProp.bindFunc(self.editor.objectMgr.onEnterObjectPropUI,\n                                   self.editor.objectMgr.onLeaveObjectPropUI,\n                                   self.editor.objectMgr.updateObjectTransform)\n\n        if not movable:\n            for transformProp in transformProps:\n                transformProp.ui.Disable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 335
+  }
+}

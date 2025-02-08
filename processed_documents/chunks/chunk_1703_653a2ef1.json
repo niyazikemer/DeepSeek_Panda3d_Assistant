@@ -1,0 +1,9 @@
+{
+  "content": "def sendCamFrustum(self, focalLength, filmSize, filmOffset, indexList=[]):\n        if indexList:\n            serverList = [self.serverList[i] for i in indexList]\n        else:\n            serverList = self.serverList\n        for server in serverList:\n            self.notify.debug('updating camera frustum')\n            server.sendCamFrustum(focalLength, filmSize, filmOffset)\n\n    def loadModel(self, nodePath):\n        pass\n\n    def __call__(self, commandString, fLocally = 1, serverList = []):\n        # Execute remotely\n        if serverList:\n            # Passed in list of servers\n            for serverNum in serverList:\n                self.serverList[serverNum].sendCommandString(commandString)\n        else:\n            # All servers\n            for server in self.serverList:\n                server.sendCommandString(commandString)\n        if fLocally:\n            # Execute locally\n            exec(commandString, __builtins__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1703
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def announceGenerate(self):\n        DistributedObject.DistributedObject.announceGenerate(self)\n        self.cr.timeManager = self\n        self.synchronize(\"TimeManager.announceGenerate\")\n\n    def disable(self):\n        \"\"\"\n        This method is called when the DistributedObject is removed from\n        active duty and stored in a cache.\n        \"\"\"\n        self.ignore('clock_error')\n        self.stopTask()\n        taskMgr.remove('frameRateMonitor')\n        if self.cr.timeManager is self:\n            self.cr.timeManager = None\n        DistributedObject.DistributedObject.disable(self)\n\n    def delete(self):\n        \"\"\"\n        This method is called when the DistributedObject is permanently\n        removed from the world and deleted from the cache.\n        \"\"\"\n        DistributedObject.DistributedObject.delete(self)\n\n    ### Task management methods ###\n\n    def startTask(self):\n        self.stopTask()\n        taskMgr.doMethodLater(self.updateFreq, self.doUpdate, \"timeMgrTask\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5520
+  }
+}

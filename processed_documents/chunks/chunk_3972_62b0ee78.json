@@ -1,0 +1,9 @@
+{
+  "content": "text += \"  out float4 o_color : COLOR)\\n\"\n            text += \"{\\n\"\n            text += \"  o_color = tex2D(k_txcolor, %s);\\n\" % (texcoords[\"color\"])\n            if \"CartoonInk\" in configuration:\n                text += CARTOON_BODY % {\"texcoord\": texcoords[\"aux\"]}\n            if \"AmbientOcclusion\" in configuration:\n                text += \"  o_color *= tex2D(k_txssao2, %s).r;\\n\" % (texcoords[\"ssao2\"])\n            if \"BlurSharpen\" in configuration:\n                text += \"  o_color = lerp(tex2D(k_txblur1, %s), o_color, k_blurval.x);\\n\" % (texcoords[\"blur1\"])\n            if \"Bloom\" in configuration:\n                text += \"  o_color = saturate(o_color);\\n\"\n                text += \"  float4 bloom = 0.5 * tex2D(k_txbloom3, %s);\\n\" % (texcoords[\"bloom3\"])\n                text += \"  o_color = 1-((1-bloom)*(1-o_color));\\n\"\n            if \"ViewGlow\" in configuration:\n                text += \"  o_color.r = o_color.a;\\n\"\n            if \"VolumetricLighting\" in configuration:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3972
+  }
+}

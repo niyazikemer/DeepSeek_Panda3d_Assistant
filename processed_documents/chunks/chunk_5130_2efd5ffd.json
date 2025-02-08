@@ -1,0 +1,9 @@
+{
+  "content": "# convert frames and vertices to geometry\n            total_frames = len(self.frame_list)\n\n            #print(\"total_frames\", total_frames)\n            #\n            #index = 0\n            #while index < total_frames:\n            #    motion_trail_frame = self.frame_list[index]\n            #    print(\"frame time\", index, motion_trail_frame.time)\n            #    index += 1\n\n            if total_frames >= 2 and self.total_vertices >= 2:\n                self.begin_geometry()\n                total_segments = total_frames - 1\n                last_motion_trail_frame = self.frame_list[total_segments]\n                minimum_time = last_motion_trail_frame.time\n                delta_time = current_time - minimum_time\n\n                if self.calculate_relative_matrix:\n                    inverse_matrix = Mat4(transform)\n                    inverse_matrix.invertInPlace()\n\n                if self.use_nurbs and total_frames >= 5:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5130
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if item != self.tree.GetRootItem(): # prevent dragging root item\n            text = self.tree.GetItemText(item)\n            print(\"Starting SceneGraphUI drag'n'drop with %s...\" % repr(text))\n\n            tdo = wx.TextDataObject(text)\n            tds = wx.DropSource(self.tree)\n            tds.SetData(tdo)\n            tds.DoDragDrop(True)\n\n    def onShowPopup(self, event):\n        pos = event.GetPosition()\n        pos = self.ScreenToClient(pos)\n\n        item, flags = self.tree.HitTest(pos)\n        if not item.IsOk():\n            return\n        self.currItem = item\n        itemId = self.tree.GetItemData(item)\n        if not itemId:\n            return\n        self.currObj = self.editor.objectMgr.findObjectById(itemId)\n        if self.currObj:\n            self.PopupMenu(self.menu, pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 372
+  }
+}

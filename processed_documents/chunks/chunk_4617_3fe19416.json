@@ -1,0 +1,9 @@
+{
+  "content": "def contains(whole, sub):\n    \"\"\"\n    Return 1 if whole contains sub, 0 otherwise\n    \"\"\"\n    if whole == sub:\n        return 1\n    for elem in sub:\n        # The first item you find not in whole, return 0\n        if elem not in whole:\n            return 0\n    # If you got here, whole must contain sub\n    return 1\n\n\ndef replace(list, old, new, all=0):\n    \"\"\"\n    replace 'old' with 'new' in 'list'\n    if all == 0, replace first occurrence\n    otherwise replace all occurrences\n    returns the number of items replaced\n    \"\"\"\n    if old not in list:\n        return 0\n\n    if not all:\n        i = list.index(old)\n        list[i] = new\n        return 1\n    else:\n        numReplaced = 0\n        for i in range(len(list)):\n            if list[i] == old:\n                numReplaced += 1\n                list[i] = new\n        return numReplaced\n\n\nrad90 = math.pi / 2.\nrad180 = math.pi\nrad270 = 1.5 * math.pi\nrad360 = 2. * math.pi",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4617
+  }
+}

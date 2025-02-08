@@ -1,0 +1,9 @@
+{
+  "content": "pool_offset = 0\n        for bitness in bitnesses:\n            pool_offset += (len(moduleList) + 1) * struct.calcsize(entry_layouts[bitness])\n\n        # Now we can determine the offset of the blob.\n        if self.platform.startswith('win'):\n            # We don't use mmap on Windows.  Align just for good measure.\n            blob_align = 32\n        elif self.platform.endswith('_aarch64') or self.platform.endswith('_arm64'):\n            # Most arm64 operating systems are configured with 16 KiB pages.\n            blob_align = 16384\n        else:\n            # Align to page size, so that it can be mmapped.\n            blob_align = 4096\n\n        # Also determine the total blob size now.  Add padding to the end.\n        blob_size = pool_offset + len(pool)\n        if blob_size & (blob_align - 1) != 0:\n            pad = (blob_align - (blob_size & (blob_align - 1)))\n            blob_size += pad",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2126
+  }
+}

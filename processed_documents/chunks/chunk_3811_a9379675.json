@@ -1,0 +1,9 @@
+{
+  "content": "__enter__ = acquire\n\n    def release(self):\n        me = currentThread()\n        assert self.__owner is me, \"release() of un-acquire()d lock\"\n        self.__count = count = self.__count - 1\n        if not count:\n            self.__owner = None\n            self.__block.release()\n            if __debug__:\n                self._note(\"%s.release(): final release\", self)\n        else:\n            if __debug__:\n                self._note(\"%s.release(): non-final release\", self)\n\n    def __exit__(self, t, v, tb):\n        self.release()\n\n    # Internal methods used by condition variables\n\n    def _acquire_restore(self, state):\n        self.__block.acquire()\n        self.__count, self.__owner = state\n        if __debug__:\n            self._note(\"%s._acquire_restore()\", self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3811
+  }
+}

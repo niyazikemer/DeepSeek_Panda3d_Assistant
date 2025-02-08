@@ -1,0 +1,9 @@
+{
+  "content": "def updateEnvironmentInfo(self):\n        bkgrdColor = ShowBaseGlobal.base.getBackgroundColor() * 255.0\n        self.backgroundColor.set([bkgrdColor[0],\n                                  bkgrdColor[1],\n                                  bkgrdColor[2],\n                                  bkgrdColor[3]], 0)\n        self.updateDisplayRegionInfo()\n\n    def updateDisplayRegionInfo(self):\n        if self.activeDisplayRegion:\n            self.nearPlane.set(self.activeDisplayRegion.near, 0)\n            self.farPlane.set(self.activeDisplayRegion.far, 0)\n            self.hFov.set(self.activeDisplayRegion.fovH, 0)\n            self.vFov.set(self.activeDisplayRegion.fovV, 0)\n\n    def updateLightInfo(self, page = None):\n        # Set main lighting button\n        render = ShowBaseGlobal.base.render\n        self.enableLights.set(\n            render.node().hasAttrib(LightAttrib.getClassType()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 970
+  }
+}

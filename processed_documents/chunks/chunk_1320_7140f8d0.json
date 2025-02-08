@@ -1,0 +1,9 @@
+{
+  "content": "return\n        # Create a new component for each item\n        # Find the maximum extents of all items\n        itemIndex = 0\n        self.minX = self.maxX = self.minZ = self.maxZ = None\n        for item in self['items']:\n            c = self.createcomponent(\n                'item%d' % itemIndex, (), 'item',\n                DirectButton, (self.popupMenu,),\n                text = item, text_align = TextNode.ALeft,\n                command = lambda i = itemIndex: self.set(i))\n            bounds = c.getBounds()\n            if self.minX is None:\n                self.minX = bounds[0]\n            elif bounds[0] < self.minX:\n                self.minX = bounds[0]\n            if self.maxX is None:\n                self.maxX = bounds[1]\n            elif bounds[1] > self.maxX:\n                self.maxX = bounds[1]\n            if self.minZ is None:\n                self.minZ = bounds[2]\n            elif bounds[2] < self.minZ:\n                self.minZ = bounds[2]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1320
+  }
+}

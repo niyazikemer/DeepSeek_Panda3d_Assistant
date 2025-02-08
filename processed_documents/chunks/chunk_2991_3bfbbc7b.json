@@ -1,0 +1,9 @@
+{
+  "content": "# Keep going.\n            area -= tpArea\n            result.append(tp)\n            tp.setBitmasks(self.bitmasks)\n            self.texPlacements[tp] = None\n\n        # Huh, not enough room, or no more holes.\n        self.texPlacements = savedTexPlacements\n        self.bitmasks = savedBitmasks\n        return None\n\n    def findLargestHole(self):\n        holes = self.findAvailableHoles(0)\n        if holes:\n            return max(holes, key=lambda hole: hole[0])[1]\n        return None\n\n    def findAvailableHoles(self, area, w = None, h = None):\n        \"\"\" Finds a list of available holes, of at least the indicated\n        area.  Returns a list of tuples, where each tuple is of the\n        form (area, tp).\n\n        If w and h are non-None, this will short-circuit on the first\n        hole it finds that fits w x h, and return just that hole in a\n        singleton list.\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2991
+  }
+}

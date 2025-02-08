@@ -1,0 +1,9 @@
+{
+  "content": "if self.use_optimized_wheels:\n                # Check to see if we have an optimized wheel\n                localtag = p3dwhlfn.split('+')[1].split('-')[0] if '+' in p3dwhlfn else ''\n                if not localtag.endswith('opt'):\n                    self.announce(\n                        'Could not find an optimized wheel (using index {}) for platform: {}'.format(self.optimized_wheel_index, platform),\n                        distutils.log.WARN\n                    )\n\n            for whl in wheelpaths:\n                if os.path.basename(whl).startswith('tkinter-'):\n                    has_tkinter_wheel = True\n                    break\n\n            #whlfiles = {whl: self._get_zip_file(whl) for whl in wheelpaths}\n\n            # Add whl files to the path so they are picked up by modulefinder\n            for whl in wheelpaths:\n                path.insert(0, whl)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1969
+  }
+}

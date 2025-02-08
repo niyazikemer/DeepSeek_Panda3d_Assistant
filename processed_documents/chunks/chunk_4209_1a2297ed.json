@@ -1,0 +1,9 @@
+{
+  "content": "continue\n                # OK, we've selected a job to run\n                pri = self._jobId2pri.get(jobId)\n                if pri is None:\n                    # this job is no longer present\n                    continue\n                # check if there's overflow time that we need to make up for\n                if self._useOverflowTime:\n                    overflowTime = self._jobId2overflowTime[jobId]\n                    timeLeft = endT - clock.getRealTime()\n                    if overflowTime >= timeLeft:\n                        self._jobId2overflowTime[jobId] = max(0., overflowTime-timeLeft)\n                        # don't run any more jobs this frame, this makes up\n                        # for the extra overflow time that was used before\n                        break\n                job = self._pri2jobId2job[pri][jobId]\n                gen = job._getGenerator()\n                if __debug__:\n                    job._pstats.start()\n                job.resume()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4209
+  }
+}

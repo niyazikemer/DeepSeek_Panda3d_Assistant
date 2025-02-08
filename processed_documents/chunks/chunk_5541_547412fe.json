@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, av):\n        # The object on the grid will need to broadcast his position relative to\n        # his current grid cell in order to use 16 bit\n        # telemetry.  To do this, we will have a node attached to the\n        # grid cell origin, and the object will wrtReparent himself to it when\n        # crossing into that grid cell.  We don't need to create a node for each\n        # cell origin.  We just need two nodes:  one that we are currently parented\n        # to, and the other that we will wrtReparentTo.  Just before wrtReparenting\n        # to the new node, set it's position to the new grid cell origin.\n        self.av = av\n        self.grid = None\n        # NOTE: this node gets renamed when it is put on a zone, so if you\n        # are looking for it by name, try cellOrigin*.\n        self.ownCellOrigin = NodePath(\"cellOrigin\")\n        self.cellOrigin = self.ownCellOrigin",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_322",
+    "parent": "processed_documents/context_documents/ac8cc70f_GridParent.json",
+    "chunk_number": 5541
+  }
+}

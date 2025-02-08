@@ -1,0 +1,9 @@
+{
+  "content": "def mergePoints(self):\n        # prepend pre points\n        self.pointSet[0:0] = self.prePoints\n        for time, pos, hpr in self.prePoints:\n            # Add it to the curve fitters\n            self.curveFitter.addXyzHpr(time, pos, hpr)\n        # And post points\n        # What is end time of pointSet?\n        endTime = self.pointSet[-1][0]\n        for time, pos, hpr in self.postPoints:\n            adjustedTime = endTime + (time - self.recordStop)\n            # Add it to point set\n            self.pointSet.append([adjustedTime, pos, hpr])\n            # Add it to the curve fitters\n            self.curveFitter.addXyzHpr(adjustedTime, pos, hpr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1210
+  }
+}

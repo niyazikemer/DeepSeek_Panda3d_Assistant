@@ -1,0 +1,9 @@
+{
+  "content": "sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.mainFrame, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n        self.Layout()\n\n    def initialize(self):\n        \"\"\"Initializes the viewports and editor.\"\"\"\n        self.Update()\n        ViewportManager.updateAll()\n        self.wxStep()\n        ViewportManager.initializeAll()\n        # Position the camera\n        base = ShowBaseGlobal.base\n        if base.trackball is not None:\n            base.trackball.node().setPos(0, 30, 0)\n            base.trackball.node().setHpr(0, 15, 0)\n\n        # to make persp view as default\n        self.perspViewMenuItem.Check()\n        self.onViewChange(None, 3)\n\n        # initializing direct\n        if self.fStartDirect:\n            base.startDirect(fWantTk = 0, fWantWx = 0)\n            direct = ShowBaseGlobal.direct",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 185
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "length = icns.tell()\n        icns.seek(4)\n        icns.write(struct.pack('>I', length))\n        icns.close()\n\n        return True\n\n    def writeSize(self, required_size, fn):\n        if not isinstance(fn, Filename):\n            fn = Filename.fromOsSpecific(fn)\n        fn.setBinary()\n        fn.makeDir()\n\n        if required_size in self.images:\n            image = self.images[required_size]\n        else:\n            # Find the next size up.\n            sizes = sorted(self.images.keys())\n            if required_size * 2 in sizes:\n                from_size = required_size * 2\n            else:\n                from_size = 0\n                for from_size in sizes:\n                    if from_size > required_size:\n                        break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2199
+  }
+}

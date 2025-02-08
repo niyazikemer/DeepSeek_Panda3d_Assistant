@@ -1,0 +1,9 @@
+{
+  "content": "# Since we may have merged together some bundles, all of\n        # our anims are now suspect.  Force them to reload.\n        self.unloadAnims()\n\n    def unloadAnims(self, anims=None, partName=None, lodName=None):\n        \"\"\"unloadAnims(self, string:string{}, string='modelRoot',\n        string='lodRoot')\n        Actor anim unloader. Takes an optional partName (defaults to\n        'modelRoot' for non-multipart actors) and lodName (defaults to\n        'lodRoot' for non-LOD actors) and list of animation\n        names. Deletes the anim control for the given animation and\n        parts/lods.\n\n        If any parameter is None or omitted, it means all of them.\n        \"\"\"\n        assert Actor.notify.debug(\"in unloadAnims: %s, part: %s, lod: %s\" %\n                                  (anims, partName, lodName))\n\n        if lodName is None or self.mergeLODBundles:\n            lodNames = self.__animControlDict.keys()\n        else:\n            lodNames = [lodName]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3156
+  }
+}

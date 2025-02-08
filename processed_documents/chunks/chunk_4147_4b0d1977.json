@@ -1,0 +1,9 @@
+{
+  "content": "from direct.directnotify import DirectNotifyGlobal\nfrom direct.showbase import DirectObject\nfrom direct.showbase.PythonUtil import SerialNumGen\nfrom direct.showbase.MessengerGlobal import messenger\n\n\n# internal class, don't create these on your own\nclass InputStateToken:\n    _SerialGen = SerialNumGen()\n    Inval = 'invalidatedToken'\n\n    def __init__(self, inputState):\n        self._id = InputStateToken._SerialGen.next()\n        self._hash = self._id\n        self._inputState = inputState\n\n    def release(self):\n        # subclasses will override\n        assert False\n\n    def isValid(self):\n        return self._id != InputStateToken.Inval\n\n    def invalidate(self):\n        self._id = InputStateToken.Inval\n\n    def __hash__(self):\n        return self._hash\n\n    #snake_case alias:\n    is_valid = isValid\n\n\nclass InputStateWatchToken(InputStateToken, DirectObject.DirectObject):\n    def release(self):\n        self._inputState._ignore(self)\n        self.ignoreAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4147
+  }
+}

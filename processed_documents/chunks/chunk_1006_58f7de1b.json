@@ -1,0 +1,9 @@
+{
+  "content": "def displayFrameCounts(self):\n        self.unitsVar.set(FRAMES)\n        self.updateDisplay()\n\n    def displaySeconds(self):\n        self.unitsVar.set(SECONDS)\n        self.updateDisplay()\n\n    def play(self, deltaT, fLoop):\n        if self.frameActiveVar.get():\n            # Compute new time\n            self.currT = self.currT + deltaT\n            if fLoop and self.duration:\n                # If its looping compute modulo\n                loopT = self.currT % self.duration\n                self.goToT(loopT)\n            else:\n                if self.currT > self.maxSeconds:\n                    # Clear this actor control from play list\n                    self['animPanel'].playList.remove(self)\n                else:\n                    self.goToT(self.currT)\n        else:\n            # Clear this actor control from play list\n            self['animPanel'].playList.remove(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1006
+  }
+}

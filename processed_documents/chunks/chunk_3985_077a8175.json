@@ -1,0 +1,9 @@
+{
+  "content": "oldconfig = self.configuration.get(\"Bloom\", None)\n        fullrebuild = True\n        if oldconfig and oldconfig.size == size:\n            fullrebuild = False\n\n        newconfig = FilterConfig()\n        (newconfig.blendx, newconfig.blendy, newconfig.blendz, newconfig.blendw) = blend\n        newconfig.maxtrigger = maxtrigger\n        newconfig.mintrigger = mintrigger\n        newconfig.desat = desat\n        newconfig.intensity = intensity\n        newconfig.size = size\n        self.configuration[\"Bloom\"] = newconfig\n        return self.reconfigure(fullrebuild, \"Bloom\")\n\n    def delBloom(self):\n        if \"Bloom\" in self.configuration:\n            del self.configuration[\"Bloom\"]\n            return self.reconfigure(True, \"Bloom\")\n        return True\n\n    def setHalfPixelShift(self):\n        fullrebuild = (\"HalfPixelShift\" not in self.configuration)\n        self.configuration[\"HalfPixelShift\"] = 1\n        return self.reconfigure(fullrebuild, \"HalfPixelShift\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3985
+  }
+}

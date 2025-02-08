@@ -1,0 +1,9 @@
+{
+  "content": "class DirectObject:\n    \"\"\"\n    This is the class that all Direct/SAL classes should inherit from\n    \"\"\"\n    #def __del__(self):\n        # This next line is useful for debugging leaks\n        #print \"Destructing: \", self.__class__.__name__\n\n    # Wrapper functions to have a cleaner, more object oriented approach to\n    # the messenger functionality.\n\n    def accept(self, event, method, extraArgs=[]):\n        return messenger.accept(event, self, method, extraArgs, 1)\n\n    def acceptOnce(self, event, method, extraArgs=[]):\n        return messenger.accept(event, self, method, extraArgs, 0)\n\n    def ignore(self, event):\n        return messenger.ignore(event, self)\n\n    def ignoreAll(self):\n        return messenger.ignoreAll(self)\n\n    def isAccepting(self, event):\n        return messenger.isAccepting(event, self)\n\n    def getAllAccepting(self):\n        return messenger.getAllAccepting(self)\n\n    def isIgnoring(self, event):\n        return messenger.isIgnoring(event, self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_260",
+    "parent": "processed_documents/context_documents/52e8ea2a_DirectObject.json",
+    "chunk_number": 4564
+  }
+}

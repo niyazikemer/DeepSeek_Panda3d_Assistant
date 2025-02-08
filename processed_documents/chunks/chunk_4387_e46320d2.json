@@ -1,0 +1,9 @@
+{
+  "content": "assert Loader.notify.debug(\"Unloading model: %s\" % (modelNode.getFullpath()))\n        ModelPool.releaseModel(modelNode)\n\n    def saveModel(self, modelPath, node, loaderOptions = None,\n                  callback = None, extraArgs = [], priority = None,\n                  blocking = None):\n        \"\"\" Saves the model (a `NodePath` or `PandaNode`) to the indicated\n        filename path.  Returns true on success, false on failure.  If\n        a callback is used, the model is saved asynchronously, and the\n        true/false status is passed to the callback function. \"\"\"\n\n        if not self._loadedPythonFileTypes:\n            self._loadPythonFileTypes()\n\n        if loaderOptions is None:\n            loaderOptions = LoaderOptions()\n        else:\n            loaderOptions = LoaderOptions(loaderOptions)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4387
+  }
+}

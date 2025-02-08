@@ -1,0 +1,9 @@
+{
+  "content": "def onDuplicate(self, evt):\n        self.editor.objectMgr.duplicateSelected()\n\n    def onMakeLive(self, evt):\n        self.editor.objectMgr.makeSelectedLive()\n\n    def toggleGrid(self, evt):\n        if self.showGridMenuItem.IsChecked():\n            for grid in [self.perspView.grid, self.topView.grid, self.frontView.grid, self.leftView.grid]:\n                if grid.isHidden():\n                    grid.show()\n        else:\n            for grid in [self.perspView.grid, self.topView.grid, self.frontView.grid, self.leftView.grid]:\n                if not grid.isHidden():\n                    grid.hide()\n\n    def toggleGridSnap(self, evt):\n        if self.gridSnapMenuItem.IsChecked():\n            ShowBaseGlobal.direct.manipulationControl.fGridSnap = 1\n            for grid in [self.perspView.grid, self.topView.grid, self.frontView.grid, self.leftView.grid]:\n                grid.fXyzSnap = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 452
+  }
+}

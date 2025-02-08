@@ -1,0 +1,9 @@
+{
+  "content": "def __tkTimerCallback(self):\n        if not Thread.getCurrentThread().getCurrentTask():\n            self.taskMgr.step()\n\n        self.tkRoot.after(self.tkDelay, self.__tkTimerCallback)\n\n    def tkRun(self):\n        \"\"\" This method replaces `run()` after we have called `spawnTkLoop()`.\n        Since at this point Tkinter now owns the main loop, this method is a\n        call to tkRoot.mainloop(). \"\"\"\n\n        if Thread.getCurrentThread().getCurrentTask():\n            # This happens in the p3d environment during startup.\n            # Ignore it.\n            return\n\n        self.tkRoot.mainloop()\n\n    def startDirect(self, fWantDirect = 1, fWantTk = 1, fWantWx = 0):\n        self.startTk(fWantTk)\n        self.startWx(fWantWx)\n\n        if self.wantDirect == fWantDirect:\n            return\n\n        self.wantDirect = fWantDirect",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5017
+  }
+}

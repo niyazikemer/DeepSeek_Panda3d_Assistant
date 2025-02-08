@@ -1,0 +1,9 @@
+{
+  "content": "## ENVIRONMENT CONTROLS ##\n    # Background #\n    def setBackgroundColor(self, r, g, b):\n        self.setBackgroundColorVec((r, g, b))\n\n    def setBackgroundColorVec(self, color):\n        ShowBaseGlobal.base.setBackgroundColor(\n            color[0] / 255.0, color[1] / 255.0, color[2] / 255.0)\n\n    def selectDisplayRegionNamed(self, name):\n        if name.find('Display Region ') >= 0:\n            drIndex = int(name[-1:])\n            self.activeDisplayRegion = ShowBaseGlobal.direct.drList[drIndex]\n        else:\n            self.activeDisplayRegion = None\n        # Make sure info is current\n        self.updateDisplayRegionInfo()\n\n    def setNear(self, near):\n        dr = self.activeDisplayRegion\n        if dr:\n            dr.camLens.setNear(near)\n            ShowBaseGlobal.direct.cluster('base.camLens.setNear(%f)' % near, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 961
+  }
+}

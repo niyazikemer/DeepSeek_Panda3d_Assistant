@@ -1,0 +1,9 @@
+{
+  "content": "def destroy(self):\n        ReceivesMultipleStateChanges.destroy(self)\n        PushesStateChanges.destroy(self)\n        del self._func\n        del self._args\n        del self._kArgs\n        del self._bakedArgs\n        del self._bakedKargs\n\n    def getState(self):\n        # for any state recievers that are hooked up to us, they get a tuple\n        # of (tuple(positional argument values), dict(keyword argument name->value))\n        return (tuple(self._bakedArgs), dict(self._bakedKargs))\n\n    def _recvMultiStatePush(self, key, source):\n        # one of the arguments changed\n        # pick up the new value\n        if isinstance(key, str):\n            self._bakedKargs[key] = source.getState()\n        else:\n            self._bakedArgs[key] = source.getState()\n        # and send it out\n        self._handlePotentialStateChange(self.getState())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2664
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def cleanupDialog(uniqueName):\n    \"\"\"cleanupPanel(string uniqueName)\n\n    Cleans up (removes) the panel with the given uniqueName.  This\n    may be useful when some panels know about each other and know\n    that opening panel A should automatically close panel B, for\n    instance.\n    \"\"\"\n    if uniqueName in DirectDialog.AllDialogs:\n        # calling cleanup() will remove it out of the AllDialogs dict\n        # This way it will get removed from the dict even it we did\n        # not clean it up using this interface (ie somebody called\n        # self.cleanup() directly\n        DirectDialog.AllDialogs[uniqueName].cleanup()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1545
+  }
+}

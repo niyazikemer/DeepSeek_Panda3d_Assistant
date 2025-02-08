@@ -1,0 +1,9 @@
+{
+  "content": "def inspect(anObject):\n    \"\"\"Opens up a window for visually inspecting the details of a given Python\n    object.  See :ref:`inspection-utilities`.\n    \"\"\"\n    inspector = inspectorFor(anObject)\n    inspectorWindow = InspectorWindow(inspector)\n    inspectorWindow.open()\n    return inspectorWindow\n\n### private\n\n_InspectorMap: dict[str, str]\n\n\ndef inspectorFor(anObject):\n    typeName = type(anObject).__name__.capitalize() + 'Type'\n    if typeName in _InspectorMap:\n        inspectorName = _InspectorMap[typeName]\n    else:\n        print((\"Can't find an inspector for \" + typeName))\n        inspectorName = 'Inspector'\n    inspector = globals()[inspectorName](anObject)\n    return inspector\n\n\n### initializing",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1015
+  }
+}

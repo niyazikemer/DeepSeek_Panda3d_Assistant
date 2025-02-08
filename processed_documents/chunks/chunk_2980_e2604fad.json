@@ -1,0 +1,9 @@
+{
+  "content": "# Now make that into a 2-D rectangle of the appropriate shape,\n        # such that w * h == limit.\n\n        # Window size\n        x, y = self.winSize\n\n        # There should be a little buffer on the top so we can see if\n        # we overflow.\n        y /= self.top\n\n        r = float(y) / float(x)\n\n        # Region size\n        w = math.sqrt(self.limit) / math.sqrt(r)\n        h = w * r\n\n        # Now choose self.quantize so that we don't exceed\n        # self.maxHeight.\n        if h > self.maxHeight:\n            self.quantize = int(math.ceil(h / self.maxHeight))\n        else:\n            self.quantize = 1\n\n        w = max(int(w / self.quantize + 0.5), 1)\n        h = max(int(h / self.quantize + 0.5), 1)\n        self.w = w\n        self.h = h\n        self.area = self.w * self.h",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2980
+  }
+}

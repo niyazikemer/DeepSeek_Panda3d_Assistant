@@ -1,0 +1,9 @@
+{
+  "content": "self._logWin = None\n        # Initialize the application\n        self.appInit()\n        self.__createInterface()\n        self.Show()\n\n    def __createInterface(self):\n        self.__createLogWin()\n        self.__createMenuBar()\n        self.__createAboutBox()\n        # Add binding for panel cleanup code\n        self.Bind(wx.EVT_CLOSE, self.quit)\n        #\n        # Create the parts of the interface\n        # which can be modified by subclasses\n        #\n        self.createMenuBar()\n        self.createInterface()\n\n    def __createLogWin(self, evt=None):\n        # to bypass wx.Log\n        if self._logWin:\n            self._logWin.Destroy()\n        self._logWin = wx.Frame(None)\n        self._logWin.Bind(wx.EVT_CLOSE, self.__createLogWin)\n        wx.Log.SetActiveTarget(wx.LogTextCtrl(wx.TextCtrl(self._logWin, style=wx.TE_MULTILINE)))\n\n    def __createMenuBar(self):\n        self.menuBar = wx.MenuBar()\n        self.SetMenuBar(self.menuBar)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_18",
+    "parent": "processed_documents/context_documents/abbd053b_WxAppShell.json",
+    "chunk_number": 231
+  }
+}

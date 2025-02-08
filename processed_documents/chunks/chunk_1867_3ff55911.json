@@ -1,0 +1,9 @@
+{
+  "content": "def get_data(self):\n        # The first part of the header is pretty much fixed - we'll go\n        # back later to write the struct size.\n        data = bytearray(b'\\x00\\x004\\x00\\x00\\x00V\\x00S\\x00_\\x00V\\x00E\\x00R\\x00S\\x00I\\x00O\\x00N\\x00_\\x00I\\x00N\\x00F\\x00O\\x00\\x00\\x00\\x00\\x00')\n        data += pack('<13I', self.signature, self.struct_version,\n                             self.file_version[1] | (self.file_version[0] << 16),\n                             self.file_version[3] | (self.file_version[2] << 16),\n                             self.product_version[1] | (self.product_version[0] << 16),\n                             self.product_version[3] | (self.product_version[2] << 16),\n                             self.file_flags_mask, self.file_flags,\n                             self.file_os, self.file_type, self.file_subtype,\n                             self.file_date[0], self.file_date[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1867
+  }
+}

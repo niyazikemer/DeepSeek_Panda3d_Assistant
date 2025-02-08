@@ -1,0 +1,9 @@
+{
+  "content": "def _startTask(self):\n        taskMgr.add(self._frameTask, self._taskName)\n        self._counter = 0\n\n    def _stopTask(self):\n        taskMgr.remove(self._taskName)\n\n    def _frameTask(self, task):\n        if self._cancelFunc and self._cancelFunc():\n            self.destroy()\n            return task.done\n        self._counter += 1\n        if self._counter >= self._frames:\n            self.finish()\n            return task.done\n        return task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4678
+  }
+}

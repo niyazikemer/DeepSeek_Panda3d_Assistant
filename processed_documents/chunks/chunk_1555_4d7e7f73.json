@@ -1,0 +1,9 @@
+{
+  "content": "try:\n                value = self['buttonValueList'][i]\n            except IndexError:\n                value = i\n                self['buttonValueList'].append(i)\n            try:\n                hotKey = self['buttonHotKeyList'][i]\n            except IndexError:\n                hotKey = None\n            button = self.createcomponent(\n                name, (), \"button\",\n                DirectButton, (self,),\n                text = text,\n                geom = geom,\n                image = image,\n                suppressKeys = self['suppressKeys'],\n                frameSize = self['buttonSize'],\n                command = lambda s = self, v = value: s.buttonCommand(v)\n            )\n            self.buttonList.append(button)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1555
+  }
+}

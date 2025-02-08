@@ -1,0 +1,9 @@
+{
+  "content": "self.indicator.setPos(newpos[0], newpos[1], newpos[2])\n\n    def commandFunc(self, event):\n        self['indicatorValue'] = 1 - self['indicatorValue']\n        if self.colors is not None:\n            self.component('indicator')['image_color'] = self.colors[self['indicatorValue']]\n\n        if self['command']:\n            # Pass any extra args to command\n            self['command'](*[self['indicatorValue']] + self['extraArgs'])\n\n    def setIndicatorValue(self):\n        self.component('indicator').guiItem.setState(self['indicatorValue'])\n        if self.colors is not None:\n            self.component('indicator')['image_color'] = self.colors[self['indicatorValue']]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_83",
+    "parent": "processed_documents/context_documents/a97813f6_DirectCheckButton.json",
+    "chunk_number": 1494
+  }
+}

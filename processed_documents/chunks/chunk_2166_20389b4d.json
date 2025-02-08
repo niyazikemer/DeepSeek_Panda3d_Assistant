@@ -1,0 +1,9 @@
+{
+  "content": "try:\n            self.import_hook(name, caller, level=level)\n        except ImportError as msg:\n            self.msg(2, \"ImportError:\", str(msg))\n            self._add_badmodule(name, caller)\n        except SyntaxError as msg:\n            self.msg(2, \"SyntaxError:\", str(msg))\n            self._add_badmodule(name, caller)\n        else:\n            if fromlist:\n                for sub in fromlist:\n                    fullname = name + \".\" + sub\n                    if fullname in self.badmodules:\n                        self._add_badmodule(fullname, caller)\n                        continue\n                    try:\n                        self.import_hook(name, caller, [sub], level=level)\n                    except ImportError as msg:\n                        self.msg(2, \"ImportError:\", str(msg))\n                        self._add_badmodule(fullname, caller)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2166
+  }
+}

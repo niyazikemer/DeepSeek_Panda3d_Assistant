@@ -1,0 +1,9 @@
+{
+  "content": "self.initialiseoptions(DirectScrolledList)\n        self.recordMaxHeight()\n        self.scrollTo(0)\n\n    def setForceHeight(self):\n        assert self.notify.debugStateCall(self)\n        self.__forceHeight = self[\"forceHeight\"]\n\n    def recordMaxHeight(self):\n        assert self.notify.debugStateCall(self)\n        if self.__forceHeight is not None:\n            self.maxHeight = self.__forceHeight\n        else:\n            self.maxHeight = 0.0\n            for item in self[\"items\"]:\n                if not isinstance(item, str):\n                    self.maxHeight = max(self.maxHeight, item.getHeight())\n\n    def setScrollSpeed(self):\n        assert self.notify.debugStateCall(self)\n        # Items per second to move\n        self.__scrollSpeed = self[\"scrollSpeed\"]\n        if self.__scrollSpeed <= 0:\n            self.__scrollSpeed = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1604
+  }
+}

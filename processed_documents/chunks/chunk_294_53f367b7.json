@@ -1,0 +1,9 @@
+{
+  "content": "class Process:\n    def __init__(self, parent, cmd, end_callback):\n        self.process = wx.Process(parent)\n        self.process.Redirect()\n        self.process.pid = wx.Execute(cmd, wx.EXEC_ASYNC|wx.EXEC_MAKE_GROUP_LEADER, self.process)\n        self.b = []\n        if self.process.pid:\n            #what was up with wx.Process.Get*Stream names?\n            self.process._stdin_ = self.process.GetOutputStream()\n            self.process._stdout_ = self.process.GetInputStream()\n            self.process._stderr_ = self.process.GetErrorStream()\n            self.process.Bind(wx.EVT_END_PROCESS, end_callback)\n            return\n        raise StartupError",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 294
+  }
+}

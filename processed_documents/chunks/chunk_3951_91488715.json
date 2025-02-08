@@ -1,0 +1,9 @@
+{
+  "content": "CARTOON_BODY = \"\"\"\nfloat4 cartoondelta = k_cartoonseparation * texpix_txaux.xwyw;\nfloat4 cartoon_c0 = tex2D(k_txaux, %(texcoord)s + cartoondelta.xy);\nfloat4 cartoon_c1 = tex2D(k_txaux, %(texcoord)s - cartoondelta.xy);\nfloat4 cartoon_c2 = tex2D(k_txaux, %(texcoord)s + cartoondelta.wz);\nfloat4 cartoon_c3 = tex2D(k_txaux, %(texcoord)s - cartoondelta.wz);\nfloat4 cartoon_mx = max(cartoon_c0, max(cartoon_c1, max(cartoon_c2, cartoon_c3)));\nfloat4 cartoon_mn = min(cartoon_c0, min(cartoon_c1, min(cartoon_c2, cartoon_c3)));\nfloat cartoon_thresh = saturate(dot(cartoon_mx - cartoon_mn, float4(3,3,0,0)) - 0.5);\no_color = lerp(o_color, k_cartooncolor, cartoon_thresh);\n\"\"\"\n\n# Some GPUs do not support variable-length loops.\n#\n# We fill in the actual value of numsamples in the loop limit\n# when the shader is configured.\n#\nSSAO_BODY = \"\"\"//Cg",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3951
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "PT(TextNode) make_text_node() {\n  return new TextNode(\"title\");\n}\n\nPT(TextNode) node = make_text_node();\n\nManaging Reference Count\n\nAlthough it is recommended to use PointerTo for all references, it is possible to manage the reference count manually using the ref() and unref() methods, as already stated above.\n\nThis can not always work as an alternative, though, since an object returned from a function that returns a PointerTo may be destructed before you get a chance to call ref() to save it! This is why it's recommended to always use PointerTo except in very rare, low-level cases.\n\nWarning\n\nThe ~.ReferenceCount.unref() method should not be used if it may cause the reference count to reach zero. This is because a member function cannot destruct the object it is called on, so this will leak memory. Instead, you should use the unref_delete(pt) macro to decrease the reference count unless you are absolutely sure that it will not reach zero.\n\nWeak Pointer",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_614",
+    "parent": "processed_documents/context_documents/34116fa8_637658a3_reference-counting.json",
+    "chunk_number": 7244
+  }
+}

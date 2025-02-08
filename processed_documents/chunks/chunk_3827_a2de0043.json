@@ -1,0 +1,9 @@
+{
+  "content": "def _set_daemon(self):\n        # Overridden in _MainThread and _DummyThread\n        return currentThread().isDaemon()\n\n    def __repr__(self):\n        assert self.__initialized, \"Thread.__init__() was not called\"\n        status = \"initial\"\n        if self.__started:\n            status = \"started\"\n        if self.__stopped:\n            status = \"stopped\"\n        if self.__daemonic:\n            status = status + \" daemon\"\n        return \"<%s(%s, %s)>\" % (self.__class__.__name__, self.__name, status)\n\n    def start(self):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        assert not self.__started, \"thread already started\"\n        if __debug__:\n            self._note(\"%s.start(): starting thread\", self)\n        _active_limbo_lock.acquire()\n        _limbo[self] = self",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3827
+  }
+}

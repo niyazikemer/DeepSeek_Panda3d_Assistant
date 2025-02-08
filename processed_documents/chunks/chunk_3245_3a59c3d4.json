@@ -1,0 +1,9 @@
+{
+  "content": "direct = ShowBaseGlobal.direct\n        if hasattr(direct, \"manipulationControl\") and direct.manipulationControl.fMultiView:\n            self.hitPtScale.assign(self.objectHandles.getAxisIntersectPt(self.constraint[:1]))\n            self.hitPtScale = self.objectHandles.getMat().xformVec(self.hitPtScale)\n            if self.fScaleInit1:\n                # First time through just record hit point\n                self.fScaleInit1 = 0\n                self.prevHitScale.assign(self.hitPtScale)\n                self.origScale = direct.widget.getScale()\n            else:\n                widgetPos = direct.widget.getPos()\n                d0 = (self.prevHitScale).length()\n                if d0 == 0: #make sure we don't divide by zero\n                    d0 = 0.001\n                d1 = (self.hitPtScale).length()\n                if d1 == 0:  #make sure we don't set scale to zero\n                    d1 = 0.001\n                currScale = self.origScale",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3245
+  }
+}

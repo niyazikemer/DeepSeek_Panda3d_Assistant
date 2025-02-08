@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] to update the tree one time only\n        if depth == 1:\n            self.update()\n            self.view()\n\n    def update(self, fUseCachedChildren = 1, fExpandMode = 0):\n        if self.parent:\n            self.parent.update(fUseCachedChildren, fExpandMode = fExpandMode)\n        else:\n            oldcursor = self.canvas['cursor']\n            self.canvas['cursor'] = \"watch\"\n            self.canvas.update()\n            self.canvas.delete(tk.ALL)     # XXX could be more subtle\n            self.draw(7, 2, fUseCachedChildren)\n            x0, y0, x1, y1 = self.canvas.bbox(tk.ALL)\n            self.canvas.configure(scrollregion=(0, 0, x1, y1))\n            self.canvas['cursor'] = oldcursor\n\n    def draw(self, x, y, fUseCachedChildren = 1):\n        # XXX This hard-codes too many geometry constants!\n        self.x, self.y = x, y\n        self.drawicon()\n        self.drawtext()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3681
+  }
+}

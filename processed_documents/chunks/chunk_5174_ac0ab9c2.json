@@ -1,0 +1,9 @@
+{
+  "content": "# Now import all of the modules required by the DC file.\n        for n in range(dcFile.getNumImportModules()):\n            moduleName = dcFile.getImportModule(n)\n\n            # Maybe the module name is represented as \"moduleName/AI\".\n            suffix = moduleName.split('/')\n            moduleName = suffix[0]\n            if self.dcSuffix and self.dcSuffix in suffix[1:]:\n                moduleName += self.dcSuffix\n\n            importSymbols = []\n            for i in range(dcFile.getNumImportSymbols(n)):\n                symbolName = dcFile.getImportSymbol(n, i)\n\n                # Maybe the symbol name is represented as \"symbolName/AI\".\n                suffix = symbolName.split('/')\n                symbolName = suffix[0]\n                if self.dcSuffix and self.dcSuffix in suffix[1:]:\n                    symbolName += self.dcSuffix\n\n                importSymbols.append(symbolName)\n\n            self.importModule(dcImports, moduleName, importSymbols)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5174
+  }
+}

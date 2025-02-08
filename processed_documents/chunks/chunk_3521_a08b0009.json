@@ -1,0 +1,9 @@
+{
+  "content": "def _widgetBtnPress(self, event):\n        # Check behavior for this button press\n        widget = self._popup\n        xPos = event.x_root - widget.winfo_rootx()\n        yPos = event.y_root - widget.winfo_rooty()\n        fInside = ((xPos > 0) and (xPos < widget.winfo_width()) and\n                   (yPos > 0) and (yPos < widget.winfo_height()))\n        # Set flags based upon result\n        if fInside:\n            self._fPressInside = 1\n            self._fUpdate = 1\n            if self['preCallback']:\n                self['preCallback'](*self['callbackData'])\n            self._updateValue(event)\n        else:\n            self._fPressInside = 0\n            self._fUpdate = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3521
+  }
+}

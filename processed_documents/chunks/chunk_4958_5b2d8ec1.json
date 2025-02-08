@@ -1,0 +1,9 @@
+{
+  "content": "def __shadowCollisionLoop(self, state):\n        # run the collision traversal if we have a\n        # CollisionTraverser set.\n        if self.shadowTrav:\n            self.shadowTrav.traverse(self.render)\n        return Task.cont\n\n    def __collisionLoop(self, state):\n        # run the collision traversal if we have a\n        # CollisionTraverser set.\n        if self.cTrav:\n            self.cTrav.traverse(self.render)\n        if self.appTrav:\n            self.appTrav.traverse(self.render)\n        if self.shadowTrav:\n            self.shadowTrav.traverse(self.render)\n        messenger.send(\"collisionLoopFinished\")\n        return Task.cont\n\n    def __audioLoop(self, state):\n        if self.musicManager is not None:\n            self.musicManager.update()\n        for x in self.sfxManagerList:\n            x.update()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4958
+  }
+}

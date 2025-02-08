@@ -1,0 +1,9 @@
+{
+  "content": "for bundle in self.getPartBundles(partName = partName):\n            bundle.waitPending()\n\n    def __bindAnimToPart(self, animName, partName, lodName,\n                         allowAsyncBind = True):\n        \"\"\"\n        Binds the named animation to the named part/lod and returns\n        the associated animControl.  The animation is loaded and bound\n        in a sub-thread, if allowAsyncBind is True,\n        self.allowAsyncBind is True, threading is enabled, and the\n        animation has a preload table generated for it (e.g. via\n        \"egg-optchar -preload\").  Even though the animation may or may\n        not be yet bound at the time this function returns, a usable\n        animControl is returned, or None if the animation could not be\n        bound.\n        \"\"\"\n        # make sure this anim is in the dict\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3163
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The default wrap mode is WM_repeat.\n\nConsider the following simple texture image:\n\nWe will apply this texture in the center of a large polygon whose texture coordinates range considerably farther than [0, 1] in both directions.\n\nWM_repeat\n\npython\n\ntexture.setWrapU(Texture.WM_repeat)\ntexture.setWrapV(Texture.WM_repeat)\n\ncpp\n\ntexture->set_wrap_u(Texture::WM_repeat);\ntexture->set_wrap_v(Texture::WM_repeat);\n\nWM_repeat mode is often used to tile a relatively small texture over a large surface.\n\nWM_clamp\n\npython\n\ntexture.setWrapU(Texture.WM_clamp)\ntexture.setWrapV(Texture.WM_clamp)\n\ncpp\n\ntexture->set_wrap_u(Texture::WM_clamp);\ntexture->set_wrap_v(Texture::WM_clamp);\n\nWM_clamp mode is rarely used on large polygons because, frankly, it looks terrible when the pixels stretch out to infinity like this; but this mode is usually the right choice when the texture exactly fills its polygon (see One caution about a common wrap error, below).\n\nWM_border_color\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_668",
+    "parent": "processed_documents/context_documents/46006720_0b25daa5_texture-wrap-modes.json",
+    "chunk_number": 7570
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def _newname(template=\"Thread-%d\"):\n    global _counter\n    _counter = _counter + 1\n    return template % _counter\n\n\n_threads = {}\n_nextThreadId = 0\n_threadsLock = core.Mutex('thread._threadsLock')\n\n\ndef start_new_thread(function, args, kwargs = {}, name = None):\n    def threadFunc(threadId, function = function, args = args, kwargs = kwargs):\n        try:\n            try:\n                function(*args, **kwargs)\n            except SystemExit:\n                pass\n\n        finally:\n            _remove_thread_id(threadId)\n\n    global _nextThreadId\n    _threadsLock.acquire()\n    try:\n        threadId = _nextThreadId\n        _nextThreadId += 1\n\n        if name is None:\n            name = 'PythonThread-%s' % (threadId)\n\n        thread = core.PythonThread(threadFunc, [threadId], name, name)\n        thread.setPythonIndex(threadId)\n        _threads[threadId] = (thread, {}, None)\n\n        thread.start(core.TPNormal, False)\n        return threadId\n\n    finally:\n        _threadsLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3797
+  }
+}

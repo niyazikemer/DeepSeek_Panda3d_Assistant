@@ -1,0 +1,9 @@
+{
+  "content": "def onPoll(self, evt):\n        if self.process:\n            for i in self.process.Poll():\n                self.output.AppendText(i)\n\n    def onModelProcessEnded(self, evt):\n        self.process.CloseInp()\n        for i in self.process.Poll():\n            self.output.AppendText(i)\n        self.process = None\n        command = 'maya2egg -uo ft -a chan %s -o %s.anim.egg'%(self.mayaFile, self.mayaFile)\n        self.process = Process(self, command, lambda p0 = None: self.onProcessEnded(p0))\n\n    def onProcessEnded(self, evt):\n        self.process.CloseInp()\n        for i in self.process.Poll():\n            self.output.AppendText(i)\n\n        self.output.AppendText('Converting %s is finished\\n'%self.mayaFile)\n        self.process = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 303
+  }
+}

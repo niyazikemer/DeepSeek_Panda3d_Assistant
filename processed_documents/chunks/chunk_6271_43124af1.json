@@ -1,0 +1,9 @@
+{
+  "content": "If you don't use egg-palettize (you really should, you know), you can just hand-edit the egg files to put the line:\n\n<Scalar> alpha { dual }\n\nwithin the <Texture> reference for the textures in question.\n\nA second easy option is to use M_multisample transparency, which doesn't have any ordering issues at all, but it only looks good on very high-end cards that have special multisample bits to support full-screen antialiasing. Also, at the present it only looks good on these high-end cards in OpenGL mode (since our pandadx drivers don't support M_multisample explicitly right now). But if M_multisample is not supported by a particular hardware or panda driver, it automatically falls back to M_binary, which also doesn't have any ordering issues, but it always has jaggy edges along the cutout edge. This only works well on texture images that represent cutouts, like M_dual, above.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_448",
+    "parent": "processed_documents/context_documents/d4aa489f_64e02051_transparency-and-blending.json",
+    "chunk_number": 6271
+  }
+}

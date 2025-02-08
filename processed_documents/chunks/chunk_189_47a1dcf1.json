@@ -1,0 +1,9 @@
+{
+  "content": "for unpickable in unpickables:\n                direct.addUnpickable(unpickable)\n\n            direct.manipulationControl.optionalSkipFlags |= SKIP_UNPICKABLE\n            direct.manipulationControl.fAllowMarquee = 1\n            direct.manipulationControl.supportMultiView()\n            direct.cameraControl.useMayaCamControls = 1\n            direct.cameraControl.perspCollPlane = self.perspView.collPlane\n            direct.cameraControl.perspCollPlane2 = self.perspView.collPlane2\n\n            for widget in direct.manipulationControl.widgetList:\n                widget.setBin('gui-popup', 0)\n                widget.setDepthTest(0)\n\n            # [gjeon] to intercept messages here\n            direct.ignore('DIRECT-delete')\n            direct.ignore('DIRECT-select')\n            direct.ignore('DIRECT-preDeselectAll')\n            direct.ignore('DIRECT-toggleWidgetVis')\n            direct.fIgnoreDirectOnlyKeyMap = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 189
+  }
+}

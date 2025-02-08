@@ -1,0 +1,9 @@
+{
+  "content": "self.editor.objectMgr.updateObjectColor(r, g, b, a)\n\n    def openColorPicker(self, evt, colourData, alpha):\n        if self.colorPicker:\n            self.lastColorPickerPos = self.colorPicker.GetPosition()\n            self.colorPicker.Destroy()\n\n        self.colorPicker = ColorPicker(self, colourData, alpha=alpha, updateCB=self.colorPickerUpdateCB, exitCB=self.colorPickerExitCB)\n        self.colorPicker.GetColourData().SetChooseFull(True)\n        self.colorPicker.Show()\n        if self.lastColorPickerPos:\n            self.colorPicker.SetPosition(self.lastColorPickerPos)\n\n    def updateProps(self, obj, movable=True):\n        self.clearPropUI()\n\n        self.propPane = wx.Panel(self)\n        mainSizer = wx.BoxSizer(wx.VERTICAL)\n        mainSizer.Add(self.propPane, 1, wx.EXPAND, 0)\n        self.SetSizer(mainSizer)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 333
+  }
+}

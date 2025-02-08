@@ -1,0 +1,9 @@
+{
+  "content": "# Open a multifile and replace the contents of the mulifile file\n# with new contents\nm = Multifile()\nm.openReadWrite(\"foo.mf\")\nm.updateSubfile(\"bar.txt\", Filename(\"/tmp/bar2.txt\"), 9)\nm.flush()\n\n# Open a multifile and extract all files smaller than 3kb\n# New real os files are created with the contents of the multifile data\nm = Multifile()\nm.openRead(\"foo.mf\")\nfor i in range(m.getNumSubfiles()):\n    if m.getSubfileLength(i) < 3 * 1024:\n        m.extractSubfile(i, Filename(\"/tmp/\" + m.getSubfileName(i)))\n\n# Find, print and remove a file named bar.txt\nbarIdx = m.findSubfile(\"bar.txt\")\nif barIdx != -1:\n    # It returns -1 if it doesn't exist\n    print(m.readSubfile(barIdx))\n    m.removeSubfile(barIdx)\nm.flush()\n\nm.close()\n\ncpp\n\nstd::ostringstream os (std::ios::in | std::ios::out);\nstd::istream is (os.rdbuf ());\n\nos.write((char*)&stuff, sizeof(stuff));\n\nPT(Multifile) mf = new Multifile();\nmf->open_write(fileName);\nmf->add_subfile(\"foo.mf\", &is,6);\nmf->flush();\nmf->close();",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7604
+  }
+}

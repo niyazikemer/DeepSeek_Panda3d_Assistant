@@ -1,0 +1,9 @@
+{
+  "content": "ripple = Actor.Actor('ripple.egg')\nripple.reparentTo(render)\nripple.setScale(10)\nripple.pose('animation', 17)\n\ndl = DirectionalLight('dl')\ndlnp = camera.attachNewNode(dl)\nripple.setLight(dlnp)\n\nproj = render.attachNewNode(LensNode('proj'))\nlens = PerspectiveLens()\nproj.node().setLens(lens)\nproj.node().showFrustum()\nproj.find('frustum').setColor(1, 0, 0, 1)\ncamModel = loader.loadModel('camera.egg')\ncamModel.reparentTo(proj)\nproj.reparentTo(render)\nproj.setPos(1.5, -7.3, 2.9)\nproj.setHpr(22, -15, 0)\n\ntex = loader.loadTexture('maps/envir-reeds.png')\ntex.setWrapU(SamplerState.WMBorderColor)\ntex.setWrapV(SamplerState.WMBorderColor)\ntex.setBorderColor((1, 1, 1, 0))\nts = TextureStage('ts')\nts.setSort(1)\nts.setMode(TextureStage.MDecal)\nripple.projectTexture(ts, tex, proj)\n\nbase.disableMouse()\ncamera.setPos(-7.8, -22.4, 0)\ncamera.setHpr(-21, 0, 0)\n\nbase.graphicsEngine.renderFrame()\nbase.screenshot('projected_bamboo.jpg', defaultFilename=0)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_433",
+    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
+    "chunk_number": 6203
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __prepareBundle(self, bundleNP, partModel,\n                        partName=\"modelRoot\", lodName=\"lodRoot\"):\n        assert partName not in self.__subpartDict\n\n        # Rename the node at the top of the hierarchy, if we\n        # haven't already, to make it easier to identify this\n        # actor in the scene graph.\n        if not self.gotName:\n            self.node().setName(bundleNP.node().getName())\n            self.gotName = 1\n\n        bundleDict = self.__partBundleDict.get(lodName, None)\n        if bundleDict is None:\n            # make a dictionary to store these parts in\n            bundleDict = {}\n            self.__partBundleDict[lodName] = bundleDict\n            self.__updateSortedLODNames()\n\n        node = bundleNP.node()\n        # A model loaded from disk will always have just one bundle.\n        assert node.getNumBundles() == 1\n        bundleHandle = node.getBundleHandle(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3141
+  }
+}

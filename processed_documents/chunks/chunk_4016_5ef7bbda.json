@@ -1,0 +1,9 @@
+{
+  "content": "depthtex, colortex, auxtex0, auxtex1 = texgroup\n        if auxtex0 is not None:\n            props.setAuxRgba(1)\n        if auxtex1 is not None:\n            props.setAuxRgba(2)\n        buffer=self.engine.makeOutput(\n            self.win.getPipe(), name, -1,\n            props, winprops, GraphicsPipe.BFRefuseWindow | GraphicsPipe.BFResizeable,\n            self.win.getGsg(), self.win)\n        if buffer is None:\n            return buffer\n        if depthtex:\n            buffer.addRenderTexture(depthtex, GraphicsOutput.RTMBindOrCopy, GraphicsOutput.RTPDepth)\n        if colortex:\n            buffer.addRenderTexture(colortex, GraphicsOutput.RTMBindOrCopy, GraphicsOutput.RTPColor)\n        if auxtex0:\n            buffer.addRenderTexture(auxtex0, GraphicsOutput.RTMBindOrCopy, GraphicsOutput.RTPAuxRgba0)\n        if auxtex1:\n            buffer.addRenderTexture(auxtex1, GraphicsOutput.RTMBindOrCopy, GraphicsOutput.RTPAuxRgba1)\n        buffer.setSort(self.nextsort)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4016
+  }
+}

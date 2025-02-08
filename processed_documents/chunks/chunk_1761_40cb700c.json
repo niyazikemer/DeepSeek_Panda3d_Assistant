@@ -1,0 +1,9 @@
+{
+  "content": "def startSwapCoordinator(self):\n        taskMgr.add(self.swapCoordinatorTask, \"serverSwapCoordinator\", 51)\n\n    def swapCoordinatorTask(self, task):\n        if self.fPosReceived:\n            self.fPosReceived = 0\n            # Alert client that this server is ready to swap\n            self.sendSwapReady()\n            # Wait for swap command (processing any intermediate datagrams)\n            while 1:\n                (datagram, dgi, type) = self.msgHandler.blockingRead(self.qcr)\n                self.handleDatagram(dgi, type)\n                if type == CLUSTER_SWAP_NOW:\n                    break\n        return Task.cont\n\n    def sendSwapReady(self):\n        self.notify.debug(\n            'send swap ready packet %d' % self.msgHandler.packetNumber)\n        datagram = self.msgHandler.makeSwapReadyDatagram()\n        self.cw.send(datagram, self.lastConnection)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1761
+  }
+}

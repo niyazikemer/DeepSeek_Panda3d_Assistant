@@ -1,0 +1,9 @@
+{
+  "content": "def updateRequiredOtherFields(self, dclass, di):\n        # First, update the required fields\n        dclass.receiveUpdateBroadcastRequired(self, di)\n\n        # Announce generate after updating all the required fields,\n        # but before we update the non-required fields.\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n        dclass.receiveUpdateOther(self, di)\n\n    def sendUpdate(self, fieldName, args = [], sendToId = None):\n        if self.cr:\n            dg = self.dclass.clientFormatUpdate(\n                fieldName, sendToId or self.doId, args)\n            self.cr.send(dg)\n        else:\n            assert self.notify.error(\"sendUpdate failed, because self.cr is not set\")\n\n    def sendDisableMsg(self):\n        self.cr.sendDisableMsg(self.doId)\n\n    def sendDeleteMsg(self):\n        self.cr.sendDeleteMsg(self.doId)\n\n    def taskName(self, taskString):\n        return \"%s-%s\" % (taskString, self.doId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5564
+  }
+}

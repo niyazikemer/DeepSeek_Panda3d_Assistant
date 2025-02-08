@@ -1,0 +1,9 @@
+{
+  "content": "if __debug__:\n            self.ignore(\"control-f3\") #*#\n\n\n    def flushEventHandlers(self):\n        if hasattr(self, 'cTrav'):\n            self.pusher.flush()\n            if self.wantFloorSphere:\n                self.floorPusher.flush()\n            self.event.flush()\n        self.lifter.flush() # not currently defined or needed\n\n    if __debug__:\n        def debugPrint(self, message):\n            \"\"\"for debugging\"\"\"\n            return self.notify.debug(\n                    str(id(self))+' '+message)\n\n    # There are sometimes issues if the collision ray height is\n    # so tall that it collides with multiple levels of floors.\n    def setCollisionRayHeight(self, height):\n        self.cRay.setOrigin(0.0, 0.0, height)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4104
+  }
+}

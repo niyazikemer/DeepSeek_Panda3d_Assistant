@@ -1,0 +1,9 @@
+{
+  "content": "float3 sample_normal;\n  float3 ray;\n  for(int i = 0; i < %d; ++i) {\n   ray = radius * reflect(sphere[i], random_vector);\n   sample_normal = (tex2D(k_normal, l_texcoordN + ray.xy).xyz * 2.0 - 1.0);\n   depth_difference =  (pixel_depth - tex2D(k_depth,l_texcoordD + ray.xy).r);\n   occlusion += step(k_params2.y, depth_difference) * (1.0 - dot(sample_normal.xyz, pixel_normal)) * (1.0 - smoothstep(k_params2.y, k_params2.x, depth_difference));\n  }\n  o_color.rgb = 1.0 + (occlusion * k_params1.y);\n  o_color.a = 1.0;\n}\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3955
+  }
+}

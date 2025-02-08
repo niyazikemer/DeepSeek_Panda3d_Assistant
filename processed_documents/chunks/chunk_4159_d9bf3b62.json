@@ -1,0 +1,9 @@
+{
+  "content": "# set up\n            token = inputState.force('forward', True, inputSource='myForwardForcer')\n            ...\n            # tear down\n            token.release()\n        \"\"\"\n        token = InputStateForceToken(self)\n        self._token2forceInfo[token] = (name, inputSource)\n        if value:\n            if name in self._forcingOff:\n                self.notify.error(\n                    \"%s is trying to force '%s' to ON, but '%s' is already being forced OFF by %s\" %\n                    (inputSource, name, name, self._forcingOff[name])\n                )\n            self._forcingOn.setdefault(name, set())\n            self._forcingOn[name].add(inputSource)\n        else:\n            if name in self._forcingOn:\n                self.notify.error(\n                    \"%s is trying to force '%s' to OFF, but '%s' is already being forced ON by %s\" %\n                    (inputSource, name, name, self._forcingOn[name])\n                )",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4159
+  }
+}

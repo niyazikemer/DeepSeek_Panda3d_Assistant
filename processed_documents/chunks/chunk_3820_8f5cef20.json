@@ -1,0 +1,9 @@
+{
+  "content": "class _Semaphore(_Verbose):\n\n    # After Tim Peters' semaphore class, but not quite the same (no maximum)\n\n    def __init__(self, value=1, verbose=None):\n        assert value >= 0, \"Semaphore initial value must be >= 0\"\n        _Verbose.__init__(self, verbose)\n        self.__cond = Condition(Lock())\n        self.__value = value\n\n    def acquire(self, blocking=1):\n        rc = False\n        self.__cond.acquire()\n        while self.__value == 0:\n            if not blocking:\n                break\n            if __debug__:\n                self._note(\"%s.acquire(%s): blocked waiting, value=%s\",\n                           self, blocking, self.__value)\n            self.__cond.wait()\n        else:\n            self.__value = self.__value - 1\n            if __debug__:\n                self._note(\"%s.acquire: success, value=%s\",\n                           self, self.__value)\n            rc = True\n        self.__cond.release()\n        return rc\n\n    __enter__ = acquire",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3820
+  }
+}

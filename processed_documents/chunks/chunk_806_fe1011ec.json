@@ -1,0 +1,9 @@
+{
+  "content": "## SYSTEM PAGE ##\n    def updateSystemWidgets(self):\n        poolSize = self.particles.getPoolSize()\n        self.getWidget('System', 'Pool Size').set(int(poolSize), 0)\n        birthRate = self.particles.getBirthRate()\n        self.getWidget('System', 'Birth Rate').set(birthRate, 0)\n        litterSize = self.particles.getLitterSize()\n        self.getWidget('System', 'Litter Size').set(int(litterSize), 0)\n        litterSpread = self.particles.getLitterSpread()\n        self.getWidget('System', 'Litter Spread').set(litterSpread, 0)\n        systemLifespan = self.particles.getSystemLifespan()\n        self.getWidget('System', 'Lifespan').set(systemLifespan, 0)\n        pos = self.particles.nodePath.getPos()\n        self.getWidget('System', 'Pos').set([pos[0], pos[1], pos[2]], 0)\n        hpr = self.particles.nodePath.getHpr()\n        self.getWidget('System', 'Hpr').set([hpr[0], hpr[1], hpr[2]], 0)\n        self.getVariable('System', 'Render Space Velocities').set(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 806
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def computeCurves(self):\n        # Check to make sure curve fitters have points\n        if self.curveFitter.getNumSamples() == 0:\n            print('MopathRecorder.computeCurves: Must define curve first')\n            return\n        # Create curves\n        # XYZ\n        self.curveFitter.sortPoints()\n        self.curveFitter.wrapHpr()\n        self.curveFitter.computeTangents(1)\n        # This is really a collection\n        self.curveCollection = self.curveFitter.makeNurbs()\n        self.nurbsCurveDrawer.setCurves(self.curveCollection)\n        self.nurbsCurveDrawer.draw()\n        # Update widget based on new curve\n        self.updateWidgets()\n\n    def initTrace(self):\n        self.trace.reset()\n        # Put trace line segs under node path's parent\n        self.trace.reparentTo(self.nodePathParent)\n        # Show it\n        self.trace.show()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1184
+  }
+}

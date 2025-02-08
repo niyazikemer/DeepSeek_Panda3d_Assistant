@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, parent = None, **kw):\n        optiondefs = (\n            ('title',          self.appname,        None),\n            ('padx',           1,                   Pmw.INITOPT),\n            ('pady',           1,                   Pmw.INITOPT),\n            ('framewidth',     self.frameWidth,     Pmw.INITOPT),\n            ('frameheight',    self.frameHeight,    Pmw.INITOPT),\n            ('usecommandarea', self.usecommandarea, Pmw.INITOPT),\n            ('usestatusarea',  self.usestatusarea,  Pmw.INITOPT),\n        )\n        self.defineoptions(kw, optiondefs)\n        # If no toplevel passed in, create one\n        if parent is None:\n            self.parent = tk.Toplevel()\n        else:\n            self.parent = parent\n        # Initialize the base class\n        Pmw.MegaWidget.__init__(self, self.parent)\n        # Set window size\n        self.parent.geometry('%dx%d' % (self.frameWidth, self.frameHeight))\n        self.parent.title(self['title'])\n        # Create unique id",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3722
+  }
+}

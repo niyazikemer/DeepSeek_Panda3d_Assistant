@@ -1,0 +1,9 @@
+{
+  "content": "for np in list(self.npIndex.keys()):\n            del self.npIndex[np]\n\n        self.objects = {}\n        self.npIndex = {}\n        self.saveData = []\n        self.Actor = []\n        self.Nodes = []\n\n    def genUniqueId(self):\n        # [gjeon] to solve the problem of unproper $USERNAME\n        userId = os.path.basename(os.path.expandvars('$USERNAME'))\n        if userId == '':\n            userId = ConfigVariableString(\"le-user-id\").value\n        if userId == '':\n            userId = 'unknown'\n        newUid = str(time.time()) + userId\n        # prevent duplicates from being generated in the same frame (this can\n        # happen when creating several new objects at once)\n        if self.lastUid == newUid:\n            # append a value to the end to uniquify the id\n            newUid = newUid + str(self.lastUidMod)\n            self.lastUidMod = self.lastUidMod + 1\n        else:\n            self.lastUid = newUid\n            self.lastUidMod = 0\n        return newUid",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 490
+  }
+}

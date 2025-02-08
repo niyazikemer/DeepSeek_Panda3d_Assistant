@@ -1,0 +1,9 @@
+{
+  "content": "def onPopupItemSelected(self, event):\n        menuItem = self.popupmenu.FindItemById(event.GetId())\n        text = menuItem.GetText()\n        if text == self.opDelete:\n            self.remove()\n\n    def onShowPopup(self, event):\n        pos = event.GetPosition()\n        pos = self.ScreenToClient(pos)\n        self.PopupMenu(self.popupmenu, pos)\n\n    def findLabel(self, text):\n        found = False\n        for index in range(self.llist.GetItemCount()):\n            itemtext = self.llist.GetItemText(index)\n            if itemtext == text:\n                return True\n        return found\n\n    def removeItem(self, index):\n        if index != -1:\n            key = self.llist.GetItemText(index)\n            del self.protoObjs.data[key]\n            item = self.llist.DeleteItem(index)\n\n    def remove(self):\n        index = self.llist.GetFirstSelected()\n        self.removeItem(index)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_24",
+    "parent": "processed_documents/context_documents/4ea9b58a_ProtoObjsUI.json",
+    "chunk_number": 355
+  }
+}

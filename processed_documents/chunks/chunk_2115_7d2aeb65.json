@@ -1,0 +1,9 @@
+{
+  "content": "filename = basename + self.sourceExtension\n\n        dllexport = ''\n        dllimport = ''\n        if self.platform.startswith('win'):\n            dllexport = '__declspec(dllexport) '\n            dllimport = '__declspec(dllimport) '\n\n        if not self.cenv:\n            self.cenv = CompilationEnvironment(platform = self.platform)\n\n        if compileToExe:\n            code = self.frozenMainCode\n\n            decls = ''\n            calls = ''\n            for func in self.extraInitFuncs:\n                if isinstance(func, str):\n                    func = ('void', func)\n                decls += f'extern {func[0]} {func[1]}();\\n'\n                calls += f'    {func[1]}();\\n';\n\n            code = code.replace('EXTRA_INIT_FUNC_DECLS', decls)\n            code = code.replace('EXTRA_INIT_FUNC_CALLS', calls)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2115
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def createActorControls(self):\n        # Create a frame to hold all the actor controls\n        self.actorFrame = tk.Frame(self.interior())\n        # Create a control for each actor\n        self.actorControlList = []\n        for actor in self['actorList']:\n            anims = actor.getAnimNames()\n            print(\"actor animnames: %s\"%anims)\n            topAnims = []\n            if 'neutral' in anims:\n                i = anims.index('neutral')\n                del anims[i]\n                topAnims.append('neutral')\n            if 'walk' in anims:\n                i = anims.index('walk')\n                del anims[i]\n                topAnims.append('walk')\n            if 'run' in anims:\n                i = anims.index('run')\n                del anims[i]\n                topAnims.append('run')\n            anims.sort()\n            anims = topAnims + anims\n            if len(anims) == 0:\n                # no animations set for this actor, don't\n                # display the control panel",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 986
+  }
+}

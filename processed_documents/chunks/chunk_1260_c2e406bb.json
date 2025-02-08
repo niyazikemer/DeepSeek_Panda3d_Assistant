@@ -1,0 +1,9 @@
+{
+  "content": "def setRenderer(self, type):\n        if self.rendererType == type:\n            return None\n        if self.renderer:\n            self.renderer = None\n        self.rendererType = type\n        if type == \"PointParticleRenderer\":\n            self.renderer = PointParticleRenderer()\n            self.renderer.setPointSize(1.0)\n        elif type == \"LineParticleRenderer\":\n            self.renderer = LineParticleRenderer()\n        elif type == \"GeomParticleRenderer\":\n            self.renderer = GeomParticleRenderer()\n            # This was moved here because we do not want to download\n            # the direct tools with toontown.\n            if __dev__:\n                from direct.directtools import DirectSelection\n                npath = NodePath('default-geom')\n                bbox = DirectSelection.DirectBoundingBox(npath)\n                self.renderer.setGeomNode(bbox.lines.node())\n        elif type == \"SparkleParticleRenderer\":\n            self.renderer = SparkleParticleRenderer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1260
+  }
+}

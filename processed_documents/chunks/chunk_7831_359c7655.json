@@ -1,0 +1,9 @@
+{
+  "content": "card = NodePath(cardMaker.generate())\ntnp = card.attachNewNode(textNode)\ncard.setEffect(DecalEffect.make())\n\nInstead of parenting the TextNode directly to the scene, parent the node returned by textNode.generate() instead. This will be a static node that contains the polygons that render the text. If the text changes in the future, it won't automatically update the geometry in this node; you will have to replace this node with the new result of textNode.generate(). But this node will be 100% pickable. In particular, if you have specified textNode.setCardDecal(True), then the first child of the node should be the card geometry.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_723",
+    "parent": "processed_documents/context_documents/1b6ddfee_8dcb8f12_rendering-text.json",
+    "chunk_number": 7831
+  }
+}

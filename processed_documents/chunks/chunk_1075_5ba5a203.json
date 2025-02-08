@@ -1,0 +1,9 @@
+{
+  "content": "def xformStart(self, data):\n        # Record undo point\n        self.pushUndo()\n        # If moving widget kill follow task and update wrts\n        if self.nodePathMenu.get() == 'widget':\n            taskMgr.remove('followSelectedNodePath')\n            # Record relationship between selected nodes and widget\n            ShowBaseGlobal.direct.selected.getWrtAll()\n        # Record initial state\n        self.deltaHpr = self['nodePath'].getHpr(self.refCS)\n        # Update placer to reflect new state\n        self.updatePlacer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1075
+  }
+}

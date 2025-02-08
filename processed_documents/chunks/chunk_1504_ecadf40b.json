@@ -1,0 +1,9 @@
+{
+  "content": "def setup(self):\n        self.guiItem.setupMinimal(self['width'], self['numLines'])\n\n    def updateWidth(self):\n        self.guiItem.setMaxWidth(self['width'])\n\n    def updateNumLines(self):\n        self.guiItem.setNumLines(self['numLines'])\n\n    def setFocus(self):\n        PGEntry.setFocus(self.guiItem, self['focus'])\n\n    def setCursorKeysActive(self):\n        PGEntry.setCursorKeysActive(self.guiItem, self['cursorKeys'])\n\n    def setOverflowMode(self):\n        PGEntry.set_overflow_mode(self.guiItem, self['overflow'])\n\n    def setObscureMode(self):\n        PGEntry.setObscureMode(self.guiItem, self['obscured'])\n\n    def setBackgroundFocus(self):\n        PGEntry.setBackgroundFocus(self.guiItem, self['backgroundFocus'])\n\n    def setRolloverSound(self):\n        rolloverSound = self['rolloverSound']\n        if rolloverSound:\n            self.guiItem.setSound(DGG.ENTER + self.guiId, rolloverSound)\n        else:\n            self.guiItem.clearSound(DGG.ENTER + self.guiId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1504
+  }
+}

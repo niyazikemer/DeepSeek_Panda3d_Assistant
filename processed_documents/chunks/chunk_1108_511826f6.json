@@ -1,0 +1,9 @@
+{
+  "content": "# Draw the oval\n        self.x = 0\n        self.y = 0\n        half = self._canvas.winfo_fpixels(self['radius'])\n        self.marker = self._canvas.create_oval((self.x - half),\n                                               (self.y - half),\n                                               (self.x + half),\n                                               (self.y + half),\n                                              fill = 'CornflowerBlue',\n                                              tags = (self.tag,'markers'))\n        self.text = self._canvas.create_text(0, 0, text = state.getName(),\n                                           justify = tk.CENTER,\n                                           tags = (self.tag,'labels'))\n        # Is this state contain a sub machine?\n        if state.hasChildren():\n            # reduce half by sqrt of 2.0\n            half = half * 0.707106\n            self.rect = self._canvas.create_rectangle((- half), (- half),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1108
+  }
+}

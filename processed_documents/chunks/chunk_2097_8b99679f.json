@@ -1,0 +1,9 @@
+{
+  "content": "moduleDefs.sort()\n        return moduleDefs\n\n    def __replacePaths(self):\n        # Build up the replacement pathname table, so we can eliminate\n        # the personal information in the frozen pathnames.  The\n        # actual filename we put in there is meaningful only for stack\n        # traces, so we'll just use the module name.\n        replace_paths = []\n        for moduleName, module in list(self.mf.modules.items()):\n            if module.__code__:\n                origPathname = module.__code__.co_filename\n                if origPathname:\n                    replace_paths.append((origPathname, moduleName))\n        self.mf.replace_paths = replace_paths\n\n        # Now that we have built up the replacement mapping, go back\n        # through and actually replace the paths.\n        for moduleName, module in list(self.mf.modules.items()):\n            if module.__code__:\n                co = self.mf.replace_paths_in_code(module.__code__)\n                module.__code__ = co",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2097
+  }
+}

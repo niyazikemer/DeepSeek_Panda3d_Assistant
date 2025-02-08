@@ -1,0 +1,9 @@
+{
+  "content": "if \"ExposureAdjust\" in configuration:\n                text += \"  o_color.rgb *= k_exposure;\\n\"\n\n            if \"HighDynamicRange\" in configuration:\n                tonemap = configuration[\"HighDynamicRange\"]\n                if tonemap is ToneMap.ACES:\n                    # With thanks to Stephen Hill!\n                    text += \"  float3 aces_color = mul(aces_input_mat, o_color.rgb);\\n\"\n                    text += \"  o_color.rgb = saturate(mul(aces_output_mat, (aces_color * (aces_color + 0.0245786f) - 0.000090537f) / (aces_color * (0.983729f * aces_color + 0.4329510f) + 0.238081f)));\\n\"\n                elif tonemap is ToneMap.PBR_NEUTRAL:\n                    text += \"  const float start_compression = 0.8 - 0.04;\\n\"\n                    text += \"  const float desaturation = 0.15;\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3975
+  }
+}

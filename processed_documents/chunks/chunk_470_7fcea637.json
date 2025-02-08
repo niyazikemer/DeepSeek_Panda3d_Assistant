@@ -1,0 +1,9 @@
+{
+  "content": "def OnSaveAnim(self, evt):\n        if not self.curveSequence:\n            dlg = wx.MessageDialog(None, 'Please create an animation first.', 'NOTICE', wx.OK)\n            dlg.ShowModal()\n            dlg.Destroy()\n        else:\n            if self.editor.animMgr.curveAnimation == {}:\n                self.editor.animMgr.curveAnimation[(self.nodePath[OG.OBJ_UID], self.curve[OG.OBJ_UID])] = \\\n                    (self.nodePath[OG.OBJ_UID], self.curve[OG.OBJ_UID], self.time)\n                self.editor.updateStatusReadout('Sucessfully saved to global animation list')\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_30",
+    "parent": "processed_documents/context_documents/258ea79b_CurveAnimUI.json",
+    "chunk_number": 470
+  }
+}

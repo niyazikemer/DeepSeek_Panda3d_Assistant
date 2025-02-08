@@ -1,0 +1,9 @@
+{
+  "content": "class TexPlacement:\n    def __init__(self, l, r, b, t):\n        self.p = (l, r, b, t)\n        self.area = (r - l) * (t - b)\n        self.rotated = False\n        self.overflowed = 0\n\n    def intersects(self, other):\n        \"\"\" Returns True if the placements intersect, False\n        otherwise. \"\"\"\n\n        ml, mr, mb, mt = self.p\n        tl, tr, tb, tt = other.p\n\n        return (tl < mr and tr > ml and\n                tb < mt and tt > mb)\n\n    def setBitmasks(self, bitmasks):\n        \"\"\" Sets all of the appropriate bits to indicate this region\n        is taken. \"\"\"\n\n        l, r, b, t = self.p\n        mask = BitArray.range(l, r - l)\n\n        for yi in range(b, t):\n            assert (bitmasks[yi] & mask).isZero()\n            bitmasks[yi] |= mask\n\n    def clearBitmasks(self, bitmasks):\n        \"\"\" Clears all of the appropriate bits to indicate this region\n        is available. \"\"\"\n\n        l, r, b, t = self.p\n        mask = ~BitArray.range(l, r - l)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 3002
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Some dependencies have extra directories that need to be scanned for DLLs.\n# This dictionary maps wheel basenames (ie. the part of the .whl basename\n# before the first hyphen) to a list of tuples, the first value being the\n# directory inside the wheel, the second being which wheel to look in (or\n# None to look in its own wheel).\n\nPACKAGE_LIB_DIRS = {\n    'scipy':  [('scipy/extra-dll', None)],\n    'PyQt5':  [('PyQt5/Qt5/bin', 'PyQt5_Qt5')],\n}\n\nSITE_PY = \"\"\"\nimport sys\nfrom _frozen_importlib import _imp, FrozenImporter\n\nsys.frozen = True\n\nif sys.platform == 'win32' and sys.version_info < (3, 10):\n    # Make sure the preferred encoding is something we actually support.\n    import _bootlocale\n    enc = _bootlocale.getpreferredencoding().lower()\n    if enc != 'utf-8' and not _imp.is_frozen('encodings.%s' % (enc)):\n        def getpreferredencoding(do_setlocale=True):\n            return 'mbcs'\n        _bootlocale.getpreferredencoding = getpreferredencoding",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1925
+  }
+}

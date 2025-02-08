@@ -1,0 +1,9 @@
+{
+  "content": "def _updateBorderWidth(self):\n        self.interior()['bd'] = self['bd']\n\n    def _updateEntryWidth(self):\n        self['Entry_entry_width'] = self['entryWidth']\n\n    def _setSigDigits(self):\n        sd = self['numDigits']\n        self.entryFormat = '%.' + '%d' % sd + 'f'\n        self.configure(valuator_numDigits = sd)\n        # And refresh value to reflect change\n        for index in range(self['dim']):\n            self._refreshEntry(index)\n\n    def _updateValidate(self):\n        # Update entry field to respect new limits\n        self.configure(Entry_validate = {\n            'validator': 'real',\n            'min': self['min'],\n            'max': self['max'],\n            'minstrict': 0,\n            'maxstrict': 0})\n        # Reflect changes in floaters\n        self.configure(valuator_min = self['min'],\n                       valuator_max = self['max'])\n\n    def get(self):\n        return self._value\n\n    def getAt(self, index):\n        return self._value[index]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3539
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def highlightAll(self):\n        self.forEachSelectedNodePathDo(DirectNodePath.highlight)\n\n    def dehighlightAll(self):\n        self.forEachSelectedNodePathDo(DirectNodePath.dehighlight)\n\n    def removeSelected(self):\n        selected = self.last\n        if selected:\n            selected.remove()\n        __builtins__[\"last\"] = self.last = None\n\n    def removeAll(self):\n        # Remove all selected nodePaths from the Scene Graph\n        self.forEachSelectedNodePathDo(NodePath.remove)\n\n    def toggleVisSelected(self):\n        selected = self.last\n        # Toggle visibility of selected node paths\n        if selected:\n            if selected.isHidden():\n                selected.show()\n            else:\n                selected.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3449
+  }
+}

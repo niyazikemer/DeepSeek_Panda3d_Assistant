@@ -1,0 +1,9 @@
+{
+  "content": "class TaskProfiler:\n    # this does intermittent profiling of tasks running on the system\n    # if a task has a spike in execution time, the profile of the spike is logged\n    notify = directNotify.newCategory(\"TaskProfiler\")\n\n    def __init__(self):\n        self._enableFC = FunctionCall(self._setEnabled, taskMgr.getProfileTasksSV())\n        self._enableFC.pushCurrentState()\n        # table of task name pattern to TaskTracker\n        self._namePrefix2tracker = {}\n        self._task = None\n\n    def destroy(self):\n        if taskMgr.getProfileTasks():\n            self._setEnabled(False)\n        self._enableFC.destroy()\n        for tracker in self._namePrefix2tracker.values():\n            tracker.destroy()\n        del self._namePrefix2tracker\n        del self._task\n\n    @staticmethod\n    def GetDefaultSpikeThreshold():\n        return ConfigVariableDouble('profile-task-spike-threshold', 5.).value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3938
+  }
+}

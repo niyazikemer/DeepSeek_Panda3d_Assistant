@@ -1,0 +1,9 @@
+{
+  "content": "Panda3D provides various ways to use threading, both implicitly (by telling it to run some things in separate threads) as well as explicitly, by offering ways to create your own threads for running your own code. Panda3D is compiled by default to use \"true\" threading, which makes it safe to use Python threading interfaces (or any other threading library) in conjunction with or in lieu of Panda's own built-in threading interfaces described below.\n\nIf you want to test whether threading is enabled in your build of panda, use the following program:\n\npython\n\nfrom panda3d.core import Thread\nprint(Thread.isThreadingSupported())\n\ncpp\n\n#include \"thread.h\"\n\nint main() {\n  std::cerr << Thread::is_threading_supported() << std::endl;\n  return 0;\n}\n\nIf threading is enabled, it's also possible to turn it off, for example if you want to test if a certain problem you are experiencing is related to threading. Put this in your Config.prc <configuring-panda3d>:\n\nsupport-threads #f",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_378",
+    "parent": "processed_documents/context_documents/e1cb27da_d50d13d2_threading.json",
+    "chunk_number": 5948
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def setNumSegments(self):\n        self._widget.delete('ticks')\n        # Based upon input snap angle, how many ticks\n        numSegments = self['numSegments']\n        # Compute snapAngle (radians)\n        self.snapAngle = snapAngle = TWO_PI / numSegments\n        # Create the ticks at the snap angles\n        for ticknum in range(numSegments):\n            angle = snapAngle * ticknum\n            # convert to canvas coords\n            angle = angle - POINTFIVE_PI\n            # Compute tick endpoints\n            startx = math.cos(angle) * self.radius\n            starty = math.sin(angle) * self.radius\n            # Elongate ticks at 90 degree points\n            if (angle % POINTFIVE_PI) == 0.0:\n                sf = 0.6\n            else:\n                sf = 0.8\n            endx = startx * sf\n            endy = starty * sf\n            self._widget.create_line(startx, starty, endx, endy,\n                                     tags = ('ticks','dial'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3717
+  }
+}

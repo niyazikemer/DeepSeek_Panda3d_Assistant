@@ -1,0 +1,9 @@
+{
+  "content": "self.irisTaskName = \"irisTask\"\n        self.fadeTaskName = \"fadeTask\"\n        self.letterboxTaskName = \"letterboxTask\"\n\n    def __del__(self):\n        if self.fadeModel:\n            self.fadeModel.removeNode()\n            self.fadeModel = None\n\n    ##################################################\n    # Fade\n    ##################################################\n\n    # We can set a custom model for the fade before using it for the first time\n    def setFadeModel(self, model, scale=1.0):\n        self.fadeModel = model\n        # We have to change some default parameters for a custom fadeModel\n        self.alphaOn = Vec4(1, 1, 1, 1)\n\n        # Reload fade if its already been created\n        if self.fade:\n            self.fade.destroy()\n            self.fade = None\n            self.loadFade()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4285
+  }
+}

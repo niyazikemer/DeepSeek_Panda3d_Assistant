@@ -1,0 +1,9 @@
+{
+  "content": "def createAngleDial(self, parent, category, text, balloonHelp,\n                        command = None, **kw):\n        kw['text'] = text\n        widget = Dial.AngleDial(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1224
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# setters and getters\n\n    def getName(self):\n        return self.__name\n\n    def setName(self, name):\n        self.__name = name\n\n    def getStates(self):\n        return list(self.__states.values())\n\n    def setStates(self, states):\n        \"\"\"setStates(self, State[])\"\"\"\n        # Make a dictionary from stateName -> state\n        self.__states = {}\n        for state in states:\n            self.__states[state.getName()] = state\n\n    def addState(self, state):\n        self.__states[state.getName()] = state\n\n    def getInitialState(self):\n        return self.__initialState\n\n    def setInitialState(self, initialStateName):\n        self.__initialState = self.getStateNamed(initialStateName)\n\n    def getFinalState(self):\n        return self.__finalState\n\n    def setFinalState(self, finalStateName):\n        self.__finalState = self.getStateNamed(finalStateName)\n\n    def requestFinalState(self):\n        self.request(self.getFinalState().getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2609
+  }
+}

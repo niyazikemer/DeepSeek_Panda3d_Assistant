@@ -1,0 +1,9 @@
+{
+  "content": "class Thread(_Verbose):\n\n    __initialized = False\n    # Need to store a reference to sys.exc_info for printing\n    # out exceptions when a thread tries to use a global var. during interp.\n    # shutdown and thus raises an exception about trying to perform some\n    # operation on/with a NoneType\n    __exc_info = _sys.exc_info\n\n    # Set to True when the _shutdown handler is registered as atexit function.\n    # Protected by _active_limbo_lock.\n    __registered_atexit = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3825
+  }
+}

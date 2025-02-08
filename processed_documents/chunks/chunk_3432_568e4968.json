@@ -1,0 +1,9 @@
+{
+  "content": "def mouseUpdate(self):\n        # Mouse Data\n        # Last frame\n        self.mouseLastX = self.mouseX\n        self.mouseLastY = self.mouseY\n\n        # Values for this frame\n        # This ranges from -1 to 1\n        mouseWatcherNode = base.mouseWatcherNode\n        if mouseWatcherNode and mouseWatcherNode.hasMouse():\n            self.mouseX = mouseWatcherNode.getMouseX()\n            self.mouseY = mouseWatcherNode.getMouseY()\n            self.mouseX = (self.mouseX-self.originX)*self.scaleX\n            self.mouseY = (self.mouseY-self.originY)*self.scaleY\n        # Delta percent of window the mouse moved\n        self.mouseDeltaX = self.mouseX - self.mouseLastX\n        self.mouseDeltaY = self.mouseY - self.mouseLastY\n        self.nearVec.set((self.nearWidth*0.5) * self.mouseX,\n                         self.near,\n                         (self.nearHeight*0.5) * self.mouseY)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3432
+  }
+}

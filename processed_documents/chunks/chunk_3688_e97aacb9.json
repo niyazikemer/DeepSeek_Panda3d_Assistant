@@ -1,0 +1,9 @@
+{
+  "content": "def drawtext(self):\n        textx = self.x+20-1\n        texty = self.y-1\n        labeltext = self.item.GetLabelText()\n        if labeltext:\n            id = self.canvas.create_text(textx, texty, anchor=\"nw\",\n                                         text=labeltext)\n            self.canvas.tag_bind(id, \"<1>\", self.select)\n            self.canvas.tag_bind(id, \"<Double-1>\", self.flip)\n            x0, y0, x1, y1 = self.canvas.bbox(id)\n            textx = max(x1, 200) + 10\n        text = self.item.GetText() or \"<no text>\"\n        try:\n            self.entry\n        except AttributeError:\n            pass\n        else:\n            self.edit_finish()\n        try:\n            label = self.label\n        except AttributeError:\n            # padding carefully selected (on Windows) to match Entry widget:\n            self.label = tk.Label(self.canvas, text=text, bd=0, padx=2, pady=2)\n        if self.selected:\n            self.label.configure(fg=\"white\", bg=\"darkblue\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3688
+  }
+}

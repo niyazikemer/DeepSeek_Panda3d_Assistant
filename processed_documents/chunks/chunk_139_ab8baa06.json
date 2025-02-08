@@ -1,0 +1,9 @@
+{
+  "content": "newlines.append('.. code-block:: guess')\n                newlines.append('')\n                offset = line.index('@' + special)\n                while lines:\n                    line = lines.pop(0)\n                    if '@endverbatim' in line or '@endcode' in line:\n                        break\n                    newlines.append('   ' + line[offset:])\n\n                newlines.append('')\n                continue\n            elif special == \"f[\":\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('.. math::')\n                newlines.append('')\n                offset = line.index('@' + special)\n                while lines:\n                    line = lines.pop(0)\n                    if '@f]' in line:\n                        break\n                    newlines.append('   ' + line[offset:])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 139
+  }
+}

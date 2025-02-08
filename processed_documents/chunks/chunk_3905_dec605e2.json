@@ -1,0 +1,9 @@
+{
+  "content": "# set these values *after* profiling in case we're profiling the TaskProfiler\n        profileInfo.session = profileSession\n        profileInfo.profiled = True\n\n        return ret\n\n    def _hasProfiledDesignatedTask(self):\n        # have we run a profile of the designated task yet?\n        return self._taskProfileInfo.profiled\n\n    def _getLastTaskProfileSession(self):\n        return self._taskProfileInfo.session\n\n    def _getRandomTask(self):\n        # Figure out when the next frame is likely to expire, so we\n        # won't grab any tasks that are sleeping for a long time.\n        now = self.globalClock.getFrameTime()\n        avgFrameRate = self.globalClock.getAverageFrameRate()\n        if avgFrameRate < .00001:\n            avgFrameDur = 0.\n        else:\n            avgFrameDur = (1. / self.globalClock.getAverageFrameRate())\n        next = now + avgFrameDur",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3905
+  }
+}

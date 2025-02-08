@@ -1,0 +1,9 @@
+{
+  "content": "class ParticlePanel(AppShell):\n    # Override class variables\n    appname = 'Particle Panel'\n    frameWidth  = 375\n    frameHeight = 675\n    usecommandarea = 0\n    usestatusarea  = 0\n    balloonState = 'both'\n\n    def __init__(self, particleEffect = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('title',     self.appname,       None),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Record particle effect\n        if particleEffect is not None:\n            self.particleEffect = particleEffect\n        else:\n            # Make sure particles are enabled\n            base.enableParticles()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 712
+  }
+}

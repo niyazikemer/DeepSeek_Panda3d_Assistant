@@ -1,0 +1,9 @@
+{
+  "content": "def fixBounds(self, partName = None):\n        if partName is None:\n            #iterate through everything\n            for lodData in self.__partBundleDict.values():\n                for partData in lodData.values():\n                    char = partData.partBundleNP\n                    char.node().update()\n                    geomNodes = char.findAllMatches(\"**/+GeomNode\")\n                    for thisGeomNode in geomNodes:\n                        for thisGeom in thisGeomNode.node().getGeoms():\n                            thisGeom.markBoundsStale()\n                        thisGeomNode.node().markInternalBoundsStale()\n        else:\n            #iterate through for a specific part\n            for lodData in self.__partBundleDict.values():\n                partData = lodData.get(partName)\n                if partData:\n                    char = partData.partBundleNP\n                    char.node().update()\n                    geomNodes = char.findAllMatches(\"**/+GeomNode\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3111
+  }
+}

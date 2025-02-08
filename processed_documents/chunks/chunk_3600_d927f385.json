@@ -1,0 +1,9 @@
+{
+  "content": "def getBTWidth(self, vertexBytes, totalBytes):\n        if totalBytes == 0:\n            return 1\n\n        width = int(self.btWidth * vertexBytes / totalBytes)\n\n        if width == 0:\n            width = 1\n\n        return width\n\n    #--------------------------------------------------------------------------\n    # Callback\n    #--------------------------------------------------------------------------\n    def onScaleUpdate(self, arg):\n        self.btWidth = DEFAULT_BT_WIDTH +  DEFAULT_BT_WIDTH * float(arg)\n\n        if self.rootItem:\n            self.updateBTWidth()\n        else:\n            self.updateDefaultBTWidth()\n\n    def updateBTWidth(self):\n        self.buttons[0]['width'] = self.getBTWidth(self.rootItem.getSelfVertexBytes(),\n                                                   self.rootItem.getVertexBytes())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3600
+  }
+}

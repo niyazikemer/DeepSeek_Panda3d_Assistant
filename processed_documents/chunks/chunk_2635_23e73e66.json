@@ -1,0 +1,9 @@
+{
+  "content": "If the FSM is currently undergoing a transition, this will\n        queue up the new transition.\n\n        Returns a future, which can be used to await the transition.\n        \"\"\"\n\n        self.fsmLock.acquire()\n        try:\n            assert isinstance(request, str)\n            self.notify.debug(\"%s.forceTransition(%s, %s\" % (\n                self._name, request, str(args)[1:]))\n\n            if not self.state:\n                # Queue up the request.\n                fut = AsyncFuture()\n                self.__requestQueue.append((PythonUtil.Functor(\n                    self.forceTransition, request, *args), fut))\n                return fut\n\n            result = self.__setState(request, *args)\n            return result._future or self.__doneFuture\n        finally:\n            self.fsmLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2635
+  }
+}

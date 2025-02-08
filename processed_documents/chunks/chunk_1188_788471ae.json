@@ -1,0 +1,9 @@
+{
+  "content": "def selectNodePathNamed(self, name):\n        nodePath = None\n        if name == 'init':\n            nodePath = self.nodePath\n            # Add Combo box entry for the initial node path\n            self.addNodePath(nodePath)\n        elif name == 'selected':\n            nodePath = base.direct.selected.last\n            # Add Combo box entry for this selected object\n            self.addNodePath(nodePath)\n        else:\n            nodePath = self.nodePathDict.get(name, None)\n            if nodePath is None:\n                # See if this evaluates into a node path\n                try:\n                    nodePath = eval(name)\n                    if isinstance(nodePath, NodePath):\n                        self.addNodePath(nodePath)\n                    else:\n                        # Good eval but not a node path, give up\n                        nodePath = None\n                except Exception:\n                    # Bogus eval\n                    nodePath = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1188
+  }
+}

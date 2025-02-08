@@ -1,0 +1,9 @@
+{
+  "content": "for abi in self.android_abis:\n                    lib_dir = os.path.join(build_dir, 'lib', abi)\n                    os.makedirs(lib_dir, exist_ok=True)\n\n                    suffix = None\n                    if abi == 'arm64-v8a':\n                        suffix = '_arm64'\n                    elif abi == 'armeabi-v7a':\n                        suffix = '_armv7a'\n                    elif abi == 'armeabi':\n                        suffix = '_arm'\n                    else: # e.g. x86, x86_64, mips, mips64\n                        suffix = '_' + abi.replace('-', '_')\n\n                    # We end up copying the data multiple times to the same\n                    # directory, but that's probably fine for now.\n                    self.build_binaries(platform + suffix, lib_dir, data_dir)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1950
+  }
+}

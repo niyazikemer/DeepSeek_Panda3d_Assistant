@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis is just a sample code.\n\nLevelEditor, ObjectHandler, ObjectPalette should be rewritten\nto be game specific.\n\"\"\"\n\nimport os\nimport wx\nfrom .LevelEditorUI import LevelEditorUI\nfrom .LevelEditorBase import LevelEditorBase\nfrom .ObjectMgr import ObjectMgr\nfrom .AnimMgr import AnimMgr\nfrom .ObjectHandler import ObjectHandler\nfrom .ObjectPalette import ObjectPalette\nfrom .ProtoPalette import ProtoPalette\n\nclass LevelEditor(LevelEditorBase):\n    \"\"\" Class for Panda3D LevelEditor \"\"\"\n    def __init__(self):\n        LevelEditorBase.__init__(self)\n\n        # define your own config file similar to this\n        self.settingsFile = os.path.dirname(__file__) + '/LevelEditor.cfg'\n\n        # If you have your own ObjectPalette and ObjectHandler\n        # connect them in your own LevelEditor class\n        self.objectMgr = ObjectMgr(self)\n        self.animMgr = AnimMgr(self)\n        self.objectPalette = ObjectPalette()\n        self.objectHandler = ObjectHandler(self)\n        self.protoPalette = ProtoPalette()\n\n        # Populating uderlined data-structures\n        self.ui = LevelEditorUI(self)\n        self.ui.SetCursor(wx.Cursor(wx.CURSOR_WAIT))\n        self.objectPalette.populate()\n        self.protoPalette.populate()\n\n        # Updating UI-panels based on the above data\n        self.ui.objectPaletteUI.populate()\n        self.ui.protoPaletteUI.populate()\n\n        # When you define your own LevelEditor class inheriting LevelEditorBase\n        # you should call self.initialize() at the end of __init__() function\n        self.initialize()\n        self.ui.SetCursor(wx.Cursor(wx.CURSOR_ARROW))\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/leveleditor/LevelEditor.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/3cd00660_LevelEditor.json",
+    "doc_id": "doc_23"
+  }
+}

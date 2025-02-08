@@ -1,0 +1,9 @@
+{
+  "content": "def delVolumetricLighting(self):\n        if \"VolumetricLighting\" in self.configuration:\n            del self.configuration[\"VolumetricLighting\"]\n            return self.reconfigure(True, \"VolumetricLighting\")\n        return True\n\n    def setBlurSharpen(self, amount=0.0):\n        \"\"\"Enables the blur/sharpen filter. If the 'amount' parameter is 1.0, it will not have any effect.\n        A value of 0.0 means fully blurred, and a value higher than 1.0 sharpens the image.\"\"\"\n        fullrebuild = (\"BlurSharpen\" not in self.configuration)\n        self.configuration[\"BlurSharpen\"] = amount\n        return self.reconfigure(fullrebuild, \"BlurSharpen\")\n\n    def delBlurSharpen(self):\n        if \"BlurSharpen\" in self.configuration:\n            del self.configuration[\"BlurSharpen\"]\n            return self.reconfigure(True, \"BlurSharpen\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3988
+  }
+}

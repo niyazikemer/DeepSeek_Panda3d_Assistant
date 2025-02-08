@@ -1,0 +1,9 @@
+{
+  "content": "def __onPress(self, event):\n        # Enable slider command\n        self.fScaleCommand = 1\n\n    def __onRelease(self, event):\n        # Disable slider command\n        self.fScaleCommand = 0\n\n    def selectAnimNamed(self, name):\n        # Update active anim\n        self['active'] = name\n        # Reset play rate\n        self.component('playRateMenu').selectitem('1.0')\n        self.setPlayRate('1.0')\n        # Move slider to zero\n        self.resetToZero()\n\n    def setPlayRate(self, rate):\n        # set play rate on the actor, although for the AnimPanel\n        # purpose we don't use the actor's play rate, but rather\n        # the self.playRate value since we drive the animation\n        # playback ourselves\n        self['actor'].setPlayRate(eval(rate), self['active'])\n        self.playRate = eval(rate)\n        self.updateDisplay()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1004
+  }
+}

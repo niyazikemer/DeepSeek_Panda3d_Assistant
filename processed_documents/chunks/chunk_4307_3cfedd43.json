@@ -1,0 +1,9 @@
+{
+  "content": "# masad: always place these at the bottom of render\n            self.letterboxTop.setBin('sorted',0)\n            self.letterboxBottom.setBin('sorted',0)\n            self.letterbox.reparentTo(ShowBaseGlobal.render2d, -1)\n            self.letterboxOff(0)\n\n    def noLetterbox(self):\n        \"\"\"\n        Removes any current letterbox tasks and parents the letterbox polygon away\n        \"\"\"\n        if self.letterboxIval:\n            self.letterboxIval.pause()\n            self.letterboxIval = None\n        if self.__letterboxFuture:\n            self.__letterboxFuture.cancel()\n            self.__letterboxFuture = None\n        if self.letterbox:\n            self.letterbox.stash()\n\n    def __finishLetterbox(self):\n        if self.__letterboxFuture:\n            self.__letterboxFuture.setResult(None)\n            self.__letterboxFuture = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4307
+  }
+}

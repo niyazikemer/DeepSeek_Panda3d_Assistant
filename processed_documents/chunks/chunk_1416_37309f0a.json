@@ -1,0 +1,9 @@
+{
+  "content": "def guiDragTask(self, state):\n        mwn = base.mouseWatcherNode\n        if mwn.hasMouse():\n            vMouse2render2d = Point3(mwn.getMouse()[0], 0, mwn.getMouse()[1])\n            newPos = vMouse2render2d + state.editVec\n            self.setPos(ShowBaseGlobal.render2d, newPos)\n            if DirectGuiWidget.snapToGrid:\n                newPos = self.getPos()\n                newPos.set(\n                    ROUND_TO(newPos[0], DirectGuiWidget.gridSpacing),\n                    ROUND_TO(newPos[1], DirectGuiWidget.gridSpacing),\n                    ROUND_TO(newPos[2], DirectGuiWidget.gridSpacing))\n                self.setPos(newPos)\n        return Task.cont\n\n    def editStop(self, event):\n        taskMgr.remove('guiEditTask')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1416
+  }
+}

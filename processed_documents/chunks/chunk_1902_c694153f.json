@@ -1,0 +1,9 @@
+{
+  "content": "# Skip the rest of the tables.\n        if numrvas >= 4:\n            fp.seek((numrvas - 3) * 8, 1)\n\n        # Write the modified section headers.\n        for section in self.sections:\n            section.write_header(fp)\n            assert fp.tell() <= self.header_size\n\n        # Write the section data of modified sections.\n        for section in self.sections:\n            if not section.modified:\n                continue\n\n            fp.seek(section.offset)\n            size = min(section.vsize, section.size)\n            fp.write(self.vmem[section.vaddr:section.vaddr+size])\n\n            pad = section.size - size\n            assert pad >= 0\n            if pad > 0:\n                fp.write(bytearray(pad))\n\n            section.modified = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1902
+  }
+}

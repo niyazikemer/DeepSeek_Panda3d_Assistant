@@ -1,0 +1,9 @@
+{
+  "content": "def initialize(self):\n        self.Update()\n        if self.win:\n            self.cam2d = base.makeCamera2d(self.win)\n            self.cam2d.node().setCameraMask(LE_CAM_MASKS[self.name])\n\n        self.cam = base.camList[-1]\n        self.camera = render.attachNewNode(self.name)\n        #self.camera.setName(self.name)\n        #self.camera.reparentTo(render)\n        self.cam.reparentTo(self.camera)\n        self.camNode = self.cam.node()\n\n        self.camNode.setCameraMask(LE_CAM_MASKS[self.name])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 220
+  }
+}

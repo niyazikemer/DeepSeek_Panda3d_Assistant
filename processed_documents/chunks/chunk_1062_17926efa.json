@@ -1,0 +1,9 @@
+{
+  "content": "### WIDGET OPERATIONS ###\n\n    def setMovementMode(self, movementMode):\n        # Set prefix\n        namePrefix = ''\n        self.movementMode = movementMode\n        if movementMode == 'Relative To:':\n            namePrefix = 'Relative '\n        elif movementMode == 'Orbit:':\n            namePrefix = 'Orbit '\n        # Update pos widgets\n        self.posX['text'] = namePrefix + 'X'\n        self.posY['text'] = namePrefix + 'Y'\n        self.posZ['text'] = namePrefix + 'Z'\n        # Update hpr widgets\n        if movementMode == 'Orbit:':\n            namePrefix = 'Orbit delta '\n        self.hprH['text'] = namePrefix + 'H'\n        self.hprP['text'] = namePrefix + 'P'\n        self.hprR['text'] = namePrefix + 'R'\n        # Update temp cs and initialize widgets\n        self.updatePlacer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1062
+  }
+}

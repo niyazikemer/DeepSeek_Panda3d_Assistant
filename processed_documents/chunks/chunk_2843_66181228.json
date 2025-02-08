@@ -1,0 +1,9 @@
+{
+  "content": "def setupPlay(self, startT, endT, playRate, doLoop):\n        duration = self.getDuration()\n\n        if startT <= 0:\n            self.__startT = 0\n            self.__startTAtStart = 1\n        elif startT > duration:\n            self.__startT = duration\n            self.__startTAtStart = 0\n        else:\n            self.__startT = startT\n            self.__startTAtStart = 0\n\n        if endT < 0 or endT >= duration:\n            self.__endT = duration\n            self.__endTAtEnd = 1\n        else:\n            self.__endT = endT\n            self.__endTAtEnd = 0\n\n        self.__clockStart = ClockObject.getGlobalClock().getFrameTime()\n        self.__playRate = playRate\n        self.__doLoop = doLoop\n        self.__loopCount = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2843
+  }
+}

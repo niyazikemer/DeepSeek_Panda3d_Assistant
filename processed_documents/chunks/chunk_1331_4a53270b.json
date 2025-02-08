@@ -1,0 +1,9 @@
+{
+  "content": "def set(self, index, fCommand = 1):\n        # Item was selected, record item and call command if any\n        newIndex = self.index(index)\n        if newIndex is not None:\n            self.selectedIndex = newIndex\n            item = self['items'][self.selectedIndex]\n            self['text'] = item\n            if fCommand and self['command']:\n                # Pass any extra args to command\n                self['command'](*[item] + self['extraArgs'])\n\n    def get(self):\n        \"\"\" Get currently selected item \"\"\"\n        return self['items'][self.selectedIndex]\n\n    def commandFunc(self, event):\n        \"\"\"\n        Override popup menu button's command func\n        Command is executed in response to selecting menu items\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1331
+  }
+}

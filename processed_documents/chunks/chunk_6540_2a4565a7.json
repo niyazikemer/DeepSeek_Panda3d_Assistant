@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nactor.pose('Animation Name', FrameNumber)\n\nPosing an actor to a frame doesn't automatically specify the start frame of the next starting animation. Instead, if you don't want to start at the first frame, you can specify these using the optional parameters fromFrame and toFrame to the methods ~direct.actor.Actor.Actor.play() and ~direct.actor.Actor.Actor.loop():\n\npython\n\nactor.play('Animation Name', fromFrame=10)\nactor.loop('Animation Name', fromFrame=24, toFrame=36)\n\nHowever, the loop method does have another optional parameter called restart, which is 1 by default, meaning the animation will restart from the beginning. If you pass it 0 instead, then the animation will begin looping from the current frame:\n\npython\n\nactor.pose('Animation Name', 30)\nactor.loop('Animation Name', restart=0, fromFrame=24, toFrame=36)\n\nYou can get more information about an animation with these functions:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_505",
+    "parent": "processed_documents/context_documents/4f3e2d7a_0bcb2e3d_actor-animations.json",
+    "chunk_number": 6540
+  }
+}

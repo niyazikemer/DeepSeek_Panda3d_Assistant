@@ -1,0 +1,9 @@
+{
+  "content": "# Initialize the superclass\n        Pmw.MegaWidget.__init__(self, parent)\n\n        # Handle to the toplevels hull\n        interior = self.interior()\n        interior.configure(relief = tk.RAISED, bd = 2)\n\n        # Instance variables\n        self.fps = 24\n        self.offset = 0.0\n        self.maxSeconds = 1.0\n        self.currT = 0.0\n        self.fScaleCommand = 0\n        self.fOneShot = 0\n\n        # Create component widgets\n        self._label = self.createcomponent(\n            'label', (), None,\n            tk.Menubutton, (interior,),\n            font=('MSSansSerif', 14, 'bold'),\n            relief = tk.RAISED, bd = 1,\n            activebackground = '#909090',\n            text = self['text'])\n        # Top level menu\n        labelMenu = tk.Menu(self._label, tearoff = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 995
+  }
+}

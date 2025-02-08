@@ -1,0 +1,9 @@
+{
+  "content": "Point Lights\n\nPoint lights are the easiest kind of light to understand: a point light simulates a light originating from a single point in space and shining in all directions, like a very tiny light bulb. A point light's position is important, but its orientation doesn't matter.\n\npython\n\nplight = PointLight('plight')\nplight.setColor((0.2, 0.2, 0.2, 1))\nplnp = render.attachNewNode(plight)\nplnp.setPos(10, 20, 0)\nrender.setLight(plnp)\n\ncpp\n\nPT(PointLight) plight = new PointLight(\"sun\");\nplight->set_color(LColor(.7, .7, .7, 1));\nNodePath plnp = render.attach_new_node(plight);\nplnp.set_pos(500, 500, 500);\nrender.set_light(plnp);\n\nAttenuation\n\nYou can set the attenuation coefficients, which causes the light to drop off gradually with distance. There are three attenuation coefficients: constant, linear, and quadratic.\n\npython\n\nplight.attenuation = (c, l, q)\n\ncpp\n\nplight->set_attenuation(LVecBase3(c, l, q));",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5877
+  }
+}

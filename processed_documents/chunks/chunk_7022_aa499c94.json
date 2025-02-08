@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nmyNodePath.set_alpha_scale(SA);\n\nHiding and Showing\n\nTo temporarily prevent an object from being drawn on all cameras, use ~.NodePath.hide() and ~.NodePath.show():\n\npython\n\nmyNodePath.hide()\nmyNodePath.show()\n\ncpp\n\nmyNodePath.hide();\nmyNodePath.show();\n\nIf you want to hide an object for one camera but not another, you can use the ~.NodePath.hide() and ~.NodePath.show() commands in conjunction with the .Camera.set_camera_mask() function:\n\npython\n\ncamera1.node().setCameraMask(BitMask32.bit(0))\ncamera2.node().setCameraMask(BitMask32.bit(1))\nmyNodePath.hide(BitMask32.bit(0))\nmyNodePath.show(BitMask32.bit(1))\n# Now myNodePath will only be shown on camera2...\n\ncpp\n\ncamera1.node()->set_camera_mask(BitMask32::bit(0));\ncamera2.node()->set_camera_mask(BitMask32::bit(1));\nmyNodePath.hide(BitMask32::bit(0));\nmyNodePath.show(BitMask32::bit(1));\n// Now myNodePath will only be shown on camera2...",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_568",
+    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
+    "chunk_number": 7022
+  }
+}

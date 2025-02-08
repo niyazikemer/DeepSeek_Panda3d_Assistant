@@ -1,0 +1,9 @@
+{
+  "content": "def commandFunc(self, event):\n        if self['command']:\n            # Pass any extra args to command\n            self['command'](*self['extraArgs'])\n\n    def setClickSound(self):\n        clickSound = self['clickSound']\n        # Clear out sounds\n        self.guiItem.clearSound(DGG.B1PRESS + self.guiId)\n        self.guiItem.clearSound(DGG.B2PRESS + self.guiId)\n        self.guiItem.clearSound(DGG.B3PRESS + self.guiId)\n        if clickSound:\n            if DGG.LMB in self['commandButtons']:\n                self.guiItem.setSound(DGG.B1PRESS + self.guiId, clickSound)\n            if DGG.MMB in self['commandButtons']:\n                self.guiItem.setSound(DGG.B2PRESS + self.guiId, clickSound)\n            if DGG.RMB in self['commandButtons']:\n                self.guiItem.setSound(DGG.B3PRESS + self.guiId, clickSound)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_91",
+    "parent": "processed_documents/context_documents/14ac1a1d_DirectButton.json",
+    "chunk_number": 1586
+  }
+}

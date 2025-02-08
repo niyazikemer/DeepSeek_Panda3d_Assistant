@@ -1,0 +1,9 @@
+{
+  "content": "if self.rendererType == \"PointParticleRenderer\":\n            file.write('# Point parameters\\n')\n            file.write(targ + '.renderer.setPointSize(%.2f)\\n' % \\\n                                        self.renderer.getPointSize())\n            sColor = self.renderer.getStartColor()\n            file.write((targ + '.renderer.setStartColor(Vec4(%.2f, %.2f, %.2f, %.2f))\\n' % (sColor[0], sColor[1], sColor[2], sColor[3])))\n            sColor = self.renderer.getEndColor()\n            file.write((targ + '.renderer.setEndColor(Vec4(%.2f, %.2f, %.2f, %.2f))\\n' % (sColor[0], sColor[1], sColor[2], sColor[3])))\n            blendType = self.renderer.getBlendType()\n            bType = \"PPONECOLOR\"\n            if blendType == PointParticleRenderer.PPONECOLOR:\n                bType = \"PPONECOLOR\"\n            elif blendType == PointParticleRenderer.PPBLENDLIFE:\n                bType = \"PPBLENDLIFE\"\n            elif blendType == PointParticleRenderer.PPBLENDVEL:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1272
+  }
+}

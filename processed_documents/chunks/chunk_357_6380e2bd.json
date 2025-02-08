@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nDefines Scene Graph tree UI Base\n\"\"\"\nimport wx\nfrom panda3d.core import NodePath\nfrom .ActionMgr import ActionChangeHierarchy, ActionDeleteObjById\n\nfrom . import ObjectGlobals as OG\n\n\nclass SceneGraphUIDropTarget(wx.TextDropTarget):\n    def __init__(self, editor):\n        print(\"in SceneGraphUIDropTarget::init...\")\n        wx.TextDropTarget.__init__(self)\n        self.editor = editor\n\n    def OnDropText(self, x, y, text):\n        print(\"in SceneGraphUIDropTarget::OnDropText...\")\n        self.editor.ui.sceneGraphUI.changeHierarchy(text, x, y)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 357
+  }
+}

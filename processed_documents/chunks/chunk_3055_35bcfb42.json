@@ -1,0 +1,9 @@
+{
+  "content": "def listJoints(self, partName=\"modelRoot\", lodName=\"lodRoot\"):\n        \"\"\"Handy utility function to list the joint hierarchy of the\n        actor. \"\"\"\n\n        if self.mergeLODBundles:\n            partBundleDict = self.__commonBundleHandles\n        else:\n            partBundleDict = self.__partBundleDict.get(lodName)\n            if not partBundleDict:\n                Actor.notify.error(\"no lod named: %s\" % (lodName))\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef is None:\n            Actor.notify.error(\"no part named: %s\" % (partName))\n\n        self.__doListJoints(0, partDef.getBundle(),\n                            subpartDef.subset.isIncludeEmpty(), subpartDef.subset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3055
+  }
+}

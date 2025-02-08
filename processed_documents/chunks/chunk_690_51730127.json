@@ -1,0 +1,9 @@
+{
+  "content": "from panda3d.core import Point3, VBase3\nfrom direct.showbase.ShowBaseGlobal import base\n\nif hasattr(base, 'le'):\n    objectMgr = base.le.objectMgr\n    ui = base.le.ui\n    ui.sceneGraphUI.reset()\n\nelse:\n    objectMgr = base.objectMgr  # type: ignore[attr-defined]\n# temporary place holder for nodepath\nobjects = {}\n\nobjects['1252538687.73gjeon'] = objectMgr.addNewObject('Smiley', '1252538687.73gjeon', 'models/smiley.egg', None)\nif objects['1252538687.73gjeon']:\n    objects['1252538687.73gjeon'].setPos(Point3(8.66381, 0, 7.13246))\n    objects['1252538687.73gjeon'].setHpr(VBase3(0, 0, 0))\n    objects['1252538687.73gjeon'].setScale(VBase3(1, 1, 1))\n    objectMgr.updateObjectColor(1.000000, 1.000000, 1.000000, 1.000000, objects['1252538687.73gjeon'])\n    objectMgr.updateObjectProperties(objects['1252538687.73gjeon'], {'123': 1, 'Abc': 'a', 'Number': 1, 'Happy': True})",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_50",
+    "parent": "processed_documents/context_documents/666e29ca_testData.json",
+    "chunk_number": 690
+  }
+}

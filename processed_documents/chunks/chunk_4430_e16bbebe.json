@@ -1,0 +1,9 @@
+{
+  "content": "if inPlace:\n            extraArgs = [gotList, callback, modelList, extraArgs]\n            callback = self.__asyncFlattenDone\n            gotList = True\n\n        cb = Loader._Callback(self, len(modelList), gotList, callback, extraArgs)\n        i = 0\n        for model in modelList:\n            request = ModelFlattenRequest(model.node())\n            request.setDoneEvent(self.hook)\n            self.loader.loadAsync(request)\n            cb.requests.add(request)\n            cb.requestList.append(request)\n            self._requests[request] = (cb, i)\n            i += 1\n        return cb",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4430
+  }
+}

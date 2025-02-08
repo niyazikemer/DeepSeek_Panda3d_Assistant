@@ -1,0 +1,9 @@
+{
+  "content": "self.__replacePaths()\n\n        # Now generate the actual export table.\n        moduleDefs = []\n        moduleList = []\n\n        for moduleName, mdef in self.getModuleDefs():\n            origName = mdef.moduleName\n            if mdef.forbid:\n                # Explicitly disallow importing this module.\n                moduleList.append(self.makeForbiddenModuleListEntry(moduleName))\n                continue\n\n            assert not mdef.exclude\n            # Allow importing this module.\n            module = self.mf.modules.get(origName, None)\n            code = getattr(module, \"__code__\", None)\n            if code:\n                code = marshal.dumps(code)\n\n                mangledName = self.mangleName(moduleName)\n                moduleDefs.append(self.makeModuleDef(mangledName, code))\n                moduleList.append(self.makeModuleListEntry(mangledName, code, moduleName, module))\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2106
+  }
+}

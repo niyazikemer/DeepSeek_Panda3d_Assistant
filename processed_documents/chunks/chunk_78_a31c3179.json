@@ -1,0 +1,9 @@
+{
+  "content": "def on_autodoc_skip_member(app, what, name, obj, skip, options):\n    # Always document constructors.\n    if name == '__init__':\n        return False\n\n    # Don't document method aliases.  This also has the side-effect of\n    # excluding private members, which is OK.\n    if isinstance(obj, types.FunctionType) and obj.__name__ != name:\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 78
+  }
+}

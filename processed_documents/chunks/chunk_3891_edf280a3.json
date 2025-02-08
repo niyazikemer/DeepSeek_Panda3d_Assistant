@@ -1,0 +1,9 @@
+{
+  "content": "if isinstance(taskOrName, AsyncTask):\n            return self.mgr.remove(taskOrName)\n        elif isinstance(taskOrName, list):\n            count = 0\n            for task in taskOrName:\n                count += self.remove(task)\n            return count\n        else:\n            tasks = self.mgr.findTasks(taskOrName)\n            return self.mgr.remove(tasks)\n\n    def removeTasksMatching(self, taskPattern: GlobPattern | str) -> int:\n        \"\"\"Removes all tasks whose names match the pattern, which can\n        include standard shell globbing characters like \\\\*, ?, and [].\n        See also :meth:`remove()`.\n\n        Returns the number of tasks removed.\n        \"\"\"\n        tasks = self.mgr.findTasksMatching(GlobPattern(taskPattern))\n        return self.mgr.remove(tasks)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3891
+  }
+}

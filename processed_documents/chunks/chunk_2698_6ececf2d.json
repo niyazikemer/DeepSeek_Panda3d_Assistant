@@ -1,0 +1,9 @@
+{
+  "content": "class ToonEyes(FSM.FSM):\n    def __init__(self):\n        FSM.FSM.__init__(self, 'eyes')\n\n        self.__unblinkName = \"unblink\"\n\n        # Eyes are initially open.\n        self.request('Open')\n\n    def defaultFilter(self, request, args):\n        # The default filter accepts any direct state request (these\n        # start with a capital letter).\n        if request[0].isupper():\n            return request\n\n        # Unexpected command requests are quietly ignored.\n        return None\n\n    def enterOpen(self):\n        print(\"swap in eyes open model\")\n\n    def filterOpen(self, request, args):\n        if request == 'blink':\n            taskMgr.remove(self.__unblinkName)\n            taskMgr.doMethodLater(0.125, self.__unblink, self.__unblinkName)\n            return 'Closed'\n        return self.defaultFilter(request, args)\n\n    def __unblink(self, task):\n        self.request('unblink')\n        return Task.done\n\n    def enterClosed(self):\n        print(\"swap in eyes closed model\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_149",
+    "parent": "processed_documents/context_documents/c3ea557f_SampleFSM.json",
+    "chunk_number": 2698
+  }
+}

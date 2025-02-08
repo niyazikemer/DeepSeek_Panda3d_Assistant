@@ -1,0 +1,9 @@
+{
+  "content": "# Now walk through the list and import them all.\n        for mdef in includes:\n            try:\n                self.__loadModule(mdef)\n            except ImportError as ex:\n                message = \"Unknown module: %s\" % (mdef.moduleName)\n                if str(ex) != \"No module named \" + str(mdef.moduleName):\n                    message += \" (%s)\" % (ex)\n                print(message)\n\n        # Also attempt to import any implicit modules.  If any of\n        # these fail to import, we don't really care.\n        for mdef in autoIncludes:\n            try:\n                self.__loadModule(mdef)\n                # Since it successfully loaded, it's no longer a guess.\n                mdef.guess = False\n            except Exception:\n                # Something went wrong, guess it's not an importable\n                # module.\n                pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2086
+  }
+}

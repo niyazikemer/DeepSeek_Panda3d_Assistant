@@ -1,0 +1,9 @@
+{
+  "content": "# Initialize superclasses\n        DirectFrame.__init__(self, parent)\n\n        # If specifed, add scaling to the pressed state to make it\n        # look like the button is moving when you press it.  We have\n        # to set up the node first, before we call initialise options;\n        # but we can't actually apply the scale until we have the\n        # bounding volume (which happens during initialise options).\n        pressEffectNP = None\n        if self['pressEffect']:\n            pressEffectNP = self.stateNodePath[1].attachNewNode('pressEffect', 1)\n            self.stateNodePath[1] = pressEffectNP\n\n        # Call option initialization functions\n        self.initialiseoptions(DirectButton)\n\n        # Now apply the scale.\n        if pressEffectNP:\n            bounds = self.getBounds()\n            centerX = (bounds[0] + bounds[1]) / 2\n            centerY = (bounds[2] + bounds[3]) / 2",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_91",
+    "parent": "processed_documents/context_documents/14ac1a1d_DirectButton.json",
+    "chunk_number": 1583
+  }
+}

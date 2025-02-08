@@ -1,0 +1,9 @@
+{
+  "content": "def ropeUpdate(self, curve):\n        self.currentRope = Rope()\n        self.currentRope.setup(self.degree, curve)\n        self.currentRope.reparentTo(render)\n\n    def onBaseMode(self):\n        self.editor.preMode = self.editor.mode\n        self.editor.mode = self.editor.BASE_MODE\n        self.editor.ui.editCurveMenuItem.Check(False)\n        self.editor.ui.createCurveMenuItem.Check(False)\n        self.i = 0\n        for item in self.curveControl:\n            item[1].hide()\n        if self.editor.preMode == self.editor.BASE_MODE:\n            pass\n        if self.editor.preMode == self.editor.CREATE_CURVE_MODE:\n            self.updateScene()\n        if self.editor.preMode == self.editor.EDIT_CURVE_MODE:\n            self.doneEdit()\n        self.curveControl = []\n        self.curve = []\n        self.currentRope = None\n        base.direct.manipulationControl.enableManipulation()\n        self.editor.ui.createCurveMenuItem.Check(False)\n        self.editor.ui.editCurveMenuItem.Check(False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 550
+  }
+}

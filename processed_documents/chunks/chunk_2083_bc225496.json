@@ -1,0 +1,9 @@
+{
+  "content": "# If we are building an exe, we also need to implicitly\n        # bring in Python's startup modules.\n        if addStartupModules:\n            self.modules['_frozen_importlib'] = self.ModuleDef('importlib._bootstrap', implicit = True)\n            self.modules['_frozen_importlib_external'] = self.ModuleDef('importlib._bootstrap_external', implicit = True)\n\n            if self.platform.startswith('android'):\n                self.modules['_android_support'] = self.ModuleDef('_android_support', implicit = True)\n\n            for moduleName in startupModules:\n                if moduleName not in self.modules:\n                    self.addModule(moduleName, implicit = True)\n\n        # Excluding a parent module also excludes all its\n        # (non-explicit) children, unless the parent has allowChildren\n        # set.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2083
+  }
+}

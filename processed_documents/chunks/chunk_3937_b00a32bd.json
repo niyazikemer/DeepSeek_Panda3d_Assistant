@@ -1,0 +1,9 @@
+{
+  "content": "def getAvgDuration(self):\n        return self._durationAverager.getAverage()\n\n    def getNumDurationSamples(self):\n        return self._durationAverager.getCount()\n\n    def getAvgSession(self):\n        # returns profile session for closest-to-average sample\n        return self._avgSession\n\n    def log(self):\n        if self._avgSession:\n            s = 'task CPU profile (%s):\\n' % self._namePrefix\n            s += ('|' * 80) + '\\n'\n            for sorts in (['cumulative'], ['time'], ['calls']):\n                s += self._avgSession.getResults(sorts=sorts)\n            self.notify.info(s)\n        else:\n            self.notify.info('task CPU profile (%s): no data collected' % self._namePrefix)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3937
+  }
+}

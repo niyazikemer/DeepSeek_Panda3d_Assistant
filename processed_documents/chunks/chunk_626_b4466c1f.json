@@ -1,0 +1,9 @@
+{
+  "content": "class LevelLoaderBase:\n    \"\"\"\n    Base calss for LevelLoader\n\n    which you will use to load level editor data in your game.\n    Refer LevelLoader.py for example.\n    \"\"\"\n\n    def __init__(self):\n        self.defaultPath = None # this should be set in your LevelLoader.py\n        self.initLoader()\n\n    def initLoader(self):\n        # You should implement this in subclass\n        raise NotImplementedError('populate() must be implemented in your LevelLoader.py')\n\n    def cleanUp(self):\n        # When you don't need to load any more data, you can call clean up\n        del base.objectPalette\n        del base.protoPalette\n        del base.objectHandler\n        del base.objectMgr\n\n    def loadFromFile(self, fileName, filePath=None):\n        if filePath is None:\n            filePath = self.defaultPath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_48",
+    "parent": "processed_documents/context_documents/779aa814_LevelLoaderBase.json",
+    "chunk_number": 626
+  }
+}

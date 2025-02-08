@@ -1,0 +1,9 @@
+{
+  "content": "allJoints = set(self.getJoints(partName = partName, lodName = lodName))\n            diff = allJoints.difference(subJoints)\n            if diff:\n                self.notify.warning('Uncovered joints: %s' % (list(diff)))\n\n    def loadAnims(self, anims, partName=\"modelRoot\", lodName=\"lodRoot\"):\n        \"\"\"loadAnims(self, string:string{}, string='modelRoot',\n        string='lodRoot')\n        Actor anim loader. Takes an optional partName (defaults to\n        'modelRoot' for non-multipart actors) and lodName (defaults\n        to 'lodRoot' for non-LOD actors) and dict of corresponding\n        anims in the form animName:animPath{}\n        \"\"\"\n        reload = True\n        if self.mergeLODBundles:\n            lodNames = ['common']\n        elif lodName == 'all':\n            reload = False\n            lodNames = list(map(str, sorted(self.switches.keys())))\n        else:\n            lodNames = [lodName]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3149
+  }
+}

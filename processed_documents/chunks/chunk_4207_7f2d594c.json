@@ -1,0 +1,9 @@
+{
+  "content": "# how long should we run per frame?\n    @staticmethod\n    def getDefaultTimeslice():\n        # run for 1/2 millisecond per frame by default\n        # config is in milliseconds, this func returns value in seconds\n        return ConfigVariableDouble('job-manager-timeslice-ms', .5).value / 1000.\n\n    def getTimeslice(self):\n        if self._timeslice:\n            return self._timeslice\n        return self.getDefaultTimeslice()\n    def setTimeslice(self, timeslice):\n        self._timeslice = timeslice\n\n    def _getSortedPriorities(self):\n        # returns all job priorities in ascending order\n        return sorted(self._pri2jobId2job)\n\n    def _process(self, task=None):\n        if self._useOverflowTime is None:\n            self._useOverflowTime = ConfigVariableBool('job-use-overflow-time', 1).value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4207
+  }
+}

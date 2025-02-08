@@ -1,0 +1,9 @@
+{
+  "content": "# On Android, there's no use handling SIGINT, and in fact we can't, since we\n# run the application in a separate thread from the main thread.\nsignal: types.ModuleType | None\nif hasattr(sys, 'getandroidapilevel'):\n    signal = None\nelse:\n    try:\n        import _signal as signal  # type: ignore[import-not-found, no-redef]\n    except ImportError:\n        signal = None\n\nfrom panda3d.core import (\n    AsyncTask,\n    AsyncTaskPause,\n    AsyncTaskManager,\n    AsyncTaskSequence,\n    ClockObject,\n    ConfigVariableBool,\n    GlobPattern,\n    PythonTask,\n    Thread,\n)\nfrom direct.extensions_native import HTTPChannel_extensions # pylint: disable=unused-import",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3860
+  }
+}

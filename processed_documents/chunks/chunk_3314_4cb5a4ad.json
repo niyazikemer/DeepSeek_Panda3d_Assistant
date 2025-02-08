@@ -1,0 +1,9 @@
+{
+  "content": "def mouseFlyStartTopWin(self):\n        print(\"Moving mouse 2 in new window\")\n        #altIsDown = base.getAlt()\n        #if altIsDown:\n        #    print \"Alt is down\"\n\n    def mouseFlyStopTopWin(self):\n        print(\"Stopping mouse 2 in new window\")\n\n    def spawnXZTranslateOrHPanYZoom(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn the new task\n        t = Task.Task(self.XZTranslateOrHPanYZoomTask)\n        # For HPanYZoom\n        t.zoomSF = Vec3(self.coaMarker.getPos(ShowBaseGlobal.direct.camera)).length()\n        self.__startManipulateCamera(task = t)\n\n    def spawnXZTranslateOrHPPan(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        self.__startManipulateCamera(func = self.XZTranslateOrHPPanTask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3314
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def addArrow(attachNode, sizeX, sizeY, color = Vec4(1.0, 1.0, 1.0, 1.0), layer = 0):\n    targetGN = GeomNode(\"Arrow Geom\")\n    sX = sizeX / 2.0\n    sY = sizeY / 2.0\n\n    color1 = color\n    color2 = color\n    color3 = color\n\n    gFormat = GeomVertexFormat.getV3n3c()\n    boxVertexData = GeomVertexData(\"vertices\", gFormat, Geom.UHDynamic)\n\n    boxVertexWriter = GeomVertexWriter(boxVertexData, \"vertex\")\n    boxNormalWriter = GeomVertexWriter(boxVertexData, \"normal\")\n    boxColorWriter = GeomVertexWriter(boxVertexData, \"color\")\n\n    boxVertexWriter.addData3f(-sX, sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])\n\n    boxVertexWriter.addData3f(-sX, -sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])\n\n    boxVertexWriter.addData3f(sX, -sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3020
+  }
+}

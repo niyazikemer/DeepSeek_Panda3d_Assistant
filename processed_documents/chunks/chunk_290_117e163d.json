@@ -1,0 +1,9 @@
+{
+  "content": "dialogSizer.Add(self.mainPanel2, 0, wx.ALIGN_CENTER_VERTICAL|wx.TOP, 10)\n        dialogSizer.Add(self.mainPanel1, 0, wx.ALIGN_CENTER_VERTICAL|wx.TOP, 5)\n\n        self.SetSizer(dialogSizer)\n        self.Layout()\n\n        self.dialogSizer = dialogSizer\n\n    def AddTreeNodes(self, parentItem, items):\n        for item in items:\n            if isinstance(item, str):\n                self.tree.AppendItem(parentItem, item)\n\n    def OnSelChanged(self, evt):\n        item = evt.GetItem()\n        if item:\n            self.str = self.tree.GetItemText(item)\n            self.graphEditorWindow.refresh()\n            self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 290
+  }
+}

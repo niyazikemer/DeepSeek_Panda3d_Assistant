@@ -1,0 +1,9 @@
+{
+  "content": "self.zoneIdList = zoneIdList\n        self.auto = auto\n    def addEvent(self, event):\n        self.events.append(event)\n        self.eventCounter.num += 1\n    def getEvents(self):\n        return list(self.events)\n    def clearEvents(self):\n        self.eventCounter.num -= len(self.events)\n        assert self.eventCounter.num >= 0\n        self.events = []\n    def sendEvents(self):\n        for event in self.events:\n            messenger.send(event)\n        self.clearEvents()\n    def setDesc(self, desc):\n        self.desc = desc\n    def isPendingDelete(self):\n        return self.state == InterestState.StatePendingDel\n    def __repr__(self):\n        return 'InterestState(desc=%s, state=%s, context=%s, event=%s, parentId=%s, zoneIdList=%s)' % (\n            self.desc, self.state, self.context, self.events, self.parentId, self.zoneIdList)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5202
+  }
+}

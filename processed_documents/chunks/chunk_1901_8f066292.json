@@ -1,0 +1,9 @@
+{
+  "content": "# Rewrite the first part of the COFF header.\n        timdat = int(time.time())\n        fp.write(pack('<HHI', self.machine, len(self.sections), timdat))\n\n        # Write calculated init and uninitialised sizes to the opthdr.\n        fp.seek(16, 1)\n        fp.write(pack('<III', self.code_size, self.initialized_size, self.uninitialized_size))\n\n        # Same for the image and header size.\n        fp.seek(40, 1)\n        fp.write(pack('<II', self.image_size, self.header_size))\n\n        # Write the modified RVA table.\n        fp.seek(self.rva_offset)\n        numrvas, = unpack('<I', fp.read(4))\n        assert numrvas >= 3\n\n        fp.seek(self.rva_offset + 4)\n        if numrvas >= 1:\n            fp.write(pack('<II', *self.exp_rva))\n        if numrvas >= 2:\n            fp.write(pack('<II', *self.imp_rva))\n        if numrvas >= 3:\n            fp.write(pack('<II', *self.res_rva))\n\n        # Skip the rest of the tables.\n        if numrvas >= 4:\n            fp.seek((numrvas - 3) * 8, 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1901
+  }
+}

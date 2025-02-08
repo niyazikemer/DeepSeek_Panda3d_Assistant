@@ -1,0 +1,9 @@
+{
+  "content": "def setLoopPlayback(self):\n        self.loopPlayback = self.getVariable('Playback', 'Loop').get()\n\n    def playbackGoTo(self, time):\n        if self.curveCollection is None:\n            return\n        self.playbackTime = CLAMP(time, 0.0, self.maxT)\n        if self.curveCollection is not None:\n            pos = Point3(0)\n            hpr = Point3(0)\n            self.curveCollection.evaluate(self.playbackTime, pos, hpr)\n            self.playbackNodePath.setPosHpr(self.nodePathParent, pos, hpr)\n\n    def startPlayback(self):\n        if self.curveCollection is None:\n            return\n        # Kill any existing tasks\n        self.stopPlayback()\n        # Make sure checkbutton is set\n        self.getVariable('Playback', 'Play').set(1)\n        # Start new playback task\n        t = taskMgr.add(\n            self.playbackTask, self.name + '-playbackTask')\n        t.currentTime = self.playbackTime\n        t.lastTime = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1193
+  }
+}

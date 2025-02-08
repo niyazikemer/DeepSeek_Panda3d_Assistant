@@ -1,0 +1,9 @@
+{
+  "content": "# Set up the camera.\n        base.disableMouse()\n        base.camera.setPos(20, -20, 5)\n        base.camera.lookAt(0, 0, 5)\n        # Debug mode for collision traversers; shows collisions visually.\n        base.cTrav.showCollisions(base.render)\n\n        # Setup the title text.\n        collideText = self.maskList[self.maskPos][0]\n        self.title = OnscreenText(text=\"Colliding with %s\" % (collideText),\n                                  mayChange=True,\n                                  pos=(0.3, 0),\n                                  align=TextNode.ALeft,\n                                  fg=(1, 1, 1, 1))\n        OnscreenText(text=\"Press space to change collision mask\",\n                     pos=(0, 0.8),\n                     fg=(1, 1, 1, 1))\n\n        # Set space to change the from collision mask of the collision ray.\n        base.accept(\"space\", self.switchCollisionMask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_9",
+    "parent": "processed_documents/context_documents/b8eb20fa_40f997b9_bitmask-example.json",
+    "chunk_number": 167
+  }
+}

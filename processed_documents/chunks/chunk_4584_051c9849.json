@@ -1,0 +1,9 @@
+{
+  "content": "def __handleExitEvent(self, phaseName, cEntry):\n        phase = self.getAliasPhase(phaseName) - 1\n        self.setPhase(phase)\n\n    def __oneTimeCollide(self):\n        \"\"\"\n        Fire off a one-time collision traversal of the\n        scene graph.  This allows us to process our entire\n        phasing process in one frame in the cases where\n        we cross more than one phase border.\n        \"\"\"\n        if self.cTrav:\n            if self.cTrav is base.cTrav:\n                # we use 'render'here since if we only try to\n                # traverse ourself, we end up calling exit\n                # events for the rest of the eventHandlers.\n                # Consider supplying the fromCollideNode parameter.\n                self.cTrav.traverse(render)\n            else:\n                # Only traverse ourself\n                self.cTrav.traverse(self)\n            base.eventMgr.doEvents()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4584
+  }
+}

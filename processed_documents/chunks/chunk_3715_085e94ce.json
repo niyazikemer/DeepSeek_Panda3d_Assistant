@@ -1,0 +1,9 @@
+{
+  "content": "def updateDialTask(self, state):\n        # Update value\n        currT = ClockObject.getGlobalClock().getFrameTime()\n        dt = currT - state.lastTime\n        self.set(self.value + self.knobSF * dt)\n        state.lastTime = currT\n        return Task.cont\n\n    def updateDialSF(self, event):\n        x = self._widget.canvasx(event.x)\n        y = self._widget.canvasy(event.y)\n        offset = max(0, abs(x) - Valuator.deadband)\n        if offset == 0:\n            return 0\n        sf = math.pow(Valuator.sfBase,\n                      self.minExp + offset/Valuator.sfDist)\n        if x > 0:\n            self.knobSF = sf\n        else:\n            self.knobSF = -sf\n\n    def knobMouseUp(self, event):\n        taskMgr.remove(self.updateTask)\n        self.knobSF = 0.0\n        self._onButtonRelease()\n\n    def setNumDigits(self):\n        # Set minimum exponent to use in velocity task\n        self.minExp = math.floor(-self['numDigits']/\n                                 math.log10(Valuator.sfBase))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3715
+  }
+}

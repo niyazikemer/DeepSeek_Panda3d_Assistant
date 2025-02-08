@@ -1,0 +1,9 @@
+{
+  "content": "class LerpPosQuatScaleShearInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, pos, quat = None, scale = None,\n                 shear = None,\n                 startPos = None, startHpr = None, startQuat = None,\n                 startScale = None, startShear = None,\n                 other = None, blendType = 'noBlend',\n                 bakeInStart = 1, fluid = 0, name = None, hpr = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, fluid, nodePath, other)\n\n        if not quat:\n            # If we didn't specify a quat, we're allowed to specify a\n            # hpr instead, which is converted to the equivalent quat.\n            assert hpr\n            quat = LOrientationf()\n            quat.setHpr(hpr)\n\n        assert scale\n        assert shear",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2777
+  }
+}

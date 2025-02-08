@@ -1,0 +1,9 @@
+{
+  "content": "return None\n\n    def _file_exists(self, path):\n        if os.path.exists(path):\n            return os.path.isfile(path)\n\n        fh = self._open_file(path, 'rb')\n        if fh:\n            fh.close()\n            return True\n\n        return False\n\n    def _dir_exists(self, path):\n        \"\"\"Returns True if the given directory exists, either on disk or inside\n        a wheel.\"\"\"\n\n        if os.path.isdir(path):\n            return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2157
+  }
+}

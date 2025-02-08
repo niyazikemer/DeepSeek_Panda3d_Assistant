@@ -1,0 +1,9 @@
+{
+  "content": "def getAnimFilename(self, animName, partName='modelRoot'):\n        \"\"\"\n        getAnimFilename(self, animName)\n        return the animFilename given the animName\n        \"\"\"\n        if self.mergeLODBundles:\n            lodName = 'common'\n        elif self.switches:\n            lodName = str(next(iter(self.switches)))\n        else:\n            lodName = 'lodRoot'\n\n        partDict = self.__animControlDict.get(lodName)\n        if partDict is None:\n            return None\n\n        animDict = partDict.get(partName)\n        if animDict is None:\n            return None\n\n        anim = animDict.get(animName)\n        if anim is None:\n            return None\n\n        return anim.filename",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3125
+  }
+}

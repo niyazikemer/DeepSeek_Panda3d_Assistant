@@ -1,0 +1,9 @@
+{
+  "content": "def get(self):\n        return self.value\n\n    def set(self, newVal, fCommand = 1):\n        # Clamp value\n        if self['min'] is not None:\n            if newVal < self['min']:\n                newVal = self['min']\n        if self['max'] is not None:\n            if newVal > self['max']:\n                newVal = self['max']\n        # Round by resolution\n        if self['resolution'] is not None:\n            newVal = round(newVal / self['resolution']) * self['resolution']\n\n        # Record updated value\n        self.value = newVal\n        # Update scale's position\n        self.scale.set(newVal)\n        # Update entry to reflect formatted value\n        self.entryValue.set(self.entryFormat % self.value)\n        self.entry.checkentry()\n\n        # execute command\n        if fCommand and (self['command'] is not None):\n            self['command'](newVal)\n\n    def onReturn(self, *args):\n        \"\"\" User redefinable callback executed on <Return> in entry \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3563
+  }
+}

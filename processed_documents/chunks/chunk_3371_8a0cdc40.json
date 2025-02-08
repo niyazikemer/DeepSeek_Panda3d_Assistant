@@ -1,0 +1,9 @@
+{
+  "content": "# Create a vrpn client vrpn-server or default\n        self.deviceManager = None\n        self.joybox = None\n        self.radamec = None\n        self.fastrak = []\n        if ConfigVariableBool('want-vrpn', False):\n            from direct.directdevices import DirectDeviceManager\n            self.deviceManager = DirectDeviceManager.DirectDeviceManager()\n            # Automatically create any devices specified in config file\n            joybox = ConfigVariableString('vrpn-joybox-device', '').value\n            radamec = ConfigVariableString('vrpn-radamec-device', '').value\n            fastrak = ConfigVariableString('vrpn-fastrak-device', '').value\n            if joybox:\n                from direct.directdevices import DirectJoybox\n                self.joybox = DirectJoybox.DirectJoybox(joybox)\n            if radamec:\n                from direct.directdevices import DirectRadamec\n                self.radamec = DirectRadamec.DirectRadamec(radamec)\n            if fastrak:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3371
+  }
+}

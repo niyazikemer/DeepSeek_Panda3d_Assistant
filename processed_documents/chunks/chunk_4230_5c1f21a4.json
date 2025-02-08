@@ -1,0 +1,9 @@
+{
+  "content": "geom = Geom(vdata)\n        geom.addPrimitive(triangles)\n        geomnode=GeomNode(\"card-frame\")\n        geomnode.addGeom(geom)\n        return NodePath(geomnode)\n\n    def maintainReadout(self, task):\n        \"\"\"Access: private.  Whenever necessary, rebuilds the entire\n        display from scratch.  This is only done when the configuration\n        parameters have changed.\"\"\"\n\n        # If nothing has changed, don't update.\n        if not self.dirty:\n            return Task.cont\n        self.dirty = 0\n\n        # Delete the old set of cards.\n        for card in self.cards:\n            card.removeNode()\n        self.cards = []\n\n        # If not enabled, return.\n        if not self.enabled:\n            self.task = 0\n            return Task.done\n\n        # Generate the include and exclude sets.\n        exclude = {}\n        include = {}\n        self.analyzeTextureSet(self.exclude, exclude)\n        self.analyzeTextureSet(self.include, include)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4230
+  }
+}

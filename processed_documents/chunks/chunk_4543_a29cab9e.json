@@ -1,0 +1,9 @@
+{
+  "content": "class ExclusiveObjectPool(DirectObject):\n    # ObjectPool specialization that excludes particular objects\n    # IDs of objects to globally exclude from reporting\n    _ExclObjs: list[object] = []\n    _ExclObjIds: dict[int, int] = {}\n    _SyncMaster = Sync('ExclusiveObjectPool.ExcludedObjectList')\n    _SerialNumGen = SerialNumGen()\n\n    @classmethod\n    def addExclObjs(cls, *objs):\n        for obj in makeList(objs):\n            if id(obj) not in cls._ExclObjIds:\n                cls._ExclObjs.append(obj)\n            cls._ExclObjIds.setdefault(id(obj), 0)\n            cls._ExclObjIds[id(obj)] += 1\n        cls._SyncMaster.change()\n\n    @classmethod\n    def removeExclObjs(cls, *objs):\n        for obj in makeList(objs):\n            assert id(obj) in cls._ExclObjIds\n            cls._ExclObjIds[id(obj)] -= 1\n            if cls._ExclObjIds[id(obj)] == 0:\n                del cls._ExclObjIds[id(obj)]\n                cls._ExclObjs.remove(obj)\n        cls._SyncMaster.change()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_258",
+    "parent": "processed_documents/context_documents/edd88549_ObjectReport.json",
+    "chunk_number": 4543
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def rendererPointSelectBlendMethod(self, blendMethod):\n        if blendMethod == \"PP_NO_BLEND\":\n            bMethod = BaseParticleRenderer.PPNOBLEND\n        elif blendMethod == \"PP_BLEND_LINEAR\":\n            bMethod = BaseParticleRenderer.PPBLENDLINEAR\n        elif blendMethod == \"PP_BLEND_CUBIC\":\n            bMethod = BaseParticleRenderer.PPBLENDCUBIC\n        self.particles.renderer.setBlendMethod(bMethod)\n    # Sparkle #\n\n    def setRendererSparkleCenterColor(self, color):\n        self.particles.renderer.setCenterColor(\n            Vec4(color[0]/255.0, color[1]/255.0,\n                 color[2]/255.0, color[3]/255.0))\n\n    def setRendererSparkleEdgeColor(self, color):\n        self.particles.renderer.setEdgeColor(\n            Vec4(color[0]/255.0, color[1]/255.0,\n                 color[2]/255.0, color[3]/255.0))\n\n    def setRendererSparkleBirthRadius(self, radius):\n        self.particles.renderer.setBirthRadius(radius)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 841
+  }
+}

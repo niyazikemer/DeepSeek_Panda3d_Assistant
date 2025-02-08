@@ -1,0 +1,9 @@
+{
+  "content": "def specialName(self, label):\n        name = f\"SpecialName {self.specialNameNumber} {label}\"\n        self.specialNameNumber += 1\n        return name\n\n    def getTables(self, ownerView):\n        if ownerView:\n            return self.doId2ownerView, self.cacheOwner\n        else:\n            return self.doId2do, self.cache\n\n    def _getMsgName(self, msgId):\n        # we might get a list of message names, use the first one\n        return makeList(MsgId2Names.get(msgId, f'UNKNOWN MESSAGE: {msgId}'))[0]\n\n    def allocateContext(self):\n        self.context+=1\n        return self.context\n\n    def setServerDelta(self, delta):\n        \"\"\"\n        Indicates the approximate difference in seconds between the\n        client's clock and the server's clock, in universal time (not\n        including timezone shifts).  This is mainly useful for\n        reporting synchronization information to the logs; don't\n        depend on it for any precise timing requirements.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5594
+  }
+}

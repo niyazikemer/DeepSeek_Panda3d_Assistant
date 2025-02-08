@@ -1,0 +1,9 @@
+{
+  "content": "fsm=obj.__dict__.get(secondaryFsm)\n                if fsm is not None:\n                    stateObj = fsm.getCurrentState()\n                    if stateObj is not None:\n                        #state = \"%s=%s\"%(fsmMemberName, stateObj.getName())\n                        state = \"%s, %s\"%(state, stateObj.getName())\n\n                if hasattr(obj, 'doId'):\n                    doId = f\" doId:{obj.doId}\"\n            #if type(obj) == types.ClassType:\n            #    name = \"%s.\"%(obj.__class__.__name__,)\n            string = \":%s:%s [%-7s] id(%s)%s %s\"%(\n                self.getOnlyTime(),\n                self.__name,\n                state,\n                id(obj),\n                doId,\n                PythonUtil.traceParentCall())\n            self.__log(string)\n            self.__print(string)\n        return 1 # to allow assert self.notify.debugStateCall(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1683
+  }
+}

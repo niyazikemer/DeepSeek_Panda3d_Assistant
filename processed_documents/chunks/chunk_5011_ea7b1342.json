@@ -1,0 +1,9 @@
+{
+  "content": "if not self.wxApp:\n            # Create a new base.wxApp.\n            self.wxApp = wx.App(redirect = False)\n\n        if ConfigVariableBool('wx-main-loop', True):\n            # Put wxPython in charge of the main loop.  It really\n            # seems to like this better; some features of wx don't\n            # work properly unless this is true.\n\n            # Set a timer to run the Panda frame 60 times per second.\n            wxFrameRate = ConfigVariableDouble('wx-frame-rate', 60.0)\n            self.wxTimer = wx.Timer(self.wxApp)\n            self.wxTimer.Start(int(round(1000.0 / wxFrameRate.value)))\n            self.wxApp.Bind(wx.EVT_TIMER, self.__wxTimerCallback)\n\n            # wx is now the main loop, not us any more.\n            self.run = self.wxRun\n            self.taskMgr.run = self.wxRun\n            builtins.run = self.wxRun\n            if self.appRunner:\n                self.appRunner.run = self.wxRun",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5011
+  }
+}

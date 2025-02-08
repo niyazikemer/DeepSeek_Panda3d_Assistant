@@ -1,0 +1,9 @@
+{
+  "content": "def traverse(self):\n        self.saveData.append(\"\\nif hasattr(base, 'le'):\")\n        self.saveData.append(\"    ui.layerEditorUI.reset()\")\n        for index in range(self.llist.GetItemCount()):\n            self.saveData.append(\"    ui.layerEditorUI.addLayerEntry('%s', %s )\"%(self.llist.GetItemText(index), self.llist.GetItemData(index)))\n        layersDataDictKeys = list(self.layersDataDict.keys())\n        for i in range(len(layersDataDictKeys)):\n            layerData = self.layersDataDict[layersDataDictKeys[i]]\n            for j in range(len(layerData)):\n                self.saveData.append(\"    ui.layerEditorUI.addLayerData(%s, '%s')\"%(layersDataDictKeys[i], layerData[j]))\n\n    def getSaveData(self):\n        self.saveData = []\n        self.traverse()\n        return self.saveData",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 583
+  }
+}

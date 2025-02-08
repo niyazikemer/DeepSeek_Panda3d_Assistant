@@ -1,0 +1,9 @@
+{
+  "content": "def saveToFile(self, fileName):\n        try:\n            f = open(fileName, 'w')\n            f.write(\"from panda3d.core import *\\n\")\n            f.write(\"\\nif hasattr(base, 'le'):\\n\")\n            f.write(\"    objectMgr = base.le.objectMgr\\n\")\n            f.write(\"    animMgr = base.le.animMgr\\n\")\n            f.write(\"    ui = base.le.ui\\n\")\n            f.write(\"    ui.sceneGraphUI.reset()\\n\\n\")\n            f.write(\"else:\\n\")\n            f.write(\"    objectMgr = base.objectMgr\\n\")\n            f.write(\"# temporary place holder for nodepath\\n\")\n            f.write(\"objects = {}\\n\")\n            f.write(\"animMgr.keyFramesInfo = \"+str(self.editor.animMgr.keyFramesInfo)+\"\\n\")\n            f.write(\"animMgr.curveAnimation = \"+str(self.editor.animMgr.curveAnimation)+\"\\n\")\n            saveData = self.editor.objectMgr.getSaveData()\n            for data in saveData:\n                f.write(data)\n                f.write('\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_52",
+    "parent": "processed_documents/context_documents/10b6518e_FileMgr.json",
+    "chunk_number": 701
+  }
+}

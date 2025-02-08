@@ -1,0 +1,9 @@
+{
+  "content": "def __cmp__(self, other):\n        # DistributedNode inherits from NodePath, which inherits a\n        # definition of __cmp__ from FFIExternalObject that uses the\n        # NodePath's compareTo() method to compare different\n        # NodePaths.  But we don't want this behavior for\n        # DistributedNodes; DistributedNodes should only be compared\n        # pointerwise.\n        if self is other:\n            return 0\n        else:\n            return 1\n\n    ### setParent ###\n\n    def b_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.setParentStr(parentToken)\n        else:\n            self.setParent(parentToken)\n        # it's important to call the local setParent first.\n        self.d_setParent(parentToken)\n\n    def d_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.sendUpdate(\"setParentStr\", [parentToken])\n        else:\n            self.sendUpdate(\"setParent\", [parentToken])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_292",
+    "parent": "processed_documents/context_documents/de7f0b01_DistributedNode.json",
+    "chunk_number": 5154
+  }
+}

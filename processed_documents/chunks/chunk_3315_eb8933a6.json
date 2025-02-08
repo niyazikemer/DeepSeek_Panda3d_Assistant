@@ -1,0 +1,9 @@
+{
+  "content": "def spawnXZTranslate(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        self.__startManipulateCamera(func = self.XZTranslateTask)\n\n    def spawnOrthoTranslate(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        self.__startManipulateCamera(func = self.OrthoTranslateTask)\n\n    def spawnHPanYZoom(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        t = Task.Task(self.HPanYZoomTask)\n        t.zoomSF = Vec3(self.coaMarker.getPos(ShowBaseGlobal.direct.camera)).length()\n        self.__startManipulateCamera(task = t)\n\n    def spawnOrthoZoom(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        t = Task.Task(self.OrthoZoomTask)\n        self.__startManipulateCamera(task = t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3315
+  }
+}

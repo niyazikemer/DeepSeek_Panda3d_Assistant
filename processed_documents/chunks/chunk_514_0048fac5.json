@@ -1,0 +1,9 @@
+{
+  "content": "self.editor.fNeedToSave = True\n\n    def updateObjectModelFromUI(self, event, obj):\n        \"\"\" replace object's model with one selected from UI \"\"\"\n        model = event.GetString()\n        if model is not None:\n            self.updateObjectModel(model, obj)\n\n    def updateObjectAnimFromUI(self, event, obj):\n        \"\"\" replace object's anim with one selected from UI \"\"\"\n        anim = event.GetString()\n        if anim is not None:\n            self.updateObjectAnim(anim, obj)\n\n    def updateObjectProperty(self, event, obj, propName):\n        \"\"\"\n        When an obj's property is updated in UI,\n        this will update it's value in data structure.\n        And call update function if defined.\n        \"\"\"\n\n        objDef = obj[OG.OBJ_DEF]\n        objProp = obj[OG.OBJ_PROP]\n\n        propDef = objDef.properties[propName]\n        if propDef is None:\n            return\n\n        propType = propDef[OG.PROP_TYPE]\n        propDataType = propDef[OG.PROP_DATATYPE]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 514
+  }
+}

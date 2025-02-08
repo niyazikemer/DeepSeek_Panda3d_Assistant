@@ -1,0 +1,9 @@
+{
+  "content": "# Since around macOS 10.15, Apple's codesigning process has become more strict.\n# Appending data to the end of a Mach-O binary is now explicitly forbidden. The\n# solution is to embed our own segment into the binary so it can be properly\n# signed.\nmach_header_64_layout = '<IIIIIIII'\n\n# Each load command is guaranteed to start with the command identifier and\n# command size. We'll call this the \"lc header\".\nlc_header_layout = '<II'\n\n# Each Mach-O segment is made up of sections. We need to change both the segment\n# and section information, so we'll need to know the layout of a section as\n# well.\nsection64_header_layout = '<16s16sQQIIIIIIII'\n\n# These are all of the load commands we'll need to modify parts of.\nLC_SEGMENT_64 = 0x19\nLC_DYLD_INFO_ONLY = 0x80000022\nLC_SYMTAB = 0x02\nLC_DYSYMTAB = 0x0B\nLC_FUNCTION_STARTS = 0x26\nLC_DATA_IN_CODE = 0x29",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2058
+  }
+}

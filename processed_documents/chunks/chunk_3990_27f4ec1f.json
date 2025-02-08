@@ -1,0 +1,9 @@
+{
+  "content": "def setGammaAdjust(self, gamma):\n        \"\"\" Applies additional gamma correction to the image.  1.0 = no correction. \"\"\"\n        old_gamma = self.configuration.get(\"GammaAdjust\", 1.0)\n        if old_gamma != gamma:\n            self.configuration[\"GammaAdjust\"] = gamma\n            return self.reconfigure(True, \"GammaAdjust\")\n        return True\n\n    def delGammaAdjust(self):\n        if \"GammaAdjust\" in self.configuration:\n            old_gamma = self.configuration[\"GammaAdjust\"]\n            del self.configuration[\"GammaAdjust\"]\n            return self.reconfigure((old_gamma != 1.0), \"GammaAdjust\")\n        return True\n\n    def setSrgbEncode(self, force=False):\n        \"\"\" Applies the inverse sRGB EOTF to the output, unless the window\n        already has an sRGB framebuffer, in which case this filter refuses to\n        apply, to prevent accidental double-application.\n\n        Set the force argument to True to force it to be applied in all cases.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3990
+  }
+}

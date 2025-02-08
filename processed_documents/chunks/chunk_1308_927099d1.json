@@ -1,0 +1,9 @@
+{
+  "content": "if falloffType == LinearDistanceForce.FTONEOVERR:\n                        ftype = 'FTONEOVERR'\n                    elif falloffType == LinearDistanceForce.FTONEOVERRSQUARED:\n                        ftype = 'FTONEOVERRSQUARED'\n                    elif falloffType == LinearDistanceForce.FTONEOVERRCUBED:\n                        ftype = 'FTONEOVERRCUBED'\n                    forceCenter = f.getForceCenter()\n                    if isinstance(f, LinearSinkForce):\n                        file.write(fname + ' = LinearSinkForce(Point3(%.4f, %.4f, %.4f), LinearDistanceForce.%s, %.4f, %.4f, %d)\\n' % (forceCenter[0], forceCenter[1], forceCenter[2], ftype, radius, amplitude, massDependent))\n                    elif isinstance(f, LinearSourceForce):\n                        file.write(fname + ' = LinearSourceForce(Point3(%.4f, %.4f, %.4f), LinearDistanceForce.%s, %.4f, %.4f, %d)\\n' % (forceCenter[0], forceCenter[1], forceCenter[2], ftype, radius, amplitude, massDependent))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1308
+  }
+}

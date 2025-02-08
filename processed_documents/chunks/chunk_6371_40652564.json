@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nTo set multiple shader inputs at once, it is most efficient to use a single call to ~.NodePath.set_shader_inputs():\n\nmyModel.setShaderInputs(\n    tint=(1.0, 0.5, 0.5, 1.0),\n    tex=myTexture,\n)\n\nShader Render Attributes\n\nThe functions .NodePath.set_shader() and ~.NodePath.set_shader_input() are used to apply a shader to a node in the scene graph. Internally, these functions manipulate a render attribute of class .ShaderAttrib on the node.\n\nIn rare occasions, it is necessary to manipulate .ShaderAttrib objects explicitly. As an example, the code below shows how to create a .ShaderAttrib and apply it to a camera:\n\npython\n\nattrib = ShaderAttrib.make()\nattrib = attrib.setShader(Shader.load(\"myshader.sha\"))\nattrib = attrib.setShaderInput(\"tint\", (1.0, 0.5, 0.5, 1.0))\nbase.cam.node().setInitialState(attrib)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_462",
+    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
+    "chunk_number": 6371
+  }
+}

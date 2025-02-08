@@ -1,0 +1,9 @@
+{
+  "content": "def privInstant(self):\n        pass\n\n    def privStep(self, t):\n        ## if self._reverse:\n        ##     # Don't attempt to play the sound backwards.\n        ##     return\n\n        if self.state == CInterval.SPaused:\n            # Restarting from a pause.\n            t1 = t + self.startTime\n            if t1 < self.soundDuration:\n                base.sfxPlayer.playSfx(\n                    self.sound, self.fLoop, 1, self.volume, t1, self.node,\n                    listenerNode = self.listenerNode)\n        if self.listenerNode and not self.listenerNode.isEmpty() and \\\n           self.node and not self.node.isEmpty():\n            base.sfxPlayer.setFinalVolume(self.sound, self.node, self.volume,\n                                          self.listenerNode, self.cutOff)\n\n        self.state = CInterval.SStarted\n        self.currT = t\n\n    def finish(self, *args, **kArgs):\n        self._inFinish = True\n        Interval.Interval.finish(self, *args, **kArgs)\n        del self._inFinish",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_155",
+    "parent": "processed_documents/context_documents/3a83844b_SoundInterval.json",
+    "chunk_number": 2736
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class WxPandaShell(WxAppShell):\n    \"\"\" Class for Panda3D LevelEditor \"\"\"\n    frameWidth = 800\n    frameHeight = 600\n    appversion      = '1.0'\n    appname         = 'Panda3D Generic WX Frame'\n    copyright       = ('Copyright 2010 Disney Online Studios.' +\n                       '\\nAll Rights Reserved.')\n\n    MENU_TEXTS: dict[int, tuple[str, str | None]] = {\n        ID_FOUR_VIEW: (\"Four Views\", None),\n        ID_TOP_VIEW: (\"Top View\", None),\n        ID_FRONT_VIEW: (\"Front View\", None),\n        ID_LEFT_VIEW: (\"Left View\", None),\n        ID_PERSP_VIEW: (\"Persp View\", None),\n    }\n\n    def __init__(self, fStartDirect = False):\n        base = getattr(ShowBaseGlobal, 'base', None)\n        if not base:\n            base = ShowBase(False, windowType='none')\n\n        fDirect = (base.config.GetBool('want-directtools', 0) or\n                   (base.config.GetString(\"cluster-mode\", '') != ''))\n\n        self.fStartDirect = fStartDirect or fDirect",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 180
+  }
+}

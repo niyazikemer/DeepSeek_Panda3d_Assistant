@@ -1,0 +1,9 @@
+{
+  "content": "collPlane = CollisionNode('FrontGridCol')\n            collPlane.addSolid(CollisionPlane(Plane(0, -1, 0, 0)))\n            collPlane.setIntoCollideMask(BitMask32.bit(21))\n            v.collPlane = NodePath(collPlane)\n            v.collPlane.wrtReparentTo(v.grid)\n            #v.grid.gridBack.findAllMatches(\"**/+GeomNode\")[0].setName(\"_frontViewGridBack\")\n            LE_showInOneCam(v.grid, name)\n        else:\n            collPlane = CollisionNode('TopGridCol')\n            collPlane.addSolid(CollisionPlane(Plane(0, 0, 1, 0)))\n            collPlane.setIntoCollideMask(BitMask32.bit(21))\n            v.collPlane = NodePath(collPlane)\n            v.collPlane.reparentTo(v.grid)\n            #v.grid.gridBack.findAllMatches(\"**/+GeomNode\")[0].setName(\"_topViewGridBack\")\n            LE_showInOneCam(v.grid, name)\n        return v",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 226
+  }
+}

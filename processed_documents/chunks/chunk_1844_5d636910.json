@@ -1,0 +1,9 @@
+{
+  "content": "def announceGenerate(self):\n        DistributedLargeBlobSender.notify.debug('announceGenerate')\n        DistributedObject.DistributedObject.announceGenerate(self)\n\n        if self.targetAvId != base.localAvatar.doId:\n            # it's not for us\n            return\n\n        if not self.useDisk:\n            self.blob = ''\n\n    def setChunk(self, chunk):\n        DistributedLargeBlobSender.notify.debug('setChunk')\n        assert not self.useDisk\n        if len(chunk) > 0:\n            self.blob += chunk\n        else:\n            self.privOnBlobComplete()\n\n    def setFilename(self, filename):\n        DistributedLargeBlobSender.notify.debug('setFilename: %s' % filename)\n        assert self.useDisk",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_124",
+    "parent": "processed_documents/context_documents/ffdd858f_DistributedLargeBlobSender.json",
+    "chunk_number": 1844
+  }
+}

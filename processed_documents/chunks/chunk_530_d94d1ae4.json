@@ -1,0 +1,9 @@
+{
+  "content": "self.currLiveNP = obj[OG.OBJ_NP]\n            self.currLiveNP.setColorScale(0, 1, 0, 1)\n\n    def replaceObjectWithTypeName(self, obj, typeName):\n        uid = obj[OG.OBJ_UID]\n        objNP = obj[OG.OBJ_NP]\n        mat = objNP.getMat()\n        parentObj = self.findObjectByNodePath(objNP.getParent())\n        if parentObj:\n            parentNP = parentObj[OG.OBJ_NP]\n        else:\n            parentNP = None\n        self.removeObjectById(uid)\n        self.editor.ui.sceneGraphUI.delete(uid)\n        newobj = self.addNewObject(typeName, uid, parent=parentNP, fSelectObject=False)\n        newobj.setMat(mat)\n\n    def flatten(self, newobjModel, model, objDef, uid):\n        # override this to flatten models\n        pass\n\n    def findActors(self, parent):\n        for child in parent.getChildren():\n            if child.hasTag('OBJRoot') and not child.hasTag('Controller'):\n                obj = self.findObjectByNodePath(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 530
+  }
+}

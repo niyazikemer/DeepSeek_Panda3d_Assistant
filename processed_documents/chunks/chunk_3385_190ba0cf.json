@@ -1,0 +1,9 @@
+{
+  "content": "self.speicalKeyMap = {\n                              'enter': 'DIRECT-enter',\n                             }\n\n        self.passThroughKeys = ['v','b','l','p', 'r', 'shift-r', 's', 't','shift-a', 'w']\n\n        if base.wantTk:\n            from direct.tkpanels import DirectSessionPanel\n            self.panel = DirectSessionPanel.DirectSessionPanel(parent = base.tkRoot)\n\n        clusterMode: str\n        if hasattr(builtins, 'clusterMode'):\n            # Has the clusterMode been set externally (i.e. via the\n            # bootstrap application?\n            clusterMode = builtins.clusterMode\n        else:\n            # Has the clusterMode been set via a config variable?\n            clusterMode = ConfigVariableString(\"cluster-mode\", '').value\n        self.clusterMode = clusterMode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3385
+  }
+}

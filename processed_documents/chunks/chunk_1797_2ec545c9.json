@@ -1,0 +1,9 @@
+{
+  "content": "def updateValsUnrolled(self):\n        # Update delta time\n        cTime = ClockObject.getGlobalClock().getFrameTime()\n        self.deltaTime = cTime - self.lastTime\n        self.lastTime = cTime\n        # Update analogs\n        for chan in range(len(self.analogs)):\n            val = self.analogs.getControlState(chan)\n            # Zero out values in deadband\n            if val < 0:\n                val = min(val + ANALOG_DEADBAND, 0.0)\n            else:\n                val = max(val - ANALOG_DEADBAND, 0.0)\n            # Scale up rotating knob values\n            if chan == L_TWIST or chan == R_TWIST:\n                val *= 3.0\n            # Now clamp value between minVal and maxVal\n            val = CLAMP(val, JOYBOX_MIN, JOYBOX_MAX)\n            self.aList[chan] = 2.0*((val - JOYBOX_MIN)/JOYBOX_RANGE) - 1\n        # Update buttons\n        for i in range(len(self.buttons)):\n            try:\n                self.bList[i] = self.buttons.getButtonState(i)\n            except IndexError:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1797
+  }
+}

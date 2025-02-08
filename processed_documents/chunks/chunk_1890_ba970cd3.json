@@ -1,0 +1,9 @@
+{
+  "content": "# Write 8-bpp image headers for sizes under 256x256.\n        for size, image in images:\n            if size >= 256:\n                continue\n\n            xorsize = size\n            if xorsize % 4 != 0:\n                xorsize += 4 - (xorsize % 4)\n            andsize = (size + 7) >> 3\n            if andsize % 4 != 0:\n                andsize += 4 - (andsize % 4)\n            datasize = 40 + 256 * 4 + (xorsize + andsize) * size\n            group.add_icon(size, size, 1, 8, datasize, id)\n\n            buf = BytesIO()\n            icon._write_bitmap(buf, image, size, 8)\n\n            res = DataResource()\n            res.data = buf.getvalue()\n            self.resources[3][id][1033] = res\n            id += 1\n\n        # And now the 24/32 bpp versions.\n        for size, image in images:\n            if size > 256:\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1890
+  }
+}

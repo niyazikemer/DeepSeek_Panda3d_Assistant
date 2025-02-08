@@ -1,0 +1,9 @@
+{
+  "content": "Caveat\n------\n\nThere is an unexplained problem with using Tk and emacs right now which\noccasionally results in everything locking up.  This procedure seems to\navoid the problem for me::\n\n   # Start up the show\n   from direct.showbase.ShowBaseGlobal import *\n\n   # You will see the window and a Tk panel pop open\n\n   # Type a number at the emacs prompt\n   >>> 123\n\n   # At this point everything will lock up and you won't get your prompt back\n\n   # Hit a bunch of Control-C's in rapid succession, in most cases\n   # this will break you out of whatever badness you were in and\n   # from that point on everything will behave normally\n\n\n   # This is how you pop up an inspector\n   import FSMInspector\n   inspector = FSMInspector.FSMInspector(fsm, title = fsm.getName())\n\n\"\"\"\n\n__all__ = ['FSMInspector', 'StateInspector']\n\nfrom direct.tkwidgets.AppShell import AppShell\nfrom tkinter.simpledialog import askstring\nimport Pmw\nimport math\nimport operator\nimport tkinter as tk",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1090
+  }
+}

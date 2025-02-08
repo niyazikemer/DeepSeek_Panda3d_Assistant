@@ -1,0 +1,9 @@
+{
+  "content": "# Initialize the superclass\n        Pmw.MegaWidget.__init__(self, parent)\n\n        # Set up some local and instance variables\n        # Create the components\n        interior = self.interior()\n\n        # Current value\n        self.value = self['value']\n\n        # Running total which increments/decrements every time around dial\n        self.rollCount = 0\n\n        # Base dial size on style, if size not specified,\n        if not self['size']:\n            if self['style'] == VALUATOR_FULL:\n                size = DIAL_FULL_SIZE\n            else:\n                size = DIAL_MINI_SIZE\n        else:\n            size = self['size']\n\n        # Radius of the dial\n        radius = self.radius = int(size/2.0)\n        # Radius of the inner knob\n        inner_radius = max(3, radius * INNER_SF)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3706
+  }
+}

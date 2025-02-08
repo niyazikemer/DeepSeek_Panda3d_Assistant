@@ -1,0 +1,9 @@
+{
+  "content": "def exposeJoint(self, node, partName, jointName, lodName=\"lodRoot\",\n                    localTransform = 0):\n        \"\"\"exposeJoint(self, NodePath, string, string, key=\"lodRoot\")\n        Starts the joint animating the indicated node.  As the joint\n        animates, it will transform the node by the corresponding\n        amount.  This will replace whatever matrix is on the node each\n        frame.  The default is to expose the net transform from the root,\n        but if localTransform is true, only the node's local transform\n        from its parent is exposed.\"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return None\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3089
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Set true if the interval should be invoked if it was\n        # completely skipped over during initialize or finalize, false\n        # if it should be ignored in this case.\n        self.openEnded = openEnded\n\n    def getName(self):\n        return self.name\n\n    def getDuration(self):\n        return self.duration\n\n    def getOpenEnded(self):\n        return self.openEnded\n\n    def setLoop(self, loop=1):\n        self.__doLoop = loop\n\n    def getLoop(self):\n        return self.__doLoop\n\n    def getState(self):\n        return self.state\n\n    def isPaused(self):\n        return self.getState() == CInterval.SPaused\n\n    def isStopped(self):\n        # Returns true if the interval has not been started, has already\n        # played to its completion, or has been explicitly stopped via\n        # finish().\n        return self.getState() == CInterval.SInitial or \\\n               self.getState() == CInterval.SFinal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2833
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "When done, yield `Job.Done`.\n        \"\"\"\n        raise NotImplementedError(\"don't call down\")\n\n    def getPriority(self):\n        return self._priority\n    def setPriority(self, priority):\n        self._priority = priority\n\n    def printingBegin(self):\n        self._printing = True\n    def printingEnd(self):\n        self._printing = False\n\n    def resume(self):\n        \"\"\"Called every time JobManager is going to start running this job.\"\"\"\n        #if self._printing:\n        #    # we may be suspended/resumed multiple times per frame, that gets spammy\n        #    # if we need to pick out the output of a job, put a prefix onto each line\n        #    # of the output\n        #    print('JOB:%s:RESUME' % self._name)\n\n    def suspend(self):\n        \"\"\"Called when JobManager is going to stop running this job for a\n        while.\n        \"\"\"\n\n        #if self._printing:\n        #    #print('JOB:%s:SUSPEND' % self._name)\n        #    pass\n        #    \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_287",
+    "parent": "processed_documents/context_documents/c6235696_Job.json",
+    "chunk_number": 5077
+  }
+}

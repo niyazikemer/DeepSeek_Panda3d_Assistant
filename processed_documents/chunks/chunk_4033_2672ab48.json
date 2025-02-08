@@ -1,0 +1,9 @@
+{
+  "content": "def getSpeeds(self):\n        #assert self.debugPrint(\"getSpeeds()\")\n        return (self.__speed, self.__rotationSpeed)\n\n    def setAvatar(self, avatar):\n        self.avatar = avatar\n        if avatar is not None:\n            self.setupPhysics(avatar)\n\n    def setupRay(self, floorBitmask, floorOffset):\n        # This is a ray cast from your head down to detect floor polygons\n        # A toon is about 4.0 feet high, so start it there\n        self.cRay = CollisionRay(0.0, 0.0, CollisionHandlerRayStart, 0.0, 0.0, -1.0)\n        cRayNode = CollisionNode('PW.cRayNode')\n        cRayNode.addSolid(self.cRay)\n        self.cRayNodePath = self.avatarNodePath.attachNewNode(cRayNode)\n        self.cRayBitMask = floorBitmask\n        cRayNode.setFromCollideMask(self.cRayBitMask)\n        cRayNode.setIntoCollideMask(BitMask32.allOff())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4033
+  }
+}

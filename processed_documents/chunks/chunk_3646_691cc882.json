@@ -1,0 +1,9 @@
+{
+  "content": "def zero(self):\n        \"\"\"\n        self.zero()\n        Set valuator to zero\n        \"\"\"\n        self.set(0.0)\n\n    def reset(self):\n        \"\"\"\n        self.reset()\n        Reset valuator to reset value\n        \"\"\"\n        self.set(self['resetValue'])\n\n    def mouseReset(self, event):\n        \"\"\"\n        Reset valuator to resetValue\n        \"\"\"\n        # If not over any canvas item\n        #if not self._widget.find_withtag(CURRENT):\n        self.reset()\n\n    # Popup dialog to adjust widget properties\n    def _popupValuatorMenu(self, event):\n        self._popupMenu.post(event.widget.winfo_pointerx(),\n                             event.widget.winfo_pointery())\n\n    def _popupPropertiesDialog(self):\n        WidgetPropertiesDialog.WidgetPropertiesDialog(\n            self.propertyDict,\n            propertyList = self.propertyList,\n            title = 'Widget Properties',\n            parent = self.interior())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3646
+  }
+}

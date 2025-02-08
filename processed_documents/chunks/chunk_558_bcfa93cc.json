@@ -1,0 +1,9 @@
+{
+  "content": "class ProtoPaletteUI(wx.Panel):\n    def __init__(self, parent, editor):\n        wx.Panel.__init__(self, parent)\n\n        self.editor = editor\n        self.palette = self.editor.protoPalette\n        self.tree = PaletteTreeCtrl(self, treeStyle=wx.TR_EDIT_LABELS|wx.TR_DEFAULT_STYLE, rootName=\"Proto Objects\")\n\n        self.editorTxt = \"Proto Objects Editor\"\n\n        self.opSortAlpha = \"Sort Alphabetical Order\"\n        self.opSortOrig  = \"Sort Original Order\"\n        self.opSort = self.opSortOrig\n\n        self.opAdd    = \"Add Group\"\n        self.opDelete = \"Delete\"\n\n        self.menuItemsGen = list()\n        self.menuItemsGen.append(self.opSortAlpha)\n        self.menuItemsGen.append(self.opSortOrig)\n        self.menuItemsGen.append(self.opAdd)\n\n        self.menuItemsSel = list()\n        self.menuItemsSel.append(self.opSortAlpha)\n        self.menuItemsSel.append(self.opSortOrig)\n        self.menuItemsSel.append(self.opAdd)\n        self.menuItemsSel.append(self.opDelete)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 558
+  }
+}

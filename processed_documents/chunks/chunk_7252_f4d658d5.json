@@ -1,0 +1,9 @@
+{
+  "content": "// To revert to normal mode:\nWindowProperties props = window->get_graphics_window()->get_properties();\nprops.set_cursor_hidden(false);\nprops.set_mouse_mode(WindowProperties::M_absolute);\nwindow->get_graphics_window()->request_properties(props);\n\npython\n\n# To set relative mode and hide the cursor:\nprops = WindowProperties()\nprops.setCursorHidden(True)\nprops.setMouseMode(WindowProperties.M_relative)\nself.base.win.requestProperties(props)\n\n# To revert to normal mode:\nprops = WindowProperties()\nprops.setCursorHidden(False)\nprops.setMouseMode(WindowProperties.M_absolute)\nself.base.win.requestProperties(props)\n\nConfined mouse mode\n\nIn Panda3D version 1.9.1 there is a new mode called \"confined.\" In this mode, panda will try to use the desktop's native facilities to constrain the mouse to the borders of the window.\n\nThis is effectively the same as \"absolute\" mode, but you can be assured the mouse will remain within the window as long as the mode is in effect and the window remains open.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_615",
+    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
+    "chunk_number": 7252
+  }
+}

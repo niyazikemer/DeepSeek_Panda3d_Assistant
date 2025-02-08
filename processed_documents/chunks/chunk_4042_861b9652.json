@@ -1,0 +1,9 @@
+{
+  "content": "self.setCollisionsActive(1)\n\n    def setAirborneHeightFunc(self, getAirborneHeight):\n        self.getAirborneHeight = getAirborneHeight\n\n    def setAvatarPhysicsIndicator(self, indicator):\n        \"\"\"\n        indicator is a NodePath\n        \"\"\"\n        assert self.debugPrint(\"setAvatarPhysicsIndicator()\")\n        self.cSphereNodePath.show()\n        if indicator:\n            # Indicator Node:\n            change = render.attachNewNode(\"change\")\n            #change.setPos(Vec3(1.0, 1.0, 1.0))\n            #change.setHpr(0.0, 0.0, 0.0)\n            change.setScale(0.1)\n            #change.setColor(Vec4(1.0, 1.0, 1.0, 1.0))\n            indicator.reparentTo(change)\n\n            indicatorNode = render.attachNewNode(\"physVelocityIndicator\")\n            #indicatorNode.setScale(0.1)\n            #indicatorNode.setP(90.0)\n            indicatorNode.setPos(self.avatarNodePath, 0.0, 0.0, 6.0)\n            indicatorNode.setColor(0.0, 0.0, 1.0, 1.0)\n            change.reparentTo(indicatorNode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4042
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Set the camera position\nbase.disableMouse()\nbase.camera.setPos(80, -20, 40)\nbase.camera.lookAt(0, 0, 10)\n\n# Create an accumulator to track the time since the sim\n# has been running\ndeltaTimeAccumulator = 0.0\n# This stepSize makes the simulation run at 90 frames per second\nstepSize = 1.0 / 90.0\n\n# The task for our simulation\ndef simulationTask(task):\n    global deltaTimeAccumulator\n    # Set the force on the body to push it off the ridge\n    body.setForce(0, min(task.time**4 * 500000 - 500000, 0), 0)\n    # Add the deltaTime for the task to the accumulator\n    deltaTimeAccumulator += globalClock.getDt()\n    while deltaTimeAccumulator > stepSize:\n        # Remove a stepSize from the accumulator until\n        # the accumulated time is less than the stepsize\n        deltaTimeAccumulator -= stepSize\n        # Step the simulation\n        world.quickStep(stepSize)\n    # set the new positions\n    sphere.setPosQuat(render, body.getPosition(), Quat(body.getQuaternion()))\n    return task.cont",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_691",
+    "parent": "processed_documents/context_documents/19b1c5f9_f606c2b9_simulating-physics-world.json",
+    "chunk_number": 7680
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def enable(self):\n        # Kill existing task\n        self.disable()\n        # Update task\n        taskMgr.add(self.updateTask, self.name + '-updateTask')\n\n    def disable(self):\n        taskMgr.remove(self.name + '-updateTask')\n\n    def destroy(self):\n        self.disable()\n\n    def updateTask(self, state):\n        # Update analogs\n        for i in range(len(self.analogs)):\n            self.aList[i] = self.analogs.getControlState(i)\n        return Task.cont\n\n    def radamecDebug(self):\n        panVal = self.normalizeChannel(RAD_PAN, -180, 180)\n        tiltVal = self.normalizeChannel(RAD_TILT, -90, 90)\n\n        self.notify.debug(\"PAN = %s\" % self.aList[RAD_PAN])\n        self.notify.debug(\"TILT = %s\" % self.aList[RAD_TILT])\n        self.notify.debug(\"ZOOM = %s\" % self.aList[RAD_ZOOM])\n        self.notify.debug(\"FOCUS = %s\" % self.aList[RAD_FOCUS])\n        self.notify.debug(\"Normalized: panVal: %s  tiltVal: %s\" % (panVal, tiltVal))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_114",
+    "parent": "processed_documents/context_documents/cbf68dd6_DirectRadamec.json",
+    "chunk_number": 1820
+  }
+}

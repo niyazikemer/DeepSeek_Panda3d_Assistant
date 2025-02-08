@@ -1,0 +1,9 @@
+{
+  "content": "class EventManager:\n\n    notify = None\n\n    def __init__(self, eventQueue = None):\n        \"\"\"\n        Create a C++ event queue and handler\n        \"\"\"\n        # Make a notify category for this class (unless there already is one)\n        if EventManager.notify is None:\n            EventManager.notify = directNotify.newCategory(\"EventManager\")\n\n        self.eventQueue = eventQueue\n        self.eventHandler = None\n\n        self._wantPstats = ConfigVariableBool('pstats-eventmanager', False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4186
+  }
+}

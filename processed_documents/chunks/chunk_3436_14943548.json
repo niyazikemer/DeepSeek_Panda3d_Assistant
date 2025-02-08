@@ -1,0 +1,9 @@
+{
+  "content": "def setFar(self, far):\n        for dr in self.displayRegionList:\n            dr.camLens.setFar(far)\n\n    def setFov(self, hfov, vfov):\n        for dr in self.displayRegionList:\n            dr.setFov(hfov, vfov)\n\n    def setHfov(self, fov):\n        for dr in self.displayRegionList:\n            dr.setHfov(fov)\n\n    def setVfov(self, fov):\n        for dr in self.displayRegionList:\n            dr.setVfov(fov)\n\n    def mouseUpdate(self, modifiers = DG.DIRECT_NO_MOD):\n        for dr in self.displayRegionList:\n            dr.mouseUpdate()\n        #base.direct.dr = self.getCurrentDr()\n\n    def getCurrentDr(self):\n        if not self.tryToGetCurrentDr:\n            return ShowBaseGlobal.direct.dr\n        for dr in self.displayRegionList:\n            if (dr.mouseX >= -1.0 and dr.mouseX <= 1.0 and\n                dr.mouseY >= -1.0 and dr.mouseY <= 1.0):\n                return dr\n        return self.displayRegionList[0]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3436
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class ViewportMenu(wx.Menu):\n    \"\"\"Represents a menu that appears when right-clicking a viewport.\"\"\"\n\n    def __init__(self):\n        wx.Menu.__init__(self)\n\n    def addItem(self, name, parent = None, call = None, id = None):\n        if id is None:\n            id = wx.NewId()\n        if parent is None:\n            parent = self\n        item = wx.MenuItem(parent, id, name)\n        parent.AppendItem(item)\n        if call is not None:\n            self.Bind(wx.EVT_MENU, call, item)\n\n    def addMenu(self, name, parent = None, id = None):\n        if id is None:\n            id = wx.NewId()\n        subMenu = wx.Menu()\n        if parent is None:\n            parent = self\n        parent.AppendMenu(id, name, subMenu)\n        return subMenu",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 459
+  }
+}

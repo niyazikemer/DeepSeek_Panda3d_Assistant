@@ -1,0 +1,9 @@
+{
+  "content": "class LerpFunctionNoStateInterval(Interval.Interval):\n    \"\"\"\n    Class used to execute a function over time.  Function can access fromData\n    and toData to perform blend.  If fromData and toData not specified, will\n    execute the given function passing in values ranging from 0 to 1\n\n    This is different from a standard LerpFunction, in that it assumes\n    the function is not modifying any state that needs to be kept; so\n    that it will only call the function while the lerp is actually\n    running, and will not be guaranteed to call the function with its\n    final value of the lerp.  In particular, if the lerp interval\n    happens to get skipped over completely, it will not bother to call\n    the function at all.\n    \"\"\"\n\n    # Interval counter\n    lerpFunctionIntervalNum = 1\n    # create LerpFunctionInterval DirectNotify category\n    notify = directNotify.newCategory('LerpFunctionNoStateInterval')\n    # Class methods",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2786
+  }
+}

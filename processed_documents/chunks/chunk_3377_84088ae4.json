@@ -1,0 +1,9 @@
+{
+  "content": "if base.wantTk:\n            from direct.tkpanels import Placer\n            from direct.tkwidgets import Slider\n            from direct.tkwidgets import SceneGraphExplorer\n            self.actionEvents.extend([\n            ['SGE_Place', Placer.place],\n            ['SGE_Set Color', Slider.rgbPanel],\n            ['SGE_Explore', SceneGraphExplorer.explore],])\n        self.modifierEvents = ['control', 'control-up', 'control-repeat',\n                              'shift', 'shift-up', 'shift-repeat',\n                              'alt', 'alt-up', 'alt-repeat',\n                               ]\n\n        keyList = [chr(i) for i in range(97, 123)]\n        keyList.extend([chr(i) for i in range(48, 58)])\n        keyList.extend([\"`\", \"-\", \"=\", \"[\", \"]\", \";\", \"'\", \",\", \".\", \"/\", \"\\\\\"])\n\n        self.specialKeys = ['escape', 'delete', 'page_up', 'page_down', 'enter']\n\n        def addCtrl(a):\n            return \"control-%s\"%a\n\n        def addShift(a):\n            return \"shift-%s\"%a",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3377
+  }
+}

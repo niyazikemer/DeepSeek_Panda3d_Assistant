@@ -1,0 +1,9 @@
+{
+  "content": "if self.default_prc_dir is None:\n            self.default_prc_dir = '<auto>etc' if not self.embed_prc_data else ''\n\n        num_gui_apps = len(self.gui_apps)\n        num_console_apps = len(self.console_apps)\n\n        if not self.macos_main_app:\n            if num_gui_apps > 1:\n                assert False, 'macos_main_app must be defined if more than one gui_app is defined'\n            elif num_gui_apps == 1:\n                self.macos_main_app = list(self.gui_apps.keys())[0]\n\n        use_pipenv = (\n            'Pipfile' in os.path.basename(self.requirements_path) or\n            not os.path.exists(self.requirements_path) and os.path.exists('Pipfile')\n        )\n        if use_pipenv:\n            reqspath = os.path.join(self.build_base, 'requirements.txt')\n            with open(reqspath, 'w') as reqsfile:\n                subprocess.check_call(['pipenv', 'lock', '--requirements'], stdout=reqsfile)\n            self.requirements_path = reqspath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1942
+  }
+}

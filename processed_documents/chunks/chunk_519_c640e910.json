@@ -1,0 +1,9 @@
+{
+  "content": "if isinstance(funcName, str):\n                    if funcName.startswith('.'):\n                        if self.editor:\n                            func = Functor(getattr(self.editor, \"objectHandler%s\"%funcName), **kwargs)\n                            undoFunc = Functor(getattr(self.editor, \"objectHandler%s\"%funcName), **undoKwargs)\n                        else: # when loaded outside of LE\n                            func = Functor(getattr(base, \"objectHandler%s\"%funcName), **kwargs)\n                            undoFunc = Functor(getattr(base, \".objectHandler%s\"%funcName), **undoKwargs)\n                    else:\n                        func = Functor(eval(funcName), **kwargs)\n                        undoFunc = Functor(eval(funcName), **undoKwargs)\n                else:\n                    func = Functor(funcName, **kwargs)\n                    undoFunc = Functor(funcName, **undoKwargs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 519
+  }
+}

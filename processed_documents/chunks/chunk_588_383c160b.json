@@ -1,0 +1,9 @@
+{
+  "content": "keyDesc = base.direct.hotKeyMap[self.currKey]\n        self.label.SetLabel(keyDesc[0])\n        if 'shift' in self.currKey:\n            self.modifierRadio.SetStringSelection('Shift')\n            self.specialKeyCombo.Enable(False)\n            keyStr = self.currKey[len('shift-'):]\n        elif 'control' in self.currKey:\n            self.modifierRadio.SetStringSelection('Control')\n            self.specialKeyCombo.Enable(False)\n            keyStr = self.currKey[len('control-'):]\n        else:\n            self.modifierRadio.SetStringSelection('None')\n            self.specialKeyCombo.Enable(True)\n            keyStr = self.currKey\n\n        if keyStr in base.direct.specialKeys:\n            self.keyEntry.SetValue('')\n            self.keyEntry.Enable(False)\n            self.specialKeyCombo.SetStringSelection(keyStr)\n        else:\n            self.specialKeyCombo.SetStringSelection('')\n            self.keyEntry.SetValue(keyStr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_41",
+    "parent": "processed_documents/context_documents/64346f52_HotKeyUI.json",
+    "chunk_number": 588
+  }
+}

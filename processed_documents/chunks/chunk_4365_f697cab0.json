@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis module hooks into Python's import mechanism to print out all imports to\nthe standard output as they happen.\n\"\"\"\n\n__all__ = ()\n\n\nimport sys\n\n# Save a pointer to the old import function\noldimport = __import__\n\n# The current indent level, every time we import, this is incremented\n# so we can hierarchically see who imports who by the indentation\nindentLevel = 0\n\n# The new import function\ndef newimport(*args, **kw):\n    global indentLevel\n    fPrint = 0\n    name = args[0]\n    # Only print the name if we have not imported this before\n    if name not in sys.modules:\n        print((\" \"*indentLevel + \"import \" + args[0]))\n        fPrint = 1\n    indentLevel += 1\n    result = oldimport(*args, **kw)\n    indentLevel -= 1\n    if fPrint:\n        print((\" \"*indentLevel + \"DONE: import \" + args[0]))\n    return result\n\n# Replace the builtin import with our new import\n__builtins__[\"__import__\"] = newimport",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_249",
+    "parent": "processed_documents/context_documents/40b15612_VerboseImport.json",
+    "chunk_number": 4365
+  }
+}

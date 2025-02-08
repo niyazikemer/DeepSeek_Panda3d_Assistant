@@ -1,0 +1,9 @@
+{
+  "content": "By default, only a :class:`~panda3d.physics.LinearEulerIntegrator` is\n        attached to the physics manager.  To attach an angular integrator,\n        follow this up with a call to `addAngularIntegrator()`.\n        \"\"\"\n        if not self.particleMgrEnabled:\n            # Use importlib to prevent this import from being picked up\n            # by modulefinder when packaging an application.\n\n            if not self.particleMgr:\n                PMG = importlib.import_module('direct.particles.ParticleManagerGlobal')\n                self.particleMgr = PMG.particleMgr\n                self.particleMgr.setFrameStepping(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4945
+  }
+}

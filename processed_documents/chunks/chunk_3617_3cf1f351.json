@@ -1,0 +1,9 @@
+{
+  "content": "def get(self):\n        \"\"\"\n        self.get()\n        Get current floater value\n        \"\"\"\n        return self.value\n\n    ## Canvas callback functions\n    # Floater velocity controller\n    def mouseDown(self, event):\n        \"\"\" Begin mouse interaction \"\"\"\n        # Exectute user redefinable callback function (if any)\n        self['relief'] = tk.SUNKEN\n        if self['preCallback']:\n            self['preCallback'](*self['callbackData'])\n        self.velocitySF = 0.0\n        self.updateTask = taskMgr.add(self.updateFloaterTask,\n                                        'updateFloater')\n        self.updateTask.lastTime = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3617
+  }
+}

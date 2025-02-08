@@ -1,0 +1,9 @@
+{
+  "content": "kwargs[name] = state\n                self.createcomponent(\n                    component_name,\n                    (),\n                    name,\n                    component_class,\n                    (),\n                    parent=self.stateNodePath[c],\n                    **kwargs\n                )\n\n    def clearText(self):\n        self['text'] = None\n        self.setText()\n\n    def setText(self, text=None):\n        if text is not None:\n            self[\"text\"] = text\n\n        text = self[\"text\"]\n        if text is None or isinstance(text, str):\n            text_list = (text,) * self['numStates']\n        else:\n            text_list = text\n\n        self.__reinitComponent(\"text\", OnscreenText, text_list,\n            scale=1,\n            mayChange=self['textMayChange'],\n            sort=DGG.TEXT_SORT_INDEX)\n\n    def clearGeom(self):\n        self['geom'] = None\n        self.setGeom()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_76",
+    "parent": "processed_documents/context_documents/85a9ae3c_DirectFrame.json",
+    "chunk_number": 1353
+  }
+}

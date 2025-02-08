@@ -1,0 +1,9 @@
+{
+  "content": "Collision Entries\n\nFor each collision detected, a new .CollisionEntry object is created. This CollisionEntry stores all the information about the collision, including the two objects (nodes) involved in the collision, and the point of impact and the surface normal of the into object at that point.\n\nThe CollisionEntry object is passed to the event handler method by the .CollisionHandlerEvent and its derivatives; it is also the object stored in the queue of collisions maintained by the .CollisionHandlerQueue.\n\nHowever you get a handle to CollisionEntry object, you can query it for information using the following methods:\n\npython\n\ncpp\n\nThe three methods that return points or vectors all accept a NodePath as a parameter. This can be any NodePath in the scene graph; it represents the coordinate space in which you expect to receive the answer. For instance, to receive the point of intersection in the coordinate space of the \"into\" object, use:\n\npython\n\npoint = collisionEntry.getSurfacePoint(collisionEntry.getIntoNodePath())\n\ncpp\n\npoint = collisionEntry->get_surface_point(collisionEntry->get_into_node_path());\n\nIf you wanted to put an axis at the point of the collision to visualize it, you might do something like this:\n\npython\n\naxis = loader.loadModel('zup-axis.egg')\naxis.reparentTo(render)\npoint = collisionEntry.getSurfacePoint(render)\nnormal = collisionEntry.getSurfaceNormal(render)\naxis.setPos(point)\naxis.lookAt(point + normal)",
+  "metadata": {
+    "source": "corpus_panda3d/collected_docs/d80fc34e_collision-entries.rst",
+    "doc_type": "rst",
+    "file_path": "processed_documents/context_documents/d84ad332_d80fc34e_collision-entries.json",
+    "doc_id": "doc_570"
+  }
+}

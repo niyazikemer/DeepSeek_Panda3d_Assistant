@@ -1,0 +1,9 @@
+{
+  "content": "def forEachDeselectedNodePathDo(self, func):\n        \"\"\"\n        Perform given func on deselected node paths.  No node path\n        connectivity verification performed\n        \"\"\"\n        deselectedNodePaths = self.getDeselectedAsList()\n        for nodePath in deselectedNodePaths:\n            func(nodePath)\n\n    def getWrtAll(self):\n        self.forEachSelectedNodePathDo(self.getWrt)\n\n    def getWrt(self, nodePath):\n        nodePath.tDnp2Widget = nodePath.getTransform(base.direct.widget)\n\n    def moveWrtWidgetAll(self):\n        self.forEachSelectedNodePathDo(self.moveWrtWidget)\n\n    def moveWrtWidget(self, nodePath):\n        nodePath.setTransform(base.direct.widget, nodePath.tDnp2Widget)\n\n    def deselectAll(self):\n        self.forEachSelectedNodePathDo(self.deselect)\n\n    def highlightAll(self):\n        self.forEachSelectedNodePathDo(DirectNodePath.highlight)\n\n    def dehighlightAll(self):\n        self.forEachSelectedNodePathDo(DirectNodePath.dehighlight)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3448
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def createLabeledEntry(self, parent, category, text, balloonHelp,\n                           value = '', command = None,\n                           relief = 'sunken', side = tk.LEFT,\n                           expand = 1, width = 12):\n        frame = tk.Frame(parent)\n        variable = tk.StringVar()\n        variable.set(value)\n        label = tk.Label(frame, text = text)\n        label.pack(side = tk.LEFT, fill = tk.X)\n        self.bind(label, balloonHelp)\n        self.widgetDict[category + '-' + text + '-Label'] = label\n        entry = tk.Entry(frame, width = width, relief = relief,\n                         textvariable = variable)\n        entry.pack(side = tk.LEFT, fill = tk.X, expand = expand)\n        self.bind(entry, balloonHelp)\n        self.widgetDict[category + '-' + text] = entry\n        self.variableDict[category + '-' + text] = variable\n        if command:\n            entry.bind('<Return>', command)\n        frame.pack(side = side, fill = tk.X, expand = expand)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1218
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# @c and @p result in double backticks for the subsequent word\n    line = re.sub(at_c_at_p_pattern, r'``\\1``', line)\n\n    parent = name.rsplit('.', 1)[-1]\n\n    # Search for method and class references.  We pick them up either when they\n    # have a scoping operator, or when they end with (), or when they clearly\n    # look like a class/method, or we would match all the words in the text!\n    words = line.split(' ')\n    in_backticks = False\n    for i, word in enumerate(words):\n        if '``' in word:\n            if word.count('``') % 2 == 1:\n                # This opens/closes a backtick block spanning multiple words.\n                in_backticks = not in_backticks\n                continue\n\n        if in_backticks:\n            continue\n\n        if word.endswith('.') or word.endswith(',') or word.endswith(';'):\n            # Punctuation.\n            suffix = word[-1]\n            word = word[:-1]\n        else:\n            suffix = ''",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 66
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "ival = self.pythonIvals[index]\n                ival.privDoEvent(t, eventType)\n                ival.privPostEvent()\n                ival = None\n        except:\n            if ival is not None:\n                print(\"Exception occurred while processing %s of %s:\" % (ival.getName(), self.getName()))\n            else:\n                print(\"Exception occurred while processing %s:\" % (self.getName()))\n            print(self)\n            raise\n\n    def privDoEvent(self, t, event):\n        # This function overrides the C++ function to initialize the\n        # intervals first if necessary.\n        if self.pstats:\n            self.pstats.start()\n        self.__updateIvals()\n        CMetaInterval.privDoEvent(self, t, event)\n        if self.pstats:\n            self.pstats.stop()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2893
+  }
+}

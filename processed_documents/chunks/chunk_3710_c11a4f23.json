@@ -1,0 +1,9 @@
+{
+  "content": "# Make sure input variables processed\n        self.initialiseoptions(DialWidget)\n\n    def set(self, value, fCommand = 1):\n        \"\"\"\n        self.set(value, fCommand = 1)\n        Set dial to new value, execute command if fCommand == 1\n        \"\"\"\n        # Adjust for rollover\n        if not self['fRollover']:\n            if value > self['delta']:\n                self.rollCount = 0\n            value = self['base'] + ((value - self['base']) % self['delta'])\n        # Send command if any\n        if fCommand and (self['command'] is not None):\n            self['command'](*[value] + self['commandData'])\n        # Record value\n        self.value = value\n\n    def get(self):\n        \"\"\"\n        self.get()\n        Get current dial value\n        \"\"\"\n        return self.value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3710
+  }
+}

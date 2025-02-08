@@ -1,0 +1,9 @@
+{
+  "content": "def computeBounds(self):\n        self.bounds = self.getBounds()\n        if self.bounds.isEmpty() or self.bounds.isInfinite():\n            self.center = Point3(0)\n            self.radius = 1.0\n        else:\n            self.center = self.bounds.getCenter()\n            self.radius = self.bounds.getRadius()\n        self.min = Point3(self.center - Point3(self.radius))\n        self.max = Point3(self.center + Point3(self.radius))\n\n    def createBBoxLines(self, bboxColor=None):\n        # Create a line segments object for the bbox\n        lines = LineNodePath(hidden)\n        lines.node().setName('bboxLines')\n        if bboxColor:\n            lines.setColor(VBase4(*bboxColor))\n        else:\n            lines.setColor(VBase4(1., 0., 0., 1.))\n        lines.setThickness(0.5)\n\n        minX = self.min[0]\n        minY = self.min[1]\n        minZ = self.min[2]\n        maxX = self.max[0]\n        maxY = self.max[1]\n        maxZ = self.max[2]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3453
+  }
+}

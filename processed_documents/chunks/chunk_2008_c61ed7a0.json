@@ -1,0 +1,9 @@
+{
+  "content": "type, machine, version, entry, phoff, shoff, flags, ehsize, phentsize, phnum, shentsize, shnum, shstrndx \\\n          = struct.unpack(header_struct, elf.read(struct.calcsize(header_struct)))\n        dynamic_sections = []\n        string_tables = {}\n\n        # Seek to the section header table and find the .dynamic section.\n        elf.seek(shoff)\n        for i in range(shnum):\n            type, offset, size, link, entsize = struct.unpack_from(section_struct, elf.read(shentsize))\n            if type == 6 and link != 0: # DYNAMIC type, links to string table\n                dynamic_sections.append((offset, size, link, entsize))\n                string_tables[link] = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2008
+  }
+}

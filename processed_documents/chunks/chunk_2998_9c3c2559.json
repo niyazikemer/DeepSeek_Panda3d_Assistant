@@ -1,0 +1,9 @@
+{
+  "content": "def computePlacementSize(self, tmw):\n        self.w = max(int(self.tw / tmw.quantize + 0.5), 1)\n        self.h = max(int(self.th / tmw.quantize + 0.5), 1)\n        self.area = self.w * self.h\n\n\n    def setActive(self, flag):\n        self.active = flag\n        if self.active:\n            self.backing.clearColor()\n            self.matte.clearColor()\n            self.card.clearColor()\n        else:\n            self.backing.setColor((0.2, 0.2, 0.2, 1), 2)\n            self.matte.setColor((0.2, 0.2, 0.2, 1), 2)\n            self.card.setColor((0.4, 0.4, 0.4, 1), 2)\n\n    def clearCard(self, tmw):\n        if self.root:\n            self.root.detachNode()\n            self.root = None\n\n        for r in self.regions:\n            tmw.mw.removeRegion(r)\n        self.regions = []\n\n    def makeCard(self, tmw):\n        self.clearCard(tmw)\n        root = NodePath('root')\n\n        # A matte to frame the texture and indicate its status.\n        matte = root.attachNewNode('matte', 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2998
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class ThreadBase:\n    \"\"\" A base class for both Thread and ExternalThread in this\n    module. \"\"\"\n\n    def __init__(self):\n        pass\n\n    def getName(self):\n        return self.name\n\n    def isDaemon(self):\n        return self.daemon\n\n    def setDaemon(self, daemon):\n        if self.is_alive():\n            raise RuntimeError\n\n        self.__dict__['daemon'] = daemon\n\n    def __setattr__(self, key, value):\n        if key == 'name':\n            self.setName(value)\n        elif key == 'ident':\n            raise AttributeError\n        elif key == 'daemon':\n            self.setDaemon(value)\n        else:\n            self.__dict__[key] = value\n\n\n# Copy these static methods from Panda's Thread object.  These are\n# useful if you may be running in Panda's SIMPLE_THREADS compilation\n# mode.\nThreadBase.forceYield = core.Thread.forceYield  # type: ignore[attr-defined]\nThreadBase.considerYield = core.Thread.considerYield  # type: ignore[attr-defined]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3760
+  }
+}

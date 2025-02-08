@@ -1,0 +1,9 @@
+{
+  "content": "def onChange(self, event):\n        # update textValue from slider\n        if self.textValue is not None:\n            self.textValue.Clear()\n            floatVal = wx.Slider.GetValue(self) * (self.maxValue - self.minValue) / 100.0 + self.minValue\n            self.textValue.WriteText(\"%.2f\" % floatVal)\n        if self.updateCB: # callback function sould receive event as the argument\n            self.updateCB(event)\n        event.Skip()\n\n    def onEnter(self, event):\n        # update slider from textValue\n        if self.textValue is None:\n            return\n        intVal = 100.0 / (self.maxValue - self.minValue) * (float(self.textValue.GetValue()) - self.minValue)\n        wx.Slider.SetValue(self, intVal)\n        if self.updateCB: # callback function should receive event as the argument\n            self.updateCB(event)\n        event.Skip()\n\n    def bindFunc(self, updateCB):\n        self.updateCB = updateCB",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_14",
+    "parent": "processed_documents/context_documents/4f1c6a8b_WxSlider.json",
+    "chunk_number": 196
+  }
+}

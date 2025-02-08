@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] to set fSortChildren\n    def setFSortChildren(self, fSortChildren):\n        self.fSortChildren = fSortChildren\n\n    def setChildrenTag(self, tag, fModeChildrenTag):\n        self.childrenTag = tag\n        self.fModeChildrenTag = fModeChildrenTag\n\n    def destroy(self):\n        if self._popupMenu:\n            self._popupMenu.destroy()\n        for key in self.kidKeys:\n            c = self.children[key]\n            del self.children[key]\n            c.destroy()\n        self.parent = None\n\n    def geticonimage(self, name):\n        if name in self.iconimages:\n            return self.iconimages[name]\n\n        fn = Filename(\"icons\", name)\n        if not fn.resolveFilename(getModelPath().value, \"gif\"):\n            raise FileNotFoundError(\"couldn't find \\\"%s\\\"\" % (fn))\n\n        image = tk.PhotoImage(master=self.canvas, file=fn.toOsSpecific())\n        self.iconimages[name] = image\n        return image",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3674
+  }
+}

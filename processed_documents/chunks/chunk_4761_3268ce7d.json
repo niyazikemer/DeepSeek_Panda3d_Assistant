@@ -1,0 +1,9 @@
+{
+  "content": "def _leak(self, task):\n        self._leakers.append(DirectObject())\n        self._leakers[-1].accept(uniqueName('leak-msg-listeners'), self._leak)\n        return task.cont\n\n    def destroy(self):\n        if hasattr(self, '_leakTaskName'):\n            taskMgr.remove(self._leakTaskName)\n            for leaker in self._leakers:\n                leaker.ignoreAll()\n            self._leakers = None\n        if self._createJob:\n            self._createJob.destroy()\n        self._createJob = None\n        for typeName, detector in self._typeName2detector.items():\n            detector.destroy()\n        del self._typeName2detector\n        LeakDetector.destroy(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4761
+  }
+}

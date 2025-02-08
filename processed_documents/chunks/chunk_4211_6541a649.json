@@ -1,0 +1,9 @@
+{
+  "content": "if result is Job.Sleep:\n                        job.suspend()\n                        if __debug__:\n                            job._pstats.stop()\n                        # grab the next job if there's time left\n                        break\n                    elif result is Job.Done:\n                        job.suspend()\n                        self.remove(job)\n                        job._setFinished()\n                        if __debug__:\n                            job._pstats.stop()\n                        messenger.send(job.getFinishedEvent())\n                        # grab the next job if there's time left\n                        break\n                else:\n                    # we've run out of time\n                    #assert self.notify.debug('timeslice end: %s, %s' % (endT, clock.getRealTime()))\n                    job.suspend()\n                    overflowTime = clock.getRealTime() - endT\n                    if overflowTime > self.getTimeslice():",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4211
+  }
+}

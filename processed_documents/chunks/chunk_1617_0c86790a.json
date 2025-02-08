@@ -1,0 +1,9 @@
+{
+  "content": "def __decButtonDown(self, event):\n        assert self.notify.debugStateCall(self)\n        task = Task(self.__scrollByTask)\n        task.setDelay(1.0 / self.__scrollSpeed)\n        task.prevTime = 0.0\n        task.delta = -1\n        taskName = self.taskName(\"scroll\")\n        #print \"decButtonDown: adding \", taskName\n        taskMgr.add(task, taskName)\n        self.scrollBy(task.delta)\n        messenger.send('wakeup')\n        if self.__decButtonCallback:\n            self.__decButtonCallback()\n\n    def __buttonUp(self, event):\n        assert self.notify.debugStateCall(self)\n        taskName = self.taskName(\"scroll\")\n        #print \"buttonUp: removing \", taskName\n        taskMgr.remove(taskName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1617
+  }
+}

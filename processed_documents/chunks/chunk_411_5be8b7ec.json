@@ -1,0 +1,9 @@
+{
+  "content": "base.direct.deselectAll()\n        base.direct.selected.last = None\n        self.ui.reset()\n        self.objectMgr.reset()\n        self.animMgr.reset()\n        self.actionMgr.reset()\n        self.ui.perspView.camera.setPos(-19, -19, 19)\n        self.ui.perspView.camera.lookAt(Point3(0, 0, 0))\n        self.ui.leftView.camera.setPos(600, 0, 0)\n        self.ui.frontView.camera.setPos(0, -600, 0)\n        self.ui.topView.camera.setPos(0, 0, 600)\n        self.resetOrthoCam(self.ui.topView)\n        self.resetOrthoCam(self.ui.frontView)\n        self.resetOrthoCam(self.ui.leftView)\n        self.fNeedToSave = False\n        self.setTitleWithFilename()\n\n    def resetOrthoCam(self, view):\n        base.direct.drList[base.camList.index(NodePath(view.camNode))].orthoFactor = 0.1\n        x = view.ClientSize.GetWidth() * 0.1\n        y = view.ClientSize.GetHeight() * 0.1\n        view.camLens.setFilmSize(x, y)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 411
+  }
+}

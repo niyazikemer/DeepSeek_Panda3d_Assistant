@@ -1,0 +1,9 @@
+{
+  "content": "def addPassThroughKey(self,key):\n\n        self.passThroughKeys.append(key)\n\n    def enable(self):\n        # don't enable DIRECT if someone has posted DIRECTdisablePost\n        if bboard.has(DirectSession.DIRECTdisablePost):\n            return\n        if self.fEnabled:\n            return\n        # Make sure old tasks are shut down\n        self.disable()\n        # Start all display region context tasks\n        self.drList.spawnContextTask()\n        if not self.fEnabledLight:\n            # Turn on mouse Flying\n            self.cameraControl.enableMouseFly()\n        # Turn on object manipulation\n        self.manipulationControl.enableManipulation()\n        # Make sure list of selected items is reset\n        self.selected.reset()\n        # Accept appropriate hooks\n        if not self.fEnabledLight:\n            self.enableKeyEvents()\n        self.enableMouseEvents()\n        self.enableActionEvents()\n        self.enableModifierEvents()\n        # Set flag\n        self.fEnabled = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3387
+  }
+}

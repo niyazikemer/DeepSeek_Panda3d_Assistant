@@ -1,0 +1,9 @@
+{
+  "content": "# Copy any shared objects we need\n        for module, source_path in freezer_extras:\n            if source_path is not None:\n                # Rename panda3d/core.pyd to panda3d.core.pyd\n                source_path = os.path.normpath(source_path)\n                basename = os.path.basename(source_path)\n                if '.' in module:\n                    basename = module.rsplit('.', 1)[0] + '.' + basename\n\n                # Remove python version string\n                parts = basename.split('.')\n                if len(parts) >= 3 and ('-' in parts[-2] or parts[-2] == 'abi' + str(sys.version_info[0])):\n                    parts = parts[:-2] + parts[-1:]\n                    basename = '.'.join(parts)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1987
+  }
+}

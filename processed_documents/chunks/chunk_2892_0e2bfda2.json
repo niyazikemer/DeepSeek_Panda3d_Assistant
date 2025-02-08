@@ -1,0 +1,9 @@
+{
+  "content": "play_rate = property(CMetaInterval.getPlayRate, setPlayRate)\n\n    def __doPythonCallbacks(self):\n        # This function invokes any Python-level Intervals that need\n        # to be invoked at this point in time.  It must be called\n        # after any call to setT() or setFinalT() or stepPlay(), or\n        # some such; basically any function that might invoke an\n        # interval.  The C++ base class will invoke whatever C++\n        # intervals it can, and then indicate the Python intervals\n        # that must be invoked through this interface.\n\n        ival = None\n        try:\n            while self.isEventReady():\n                index = self.getEventIndex()\n                t = self.getEventT()\n                eventType = self.getEventType()\n                self.popEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2892
+  }
+}

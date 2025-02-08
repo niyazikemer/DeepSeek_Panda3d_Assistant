@@ -1,0 +1,9 @@
+{
+  "content": "while len(self._queue) > 0:\n            # yield up here instead of at the end, since we skip back to the\n            # top of the while loop from various points\n            yield None\n            parentObj = self._queue.pop()\n            #print '%s: %s, %s' % (id(parentObj), type(parentObj), self._id2pathStr[id(parentObj)])\n            isInstanceDict = False\n            if id(parentObj) in self._instanceDictIds:\n                isInstanceDict = True\n\n            try:\n                if parentObj.__class__.__name__ == 'method-wrapper':\n                    continue\n            except Exception:\n                pass\n\n            if isinstance(parentObj, (str, bytes)):\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4353
+  }
+}

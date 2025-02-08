@@ -1,0 +1,9 @@
+{
+  "content": "class MiniTaskManager:\n\n    def __init__(self):\n        self.taskList = []\n        self.running = 0\n\n    def add(self, task, name):\n        assert isinstance(task, MiniTask)\n        task.name = name\n        self.taskList.append(task)\n\n    def remove(self, task):\n        try:\n            self.taskList.remove(task)\n        except ValueError:\n            pass\n\n    def step(self):\n        i = 0\n        while i < len(self.taskList):\n            task = self.taskList[i]\n            ret = task(task)\n\n            # See if the task is done\n            if ret == task.cont:\n                # Leave it for next frame, its not done yet\n                pass\n\n            else:\n                # Remove the task\n                try:\n                    self.taskList.remove(task)\n                except ValueError:\n                    pass\n                # Do not increment the iterator\n                continue\n\n            # Move to the next element\n            i += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_212",
+    "parent": "processed_documents/context_documents/62abd4fd_MiniTask.json",
+    "chunk_number": 3915
+  }
+}

@@ -139,7 +139,7 @@ indexer = DocumentIndexer(
 )
 raw_chunks = indexer.load_json_docs('processed_documents/chunks')
 context_documents = indexer.load_json_docs('processed_documents/context_documents')
-#print(raw_chunks[0])
+# #print(raw_chunks[0])
 
 chunks_dir = indexer.process_and_save_chunks(raw_chunks, context_documents)
-#indexer.create_index()
+indexer.create_index()

@@ -1,0 +1,9 @@
+{
+  "content": "# Take a step in the direction of our previous heading.\n            self.vel=Vec3(Vec3.forward() * distance +\n                          Vec3.up() * lift +\n                          Vec3.right() * slideDistance)\n            if self.vel != Vec3.zero():\n                # rotMat is the rotation matrix corresponding to\n                # our previous heading.\n                rotMat=Mat3.rotateMatNormaxis(self.avatarNodePath.getH(), Vec3.up())\n                step=rotMat.xform(self.vel)\n                self.avatarNodePath.setFluidPos(Point3(self.avatarNodePath.getPos()+step))\n            self.avatarNodePath.setH(self.avatarNodePath.getH()+rotation)\n            messenger.send(\"avatarMoving\")\n        else:\n            self.vel.set(0.0, 0.0, 0.0)\n        return Task.cont\n\n    def enableAvatarControls(self):\n        \"\"\"\n        Activate the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"enableAvatarControls\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_227",
+    "parent": "processed_documents/context_documents/dffaf03d_DevWalker.json",
+    "chunk_number": 4112
+  }
+}

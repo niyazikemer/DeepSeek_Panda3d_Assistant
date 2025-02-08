@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] flag to enable selection while other manipulation is disabled\n        self.fAllowSelectionOnly = 0\n\n        # [gjeon] flag to enable marquee selection feature\n        self.fAllowMarquee = 0\n        self.marquee = None\n\n        # [gjeon] for new LE's multi-view support\n        self.fMultiView = 0\n\n        # [gjeon] to support grid snapping\n        self.fGridSnap = 0\n\n    def scaleWidget(self, factor):\n        if hasattr(ShowBaseGlobal.direct, 'widget'):\n            ShowBaseGlobal.direct.widget.multiplyScalingFactorBy(factor)\n        else:\n            self.objectHandles.multiplyScalingFactorBy(factor)\n\n    def supportMultiView(self):\n        if self.fMultiView:\n            return\n\n        self.objectHandles.hide(BitMask32.bit(0))\n        self.objectHandles.hide(BitMask32.bit(1))\n        self.objectHandles.hide(BitMask32.bit(2))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3192
+  }
+}

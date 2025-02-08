@@ -1,0 +1,9 @@
+{
+  "content": "# First, deal with the option queries.\n        if len(kw) == 0:\n            # This configure call is querying the values of one or all options.\n            # Return 3-tuples:\n            #     (optionName, default, value)\n            if option is None:\n                rtn = {}\n                for option, config in self._optionInfo.items():\n                    rtn[option] = (option,\n                                   config[DGG._OPT_DEFAULT],\n                                   config[DGG._OPT_VALUE])\n                return rtn\n            else:\n                config = self._optionInfo[option]\n                return (option, config[DGG._OPT_DEFAULT], config[DGG._OPT_VALUE])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1383
+  }
+}

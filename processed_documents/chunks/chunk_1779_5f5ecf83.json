@@ -1,0 +1,9 @@
+{
+  "content": "def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)\n\n    def disable(self):\n        self.nodePath.reparentTo(self._base.dataUnused)\n\n    def normalizeWithoutCentering(self, val, minVal = -1, maxVal = 1):\n        #\n        # This is the old code that doesn't incorporate the centering fix\n        #\n        # First record sign\n        if val < 0:\n            sign = -1\n        else:\n            sign = 1\n        # Zero out values in deadband\n        val = sign * max(abs(val) - self.analogDeadband, 0.0)\n        # Clamp value between analog range min and max and scale about center\n        val = min(max(val, self.analogMin), self.analogMax)\n        # Normalize values to given minVal and maxVal range\n        return (((maxVal - minVal) *\n                 ((val - self.analogMin) / float(self.analogRange))) + minVal)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1779
+  }
+}

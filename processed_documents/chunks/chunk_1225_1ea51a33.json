@@ -1,0 +1,9 @@
+{
+  "content": "def createSlider(self, parent, category, text, balloonHelp,\n                         command = None, min = 0.0, max = 1.0,\n                         resolution = None,\n                         side = tk.TOP, fill = tk.X, expand = 1, **kw):\n        kw['text'] = text\n        kw['min'] = min\n        kw['max'] = max\n        kw['resolution'] = resolution\n        #widget = apply(EntryScale.EntryScale, (parent,), kw)\n        from direct.tkwidgets import Slider\n        widget = Slider.Slider(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(side = side, fill = fill, expand = expand)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1225
+  }
+}

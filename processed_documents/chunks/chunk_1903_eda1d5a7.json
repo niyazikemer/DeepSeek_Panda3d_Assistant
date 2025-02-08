@@ -1,0 +1,9 @@
+{
+  "content": "import distutils.log\nimport os\nimport subprocess\nimport sys\nimport tarfile\nimport zipfile\nimport struct\n\nimport panda3d.core as p3d\n\ndef create_zip(command, basename, build_dir):\n    base_dir = command.get_archive_basedir()\n\n    with zipfile.ZipFile(basename+'.zip', 'w', compression=zipfile.ZIP_DEFLATED) as zf:\n        zf.write(build_dir, base_dir)\n\n        for dirpath, dirnames, filenames in os.walk(build_dir):\n            dirnames.sort()\n            for name in dirnames:\n                path = os.path.normpath(os.path.join(dirpath, name))\n                zf.write(path, path.replace(build_dir, base_dir, 1))\n            for name in filenames:\n                path = os.path.normpath(os.path.join(dirpath, name))\n                if os.path.isfile(path):\n                    zf.write(path, path.replace(build_dir, base_dir, 1))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1903
+  }
+}

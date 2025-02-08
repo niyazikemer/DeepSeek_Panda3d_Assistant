@@ -1,0 +1,9 @@
+{
+  "content": "else:\n            ShowBaseGlobal.direct.manipulationControl.fGridSnap = 0\n            for grid in [self.perspView.grid, self.topView.grid, self.frontView.grid, self.leftView.grid]:\n                grid.fXyzSnap = 0\n\n    def onGridSize(self, evt):\n        gridSizeUI = GridSizeUI(self, -1, 'Change Grid Size', self.perspView.grid.gridSize, self.perspView.grid.gridSpacing)\n        gridSizeUI.ShowModal()\n        gridSizeUI.Destroy()\n\n    def onShowPandaObjects(self, evt):\n        self.sceneGraphUI.showPandaObjectChildren()\n\n    def onDestroy(self, evt):\n        self.editor.protoPalette.saveToFile()\n        self.editor.saveSettings()\n        self.editor.reset()\n\n    def updateGrids(self, newSize, newSpacing):\n        self.perspView.grid.gridSize = newSize\n        self.perspView.grid.gridSpacing = newSpacing\n        self.perspView.grid.updateGrid()\n\n        self.topView.grid.gridSize = newSize\n        self.topView.grid.gridSpacing = newSpacing\n        self.topView.grid.updateGrid()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 453
+  }
+}

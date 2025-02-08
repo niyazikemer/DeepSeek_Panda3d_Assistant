@@ -1,0 +1,9 @@
+{
+  "content": "def setBloom(self, blend=(0.3,0.4,0.3,0.0), mintrigger=0.6, maxtrigger=1.0, desat=0.6, intensity=1.0, size=\"medium\"):\n        \"\"\"\n        Applies the Bloom filter to the output.\n        size can either be \"off\", \"small\", \"medium\", or \"large\".\n        Setting size to \"off\" will remove the Bloom filter.\n        \"\"\"\n        if size == 0 or size == \"off\":\n            self.delBloom()\n            return\n        elif size == 1:\n            size = \"small\"\n        elif size == 2:\n            size = \"medium\"\n        elif size == 3:\n            size = \"large\"\n\n        if maxtrigger is None:\n            maxtrigger = mintrigger + 0.8\n\n        oldconfig = self.configuration.get(\"Bloom\", None)\n        fullrebuild = True\n        if oldconfig and oldconfig.size == size:\n            fullrebuild = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3984
+  }
+}

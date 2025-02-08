@@ -1,0 +1,9 @@
+{
+  "content": "def loadAnimsOnAllLODs(self, anims,partName=\"modelRoot\"):\n        \"\"\"loadAnims(self, string:string{}, string='modelRoot',\n        string='lodRoot')\n        Actor anim loader. Takes an optional partName (defaults to\n        'modelRoot' for non-multipart actors) and lodName (defaults\n        to 'lodRoot' for non-LOD actors) and dict of corresponding\n        anims in the form animName:animPath{}\n        \"\"\"\n        if self.mergeLODBundles:\n            lodNames = ['common']\n        else:\n            lodNames = self.__partBundleDict.keys()\n\n        for animName, filename in anims.items():\n            # make sure this lod is in anim control dict\n            for lod in lodNames:\n                # store the file path only; we will bind it (and produce\n                # an AnimControl) when it is played\n\n                self.__animControlDict[lod][partName][animName]= Actor.AnimDef(filename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3153
+  }
+}

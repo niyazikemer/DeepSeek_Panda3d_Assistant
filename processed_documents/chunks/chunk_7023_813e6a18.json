@@ -1,0 +1,9 @@
+{
+  "content": "Please note that using hide/show without an argument will mess up any hide/shows with the argument (show(bit) will not undo a hide()...) To hide an object from all cameras instead use nodepath.hide(BitMask32.all_on()).\n\npython\n\nTo set the camera mask for the default camera use base.cam, not base.camera, as base.camera is not an actual camera but a dummy node to hold cameras. Please see the camera section for information on how to set up multiple cameras.\n\nAny object that is parented to the object that is hidden will also be hidden. However, you can call ~.NodePath.show_through() on the nested element to force it to show up even if its parent node is hidden.\n\nHiding a model will only cause it to stop rendering, but other operations (such as checking for collisions) will still continue to take place. To deactivate a node and its children entirely, you can call the ~.NodePath.stash() and ~.NodePath.unstash() methods instead.\n\nStoring Custom Information",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_568",
+    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
+    "chunk_number": 7023
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def pingpong(self, animName, restart=1, partName=None,\n                 fromFrame=None, toFrame=None):\n        \"\"\"pingpong(self, string, int=1, string=None)\n        Loop the given animation on the given part of the actor,\n        restarting at zero frame if requested. If no part name\n        is given then try to loop on all parts. NOTE: loops on\n        all LOD's\"\"\"\n        if fromFrame is None:\n            fromFrame = 0\n\n        for control in self.getAnimControls(animName, partName):\n            if toFrame is None:\n                control.pingpong(restart, fromFrame, control.getNumFrames() - 1)\n            else:\n                control.pingpong(restart, fromFrame, toFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3118
+  }
+}

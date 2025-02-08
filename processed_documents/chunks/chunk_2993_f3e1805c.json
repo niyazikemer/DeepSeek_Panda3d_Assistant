@@ -1,0 +1,9 @@
+{
+  "content": "tpw = r - l\n                tph = t - b\n                tarea = tpw * tph\n                assert tarea > 0\n                if tarea >= area:\n                    tp = TexPlacement(l, r, b, t)\n                    if w and h and \\\n                       ((tpw >= w and tph >= h) or \\\n                        (tph >= w and tpw >= h)):\n                        # This hole is big enough; short circuit.\n                        return [(tarea, tp)]\n\n                    holes.append((tarea, tp))\n\n            lastTuples = tuples\n            b += 1\n\n        return holes\n\n    def findOverflowHole(self, area, w, h):\n        \"\"\" Searches for a hole large enough for (w, h), in the\n        overflow space.  Since the overflow space is infinite, this\n        will always succeed. \"\"\"\n\n        if w > self.w:\n            # It won't fit within the margins at all; just stack it on\n            # the top.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2993
+  }
+}

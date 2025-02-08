@@ -1,0 +1,9 @@
+{
+  "content": "def draw(self, x, y, fUseCachedChildren = 1):\n        # XXX This hard-codes too many geometry constants!\n        self.x, self.y = x, y\n        self.drawicon()\n        self.drawtext()\n\n        if self.state != 'expanded':\n            return y+17\n        # draw children\n        sublist = self.item._GetSubList()\n        if not sublist:\n            # IsExpandable() was mistaken; that's allowed\n            return y+17\n        self.kidKeys = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3682
+  }
+}

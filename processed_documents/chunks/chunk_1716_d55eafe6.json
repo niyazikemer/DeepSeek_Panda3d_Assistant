@@ -1,0 +1,9 @@
+{
+  "content": "def sendExit(self):\n        ClusterClient.notify.debug(\n            \"display connect send exit, packet %d\" %\n            self.msgHandler.packetNumber)\n        datagram = self.msgHandler.makeExitDatagram()\n        self.cw.send(datagram, self.tcpConn)\n\n    def sendTimeData(self, frameCount, frameTime, dt):\n        ClusterClient.notify.debug(\"send time data...\")\n        datagram = self.msgHandler.makeTimeDataDatagram(\n            frameCount, frameTime, dt)\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1716
+  }
+}

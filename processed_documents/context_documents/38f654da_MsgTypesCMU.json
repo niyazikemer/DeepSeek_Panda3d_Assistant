@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" MsgTypesCMU module: defines the various message type codes as used\nby the CMU ServerRepository/ClientRepository code in this directory.\nIt replaces the MsgTypes module, which is not used by the CMU\nimplementation. \"\"\"\n\nfrom direct.showbase.PythonUtil import invertDictLossless\n\nSET_DOID_RANGE_CMU                      = 9001\nCLIENT_OBJECT_GENERATE_CMU              = 9002\nOBJECT_GENERATE_CMU                     = 9003\nOBJECT_UPDATE_FIELD_CMU                 = 9004\nOBJECT_DISABLE_CMU                      = 9005\nOBJECT_DELETE_CMU                       = 9006\nREQUEST_GENERATES_CMU                   = 9007\nCLIENT_DISCONNECT_CMU                   = 9008\nCLIENT_SET_INTEREST_CMU                 = 9009\nOBJECT_SET_ZONE_CMU                     = 9010\nCLIENT_HEARTBEAT_CMU                    = 9011\nCLIENT_OBJECT_UPDATE_FIELD_TARGETED_CMU  = 9011\n\nCLIENT_OBJECT_UPDATE_FIELD = 120  # Matches MsgTypes.CLIENT_OBJECT_SET_FIELD\n\nMsgName2Id = {name: value for name, value in globals().items() if isinstance(value, int)}\n\n# create id->name table for debugging\nMsgId2Names = invertDictLossless(MsgName2Id)\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/distributed/MsgTypesCMU.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/38f654da_MsgTypesCMU.json",
+    "doc_id": "doc_300"
+  }
+}

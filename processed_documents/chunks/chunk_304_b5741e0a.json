@@ -1,0 +1,9 @@
+{
+  "content": "name = os.path.basename(self.mayaFile)\n        if self.isAnim:\n            if self.obj:\n                objDef = self.obj[OG.OBJ_DEF]\n                objNP = self.obj[OG.OBJ_NP]\n                animName = \"%s.anim.egg\"%self.mayaFile\n                if animName not in objDef.anims:\n                    objDef.anims.append(animName)\n                name = os.path.basename(animName)\n                objNP.loadAnims({name:animName})\n                objNP.loop(name)\n                self.obj[OG.OBJ_ANIM] = animName\n                self.editor.ui.objectPropertyUI.updateProps(self.obj)\n                return\n            else:\n                modelName = \"%s.model.egg\"%self.mayaFile\n                animName = \"%s.anim.egg\"%self.mayaFile\n                result = [name, modelName, animName]\n        else:\n            modelName = \"%s.egg\"%self.mayaFile\n            result = [name, modelName]\n\n        if self.callBack:\n            self.callBack(result)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 304
+  }
+}

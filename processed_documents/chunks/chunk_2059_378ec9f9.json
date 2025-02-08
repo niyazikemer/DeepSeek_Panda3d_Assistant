@@ -1,0 +1,9 @@
+{
+  "content": "lc_layouts = {\n    LC_SEGMENT_64: '<II16sQQQQIIII',\n    LC_DYLD_INFO_ONLY: '<IIIIIIIIIIII',\n    LC_SYMTAB: '<IIIIII',\n    LC_DYSYMTAB: '<IIIIIIIIIIIIIIIIIIII',\n    LC_FUNCTION_STARTS: '<IIII',\n    LC_DATA_IN_CODE: '<IIII',\n}\n\n# All of our modifications involve sliding some offsets, since we need to insert\n# our data in the middle of the binary (we can't just put the data at the end\n# since __LINKEDIT must be the last segment).\nlc_indices_to_slide = {\n    b'__PANDA': [4, 6],\n    b'__LINKEDIT': [3, 5],\n    LC_DYLD_INFO_ONLY: [2, 4, 8, 10],\n    LC_SYMTAB: [2, 4],\n    LC_DYSYMTAB: [14],\n    LC_FUNCTION_STARTS: [2],\n    LC_DATA_IN_CODE: [2],\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2059
+  }
+}

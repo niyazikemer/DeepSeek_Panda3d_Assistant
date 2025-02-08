@@ -1,0 +1,9 @@
+{
+  "content": "objAlreadyRepresented = True\n                        elif type(obj) in (tuple, list):\n                            brackets = {\n                                tuple: '()',\n                                list: '[]',\n                            }[type(obj)]\n                            # get object being referenced by container\n                            nextObj = objs[index+1]\n                            cycleBySyntax += brackets[0]\n                            for index in range(len(obj)):\n                                if obj[index] is nextObj:\n                                    index = str(index)\n                                    break\n                                yield None\n                            else:\n                                index = '<unknown index>'\n                            cycleBySyntax += '%s%s' % (index, brackets[1])\n                            objAlreadyRepresented = True\n                        else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4260
+  }
+}

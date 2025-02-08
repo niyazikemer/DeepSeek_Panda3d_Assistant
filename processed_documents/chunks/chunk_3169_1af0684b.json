@@ -1,0 +1,9 @@
+{
+  "content": "assert other.mergeLODBundles == self.mergeLODBundles\n\n        for lodName in other.__animControlDict:\n            self.__animControlDict[lodName] = {}\n            for partName in other.__animControlDict[lodName]:\n                self.__animControlDict[lodName][partName] = {}\n                for animName in other.__animControlDict[lodName][partName]:\n                    anim = other.__animControlDict[lodName][partName][animName]\n                    anim = anim.makeCopy()\n                    self.__animControlDict[lodName][partName][animName] = anim\n\n\n    def actorInterval(self, *args, **kw):\n        from direct.interval import ActorInterval\n        return ActorInterval.ActorInterval(self, *args, **kw)\n\n    def getAnimBlends(self, animName=None, partName=None, lodName=None):\n        \"\"\"Returns a list of the form::",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3169
+  }
+}

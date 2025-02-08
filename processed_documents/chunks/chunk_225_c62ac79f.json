@@ -1,0 +1,9 @@
+{
+  "content": "@staticmethod\n    def makeOrthographic(parent, name, campos):\n        v = Viewport(name, parent)\n        v.lens = OrthographicLens()\n        v.lens.setFilmSize(30)\n        v.camPos = campos\n        v.camLookAt = Point3(0, 0, 0)\n        v.grid = DirectGrid(parent=render)\n        if name == 'left':\n            v.grid.setHpr(0, 0, 90)\n            collPlane = CollisionNode('LeftGridCol')\n            collPlane.addSolid(CollisionPlane(Plane(1, 0, 0, 0)))\n            collPlane.setIntoCollideMask(BitMask32.bit(21))\n            v.collPlane = NodePath(collPlane)\n            v.collPlane.wrtReparentTo(v.grid)\n            #v.grid.gridBack.findAllMatches(\"**/+GeomNode\")[0].setName(\"_leftViewGridBack\")\n            LE_showInOneCam(v.grid, name)\n        elif name == 'front':\n            v.grid.setHpr(90, 0, 90)\n            collPlane = CollisionNode('FrontGridCol')\n            collPlane.addSolid(CollisionPlane(Plane(0, -1, 0, 0)))\n            collPlane.setIntoCollideMask(BitMask32.bit(21))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 225
+  }
+}

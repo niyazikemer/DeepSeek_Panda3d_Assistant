@@ -1,0 +1,9 @@
+{
+  "content": "def clearGeom(self):\n        self['geom'] = None\n        self.setGeom()\n\n    def setGeom(self, geom=None):\n        if geom is not None:\n            self[\"geom\"] = geom\n\n        geom = self[\"geom\"]\n        if geom is None or \\\n           isinstance(geom, NodePath) or \\\n           isinstance(geom, str):\n            geom_list = (geom,) * self['numStates']\n        else:\n            geom_list = geom\n\n        self.__reinitComponent(\"geom\", OnscreenGeom, geom_list,\n            scale=1,\n            sort=DGG.GEOM_SORT_INDEX)\n\n    def clearImage(self):\n        self['image'] = None\n        self.setImage()\n\n    def setImage(self, image=None):\n        if image is not None:\n            self[\"image\"] = image",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_76",
+    "parent": "processed_documents/context_documents/85a9ae3c_DirectFrame.json",
+    "chunk_number": 1354
+  }
+}

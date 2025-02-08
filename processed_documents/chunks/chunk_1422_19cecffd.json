@@ -1,0 +1,9 @@
+{
+  "content": "def getWidth(self):\n        return self.bounds[1] - self.bounds[0]\n\n    def getHeight(self):\n        return self.bounds[3] - self.bounds[2]\n\n    def getCenter(self):\n        x = self.bounds[0] + (self.bounds[1] - self.bounds[0])/2.0\n        y = self.bounds[2] + (self.bounds[3] - self.bounds[2])/2.0\n        return (x, y)\n\n    def getFrameType(self, state = 0):\n        return self.frameStyle[state].getType()\n\n    def updateFrameStyle(self):\n        if not self.fInit:\n            for i in range(self['numStates']):\n                self.guiItem.setFrameStyle(i, self.frameStyle[i])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1422
+  }
+}

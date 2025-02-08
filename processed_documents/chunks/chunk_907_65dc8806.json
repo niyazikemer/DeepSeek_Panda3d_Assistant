@@ -1,0 +1,9 @@
+{
+  "content": "def spawnTaskHook(self, task):\n        if self.taskMgrVerbose.get():\n            self.updateTaskListBox()\n\n    def removeTaskHook(self, task):\n        if self.taskMgrVerbose.get():\n            self.updateTaskListBox()\n\n    def removeCurrentTask(self):\n        if self.currentTask:\n            name = self.currentTask.name\n            ok = 1\n            if ((name == 'dataLoop') or\n                (name == 'resetPrevTransform') or\n                (name == 'tkLoop') or\n                (name == 'eventManager') or\n                (name == 'igLoop')):\n                ok = askokcancel('TaskManagerControls',\n                                 'Remove: %s?' % name,\n                                 parent = self.parent,\n                                 default = 'cancel')\n            if ok:\n                self.taskMgr.remove(self.currentTask)\n                self.updateTaskListBox()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 907
+  }
+}

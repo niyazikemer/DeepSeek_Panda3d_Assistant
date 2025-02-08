@@ -1,0 +1,9 @@
+{
+  "content": "def attachCollisionRay(self, name, ox, oy, oz, dx, dy, dz, fromCollide, intoCollide):\n    from panda3d.core import CollisionRay\n    from panda3d.core import CollisionNode\n    coll = CollisionRay(ox, oy, oz, dx, dy, dz)\n    collNode = CollisionNode(name)\n    collNode.addSolid(coll)\n    collNode.setFromCollideMask(fromCollide)\n    collNode.setIntoCollideMask(intoCollide)\n    collNodePath = self.attachNewNode(collNode)\n    return collNodePath\n\nDtool_funcToMethod(attachCollisionRay, NodePath)\ndel attachCollisionRay\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5771
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nAppShell provides a GUI application framework.\nThis is an adaption of AppShell.py found in Python and Tkinter Programming\nby John E. Grayson which is a streamlined adaptation of GuiAppD.py, originally\ncreated by Doug Hellmann (doughellmann@mindspring.com).\n\"\"\"\n\n__all__ = ['AppShell']\n\nfrom direct.showbase.DirectObject import DirectObject\nfrom . import Dial\nfrom . import Floater\nfrom . import Slider\nfrom . import EntryScale\nfrom . import VectorWidgets\nfrom . import ProgressBar\nimport Pmw\nimport tkinter as tk\nimport builtins\n\n\n# Create toplevel widget dictionary\nif not hasattr(builtins, \"widgetDict\"):\n    builtins.widgetDict = {}  # type: ignore[attr-defined]\n\n# Create toplevel variable dictionary\nif not hasattr(builtins, \"variableDict\"):\n    builtins.variableDict = {}  # type: ignore[attr-defined]\n\n\ndef resetWidgetDict():\n    builtins.widgetDict = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3719
+  }
+}

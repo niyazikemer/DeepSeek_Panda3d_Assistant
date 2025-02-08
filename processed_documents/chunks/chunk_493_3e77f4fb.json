@@ -1,0 +1,9 @@
+{
+  "content": "if uid is None:\n            uid = self.genUniqueId()\n\n        if self.editor:\n            objDef = self.editor.objectPalette.findItem('__Curve__')\n\n        if nodePath is None:\n            # we need to create curve\n            # and then create newobj with newly created curve\n            pass\n        else:\n            newobj = nodePath\n\n        newobj.reparentTo(parent)\n        newobj.setTag('OBJRoot', '1')\n\n        # populate obj data using default values\n        properties = {}\n        for key in objDef.properties.keys():\n            properties[key] = objDef.properties[key][OG.PROP_DEFAULT]\n\n        properties['Degree'] = degree\n        properties['curveInfo'] = curveInfo\n\n        # insert obj data to main repository\n        self.objects[uid] = [uid, newobj, objDef, None, None, properties, (1,1,1,1)]\n        self.npIndex[NodePath(newobj)] = uid",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 493
+  }
+}

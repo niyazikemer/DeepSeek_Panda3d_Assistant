@@ -1,0 +1,9 @@
+{
+  "content": "yield None\n                            else:\n                                key = '<unknown member name>'\n                            cycleBySyntax += '%s' % key\n                            objAlreadyRepresented = True\n                        elif type(obj) is dict:\n                            cycleBySyntax += '{'\n                            # get object referred to by dict\n                            val = objs[index+1]\n                            for key, value in obj.items():\n                                if value is val:\n                                    break\n                                yield None\n                            else:\n                                key = '<unknown key>'\n                            cycleBySyntax += '%s}' % fastRepr(key)\n                            objAlreadyRepresented = True\n                        elif type(obj) in (tuple, list):\n                            brackets = {",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4259
+  }
+}

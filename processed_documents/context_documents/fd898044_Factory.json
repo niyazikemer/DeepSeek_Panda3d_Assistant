@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Contains the Factory class.\"\"\"\n\n__all__ = ['Factory']\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\n\n\nclass Factory:\n    \"\"\"This class manages a list of object types and their corresponding constructors.\n    Objects may be created on-demand from their type. Object types may be any hashable\n    piece of unique data (such as a string).\n\n    This class is intended to be derived from. Subclasses should call self._registerTypes\n    to set up type constructors.\"\"\"\n    notify = directNotify.newCategory('Factory')\n\n    def __init__(self):\n        self._type2ctor = {}\n\n    def create(self, type, *args, **kwArgs):\n        return self._type2ctor[type](*args, **kwArgs)\n\n    def _registerType(self, type, ctor):\n        if type in self._type2ctor:\n            self.notify.debug('replacing %s ctor %s with %s' %\n                              (type, self._type2ctor[type], ctor))\n        self._type2ctor[type] = ctor\n    def _registerTypes(self, type2ctor):\n        for type, ctor in list(type2ctor.items()):\n            self._registerType(type, ctor)\n\n    def nullCtor(self, *args, **kwArgs):\n        return None\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/showbase/Factory.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/fd898044_Factory.json",
+    "doc_id": "doc_272"
+  }
+}

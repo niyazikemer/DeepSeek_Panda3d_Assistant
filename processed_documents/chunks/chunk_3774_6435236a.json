@@ -1,0 +1,9 @@
+{
+  "content": "def iglob(pathname):\n    \"\"\"Return an iterator which yields the paths matching a pathname pattern.\n\n    The pattern may contain simple shell-style wildcards a la fnmatch.\n\n    \"\"\"\n    if not has_magic(pathname):\n        if file.lexists(pathname):\n            yield pathname\n        return\n    dirname, basename = os.path.split(pathname)\n    if not dirname:\n        for name in glob1(os.curdir, basename):\n            yield name\n        return\n    if has_magic(dirname):\n        dirs = iglob(dirname)\n    else:\n        dirs = [dirname]\n    if has_magic(basename):\n        glob_in_dir = glob1\n    else:\n        glob_in_dir = glob0\n    for dirname in dirs:\n        for name in glob_in_dir(dirname, basename):\n            yield os.path.join(dirname, name)\n\n# These 2 helper functions non-recursively glob inside a literal directory.\n# They return a list of basenames. repr(glob1) accepts a pattern while `glob0`\n# takes a literal basename (so it only has to check for its existence).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_203",
+    "parent": "processed_documents/context_documents/29a1b250_glob.json",
+    "chunk_number": 3774
+  }
+}

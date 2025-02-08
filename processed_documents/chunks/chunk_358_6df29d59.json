@@ -1,0 +1,9 @@
+{
+  "content": "class SceneGraphUIBase(wx.Panel):\n    def __init__(self, parent, editor):\n        wx.Panel.__init__(self, parent)\n\n        self.editor = editor\n        self.tree = wx.TreeCtrl(self, id=-1, pos=wx.DefaultPosition,\n                  size=wx.DefaultSize, style=wx.TR_MULTIPLE|wx.TR_DEFAULT_STYLE,\n                  validator=wx.DefaultValidator, name=\"treeCtrl\")\n        self.root = self.tree.AddRoot('render')\n        self.tree.SetItemData(self.root, \"render\")\n\n        self.shouldShowPandaObjChildren = False\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.tree, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n        self.Layout()\n\n        parentSizer = wx.BoxSizer(wx.VERTICAL)\n        parentSizer.Add(self, 1, wx.EXPAND, 0)\n        parent.SetSizer(parentSizer)\n        parent.Layout()\n\n        parent.SetDropTarget(SceneGraphUIDropTarget(self.editor))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 358
+  }
+}

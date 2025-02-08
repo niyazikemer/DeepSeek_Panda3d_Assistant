@@ -1,0 +1,9 @@
+{
+  "content": "def __repr__(self):\n        outStr = 'BufferedDistancePhasedNode('\n        outStr += repr(self.getName())\n        for param, value in zip(('bufferParamMap', 'autoCleanup', 'enterPrefix', 'exitPrefix', 'phaseCollideMask', 'fromCollideNode'),\n                                ({}, True, 'enter', 'exit', BitMask32.allOn(), None)):\n            pv = getattr(self, param)\n            if pv != value:\n                outStr += ', %s = %r' % (param, pv)\n        outStr += ')'\n        return outStr\n\n    def __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())\n\n    def setPhase(self, aPhase):\n        \"\"\"\n        see DistancePhasedNode.setPhase()\n        \"\"\"\n        DistancePhasedNode.setPhase(self, aPhase)\n        phase = self.getAliasPhase(aPhase)\n        self.__adjustCollisions(phase)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4588
+  }
+}

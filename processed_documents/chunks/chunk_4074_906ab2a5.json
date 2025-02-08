@@ -1,0 +1,9 @@
+{
+  "content": "# set up floor collision mechanism\n        self.lifter = CollisionHandlerGravity()\n        #self.lifter = CollisionHandlerHighestEvent()\n        self.lifter.setLegacyMode(self._legacyLifter)\n        self.lifter.setGravity(self.__gravity)\n        self.lifter.addInPattern(\"enter%in\")\n        self.lifter.addAgainPattern(\"again%in\")\n        self.lifter.addOutPattern(\"exit%in\")\n        self.lifter.setOffset(floorOffset)\n        self.lifter.setReach(reach)\n\n        # Limit our rate-of-fall with the lifter.\n        # If this is too low, we actually \"fall\" off steep stairs\n        # and float above them as we go down. I increased this\n        # from 8.0 to 16.0 to prevent this\n        #self.lifter.setMaxVelocity(16.0)\n\n        self.lifter.addCollider(self.cRayNodePath, self.avatarNodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4074
+  }
+}

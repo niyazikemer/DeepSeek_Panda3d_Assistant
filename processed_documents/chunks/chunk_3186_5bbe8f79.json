@@ -1,0 +1,9 @@
+{
+  "content": "def createDefaultLights(self):\n        self.create('ambient')\n        self.create('directional')\n\n    def allOn(self):\n        \"\"\"\n        Turn on all DIRECT lights\n        \"\"\"\n        for light in self.lightDict.values():\n            self.setOn(light)\n        # Make sure there is a default material\n        render.setMaterial(Material())\n\n    def allOff(self):\n        \"\"\"\n        Turn off all DIRECT lights\n        \"\"\"\n        for light in self.lightDict.values():\n            self.setOff(light)\n\n    def toggle(self):\n        \"\"\"\n        Toggles light attribute, but doesn't toggle individual lights\n        \"\"\"\n        if render.node().hasAttrib(LightAttrib.getClassType()):\n            self.allOff()\n        else:\n            self.allOn()\n\n    def setOn(self, directLight):\n        \"\"\"\n        Turn on the given directLight\n        \"\"\"\n        render.setLight(directLight)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_178",
+    "parent": "processed_documents/context_documents/94320a32_DirectLights.json",
+    "chunk_number": 3186
+  }
+}

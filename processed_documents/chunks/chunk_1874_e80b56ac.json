@@ -1,0 +1,9 @@
+{
+  "content": "class ResourceTable(object):\n    \"\"\" A table in the resource directory. \"\"\"\n\n    _header = Struct('<IIHHHH')\n\n    def __init__(self, ident=()):\n        self.flags = 0\n        self.timdat = 0\n        self.version = (0, 0)\n        self._name_leaves = []\n        self._id_leaves = []\n        self._ident = ident\n        self._strings_size = 0 # Amount of space occupied by table keys.\n        self._descs_size = 0\n\n    def __getitem__(self, key):\n        if isinstance(key, int):\n            leaves = self._id_leaves\n        else:\n            leaves = self._name_leaves",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1874
+  }
+}

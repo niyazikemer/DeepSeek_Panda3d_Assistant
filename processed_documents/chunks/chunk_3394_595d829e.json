@@ -1,0 +1,9 @@
+{
+  "content": "def disableMouseEvents(self):\n        for event in self.mouseEvents:\n            self.ignore(event)\n\n    def inputHandler(self, input):\n        if not hasattr(self, 'oobeMode') or self.oobeMode == 0:\n            # [gjeon] change current camera dr, iRay, mouseWatcher accordingly to support multiple windows\n            if self.manipulationControl.fMultiView:\n                # handling orphan events\n                if self.fMouse1 and 'mouse1' not in input or\\\n                   self.fMouse2 and 'mouse2' not in input or\\\n                   self.fMouse3 and 'mouse3' not in input:\n                    if input.endswith('-up') or\\\n                       input not in self.modifierEvents:\n                        # to handle orphan events\n                        return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3394
+  }
+}

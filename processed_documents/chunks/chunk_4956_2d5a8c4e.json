@@ -1,0 +1,9 @@
+{
+  "content": "def playMusic(self, music, looping = 0, interrupt = 1, volume = None, time = 0.0):\n        if music:\n            if volume is not None:\n                music.setVolume(volume)\n\n            # if interrupt was set to 0, start over even if it's\n            # already playing\n            if interrupt or (music.status() != AudioSound.PLAYING):\n                music.setTime(time)\n                music.setLoop(looping)\n                music.play()\n\n    def __resetPrevTransform(self, state):\n        # Clear out the previous velocity deltas now, after we have\n        # rendered (the previous frame).  We do this after the render,\n        # so that we have a chance to draw a representation of spheres\n        # along with their velocities.  At the beginning of the frame\n        # really means after the command prompt, which allows the user\n        # to interactively query these deltas meaningfully.\n\n        PandaNode.resetAllPrevTransform()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4956
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, win, parent):\n        \"\"\"Access: private.  Constructor.\"\"\"\n        self.enabled = 0\n        size = ConfigVariableDouble('buffer-viewer-size', '0 0')\n        self.sizex = size[0]\n        self.sizey = size[1]\n        self.position = ConfigVariableString('buffer-viewer-position', \"lrcorner\").getValue()\n        self.layout = ConfigVariableString('buffer-viewer-layout', \"hline\").getValue()\n        self.include = \"all\"\n        self.exclude = \"none\"\n        self.cullbin = \"fixed\"\n        self.cullsort = 10000\n        self.win = win\n        self.engine = GraphicsEngine.getGlobalPtr()\n        self.renderParent = parent\n        self.cards = []\n        self.cardindex = 0\n        self.cardmaker = CardMaker(\"cubemaker\")\n        self.cardmaker.setFrame(-1,1,-1,1)\n        self.task = 0\n        self.dirty = 1\n        self.accept(\"render-texture-targets-changed\", self.refreshReadout)\n        if ConfigVariableBool(\"show-buffers\", 0):\n            self.enable(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4217
+  }
+}

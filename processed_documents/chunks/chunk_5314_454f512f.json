@@ -1,0 +1,9 @@
+{
+  "content": "importSymbols = []\n            for i in range(dcFile.getNumImportSymbols(n)):\n                symbolName = dcFile.getImportSymbol(n, i)\n\n                # Maybe the symbol name is represented as \"symbolName/AI\".\n                suffix = symbolName.split('/')\n                symbolName = suffix[0]\n                suffix=suffix[1:]\n                if self.dcSuffix in suffix:\n                    symbolName += self.dcSuffix\n                elif self.dcSuffix == 'UD' and 'AI' in suffix: #HACK:\n                    symbolName += 'AI'\n\n                importSymbols.append(symbolName)\n\n            self.importModule(dcImports, moduleName, importSymbols)\n\n        # Now get the class definition for the classes named in the DC\n        # file.\n        import inspect\n\n        for i in range(dcFile.getNumClasses()):\n            dclass = dcFile.getClass(i)\n            number = dclass.getNumber()\n            className = dclass.getName() + self.dcSuffix",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5314
+  }
+}

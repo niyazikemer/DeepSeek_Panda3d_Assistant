@@ -1,0 +1,9 @@
+{
+  "content": "After delayTime has elapsed, the task will become active, and\n        will run in the soonest possible frame thereafter.  If you\n        wish to specify a task that will run in the next frame, use a\n        delayTime of 0.\n        \"\"\"\n\n        if delayTime < 0:\n            assert self.notify.warning('doMethodLater: added task: %s with negative delay: %s' % (name, delayTime))\n\n        task = self.__setupTask(funcOrTask, name, priority, sort, extraArgs, taskChain, appendTask, owner, uponDeath)\n        task.setDelay(delayTime)\n        self.mgr.add(task)\n        return task\n\n    do_method_later = doMethodLater",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3880
+  }
+}

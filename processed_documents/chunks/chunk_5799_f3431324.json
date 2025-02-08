@@ -1,0 +1,9 @@
+{
+  "content": "Panda3D can generate sphere maps for you. The above sphere map was generated with the following code:\n\nscene = loader.loadModel('bvw-f2004--streetscene/street-scene.egg')\nscene.reparentTo(render)\nscene.setZ(-2)\nbase.saveSphereMap('streetscene_env.jpg', size = 256)\n\nThe idea is simply to put the camera in the middle of your environment, approximately where your shiny object would be. Then just call base.saveSphereMap() <direct.showbase.ShowBase.ShowBase.saveSphereMap>, and a suitable sphere map image will be generated and written to disk for you.\n\nNow you can apply the environment map to just about any object you like. For instance, the teapot:\n\ntex = loader.loadTexture('streetscene_env.jpg')\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MEyeSphereMap)\nteapot.setTexture(tex)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_347",
+    "parent": "processed_documents/context_documents/a66d1af9_840bebd2_simple-environment-mapping.json",
+    "chunk_number": 5799
+  }
+}

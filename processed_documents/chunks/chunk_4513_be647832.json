@@ -1,0 +1,9 @@
+{
+  "content": "contName, e))\n                    self._leakDetector.removeContainerById(objId)\n                    continue\n                if container is None:\n                    # this container no longer exists\n                    if self.notify.getDebug():\n                        for contName in self._leakDetector.getContainerNameByIdGen(objId):\n                            yield None\n                        self.notify.debug('%s no longer exists; getContainerById returned None' %\n                                          contName)\n                    self._leakDetector.removeContainerById(objId)\n                    continue\n                try:\n                    cLen = len(container)\n                except Exception as e:\n                    # this container no longer exists\n                    if self.notify.getDebug():\n                        for contName in self._leakDetector.getContainerNameByIdGen(objId):\n                            yield None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4513
+  }
+}

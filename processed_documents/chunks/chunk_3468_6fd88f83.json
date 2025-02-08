@@ -1,0 +1,9 @@
+{
+  "content": "class SelectionRay(SelectionQueue):\n    def __init__(self, parentNP = None):\n        if parentNP is None:\n            parentNP = render\n        # Initialize the superclass\n        SelectionQueue.__init__(self, parentNP)\n        self.addCollider(CollisionRay())\n\n    def pick(self, targetNodePath, xy = None):\n        # Determine ray direction based upon the mouse coordinates\n        if xy:\n            mx = xy[0]\n            my = xy[1]\n        elif base.direct:\n            mx = base.direct.dr.mouseX\n            my = base.direct.dr.mouseY\n        else:\n            if not base.mouseWatcherNode.hasMouse():\n                # No mouse in window.\n                self.clearEntries()\n                return\n            mx = base.mouseWatcherNode.getMouseX()\n            my = base.mouseWatcherNode.getMouseY()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3468
+  }
+}

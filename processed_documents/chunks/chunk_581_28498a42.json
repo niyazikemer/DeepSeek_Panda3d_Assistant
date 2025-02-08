@@ -1,0 +1,9 @@
+{
+  "content": "layersData.append(obj[OG.OBJ_UID])\n\n    def onShowMembers(self, event):\n        item = event.GetItem()\n        layerMembers = list()\n        layerName = item.GetText()\n        key = item.GetData()\n        layerData = self.layersDataDict[key]\n        for i in range(len(layerData)):\n            obj = self.editor.objectMgr.findObjectById(layerData[i])\n            namestr = \"%s_%s\"%(obj[OG.OBJ_DEF].name, obj[OG.OBJ_UID])\n            layerMembers.append(namestr)\n        dialog = wx.SingleChoiceDialog(None, layerName, self.editorTxt, layerMembers)\n        if dialog.ShowModal() == wx.ID_OK:\n            #do something here\n            dialog.GetStringSelection()\n        dialog.Destroy()\n\n    def HideObj(self, hide):\n        index = self.llist.GetFirstSelected()\n        if index == -1:\n            wx.MessageBox(\"No layer was selected.\", self.editorTxt, wx.OK | wx.ICON_EXCLAMATION)\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 581
+  }
+}

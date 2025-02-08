@@ -1,0 +1,9 @@
+{
+  "content": "def resetAll(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setPosHprScale(\n                self.initPos, self.initHpr, self.initScale)\n            self.xformStop(None)\n\n    def resetPos(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setPos(self.initPos)\n            self.xformStop(None)\n\n    def resetHpr(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setHpr(self.initHpr)\n            self.xformStop(None)\n\n    def resetScale(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setScale(self.initScale)\n            self.xformStop(None)\n\n    def pushUndo(self, fResetRedo = 1):\n        ShowBaseGlobal.direct.pushUndo([self['nodePath']])\n\n    def undoHook(self, nodePathList = []):\n        # Reflect new changes\n        self.updatePlacer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1082
+  }
+}

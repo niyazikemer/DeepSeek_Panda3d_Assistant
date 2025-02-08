@@ -1,0 +1,9 @@
+{
+  "content": "else:\n            # Read the code from the source file and compile it on-the-fly.\n            if sourceFilename and sourceFilename.exists():\n                source = open(sourceFilename.toOsSpecific(), 'r').read()\n                if source and source[-1] != '\\n':\n                    source = source + '\\n'\n                code = compile(source, str(sourceFilename), 'exec', optimize=self.optimize)\n\n        self.__addPyc(multifile, filename, code, compressionLevel)\n\n    def addToMultifile(self, multifile, compressionLevel = 0):\n        \"\"\" After a call to done(), this stores all of the accumulated\n        python code into the indicated Multifile.  Additional\n        extension modules are listed in self.extras.  \"\"\"\n\n        moduleDirs = {}\n        for moduleName, mdef in self.getModuleDefs():\n            if not mdef.exclude:\n                self.__addPythonFile(multifile, moduleDirs, moduleName, mdef,\n                                     compressionLevel)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2104
+  }
+}

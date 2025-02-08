@@ -1,0 +1,9 @@
+{
+  "content": "def resume(self, startT = None):\n        self.__updateIvals()\n        if startT is not None:\n            self.setT(startT)\n        self.setupResume()\n        self.__manager.addInterval(self)\n\n    def resumeUntil(self, endT):\n        self.__updateIvals()\n        self.setupResumeUntil(endT)\n        self.__manager.addInterval(self)\n\n    def finish(self):\n        self.__updateIvals()\n        state = self.getState()\n        if state == CInterval.SInitial:\n            self.privInstant()\n        elif state != CInterval.SFinal:\n            self.privFinalize()\n        self.__manager.removeInterval(self)\n        self.privPostEvent()\n\n    def clearToInitial(self):\n        # This is overloaded at the Python level to properly call\n        # pause() at the Python level, then upcall to finish the job\n        # at the C++ level.\n        self.pause()\n        CMetaInterval.clearToInitial(self)\n\n    # Internal functions:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2887
+  }
+}

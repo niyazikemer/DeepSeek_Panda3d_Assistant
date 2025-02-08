@@ -1,0 +1,9 @@
+{
+  "content": "self.opDelete = \"Delete\"\n        self.menuItems = list()\n        self.menuItems.append(self.opDelete)\n\n        self.popupmenu = wx.Menu()\n        for item in self.menuItems:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n        self.Bind(wx.EVT_CONTEXT_MENU, self.onShowPopup)\n\n        self.SetDropTarget(ProtoDropTarget(self))\n\n    def populate(self):\n        for key in list(self.protoObjs.data.keys()):\n            self.add(self.protoObjs.data[key])\n\n    # All subclasses should implement this method\n    def addObj(self, filename):\n        raise NotImplementedError\n\n    def onPopupItemSelected(self, event):\n        menuItem = self.popupmenu.FindItemById(event.GetId())\n        text = menuItem.GetText()\n        if text == self.opDelete:\n            self.remove()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_24",
+    "parent": "processed_documents/context_documents/4ea9b58a_ProtoObjsUI.json",
+    "chunk_number": 354
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def onEnterObjectPropUI(self, event):\n        taskMgr.remove('_le_updateObjectUITask')\n        self.editor.ui.bindKeyEvents(False)\n\n    def onLeaveObjectPropUI(self, event):\n        self.spawnUpdateObjectUITask()\n        self.editor.ui.bindKeyEvents(True)\n\n    def spawnUpdateObjectUITask(self):\n        if self.currNodePath is None:\n            return\n\n        taskMgr.remove('_le_updateObjectUITask')\n        t = Task.Task(self.updateObjectUITask)\n        t.np = self.currNodePath\n        taskMgr.add(t, '_le_updateObjectUITask')\n\n    def updateObjectUITask(self, state):\n        self.editor.ui.objectPropertyUI.propX.setValue(state.np.getX())\n        self.editor.ui.objectPropertyUI.propY.setValue(state.np.getY())\n        self.editor.ui.objectPropertyUI.propZ.setValue(state.np.getZ())\n\n        h = state.np.getH()\n        while h < 0:\n            h = h + 360.0\n\n        while h > 360:\n            h = h - 360.0\n\n        p = state.np.getP()\n        while p < 0:\n            p = p + 360.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 506
+  }
+}

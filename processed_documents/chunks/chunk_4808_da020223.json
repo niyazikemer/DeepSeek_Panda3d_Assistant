@@ -1,0 +1,9 @@
+{
+  "content": "Now let's say the objects start moving away from each other:\n\n        setPhase('Far') -> invokes unloadPhaseNear()\n        setPhase('Away') -> invokes unloadPhaseFar()\n\n        Now one object teleports to the other:\n\n        setPhase('At') -> invokes loadPhase('Far'),\n                          then    loadPhase('Near'),\n                          then    loadPhase('At')\n\n        Now the phased object is destroyed, we must clean it up\n        before removal:\n\n        cleanup() -> invokes unloadPhase('At')\n                     then    unloadPhase('Near')\n                     then    unloadPhase('Far')\n                     then    unloadPhase('Away')\n        \"\"\"\n        def __init__(self):\n            PhasedObject.__init__(self, {'At':3, 'Near':2, 'Far':1, 'Away':0})\n            self.setPhase('Away')\n\n        def loadPhaseAway(self):\n            print('loading Away')\n\n        def unloadPhaseAway(self):\n            print('unloading Away')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_278",
+    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
+    "chunk_number": 4808
+  }
+}

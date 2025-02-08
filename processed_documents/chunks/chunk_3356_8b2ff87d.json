@@ -1,0 +1,9 @@
+{
+  "content": "self.majorLines = LineNodePath(self.lines)\n        self.majorLines.lineNode.setName('majorLines')\n        self.majorLines.setColor(VBase4(0.3, 0.55, 1, 1))\n        self.majorLines.setThickness(5)\n\n        self.centerLines = LineNodePath(self.lines)\n        self.centerLines.lineNode.setName('centerLines')\n        self.centerLines.setColor(VBase4(1, 0, 0, 0))\n        self.centerLines.setThickness(3)\n\n        # Small marker to hilight snap-to-grid point\n        self.snapMarker = ShowBaseGlobal.loader.loadModel('models/misc/sphere')\n        self.snapMarker.node().setName('gridSnapMarker')\n        self.snapMarker.reparentTo(self)\n        self.snapMarker.setColor(1, 0, 0, 1)\n        self.snapMarker.setScale(0.3)\n        self.snapPos = Point3(0)\n\n        # Initialize Grid characteristics\n        self.fXyzSnap = 1\n        self.fHprSnap = 1\n        self.gridSize = gridSize\n        self.gridSpacing = gridSpacing\n        self.snapAngle = 15.0\n        self.enable(parent = parent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_183",
+    "parent": "processed_documents/context_documents/fba96cb7_DirectGrid.json",
+    "chunk_number": 3356
+  }
+}

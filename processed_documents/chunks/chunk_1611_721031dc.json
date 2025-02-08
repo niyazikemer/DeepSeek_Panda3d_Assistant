@@ -1,0 +1,9 @@
+{
+  "content": "# Then show the ones in range, and stack their positions\n        upperRange = min(numItemsTotal, numItemsVisible)\n        for i in range(self.index, self.index + upperRange):\n            item = self[\"items\"][i]\n            #print \"stacking buttontext[\", i,\"]\", self[\"items\"][i][\"text\"]\n            # If the item is a 'str', then it has not been created (scrolled list is 'as needed')\n            #  Therefore, use the the function given to make it or just make it a frame\n            if isinstance(item, str):\n                if self['itemMakeFunction']:\n                    # If there is a function to create the item\n                    item = self['itemMakeFunction'](item, i, self['itemMakeExtraArgs'])\n                else:\n                    item = DirectFrame(text = item,\n                                       text_align = self['itemsAlign'],\n                                       text_wordwrap = self['itemsWordwrap'],\n                                       relief = None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1611
+  }
+}

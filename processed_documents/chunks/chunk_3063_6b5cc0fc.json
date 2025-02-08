@@ -1,0 +1,9 @@
+{
+  "content": "if self.__LODNode and (not self.__LODNode.isEmpty()):\n            self.__LODNode.removeNode()\n            self.__LODNode = None\n\n        # remove all its children\n        if self.__geomNode:\n            self.__geomNode.getChildren().detach()\n\n        self.__hasLOD = 0\n\n    # accessing\n\n    def getAnimControlDict(self):\n        return self.__animControlDict\n\n    def removeAnimControlDict(self):\n        self.__animControlDict = {}\n\n    def getPartBundleDict(self):\n        return self.__partBundleDict\n\n    def getPartBundles(self, partName = None):\n        \"\"\" Returns a list of PartBundle objects for the entire Actor,\n        or for the indicated part only. \"\"\"\n\n        bundles = []\n\n        for lodName, partBundleDict in self.__partBundleDict.items():\n            if partName is None:\n                for partDef in partBundleDict.values():\n                    bundles.append(partDef.getBundle())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3063
+  }
+}

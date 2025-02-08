@@ -1,0 +1,9 @@
+{
+  "content": "// Compiling and Linking documentation and notes are not\n// covered in this file, check manual for more information.\n\n#include \"pandaFramework.h\"\n#include \"windowFramework.h\"\n#include \"nodePath.h\"\n#include \"clockObject.h\"\n\n#include \"asyncTask.h\"\n#include \"genericAsyncTask.h\"\n\n#include \"bulletWorld.h\"\n#include \"bulletPlaneShape.h\"\n#include \"bulletBoxShape.h\"\n\nBulletWorld *get_physics_world() {\n  // physics_world is supposed to be an global variable,\n  // but declaring global variables is not cool\n  // for good programmers lol, instead, should use static keyword.\n  static PT(BulletWorld) physics_world = new BulletWorld();\n  return physics_world.p();\n}\n\nAsyncTask::DoneStatus update_scene(GenericAsyncTask* task, void* data) {\n  // Get dt (from Python example) and apply to do_physics(float, int, int);\n  ClockObject *co = ClockObject::get_global_clock();\n  get_physics_world()->do_physics(co->get_dt(), 10, 1.0 / 180.0);\n\n  return AsyncTask::DS_cont;\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7104
+  }
+}

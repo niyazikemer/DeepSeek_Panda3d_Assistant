@@ -1,0 +1,9 @@
+{
+  "content": "decal: if this is True, the text is decalled onto its\n              background card.  Useful when the text will be parented\n              into the 3-D scene graph.\n\n          font: the font to use for the text.\n\n          parent: the NodePath to parent the text to initially.\n\n          mayChange: pass true if the text or its properties may need\n              to be changed at runtime, false if it is static once\n              created (which leads to better memory optimization).\n\n          direction: this can be set to 'ltr' or 'rtl' to override the\n              direction of the text.\n        \"\"\"\n        if parent is None:\n            from direct.showbase import ShowBaseGlobal\n            parent = ShowBaseGlobal.aspect2d\n\n        # make a text node\n        textNode = TextNode('')\n        self.textNode = textNode\n\n        # We ARE a node path.  Initially, we're an empty node path.\n        NodePath.__init__(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1462
+  }
+}

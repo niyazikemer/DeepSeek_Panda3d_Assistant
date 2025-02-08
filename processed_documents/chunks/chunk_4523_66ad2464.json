@@ -1,0 +1,9 @@
+{
+  "content": "def run(self):\n        ids = self._leakDetector.getContainerIds()\n        try:\n            for id in ids:\n                getInstance = (self._otn.lower() not in 'dict')\n                yield None\n                try:\n                    for container in self._leakDetector.getContainerByIdGen(\n                            id, getInstance=getInstance):\n                        yield None\n                except Exception:\n                    pass\n                else:\n                    if hasattr(container, '__class__'):\n                        cName = container.__class__.__name__\n                    else:\n                        cName = container.__name__\n                    if self._otn.lower() in cName.lower():\n                        try:\n                            for ptc in self._leakDetector.getContainerNameByIdGen(\n                                    id, getInstance=getInstance):\n                                yield None\n                        except Exception:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4523
+  }
+}

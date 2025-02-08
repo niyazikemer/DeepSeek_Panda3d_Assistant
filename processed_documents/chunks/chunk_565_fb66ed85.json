@@ -1,0 +1,9 @@
+{
+  "content": "if self.editor.protoPalette.findItem(name):\n            item = self.tree.traverse(self.tree.root, name)\n            if item:\n                self.tree.DeleteItem(item)\n\n        modelname = Filename.fromOsSpecific(filename).getFullpath()\n        if modelname.endswith('.mb') or\\\n           modelname.endswith('.ma'):\n            self.editor.convertMaya(modelname, self.addNewItem)\n            return\n\n        itemData = ObjectBase(name=name, model=modelname, actor=True)\n        self.editor.protoPalette.add(itemData)\n\n        newItem = self.tree.AppendItem(self.editor.ui.protoPaletteUI.tree.root, name)\n        self.tree.SetItemPyData(newItem, itemData)\n        self.tree.ScrollTo(newItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 565
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.fsmLock.acquire()\n        try:\n            assert isinstance(request, str)\n            self.notify.debug(\"%s.request(%s, %s\" % (\n                self._name, request, str(args)[1:]))\n\n            filter = self.getCurrentFilter()\n            result = filter(request, args)\n            if result:\n                if isinstance(result, str):\n                    # If the return value is a string, it's just the name\n                    # of the state.  Wrap it in a tuple for consistency.\n                    result = (result,) + args\n\n                # Otherwise, assume it's a (name, *args) tuple\n                return self.__setState(*result)\n\n            return result\n        finally:\n            self.fsmLock.release()\n\n    def defaultEnter(self, *args):\n        \"\"\" This is the default function that is called if there is no\n        enterState() method for a particular state name. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2640
+  }
+}

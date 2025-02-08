@@ -1,0 +1,9 @@
+{
+  "content": "# Initialize superclass\n        Interval.Interval.__init__(self, name, duration)\n\n    def getCurrentFrame(self):\n        \"\"\"Calculate the current frame playing in this interval.\n\n        returns a float value between startFrame and endFrame, inclusive\n        returns None if there are any problems\n        \"\"\"\n        retval = None\n        if not self.isStopped():\n            framesPlayed = self.numFrames * self.currT\n            retval = self.startFrame + framesPlayed\n        return retval\n\n    def privStep(self, t):\n        frameCount = t * self.frameRate\n        if self.constrainedLoop:\n            frameCount = frameCount % self.numFrames\n\n        if self.reverse:\n            absFrame = self.endFrame - frameCount\n        else:\n            absFrame = self.startFrame + frameCount\n\n        # Calc integer frame number\n        intFrame = int(math.floor(absFrame + 0.0001))\n\n        # Pose anim",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2817
+  }
+}

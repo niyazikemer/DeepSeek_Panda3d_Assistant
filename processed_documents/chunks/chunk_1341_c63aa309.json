@@ -1,0 +1,9 @@
+{
+  "content": "hpr: the h, p, r of the geometry on the screen.\n               This maybe a 3-tuple of floats or a vector.\n\n          scale: the size of the geometry.  This may either be a single\n                 float, a 3-tuple of floats, or a vector, specifying a\n                 different x, y, z scale.  y should be 1\n\n          color: the (r, g, b, a) color of the geometry.  This is\n                 normally a 4-tuple of floats or ints.\n\n          parent: the NodePath to parent the geometry to initially.\n        \"\"\"\n        # We ARE a node path.  Initially, we're an empty node path.\n        NodePath.__init__(self)\n\n        if parent is None:\n            from direct.showbase import ShowBaseGlobal\n            parent = ShowBaseGlobal.aspect2d\n        self.setImage(image, parent = parent, sort = sort)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_75",
+    "parent": "processed_documents/context_documents/c320ed49_OnscreenImage.json",
+    "chunk_number": 1341
+  }
+}

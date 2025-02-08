@@ -1,0 +1,9 @@
+{
+  "content": "# Skip if parented to a camera.\n                pass\n            # Can pick unpickable, use the first visible node\n            elif (skipFlags & DG.SKIP_UNPICKABLE) and \\\n                 (nodePath.getName() in self.unpickable):\n                # Skip if in unpickable list\n                pass\n            elif base.direct and \\\n                 ((skipFlags & DG.SKIP_WIDGET) and\n                 (nodePath.getTag('WidgetName') != base.direct.widget.getName())):\n                # Skip if this widget part is not belong to current widget\n                pass\n            elif base.direct and \\\n                 ((skipFlags & DG.SKIP_WIDGET) and base.direct.fControl and\n                 (nodePath.getName()[2:] == 'ring')):\n                # Skip when ununiformly scale in ortho view\n                pass\n            else:\n                self.setCurrentIndex(i)\n                self.setCurrentEntry(entry)\n                break\n        return self.getCurrentEntry()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3467
+  }
+}

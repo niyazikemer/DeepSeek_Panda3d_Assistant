@@ -1,0 +1,9 @@
+{
+  "content": "# Calculate the size so we can write the offset within the file.\n            if image.hasAlpha():\n                bpp = 32\n                xorsize = size * 4\n            else:\n                bpp = 24\n                xorsize = size * 3 + (-(size * 3) & 3)\n            andsize = (size + 7) >> 3\n            if andsize % 4 != 0:\n                andsize += 4 - (andsize % 4)\n            datasize = 40 + (xorsize + andsize) * size\n\n            ico.write(struct.pack('<BBHHII', 0, 0, 1, bpp, datasize, dataoffs))\n            dataoffs += datasize\n\n        # Now write the actual icon bitmap data.\n        for size, image in self.images.items():\n            if size < 256:\n                self._write_bitmap(ico, image, size, 8)\n\n        for size, image in self.images.items():\n            if size <= 256:\n                bpp = 32 if image.hasAlpha() else 24\n                self._write_bitmap(ico, image, size, bpp)\n\n        assert ico.tell() == dataoffs\n        ico.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2196
+  }
+}

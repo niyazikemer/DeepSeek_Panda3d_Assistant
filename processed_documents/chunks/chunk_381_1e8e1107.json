@@ -1,0 +1,9 @@
+{
+  "content": "curveSequenceName = str(nodePath[OG.OBJ_UID])+' '+str(curve[OG.OBJ_UID])+' '+str(time)\n        self.curveSequence = Sequence(name = curveSequenceName)\n\n        for i in range(len(self.points)-1):\n            myLerp = LerpPosHprInterval(nodePath[OG.OBJ_NP], float(1)/float(24), self.points[i+1], self.hprs[i+1], self.points[i], self.hprs[i])\n            self.curveSequence.append(myLerp)\n\n        return self.curveSequence\n\n    def createParallel(self, startFrame, endFrame):\n        self.parallel = []\n        self.parallel = Parallel(name=\"Current Parallel\")\n\n        self.createCurveAnimation(self.parallel)\n        self.createActorAnimation(self.parallel, startFrame, endFrame)\n        self.createKeyFrameAnimation(self.parallel, startFrame, endFrame)\n        self.createCurveKeyFrameAnimation(self.parallel, startFrame, endFrame)\n\n        return self.parallel",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 381
+  }
+}

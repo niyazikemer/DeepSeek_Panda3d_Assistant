@@ -1,0 +1,9 @@
+{
+  "content": "exceptionLoggedNotify = None\nif __debug__:\n    def exceptionLogged(append=True):\n        \"\"\"decorator that outputs the function name and all arguments\n        if an exception passes back through the stack frame\n        if append is true, string is appended to the __str__ output of\n        the exception. if append is false, string is printed to the log\n        directly. If the output will take up many lines, it's recommended\n        to set append to False so that the exception stack is not hidden\n        by the output of this decorator.\n        \"\"\"\n        try:\n            null = not __dev__\n        except Exception:\n            null = not __debug__\n        if null:\n            # if we're not in __dev__, just return the function itself. This\n            # results in zero runtime overhead, since decorators are evaluated\n            # at module-load.\n            def nullDecorator(f):\n                return f\n            return nullDecorator",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4694
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# make sure this lod is in anim control dict\n                if self.mergeLODBundles:\n                    lodName = 'common'\n                self.__animControlDict.setdefault(lodName, {})\n                self.__animControlDict[lodName].setdefault(partName, {})\n\n                for i in range(numAnims):\n                    animControl = acc.getAnim(i)\n                    animName = acc.getAnimName(i)\n\n                    animDef = Actor.AnimDef()\n                    animDef.animBundle = animControl.getAnim()\n                    animDef.animControl = animControl\n                    self.__animControlDict[lodName][partName][animName] = animDef\n\n    def __prepareBundle(self, bundleNP, partModel,\n                        partName=\"modelRoot\", lodName=\"lodRoot\"):\n        assert partName not in self.__subpartDict",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3140
+  }
+}

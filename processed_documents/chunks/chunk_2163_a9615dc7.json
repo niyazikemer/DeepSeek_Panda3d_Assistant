@@ -1,0 +1,9 @@
+{
+  "content": "# Strip out delvewheel patch (see GitHub issue #1492)\n            if isinstance(code, bytes):\n                # Don't look for \\n at the end, it may also be \\r\\n\n                start_marker = b'# start delvewheel patch'\n                end_marker = b'# end delvewheel patch'\n            else:\n                start_marker = '# start delvewheel patch'\n                end_marker = '# end delvewheel patch'\n\n            start = code.find(start_marker)\n            while start >= 0:\n                end = code.find(end_marker, start) + len(end_marker)\n                code = code[:start] + code[end:]\n                start = code.find(start_marker)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2163
+  }
+}

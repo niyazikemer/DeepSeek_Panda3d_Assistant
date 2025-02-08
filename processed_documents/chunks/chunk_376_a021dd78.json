@@ -1,0 +1,9 @@
+{
+  "content": "class AnimMgrBase:\n    \"\"\" AnimMgr will create, manage, update animations in the scene \"\"\"\n\n    def __init__(self, editor):\n        self.editor = editor\n        self.graphEditorCounter = 0\n\n        self.keyFramesInfo = {}\n        self.curveAnimation = {}\n\n        #normal properties\n        self.lerpFuncs = {\n            'H': self.lerpFuncH,\n            'P': self.lerpFuncP,\n            'R': self.lerpFuncR,\n            'SX': self.lerpFuncSX,\n            'SY': self.lerpFuncSY,\n            'SZ': self.lerpFuncSZ,\n            'CR': self.lerpFuncCR,\n            'CG': self.lerpFuncCG,\n            'CB': self.lerpFuncCB,\n            'CA': self.lerpFuncCA\n        }\n\n        #Properties which has animation curves\n        self.curveLerpFuncs = {\n            'X': [self.lerpFuncX, self.lerpCurveFuncX],\n            'Y': [self.lerpFuncY, self.lerpCurveFuncY],\n            'Z': [self.lerpFuncZ, self.lerpCurveFuncZ]\n        }",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 376
+  }
+}

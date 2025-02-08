@@ -1,0 +1,9 @@
+{
+  "content": "def unplaceTexture(self, tr):\n        \"\"\" Removes the texture from its place on the canvas. \"\"\"\n        if tr.placements:\n            for tp in tr.placements:\n                tp.clearBitmasks(self.bitmasks)\n                if not tp.overflowed:\n                    self.placedQSize -= tp.area\n                    assert self.placedQSize >= 0\n                del self.texPlacements[tp]\n            tr.placements = []\n            tr.clearCard(self)\n            if not tr.overflowed:\n                self.placedSize -= tr.size\n                assert self.placedSize >= 0\n        tr.overflowed = 0\n\n    def placeTexture(self, tr):\n        \"\"\" Places the texture somewhere on the canvas where it will\n        fit. \"\"\"\n\n        tr.computePlacementSize(self)\n        tr.overflowed = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2983
+  }
+}

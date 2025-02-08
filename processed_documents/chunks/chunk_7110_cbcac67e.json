@@ -1,0 +1,9 @@
+{
+  "content": "b = DirectButton(text=(\"OK\", \"click!\", \"rolling over\", \"disabled\"))\n\nThe above example would create a DirectButton whose label reads \"OK\" when it is not being touched, but it will change to a completely different label as the mouse rolls over it and clicks it.\n\nAnother common example is a button you have completely customized by painting four different texture maps to represent the button in each state. Normally, you would convert these texture maps into an egg file using egg-texture-cards like this:\n\negg-texture-cards -o button_maps.egg -p 240,240 button_ready.png button_click.png button_rollover.png button_disabled.png\n\nAnd then you would load up the that egg file in Panda and apply it to the four different states like this:\n\nmaps = loader.loadModel('button_maps')\nb = DirectButton(geom=(maps.find('**/button_ready'),\n                       maps.find('**/button_click'),\n                       maps.find('**/button_rollover'),\n                       maps.find('**/button_disabled')))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_585",
+    "parent": "processed_documents/context_documents/eb85b2b2_7ebb6a99_directbutton.json",
+    "chunk_number": 7110
+  }
+}

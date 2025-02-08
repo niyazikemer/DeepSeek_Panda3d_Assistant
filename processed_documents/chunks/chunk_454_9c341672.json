@@ -1,0 +1,9 @@
+{
+  "content": "self.topView.grid.gridSize = newSize\n        self.topView.grid.gridSpacing = newSpacing\n        self.topView.grid.updateGrid()\n\n        self.frontView.grid.gridSize = newSize\n        self.frontView.grid.gridSpacing = newSpacing\n        self.frontView.grid.updateGrid()\n\n        self.leftView.grid.gridSize = newSize\n        self.leftView.grid.gridSpacing = newSpacing\n        self.leftView.grid.updateGrid()\n\n    def onHotKeys(self, evt):\n        hotKeyUI = HotKeyUI(self, -1, 'Hot Key List')\n        hotKeyUI.ShowModal()\n        hotKeyUI.Destroy()\n\n    def buildContextMenu(self, nodePath):\n        for menuItem in self.contextMenu.GetMenuItems():\n            self.contextMenu.RemoveItem(menuItem)\n\n        self.contextMenu.addItem('Replace This', call=lambda\\\n                                 p0=None, p1=False:self.replaceObject(p0, p1))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 454
+  }
+}

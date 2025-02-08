@@ -1,0 +1,9 @@
+{
+  "content": "self.images[image.getXSize()] = image\n\n        return True\n\n    def getLargestSize(self):\n        return max(self.images.keys())\n\n    def generateMissingImages(self):\n        \"\"\" Generates image sizes that should be present but aren't by scaling\n        from the next higher size. \"\"\"\n\n        for required_size in (256, 128, 48, 32, 16):\n            if required_size in self.images:\n                continue\n\n            sizes = sorted(self.images.keys())\n            if required_size * 2 in sizes:\n                from_size = required_size * 2\n            else:\n                from_size = 0\n                for from_size in sizes:\n                    if from_size > required_size:\n                        break\n\n            if from_size > required_size:\n                Icon.notify.warning(\"Generating %dx%d icon by scaling down %dx%d image\" % (required_size, required_size, from_size, from_size))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2188
+  }
+}

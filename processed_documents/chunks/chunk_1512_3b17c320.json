@@ -1,0 +1,9 @@
+{
+  "content": "wantWide = self.unicodeText or self.guiItem.isWtext()\n        if not self.directWtext.getValue():\n            # If the user has configured wide-text off, then always\n            # return an 8-bit string.  This will be encoded if\n            # necessary, according to Panda's default encoding.\n            wantWide = False\n\n        if plain:\n            if wantWide:\n                return self.guiItem.getPlainWtext()\n            else:\n                return self.guiItem.getPlainText()\n        else:\n            if wantWide:\n                return self.guiItem.getWtext()\n            else:\n                return self.guiItem.getText()\n\n    def getCursorPosition(self):\n        return self.guiItem.getCursorPosition()\n\n    def setCursorPosition(self, pos):\n        if pos < 0:\n            self.guiItem.setCursorPosition(self.guiItem.getNumCharacters() + pos)\n        else:\n            self.guiItem.setCursorPosition(pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1512
+  }
+}

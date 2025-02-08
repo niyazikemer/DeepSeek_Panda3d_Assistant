@@ -1,0 +1,9 @@
+{
+  "content": "class DisplayConnection:\n    def __init__(self, qcm, serverName, port, msgHandler):\n        self.msgHandler = msgHandler\n        gameServerTimeoutMs = base.config.GetInt(\n            \"cluster-server-timeout-ms\", 300000)\n        # A giant 300 second timeout.\n        self.tcpConn = qcm.openTCPClientConnection(\n            serverName, port, gameServerTimeoutMs)\n        # Test for bad connection\n        if self.tcpConn is None:\n            return None\n        else:\n            self.tcpConn.setNoDelay(1)\n            self.qcr=QueuedConnectionReader(qcm, 0)\n            self.qcr.addConnection(self.tcpConn)\n            self.cw=ConnectionWriter(qcm, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1710
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "dclass.receiveUpdateOther(self, di)\n\n    def sendSetZone(self, zoneId):\n        self.air.sendSetZone(self, zoneId)\n\n    def getZoneChangeEvent(self):\n        # this event is generated whenever this object changes zones.\n        # arguments are newZoneId, oldZoneId\n        # includes the quiet zone.\n        return 'DOChangeZone-%s' % self.doId\n\n    def getLogicalZoneChangeEvent(self):\n        # this event is generated whenever this object changes to a\n        # non-quiet-zone zone.\n        # arguments are newZoneId, oldZoneId\n        # does not include the quiet zone.\n        return 'DOLogicalChangeZone-%s' % self.doId\n\n    def handleLogicalZoneChange(self, newZoneId, oldZoneId):\n        \"\"\"this function gets called as if we never go through the\n        quiet zone. Note that it is called once you reach the newZone,\n        and not at the time that you leave the oldZone.\"\"\"\n        messenger.send(self.getLogicalZoneChangeEvent(),\n                       [newZoneId, oldZoneId])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5502
+  }
+}

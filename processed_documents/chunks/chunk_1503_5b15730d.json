@@ -1,0 +1,9 @@
+{
+  "content": "# Call option initialization functions\n        self.initialiseoptions(DirectEntry)\n\n        if not hasattr(self, 'autoCapitalizeAllowPrefixes'):\n            self.autoCapitalizeAllowPrefixes = DirectEntry.AllowCapNamePrefixes\n        if not hasattr(self, 'autoCapitalizeForcePrefixes'):\n            self.autoCapitalizeForcePrefixes = DirectEntry.ForceCapNamePrefixes\n\n        # Update TextNodes for each state\n        for i in range(self['numStates']):\n            self.guiItem.setTextDef(i, self.onscreenText.textNode)\n\n        # Now we should call setup() again to make sure it has the\n        # right font def.\n        self.setup()\n\n        # Update initial text\n        self.unicodeText = 0\n        if self['initialText']:\n            self.enterText(self['initialText'])\n\n    def destroy(self):\n        self.ignoreAll()\n        self._autoCapListener.ignoreAll()\n        DirectFrame.destroy(self)\n\n    def setup(self):\n        self.guiItem.setupMinimal(self['width'], self['numLines'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1503
+  }
+}

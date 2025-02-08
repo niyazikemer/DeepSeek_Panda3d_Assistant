@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectPropUIRadio(ObjectPropUI):\n    def __init__(self, parent, label, value, valueList):\n        ObjectPropUI.__init__(self, parent, label)\n        self.ui = wx.RadioBox(self.uiPane, -1, \"\", choices=valueList, majorDimension=1, style=wx.RA_SPECIFY_COLS)\n        self.setValue(value)\n        self.eventType = wx.EVT_RADIOBOX\n        self.Layout()\n\n    def setValue(self, value):\n        self.ui.SetStringSelection(value)\n\n    def getValue(self):\n        return self.ui.GetStringSelection()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 324
+  }
+}

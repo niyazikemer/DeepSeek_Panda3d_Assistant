@@ -1,0 +1,9 @@
+{
+  "content": "# Do not print the new frame debug, it is too noisy!\n            if EventManager.notify.getDebug() and eventName != 'NewFrame':\n                EventManager.notify.debug('received C++ event named: ' + eventName +\n                                          ' parameters: ' + repr(paramList))\n            # **************************************************************\n            # ******** Duplicate any changes in processEventPstats *********\n            # **************************************************************\n            # Send the event, we used to send it with the event\n            # name as a parameter, but now you can use extraArgs for that\n            messenger.send(eventName, paramList)\n\n            # Also send the event down into C++ land\n            handler = self.eventHandler\n            if handler:\n                handler.dispatchEvent(event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4190
+  }
+}

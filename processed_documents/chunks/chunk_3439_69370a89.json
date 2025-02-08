@@ -1,0 +1,9 @@
+{
+  "content": "class DirectNodePath(NodePath):\n    # A node path augmented with info, bounding box, and utility methods\n    def __init__(self, nodePath, bboxColor=None):\n        # Initialize the superclass\n        NodePath.__init__(self)\n        self.assign(nodePath)\n        # Create a bounding box\n        self.bbox = DirectBoundingBox(self, bboxColor)\n        center = self.bbox.getCenter()\n        # Create matrix to hold the offset between the nodepath\n        # and its center of action (COA)\n        self.mCoa2Dnp = Mat4(Mat4.identMat())\n        if base.direct.coaMode == COA_CENTER:\n            self.mCoa2Dnp.setRow(3, Vec4(center[0], center[1], center[2], 1))\n\n        # Transform from nodePath to widget\n        self.tDnp2Widget = TransformState.makeIdentity()\n\n    def highlight(self, fRecompute = 1):\n        if fRecompute:\n            pass\n            #self.bbox.recompute()\n        self.bbox.show()\n\n    def dehighlight(self):\n        self.bbox.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3439
+  }
+}

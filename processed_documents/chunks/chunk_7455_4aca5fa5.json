@@ -1,0 +1,9 @@
+{
+  "content": "Rapidly-Moving Objects\n\nPanda3D's collision system works by testing the current state of the world every frame for a possible intersection. If your objects are moving so quickly that they might pass completely through another object in the space of one frame, however, that collision might never be detected.\n\nTo avoid this problem, the Panda3D scene graph supports an advanced feature: it can record the previous frame's position of each moving object for the benefit of the CollisionTraverser. The CollisionTraverser can then take advantage of this information when it is testing for collisions. If it sees that a moving object was on one side of an object last frame, and on the opposite side this frame, it can trigger the collision detection even though the two objects might not currently be intersecting.\n\nThere are a few things you need to do to activate this mode.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_650",
+    "parent": "processed_documents/context_documents/df1bf3af_582a2f76_rapidly-moving-objects.json",
+    "chunk_number": 7455
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def undoHook(self, nodePathList = []):\n        # Reflect new changes\n        self.updatePlacer()\n\n    def pushUndoHook(self):\n        # Make sure button is reactivated\n        self.undoButton.configure(state = 'normal')\n\n    def undoListEmptyHook(self):\n        # Make sure button is deactivated\n        self.undoButton.configure(state = 'disabled')\n\n    def pushRedo(self):\n        ShowBaseGlobal.direct.pushRedo([self['nodePath']])\n\n    def redoHook(self, nodePathList = []):\n        # Reflect new changes\n        self.updatePlacer()\n\n    def pushRedoHook(self):\n        # Make sure button is reactivated\n        self.redoButton.configure(state = 'normal')\n\n    def redoListEmptyHook(self):\n        # Make sure button is deactivated\n        self.redoButton.configure(state = 'disabled')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1083
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "elif magic in (b'\\xCA\\xFE\\xBA\\xBF', b'\\xBF\\xBA\\xFE\\xCA'):\n            # A 64-bit fat file.\n            deps = self._read_dependencies_fat(fp, True, flatten=True)\n\n        # If we discovered any dependencies, recursively add those.\n        for dep in deps:\n            self.add_dependency(dep, target_dir, search_path, referenced_by)\n\n    def _read_dependencies_elf(self, elf, origin, search_path):\n        \"\"\" Having read the first 4 bytes of the ELF file, fetches the\n        dependent libraries and returns those as a list. \"\"\"\n\n        ident = elf.read(12)\n\n        # Make sure we read in the correct endianness and integer size\n        byte_order = \"<>\"[ord(ident[1:2]) - 1]\n        elf_class = ord(ident[0:1]) - 1 # 0 = 32-bits, 1 = 64-bits\n        header_struct = byte_order + (\"HHIIIIIHHHHHH\", \"HHIQQQIHHHHHH\")[elf_class]\n        section_struct = byte_order + (\"4xI8xIII8xI\", \"4xI16xQQI12xQ\")[elf_class]\n        dynamic_struct = byte_order + (\"iI\", \"qQ\")[elf_class]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2007
+  }
+}

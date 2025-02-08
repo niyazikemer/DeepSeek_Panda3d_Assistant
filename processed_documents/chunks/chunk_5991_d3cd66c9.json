@@ -1,0 +1,9 @@
+{
+  "content": "'prefer_discrete_gpu': True,\n\nThis option is available as of Panda3D 1.10.13.\n\ncpp\n\nSimply copy-paste the following symbols into the source file containing your main entry point:\n\n#ifdef _WIN32\nextern \"C\" {\n  __declspec(dllexport) DWORD AmdPowerXpressRequestHighPerformance = 0x00000001;\n  __declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;\n}\n#endif\n\nForcing Use of Discrete GPU on Linux\n\nOn Linux, some drivers can be told to use the discrete GPU by setting DRI_PRIME=1 in the environment. However, this is not considered reliable at this time, so it is not done by Panda3D automatically. It is suggested to document this as a possibility for your end-users or add an option for this setting that can be disabled.\n\nWhen distributing a .desktop file, it is also possible to add the following key to the file:\n\nPrefersNonDefaultGPU=true",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_388",
+    "parent": "processed_documents/context_documents/c0d5bb73_e6056c7a_motherboard-integrated-video.json",
+    "chunk_number": 5991
+  }
+}

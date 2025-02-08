@@ -1,0 +1,9 @@
+{
+  "content": "def getTcpHeaderSize(self):\n        \"\"\"Returns the current setting of TCP header size. See\n        setTcpHeaderSize(). \"\"\"\n        return self.qcr.getTcpHeaderSize()\n\n\n    def importModule(self, dcImports, moduleName, importSymbols):\n        \"\"\" Imports the indicated moduleName and all of its symbols\n        into the current namespace.  This more-or-less reimplements\n        the Python import command. \"\"\"\n\n        module = __import__(moduleName, globals(), locals(), importSymbols)\n\n        if importSymbols:\n            # \"from moduleName import symbolName, symbolName, ...\"\n            # Copy just the named symbols into the dictionary.\n            if importSymbols == ['*']:\n                # \"from moduleName import *\"\n                if hasattr(module, \"__all__\"):\n                    importSymbols = module.__all__\n                else:\n                    importSymbols = module.__dict__.keys()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5171
+  }
+}

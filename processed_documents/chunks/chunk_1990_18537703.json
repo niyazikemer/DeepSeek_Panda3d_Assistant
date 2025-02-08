@@ -1,0 +1,9 @@
+{
+  "content": "# If this is a dynamic library, search for dependencies.\n            target_path = os.path.join(binary_dir, basename)\n            search_path = get_search_path_for(source_path)\n            self.copy_with_dependencies(source_path, target_path, search_path)\n\n        # Copy classes.dex on Android\n        if use_wheels and platform.startswith('android'):\n            self.copy(os.path.join(p3dwhlfn, 'deploy_libs', 'classes.dex'),\n                      os.path.join(binary_dir, '..', '..', 'classes.dex'))\n\n        # Extract any other data files from dependency packages.\n        if data_dir is None:\n            return\n\n        for module, datadesc in self.package_data_dirs.items():\n            if module not in freezer_modules:\n                continue\n\n            self.announce('Copying data files for module: {}'.format(module), distutils.log.INFO)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1990
+  }
+}

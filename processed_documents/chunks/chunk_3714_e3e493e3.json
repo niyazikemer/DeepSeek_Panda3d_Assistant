@@ -1,0 +1,9 @@
+{
+  "content": "def updateIndicatorDegrees(self, degAngle):\n        self.updateIndicatorRadians(degAngle * (math.pi/180.0))\n\n    def updateIndicatorRadians(self, dialAngle):\n        rawAngle = dialAngle - POINTFIVE_PI\n        # Compute end points\n        endx = math.cos(rawAngle) * self.radius\n        endy = math.sin(rawAngle) * self.radius\n        # Draw new indicator\n        self._widget.coords('indicator', endx * INNER_SF, endy * INNER_SF,\n                            endx, endy)\n\n    # Knob velocity controller\n    def knobMouseDown(self, event):\n        self._onButtonPress()\n        self.knobSF = 0.0\n        self.updateTask = taskMgr.add(self.updateDialTask, 'updateDial')\n        self.updateTask.lastTime = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3714
+  }
+}

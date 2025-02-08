@@ -1,0 +1,9 @@
+{
+  "content": "\nimport random\n\n# DCR: I added a weightedChoice() function to PythonUtil that supports\n# floating-point weights and is intended for one-shot choices. It\n# has an optional 'sum' argument that you can pass in if you know the\n# sum of the weights and want to make repeated choices.\n\nclass WeightedChoice:\n    def __init__(self, listOfLists, weightIndex=0):\n        t=0\n        for i in listOfLists:\n            t+=i[weightIndex]\n        self.total = t\n        self.listOfLists = listOfLists\n        self.weightIndex = weightIndex\n\n    def choose(self, rng=random):\n        roll = rng.randrange(self.total)\n        weight = self.weightIndex\n        for i in self.listOfLists:\n            roll -= i[weight]\n            if roll <= 0:\n                return i\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/directutil/WeightedChoice.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/03577cf5_WeightedChoice.json",
+    "doc_id": "doc_125"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def printLayout(self):\n        dict = self.stateInspectorDict\n        keys = sorted(dict)\n        print(\"ClassicFSM.ClassicFSM('%s', [\" % self.name)\n        for key in keys[:-1]:\n            si = dict[key]\n            center = si.center()\n            print(\"    State.State('%s',\" % si.state.getName())\n            print(\"                %s,\" % si.state.getEnterFunc().__name__)\n            print(\"                %s,\" % si.state.getExitFunc().__name__)\n            print(\"                %s,\" % si.state.getTransitions())\n            print(\"                inspectorPos = [%.1f, %.1f]),\" % (center[0], center[1]))\n        for key in keys[-1:]:\n            si = dict[key]\n            center = si.center()\n            print(\"    State.State('%s',\" % si.state.getName())\n            print(\"                %s,\" % si.state.getEnterFunc().__name__)\n            print(\"                %s,\" % si.state.getExitFunc().__name__)\n            print(\"                %s,\" % si.state.getTransitions())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1104
+  }
+}

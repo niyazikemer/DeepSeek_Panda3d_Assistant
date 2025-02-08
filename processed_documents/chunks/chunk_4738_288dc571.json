@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" This module is now vestigial.  \"\"\"\n\nimport sys\nimport Pmw\n\n\n# This is required by the ihooks.py module used by Squeeze (used by\n# pandaSqueezer.py) so that Pmw initializes properly\nif '_Pmw' in sys.modules:\n    sys.modules['_Pmw'].__name__ = '_Pmw'\n\n# Don't export this from the module.\ndel sys\n\n# Hack to workaround broken Pmw.NoteBook in Python 3",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_267",
+    "parent": "processed_documents/context_documents/9e4614f0_TkGlobal.json",
+    "chunk_number": 4738
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class AndroidLogStream:\n    closed = False\n    encoding = 'utf-8'\n\n    def __init__(self, prio, tag):\n        self.prio = prio\n        self.tag = tag\n        self.buffer = ''\n\n    def isatty(self):\n        return False\n\n    def write(self, text):\n        self.writelines(text.split('\\\\n'))\n\n    def writelines(self, lines):\n        num_lines = len(lines)\n        if num_lines == 1:\n            self.buffer += lines[0]\n        elif num_lines > 1:\n            android_log_write(self.prio, self.tag, self.buffer + lines[0])\n            for line in lines[1:-1]:\n                android_log_write(self.prio, self.tag, line)\n            self.buffer = lines[-1]\n\n    def flush(self):\n        pass\n\n    def seekable(self):\n        return False\n\n    def readable(self):\n        return False\n\n    def writable(self):\n        return True\n\nif sys.version_info < (3, 13):\n    sys.stdout = AndroidLogStream(4, 'python.stdout')\n    sys.stderr = AndroidLogStream(5, 'python.stderr')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1929
+  }
+}

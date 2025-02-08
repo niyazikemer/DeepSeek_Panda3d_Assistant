@@ -1,0 +1,9 @@
+{
+  "content": "# make sure we're not still listening for messenger events\n        events = messenger.getAllAccepting(self)\n        # make sure we're not leaking tasks\n        # TODO: include tasks that were added directly to the taskMgr\n        tasks = []\n        if hasattr(self, '_taskList'):\n            tasks = [task.name for task in self._taskList.values()]\n        if len(events) != 0 or len(tasks) != 0:\n            from direct.showbase.PythonUtil import getRepository\n            estr = ('listening to events: %s' % events if len(events) != 0 else '')\n            andStr = (' and ' if len(events) != 0 and len(tasks) != 0 else '')\n            tstr = ('%srunning tasks: %s' % (andStr, tasks) if len(tasks) != 0 else '')\n            notify = directNotify.newCategory('LeakDetect')\n            crash = getattr(getRepository(), '_crashOnProactiveLeakDetect', False)\n            func = (self.notify.error if crash else self.notify.warning)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_260",
+    "parent": "processed_documents/context_documents/52e8ea2a_DirectObject.json",
+    "chunk_number": 4567
+  }
+}

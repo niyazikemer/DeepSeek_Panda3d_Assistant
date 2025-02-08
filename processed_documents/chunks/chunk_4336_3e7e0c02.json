@@ -1,0 +1,9 @@
+{
+  "content": "if self.desc[2] == imp.PY_COMPILED:\n            # It's a pyc file; just read it directly.\n            pycVfile = vfs.getFile(self.filename, False)\n            if pycVfile:\n                return self._loadPyc(pycVfile, None)\n            raise IOError('Could not read %s' % (self.filename))\n\n        elif self.desc[2] == imp.C_EXTENSION:\n            return None\n\n        # It's a .py file (or an __init__.py file; same thing).  Read\n        # the .pyc file if it is available and current; otherwise read\n        # the .py file and compile it.\n        t_pyc = None\n        for ext in compiledExtensions:\n            pycFilename = Filename(self.filename)\n            pycFilename.setExtension(ext)\n            pycVfile = vfs.getFile(pycFilename, False)\n            if pycVfile:\n                t_pyc = pycVfile.getTimestamp()\n                break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4336
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def enableManipulation(self):\n        # Accept events\n        for event in self.actionEvents:\n            self.accept(event[0], event[1], extraArgs = event[2:])\n\n        self.fAllowSelectionOnly = 0\n\n    def disableManipulation(self, allowSelectionOnly=False):\n        # Ignore events\n        for event in self.actionEvents:\n            self.ignore(event[0])\n\n        # [gjeon] to enable selection while other manipulation is disabled\n        if allowSelectionOnly:\n            self.fAllowSelectionOnly = allowSelectionOnly\n            self.accept('DIRECT-mouse1', self.manipulationStart)\n            self.accept('DIRECT-mouse1Up', self.manipulationStop)\n\n        self.removeManipulateObjectTask()\n        taskMgr.remove('manipulateObject')\n        taskMgr.remove('manip-move-wait')\n        taskMgr.remove('manip-watch-mouse')\n        taskMgr.remove('highlightWidgetTask')\n\n    def toggleObjectHandlesMode(self):\n        if self.fMovable:\n            self.fSetCoa = 1 - self.fSetCoa",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3211
+  }
+}

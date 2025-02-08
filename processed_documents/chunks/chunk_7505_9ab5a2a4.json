@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nTODO\n\nWe have to set up the swept sphere only on the fast moving dynamic bodies. There is no need to do anything for the static or slow moving obstacles.\n\nOne particular use for CCD is firing a bullet (bullet is lowercase here, indicating that a projectile is meant, not the Bullet physics engine). Below is a sample showing one way to implement shooting bullets.\n\npython\n\nbullets = []\n\ndef removeBullet(task):\n  if len(bullets) < 1: return\n\n  bulletNP = bullets.pop(0)\n  world.removeRigidBody(bulletNP.node())\n\n  return task.done\n\ndef shootBullet(ccd):\n  # Get from/to points from mouse click\n  pMouse = base.mouseWatcherNode.getMouse()\n  pFrom = Point3()\n  pTo = Point3()\n  base.camLens.extrude(pMouse, pFrom, pTo)\n\n  pFrom = render.getRelativePoint(base.cam, pFrom)\n  pTo = render.getRelativePoint(base.cam, pTo)\n\n  # Calculate initial velocity\n  v = pTo - pFrom\n  v.normalize()\n  v *= 10000.0",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_656",
+    "parent": "processed_documents/context_documents/8223b26b_1484f604_ccd.json",
+    "chunk_number": 7505
+  }
+}

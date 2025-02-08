@@ -1,0 +1,9 @@
+{
+  "content": "else:\n            if self.platform.startswith('win'):\n                target = basename + self.cenv.dllext + '.pyd'\n            else:\n                target = basename + '.so'\n\n            initCode = dllInitCode % {\n                'moduleName': os.path.basename(basename),\n                'dllexport': dllexport,\n                'dllimport': dllimport,\n            }\n            compileFunc = self.cenv.compileDll\n\n        self.writeCode(filename, initCode=initCode)\n\n        # Keep track of the files we should clean up after use.\n        cleanFiles = [filename, basename + self.objectExtension]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2117
+  }
+}

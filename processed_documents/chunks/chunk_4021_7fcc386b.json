@@ -1,0 +1,9 @@
+{
+  "content": "BLOOM_X = \"\"\"\n//Cg\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float4 l_texcoord0 : TEXCOORD0,\n             out float4 l_texcoord1 : TEXCOORD1,\n             out float4 l_texcoord2 : TEXCOORD2,\n             uniform float4 texpad_src,\n             uniform float4 texpix_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  float2 c = vtx_texcoord * texpad_src.xy * 2;\n  float offset = texpix_src.x;\n  float pad = texpad_src.x * 2;\n  l_texcoord0 = float4(min(c.x-offset* -4, pad), min(c.x-offset* -3, pad), min(c.x-offset* -2, pad), c.y);\n  l_texcoord1 = float4(min(c.x-offset* -1, pad), c.x-offset*  0, c.x-offset*  1, c.y);\n  l_texcoord2 = float4(c.x-offset*  2, c.x-offset*  3, c.x-offset*  4, c.y);\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_222",
+    "parent": "processed_documents/context_documents/5f9921ca_filterBloomX.json",
+    "chunk_number": 4021
+  }
+}

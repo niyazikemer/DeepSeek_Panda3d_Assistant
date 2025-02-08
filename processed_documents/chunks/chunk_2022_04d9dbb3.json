@@ -1,0 +1,9 @@
+{
+  "content": "def get_archive_basedir(self):\n        return self.distribution.get_name()\n\n    def get_current_platform(self):\n        return self._current_platform\n\n    def run(self):\n        build_cmd = self.distribution.get_command_obj('build_apps')\n        for opt in self._build_apps_options():\n            optval = getattr(self, opt)\n            if optval is not None:\n                setattr(build_cmd, opt, optval)\n        if not self.skip_build:\n            self.run_command('build_apps')\n        else:\n            build_cmd.finalize_options()\n\n        platforms = build_cmd.platforms\n        build_base = os.path.abspath(build_cmd.build_base)\n        if not os.path.exists(self.dist_dir):\n            os.makedirs(self.dist_dir)\n        os.chdir(self.dist_dir)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2022
+  }
+}

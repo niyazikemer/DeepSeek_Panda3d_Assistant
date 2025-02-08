@@ -1,0 +1,9 @@
+{
+  "content": "def getParentObj(self):\n        if self.parentId is None:\n            return None\n        return self.cr.doId2do.get(self.parentId)\n\n    def isLocal(self):\n        # This returns true if the distributed object is \"local,\"\n        # which means the client created it instead of the AI, and it\n        # gets some other special handling.  Normally, only the local\n        # avatar class overrides this to return true.\n        return self.cr and self.cr.isLocalId(self.doId)\n\n    def isGridParent(self):\n        # If this distributed object is a DistributedGrid return 1.  0 by default\n        return 0\n\n    def execCommand(self, string, mwMgrId, avId, zoneId):\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5572
+  }
+}

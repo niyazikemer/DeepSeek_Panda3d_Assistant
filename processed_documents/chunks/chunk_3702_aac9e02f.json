@@ -1,0 +1,9 @@
+{
+  "content": "class AngleDial(Dial):\n    def __init__(self, parent = None, **kw):\n        # Set the typical defaults for a 360 degree angle dial\n        optiondefs = (\n            ('delta',             360.0,          None),\n            ('fRollover',         0,              None),\n            ('dial_numSegments',  12,             None),\n        )\n        self.defineoptions(kw, optiondefs)\n        # Initialize the superclass\n        Dial.__init__(self, parent)\n        # Needed because this method checks if self.__class__ is myClass\n        # where myClass is the argument passed into inialiseoptions\n        self.initialiseoptions(AngleDial)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3702
+  }
+}

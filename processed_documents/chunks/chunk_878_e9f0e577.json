@@ -1,0 +1,9 @@
+{
+  "content": "## FORCEGROUP COMMANDS ##\n    def updateForceWidgets(self):\n        # Select appropriate notebook page\n        if self.forceGroup is not None:\n            self.forceGroupNotebook.pack(fill = tk.X)\n            self.forcePageName = (self.particleEffect.getName() + '-' +\n                                  self.forceGroup.getName())\n            self.forcePage = self.forcePagesDict.get(\n                self.forcePageName, None)\n            # Page doesn't exist, add it\n            if self.forcePage is None:\n                self.addForceGroupNotebookPage(\n                    self.particleEffect, self.forceGroup)\n            self.forceGroupNotebook.selectpage(self.forcePageName)\n        else:\n            self.forceGroupNotebook.pack_forget()\n\n    def addLinearVectorForce(self):\n        self.addForce(LinearVectorForce())\n\n    def addLinearFrictionForce(self):\n        self.addForce(LinearFrictionForce())\n\n    def addLinearJitterForce(self):\n        self.addForce(LinearJitterForce())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 878
+  }
+}

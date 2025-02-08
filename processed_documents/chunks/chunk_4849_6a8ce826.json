@@ -1,0 +1,9 @@
+{
+  "content": "class ShowBase(DirectObject.DirectObject):\n\n    #: The deprecated `.DConfig` interface for accessing config variables.\n    config: ClassVar = DConfig\n    notify: ClassVar[Notifier] = directNotify.newCategory(\"ShowBase\")\n    guiItems: ClassVar[dict]\n\n    render2d: NodePath\n    aspect2d: NodePath\n    pixel2d: NodePath\n\n    def __init__(self, fStartDirect: bool = True, windowType: str | None = None) -> None:\n        \"\"\"Opens a window, sets up a 3-D and several 2-D scene graphs, and\n        everything else needed to render the scene graph to the window.\n\n        To prevent a window from being opened, set windowType to the string\n        'none' (or 'offscreen' to create an offscreen buffer).  If this is not\n        specified, the default value is taken from the 'window-type'\n        configuration variable.\n\n        This constructor will add various things to the Python builtins scope,\n        including this instance itself (under the name ``base``).\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4849
+  }
+}

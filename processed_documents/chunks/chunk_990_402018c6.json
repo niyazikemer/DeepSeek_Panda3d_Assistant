@@ -1,0 +1,9 @@
+{
+  "content": "# add directory where animation was loaded from to the\n        # current model path so any further searches for the file\n        # can find it\n        fileDirName = os.path.dirname(animFilename)\n        fileBaseName = os.path.basename(animFilename)\n        fileBaseNameBase = os.path.splitext(fileBaseName)[0]\n        fileDirNameFN = Filename(fileDirName)\n        fileDirNameFN.makeCanonical()\n        getModelPath().prependDirectory(fileDirNameFN)\n        for currActor in self['actorList']:\n            # replace all currently loaded anims with specified one\n#            currActor.unloadAnims(None, None, None)\n            currActor.loadAnims({fileBaseNameBase:fileBaseNameBase})\n        self.clearActorControls()\n        self.createActorControls()\n\n    def playActorControls(self):\n        self.stopActorControls()\n        self.lastT = ClockObject.getGlobalClock().getFrameTime()\n        self.playList = self.actorControlList[:]\n        taskMgr.add(self.play, self.id + '_UpdateTask')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 990
+  }
+}

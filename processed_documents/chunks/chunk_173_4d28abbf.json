@@ -1,0 +1,9 @@
+{
+  "content": "def loadModels(self):\n\n        self.environ1 = loader.loadModel(\"models/skydome\")\n        self.environ1.reparentTo(render)\n        self.environ1.setScale(1)\n\n        self.environ2 = loader.loadModel(\"models/skydome\")\n        self.environ2.reparentTo(render)\n        self.environ2.setP(180)\n        self.environ2.setH(270)\n        self.environ2.setScale(1)\n\n        self.environ = loader.loadModel(\"models/groundPlane\")\n        self.environ.reparentTo(render)\n\n        # Create the main character, Ralph\n\n        #ralphStartPos = self.environ.find(\"**/start_point\").getPos()\n        ralphStartPos = Vec3(-51, -64, 0)\n        self.ralph = Actor(\"models/ralph\",\n                           {\"run\": \"models/ralph-run\",\n                            \"walk\": \"models/ralph-walk\"})\n        self.ralph.reparentTo(render)\n        self.ralph.setScale(2)\n        self.ralph.setPos(ralphStartPos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_10",
+    "parent": "processed_documents/context_documents/db6dae55_1bbd6cf1_static-obstacles.json",
+    "chunk_number": 173
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def destroy(self):\n        self.disable()\n        self.tempCS.removeNode()\n\n    def updateTask(self, state):\n        self.updateFunc()\n        return Task.cont\n\n    def fastrakUpdate(self):\n        # Get tracker position in feet.  Flip x, z axes.\n        pos = base.direct.fastrak[self.deviceNo].tracker.getPos()\n        self.trackerPos = Vec3(3.280839895013123 * pos[2],\n                               3.280839895013123 * pos[1],\n                               3.280839895013123 * pos[0])\n        self.notify.debug(\"Tracker(%d) Pos = %s\" % (self.deviceNo, repr(self.trackerPos)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_110",
+    "parent": "processed_documents/context_documents/f1774c70_DirectFastrak.json",
+    "chunk_number": 1771
+  }
+}

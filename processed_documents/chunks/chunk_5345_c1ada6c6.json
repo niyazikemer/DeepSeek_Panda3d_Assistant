@@ -1,0 +1,9 @@
+{
+  "content": "def doSmoothTask(self, task):\n        self.smoothPosition()\n        return cont\n\n    def wantsSmoothing(self):\n        # Override this function to return 0 if this particular kind\n        # of smooth node doesn't really want to be smoothed.\n        return 1\n\n    def startSmooth(self):\n        \"\"\"\n        This function starts the task that ensures the node is\n        positioned correctly every frame.  However, while the task is\n        running, you won't be able to lerp the node or directly\n        position it.\n        \"\"\"\n        if not self.wantsSmoothing() or self.isDisabled() or self.isLocal():\n            return\n        if not self.smoothStarted:\n            taskName = self.taskName(\"smooth\")\n            taskMgr.remove(taskName)\n            self.reloadPosition()\n            taskMgr.add(self.doSmoothTask, taskName)\n            self.smoothStarted = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5345
+  }
+}

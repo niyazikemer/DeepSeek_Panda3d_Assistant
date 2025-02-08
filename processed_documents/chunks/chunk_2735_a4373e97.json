@@ -1,0 +1,9 @@
+{
+  "content": "# Generate unique name if necessary\n        if name is None:\n            name = id\n        # Initialize superclass\n        Interval.Interval.__init__(self, name, duration)\n\n    def privInitialize(self, t):\n        # If it's within a 10th of a second of the start,\n        # start at the beginning\n        self._reverse = False\n        t1 = t + self.startTime\n        if t1 < 0.1:\n            t1 = 0.0\n        if t1 < self.soundDuration and not (self._seamlessLoop and self._soundPlaying):\n            base.sfxPlayer.playSfx(\n                self.sound, self.fLoop, 1, self.volume, t1, self.node,\n                listenerNode = self.listenerNode, cutoff = self.cutOff)\n            self._soundPlaying = True\n        self.state = CInterval.SStarted\n        self.currT = t\n\n    def privInstant(self):\n        pass\n\n    def privStep(self, t):\n        ## if self._reverse:\n        ##     # Don't attempt to play the sound backwards.\n        ##     return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_155",
+    "parent": "processed_documents/context_documents/3a83844b_SoundInterval.json",
+    "chunk_number": 2735
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# the tem was not found - checking if it has children\n            if self.ItemHasChildren(item):\n                # item has children - delving into it\n                child = self.traverse(item, itemText)\n                if child is not None:\n                    return child\n\n            # continue iteration to the next child\n            item, cookie = self.GetNextChild(parent, cookie)\n        return None\n\n    def AddGroup(self):\n        #import pdb;set_trace()\n        parent = self.GetSelection()\n        if parent is None:\n            parent = self.GetRootItem()\n\n        i = 1\n        namestr = f\"Group{i}\"\n        found = self.traverse(self.GetRootItem(), namestr)\n        while found:\n            i = i + 1\n            namestr = f\"Group{i}\"\n            found = self.traverse(self.GetRootItem(), namestr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 308
+  }
+}

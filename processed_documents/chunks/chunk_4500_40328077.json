@@ -1,0 +1,9 @@
+{
+  "content": "list(startRefWorkingList.source.values()),\n                                    countFunc=lambda x: self.getStartObjAffinity(x),\n                                    scale=.05):\n                                yield None\n                            startRefWorkingList.refGen = fw\n                    if curObjRef is None:\n                        # this ref set is empty, choose another\n                        # the base set should never be empty (builtins etc.)\n                        continue\n                    # do we need to go look up the object in _id2ref? sometimes we do that\n                    # to avoid storing multiple redundant refs to a single item\n                    if type(curObjRef) is int:\n                        startId = curObjRef\n                        curObjRef = None\n                        try:\n                            for containerRef in self._leakDetector.getContainerByIdGen(startId):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4500
+  }
+}

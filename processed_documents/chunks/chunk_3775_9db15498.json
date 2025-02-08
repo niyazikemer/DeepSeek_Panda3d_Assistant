@@ -1,0 +1,9 @@
+{
+  "content": "def glob1(dirname, pattern):\n    if not dirname:\n        dirname = os.curdir\n    try:\n        names = file.listdir(dirname)\n    except os.error:\n        return []\n    if pattern[0] != '.':\n        names = [x for x in names if x[0] != '.']\n    return fnmatch.filter(names, pattern)\n\ndef glob0(dirname, basename):\n    if basename == '':\n        # repr(os.path.split()) returns an empty basename for paths ending with a\n        # directory separator.  'q*x/' should match only directories.\n        if file.isdir(dirname):\n            return [basename]\n    else:\n        if file.lexists(os.path.join(dirname, basename)):\n            return [basename]\n    return []\n\n\ndef has_magic(s):\n    if isinstance(s, bytes):\n        return b'*' in s or b'?' in s or b'[' in s\n    else:\n        return '*' in s or '?' in s or '[' in s",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_203",
+    "parent": "processed_documents/context_documents/29a1b250_glob.json",
+    "chunk_number": 3775
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def setBarTexture(self):\n        \"\"\"Updates the bar texture, which you can set using bar['barTexture'].\"\"\"\n        # this must be a single texture (or a string).\n        texture = self['barTexture']\n        if isinstance(texture, str):\n            texture = base.loader.loadTexture(texture)\n        if texture:\n            self.barStyle.setTexture(texture)\n        else:\n            self.barStyle.clearTexture()\n        self.updateBarStyle()\n\n    def update(self, value):\n        \"\"\"Updates the bar with the given value and renders a frame.\"\"\"\n        self['value'] = value\n\n        # Render a frame out-of-sync with the igLoop to update the\n        # window right now.  This allows the wait bar to be updated\n        # even though we are not normally rendering frames.\n        base.graphicsEngine.renderFrame()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_92",
+    "parent": "processed_documents/context_documents/e1fb356e_DirectWaitBar.json",
+    "chunk_number": 1594
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Unpickler(BaseUnpickler):  # type: ignore[misc, valid-type]\n\n    def __init__(self, *args, **kw):\n        self.bamReader = BamReader()\n        BaseUnpickler.__init__(self, *args, **kw)\n\n    # Duplicate the load_reduce() function, to provide a special case\n    # for the reduction function.\n\n    def load_reduce(self):\n        stack = self.stack\n        args = stack.pop()\n        func = stack[-1]\n\n        # If the function name ends with \"_persist\", then assume the\n        # function wants the Unpickler as the first parameter.\n        func_name = func.__name__\n        if func_name.endswith('_persist') or func_name.endswith('Persist'):\n            value = func(self, *args)\n        else:\n            # Otherwise, use the existing pickle convention.\n            value = func(*args)\n\n        stack[-1] = value\n\n    BaseUnpickler.dispatch[pickle.REDUCE[0]] = load_reduce\n\n\n# Shorthands\nfrom io import BytesIO\n\ndef dump(obj, file, protocol=None):\n    Pickler(file, protocol).dump(obj)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3855
+  }
+}

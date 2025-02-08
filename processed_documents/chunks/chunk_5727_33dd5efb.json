@@ -1,0 +1,9 @@
+{
+  "content": "class CRDataCache:\n    # Stores cached data for DistributedObjects between instantiations on the client\n\n    def __init__(self):\n        self._doId2name2data = {}\n        # maximum # of objects we will cache data for\n        self._size = ConfigVariableInt('crdatacache-size', 10).getValue()\n        assert self._size > 0\n        # used to preserve the cache size\n        self._junkIndex = 0\n\n    def destroy(self):\n        del self._doId2name2data",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_338",
+    "parent": "processed_documents/context_documents/66cf91ba_CRDataCache.json",
+    "chunk_number": 5727
+  }
+}

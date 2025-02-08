@@ -1,0 +1,9 @@
+{
+  "content": "# Choose directional offsets\n        if self.position == \"llcorner\":\n            dirx = -1.0\n            diry = -1.0\n        elif self.position == \"lrcorner\":\n            dirx =  1.0\n            diry = -1.0\n        elif self.position == \"ulcorner\":\n            dirx = -1.0\n            diry =  1.0\n        elif self.position == \"urcorner\":\n            dirx =  1.0\n            diry =  1.0\n        else:\n            BufferViewer.notify.error('window mode not implemented yet')\n\n        # Create the frame\n        frame = self.makeFrame(sizex, sizey)\n\n        # Now, position the cards on the screen.\n        # For each card, create a frame consisting of eight quads.\n\n        for r in range(rows):\n            for c in range(cols):\n                index = c + r * cols\n                if index < ncards:\n                    index = (index + self.cardindex) % len(cards)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4239
+  }
+}

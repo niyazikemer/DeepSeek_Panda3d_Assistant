@@ -1,0 +1,9 @@
+{
+  "content": "def setEntry(self, value, fCommand = 1):\n        \"\"\"\n        Update value displayed in entry, fCommand flag controls\n        command execution\n        \"\"\"\n        # Clamp value\n        if self['min'] is not None:\n            if value < self['min']:\n                value = self['min']\n        if self['max'] is not None:\n            if value > self['max']:\n                value = self['max']\n        # Round by resolution\n        if self['resolution'] is not None:\n            value = round(value / self['resolution']) * self['resolution']\n        # Format value and use it to set entry\n        self._entryVal.set(self.entryFormat % value)\n        # Update indicator (if any) to reflect new adjusted value\n        self._valuator.updateIndicator(value)\n        # Execute command if required\n        if fCommand and self.fInit and (self['command'] is not None):\n            self['command'](*[value] + self['commandData'])\n        # Record adjusted value\n        self.adjustedValue = value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3640
+  }
+}

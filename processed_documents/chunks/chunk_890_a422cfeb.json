@@ -1,0 +1,9 @@
+{
+  "content": "def createLinearVectorForceWidget(self, forcePage, pageName,\n                                      count, force):\n        def setVec(vec, f = force):\n            f.setVector(vec[0], vec[1], vec[2])\n        forceName = 'Vector Force-' + repr(count)\n        frame = self.createForceFrame(forcePage, forceName, force)\n        self.createLinearForceWidgets(frame, pageName, forceName, force)\n        vec = force.getLocalVector()\n        self.createVector3Entry(frame, pageName, forceName,\n                                'Set force direction and magnitude',\n                                command = setVec,\n                                value = [vec[0], vec[1], vec[2]])\n        self.createForceActiveWidget(frame, pageName, forceName, force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 890
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def computeValueFromAngle(self, dialAngle):\n        delta = self['delta']\n        dialAngle = dialAngle % TWO_PI\n        # Check for rollover, if necessary\n        if (self.lastAngle > ONEPOINTFIVE_PI) and (dialAngle < POINTFIVE_PI):\n            self.rollCount += 1\n        elif (self.lastAngle < POINTFIVE_PI) and (dialAngle > ONEPOINTFIVE_PI):\n            self.rollCount -= 1\n        self.lastAngle = dialAngle\n        # Update value\n        newValue = self['base'] + (self.rollCount + (dialAngle/TWO_PI)) * delta\n        self.set(newValue)\n\n    def updateIndicator(self, value):\n        # compute new indicator angle\n        delta = self['delta']\n        factors = divmod(value - self['base'], delta)\n        self.rollCount = factors[0]\n        self.updateIndicatorRadians((factors[1]/delta) * TWO_PI)\n\n    def updateIndicatorDegrees(self, degAngle):\n        self.updateIndicatorRadians(degAngle * (math.pi/180.0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3713
+  }
+}

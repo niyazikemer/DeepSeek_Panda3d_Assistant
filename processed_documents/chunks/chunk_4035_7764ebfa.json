@@ -1,0 +1,9 @@
+{
+  "content": "def determineHeight(self):\n        \"\"\"\n        returns the height of the avatar above the ground.\n        If there is no floor below the avatar, 0.0 is returned.\n        aka get airborne height.\n        \"\"\"\n        if self.useLifter:\n            height = self.avatarNodePath.getPos(self.cRayNodePath)\n            # If the shadow where not pointed strait down, we would need to\n            # get magnitude of the vector.  Since it is strait down, we'll\n            # just get the z:\n            #spammy --> assert self.debugPrint(\"getAirborneHeight() returning %s\"%(height.getZ(),))\n            assert onScreenDebug.add(\"height\", height.getZ())\n            return height.getZ() - self.floorOffset\n        else: # useCollisionHandlerQueue\n            height = 0.0\n            #*#self.cRayTrav.traverse(render)\n            if self.cRayQueue.getNumEntries() != 0:\n                # We have a floor.\n                # Choose the highest of the possibly several floors we're over:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4035
+  }
+}

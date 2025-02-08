@@ -1,0 +1,9 @@
+{
+  "content": "ghost = BulletGhostNode('Ghost')\nghost.addShape(shape)\nghostNP = render.attachNewNode(ghost)\nghostNP.setPos(0, 0, 0)\nghostNP.setCollideMask(BitMask32(0x0f))\n\nworld.attachGhost(ghost)\n\nExample for how to get overlapping objects:\n\ndef checkGhost(self, task):\n    ghost = ghostNP.node()\n    print(ghost.getNumOverlappingNodes())\n    for node in ghost.getOverlappingNodes():\n        print(node)\n\n    return task.cont\n\ntaskMgr.add(checkGhost, 'checkGhost')",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_576",
+    "parent": "processed_documents/context_documents/58f92caf_ed5b24b1_ghosts.json",
+    "chunk_number": 7058
+  }
+}

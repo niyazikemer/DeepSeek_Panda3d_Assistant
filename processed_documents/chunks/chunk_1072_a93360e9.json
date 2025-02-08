@@ -1,0 +1,9 @@
+{
+  "content": "def updatePlacer(self):\n        pos = Vec3(0)\n        hpr = Vec3(0)\n        scale = Vec3(1)\n        np = self['nodePath']\n        if np is not None and isinstance(np, NodePath):\n            # Update temp CS\n            self.updateAuxiliaryCoordinateSystems()\n            # Update widgets\n            if self.movementMode == 'Orbit:':\n                pos.assign(self.posOffset)\n                hpr.assign(ZERO_VEC)\n                scale.assign(np.getScale())\n            elif self.refCS:\n                pos.assign(np.getPos(self.refCS))\n                hpr.assign(np.getHpr(self.refCS))\n                scale.assign(np.getScale())\n        self.updatePosWidgets(pos)\n        self.updateHprWidgets(hpr)\n        self.updateScaleWidgets(scale)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1072
+  }
+}

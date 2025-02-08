@@ -1,0 +1,9 @@
+{
+  "content": "# callback onto the list\n                if event is not None:\n                    intState.addEvent(event)\n            else:\n                if len(intState.events) > 0:\n                    # we're not pending a removal, but we have outstanding events?\n                    # probably we are waiting for an add/alter complete.\n                    # should we send those events now?\n                    assert self.notify.warning('removeInterest: abandoning events: %s' %\n                                               intState.events)\n                    intState.clearEvents()\n                intState.state = InterestState.StatePendingDel\n                contextId = self._getNextContextId()\n                intState.context = contextId\n                if event:\n                    intState.addEvent(event)\n                self._sendRemoveInterest(handle, contextId)\n                if not event:\n                    self._considerRemoveInterest(handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5214
+  }
+}

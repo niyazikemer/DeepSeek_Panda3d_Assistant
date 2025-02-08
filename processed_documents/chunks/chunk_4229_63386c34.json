@@ -1,0 +1,9 @@
+{
+  "content": "triangles = GeomTriangles(Geom.UHStatic)\n        for i in range(2):\n            delta = i*8\n            triangles.addVertices(0 + delta, 4 + delta, 1 + delta)\n            triangles.addVertices(1 + delta, 4 + delta, 5 + delta)\n            triangles.addVertices(1 + delta, 5 + delta, 2 + delta)\n            triangles.addVertices(2 + delta, 5 + delta, 6 + delta)\n            triangles.addVertices(2 + delta, 6 + delta, 3 + delta)\n            triangles.addVertices(3 + delta, 6 + delta, 7 + delta)\n            triangles.addVertices(3 + delta, 7 + delta, 0 + delta)\n            triangles.addVertices(0 + delta, 7 + delta, 4 + delta)\n        triangles.closePrimitive()\n\n        geom = Geom(vdata)\n        geom.addPrimitive(triangles)\n        geomnode=GeomNode(\"card-frame\")\n        geomnode.addGeom(geom)\n        return NodePath(geomnode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4229
+  }
+}

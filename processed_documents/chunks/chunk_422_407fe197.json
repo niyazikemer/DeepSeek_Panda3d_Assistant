@@ -1,0 +1,9 @@
+{
+  "content": "class PandaTextDropTarget(wx.TextDropTarget):\n    def __init__(self, editor, view):\n        wx.TextDropTarget.__init__(self)\n        self.editor = editor\n        self.view = view\n\n    def OnDropText(self, x, y, text):\n        # create new object\n        parentNPRef = [None]\n        if not self.editor.propMeetsReq(text, parentNPRef):\n            return\n        action = ActionAddNewObj(self.editor, text, parent=parentNPRef[0])\n        self.editor.actionMgr.push(action)\n        newobj = action()\n        print(newobj)\n        if newobj is None:\n            return\n\n        # change window coordinate to mouse coordinate\n        mx = 2 * (x/float(self.view.ClientSize.GetWidth()) - 0.5)\n        my = -2 * (y/float(self.view.ClientSize.GetHeight()) - 0.5)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 422
+  }
+}

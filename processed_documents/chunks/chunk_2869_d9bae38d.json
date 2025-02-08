@@ -1,0 +1,9 @@
+{
+  "content": "# Look for the name in the keyword params.\n        if 'name' in kw:\n            name = kw['name']\n            del kw['name']\n\n        # If the keyword \"autoPause\" or \"autoFinish\" is defined to\n        # non-zero, it means the interval may be automatically paused\n        # or finished when CIntervalManager::interrupt() is called.\n        # This is generally called only on a catastrophic situation\n        # (for instance, the connection to the server being lost) when\n        # we have to exit right away; these keywords indicate\n        # intervals that might not be cleaned up by their owners.\n\n        autoPause = 0\n        autoFinish = 0\n        if 'autoPause' in kw:\n            autoPause = kw['autoPause']\n            del kw['autoPause']\n        if 'autoFinish' in kw:\n            autoFinish = kw['autoFinish']\n            del kw['autoFinish']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2869
+  }
+}

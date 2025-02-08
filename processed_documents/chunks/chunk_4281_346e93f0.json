@@ -1,0 +1,9 @@
+{
+  "content": "def b_checkForGarbageLeaks(wantReply=False):\n    if not __dev__:\n        return 0\n    # does a garbage collect on the client and the AI\n    # returns number of client garbage leaks\n    # logs leak info and terminates (if configured to do so)\n    try:\n        # if this is the client, tell the AI to check for leaks too\n        base.cr.timeManager\n    except Exception:\n        pass\n    else:\n        if base.cr.timeManager:\n            base.cr.timeManager.d_checkForGarbageLeaks(wantReply=wantReply)\n    return checkForGarbageLeaks()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4281
+  }
+}

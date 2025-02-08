@@ -1,0 +1,9 @@
+{
+  "content": "# It's probably important to turn off the depth test, since\n        # many 2-d objects will be drawn over each other without\n        # regard to depth position.\n\n        # We used to avoid clearing the depth buffer before drawing\n        # render2d, but nowadays we clear it anyway, since we\n        # occasionally want to put 3-d geometry under render2d, and\n        # it's simplest (and seems to be easier on graphics drivers)\n        # if the 2-d scene has been cleared first.\n\n        self.render2d.setDepthTest(0)\n        self.render2d.setDepthWrite(0)\n        self.render2d.setMaterialOff(1)\n        self.render2d.setTwoSided(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4907
+  }
+}

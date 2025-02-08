@@ -1,0 +1,9 @@
+{
+  "content": "if __debug__:\n        def getInspectorPos(self):\n            \"\"\"getInspectorPos(self)\"\"\"\n            return self.__inspectorPos\n\n        def setInspectorPos(self, inspectorPos):\n            \"\"\"setInspectorPos(self, [x, y])\"\"\"\n            self.__inspectorPos = inspectorPos\n\n    # support for HFSMs\n\n    def getChildren(self):\n        \"\"\"\n        Return the list of child FSMs\n        \"\"\"\n        return self.__FSMList\n\n    def setChildren(self, FSMList):\n        \"\"\"setChildren(self, ClassicFSM[])\n        Set the children to given list of FSMs\n        \"\"\"\n        self.__FSMList = FSMList\n\n    def addChild(self, ClassicFSM):\n        \"\"\"\n        Add the given ClassicFSM to list of child FSMs\n        \"\"\"\n        self.__FSMList.append(ClassicFSM)\n\n    def removeChild(self, ClassicFSM):\n        \"\"\"\n        Remove the given ClassicFSM from list of child FSMs\n        \"\"\"\n        if ClassicFSM in self.__FSMList:\n            self.__FSMList.remove(ClassicFSM)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2676
+  }
+}

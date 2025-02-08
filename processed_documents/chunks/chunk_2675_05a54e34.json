@@ -1,0 +1,9 @@
+{
+  "content": "def isTransitionDefined(self, otherState):\n        if self.transitionsToAny():\n            return 1\n\n        # if we're given a state object, get its name instead\n        if not isinstance(otherState, str):\n            otherState = otherState.getName()\n        return otherState in self.__transitions\n\n    def setTransitions(self, stateTransitions):\n        \"\"\"setTransitions(self, string[])\"\"\"\n        self.__transitions = stateTransitions\n\n    def addTransition(self, transition):\n        \"\"\"addTransitions(self, string)\"\"\"\n        if not self.transitionsToAny():\n            self.__transitions.append(transition)\n        else:\n            State.notify.warning(\n                'attempted to add transition %s to state that '\n                'transitions to any state')\n\n    if __debug__:\n        def getInspectorPos(self):\n            \"\"\"getInspectorPos(self)\"\"\"\n            return self.__inspectorPos",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2675
+  }
+}

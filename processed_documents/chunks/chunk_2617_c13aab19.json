@@ -1,0 +1,9 @@
+{
+  "content": "if transitionAllowed or force:\n            self.__transition(aState,\n                              enterArgList,\n                              exitArgList)\n            return 1\n        # We can implicitly always transition to our final state.\n        elif aStateName == self.__finalState.getName():\n            if self.__currentState == self.__finalState:\n                # Do not do the transition if we are already in the\n                # final state\n                assert ClassicFSM.notify.debug(\n                    \"[%s]: already in final state: %s\" %\n                    (self.__name, aStateName))\n                return 1\n            else:\n                # Force a transition to allow for cleanup\n                assert ClassicFSM.notify.debug(\n                    \"[%s]: implicit transition to final state: %s\" %\n                    (self.__name, aStateName))\n                self.__transition(aState,\n                                  enterArgList,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2617
+  }
+}

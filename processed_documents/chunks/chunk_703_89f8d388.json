@@ -1,0 +1,9 @@
+{
+  "content": "def loadFromFile(self, fileName):\n        dirname, moduleName = os.path.split(fileName)\n        if moduleName.endswith('.py'):\n            moduleName = moduleName[:-3]\n        file, pathname, description = imp.find_module(moduleName, [dirname])\n        try:\n            module = imp.load_module(moduleName, file, pathname, description)\n            self.editor.updateStatusReadout('Sucessfully opened file %s'%fileName)\n            self.editor.fNeedToSave = False\n        except Exception:\n            print('failed to load %s'%fileName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_52",
+    "parent": "processed_documents/context_documents/10b6518e_FileMgr.json",
+    "chunk_number": 703
+  }
+}

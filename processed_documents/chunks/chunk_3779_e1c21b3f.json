@@ -1,0 +1,9 @@
+{
+  "content": "if creating + reading + writing + appending > 1:\n        raise ValueError(\"must have exactly one of create/read/write/append mode\")\n\n    if binary:\n        if encoding:\n            raise ValueError(\"binary mode doesn't take an encoding argument\")\n        if errors:\n            raise ValueError(\"binary mode doesn't take an errors argument\")\n        if newline:\n            raise ValueError(\"binary mode doesn't take a newline argument\")\n\n    if isinstance(file, core.Istream) or isinstance(file, core.Ostream):\n        # If we were given a stream instead of a filename, assign\n        # it directly.\n        raw = StreamIOWrapper(file)\n        raw.mode = mode\n\n    else:\n        vfile = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3779
+  }
+}

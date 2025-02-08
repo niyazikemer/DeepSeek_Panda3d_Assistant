@@ -1,0 +1,9 @@
+{
+  "content": "def sequence(*taskList: AsyncTask) -> AsyncTaskSequence:\n    seq = AsyncTaskSequence('sequence')\n    for task in taskList:\n        seq.addTask(task)\n    return seq\n\n\nTask.DtoolClassDict['sequence'] = staticmethod(sequence)\n\n\ndef loop(*taskList: AsyncTask) -> AsyncTaskSequence:\n    seq = AsyncTaskSequence('loop')\n    for task in taskList:\n        seq.addTask(task)\n    seq.setRepeatCount(-1)\n    return seq\n\n\nTask.DtoolClassDict['loop'] = staticmethod(loop)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3867
+  }
+}

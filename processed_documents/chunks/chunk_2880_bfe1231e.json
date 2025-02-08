@@ -1,0 +1,9 @@
+{
+  "content": "def addTrack(self, trackList, name, relTime, relTo, duration):\n        # Adds a \"track list\".  This is a list of tuples of the form:\n        #\n        #   (<delay>, <Interval>,\n        #       PREVIOUS_END | PREVIOUS_START | TRACK_START)\n        #\n        # where <delay> is a relative time, in seconds, for the\n        # <Interval> to start, relative to either the end of the\n        # previous interval (PREVIOUS_END), the start of the previous\n        # interval (PREVIOUS_START) or the start of the track list\n        # (TRACK_START).  If the relative code is omitted, the default\n        # is TRACK_START.\n        self.pushLevel(name, relTime, relTo)\n        for tupleObj in trackList:\n            if isinstance(tupleObj, tuple) or \\\n               isinstance(tupleObj, list):\n                relTime = tupleObj[0]\n                ival = tupleObj[1]\n                if len(tupleObj) >= 3:\n                    relTo = tupleObj[2]\n                else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2880
+  }
+}

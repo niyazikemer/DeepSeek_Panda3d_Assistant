@@ -1,0 +1,9 @@
+{
+  "content": "#\n    # construction hooks\n    def body(self, master):\n        \"\"\"create dialog body.\n        return entry that should have initial focus.\n        This method should be overridden, and is called\n        by the __init__ method.\n        \"\"\"\n        count = 0\n        entryList = []\n        self.balloonList = []\n        for property in self.propertyList:\n            propertySet = self.propertyDict[property]\n            # Widget\n            widget = propertySet.get('widget', None)\n            # Get initial value\n            initialvalue = widget[property]\n            # Type of entry\n            entryType = propertySet.get('type', 'real')\n            # Is None an allowable value?\n            fAllowNone = propertySet.get('fNone', 0)\n            # Help string specified?\n            helpString = propertySet.get('help', None)\n            # Create label\n            label = tk.Label(master, text=property, justify=tk.LEFT)\n            label.grid(row=count, column=0, padx=5, sticky=tk.W)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3584
+  }
+}

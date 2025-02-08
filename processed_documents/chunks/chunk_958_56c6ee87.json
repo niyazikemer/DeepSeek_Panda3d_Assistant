@@ -1,0 +1,9 @@
+{
+  "content": "def selectJBNodePathNamed(self, name):\n        if name == 'selected':\n            nodePath = ShowBaseGlobal.direct.selected.last\n            # Add Combo box entry for this selected object\n            self.addJBNodePath(nodePath)\n        else:\n            # See if node path has already been selected\n            nodePath = self.jbNodePathDict.get(name, None)\n            if nodePath is None:\n                # If not, see if listbox evals into a node path\n                try:\n                    nodePath = eval(name)\n                    if isinstance(nodePath, NodePath):\n                        self.addJBNodePath(nodePath)\n                    else:\n                        # Good eval but not a node path, give up\n                        nodePath = None\n                except Exception:\n                    # Bogus eval\n                    nodePath = None\n                    # Clear bogus entry from listbox\n                    listbox = self.jbNodePathMenu.component('scrolledlist')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 958
+  }
+}

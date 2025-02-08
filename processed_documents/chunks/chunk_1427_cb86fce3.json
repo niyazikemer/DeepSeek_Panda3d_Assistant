@@ -1,0 +1,9 @@
+{
+  "content": "def setBorderWidth(self):\n        width = self['borderWidth']\n        for i in range(self['numStates']):\n            self.frameStyle[i].setWidth(width[0], width[1])\n        self.updateFrameStyle()\n\n    def setBorderUvWidth(self):\n        uvWidth = self['borderUvWidth']\n        for i in range(self['numStates']):\n            self.frameStyle[i].setUvWidth(uvWidth[0], uvWidth[1])\n        self.updateFrameStyle()\n\n    def destroy(self):\n        if hasattr(self, \"frameStyle\"):\n            if ShowBaseGlobal.__dev__:\n                if hasattr(ShowBase, 'guiItems'):\n                    ShowBase.guiItems.pop(self.guiId, None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1427
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def selectEffectNamed(self, name):\n        effect = self.effectsDict.get(name, None)\n        if effect is not None:\n            self.particleEffect = effect\n            # Default to first particle in particlesDict\n            self.particles = self.particleEffect.getParticlesList()[0]\n            # See if particle effect has any forceGroup\n            forceGroupList = self.particleEffect.getForceGroupList()\n            if len(forceGroupList) > 0:\n                self.forceGroup = forceGroupList[0]\n            else:\n                self.forceGroup = None\n            self.mainNotebook.selectpage('System')\n            self.updateInfo('System')\n        else:\n            print('ParticlePanel: No effect named ' + name)\n\n    def toggleEffect(self, effect, var):\n        if var.get():\n            effect.enable()\n        else:\n            effect.disable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 799
+  }
+}

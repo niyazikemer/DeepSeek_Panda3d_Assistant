@@ -1,0 +1,9 @@
+{
+  "content": "As an example, here is some code that makes use of the .GeomVertexFormat.get_v3n3c4t2() format:\n\nimport struct\n\nv_format = GeomVertexFormat.get_v3n3c4t2()\nstride = v_format.arrays[0].stride  # the size of a data row, in bytes\nv_data = GeomVertexData('name', v_format, GeomEnums.UH_static)\nv_data.unclean_set_num_rows(4)\nv_array = v_data.modify_array(0)\nview = memoryview(v_array).cast('B')\nvalues = bytearray()\n# add the data of the 1st vertex to the bytearray\nvalues.extend(struct.pack(\n    '6f4B2f',  # the format corresponds to the GeomVertexFormat\n    -1.0, 0.0, -1.0,    # format: '3f'; the position of the 1st vertex\n    0.0, -1.0, 0.0,     # format: '3f'; the normal vector of the 1st vertex\n    255, 128, 64, 255,  # format: '4B'; the color of the 1st vertex\n    0.0, 0.0            # format: '2f'; the UVs of the 1st vertex\n))\n# add the data of the remaining vertices to the bytearray\n...\n# assign all of the values to the memoryview\nview[:] = values\n\nAltering geometry",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_561",
+    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
+    "chunk_number": 6974
+  }
+}

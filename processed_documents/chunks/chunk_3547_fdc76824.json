@@ -1,0 +1,9 @@
+{
+  "content": "class Vector4Entry(VectorEntry):\n    def __init__(self, parent = None, **kw):\n        # Initialize options for the class\n        optiondefs = (\n            ('dim',     4,      Pmw.INITOPT),\n            ('fGroup_labels',   ('X','Y','Z','W'),  None),\n        )\n        self.defineoptions(kw, optiondefs)\n        # Initialize the superclass, make sure dim makes it to superclass\n        VectorEntry.__init__(self, parent, dim = self['dim'])\n        # Needed because this method checks if self.__class__ is myClass\n        # where myClass is the argument passed into inialiseoptions\n        self.initialiseoptions(Vector4Entry)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3547
+  }
+}

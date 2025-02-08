@@ -1,0 +1,9 @@
+{
+  "content": "def relHpr(nodePath, base, h, p, r):\n    # Compute nodePath2newNodePath relative to base coordinate system\n    # nodePath2base\n    mNodePath2Base = nodePath.getMat(base)\n    # delta scale, orientation, and position matrix\n    mBase2NewBase = Mat4(Mat4.identMat()) # [gjeon] fixed to give required argument\n    composeMatrix(mBase2NewBase, UNIT_VEC, VBase3(h, p, r), ZERO_VEC,\n                  CSDefault)\n    # base2nodePath\n    mBase2NodePath = base.getMat(nodePath)\n    # nodePath2 Parent\n    mNodePath2Parent = nodePath.getMat()\n    # Compose the result\n    resultMat = mNodePath2Base * mBase2NewBase\n    resultMat = resultMat * mBase2NodePath\n    resultMat = resultMat * mNodePath2Parent\n    # Extract and apply the hpr\n    hpr = Vec3(0)\n    decomposeMatrix(resultMat, VBase3(), hpr, VBase3(),\n                    CSDefault)\n    nodePath.setHpr(hpr)\n\n# Quaternion interpolation",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3486
+  }
+}

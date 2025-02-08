@@ -1,0 +1,9 @@
+{
+  "content": "header_layouts = {\n            32: '<QQHHHH8x%dII' % num_pointers,\n            64: '<QQHHHH8x%dQQ' % num_pointers,\n        }\n        entry_layouts = {\n            32: '<IIi',\n            64: '<QQixxxx',\n        }\n\n        # Calculate the size of the module tables, so that we can determine\n        # the proper offset for the string pointers.  There can be more than\n        # one module table for macOS executables.  Sort the bitnesses so that\n        # the alignment is correct.\n        bitnesses = sorted(bitnesses, reverse=True)\n\n        pool_offset = 0\n        for bitness in bitnesses:\n            pool_offset += (len(moduleList) + 1) * struct.calcsize(entry_layouts[bitness])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2125
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# If the requested pipe fails for some reason, we'll use the\n        # regular pipe.\n        if not self.pipe:\n            self.pipe = base.pipe\n\n        self.win = base.graphicsEngine.makeOutput(self.pipe, name, 0, fbprops,\n                                                  props, flags)\n        assert self.win\n\n        # We should render at the end of the frame.\n        self.win.setSort(10000)\n\n        # We don't need to clear the color buffer, since we'll be\n        # filling it with a texture.  We also don't need to clear the\n        # depth buffer, since we won't be using it.\n        self.win.setClearColorActive(False)\n        self.win.setClearDepthActive(False)\n\n        eventName = '%s-window' % (self.name)\n        self.win.setWindowEvent(eventName)\n        self.accept(eventName, self.windowEvent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2956
+  }
+}

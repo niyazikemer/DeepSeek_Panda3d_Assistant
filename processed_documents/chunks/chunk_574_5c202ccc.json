@@ -1,0 +1,9 @@
+{
+  "content": "def onShowPopup(self, event):\n        pos = event.GetPosition()\n        pos = self.ScreenToClient(pos)\n\n        for menuItem in self.popupmenu.GetMenuItems():\n            self.popupmenu.RemoveItem(menuItem)\n\n        #import pdb;set_trace()\n        hitItem, flags = self.llist.HitTest(pos)\n        if hitItem == -1:\n            self.menuAppendGenItems()\n        else:\n            self.menuAppendObjItems(hitItem)\n        self.PopupMenu(self.popupmenu, pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 574
+  }
+}

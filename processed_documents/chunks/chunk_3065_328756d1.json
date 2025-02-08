@@ -1,0 +1,9 @@
+{
+  "content": "# Cache the sorted LOD names so we don't have to grab them\n        # and sort them every time somebody asks for the list\n        self.__sortedLODNames = sorted(self.__partBundleDict, key=sortKey, reverse=True)\n\n    def getLODNames(self):\n        \"\"\"\n        Return list of Actor LOD names. If not an LOD actor,\n        returns 'lodRoot'\n        Caution - this returns a reference to the list - not your own copy\n        \"\"\"\n        return self.__sortedLODNames\n\n    def getPartNames(self):\n        \"\"\"\n        Return list of Actor part names. If not an multipart actor,\n        returns 'modelRoot' NOTE: returns parts of arbitrary LOD\n        \"\"\"\n        partNames = []\n        if self.__partBundleDict:\n            partNames = list(next(iter(self.__partBundleDict.values())).keys())\n        return partNames + list(self.__subpartDict.keys())\n\n    def getGeomNode(self):\n        \"\"\"\n        Return the node that contains all actor geometry\n        \"\"\"\n        return self.__geomNode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3065
+  }
+}

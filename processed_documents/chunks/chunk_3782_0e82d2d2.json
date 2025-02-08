@@ -1,0 +1,9 @@
+{
+  "content": "if not stream:\n                raise IOError(\"Could not open %s for reading\" % (filename))\n\n        elif writing or creating:\n            if updating:\n                stream = vfile.openReadWriteFile(True)\n            else:\n                stream = vfile.openWriteFile(False, True)\n\n            if not stream:\n                raise IOError(\"Could not open %s for writing\" % (filename))\n\n        elif appending:\n            if updating:\n                stream = vfile.openReadAppendFile()\n            else:\n                stream = vfile.openAppendFile()\n\n            if not stream:\n                raise IOError(\"Could not open %s for appending\" % (filename))\n\n        else:\n            raise ValueError(\"Must have exactly one of create/read/write/append mode and at most one plus\")\n\n        raw = StreamIOWrapper(stream, needsVfsClose=True)\n        raw.mode = mode\n        raw.name = vfile.getFilename().toOsSpecific()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3782
+  }
+}

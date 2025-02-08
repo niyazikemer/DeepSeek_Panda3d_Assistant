@@ -1,0 +1,9 @@
+{
+  "content": "def listdir(path):\n    \"\"\" Implements os.listdir over vfs. \"\"\"\n    files = []\n    dirlist = _vfs.scanDirectory(core.Filename.fromOsSpecific(path))\n    if dirlist is None:\n        raise OSError(\"No such file or directory: '%s'\" % (path))\n\n    for file in dirlist:\n        files.append(file.getFilename().getBasename())\n    return files",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3790
+  }
+}

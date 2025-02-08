@@ -1,0 +1,9 @@
+{
+  "content": "def getAllAccepting(self, object):\n        \"\"\"\n        Returns the list of all events accepted by the indicated object.\n        \"\"\"\n        self.lock.acquire()\n        try:\n            id = self._getMessengerId(object)\n\n            # Get the list of events this object is listening to\n            eventDict = self.__objectEvents.get(id)\n            if eventDict:\n                return list(eventDict.keys())\n            return []\n        finally:\n            self.lock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5050
+  }
+}

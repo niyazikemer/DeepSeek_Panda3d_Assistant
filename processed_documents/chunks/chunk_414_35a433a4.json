@@ -1,0 +1,9 @@
+{
+  "content": "self.ui.SetCursor(wx.Cursor(wx.CURSOR_WAIT))\n        try:\n            f = open(self.settingsFile, 'r')\n            configLines = f.readlines()\n            f.close()\n\n            gridSize = 100.0\n            gridSpacing = 5.0\n            for i in range(0, len(configLines)):\n                line = configLines[i]\n                i = i + 1\n                if line.startswith('gridSize'):\n                    gridSize = float(configLines[i])\n                elif line.startswith('gridSpacing'):\n                    gridSpacing = float(configLines[i])\n                elif line.startswith('hotKey'):\n                    customHotKeyMap = eval(configLines[i])\n                    customHotKeyDict = {}\n                    for hotKey in customHotKeyMap.keys():\n                        desc = customHotKeyMap[hotKey]\n                        customHotKeyDict[desc[1]] = hotKey",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 414
+  }
+}

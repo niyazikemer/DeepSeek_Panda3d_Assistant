@@ -1,0 +1,9 @@
+{
+  "content": "for colorProp in colorProps:\n            colorProp.ui.bindFunc(self.onColorSlider)\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.AddMany(colorProps)\n        button = wx.Button(self.lookPane, -1, 'Color Picker', (0,0), (140, 20))\n        _colourData = wx.ColourData()\n        _colourData.SetColour(wx.Colour(objRGBA[0] * 255, objRGBA[1] * 255, objRGBA[2] * 255))\n        button.Bind(wx.EVT_BUTTON, lambda p0=None, p1=_colourData, p2=objRGBA[3] * 255: self.openColorPicker(p0, p1, p2))\n\n        sizer.Add(button)\n\n        if self.colorPicker:\n            self.openColorPicker(None, _colourData, objRGBA[3] * 255)\n\n        objDef = obj[OG.OBJ_DEF]\n\n        if objDef.updateModelFunction is not None or (objDef.model is not None and len(objDef.models) > 0):\n            defaultModel = obj[OG.OBJ_MODEL]\n            if defaultModel is None:\n                defaultModel = ''",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 337
+  }
+}

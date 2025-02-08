@@ -1,0 +1,9 @@
+{
+  "content": "wx = float(wx)\n        wy = float(wy) * (2.0 - labelTop) * 0.5\n\n        w = min(tw, wx)\n        h = min(th, wy)\n\n        sx = w / tw\n        sy = h / th\n        s = min(sx, sy)\n\n        w = tw * s / float(self.winSize[0])\n        h = th * s / float(self.winSize[1])\n\n        cx = 0.0\n        cy = 1.0 - (2.0 - labelTop) * 0.5\n\n        l = cx - w\n        r = cx + w\n        b = cy - h\n        t = cy + h\n\n        cm = CardMaker('card')\n        cm.setFrame(l, r, b, t)\n        c = self.isolate.attachNewNode(cm.generate())\n        c.setTexture(tr.tex)\n        c.setTransparency(TransparencyAttrib.MAlpha)\n\n        ls = LineSegs('frame')\n        ls.setColor(0, 0, 0, 1)\n        ls.moveTo(l, 0, b)\n        ls.drawTo(r, 0, b)\n        ls.drawTo(r, 0, t)\n        ls.drawTo(l, 0, t)\n        ls.drawTo(l, 0, b)\n        self.isolate.attachNewNode(ls.create())\n\n\n    def reconfigureWindow(self):\n        \"\"\" Resets everything for a new window size. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2972
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class DirectDeviceManager(VrpnClient, DirectObject):\n    def __init__(self, server = None):\n\n        # Determine which server to use\n        if server is not None:\n            # One given as constructor argument\n            self.server = server\n        else:\n            # Check config file, if that fails, use default\n            self.server = ConfigVariableString('vrpn-server', 'spacedyne').getValue()\n\n        # Create a vrpn client\n        VrpnClient.__init__(self, self.server)\n\n    def createButtons(self, device):\n        return DirectButtons(self, device)\n\n    def createAnalogs(self, device):\n        return DirectAnalogs(self, device)\n\n    def createTracker(self, device):\n        return DirectTracker(self, device)\n\n    def createDials(self, device):\n        return DirectDials(self, device)\n\n    def createTimecodeReader(self, device):\n        return DirectTimecodeReader(self, device)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1774
+  }
+}

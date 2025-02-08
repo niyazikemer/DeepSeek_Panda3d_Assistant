@@ -1,0 +1,9 @@
+{
+  "content": "# If we can't find the source file, add the compiled pyc instead.\n        if __debug__:\n            filename += '.pyc'\n        else:\n            filename += '.pyo'\n\n        code = None\n        if module:\n            # Get the compiled code directly from the module object.\n            code = getattr(module, \"__code__\", None)\n            if not code:\n                # This is a module with no associated Python\n                # code.  It must be an extension module.  Get the\n                # filename.\n                extensionFilename = getattr(module, '__file__', None)\n                if extensionFilename:\n                    self.extras.append((moduleName, extensionFilename))\n                else:\n                    # It doesn't even have a filename; it must\n                    # be a built-in module.  No worries about\n                    # this one, then.\n                    pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2103
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class StateData(DirectObject):\n    \"\"\"\n    A StateData is a base class for a single state within a Finite\n    State Machine (ClassicFSM).\n    \"\"\"\n\n    notify = directNotify.newCategory('StateData')\n\n    def __init__(self, doneEvent):\n        self.doneEvent = doneEvent\n        self.doneStatus = None\n        self.isLoaded = 0\n        self.isEntered = 0\n\n    def enter(self):\n        \"\"\"\n        Enters the StateData.  This makes it active in whatever sense\n        this applies.  Returns true if this is a change (i.e. it was\n        not previously entered), or false if this is the same (i.e. it\n        was already entered).\n        \"\"\"\n        if self.isEntered:\n            return 0\n        if not self.isLoaded:\n            self.notify.warning(\"entered StateData before it was loaded\")\n            self.load()\n        self.isEntered = 1\n        StateData.notify.debug('enter()')\n        return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_150",
+    "parent": "processed_documents/context_documents/7695349b_StateData.json",
+    "chunk_number": 2704
+  }
+}

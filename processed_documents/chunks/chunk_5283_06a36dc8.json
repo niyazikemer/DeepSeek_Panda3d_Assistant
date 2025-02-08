@@ -1,0 +1,9 @@
+{
+  "content": "self.gridVisContext = None\n            return Task.cont\n        # Compute which zone we are in\n        zoneId = int(self.startingZone + ((row * self.gridSize) + col))\n        assert self.notify.debug(\"processVisibility: %s: row: %s col: %s zoneId: %s\" %\n                                 (self.doId, row, col, zoneId))\n        if zoneId == self.visZone:\n            assert self.notify.debug(\n                \"processVisibility: %s: interest did not change\" % (self.doId))\n            if self.visDirty:\n                messenger.send(self.uniqueName(\"visibility\"))\n                self.visDirty = False\n            return Task.cont\n        else:\n            assert self.notify.debug(\n                \"processVisibility: %s: new interest\" % (self.doId))\n            self.visZone = zoneId\n            if not self.gridVisContext:\n                self.gridVisContext = self.cr.addInterest(\n                    self.getDoId(), self.visZone,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5283
+  }
+}

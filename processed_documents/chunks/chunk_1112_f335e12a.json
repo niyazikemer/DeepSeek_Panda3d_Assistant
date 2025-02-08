@@ -1,0 +1,9 @@
+{
+  "content": "self.initialiseoptions(StateInspector)\n\n    # Utility methods\n    def _setRadius(self):\n        self.setRadius(self['radius'])\n\n    def setRadius(self, size):\n        half = self.radius = self._canvas.winfo_fpixels(size)\n        c = self.center()\n        self._canvas.coords(self.marker,\n                            c[0] - half, c[1] - half, c[0] + half, c[1] + half)\n        if self.state.hasChildren():\n            half = self.radius * 0.707106\n            self._canvas.coords(self.rect,\n                            c[0] - half, c[1] - half, c[0] + half, c[1] + half)\n\n    def _setGridSize(self):\n        self.setGridSize(self['gridSize'])\n\n    def setGridSize(self, size):\n        self.gridSize = self._canvas.winfo_fpixels(size)\n        if self.gridSize == 0:\n            self.fGridSnap = 0\n        else:\n            self.fGridSnap = 1\n\n    def setText(self, text = None):\n        self._canvas.itemconfigure(self.text, text = text)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1112
+  }
+}

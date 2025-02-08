@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedObjectUD(DistributedObjectBase):\n    notify = directNotify.newCategory(\"DistributedObjectUD\")\n    QuietZone = 1\n\n    def __init__(self, air):\n        if not hasattr(self, 'DistributedObjectUD_initialized'):\n            self.DistributedObjectUD_initialized = 1\n            DistributedObjectBase.__init__(self, air)\n\n            self.accountName = ''\n            # Record the repository\n            self.air = air\n\n            # Record our distributed class\n            className = self.__class__.__name__\n            self.dclass = self.air.dclassesByName[className]\n            # init doId pre-allocated flag\n            self.__preallocDoId = 0\n\n            # used to track zone changes across the quiet zone\n            # NOTE: the quiet zone is defined in OTP, but we need it\n            # here.\n            self.lastNonQuietZone = None\n\n            self._DOUD_requestedDelete = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5493
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "adjustment = 2\n            h_sizex = float(self.win.getXSize() - adjustment) / float(cols)\n\n            h_sizex -= bordersize\n            if h_sizex < 1.0:\n                h_sizex = 1.0\n\n            h_sizey = (h_sizex * aspecty) // aspectx\n            if h_sizey < sizey or h_sizex < sizex:\n                sizey = h_sizey\n                sizex = h_sizex\n        else:\n            sizex = int(self.sizex * 0.5 * self.win.getXSize())\n            sizey = int(self.sizey * 0.5 * self.win.getYSize())\n            if sizex == 0:\n                sizex = (sizey * aspectx) // aspecty\n            if sizey == 0:\n                sizey = (sizex * aspecty) // aspectx\n\n        # Convert from pixels to render2d-units.\n        fsizex = (2.0 * sizex) / float(self.win.getXSize())\n        fsizey = (2.0 * sizey) / float(self.win.getYSize())\n        fpixelx = 2.0 / float(self.win.getXSize())\n        fpixely = 2.0 / float(self.win.getYSize())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4238
+  }
+}

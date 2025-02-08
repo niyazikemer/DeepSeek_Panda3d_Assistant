@@ -1,0 +1,9 @@
+{
+  "content": "def play(self, animName, partName=None, fromFrame=None, toFrame=None):\n        \"\"\"play(self, string, string=None)\n        Play the given animation on the given part of the actor.\n        If no part is specified, try to play on all parts. NOTE:\n        plays over ALL LODs\"\"\"\n        if fromFrame is None:\n            for control in self.getAnimControls(animName, partName):\n                control.play()\n        else:\n            for control in self.getAnimControls(animName, partName):\n                if toFrame is None:\n                    control.play(fromFrame, control.getNumFrames() - 1)\n                else:\n                    control.play(fromFrame, toFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3116
+  }
+}

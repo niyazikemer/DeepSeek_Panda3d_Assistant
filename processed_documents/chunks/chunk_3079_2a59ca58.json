@@ -1,0 +1,9 @@
+{
+  "content": "animControl = controls[0]\n        if fromFrame is None:\n            fromFrame = 0\n        if toFrame is None:\n            toFrame = animControl.getNumFrames()-1\n        return ((toFrame+1)-fromFrame) / animControl.getFrameRate()\n\n    def getNumFrames(self, animName=None, partName=None):\n        #lodName = next(iter(self.__animControlDict))\n        controls = self.getAnimControls(animName, partName)\n        if len(controls) == 0:\n            return None\n        return controls[0].getNumFrames()\n\n    def getFrameTime(self, anim, frame, partName=None):\n        numFrames = self.getNumFrames(anim,partName)\n        animTime = self.getDuration(anim,partName)\n        frameTime = animTime * float(frame) / numFrames\n        return frameTime",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3079
+  }
+}

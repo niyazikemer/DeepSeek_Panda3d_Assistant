@@ -1,0 +1,9 @@
+{
+  "content": "# Push state onto undo stack\n        direct.pushUndo(direct.selected)\n        # Remove the task to keep the widget attached to the object\n        taskMgr.remove('followSelectedNodePath')\n        # Spawn a task to keep the selected objects with the widget\n        taskMgr.add(self.stickToWidgetTask, 'stickToWidget')\n        # Spawn a task to move the widget\n        ival = direct.widget.posInterval(CAM_MOVE_DURATION,\n                                         Point3(centerVec),\n                                         other=direct.camera,\n                                         blendType='easeInOut')\n        ival = Sequence(ival, Func(lambda: taskMgr.remove('stickToWidget')),\n                        name = 'moveToFit')\n        ival.start()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3348
+  }
+}

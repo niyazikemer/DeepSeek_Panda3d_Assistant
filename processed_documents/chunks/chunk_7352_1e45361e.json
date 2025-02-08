@@ -1,0 +1,9 @@
+{
+  "content": "A far more convenient way to do this is using coroutines, introduced in Python 3.5 and supported as of Panda3D 1.10. These are special functions that can be suspended temporarily and resumed at a later point (pending the completion of an asynchronous operation). Instead, we can write our code as though it were synchronous, but we insert the await keyword where we want the task to be suspended while waiting for the following operation.\n\nTo make this possible, a few things are necessary:\n\nWe need to put async in front of our function.\n\nWe can no longer call the function directly, but rather need to schedule its execution using the task manager.\n\nThe asynchronous operation needs to return a future object. To get loader.loadModel() <direct.showbase.Loader.Loader.loadModel> to do so, we need to pass the blocking=False parameter.\n\nWe need to use await on this future object to suspend the task while the operation is not yet done.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7352
+  }
+}

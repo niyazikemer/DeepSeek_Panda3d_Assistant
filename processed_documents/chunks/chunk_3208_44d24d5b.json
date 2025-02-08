@@ -1,0 +1,9 @@
+{
+  "content": "self.mode = None\n\n    def manipulateObjectCleanup(self):\n        direct = ShowBaseGlobal.direct\n        if self.fScaling3D or self.fScaling1D:\n            # We had been scaling, need to reset object handles\n            if hasattr(direct, 'widget'):\n                direct.widget.transferObjectHandlesScale()\n            else:\n                self.objectHandles.transferObjectHandlesScale()\n            self.fScaling3D = 0\n            self.fScaling1D = 0\n        direct.selected.highlightAll()\n        if hasattr(direct, 'widget'):\n            direct.widget.showAllHandles()\n        else:\n            self.objectHandles.showAllHandles()\n        if direct.clusterMode == 'client':\n            direct.cluster(\n                'direct.manipulationControl.objectHandles.showAllHandles()')\n        if hasattr(direct, 'widget'):\n            direct.widget.hideGuides()\n        else:\n            self.objectHandles.hideGuides()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3208
+  }
+}

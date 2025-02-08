@@ -1,0 +1,9 @@
+{
+  "content": "# Were there any icons referenced in the AndroidManifest.xml?\n    for type_i, type_name in enumerate(axml.resource_types):\n        res_type = package.type.add()\n        res_type.name = type_name\n        res_type.type_id.id = type_i + 1\n\n        for entry_id, res_name in enumerate(axml.resources[type_name]):\n            entry = res_type.entry.add()\n            entry.entry_id.id = entry_id\n            entry.name = res_name\n\n            for density, tag in (160, 'mdpi'), (240, 'hdpi'), (320, 'xhdpi'), (480, 'xxhdpi'), (640, 'xxxhdpi'):\n                path = f'res/mipmap-{tag}-v4/{res_name}.png'\n                if (build_dir_fn / path).exists():\n                    bundle.add_subfile('base/' + path, build_dir_fn / path, 0)\n                    config_value = entry.config_value.add()\n                    config_value.config.density = density\n                    config_value.value.item.file.path = path",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1915
+  }
+}

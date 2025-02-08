@@ -1,0 +1,9 @@
+{
+  "content": "def followTerrain(self, height = 1.0):\n        self.iRay.rayCollisionNodePath.reparentTo(self.nodePath)\n        entry = self.iRay.pickGeom3D()\n        if entry:\n            hitPtDist = Vec3(entry.getFromIntersectionPoint()).length()\n            self.nodePath.setZ(self.nodePath, height - hitPtDist)\n        self.iRay.rayCollisionNodePath.reparentTo(self.recorderNodePath)\n\n    ## WIDGET UTILITY FUNCTIONS ##\n    def addWidget(self, widget, category, text):\n        self.widgetDict[category + '-' + text] = widget\n\n    def getWidget(self, category, text):\n        return self.widgetDict[category + '-' + text]\n\n    def getVariable(self, category, text):\n        return self.variableDict[category + '-' + text]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1217
+  }
+}

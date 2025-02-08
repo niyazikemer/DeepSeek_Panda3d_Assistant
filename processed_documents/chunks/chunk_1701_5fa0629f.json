@@ -1,0 +1,9 @@
+{
+  "content": "def getNodePathFindCmd(self, nodePath):\n        pathString = repr(nodePath)\n        index = pathString.find('/')\n        if index != -1:\n            rootName = pathString[:index]\n            searchString = pathString[index+1:]\n            return rootName + ('.find(\"%s\")' % searchString)\n        else:\n            return rootName\n\n    def getNodePathName(self, nodePath):\n        pathString = repr(nodePath)\n        index = pathString.find('/')\n        if index != -1:\n            name = pathString[index+1:]\n            return name\n        else:\n            return pathString\n\n    def addObjectTag(self,object,selectFunction,deselectFunction,selectArgs,deselectArgs):\n        newTag = {}\n        newTag[\"selectFunction\"] = selectFunction\n        newTag[\"selectArgs\"]     = selectArgs\n        newTag[\"deselectFunction\"] = deselectFunction\n        newTag[\"deselectArgs\"]     = deselectArgs\n        self.taggedObjects[object] = newTag\n\n    def removeObjectTag(self,object):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1701
+  }
+}

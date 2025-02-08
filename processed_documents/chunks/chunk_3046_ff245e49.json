@@ -1,0 +1,9 @@
+{
+  "content": "# load models\n            #\n            # four cases:\n            #\n            #   models, anims{} = single part actor\n            #   models{}, anims{} =  single part actor w/ LOD\n            #   models{}, anims{}{} = multi-part actor\n            #   models{}{}, anims{}{} = multi-part actor w/ LOD\n            #\n            # make sure we have models\n            if models:\n                # do we have a dictionary of models?\n                if isinstance(models, dict):\n                    # if this is a dictionary of dictionaries\n                    if isinstance(models[next(iter(models))], dict):\n                        # then it must be a multipart actor w/LOD\n                        self.setLODNode(node = lodNode)\n                        # preserve numerical order for lod's\n                        # this will make it easier to set ranges\n                        for lodName in sorted(models):\n                            # make a node under the LOD switch",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3046
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Check to see if we are running python_d, which implies we have a\n# debug build, and we have to build the module with debug options.\n# This is only relevant on Windows.\n\n# I wonder if there's a better way to determine this?\npython = os.path.splitext(os.path.split(sys.executable)[1])[0]\nisDebugBuild = (python.lower().endswith('_d'))\n\n# These are modules that Python always tries to import up-front.  They\n# must be frozen in any main.exe.\n# NB. if encodings are removed, be sure to remove them from the shortcut in\n# deploy-stub.c.\nstartupModules = [\n    'encodings', 'encodings.*', 'io', 'marshal', 'importlib.machinery',\n    'importlib.util',\n]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2025
+  }
+}

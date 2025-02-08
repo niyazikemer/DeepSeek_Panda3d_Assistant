@@ -1,0 +1,9 @@
+{
+  "content": "def gotControl(self, modifiers):\n        return modifiers & DG.DIRECT_CONTROL_MOD\n\n    def gotAlt(self, modifiers):\n        return modifiers & DG.DIRECT_ALT_MOD\n\n    def setFScaleWidgetByCam(self, flag):\n        self.fScaleWidgetByCam = flag\n        if flag:\n            taskMgr.add(self.widgetResizeTask, 'DIRECTWidgetResize')\n        else:\n            taskMgr.remove('DIRECTWidgetResize')\n\n    def widgetResizeTask(self, state):\n        if not taskMgr.hasTaskNamed('resizeObjectHandles'):\n            dnp = self.selected.last\n            if dnp:\n                if self.manipulationControl.fMultiView:\n                    for i in range(3):\n                        sf = 30.0 * self.drList[i].orthoFactor\n                        self.manipulationControl.widgetList[i].setDirectScalingFactor(sf)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3405
+  }
+}

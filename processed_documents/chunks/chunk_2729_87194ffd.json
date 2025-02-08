@@ -1,0 +1,9 @@
+{
+  "content": "def privFinalize(self):\n        self.__step(self.getDuration()-self.currT)\n        self.currT = self.getDuration()\n\n        self.state = CInterval.SFinal\n\n    def privInstant(self):\n        \"\"\"\n        Full jump from Initial state to Final State\n        \"\"\"\n        self.__step(self.getDuration()-self.currT)\n        self.currT = self.getDuration()\n\n        self.state = CInterval.SFinal\n\n    def privInterrupt(self):\n        if not self.isStopped():\n            self.state = CInterval.SPaused",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_153",
+    "parent": "processed_documents/context_documents/010bb77d_TestInterval.json",
+    "chunk_number": 2729
+  }
+}

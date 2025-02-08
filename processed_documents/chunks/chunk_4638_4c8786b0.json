@@ -1,0 +1,9 @@
+{
+  "content": "class Averager:\n    def __init__(self, name):\n        self._name = name\n        self.reset()\n\n    def reset(self):\n        self._total = 0.\n        self._count = 0\n\n    def addValue(self, value):\n        self._total += value\n        self._count += 1\n\n    def getAverage(self):\n        return self._total / self._count\n\n    def getCount(self):\n        return self._count\n\n\ndef addListsByValue(a, b):\n    \"\"\"\n    returns a new array containing the sums of the two array arguments\n    (c[0] = a[0 + b[0], etc.)\n    \"\"\"\n    c = []\n    for x, y in zip(a, b):\n        c.append(x + y)\n    return c\n\n\ndef boolEqual(a, b):\n    \"\"\"\n    returns true if a and b are both true or both false.\n    returns false otherwise\n    (a.k.a. xnor -- eXclusive Not OR).\n    \"\"\"\n    return (a and b) or not (a or b)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4638
+  }
+}

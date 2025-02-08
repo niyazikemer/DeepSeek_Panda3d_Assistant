@@ -1,0 +1,9 @@
+{
+  "content": "def newCreateLabeledEntry(self, parent, category, text, help = '',\n                              command = None, value = '',\n                              width = 12, relief = tk.SUNKEN,\n                              side = tk.LEFT, fill = tk.X, expand = 0):\n        \"\"\" createLabeledEntry(parent, category, text, [options]) \"\"\"\n        # Create labeled entry\n        frame = tk.Frame(parent)\n        variable = tk.StringVar()\n        variable.set(value)\n        label = tk.Label(frame, text = text)\n        label.pack(side = tk.LEFT, fill = tk.X, expand = 0)\n        entry = tk.Entry(frame, width = width, relief = relief,\n                         textvariable = variable)\n        entry.pack(side = tk.LEFT, fill = tk.X, expand = 1)\n        frame.pack(side = side, fill = tk.X, expand = expand)\n        if command:\n            entry.bind('<Return>', command)\n        # Add balloon help\n        self.bind(label, help)\n        self.bind(entry, help)\n        # Record widgets and variable",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3736
+  }
+}

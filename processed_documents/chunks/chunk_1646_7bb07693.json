@@ -1,0 +1,9 @@
+{
+  "content": "def scanPath(self, eggs, path):\n        if not os.path.exists(path):\n            print(\"No such file or directory: \" + path)\n            return\n        if os.path.isdir(path):\n            for f in os.listdir(path):\n                self.scanPath(eggs, os.path.join(path,f))\n            return\n        if path.endswith(\".egg\"):\n            size = os.path.getsize(path)\n            eggs.append((path,size))\n            return\n        if path.endswith(\".egg.pz\") or path.endswith(\".egg.gz\"):\n            size = os.path.getsize(path)\n            if self.pzkeep:\n                eggs.append((path, size))\n            else:\n                eggs.append((path[:-3], size))\n\n    def scanPaths(self, paths):\n        eggs = []\n        for path in paths:\n            #abs = os.path.abspath(path)\n            self.scanPath(eggs, path)\n        return eggs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_97",
+    "parent": "processed_documents/context_documents/87756ff4_eggcacher.json",
+    "chunk_number": 1646
+  }
+}

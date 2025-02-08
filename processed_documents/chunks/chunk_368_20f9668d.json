@@ -1,0 +1,9 @@
+{
+  "content": "# undo function setup...\n            action = ActionChangeHierarchy(self.editor, self.tree.GetItemData(self.tree.GetItemParent(item)), self.tree.GetItemData(item), self.tree.GetItemData(dragToItem), data)\n            self.editor.actionMgr.push(action)\n            action()\n\n    def parent(self, oldParentId, newParentId, childName):\n        oldParent = self.traverse(self.tree.GetRootItem(), oldParentId)\n        newParent = self.traverse(self.tree.GetRootItem(), newParentId)\n        self.reParent(oldParent, newParent, childName)\n\n    def showPandaObjectChildren(self):\n        itemList = list()\n        self.shouldShowPandaObjChildren = not self.shouldShowPandaObjChildren\n\n        item, cookie = self.tree.GetFirstChild(self.root)\n        while item:\n            itemList.append(item)\n            item, cookie = self.tree.GetNextChild(self.root, cookie)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 368
+  }
+}

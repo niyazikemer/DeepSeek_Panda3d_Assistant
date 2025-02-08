@@ -1,0 +1,9 @@
+{
+  "content": "# loop = 1 implies a loop within the entire range of animation,\n    # while constrainedLoop = 1 implies a loop within startFrame and\n    # endFrame only.\n\n    def __init__(self, actor, animName, loop=0, constrainedLoop=0,\n                 duration=None, startTime=None, endTime=None,\n                 startFrame=None, endFrame=None,\n                 playRate=1.0, name=None, forceUpdate=0,\n                 partName=None, lodName=None):\n        # Generate unique id\n        id = 'Actor-%s-%d' % (animName, ActorInterval.animNum)\n        ActorInterval.animNum += 1\n        # Record class specific variables\n        self.actor = actor\n        self.animName = animName\n        self.controls = self.actor.getAnimControls(\n            self.animName, partName = partName, lodName = lodName)\n        self.loopAnim = loop\n        self.constrainedLoop = constrainedLoop\n        self.forceUpdate = forceUpdate\n        self.playRate = playRate",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2812
+  }
+}

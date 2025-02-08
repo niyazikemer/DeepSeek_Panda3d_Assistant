@@ -1,0 +1,9 @@
+{
+  "content": "def setLocation(self, parentId, zoneId, teleport=0):\n        # Redefine DistributedObject setLocation, so that when\n        # location is set to the ocean grid, we can update our parenting\n        # under gridParent\n        DistributedObject.DistributedObject.setLocation(self, parentId, zoneId)\n        parentObj = self.cr.doId2do.get(parentId)\n        if parentObj:\n            # Make sure you in a zone that is in the grid before making a GridParent\n            if (parentObj.isGridParent() and (zoneId >= parentObj.startingZone)):\n                if not self.gridParent:\n                    self.gridParent = GridParent.GridParent(self)\n                self.gridParent.setGridParent(parentObj, zoneId, teleport)\n            else:\n                if self.gridParent:\n                    self.gridParent.delete()\n                    self.gridParent = None\n        else:\n            if self.gridParent:\n                self.gridParent.delete()\n                self.gridParent = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_292",
+    "parent": "processed_documents/context_documents/de7f0b01_DistributedNode.json",
+    "chunk_number": 5153
+  }
+}

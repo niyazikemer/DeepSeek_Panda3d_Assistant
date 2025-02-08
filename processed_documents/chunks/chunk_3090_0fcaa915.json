@@ -1,0 +1,9 @@
+{
+  "content": "subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef:\n            bundle = partDef.getBundle()\n        else:\n            Actor.notify.warning(\"no part named %s!\" % (partName))\n            return None\n\n        # Get a handle to the joint.\n        joint = bundle.findChild(jointName)\n\n        if node is None:\n            node = partDef.partBundleNP.attachNewNode(jointName)\n\n        if joint:\n            if localTransform:\n                joint.addLocalTransform(node.node())\n            else:\n                joint.addNetTransform(node.node())\n        else:\n            Actor.notify.warning(\"no joint named %s!\" % (jointName))\n\n        return node",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3090
+  }
+}

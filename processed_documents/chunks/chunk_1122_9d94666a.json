@@ -1,0 +1,9 @@
+{
+  "content": "self.playbackMarker.reparentTo(self.recorderNodePath)\n        self.playbackMarkerIds = self.getChildIds(\n            self.playbackMarker.getChild(0))\n        self.playbackMarker.hide()\n        # Tangent marker\n        self.tangentGroup = self.playbackMarker.attachNewNode('Tangent Group')\n        self.tangentGroup.hide()\n        self.tangentMarker = base.loader.loadModel('models/misc/sphere')\n        self.tangentMarker.reparentTo(self.tangentGroup)\n        self.tangentMarker.setScale(0.5)\n        self.tangentMarker.setColor(1, 0, 1, 1)\n        self.tangentMarker.setName('Tangent Marker')\n        self.tangentMarkerIds = self.getChildIds(\n            self.tangentMarker.getChild(0))\n        self.tangentLines = LineNodePath(self.tangentGroup)\n        self.tangentLines.setColor(VBase4(1, 0, 1, 1))\n        self.tangentLines.setThickness(1)\n        self.tangentLines.moveTo(0, 0, 0)\n        self.tangentLines.drawTo(0, 0, 0)\n        self.tangentLines.create()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1122
+  }
+}

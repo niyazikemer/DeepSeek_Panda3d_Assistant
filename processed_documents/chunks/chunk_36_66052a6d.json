@@ -1,0 +1,9 @@
+{
+  "content": "ringScale controls the number of rings visible in the cross\n    section of the texture.  A larger number makes more, denser rings.\n    \"\"\"\n\n    # First, create the two PerlinNoise objects to perturb the rings\n    # in two dimensions.  This class is defined in Panda3D.\n    xn = PerlinNoise3(noiseScale, noiseScale, noiseZScale)\n    yn = PerlinNoise3(noiseScale, noiseScale, noiseZScale)\n\n    # Start by creating a empty 3-D texture.\n    tex = Texture('woodgrain')\n    tex.setup3dTexture()\n\n    for zi in range(texZSize):\n        z = float(zi) / float(texZSize - 1) - 0.5\n\n        # Walk through the Z slices of the texture one at a time.  For\n        # each slice, we create a PNMImage, very much as if we were\n        # reading the texture from disk.\n        print(zi)\n        p = PNMImage(texSize, texSize)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_3",
+    "parent": "processed_documents/context_documents/d207d691_675b1c1c_woodgrain-example.json",
+    "chunk_number": 36
+  }
+}

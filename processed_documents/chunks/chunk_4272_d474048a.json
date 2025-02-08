@@ -1,0 +1,9 @@
+{
+  "content": "def _getReferrers(self, obj):\n        # referrers (pointing to garbage)\n        # returns two lists, first by index into gc.garbage, second by\n        # direct reference\n        yield None\n        byRef = gc.get_referrers(obj)\n        yield None\n        # look to see if each referrer is another garbage item\n        byNum = []\n        for i in range(len(byRef)):\n            if i % 20 == 0:\n                yield None\n            referrer = byRef[i]\n            num = self._id2index.get(id(referrer), None)\n            byNum.append(num)\n        yield byNum, byRef",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4272
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def setEmissionType(self, newType = None):\n        if newType:\n            type = newType\n            self.emissionType.set(type)\n        else:\n            type = self.emissionType.get()\n        self.particles.emitter.setEmissionType(type)\n        if type == BaseParticleEmitter.ETEXPLICIT:\n            self.getWidget(\n                'Emitter', 'Radiate Origin')['state'] = 'disabled'\n            self.getWidget(\n                'Emitter', 'Explicit Velocity')['state'] = 'normal'\n            # Hide custom widgets\n            if isinstance(self.particles.emitter, DiscEmitter):\n                self.discCustomFrame.pack_forget()\n            elif isinstance(self.particles.emitter, RingEmitter):\n                self.ringCustomFrame.pack_forget()\n        elif type == BaseParticleEmitter.ETRADIATE:\n            self.getWidget(\n                'Emitter', 'Radiate Origin')['state'] = 'normal'\n            self.getWidget(\n                'Emitter', 'Explicit Velocity')['state'] = 'disabled'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 818
+  }
+}

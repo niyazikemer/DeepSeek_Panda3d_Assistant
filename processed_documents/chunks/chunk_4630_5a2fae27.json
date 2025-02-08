@@ -1,0 +1,9 @@
+{
+  "content": "def _clearProfileResultFileInfo(filename):\n        profileFilename2file.pop(filename, None)\n        profileFilename2marshalData.pop(filename, None)\n\n    def _removeProfileCustomFuncs(filename):\n        assert profileFilenameList.top() == filename\n        marshal.load = movedLoadFuncs.pop()\n        marshal.dump = movedDumpFuncs.pop()\n        builtins.open = movedOpenFuncs.pop()\n        profileFilenames.remove(filename)\n        profileFilenameList.pop()\n        profileFilename2file.pop(filename, None)\n        # don't let marshalled data pile up\n        profileFilename2marshalData.pop(filename, None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4630
+  }
+}

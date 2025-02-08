@@ -1,0 +1,9 @@
+{
+  "content": "# we must have found none, or gotten an error\n        return None\n\n\n    # arranging\n\n    def getPart(self, partName, lodName=\"lodRoot\"):\n        \"\"\"\n        Find the named part in the optional named lod and return it, or\n        return None if not present\n        \"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return None\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef is not None:\n            return partDef.partBundleNP\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3083
+  }
+}

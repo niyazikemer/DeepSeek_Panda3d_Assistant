@@ -1,0 +1,9 @@
+{
+  "content": "# often gives this IOError during the sleep function:\n                    #     IOError: [Errno 4] Interrupted function call\n                    # So, let's just handle that specific exception and stop.\n                    # All other IOErrors should still get raised.\n                    # Only problem: legit IOError 4s will be obfuscated.\n                    if code == 4:\n                        self.stop()\n                    else:\n                        raise\n                except Exception as e:\n                    if self.extendedExceptions:\n                        self.stop()\n                        print_exc_plus()\n                    else:\n                        from direct.showbase import ExceptionVarDump\n                        if ExceptionVarDump.wantStackDumpLog and \\\n                           ExceptionVarDump.dumpOnExceptionInit:\n                            ExceptionVarDump._varDump__print(e)\n                        raise\n                except:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3896
+  }
+}

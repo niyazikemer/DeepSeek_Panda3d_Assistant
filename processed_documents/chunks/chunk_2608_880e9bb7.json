@@ -1,0 +1,9 @@
+{
+  "content": "# I know this isn't how __repr__ is supposed to be used, but it\n    # is nice and convenient.\n    def __repr__(self):\n        return self.__str__()\n\n    def __str__(self):\n        \"\"\"\n        Print out something useful about the fsm\n        \"\"\"\n        name = self.getName()\n        currentState = self.getCurrentState()\n        if currentState:\n            str = f'ClassicFSM {name} in state \"{currentState.getName()}\"'\n        else:\n            str = f'ClassicFSM {name} not in any state'\n        return str\n\n    def enterInitialState(self, argList=[]):\n        assert not self.__internalStateInFlux\n        if self.__currentState == self.__initialState:\n            return\n\n        assert self.__currentState is None\n        self.__internalStateInFlux = 1\n        self.__enter(self.__initialState, argList)\n        assert not self.__internalStateInFlux\n\n    # setters and getters\n\n    def getName(self):\n        return self.__name\n\n    def setName(self, name):\n        self.__name = name",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2608
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getPrePoints(self, type = 'Refine'):\n        # Switch to appropriate recording type\n        self.setRecordingType(type)\n        # Reset prePoints\n        self.prePoints = []\n        # See if we need to save any points before recordStart\n        for i in range(len(self.pointSet)):\n            # Have we passed recordStart?\n            if self.recordStart < self.pointSet[i][0]:\n                # Get a copy of the points prior to recordStart\n                self.prePoints = self.pointSet[:i-1]\n                break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1204
+  }
+}

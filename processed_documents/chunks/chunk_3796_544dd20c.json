@@ -1,0 +1,9 @@
+{
+  "content": "self.__locked = True\n            return True\n\n        finally:\n            self.__lock.release()\n\n    def release(self):\n        self.__lock.acquire()\n        try:\n            if not self.__locked:\n                raise error('Releasing unheld lock.')\n\n            self.__locked = False\n            self.__cvar.notify()\n\n        finally:\n            self.__lock.release()\n\n    def locked(self):\n        return self.__locked\n\n    __enter__ = acquire\n\n    def __exit__(self, t, v, tb):\n        self.release()\n\n\n# Helper to generate new thread names\n_counter = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3796
+  }
+}

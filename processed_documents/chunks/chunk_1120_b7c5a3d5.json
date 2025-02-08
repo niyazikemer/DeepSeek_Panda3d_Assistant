@@ -1,0 +1,9 @@
+{
+  "content": "class MopathRecorder(AppShell, DirectObject):\n    # Override class variables here\n    appname = 'Mopath Recorder Panel'\n    frameWidth      = 450\n    frameHeight     = 550\n    usecommandarea = 0\n    usestatusarea  = 0\n    count = 0\n\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        name = 'recorder-%d' % MopathRecorder.count\n        MopathRecorder.count += 1\n        optiondefs = (\n            ('title',       self.appname,         None),\n            ('nodePath',    None,                 None),\n            ('name',        name,                 None)\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Call superclass initialization function\n        AppShell.__init__(self)\n\n        self.initialiseoptions(MopathRecorder)\n\n        self.selectNodePathNamed('camera')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1120
+  }
+}

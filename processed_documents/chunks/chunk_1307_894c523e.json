@@ -1,0 +1,9 @@
+{
+  "content": "def printParams(self, file = sys.stdout, targ = 'self'):\n        file.write('# Force parameters\\n')\n        for i in range(self.node.getNumForces()):\n            f = self.node.getForce(i)\n            fname = 'force%d' % i\n            if isinstance(f, LinearForce):\n                amplitude = f.getAmplitude()\n                massDependent = f.getMassDependent()\n                if isinstance(f, LinearCylinderVortexForce):\n                    file.write(fname + ' = LinearCylinderVortexForce(%.4f, %.4f, %.4f, %.4f, %d)\\n' % (f.getRadius(), f.getLength(), f.getCoef(), amplitude, massDependent))\n                elif isinstance(f, LinearDistanceForce):\n                    radius = f.getRadius()\n                    falloffType = f.getFalloffType()\n                    ftype = 'FTONEOVERR'\n                    if falloffType == LinearDistanceForce.FTONEOVERR:\n                        ftype = 'FTONEOVERR'\n                    elif falloffType == LinearDistanceForce.FTONEOVERRSQUARED:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1307
+  }
+}

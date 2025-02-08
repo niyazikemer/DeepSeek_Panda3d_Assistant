@@ -1,0 +1,9 @@
+{
+  "content": "class FSMInspector(AppShell):\n    # Override class variables\n    appname = 'ClassicFSM Inspector'\n    frameWidth  = 400\n    frameHeight = 450\n    usecommandarea = 0\n    usestatusarea  = 0\n\n    def __init__(self, fsm, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('title', fsm.getName(), None),\n            ('gridSize', '0.25i', self._setGridSize),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        self.fsm = fsm\n        # Tell the fsm we are inspecting it so it will send events\n        # when it changes state\n        self.fsm.inspecting = 1\n\n        AppShell.__init__(self)\n\n        self.initialiseoptions(FSMInspector)\n\n    def appInit(self):\n        # Initialize instance variables\n        self.states = []\n        self.stateInspectorDict = {}\n        self.name = self.fsm.getName()\n\n    def createInterface(self):\n        # Create the components\n        interior = self.interior()\n        menuBar = self.menuBar",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1092
+  }
+}

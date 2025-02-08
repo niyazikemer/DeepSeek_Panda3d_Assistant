@@ -1,0 +1,9 @@
+{
+  "content": "if t == 0:\n            # Fade in immediately with no lerp\n            #print \"transitiosn: fadeIn 0.0\"\n            self.noTransitions()\n            self.loadFade()\n            self.fade.detachNode()\n            fut = AsyncFuture()\n            fut.setResult(None)\n            return fut\n        else:\n            # Create a sequence that lerps the color out, then\n            # parents the fade to hidden\n            self.transitionIval = self.getFadeInIval(t, finishIval, blendType)\n            self.transitionIval.append(Func(self.__finishTransition))\n            self.__transitionFuture = AsyncFuture()\n            self.transitionIval.start()\n            return self.__transitionFuture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4291
+  }
+}

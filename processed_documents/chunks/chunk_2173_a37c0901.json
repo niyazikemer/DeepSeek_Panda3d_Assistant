@@ -1,0 +1,9 @@
+{
+  "content": "# If we have a custom override for this module, we know we have it.\n        if fullname in overrideModules:\n            return (None, '', ('.py', 'r', _PY_SOURCE))\n\n        # It's built into the interpreter.\n        if fullname in self.builtin_module_names:\n            return (None, None, ('', '', _C_BUILTIN))\n\n        # If no search path is given, look for a built-in module.\n        if path is None:\n            path = self.path\n\n            if fullname == 'distutils' and hasattr(sys, 'real_prefix'):\n                # The PyPI version of virtualenv inserts a special version of\n                # distutils that does some bizarre stuff that won't work in our\n                # deployed application.  Force it to find the regular one.\n                try:\n                    fp, fn, stuff = self.find_module('opcode')\n                    if fn:\n                        path = [os.path.dirname(fn)] + path\n                except ImportError:\n                    pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2173
+  }
+}

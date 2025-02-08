@@ -1,0 +1,9 @@
+{
+  "content": "def convertFromMaya(self, modelname, callBack):\n        mayaConverter = MayaConverter(self.ui, self, modelname, callBack, None, False)\n        mayaConverter.Show()\n\n    def exportToMaya(self, mayaFileName):\n        exportRootNP = render\n        self.exportToMayaCB(mayaFileName, exportRootNP)\n\n    def exportToMayaCB(self, mayaFileName, exportRootNP):\n        bamFileName = mayaFileName + \".bam\"\n\n        if base.direct.selected.last:\n            obj = self.objectMgr.findObjectByNodePath(base.direct.selected.last)\n            if obj:\n                exportRootNP = obj[OG.OBJ_NP]\n\n        exportRootNP.writeBamFile(bamFileName)\n        mayaConverter = MayaConverter(self.ui, self, mayaFileName, None, None, False, FROM_BAM_TO_MAYA)\n        mayaConverter.Show()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 417
+  }
+}

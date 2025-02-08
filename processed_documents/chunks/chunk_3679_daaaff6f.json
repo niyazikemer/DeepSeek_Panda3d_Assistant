@@ -1,0 +1,9 @@
+{
+  "content": "def reveal(self):\n        # Make sure all parent nodes are marked as expanded\n        parent = self.parent\n        while parent:\n            if parent.state == 'collapsed':\n                parent.state = 'expanded'\n                parent = parent.parent\n            else:\n                break\n        # Redraw tree accordingly\n        self.update()\n        # Bring this item into view\n        self.view()\n\n    def lastvisiblechild(self):\n        if self.kidKeys and self.state == 'expanded':\n            return self.children[self.kidKeys[-1]].lastvisiblechild()\n        else:\n            return self\n\n    # [gjeon] function to expand or collapse all the tree nodes\n    def updateAll(self, fMode, depth = 0, fUseCachedChildren = 1):\n        depth = depth + 1\n        if not self.item.IsExpandable():\n            return\n        if fMode:\n            self.state = 'expanded'\n        else:\n            if depth > 1:\n                self.state = 'collapsed'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3679
+  }
+}

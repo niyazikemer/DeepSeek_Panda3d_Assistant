@@ -1,0 +1,9 @@
+{
+  "content": "if self.lockRoll:\n                # flatten roll\n                self.camManipRef.setR(0)\n            direct.camera.setTransform(self.camManipRef, wrt)\n        return Task.cont\n\n    def spawnMouseRollTask(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Set at markers position in render coordinates\n        direct = ShowBaseGlobal.direct\n        self.camManipRef.setPos(self.coaMarkerPos)\n        self.camManipRef.setHpr(direct.camera, DG.ZERO_POINT)\n        t = Task.Task(self.mouseRollTask)\n        t.coaCenter = getScreenXY(self.coaMarker)\n        t.lastAngle = getCrankAngle(t.coaCenter)\n        # Store the camera/manipRef offset transform\n        t.wrt = direct.camera.getTransform(self.camManipRef)\n        self.__startManipulateCamera(task = t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3326
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "acceptorDict[id] = [method, extraArgs, persistent]\n\n            # Remember that this object is listening for this event\n            eventDict = self.__objectEvents.setdefault(id, {})\n            if event not in eventDict:\n                self._storeObject(object)\n                eventDict[event] = None\n        finally:\n            self.lock.release()\n\n    def ignore(self, event, object):\n        \"\"\" ignore(self, string, DirectObject)\n        Make this object no longer respond to this event.\n        It is safe to call even if it was not already accepting\n        \"\"\"\n        if Messenger.notify.getDebug():\n            Messenger.notify.debug(\n                safeRepr(object) + ' (%s)\\n now ignoring: ' % (self._getMessengerId(object), ) + safeRepr(event))\n\n        self.lock.acquire()\n        try:\n            id = self._getMessengerId(object)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5046
+  }
+}

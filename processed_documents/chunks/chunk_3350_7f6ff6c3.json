@@ -1,0 +1,9 @@
+{
+  "content": "def disableMouseFly(self):\n        # Hide the marker\n        self.coaMarker.reparentTo(ShowBaseGlobal.hidden)\n        # Ignore events\n        for event in self.actionEvents:\n            self.ignore(event[0])\n        for event in self.keyEvents:\n            self.ignore(event[0])\n        # Kill tasks\n        self.removeManipulateCameraTask()\n        taskMgr.remove('stickToWidget')\n        ShowBaseGlobal.base.enableMouse()\n\n    def removeManipulateCameraTask(self):\n        self.__stopManipulateCamera()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3350
+  }
+}

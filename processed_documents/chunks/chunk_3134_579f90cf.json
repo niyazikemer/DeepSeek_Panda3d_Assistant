@@ -1,0 +1,9 @@
+{
+  "content": "if anim is None:\n                            # anim was not present\n                            assert Actor.notify.debug(\"couldn't find anim: %s\" % (animName))\n                        else:\n                            # bind the animation first if we need to\n                            animControl = anim.animControl\n                            if animControl is None:\n                                animControl = self.__bindAnimToPart(\n                                    animName, thisPart, lodName,\n                                    allowAsyncBind = allowAsyncBind)\n                            elif not allowAsyncBind:\n                                # Force the animation to load if it's\n                                # not already loaded.\n                                animControl.waitPending()\n\n                            if animControl:\n                                controls.append(animControl)\n\n        return controls",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3134
+  }
+}

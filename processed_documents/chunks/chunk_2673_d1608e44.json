@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, name, enterFunc=None, exitFunc=None,\n                 transitions=Any, inspectorPos = []):\n        \"\"\"__init__(self, string, func, func, string[], inspectorPos = [])\n        State constructor: takes name, enter func, exit func, and\n        a list of states it can transition to (or State.Any).\"\"\"\n        self.__name = name\n        self.__enterFunc = enterFunc\n        self.__exitFunc = exitFunc\n        self.__transitions = transitions\n        self.__FSMList = []\n        if __debug__:\n            self.setInspectorPos(inspectorPos)\n            # For redefining\n            self.States[self] = 1\n\n    # setters and getters\n\n    def getName(self):\n        return self.__name\n\n    def setName(self, stateName):\n        self.__name = stateName\n\n    def getEnterFunc(self):\n        return self.__enterFunc\n\n    def setEnterFunc(self, stateEnterFunc):\n        self.__enterFunc = stateEnterFunc\n\n    def getExitFunc(self):\n        return self.__exitFunc",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2673
+  }
+}

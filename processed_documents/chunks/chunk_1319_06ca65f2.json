@@ -1,0 +1,9 @@
+{
+  "content": "def setItems(self):\n        \"\"\"\n        self['items'] = itemList\n        Create new popup menu to reflect specified set of items\n        \"\"\"\n        # Remove old component if it exits\n        if self.popupMenu is not None:\n            self.destroycomponent('popupMenu')\n        # Create new component\n        self.popupMenu = self.createcomponent('popupMenu', (), None,\n                                              DirectFrame,\n                                              (self,),\n                                              relief = 'raised',\n                                              )\n        # Make sure it is on top of all the other gui widgets\n        self.popupMenu.setBin('gui-popup', 0)\n        self.highlightedIndex = None\n        if not self['items']:\n            return\n        # Create a new component for each item\n        # Find the maximum extents of all items\n        itemIndex = 0\n        self.minX = self.maxX = self.minZ = self.maxZ = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1319
+  }
+}

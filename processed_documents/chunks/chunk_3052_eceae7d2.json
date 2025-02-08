@@ -1,0 +1,9 @@
+{
+  "content": "def delete(self):\n        if not hasattr(self, 'Actor_deleted'):\n            self.Actor_deleted = 1\n            self.cleanup()\n\n    def copyActor(self, other, overwrite=False):\n        # act like a copy constructor\n        self.gotName = other.gotName\n\n        # copy the scene graph elements of other\n        if overwrite:\n            otherCopy = other.copyTo(NodePath())\n            otherCopy.detachNode()\n            # assign these elements to ourselve (overwrite)\n            self.assign(otherCopy)\n        else:\n            # just copy these to ourselves\n            otherCopy = other.copyTo(self)\n        # masad: check if otherCopy has a geomNode as its first child\n        # if actor is initialized with flattenable, then otherCopy, not\n        # its first child, is the geom node; check __init__, for reference\n        if other.getGeomNode().getName() == other.getName():\n            self.setGeomNode(otherCopy)\n        else:\n            self.setGeomNode(otherCopy.getChild(0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3052
+  }
+}

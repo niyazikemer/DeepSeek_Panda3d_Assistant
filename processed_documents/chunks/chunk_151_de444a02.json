@@ -1,0 +1,9 @@
+{
+  "content": "elif domain.name == 'py' and len(contnode.children) and node.get('refexplicit'):\n            # Custom text was used.  Replace snake_case with camelCase in it.\n            # This allows doing something like:\n            # :meth:`model.set_color() <.NodePath.set_color>`\n            # ..and still have it translate to the correct casing.\n            oldpart = target.rsplit('.', 1)[-1]\n            newpart = resolved[1].rsplit('.', 1)[-1]\n            if oldpart != newpart:\n                text = contnode.children[0].astext()\n                text = text.replace('::', '.')\n                text = text.replace('.' + oldpart + '(', '.' + newpart + '(')\n                if text.startswith(oldpart + '('):\n                    text = newpart + text[len(oldpart):]\n                contnode.children[0] = nodes.Text(text)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 151
+  }
+}

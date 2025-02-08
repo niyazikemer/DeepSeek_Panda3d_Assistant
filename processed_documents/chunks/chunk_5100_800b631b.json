@@ -1,0 +1,9 @@
+{
+  "content": "return volume\n\n    def playSfx(\n            self, sfx, looping = 0, interrupt = 1, volume = None,\n            time = 0.0, node=None, listenerNode = None, cutoff = None):\n        if sfx:\n            self.setFinalVolume(sfx, node, volume, listenerNode, cutoff)\n\n            # don't start over if it's already playing, unless\n            # \"interrupt\" was specified\n            if interrupt or (sfx.status() != AudioSound.PLAYING):\n                sfx.setTime(time)\n                sfx.setLoop(looping)\n                sfx.play()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_289",
+    "parent": "processed_documents/context_documents/cac8bf59_SfxPlayer.json",
+    "chunk_number": 5100
+  }
+}

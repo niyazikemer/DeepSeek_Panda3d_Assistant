@@ -1,0 +1,9 @@
+{
+  "content": "else:\n            # Leave Panda in charge of the main loop.  This is\n            # friendlier for IDE's and interactive editing in general.\n            def wxLoop(task):\n                # First we need to ensure that the OS message queue is\n                # processed.\n                self.wxApp.Yield()\n\n                # Now do all the wxPython events waiting on this frame.\n                while self.wxApp.Pending():\n                    self.wxApp.Dispatch()\n\n                return task.again\n\n            self.taskMgr.add(wxLoop, 'wxLoop')\n        self.wxAppCreated = True\n\n    def __wxTimerCallback(self, event):\n        if Thread.getCurrentThread().getCurrentTask():\n            # This happens when the wxTimer expires while igLoop is\n            # rendering.  Ignore it.\n            return\n\n        self.taskMgr.step()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5012
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Singleton(type):\n    def __init__(cls, name, bases, dic):\n        super(Singleton, cls).__init__(name, bases, dic)\n        cls.instance=None\n\n    def __call__(cls, *args, **kw):\n        if cls.instance is None:\n            cls.instance=super(Singleton, cls).__call__(*args, **kw)\n        return cls.instance",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4658
+  }
+}

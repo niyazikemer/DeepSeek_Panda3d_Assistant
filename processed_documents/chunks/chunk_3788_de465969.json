@@ -1,0 +1,9 @@
+{
+  "content": "def tell(self):\n        if self.__lastWrite:\n            if self.__writer:\n                return self.__stream.tellp()\n        else:\n            if self.__reader:\n                return self.__stream.tellg()\n        raise ValueError(\"I/O operation on closed file\")\n\n    def write(self, b):\n        if not self.__writer:\n            if not self.__reader:\n                # The stream is not even open at all.\n                raise ValueError(\"I/O operation on closed file\")\n\n            # The stream is open only in read mode.\n            raise IOError(\"Attempt to write to read-only stream\")\n\n        self.__stream.clear()  # clear eof flag\n        self.__write(b)\n        self.__lastWrite = True\n        return len(b)\n\n    def writelines(self, lines):\n        if not self.__writer:\n            if not self.__reader:\n                # The stream is not even open at all.\n                raise ValueError(\"I/O operation on closed file\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3788
+  }
+}

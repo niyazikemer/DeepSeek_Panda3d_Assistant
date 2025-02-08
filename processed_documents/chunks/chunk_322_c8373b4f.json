@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectPropUISlider(ObjectPropUI):\n    \"\"\" UI for float value properties \"\"\"\n\n    def __init__(self, parent, label, value, minValue, maxValue):\n        ObjectPropUI.__init__(self, parent, label)\n        self.ui = WxSlider(self.uiPane, -1, value, minValue, maxValue,\n                           pos = (0,0), size=(140, -1),\n                           style=wx.SL_HORIZONTAL | wx.SL_LABELS)\n        self.ui.Enable()\n        self.Layout()\n\n    def bindFunc(self, inFunc, outFunc, valFunc = None):\n        self.ui.Bind(wx.EVT_ENTER_WINDOW, inFunc)\n        self.ui.Bind(wx.EVT_LEAVE_WINDOW, outFunc)\n        self.ui.textValue.Bind(wx.EVT_ENTER_WINDOW, inFunc)\n        self.ui.textValue.Bind(wx.EVT_LEAVE_WINDOW, outFunc)\n\n        if valFunc:\n            self.ui.bindFunc(valFunc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 322
+  }
+}

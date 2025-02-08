@@ -1,0 +1,9 @@
+{
+  "content": "def reset(self):\n        assert self.notify.debugStateCall(self)\n        self.lifter.setVelocity(0.0)\n        self.priorParent=Vec3.zero()\n\n    def getVelocity(self):\n        return self.vel\n\n    def enableAvatarControls(self):\n        \"\"\"\n        Activate the arrow keys, etc.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        assert self.collisionsActive\n\n        #*#if __debug__:\n        #*#    self.accept(\"control-f3\", self.spawnTest) #*#\n\n        # remove any old\n        if self.controlsTask:\n            self.controlsTask.remove()\n        # spawn the new task\n        taskName = \"AvatarControls-%s\"%(id(self),)\n        self.controlsTask = taskMgr.add(self.handleAvatarControls, taskName, 25)\n\n        self.isAirborne = 0\n        self.mayJump = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4102
+  }
+}

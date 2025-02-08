@@ -1,0 +1,9 @@
+{
+  "content": "self.bloom.append(self.manager.renderQuadInto(downsamplerName, colortex=bloom1, div=scale, align=scale))\n                self.bloom.append(self.manager.renderQuadInto(\"filter-bloomx\", colortex=bloom2, div=scale, align=scale))\n                self.bloom.append(self.manager.renderQuadInto(\"filter-bloomy\", colortex=bloom3, div=scale, align=scale))\n                self.bloom[0].setShaderInput(\"src\", self.textures[\"color\"])\n                self.bloom[0].setShader(Shader.make(BLOOM_I, Shader.SL_Cg))\n                self.bloom[1].setShaderInput(\"src\", bloom0)\n                self.bloom[1].setShader(Shader.make(downsampler, Shader.SL_Cg))\n                self.bloom[2].setShaderInput(\"src\", bloom1)\n                self.bloom[2].setShader(Shader.make(BLOOM_X, Shader.SL_Cg))\n                self.bloom[3].setShaderInput(\"src\", bloom2)\n                self.bloom[3].setShader(Shader.make(BLOOM_Y, Shader.SL_Cg))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3965
+  }
+}

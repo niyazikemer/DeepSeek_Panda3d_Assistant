@@ -1,0 +1,9 @@
+{
+  "content": "Each .Camera node has a function called set_initial_state(state) <.Camera.set_initial_state>. It makes every object in the scene get drawn as if the top node in its scene graph has state as its .RenderState. This still means that attributes <render-attributes> can be changed/overridden after the .Camera has been put on a scene.\n\npython\n\n# This makes everything drawn by the default camera use myNodePath's\n# RenderState.\nbase.cam.node().setInitialState(myNodePath.getState())\n\ncpp\n\n// This makes everything drawn by the default camera use myNodePath's\n// RenderState.\nwindow->get_camera(0)->set_initial_state(myNodePath.get_state());",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_386",
+    "parent": "processed_documents/context_documents/64e38fe4_b8963543_multi-pass-rendering.json",
+    "chunk_number": 5977
+  }
+}

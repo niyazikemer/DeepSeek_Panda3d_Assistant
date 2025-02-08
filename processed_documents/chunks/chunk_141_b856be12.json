@@ -1,0 +1,9 @@
+{
+  "content": "newlines.append('')\n                continue\n            elif special in ('brief', 'return', 'returns'):\n                #TODO\n                #if extra is not None:\n                #    _, value = strline.split(' ', 1)\n                #    extra[special] = value\n                continue\n            elif special == 'details':\n                strline = strline[9:]\n            elif special == 'sa' or special == 'see':\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                _, value = strline.split(' ', 1)\n                values = value.split(',')\n\n                for i, value in enumerate(values):\n                    result = resolve_reference(value.partition('(')[0], name, domain=domain)\n                    if result:\n                        values[i] = ':{0}:{1}:`{2}`'.format(domain, *result)\n                    else:\n                        values[i] = ':{0}:obj:`{1}`'.format(domain, value)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 141
+  }
+}

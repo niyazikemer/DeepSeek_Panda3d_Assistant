@@ -1,0 +1,9 @@
+{
+  "content": "for moduleName, mdef in self.getModuleDefs():\n            origName = mdef.moduleName\n            if mdef.forbid:\n                # Explicitly disallow importing this module.\n                moduleList.append((moduleName, 0, 0))\n                continue\n\n            # For whatever it's worth, align the code blocks.\n            if len(pool) & 3 != 0:\n                pad = (4 - (len(pool) & 3))\n                pool += b'\\0' * pad\n\n            assert not mdef.exclude\n            # Allow importing this module.\n            module = self.mf.modules.get(origName, None)\n            code = getattr(module, \"__code__\", None)\n            if code:\n                code = marshal.dumps(code)\n                size = len(code)\n                if getattr(module, \"__path__\", None):\n                    # Indicate package by negative size\n                    size = -size\n                moduleList.append((moduleName, len(pool), size))\n                pool += code\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2122
+  }
+}

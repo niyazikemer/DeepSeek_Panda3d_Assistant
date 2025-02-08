@@ -1,0 +1,9 @@
+{
+  "content": "By default, blend2bam and panda3d-gltf enable the gamma-correction feature on textures by setting their format to Texture::F_srgb or Texture::F_srgb_alpha, but the second step of converting the colors back to sRGB at the end of the rendering process needs to be explicitly enabled in the application. If this is not done, the texture colors will look incorrect.\n\nIf you use the panda3d-simplepbr package, this step is enabled automatically. Otherwise, you will need to configure Panda3D to enable sRGB gamma correction. This can be done by asking the graphics driver for an \"sRGB framebuffer\", which causes the GPU to automatically convert colors back to sRGB before they are displayed on the monitor. This is achieved by enabling framebuffer-srgb true in Config.prc, or by adding a post-processing filter as described in common-image-filters.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_676",
+    "parent": "processed_documents/context_documents/7aeb9fb6_56e00594_converting-from-blender.json",
+    "chunk_number": 7618
+  }
+}

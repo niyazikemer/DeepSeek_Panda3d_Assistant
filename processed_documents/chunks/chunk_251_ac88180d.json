@@ -1,0 +1,9 @@
+{
+  "content": "def SetGraphEditorData(self, property, curFrame = 1):\n        self.curFrame = curFrame\n        self.property = property\n\n        self.InitBuffer()\n\n    def OnPaint(self, evt):\n        dc = wx.BufferedPaintDC(self, self.buffer)\n\n    def DrawXCoord(self,dc):\n        dc.SetBackground(wx.Brush(wx.Colour(200, 200, 200)))\n        dc.Clear()\n\n        dc.SetPen(wx.BLACK_PEN)\n        dc.SetBrush(wx.BLACK_BRUSH)\n        dc.SetFont(wx.Font(8, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))\n\n        dc.DrawLine(self.zeroPos[0], 0.0, self.zeroPos[0], self.h)\n        st = str(self.zero)\n        self.tw,self.th = dc.GetTextExtent(st)\n        dc.DrawText(st, self.zeroPos[0]+1.0, self.h-self.th-0.5)\n\n        dc.SetPen(wx.Pen(wx.Colour(150, 150, 150)))\n        dc.SetBrush(wx.Brush(wx.Colour(150, 150, 150)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 251
+  }
+}

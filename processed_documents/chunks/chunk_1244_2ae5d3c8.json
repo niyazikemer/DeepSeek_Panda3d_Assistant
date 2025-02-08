@@ -1,0 +1,9 @@
+{
+  "content": "def softStop(self):\n        for particles in self.getParticlesList():\n            particles.softStop()\n\n    def softStart(self, firstBirthDelay=None):\n        if self.__isValid():\n            for particles in self.getParticlesList():\n                if firstBirthDelay is not None:\n                    particles.softStart(br=-1, first_birth_delay=firstBirthDelay)\n                else:\n                    particles.softStart()\n        else:\n            # Not asserting here since we want to crash live clients for more expedient bugfix\n            # (Sorry, live clients)\n            self.notify.error('Trying to start effect(%s) after cleanup.' % (self.getName(),))\n\n    def __isValid(self):\n        return hasattr(self, 'forceGroupDict') and \\\n               hasattr(self, 'particlesDict')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1244
+  }
+}

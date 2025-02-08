@@ -1,0 +1,9 @@
+{
+  "content": "if oldParentId != parentId:\n            # Give the parent a chance to run code when a new child\n            # sets location to it. For example, the parent may want to\n            # scene graph reparent the child to some subnode it owns.\n            parentObj = self.doId2do.get(parentId)\n            if parentObj is not None:\n                parentObj.handleChildArrive(object, zoneId)\n            elif parentId not in (None, 0, self.getGameDoId()):\n                self.notify.warning('storeObjectLocation(%s): parent %s not present' %\n                                    (object.doId, parentId))\n        elif oldZoneId != zoneId:\n            parentObj = self.doId2do.get(parentId)\n            if parentObj is not None:\n                parentObj.handleChildArriveZone(object, zoneId)\n            elif parentId not in (None, 0, self.getGameDoId()):\n                self.notify.warning('storeObjectLocation(%s): parent %s not present' %",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5445
+  }
+}

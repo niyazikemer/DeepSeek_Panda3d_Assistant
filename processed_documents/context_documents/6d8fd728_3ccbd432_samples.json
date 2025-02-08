@@ -1,0 +1,9 @@
+{
+  "content": "Bullet Samples\n\nLearning the Bullet module is best done by looking at working samples. A bunch of tutorials can be downloaded from the following link. The samples include all models and textures.\n\nhttps://www.panda3d.org/download/noversion/bullet-samples.zip\n\nMore samples contributed by various users follow below here:\n\nStack of cubes falling on top of each other:\n\npython\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import Vec3\nfrom panda3d.bullet import BulletWorld\nfrom panda3d.bullet import BulletPlaneShape\nfrom panda3d.bullet import BulletRigidBodyNode\nfrom panda3d.bullet import BulletBoxShape\n\nbase.cam.setPos(10, -30, 20)\nbase.cam.lookAt(0, 0, 5)\n\n# World\nworld = BulletWorld()\nworld.setGravity(Vec3(0, 0, -9.81))\n\n# Plane\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\nworld.attachRigidBody(node)\n\n# Boxes\nmodel = loader.loadModel('models/box.egg')\nmodel.setPos(-0.5, -0.5, -0.5)\nmodel.flattenLight()\nshape = BulletBoxShape(Vec3(0.5, 0.5, 0.5))\nfor i in range(10):\n    node = BulletRigidBodyNode('Box')\n    node.setMass(1.0)\n    node.addShape(shape)\n    np = render.attachNewNode(node)\n    np.setPos(0, 0, 2+i*2)\n    world.attachRigidBody(node)\n    model.copyTo(np)\n\n# Update\ndef update(task):\n  dt = globalClock.getDt()\n  world.doPhysics(dt)\n  return task.cont\n\ntaskMgr.add(update, 'update')\nbase.run()",
+  "metadata": {
+    "source": "corpus_panda3d/collected_docs/3ccbd432_samples.rst",
+    "doc_type": "rst",
+    "file_path": "processed_documents/context_documents/6d8fd728_3ccbd432_samples.json",
+    "doc_id": "doc_413"
+  }
+}

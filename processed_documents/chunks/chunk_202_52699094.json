@@ -1,0 +1,9 @@
+{
+  "content": "if not hasattr(wxgl, 'GLCanvas'):\n    OpenGLPandaWindow = None\nelse:\n    class OpenGLPandaWindow(wxgl.GLCanvas):  # type: ignore[no-redef]\n        \"\"\" This class implements a Panda3D \"window\" that actually draws\n        within the wx GLCanvas object.  It is supported whenever OpenGL is\n        Panda's rendering engine, and GLCanvas is available in wx. \"\"\"\n\n        removeCallbackWindow = ConfigVariableBool('remove-callback-window', True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 202
+  }
+}

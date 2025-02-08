@@ -1,0 +1,9 @@
+{
+  "content": "if max_mtime is not None and tarinfo.mtime >= max_mtime:\n            tarinfo.mtime = max_mtime\n\n        return tarinfo\n\n    filename = '{}.tar.{}'.format(basename, tar_compression)\n    with tarfile.open(filename, 'w|{}'.format(tar_compression)) as tf:\n        tf.add(build_dir, base_dir, filter=tarfilter)\n\n    if tar_compression == 'gz' and max_mtime is not None:\n        # Python provides no elegant way to overwrite the gzip timestamp.\n        with open(filename, 'r+b') as fp:\n            fp.seek(4)\n            fp.write(struct.pack(\"<L\", max_mtime))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1905
+  }
+}

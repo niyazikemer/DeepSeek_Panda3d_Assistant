@@ -1,0 +1,9 @@
+{
+  "content": "if self.__ivalsDirty:\n            self.clearIntervals()\n            self.applyIvals(self, 0, TRACK_START)\n            self.__ivalsDirty = 0\n\n    def clearIntervals(self):\n        # This overrides the function defined at the C++ level to\n        # reset the inPython flag.  Clearing out the intervals list\n        # allows us to run entirely in C++ again, at least until a new\n        # Python interval gets added.\n        CMetaInterval.clearIntervals(self)\n        self.inPython = 0\n\n    def applyIvals(self, meta, relTime, relTo):\n        # Add the intervals listed in this object to the given\n        # MetaInterval object at the C++ level.  This will make the\n        # other MetaInterval object ready to play the intervals.\n\n        # This function should be overridden in a derived class to\n        # change the intepretation of the intervals in this list.  In\n        # the case of a MetaInterval directly, this is valid only if\n        # the list has only zero or one intervals.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2890
+  }
+}

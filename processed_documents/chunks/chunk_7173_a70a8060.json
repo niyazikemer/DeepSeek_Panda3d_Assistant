@@ -1,0 +1,9 @@
+{
+  "content": "The .Shader.make_compute() call can be used to load the shader from a string instead of a filename.\n\nDispatching a compute shader\n\nSince a compute shader is not applied to a model but may be invoked arbitrarily, there has to be a different interface for dispatching a compute shader. Usually, you would do this by creating a .ComputeNode object, which is inserted into the scene graph. When Panda3D encounters one of these nodes during the draw process, it will ask OpenGL to dispatch the compute shader assigned to that node for the given amount of work groups.\n\npython\n\n# Create the node\nnode = ComputeNode(\"compute\")\n\n# We want to call it on a 512x512 image, keeping in\n# mind that the shader has a work group size of 16x16.\nnode.add_dispatch(512 / 16, 512 / 16, 1)\n\n# Put the node into the scene graph.\nnode_path = render.attach_new_node(node)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7173
+  }
+}

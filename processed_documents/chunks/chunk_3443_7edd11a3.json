@@ -1,0 +1,9 @@
+{
+  "content": "# Get this pointer\n        id = nodePath.get_key()\n        # First see if its already in the selected dictionary\n        dnp = self.getSelectedDict(id)\n        # If so, deselect it\n        if dnp:\n            self.deselect(nodePath)\n            return None\n        else:\n            # See if it is in the deselected dictionary\n            dnp = self.getDeselectedDict(id)\n            if dnp:\n                # Remove it from the deselected dictionary\n                del self.deselectedDict[id]\n                # Show its bounding box\n                dnp.highlight()\n            else:\n                # Didn't find it, create a new selectedNodePath instance\n                dnp = DirectNodePath(nodePath)\n                # Show its bounding box\n                dnp.highlight(fRecompute = 0)\n            # Add it to the selected dictionary\n            self.selectedDict[dnp.get_key()] = dnp\n            self.selectedList.append(dnp) # [gjeon]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3443
+  }
+}

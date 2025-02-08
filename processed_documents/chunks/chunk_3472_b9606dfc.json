@@ -1,0 +1,9 @@
+{
+  "content": "class SelectionSegment(SelectionQueue):\n    # Like a selection ray but with two endpoints instead of an endpoint\n    # and a direction\n    def __init__(self, parentNP = None, numSegments = 1):\n        if parentNP is None:\n            parentNP = render\n        # Initialize the superclass\n        SelectionQueue.__init__(self, parentNP)\n        self.colliders = []\n        self.numColliders = 0\n        for i in range(numSegments):\n            self.addCollider(CollisionSegment())\n\n    def addCollider(self, collider):\n        # Record new collision object\n        self.colliders.append(collider)\n        # Add the collider to the collision Node\n        self.collisionNode.addSolid(collider)\n        self.numColliders += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3472
+  }
+}

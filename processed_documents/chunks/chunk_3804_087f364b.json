@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" This module reimplements Python's native threading module using Panda\nthreading constructs.  It's designed as a drop-in replacement for the\nthreading module for code that works with Panda; it is necessary because\nin some compilation models, Panda's threading constructs are\nincompatible with the OS-provided threads used by Python's thread\nmodule.\n\nUnlike threading.py, this module is a more explicit implementation of\nPython's threading model, designed to more precisely emulate Python's\nstandard threading semantics.  In fact, this is a bald-face copy of\nPython's threading module from Python 2.5, with a few lines at the top\nto import Panda's thread reimplementation instead of the system thread\nmodule, and so it is therefore layered on top of Panda's thread\nimplementation. \"\"\"\n\nimport sys as _sys\nimport atexit as _atexit\n\nfrom direct.stdpy import thread as _thread\nfrom direct.stdpy.thread import stack_size, _newname, _local as local\nfrom panda3d import core\n_sleep = core.Thread.sleep",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3804
+  }
+}

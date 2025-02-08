@@ -1,0 +1,9 @@
+{
+  "content": "def selectNodePathNamed(self, name):\n        # See if node path has already been selected\n        nodePath = self.nodePathDict.get(name, None)\n        # If not, see if listbox evals into a node path\n        if nodePath is None:\n            # See if this evaluates into a node path\n            try:\n                nodePath = eval(name)\n                if isinstance(nodePath, NodePath):\n                    self.addNodePath(nodePath)\n                else:\n                    # Good eval but not a node path, give up\n                    nodePath = None\n            except Exception:\n                # Bogus eval\n                nodePath = None\n                # Clear bogus entry from listbox\n                listbox = self.nodePathMenu.component('scrolledlist')\n                listbox.setlist(self.nodePathNames)\n        # Did we finally get something?\n        if nodePath is not None:\n            # Yes, select it!\n            ShowBaseGlobal.direct.select(nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 956
+  }
+}

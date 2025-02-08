@@ -1,0 +1,9 @@
+{
+  "content": "# If we are starting a non-daemon thread, we need to call join() on it\n        # when the interpreter exits.  Python will call _shutdown() on the\n        # built-in threading module automatically, but not on our module.\n        if not self.__daemonic and not Thread.__registered_atexit:\n            _atexit.register(_shutdown)\n            Thread.__registered_atexit = True\n\n        _active_limbo_lock.release()\n        _start_new_thread(self.__bootstrap, ())\n        self.__started = True\n        _sleep(0.000001)    # 1 usec, to let the thread run (Solaris hack)\n\n    def run(self):\n        if self.__target:\n            self.__target(*self.__args, **self.__kwargs)\n\n    def __bootstrap(self):\n        try:\n            self.__started = True\n            _active_limbo_lock.acquire()\n            _active[get_ident()] = self\n            del _limbo[self]\n            _active_limbo_lock.release()\n            if __debug__:\n                self._note(\"%s.__bootstrap(): thread started\", self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3828
+  }
+}

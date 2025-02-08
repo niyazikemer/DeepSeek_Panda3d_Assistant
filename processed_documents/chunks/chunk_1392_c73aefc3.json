@@ -1,0 +1,9 @@
+{
+  "content": "# Allow index style references\n    def __setitem__(self, key, value):\n        self.configure(**{key: value})\n\n    def cget(self, option):\n        \"\"\"\n        Get current configuration setting for this option\n        \"\"\"\n        # Return the value of an option, for example myWidget['font'].\n        if option in self._optionInfo:\n            return self._optionInfo[option][DGG._OPT_VALUE]\n        else:\n            index = option.find('_')\n            if index >= 0:\n                component = option[:index]\n                componentOption = option[(index + 1):]\n\n                # Expand component alias\n                if component in self.__componentAliases:\n                    component, subComponent = self.__componentAliases[\n                        component]\n                    if subComponent is not None:\n                        componentOption = subComponent + '_' + componentOption",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1392
+  }
+}

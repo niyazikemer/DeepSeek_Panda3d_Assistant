@@ -1,0 +1,9 @@
+{
+  "content": "# Write out the icons to the res directory.\n                for appname, icon in self.icon_objects.items():\n                    if appname == '*' or (appname == self.macos_main_app and '*' not in self.icon_objects):\n                        # Conventional name for icon on Android.\n                        basename = 'ic_launcher.png'\n                    else:\n                        basename = f'ic_{appname}.png'\n\n                    res_dir = os.path.join(build_dir, 'res')\n                    icon.writeSize(48, os.path.join(res_dir, 'mipmap-mdpi-v4', basename))\n                    icon.writeSize(72, os.path.join(res_dir, 'mipmap-hdpi-v4', basename))\n                    icon.writeSize(96, os.path.join(res_dir, 'mipmap-xhdpi-v4', basename))\n                    icon.writeSize(144, os.path.join(res_dir, 'mipmap-xxhdpi-v4', basename))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1951
+  }
+}

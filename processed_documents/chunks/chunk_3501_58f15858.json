@@ -1,0 +1,9 @@
+{
+  "content": "class Slider(Valuator):\n    \"\"\"\n    Valuator widget which includes an min/max slider and an entry for setting\n    floating point values in a range\n    \"\"\"\n\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('min',        0.0,           self.setMin),\n            ('max',        100.0,         self.setMax),\n            ('style',      VALUATOR_MINI,   INITOPT),\n        )\n        self.defineoptions(kw, optiondefs)\n        Valuator.__init__(self, parent)\n        # Can not enter None for min or max, update propertyDict to reflect\n        self.propertyDict['min']['fNone'] = 0\n        self.propertyDict['min']['help'] = 'Minimum allowable value.'\n        self.propertyDict['max']['fNone'] = 0\n        self.propertyDict['max']['help'] = 'Maximum allowable value.'\n        self.initialiseoptions(Slider)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3501
+  }
+}

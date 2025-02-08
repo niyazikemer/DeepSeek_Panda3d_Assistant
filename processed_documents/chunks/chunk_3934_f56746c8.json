@@ -1,0 +1,9 @@
+{
+  "content": "def destroy(self):\n        self.flush()\n        del self._namePrefix\n        del self._durationAverager\n\n    def flush(self):\n        self._durationAverager.reset()\n        if self._avgSession:\n            self._avgSession.release()\n        self._avgSession = None\n\n    def getNamePrefix(self, namePrefix):\n        return self._namePrefix",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3934
+  }
+}

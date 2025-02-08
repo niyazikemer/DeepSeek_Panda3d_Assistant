@@ -1,0 +1,9 @@
+{
+  "content": "if \"Inverted\" in configuration:\n                text += \"  o_color = float4(1, 1, 1, 1) - o_color;\\n\"\n            text += \"}\\n\"\n\n            shader = Shader.make(text, Shader.SL_Cg)\n            if not shader:\n                return False\n            self.finalQuad.setShader(shader)\n            for tex in self.textures:\n                self.finalQuad.setShaderInput(\"tx\"+tex, self.textures[tex])\n\n            self.task = taskMgr.add(self.update, \"common-filters-update\")\n\n        if changed == \"CartoonInk\" or fullrebuild:\n            if \"CartoonInk\" in configuration:\n                c = configuration[\"CartoonInk\"]\n                self.finalQuad.setShaderInput(\"cartoonseparation\", LVecBase4(c.separation, 0, c.separation, 0))\n                self.finalQuad.setShaderInput(\"cartooncolor\", c.color)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3978
+  }
+}

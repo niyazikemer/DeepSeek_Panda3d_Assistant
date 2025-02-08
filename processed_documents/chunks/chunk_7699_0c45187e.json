@@ -1,0 +1,9 @@
+{
+  "content": "Unanimated (environment) models\n\nOther kinds of models, those that do not contain any skeleton or animations, are not optimized as aggressively by the Panda loader, on the assumption that the model's hierarchy was structured the way it is intentionally, to maximize culling (see pipeline-tips). Thus, only certain nodes are combined with others, so it's quite likely that an object that you modeled as a separate node in your modeling package will still be available under the same name when you load it in Panda. But Panda doesn't promise that it will never collapse together nodes that it thinks need to be combined for optimization purposes, unless you tell it not to.\n\nIn the case of an unanimated model, the way to protect a particular node is to insert the <Model> flag into the egg file within the particular group. The way to do this depends on your modeling package (and this documentation still needs to be written).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_695",
+    "parent": "processed_documents/context_documents/07fa1e34_32778465_manipulating-a-piece-of-a-model.json",
+    "chunk_number": 7699
+  }
+}

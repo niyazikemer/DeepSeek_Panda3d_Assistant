@@ -1,0 +1,9 @@
+{
+  "content": "# be in the correct position. Otherwise, the toon will\n                # have the correct position but the wrong parent node,\n                # until this code runs and corrects the toon's parent\n                # node. Since we don't start rendering until all objects\n                # in a new zone have been generated, all of that action\n                # will happen in a single frame, and the net result will\n                # be that the toon will be in the right place when\n                # rendering starts.\n                self.notify.debug(\"performing reparent of %s to '%s'\" %\n                                  (repr(child), token))\n                child.reparentTo(self.token2nodepath[token])\n                # remove this child from the child->parent table\n                assert self.pendingChild2parentToken[child] == token\n                del self.pendingChild2parentToken[child]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_316",
+    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
+    "chunk_number": 5482
+  }
+}

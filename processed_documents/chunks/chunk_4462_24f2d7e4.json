@@ -1,0 +1,9 @@
+{
+  "content": "if object not in self.sound_dict:\n            self.sound_dict[WeakNodePath(object)] = []\n\n        self.sound_dict[object].append(sound)\n        return 1\n\n\n    def detachSound(self, sound):\n        \"\"\"\n        sound will no longer have it's 3D position updated\n        \"\"\"\n        for known_object in list(self.sound_dict.keys()):\n            if self.sound_dict[known_object].count(sound):\n                self.sound_dict[known_object].remove(sound)\n                if len(self.sound_dict[known_object]) == 0:\n                    # if there are no other sounds, don't track\n                    # the object any more\n                    del self.sound_dict[known_object]\n                return 1\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4462
+  }
+}

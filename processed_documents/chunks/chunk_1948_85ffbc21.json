@@ -1,0 +1,9 @@
+{
+  "content": "self.icon_objects = {}\n        for app, iconpaths in self.icons.items():\n            if not isinstance(iconpaths, list) and not isinstance(iconpaths, tuple):\n                iconpaths = (iconpaths,)\n\n            iconobj = Icon()\n            for iconpath in iconpaths:\n                iconobj.addImage(iconpath)\n\n            iconobj.generateMissingImages()\n            self.icon_objects[app] = iconobj\n\n    def run(self):\n        self.announce('Building platforms: {0}'.format(','.join(self.platforms)), distutils.log.INFO)\n\n        for platform in self.platforms:\n            # Create the build directory, or ensure it is empty.\n            build_dir = os.path.join(self.build_base, platform)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1948
+  }
+}

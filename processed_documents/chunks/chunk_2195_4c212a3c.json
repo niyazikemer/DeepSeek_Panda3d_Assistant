@@ -1,0 +1,9 @@
+{
+  "content": "# Calculate row sizes\n            xorsize = size\n            if xorsize % 4 != 0:\n                xorsize += 4 - (xorsize % 4)\n            andsize = (size + 7) >> 3\n            if andsize % 4 != 0:\n                andsize += 4 - (andsize % 4)\n            datasize = 40 + 256 * 4 + (xorsize + andsize) * size\n\n            ico.write(struct.pack('<BBHHII', 0, 0, 1, 8, datasize, dataoffs))\n            dataoffs += datasize\n\n        # Write 24/32-bpp image headers.\n        for size, image in self.images.items():\n            if size > 256:\n                continue\n            elif size == 256:\n                ico.write(b'\\0\\0')\n            else:\n                ico.write(struct.pack('<BB', size, size))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2195
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Set callback\n    vgp['postCallback'] = onRelease\n\n    # Add a print button which will also serve as a color tile\n    pButton = tk.Button(vgp.interior(), text = 'Print to Log',\n                        bg = getTkColorString(initColor),\n                        command = printToLog)\n    pButton.pack(expand = 1, fill = tk.BOTH)\n\n    # Update menu\n    menubar = vgp.component('menubar')\n    menubar.deletemenuitems('Valuator Group', 1, 1)\n\n    # Some helper functions\n    # Clear color\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Clear Color', command=lambda: nodePath.clearColor())\n    # Set Clear Transparency\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Set Transparency', command=lambda: nodePath.setTransparency(1))\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Clear Transparency', command=lambda: nodePath.clearTransparency())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3666
+  }
+}

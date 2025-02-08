@@ -1,0 +1,9 @@
+{
+  "content": "def rgbPanel(nodePath, callback = None, style = 'mini'):\n    from direct.showbase.MessengerGlobal import messenger\n\n    def onRelease(r, g, b, a, nodePath = nodePath):\n        messenger.send('RGBPanel_setColor', [nodePath, r, g, b, a])\n\n    def popupColorPicker():\n        # Can pass in current color with: color = (255, 0, 0)\n        color = askcolor(\n            parent = vgp.interior(),\n            # Initialize it to current color\n            initialcolor = tuple(vgp.get()[:3]))[0]\n        if color:\n            vgp.set((color[0], color[1], color[2], vgp.getAt(3)))\n\n    def printToLog():\n        c=nodePath.getColor()\n        print(\"Vec4(%.3f, %.3f, %.3f, %.3f)\"%(c[0], c[1], c[2], c[3]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3663
+  }
+}

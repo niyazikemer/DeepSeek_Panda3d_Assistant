@@ -1,0 +1,9 @@
+{
+  "content": "from direct.showbase.InputStateGlobal import inputState\nfrom direct.directnotify import DirectNotifyGlobal\nfrom direct.controls import NonPhysicsWalker\n\nclass SwimWalker(NonPhysicsWalker.NonPhysicsWalker):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"SwimWalker\")\n\n    def _calcSpeeds(self):\n        # get the button states:\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\") or inputState.isSet(\"slideLeft\")\n        turnRight = inputState.isSet(\"turnRight\") or inputState.isSet(\"slideRight\")\n\n        # Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0\n\n        # Determine what the speeds are based on the buttons:\n        self.speed=(forward and self.avatarControlForwardSpeed or\n                    reverse and -self.avatarControlReverseSpeed)\n        self.slideSpeed=0.\n        self.rotationSpeed=(\n            (turnLeft and self.avatarControlRotateSpeed) or\n            (turnRight and -self.avatarControlRotateSpeed))\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/controls/SwimWalker.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/67515933_SwimWalker.json",
+    "doc_id": "doc_233"
+  }
+}

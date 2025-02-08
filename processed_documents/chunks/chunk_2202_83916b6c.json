@@ -1,0 +1,9 @@
+{
+  "content": "def bool_resource(id):\n    def compile(attrib, manifest):\n        attrib.resource_id = id\n        attrib.compiled_item.prim.boolean_value = {\n            'true': True, '1': True, 'false': False, '0': False\n        }[attrib.value]\n    return compile\n\n\ndef enum_resource(id, *values):\n    def compile(attrib, manifest):\n        attrib.resource_id = id\n        attrib.compiled_item.prim.int_decimal_value = values.index(attrib.value)\n    return compile\n\n\ndef flag_resource(id, **values):\n    def compile(attrib, manifest):\n        attrib.resource_id = id\n        bitmask = 0\n        flags = attrib.value.split('|')\n        for flag in flags:\n            bitmask |= values[flag]\n        attrib.compiled_item.prim.int_hexadecimal_value = bitmask\n    return compile",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_136",
+    "parent": "processed_documents/context_documents/d67df3a6__android.json",
+    "chunk_number": 2202
+  }
+}

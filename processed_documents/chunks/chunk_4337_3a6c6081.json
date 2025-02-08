@@ -1,0 +1,9 @@
+{
+  "content": "code = None\n        if t_pyc and t_pyc >= self.timestamp:\n            try:\n                code = self._loadPyc(pycVfile, self.timestamp)\n            except ValueError:\n                code = None\n\n        if not code:\n            source = self._read_source()\n            filename = Filename(self.filename)\n            filename.setExtension('py')\n            code = self._compile(filename, source)\n\n        return code\n\n    def _loadPyc(self, vfile, timestamp):\n        \"\"\" Reads and returns the marshal data from a .pyc file.\n        Raises ValueError if there is a problem. \"\"\"\n\n        code = None\n        data = vfile.readFile(True)\n        if data[:4] != imp.get_magic():\n            raise ValueError(\"Bad magic number in %s\" % (vfile))\n\n        t = int.from_bytes(data[4:8], 'little')\n        data = data[12:]\n\n        if not timestamp or t == timestamp:\n            return marshal.loads(data)\n        else:\n            raise ValueError(\"Timestamp wrong on %s\" % (vfile))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4337
+  }
+}

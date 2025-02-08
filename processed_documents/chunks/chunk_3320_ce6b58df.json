@@ -1,0 +1,9 @@
+{
+  "content": "return Task.cont\n\n    def OrthoZoomTask(self, state):\n        direct = ShowBaseGlobal.direct\n        filmSize = direct.camNode.getLens().getFilmSize()\n        factor = (direct.dr.mouseDeltaX -1.0 * direct.dr.mouseDeltaY) * 0.1\n        x = direct.dr.getWidth()\n        y = direct.dr.getHeight()\n        direct.dr.orthoFactor -= factor\n        if direct.dr.orthoFactor < 0:\n            direct.dr.orthoFactor = 0.0001\n        direct.dr.updateFilmSize(x, y)\n        return Task.cont\n\n    def HPPanTask(self, state):\n        direct = ShowBaseGlobal.direct\n        direct.camera.setHpr(direct.camera,\n                             (0.5 * direct.dr.mouseDeltaX *\n                              direct.dr.fovH),\n                             (-0.5 * direct.dr.mouseDeltaY *\n                              direct.dr.fovV),\n                             0.0)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3320
+  }
+}

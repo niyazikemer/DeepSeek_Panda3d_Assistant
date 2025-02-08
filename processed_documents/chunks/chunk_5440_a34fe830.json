@@ -1,0 +1,9 @@
+{
+  "content": "#----------------------------------\n\n    def deleteDistributedObjects(self):\n        # Get rid of all the distributed objects\n        for do in list(self.doId2do.values()):\n            self.deleteDistObject(do)\n\n        # Get rid of everything that manages distributed objects\n        self.deleteObjects()\n\n        # the zoneId2doIds table should be empty now\n        if not self._doHierarchy.isEmpty():\n            self.notify.warning(\n                '_doHierarchy table not empty: %s' % self._doHierarchy)\n            self._doHierarchy.clear()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5440
+  }
+}

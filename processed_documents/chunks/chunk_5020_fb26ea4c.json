@@ -1,0 +1,9 @@
+{
+  "content": "def run(self) -> None: # pylint: disable=method-hidden\n        \"\"\"This method runs the :class:`~direct.task.Task.TaskManager`\n        when ``self.appRunner is None``, which is to say, when we are\n        not running from within a p3d file.  When we *are* within a p3d\n        file, the Panda3D runtime has to be responsible for running the\n        main loop, so we can't allow the application to do it.\n\n        This method must be called from the main thread, otherwise an error is\n        thrown.\n        \"\"\"\n        if Thread.getCurrentThread() != Thread.getMainThread() and sys.platform != \"android\":\n            self.notify.error(\"run() must be called from the main thread.\")\n            return\n\n        if self.appRunner is None or self.appRunner.dummy or \\\n           (self.appRunner.interactiveConsole and not self.appRunner.initialAppImport):\n            self.taskMgr.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5020
+  }
+}

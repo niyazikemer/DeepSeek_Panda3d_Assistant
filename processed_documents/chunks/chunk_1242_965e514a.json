@@ -1,0 +1,9 @@
+{
+  "content": "# Save all the particles to file\n            num = 0\n            for p in list(self.particlesDict.values()):\n                target = 'p%d' % num\n                num = num + 1\n                f.write(target + ' = Particles.Particles(\\'%s\\')\\n' % p.getName())\n                p.printParams(f, target)\n                f.write('self.addParticles(%s)\\n' % target)\n\n            # Save all the forces to file\n            num = 0\n            for fg in list(self.forceGroupDict.values()):\n                target = 'f%d' % num\n                num = num + 1\n                f.write(target + ' = ForceGroup.ForceGroup(\\'%s\\')\\n' % \\\n                                                    fg.getName())\n                fg.printParams(f, target)\n                f.write('self.addForceGroup(%s)\\n' % target)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1242
+  }
+}

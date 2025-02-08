@@ -1,0 +1,9 @@
+{
+  "content": "def destroy(self):\n        # Clean out any hooks\n        self.ignoreAll()\n        del self._optionInfo\n        del self.__componentInfo\n        del self.postInitialiseFuncList\n\n    def bind(self, event, command, extraArgs = []):\n        \"\"\"\n        Bind the command (which should expect one arg) to the specified\n        event (such as ENTER, EXIT, B1PRESS, B1CLICK, etc.)\n        See DirectGuiGlobals for possible events\n        \"\"\"\n        # Need to tack on gui item specific id\n        gEvent = event + self.guiId\n        if ConfigVariableBool('debug-directgui-msgs', False):\n            from direct.showbase.PythonUtil import StackTrace\n            print(gEvent)\n            print(StackTrace())\n        self.accept(gEvent, command, extraArgs = extraArgs)\n\n    def unbind(self, event):\n        \"\"\"\n        Unbind the specified event\n        \"\"\"\n        # Need to tack on gui item specific id\n        gEvent = event + self.guiId\n        self.ignore(gEvent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1403
+  }
+}

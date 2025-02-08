@@ -1,0 +1,9 @@
+{
+  "content": "while len(self.hierarchy) > 0:\n                for uid in self.hierarchy:\n                    if self.hierarchy[uid] is None:\n                        parentNP = None\n                        restoreObject(uid, parentNP)\n                        del self.hierarchy[uid]\n                    else:\n                        parentObj = self.editor.objectMgr.findObjectById(self.hierarchy[uid])\n                        if parentObj:\n                            parentNP = parentObj[OG.OBJ_NP]\n                            restoreObject(uid, parentNP)\n                            del self.hierarchy[uid]\n\n            self.hierarchy = {}\n            self.objInfos = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 610
+  }
+}

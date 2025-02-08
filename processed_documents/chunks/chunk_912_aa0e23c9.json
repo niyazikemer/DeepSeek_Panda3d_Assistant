@@ -1,0 +1,9 @@
+{
+  "content": "self.__categories[name] = category\n            categoryNames.append(name)\n        # Assemble DIRECT categories\n        for name in directNotify.getCategories():\n            category = directNotify.getCategory(name)\n            self.__categories[name] = category\n            categoryNames.append(name)\n        # Sort resulting list of names\n        categoryNames.sort()\n        # Create a listbox\n        self.categoryList = Pmw.ScrolledListBox(\n            categoryFrame,\n            labelpos = NW, label_text = 'Categories:',\n            label_font=('MSSansSerif', 10, 'bold'),\n            listbox_takefocus = 1,\n            items = categoryNames,\n            selectioncommand = self.setActivePandaCategory)\n        self.categoryList.pack(expand = 1, fill = BOTH)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_58",
+    "parent": "processed_documents/context_documents/29bb8898_NotifyPanel.json",
+    "chunk_number": 912
+  }
+}

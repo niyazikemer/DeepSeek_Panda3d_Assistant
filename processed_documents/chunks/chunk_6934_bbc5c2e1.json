@@ -1,0 +1,9 @@
+{
+  "content": "Here the GPU needs the keyword \"COLOR\" for o_color. This is hint for the GPU that we would like to assign a float4 to the color buffer of your screen. As you may know, the range of a color component is 0 - 255 for R, G and B. That is a fact the GPU knows and it translates the floating point values to integers. The advantage of writing shaders in floating point is that if 48 bit color displays become common, we do not have to change our shader and neither would we have to change our shader if we only have a 16 bit color depth.\n\nThe Python Script\n\nThe only thing we will change in our panda script is to load our shader file and assign the shader on our root node. Run the script and you will see a black screen, so theres no point in providing a screenshot for this one!\n\n#Lesson2.py\n\nimport sys\nimport direct.directbase.DirectStart\n\nbase.setBackgroundColor(0.0, 0.0, 0.0)\nbase.disableMouse()\n\nbase.camLens.setNearFar(1.0, 50.0)\nbase.camLens.setFov(45.0)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_552",
+    "parent": "processed_documents/context_documents/c21812f2_917f801a_part-2.json",
+    "chunk_number": 6934
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if from_size > required_size:\n                Icon.notify.warning(\"Generating %dx%d icon by scaling down %dx%d image\" % (required_size, required_size, from_size, from_size))\n\n                from_image = self.images[from_size]\n                image = PNMImage(required_size, required_size)\n                image.setColorType(from_image.getColorType())\n                if from_image.hasAlpha():\n                    image.addAlpha()\n                image.quickFilterFrom(from_image)\n                self.images[required_size] = image\n            else:\n                Icon.notify.warning(\"Cannot generate %dx%d icon; no higher resolution image available\" % (required_size, required_size))\n\n    def _write_bitmap(self, fp, image, size, bpp):\n        \"\"\" Writes the bitmap header and data of an .ico file. \"\"\"\n\n        fp.write(struct.pack('<IiiHHIIiiII', 40, size, size * 2, 1, bpp, 0, 0, 0, 0, 0, 0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2189
+  }
+}

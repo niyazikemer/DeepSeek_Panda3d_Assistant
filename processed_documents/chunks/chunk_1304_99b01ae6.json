@@ -1,0 +1,9 @@
+{
+  "content": "class ForceGroup(DirectObject):\n\n    notify = DirectNotifyGlobal.directNotify.newCategory('ForceGroup')\n    id = 1\n\n    def __init__(self, name=None):\n        if name is None:\n            self.name = 'ForceGroup-%d' % ForceGroup.id\n            ForceGroup.id += 1\n        else:\n            self.name = name\n\n        self.node = ForceNode(self.name)\n        self.nodePath = NodePath(self.node)\n        self.fEnabled = 0\n\n        self.particleEffect = None\n\n    def cleanup(self):\n        self.node.clear()\n        self.nodePath.removeNode()\n        del self.nodePath\n        del self.node\n        del self.particleEffect\n\n    def enable(self):\n        \"\"\"Convenience function to enable all forces in force group\"\"\"\n        for i in range(self.node.getNumForces()):\n            f = self.node.getForce(i)\n            f.setActive(1)\n        self.fEnabled = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1304
+  }
+}

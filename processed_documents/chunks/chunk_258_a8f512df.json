@@ -1,0 +1,9 @@
+{
+  "content": "def drawZ(self, dc):\n        dc.SetPen(wx.Pen(\"blue\"))\n        dc.SetBrush(wx.Brush(\"blue\"))\n        self.drawSingleCurve(self.Z, dc)\n        self.drawKeys(self.Z, dc)\n        self.drawHandler(self.Z, dc)\n\n    def DrawCurve(self, dc):\n        if self.property == self._mainDialog.namestr:\n            self.drawX(dc)\n            self.drawY(dc)\n            self.drawZ(dc)\n            return\n        if self.property == property[AG.X]:\n            self.drawX(dc)\n            return\n        if self.property == property[AG.Y]:\n            self.drawY(dc)\n            return\n        if self.property == property[AG.Z]:\n            self.drawZ(dc)\n            return\n\n    def drawSingleCurve(self, list, dc):\n        if len(list) == 1:\n            dc.DrawPoint(list[0][AG.KEYFRAME][AG.LOCAL_VALUE][0], list[0][AG.KEYFRAME][AG.LOCAL_VALUE][1])\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 258
+  }
+}

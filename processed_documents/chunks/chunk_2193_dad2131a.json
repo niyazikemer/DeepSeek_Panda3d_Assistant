@@ -1,0 +1,9 @@
+{
+  "content": "# Create an AND mask, aligned to 4-byte boundary\n        if image.hasAlpha() and bpp <= 8:\n            rowalign = b'\\0' * (-((size + 7) >> 3) & 3)\n            for y in range(size):\n                mask = 0\n                num_bits = 7\n                for x in range(size):\n                    a = image.get_alpha_val(x, size - y - 1)\n                    if a <= 1:\n                        mask |= (1 << num_bits)\n                    num_bits -= 1\n                    if num_bits < 0:\n                        fp.write(struct.pack('<B', mask))\n                        mask = 0\n                        num_bits = 7\n                if num_bits < 7:\n                    fp.write(struct.pack('<B', mask))\n                fp.write(rowalign)\n        else:\n            andsize = (size + 7) >> 3\n            if andsize % 4 != 0:\n                andsize += 4 - (andsize % 4)\n            fp.write(b'\\x00' * (andsize * size))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2193
+  }
+}

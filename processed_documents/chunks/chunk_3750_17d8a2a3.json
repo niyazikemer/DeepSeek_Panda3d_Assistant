@@ -1,0 +1,9 @@
+{
+  "content": "class TestAppShell(AppShell):\n    # Override class variables here\n    appname = 'Test Application Shell'\n    usecommandarea = 1\n    usestatusarea  = 1\n\n    def __init__(self, parent = None, **kw):\n        # Call superclass initialization function\n        AppShell.__init__(self)\n        self.initialiseoptions(TestAppShell)\n\n    def createButtons(self):\n        self.buttonAdd('Ok',\n                       helpMessage='Exit',\n                       statusMessage='Exit',\n                       command=self.quit)\n\n    def createMain(self):\n        self.label = self.createcomponent('label', (), None,\n                                          tk.Label,\n                                          (self.interior(),),\n                                          text='Data Area')\n        self.label.pack()\n        self.bind(self.label, 'Space taker')\n\n    def createInterface(self):\n        self.createButtons()\n        self.createMain()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3750
+  }
+}

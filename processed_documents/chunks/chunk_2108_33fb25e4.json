@@ -1,0 +1,9 @@
+{
+  "content": "# If it is a submodule of a frozen module, Python will have\n            # trouble importing it as a builtin module.  Synthesize a frozen\n            # module that loads it as builtin.\n            if '.' in moduleName and self.linkExtensionModules:\n                code = compile('import sys;del sys.modules[\"%s\"];from importlib._bootstrap import _builtin_from_name;_builtin_from_name(\"%s\")' % (moduleName, moduleName), moduleName, 'exec', optimize=self.optimize)\n                code = marshal.dumps(code)\n                mangledName = self.mangleName(moduleName)\n                moduleDefs.append(self.makeModuleDef(mangledName, code))\n                moduleList.append(self.makeModuleListEntry(mangledName, code, moduleName, None))\n            elif '.' in moduleName:\n                # Nothing we can do about this case except warn the user they\n                # are in for some trouble.\n                print('WARNING: Python cannot import extension modules under '",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2108
+  }
+}

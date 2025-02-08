@@ -1,0 +1,9 @@
+{
+  "content": "def doDeltaPos(self):\n        assert self.notify.debugStateCall(self)\n        self.needToDeltaPos = 1\n\n    def setPriorParentVector(self):\n        assert self.notify.debugStateCall(self)\n        if __debug__:\n            onScreenDebug.add(\"__oldDt\", \"% 10.4f\"%self.__oldDt)\n            onScreenDebug.add(\"self.__oldPosDelta\",\n                              self.__oldPosDelta.pPrintValues())\n        # avoid divide by zero crash - grw\n        if self.__oldDt == 0:\n            velocity = 0\n        else:\n            velocity = self.__oldPosDelta*(1.0/self.__oldDt)\n        self.priorParent = Vec3(velocity)\n        if __debug__:\n            if self.wantDebugIndicator:\n                onScreenDebug.add(\"priorParent\", self.priorParent.pPrintValues())\n\n    def reset(self):\n        assert self.notify.debugStateCall(self)\n        self.lifter.setVelocity(0.0)\n        self.priorParent=Vec3.zero()\n\n    def getVelocity(self):\n        return self.vel",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4101
+  }
+}

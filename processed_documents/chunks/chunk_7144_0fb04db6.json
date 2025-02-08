@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\ntexture->set_magfilter(SamplerState::FT_nearest);\ntexture->set_minfilter(SamplerState::FT_nearest);\n\nUsually, FT_nearest is used only to achieve a special pixelly effect.\n\nFT_linear\n\npython\n\ntexture.setMagfilter(SamplerState.FT_linear)\ntexture.setMinfilter(SamplerState.FT_linear)\n\ncpp\n\ntexture->set_magfilter(SamplerState::FT_linear);\ntexture->set_minfilter(SamplerState::FT_linear);\n\nFT_linear is a good, general-purpose choice, though it isn't perfect.\n\nMipmaps\n\nMany graphics tutorials will go on for pages and pages about exactly what mipmapping means and how it all works inside. We'll spare you those details here; but you should understand the following things about mipmapping:\n\nIt requires 33% more texture memory (per mipmapped texture), but it renders quickly.\n\nIt helps the texture look much smoother than filtering alone when it is minified.\n\nMipmapping doesn't have anything at all to do with magnification.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_592",
+    "parent": "processed_documents/context_documents/53d984fb_f9100a09_texture-filter-types.json",
+    "chunk_number": 7144
+  }
+}

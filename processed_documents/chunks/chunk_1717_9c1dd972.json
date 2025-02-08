@@ -1,0 +1,9 @@
+{
+  "content": "class ClusterConfigItem:\n    def __init__(self, serverConfigName, serverName,\n                 serverDaemonPort, serverMsgPort):\n        self.serverConfigName = serverConfigName\n        self.serverName = serverName\n        self.serverDaemonPort = serverDaemonPort\n        self.serverMsgPort = serverMsgPort\n        # Camera Offset\n        self.xyz = Vec3(0)\n        self.hpr = Vec3(0)\n        # Camera Frustum Data\n        self.fFrustum = 0\n        self.focalLength = None\n        self.filmSize = None\n        self.filmOffset = None\n\n    def setCamOffset(self, xyz, hpr):\n        self.xyz = xyz\n        self.hpr = hpr\n\n    def setCamFrustum(self, focalLength, filmSize, filmOffset):\n        self.fFrustum = 1\n        self.focalLength = focalLength\n        self.filmSize = filmSize\n        self.filmOffset = filmOffset",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1717
+  }
+}

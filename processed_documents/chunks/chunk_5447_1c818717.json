@@ -1,0 +1,9 @@
+{
+  "content": "def deleteObjectLocation(self, object, parentId, zoneId):\n        # Do not worry about null values\n        if ((parentId is None) or (zoneId is None) or\n            (parentId == zoneId == 0)):\n            return\n\n        self._doHierarchy.deleteObjectLocation(object, parentId, zoneId)\n\n    def addDOToTables(self, do, location=None, ownerView=False):\n        assert self.notify.debugStateCall(self)\n        #assert not hasattr(do, \"isQueryAllResponse\") or not do.isQueryAllResponse\n        if not ownerView:\n            if location is None:\n                location = (do.parentId, do.zoneId)\n\n        doTable = self.getDoTable(ownerView)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5447
+  }
+}

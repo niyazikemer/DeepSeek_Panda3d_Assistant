@@ -1,0 +1,9 @@
+{
+  "content": "#debugTempH=self.avatarNodePath.getH()\n            assert self.avatarNodePath.getQuat().isSameDirection(physObject.getOrientation())\n            assert self.avatarNodePath.getPos().almostEqual(physObject.getPosition(), 0.0001)\n\n            # update pos:\n            # Take a step in the direction of our previous heading.\n            self.__vel=Vec3(\n                Vec3.forward() * distance +\n                Vec3.right() * slideDistance)\n\n            # rotMat is the rotation matrix corresponding to\n            # our previous heading.\n            rotMat=Mat3.rotateMatNormaxis(self.avatarNodePath.getH(), Vec3.up())\n            step=rotMat.xform(self.__vel)\n            physObject.setPosition(Point3(\n                physObject.getPosition()+step+moveToGround))\n\n            # update hpr:\n            o=physObject.getOrientation()\n            r=LRotationf()\n            r.setHpr(Vec3(rotation, 0.0, 0.0))\n            physObject.setOrientation(o*r)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4062
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getAspectRatio(self, win = None):\n        # Returns the actual aspect ratio of the indicated (or main\n        # window), or the default aspect ratio if there is not yet a\n        # main window.\n\n        # If the config it set, we return that\n        if self.__configAspectRatio:\n            return self.__configAspectRatio\n\n        aspectRatio = 1\n\n        if win is None:\n            win = self.win\n\n        if win is not None and win.hasSize() and win.getSbsLeftYSize() != 0:\n            aspectRatio = float(win.getSbsLeftXSize()) / float(win.getSbsLeftYSize())\n        else:\n            if win is None or not hasattr(win, \"getRequestedProperties\"):\n                props = WindowProperties.getDefault()\n            else:\n                props = win.getRequestedProperties()\n                if not props.hasSize():\n                    props = WindowProperties.getDefault()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4920
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if lifeScale == SparkleParticleRenderer.SPSCALE:\n                lScale = \"SPSCALE\"\n            file.write(targ + '.renderer.setLifeScale(SparkleParticleRenderer.' + lScale + ')\\n')\n        elif self.rendererType == \"SpriteParticleRenderer\":\n            file.write('# Sprite parameters\\n')\n            if self.renderer.getAnimateFramesEnable():\n                file.write(targ + '.renderer.setAnimateFramesEnable(True)\\n')\n                rate = self.renderer.getAnimateFramesRate()\n                if rate:\n                    file.write(targ + '.renderer.setAnimateFramesRate(%.3f)\\n'%rate)\n            animCount = self.renderer.getNumAnims()\n            for x in range(animCount):\n                anim = self.renderer.getAnim(x)\n                if anim.getSourceType() == SpriteAnim.STTexture:\n                    file.write(targ + '.renderer.addTextureFromFile(\\'%s\\')\\n' % (anim.getTexSource(),))\n                else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1283
+  }
+}

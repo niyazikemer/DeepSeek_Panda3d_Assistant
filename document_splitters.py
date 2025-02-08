@@ -88,8 +88,8 @@ class CustomDocumentSplitter:
 if __name__ == "__main__":
     from document_loaders import CustomDocumentLoader
     
-    loader = CustomDocumentLoader("_test_source_code")
-    documents = loader.load_all()
+    loader = CustomDocumentLoader("corpus_panda3d")
+    documents = loader.load_save_all()
     
     splitter = CustomDocumentSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = splitter.split_documents(documents)

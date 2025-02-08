@@ -1,0 +1,9 @@
+{
+  "content": "COPY = \"\"\"\n//Cg\n\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float2 l_texcoord : TEXCOORD0,\n             uniform float4 texpad_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  l_texcoord = vtx_texcoord * texpad_src.xy * 2;\n}\n\nvoid fshader(float2 l_texcoord : TEXCOORD0,\n             uniform sampler2D k_src : TEXUNIT0,\n             out float4 o_color : COLOR)\n{\n  o_color = tex2D(k_src, l_texcoord);\n}\n\"\"\"\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/filter/filterCopy.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/46102900_filterCopy.json",
+    "doc_id": "doc_223"
+  }
+}

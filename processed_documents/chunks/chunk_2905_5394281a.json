@@ -1,0 +1,9 @@
+{
+  "content": "# Create a unique name for the interval if necessary\n        if name is None:\n            name = self.makeUniqueName(function)\n        assert isinstance(name, str)\n\n        # Record any arguments\n        self.extraArgs = extraArgs\n        self.kw = kw\n        # Initialize superclass\n        # Set openEnded true if privInitialize after end time cause interval\n        # function to be called.  If false, privInitialize calls have no effect\n        # Event, Accept, Ignore intervals default to openEnded = 0\n        # Parent, Pos, Hpr, etc intervals default to openEnded = 1\n        Interval.Interval.__init__(self, name, duration = 0.0, openEnded = openEnded)\n\n        # For rebinding, let's remember this function interval on the class\n        if __debug__:\n            self.FunctionIntervals[self] = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2905
+  }
+}

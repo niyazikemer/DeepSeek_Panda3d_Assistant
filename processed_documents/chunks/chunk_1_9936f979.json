@@ -1,0 +1,9 @@
+{
+  "content": "class MyApp(ShowBase):\n    def __init__(self):\n        ShowBase.__init__(self)\n\n        # Load the environment model.\n        self.scene = self.loader.loadModel(\"models/environment\")\n        # Reparent the model to render.\n        self.scene.reparentTo(self.render)\n        # Apply scale and position transforms on the model.\n        self.scene.setScale(0.25, 0.25, 0.25)\n        self.scene.setPos(-8, 42, 0)\n\n        # Add the spinCameraTask procedure to the task manager.\n        self.taskMgr.add(self.spinCameraTask, \"SpinCameraTask\")\n\n        # Load and transform the panda actor.\n        self.pandaActor = Actor(\"models/panda-model\",\n                                {\"walk\": \"models/panda-walk4\"})\n        self.pandaActor.setScale(0.005, 0.005, 0.005)\n        self.pandaActor.reparentTo(self.render)\n        # Loop its animation.\n        self.pandaActor.loop(\"walk\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_0",
+    "parent": "processed_documents/context_documents/210ff496_7d218525_loading-and-animating-the-panda-model.json",
+    "chunk_number": 1
+  }
+}

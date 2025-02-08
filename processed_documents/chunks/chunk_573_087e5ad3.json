@@ -1,0 +1,9 @@
+{
+  "content": "self.popupmenu = wx.Menu()\n        for item in self.menuItemsGen:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n\n        self.Bind(wx.EVT_CONTEXT_MENU, self.onShowPopup)\n        self.llist.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.onShowMembers)\n\n    def menuAppendGenItems(self):\n        for item in self.menuItemsGen:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n\n    def menuAppendObjItems(self, hitItem):\n        for item in self.menuItemsObj:\n            if hitItem in self.systemLayerKeys:\n                if item in [self.opRemoveObj, self.opDelete, self.opAddObj]:\n                    continue\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 573
+  }
+}

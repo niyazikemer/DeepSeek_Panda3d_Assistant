@@ -1,0 +1,9 @@
+{
+  "content": "table_offset = len(blob)\n            for moduleName, offset, size in moduleList:\n                encoded = moduleName.encode('ascii')\n                string_offset = pool_offset + string_offsets[encoded]\n                if size != 0:\n                    offset += pool_offset\n                blob += struct.pack(entry_layout, string_offset, offset, size)\n\n            # A null entry marks the end of the module table.\n            blob += struct.pack(entry_layout, 0, 0, 0)\n\n            # These flags should match the enum in deploy-stub.c\n            flags = 0\n            if log_append:\n                flags |= 1\n            if log_filename_strftime:\n                flags |= 2\n            if self.optimize < 2:\n                flags |= 4 # keep_docstrings",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2130
+  }
+}

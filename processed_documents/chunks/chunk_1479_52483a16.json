@@ -1,0 +1,9 @@
+{
+  "content": "def configure(self, option=None, **kw):\n        # These is for compatibility with DirectGui functions\n        if not self.mayChange:\n            print('OnscreenText.configure: mayChange == 0')\n            return\n        for option, value in kw.items():\n            # Use option string to access setter function\n            try:\n                if option == 'pos':\n                    self.setTextPos(value[0], value[1])\n                elif option == 'roll':\n                    self.setTextR(-value)\n                elif option == 'scale':\n                    self.setTextScale(value)\n                elif option == 'x':\n                    self.setTextX(value)\n                elif option == 'y':\n                    self.setTextY(value)\n                else:\n                    setter = getattr(self, 'set' + option[0].upper() + option[1:])\n                    setter(value)\n            except AttributeError:\n                print('OnscreenText.configure: invalid option: %s' % option)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1479
+  }
+}

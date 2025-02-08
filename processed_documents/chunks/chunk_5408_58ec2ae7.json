@@ -1,0 +1,9 @@
+{
+  "content": "def setParentStr(self, parentToken):\n        self.notify.debugCall()\n        if len(parentToken) > 0:\n            self.do_setParent(parentToken)\n\n    def setParent(self, parentToken):\n        self.notify.debugCall()\n        self.do_setParent(parentToken)\n\n    def do_setParent(self, parentToken):\n        self.getParentMgr().requestReparent(self, parentToken)\n\n    ###### set pos and hpr functions #######\n\n    # setX provided by NodePath\n    def d_setX(self, x):\n        self.sendUpdate(\"setX\", [x])\n\n    # setY provided by NodePath\n    def d_setY(self, y):\n        self.sendUpdate(\"setY\", [y])\n\n    # setZ provided by NodePath\n    def d_setZ(self, z):\n        self.sendUpdate(\"setZ\", [z])\n\n    # setH provided by NodePath\n    def d_setH(self, h):\n        self.sendUpdate(\"setH\", [h])\n\n    # setP provided by NodePath\n    def d_setP(self, p):\n        self.sendUpdate(\"setP\", [p])\n\n    # setR provided by NodePath\n    def d_setR(self, r):\n        self.sendUpdate(\"setR\", [r])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_310",
+    "parent": "processed_documents/context_documents/3403f4ab_DistributedNodeUD.json",
+    "chunk_number": 5408
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Create a transform for the text for our scale and position.\n        # We'd rather do it here, on the text itself, rather than on\n        # our NodePath, so we have one fewer transforms in the scene\n        # graph.\n        self.updateTransformMat()\n\n        if drawOrder is not None:\n            textNode.setBin('fixed')\n            textNode.setDrawOrder(drawOrder)\n\n        self.setText(text)\n        if not text:\n            # If we don't have any text, assume we'll be changing it later.\n            self.mayChange = 1\n        else:\n            self.mayChange = mayChange\n\n        # Ok, now update the node.\n        if not self.mayChange:\n            # If we aren't going to change the text later, we can\n            # throw away the TextNode.\n            self.textNode = textNode.generate()\n\n        self.isClean = 0\n\n        # Set ourselves up as the NodePath that points to this node.\n        self.assign(parent.attachNewNode(self.textNode, sort))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1467
+  }
+}

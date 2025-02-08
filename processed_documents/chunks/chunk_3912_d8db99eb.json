@@ -1,0 +1,9 @@
+{
+  "content": "def stop(self):\n        if not self.started:\n            return 0.0\n        taskMgr.remove(self.name + '-run')\n        self.started = 0\n        return self.currT\n\n    def resume(self):\n        assert self.currT <= self.finalT\n        assert self.started == 0\n        self.start(self.finalT - self.currT, self.name)\n\n    def restart(self):\n        if self.callback is not None:\n            self.startCallback(self.finalT, self.callback)\n        else:\n            self.start(self.finalT, self.name)\n\n    def isStarted(self):\n        return self.started\n\n    def addT(self, t):\n        self.finalT = self.finalT + t\n\n    def setT(self, t):\n        self.finalT = t\n\n    def getT(self):\n        return self.finalT - self.currT",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_211",
+    "parent": "processed_documents/context_documents/a11a72f4_Timer.json",
+    "chunk_number": 3912
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def _considerRemoveInterest(self, handle):\n        \"\"\"\n        Consider whether we should cull the interest set.\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n\n        if handle in DoInterestManager._interests:\n            if DoInterestManager._interests[handle].isPendingDelete():\n                # make sure there is no pending event for this interest\n                if DoInterestManager._interests[handle].context == NO_CONTEXT:\n                    assert len(DoInterestManager._interests[handle].events) == 0\n                    del DoInterestManager._interests[handle]\n\n    if __debug__:\n        def printInterestsIfDebug(self):\n            if DoInterestManager.notify.getDebug():\n                self.printInterests()\n            return 1 # for assert",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5225
+  }
+}

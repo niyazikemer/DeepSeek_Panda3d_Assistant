@@ -1,0 +1,9 @@
+{
+  "content": "class ScaleInterval(FunctionInterval):\n    # ScaleInterval counter\n    scaleIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, scale, duration = 0.0,\n                 name = None, other = None):\n        \"\"\"__init__(nodePath, scale, duration, name)\n        \"\"\"\n        # Create function\n        def scaleFunc(np = nodePath, scale = scale, other = other):\n            if other:\n                np.setScale(other, scale)\n            else:\n                np.setScale(scale)\n        # Determine name\n        if name is None:\n            name = 'ScaleInterval-%d' % ScaleInterval.scaleIntervalNum\n            ScaleInterval.scaleIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, scaleFunc, name = name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2913
+  }
+}

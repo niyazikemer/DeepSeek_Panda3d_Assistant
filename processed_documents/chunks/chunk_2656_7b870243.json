@@ -1,0 +1,9 @@
+{
+  "content": "class PushesStateChanges:\n    # base class for objects that broadcast state changes to a set of subscriber objects\n    def __init__(self, value):\n        self._value = value\n        # push state changes to these objects\n        self._subscribers = set()\n\n    def destroy(self):\n        if len(self._subscribers) != 0:\n            raise Exception('%s object still has subscribers in destroy(): %s' % (\n                self.__class__.__name__, self._subscribers))\n        del self._subscribers\n        del self._value\n\n    def getState(self):\n        return self._value\n\n    def pushCurrentState(self):\n        self._handleStateChange()\n        return self\n\n    def _addSubscription(self, subscriber):\n        self._subscribers.add(subscriber)\n        subscriber._recvStatePush(self)\n\n    def _removeSubscription(self, subscriber):\n        self._subscribers.remove(subscriber)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2656
+  }
+}

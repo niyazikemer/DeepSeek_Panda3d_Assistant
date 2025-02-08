@@ -1,0 +1,9 @@
+{
+  "content": "# Seek to the section header table and find the symbol tables.\n        ptr = shoff\n        for i in range(shnum):\n            type, addr, offset, size, link, entsize = struct.unpack_from(section_struct, elf_data[ptr:ptr+shentsize])\n            ptr += shentsize\n            section_offsets.append(offset - addr)\n            if type == 0x0B and link != 0: # SHT_DYNSYM, links to string table\n                symbol_tables.append((offset, size, link, entsize))\n                string_tables[link] = None\n\n        # Read the relevant string tables.\n        for idx in list(string_tables.keys()):\n            ptr = shoff + idx * shentsize\n            type, addr, offset, size, link, entsize = struct.unpack_from(section_struct, elf_data[ptr:ptr+shentsize])\n            if type == 3:\n                string_tables[idx] = elf_data[offset:offset+size]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2142
+  }
+}

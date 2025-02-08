@@ -1,0 +1,9 @@
+{
+  "content": "class ActorControl(Pmw.MegaWidget):\n    def __init__(self, parent = None, **kw):\n\n        INITOPT = Pmw.INITOPT\n        DEFAULT_FONT = (('MS', 'Sans', 'Serif'), 12, 'bold')\n        DEFAULT_ANIMS = ('neutral', 'run', 'walk')\n        animList = kw.get('animList', DEFAULT_ANIMS)\n        if len(animList) > 0:\n            initActive = animList[0]\n        else:\n            initActive = DEFAULT_ANIMS[0]\n        optiondefs = (\n            ('text',            'Actor',            self._updateLabelText),\n            ('animPanel',       None,               None),\n            ('actor',           None,               None),\n            ('animList',        DEFAULT_ANIMS,      None),\n            ('active',          initActive,         None),\n            ('sLabel_width',    5,                  None),\n            ('sLabel_font',     DEFAULT_FONT,       None),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Initialize the superclass\n        Pmw.MegaWidget.__init__(self, parent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 994
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Move files over\n        for fname in os.listdir(builddir):\n            src = os.path.join(builddir, fname)\n            if appdir in src:\n                continue\n\n            if fname in self.gui_apps or self.console_apps:\n                dst = macosdir\n            elif os.path.isfile(src) and open(src, 'rb').read(4) in macosx_binary_magics:\n                dst = fwdir\n            else:\n                dst = resdir\n            shutil.move(src, dst)\n\n        # Write out Info.plist\n        plist = {\n            'CFBundleName': appname,\n            'CFBundleDisplayName': appname, #TODO use name from setup.py/cfg\n            'CFBundleIdentifier': '', #TODO\n            'CFBundleVersion': '0.0.0', #TODO get from setup.py\n            'CFBundlePackageType': 'APPL',\n            'CFBundleSignature': '', #TODO\n            'CFBundleExecutable': self.macos_main_app,\n            'NSHighResolutionCapable': 'True',\n        }",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1960
+  }
+}

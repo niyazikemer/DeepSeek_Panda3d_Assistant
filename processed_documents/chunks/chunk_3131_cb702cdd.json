@@ -1,0 +1,9 @@
+{
+  "content": "animDictItems = []\n\n                for pName in partNameList:\n                    animDict = partDict.get(pName)\n                    if animDict is None:\n                        # Maybe it's a subpart that hasn't been bound yet.\n                        subpartDef = self.__subpartDict.get(pName)\n                        if subpartDef:\n                            animDict = {}\n                            partDict[pName] = animDict\n\n                    if animDict is None:\n                        # part was not present\n                        Actor.notify.warning(\"couldn't find part: %s\" % (pName))\n                    else:\n                        animDictItems.append((pName, animDict))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3131
+  }
+}

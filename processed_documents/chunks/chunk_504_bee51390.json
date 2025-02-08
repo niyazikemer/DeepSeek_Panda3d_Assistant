@@ -1,0 +1,9 @@
+{
+  "content": "def findObjectById(self, uid):\n        return self.objects.get(uid)\n\n    def findObjectByNodePath(self, nodePath):\n        uid = self.npIndex.get(NodePath(nodePath))\n        if uid is None:\n            return None\n        else:\n            return self.objects[uid]\n\n    def findObjectByNodePathBelow(self, nodePath):\n        for ancestor in nodePath.getAncestors():\n            if ancestor.hasTag('OBJRoot'):\n                return self.findObjectByNodePath(ancestor)\n\n        return None\n\n    def findObjectsByTypeName(self, typeName):\n        results = []\n        for uid in self.objects.keys():\n            obj = self.objects[uid]\n            if obj[OG.OBJ_DEF].name == typeName:\n                results.append(obj)\n\n        return results\n\n    def deselectAll(self):\n        self.currNodePath = None\n        taskMgr.remove('_le_updateObjectUITask')\n        self.editor.ui.objectPropertyUI.clearPropUI()\n        self.editor.ui.sceneGraphUI.tree.UnselectAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 504
+  }
+}

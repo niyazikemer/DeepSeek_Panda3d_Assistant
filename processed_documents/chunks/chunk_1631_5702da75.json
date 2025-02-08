@@ -1,0 +1,9 @@
+{
+  "content": "def translated_type_name(type, scoped=True):\n    while interrogate_type_is_wrapped(type):\n        if interrogate_type_is_const(type):\n            return 'const ' + translated_type_name(interrogate_type_wrapped_type(type))\n        else:\n            type = interrogate_type_wrapped_type(type)\n\n    typename = interrogate_type_name(type)\n    if typename in (\"PyObject\", \"_object\"):\n        return \"object\"\n    elif typename == \"PN_stdfloat\":\n        return \"float\"\n    elif typename == \"size_t\":\n        return \"int\"\n\n    if interrogate_type_is_atomic(type):\n        token = interrogate_type_atomic_token(type)\n        if token == 7:\n            return 'str'\n        elif token == 8:\n            return 'long'\n        elif token == 9:\n            return 'NoneType'\n        else:\n            return typename\n\n    if not typename.endswith('_t'):\n        # Hack: don't mangle size_t etc.\n        typename = translateTypeName(typename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1631
+  }
+}

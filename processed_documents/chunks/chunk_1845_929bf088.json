@@ -1,0 +1,9 @@
+{
+  "content": "def setFilename(self, filename):\n        DistributedLargeBlobSender.notify.debug('setFilename: %s' % filename)\n        assert self.useDisk\n\n        import os\n        origDir = os.getcwd()\n        bPath = LargeBlobSenderConsts.getLargeBlobPath()\n        try:\n            os.chdir(bPath)\n        except OSError:\n            DistributedLargeBlobSender.notify.error(\n                'could not access %s' % bPath)\n        f = open(filename, 'rb')\n        self.blob = f.read()\n        f.close()\n        os.unlink(filename)\n        os.chdir(origDir)\n\n        self.privOnBlobComplete()\n\n    def isComplete(self):\n        \"\"\" returns non-zero if we've got the full blob \"\"\"\n        return self.complete\n\n    def setDoneEvent(self, event):\n        self.doneEvent = event\n\n    def privOnBlobComplete(self):\n        assert not self.isComplete()\n        self.complete = 1\n        # announce that we've got it?\n        if self.doneEvent is not None:\n            messenger.send(self.doneEvent, [self.blob])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_124",
+    "parent": "processed_documents/context_documents/ffdd858f_DistributedLargeBlobSender.json",
+    "chunk_number": 1845
+  }
+}

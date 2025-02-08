@@ -1,0 +1,9 @@
+{
+  "content": "self.objectMappings  = {}\n        self.objectHasColor  = {}\n        self.controlMappings = {}\n        self.controlPriorities = {}\n        self.controlOffsets  = {}\n        self.messageQueue    = []\n        self.sortedControlMappings   = []\n\n        # These must be passed in as bootstrap arguments and stored in\n        # the __builtins__ namespace\n        try:\n            clusterDaemonClient\n        except NameError:\n            clusterDaemonClient = 'localhost'\n        try:\n            clusterDaemonPort\n        except NameError:\n            clusterDaemonPort = CLUSTER_DAEMON_PORT\n        self.daemon.serverReady(clusterDaemonClient, clusterDaemonPort)\n\n    def startListenerPollTask(self):\n        # Run this task near the start of frame, sometime after the dataLoop\n        taskMgr.add(self.listenerPollTask, \"serverListenerPollTask\", -40)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1753
+  }
+}

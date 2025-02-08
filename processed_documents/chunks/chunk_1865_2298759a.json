@@ -1,0 +1,9 @@
+{
+  "content": "def unpack_from(self, data, offs=0):\n        type, count = unpack('<HH', data[offs+2:offs+6])\n        offs += 6\n        for i in range(count):\n            width, height, colors, planes, bpp, size, id = \\\n                self._entry.unpack(data[offs:offs+14])\n            if width == 0:\n                width = 256\n            if height == 0:\n                height = 256\n            self.icons.append(self.Icon(width, height, planes, bpp, size, id))\n            offs += 14",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1865
+  }
+}

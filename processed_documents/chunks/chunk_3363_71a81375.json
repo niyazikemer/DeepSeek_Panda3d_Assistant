@@ -1,0 +1,9 @@
+{
+  "content": "def lerpBackgroundColor(r, g, b, duration):\n    \"\"\"\n    Function to lerp background color to a new value\n    \"\"\"\n    def lerpColor(state):\n        dt = base.clock.getDt()\n        state.time += dt\n        sf = state.time / state.duration\n        if sf >= 1.0:\n            base.setBackgroundColor(state.ec[0], state.ec[1], state.ec[2])\n            return Task.done\n        else:\n            r = sf * state.ec[0] + (1 - sf) * state.sc[0]\n            g = sf * state.ec[1] + (1 - sf) * state.sc[1]\n            b = sf * state.ec[2] + (1 - sf) * state.sc[2]\n            base.setBackgroundColor(r, g, b)\n            return Task.cont\n    taskMgr.remove('lerpBackgroundColor')\n    t = taskMgr.add(lerpColor, 'lerpBackgroundColor')\n    t.time = 0.0\n    t.duration = duration\n    t.sc = base.getBackgroundColor()\n    t.ec = VBase4(r, g, b, 1)\n\n# Set direct drawing style for an object\n# Never light object or draw in wireframe",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_184",
+    "parent": "processed_documents/context_documents/1c2cbc90_DirectUtil.json",
+    "chunk_number": 3363
+  }
+}

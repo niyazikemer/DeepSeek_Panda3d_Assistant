@@ -1,0 +1,9 @@
+{
+  "content": "if self.storePythonSource:\n                filename += '.py'\n                stream = StringStream(b'')\n                if multifile.findSubfile(filename) < 0:\n                    multifile.addSubfile(filename, stream, 0)\n                    multifile.flush()\n            else:\n                if __debug__:\n                    filename += '.pyc'\n                else:\n                    filename += '.pyo'\n                if multifile.findSubfile(filename) < 0:\n                    code = compile('', moduleName, 'exec', optimize=self.optimize)\n                    self.__addPyc(multifile, filename, code, compressionLevel)\n\n            moduleDirs[str] = True\n            self.__addPythonDirs(multifile, moduleDirs, dirnames[:-1], compressionLevel)\n\n    def __addPythonFile(self, multifile, moduleDirs, moduleName, mdef,\n                        compressionLevel):\n        \"\"\" Adds the named module to the multifile as a .pyc file. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2099
+  }
+}

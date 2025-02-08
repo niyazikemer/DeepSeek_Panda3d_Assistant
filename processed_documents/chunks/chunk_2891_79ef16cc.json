@@ -1,0 +1,9 @@
+{
+  "content": "if len(self.ivals) == 0:\n            pass\n        elif len(self.ivals) == 1:\n            meta.addInterval(self.ivals[0], relTime, relTo)\n        else:\n            self.notify.error(\"Cannot build list from MetaInterval directly.\")\n\n    def setPlayRate(self, playRate):\n        \"\"\" Changes the play rate of the interval.  If the interval is\n        already started, this changes its speed on-the-fly.  Note that\n        since playRate is a parameter to start() and loop(), the next\n        call to start() or loop() will reset this parameter. \"\"\"\n\n        if self.isPlaying():\n            self.pause()\n            CMetaInterval.setPlayRate(self, playRate)\n            self.resume()\n        else:\n            CMetaInterval.setPlayRate(self, playRate)\n\n    play_rate = property(CMetaInterval.getPlayRate, setPlayRate)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2891
+  }
+}

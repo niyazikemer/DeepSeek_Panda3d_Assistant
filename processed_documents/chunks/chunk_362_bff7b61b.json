@@ -1,0 +1,9 @@
+{
+  "content": "def removePandaObjectChildren(self, parent):\n        # first, find Panda Object's NodePath of the item\n        itemId = self.tree.GetItemData(parent)\n        if itemId == \"render\":\n            return\n        obj = self.editor.objectMgr.findObjectById(itemId)\n        if obj is None:\n            self.tree.Delete(parent)\n            return\n        item, cookie = self.tree.GetFirstChild(parent)\n        while item:\n            # recurse...\n            itemToRemove = item\n            # continue iteration to the next child\n            item, cookie = self.tree.GetNextChild(parent, cookie)\n            self.removePandaObjectChildren(itemToRemove)\n\n    def add(self, item, parentNP = None):\n        #import pdb;pdb.set_trace()\n        if item is None:\n            return\n        obj = self.editor.objectMgr.findObjectByNodePath(NodePath(item))\n        if obj is None:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 362
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def onEdit(self, evt, key):\n        base.le.ui.bindKeyEvents(False)\n        editUI = EditHotKeyDialog(self, -1, 'Edit Hot Key', key)\n        editUI.ShowModal()\n        editUI.Destroy()\n\n        sizer = self.GetSizer()\n        if sizer is not None:\n            sizer.DeleteWindows()\n            self.SetSizer(None)\n        base.le.ui.bindKeyEvents(True)\n        self.updateUI()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_41",
+    "parent": "processed_documents/context_documents/64346f52_HotKeyUI.json",
+    "chunk_number": 594
+  }
+}

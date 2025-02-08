@@ -1,0 +1,9 @@
+{
+  "content": "class DirectSession(DirectObject):\n\n    # post this to the bboard to make sure DIRECT doesn't turn on\n    DIRECTdisablePost = 'disableDIRECT'\n\n    cam: NodePath\n    camera: NodePath\n    oobeCamera: NodePath\n\n    def __init__(self):\n        # Establish a global pointer to the direct object early on\n        # so dependant classes can access it in their code\n        global direct, base\n        base = ShowBaseGlobal.base\n        base.direct = self\n        setattr(builtins, 'direct', self)\n        ShowBaseGlobal.direct = self\n\n        # These come early since they are used later on\n        self.group = base.render.attachNewNode('DIRECT')\n        self.font = TextNode.getDefaultFont()\n        self.fEnabled = 0\n        self.fEnabledLight = 0\n        self.fScaleWidgetByCam = 0 # [gjeon] flag for scaling widget by distance from the camera\n        self.fIgnoreDirectOnlyKeyMap = 0 # [gjeon] to skip old direct controls in new LE",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3367
+  }
+}

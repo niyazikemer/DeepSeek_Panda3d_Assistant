@@ -1,0 +1,9 @@
+{
+  "content": "self.dclassesByName[className] = dclass\n            if number >= 0:\n                self.dclassesByNumber[number] = dclass\n\n        # Owner Views\n        if self.hasOwnerView():\n            ownerDcSuffix = self.dcSuffix + 'OV'\n            # dict of class names (without 'OV') that have owner views\n            ownerImportSymbols = {}\n\n            # Now import all of the modules required by the DC file.\n            for n in range(dcFile.getNumImportModules()):\n                moduleName = dcFile.getImportModule(n)\n\n                # Maybe the module name is represented as \"moduleName/AI\".\n                suffix = moduleName.split('/')\n                moduleName = suffix[0]\n                suffix=suffix[1:]\n                if ownerDcSuffix in suffix:\n                    moduleName = moduleName + ownerDcSuffix\n\n                importSymbols = []\n                for i in range(dcFile.getNumImportSymbols(n)):\n                    symbolName = dcFile.getImportSymbol(n, i)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5317
+  }
+}

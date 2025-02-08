@@ -1,0 +1,9 @@
+{
+  "content": "link = self.linkDll % dict({\n            'python': self.Python,\n            'MSVC': self.MSVC,\n            'PSDK': self.PSDK,\n            'suffix64': self.suffix64,\n            'pythonIPath': self.PythonIPath,\n            'pythonVersion': self.PythonVersion,\n            'arch': self.arch,\n            'filename': filename,\n            'basename': basename,\n            'dllext': self.dllext,\n        }, **sysconf.get_config_vars())\n        link += ' ' + ' '.join(extraLink)\n        sys.stderr.write(link + '\\n')\n        if os.system(link) != 0:\n            raise Exception('failed to link %s.' % basename)\n\n\n# The code from frozenmain.c in the Python source repository.\nfrozenMainCode = \"\"\"\n/* Python interpreter main program for frozen scripts */\n\n#include <Python.h>\n\n#if PY_MAJOR_VERSION >= 3\n#include <locale.h>\n\n#if PY_MINOR_VERSION < 5\n#define Py_DecodeLocale _Py_char2wchar\n#endif\n#endif",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2046
+  }
+}

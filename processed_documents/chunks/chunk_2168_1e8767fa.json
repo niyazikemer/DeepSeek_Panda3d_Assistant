@@ -1,0 +1,9 @@
+{
+  "content": "for what, args in scanner(co):\n            if what == \"store\":\n                name, = args\n                m.globalnames[name] = 1\n            elif what in (\"import\", \"absolute_import\"):\n                fromlist, name = args\n                have_star = 0\n                if fromlist is not None:\n                    if \"*\" in fromlist:\n                        have_star = 1\n                    fromlist = [f for f in fromlist if f != \"*\"]\n                if what == \"absolute_import\":\n                    level = 0\n                else:\n                    level = -1\n                self._safe_import_hook(name, m, fromlist, level=level)\n                if have_star:\n                    # We've encountered an \"import *\". If it is a Python module,\n                    # the code has already been parsed and we can suck out the\n                    # global names.\n                    mm = None\n                    if m.__path__:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2168
+  }
+}

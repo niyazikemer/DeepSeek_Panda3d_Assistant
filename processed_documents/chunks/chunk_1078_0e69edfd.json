@@ -1,0 +1,9 @@
+{
+  "content": "def xformOrbit(self, value, axis):\n        nodePath = self['nodePath']\n        if nodePath is not None and self.refCS is not None and \\\n           self.orbitFromCS is not None and self.orbitToCS is not None:\n            if axis == 'x':\n                self.posOffset.setX(value)\n            elif axis == 'y':\n                self.posOffset.setY(value)\n            elif axis == 'z':\n                self.posOffset.setZ(value)\n            elif axis == 'h':\n                self.orbitToCS.setH(self.orbitFromCS, value)\n            elif axis == 'p':\n                self.orbitToCS.setP(self.orbitFromCS, value)\n            elif axis == 'r':\n                self.orbitToCS.setR(self.orbitFromCS, value)\n            nodePath.setPosHpr(self.orbitToCS, self.posOffset, ZERO_VEC)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1078
+  }
+}

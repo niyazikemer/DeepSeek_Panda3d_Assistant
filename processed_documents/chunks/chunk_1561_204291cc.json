@@ -1,0 +1,9 @@
+{
+  "content": "sx = sz = 1\n            bl *= sx\n            br *= sx\n            bb *= sz\n            bt *= sz\n            # Position buttons\n            # Calc button width and height\n            bHeight = bt - bb\n            bWidth = br - bl\n            # Add pad between buttons\n            bSpacing = self['buttonPadSF'] * bWidth\n            bPos = -bSpacing * (self.numButtons - 1)*0.5\n            index = 0\n            for button in self.buttonList:\n                button.setPos(bPos + index * bSpacing, 0,\n                              b - self['midPad'] - bpad[1] - bt)\n                index += 1\n            bMax = bPos + bSpacing * (self.numButtons - 1)\n        else:\n            bpad = 0\n            bl = br = bb = bt = 0\n            bPos = 0\n            bMax = 0\n            bpad = (0, 0)\n            bHeight = bWidth = 0\n        # Resize frame to fit text and buttons\n        l = min(bPos + bl, l) - pad[0]\n        r = max(bMax + br, r) + pad[0]\n        sidePad = self['sidePad']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1561
+  }
+}

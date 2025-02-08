@@ -1,0 +1,9 @@
+{
+  "content": "#self.addItems()\n\n    def saveProtoDataStruct(self, f):\n        if not f:\n            return\n\n        for key in list(self.dataStruct.keys()):\n            f.write(\"\\t'%s':'%s',\\n\"%(key, self.dataStruct[key]))\n\n    def saveProtoData(self, f):\n        if not f:\n            return\n\n        for key in list(self.data.keys()):\n            if isinstance(self.data[key], ObjectBase):\n                f.write(\"\\t'%s':ObjectBase(name='%s', model='%s', anims=%s, actor=%s),\\n\"%(key, self.data[key].name, self.data[key].model, self.data[key].anims, self.data[key].actor))\n            else:\n                f.write(\"\\t'%s':ObjectGen(name='%s'),\\n\"%(key, self.data[key].name))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_46",
+    "parent": "processed_documents/context_documents/ec9d7679_ProtoPaletteBase.json",
+    "chunk_number": 622
+  }
+}

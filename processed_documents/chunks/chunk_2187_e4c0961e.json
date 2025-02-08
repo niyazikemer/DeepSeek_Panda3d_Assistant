@@ -1,0 +1,9 @@
+{
+  "content": "class Icon:\n    \"\"\" This class is used to create an icon for various platforms. \"\"\"\n    notify = directNotify.newCategory(\"Icon\")\n\n    def __init__(self):\n        self.images = {}\n\n    def addImage(self, image):\n        \"\"\" Adds an image to the icon.  Returns False on failure, True on success.\n        Only one image per size can be loaded, and the image size must be square. \"\"\"\n\n        if not isinstance(image, PNMImage):\n            fn = image\n            if not isinstance(fn, Filename):\n                fn = Filename.fromOsSpecific(fn)\n\n            image = PNMImage()\n            if not image.read(fn):\n                Icon.notify.warning(\"Image '%s' could not be read\" % fn.getBasename())\n                return False\n\n        if image.getXSize() != image.getYSize():\n            Icon.notify.warning(\"Ignoring image without square size\")\n            return False\n\n        self.images[image.getXSize()] = image\n\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2187
+  }
+}

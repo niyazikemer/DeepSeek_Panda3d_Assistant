@@ -1,0 +1,9 @@
+{
+  "content": "self.region.setCamera(quadcam)\n\n        self.setStackedClears(buffer, self.rclears, self.wclears)\n        if auxtex0:\n            buffer.setClearActive(GraphicsOutput.RTPAuxRgba0, 1)\n            buffer.setClearValue(GraphicsOutput.RTPAuxRgba0, (0.5, 0.5, 1.0, 0.0))\n        if auxtex1:\n            buffer.setClearActive(GraphicsOutput.RTPAuxRgba1, 1)\n        self.region.disableClears()\n        if self.isFullscreen():\n            self.win.disableClears()\n\n        dr = buffer.makeDisplayRegion()\n        dr.disableClears()\n        dr.setCamera(self.camera)\n        dr.setActive(1)\n\n        self.buffers.append(buffer)\n        self.sizes.append((1, 1, 1))\n\n        return quad\n\n    def renderQuadInto(self, name=\"filter-stage\", mul=1, div=1, align=1, depthtex=None, colortex=None, auxtex0=None, auxtex1=None, fbprops=None):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4012
+  }
+}

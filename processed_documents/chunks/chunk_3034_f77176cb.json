@@ -1,0 +1,9 @@
+{
+  "content": "class Actor(DirectObject, NodePath):\n    \"\"\"\n    Actor class: Contains methods for creating, manipulating\n    and playing animations on characters\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"Actor\")\n    partPrefix = \"__Actor_\"\n\n    modelLoaderOptions = LoaderOptions(LoaderOptions.LFSearch |\n                                       LoaderOptions.LFReportErrors |\n                                       LoaderOptions.LFConvertSkeleton)\n    animLoaderOptions =  LoaderOptions(LoaderOptions.LFSearch |\n                                       LoaderOptions.LFReportErrors |\n                                       LoaderOptions.LFConvertAnim)\n\n    validateSubparts = ConfigVariableBool('validate-subparts', True)\n    mergeLODBundles = ConfigVariableBool('merge-lod-bundles', True)\n    allowAsyncBind = ConfigVariableBool('allow-async-bind', True)\n\n    class PartDef:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3034
+  }
+}

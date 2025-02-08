@@ -1,0 +1,9 @@
+{
+  "content": "def rotate2D(self, state):\n        \"\"\" Virtual trackball rotation of widget \"\"\"\n        # Reset init flag in case we switch to another mode\n        self.fHitInit = 1\n        # Reset scaling init flag\n        self.fScaleInit = 1\n        tumbleRate = 360\n        # If moving outside of center, ignore motion perpendicular to edge\n        if ((state.constrainedDir == 'y') and (abs(ShowBaseGlobal.direct.dr.mouseX) > 0.9)):\n            deltaX = 0\n            deltaY = ShowBaseGlobal.direct.dr.mouseDeltaY\n        elif ((state.constrainedDir == 'x') and (abs(ShowBaseGlobal.direct.dr.mouseY) > 0.9)):\n            deltaX = ShowBaseGlobal.direct.dr.mouseDeltaX\n            deltaY = 0\n        else:\n            deltaX = ShowBaseGlobal.direct.dr.mouseDeltaX\n            deltaY = ShowBaseGlobal.direct.dr.mouseDeltaY\n        # Mouse motion edge to edge of display region results in one full turn\n        relHpr(ShowBaseGlobal.direct.widget, ShowBaseGlobal.direct.camera, deltaX * tumbleRate,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3242
+  }
+}

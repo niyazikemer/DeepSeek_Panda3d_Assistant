@@ -1,0 +1,9 @@
+{
+  "content": "class Logger:\n    def __init__(self, fileName: str = \"log\") -> None:\n        \"\"\"\n        Logger constructor\n        \"\"\"\n        self.__timeStamp = True\n        self.__startTime = 0.0\n        self.__logFile: io.TextIOWrapper | None = None\n        self.__logFileName = fileName\n\n    def setTimeStamp(self, enable: bool) -> None:\n        \"\"\"\n        Toggle time stamp printing with log entries on and off\n        \"\"\"\n        self.__timeStamp = enable\n\n    def getTimeStamp(self) -> bool:\n        \"\"\"\n        Return whether or not we are printing time stamps with log entries\n        \"\"\"\n        return self.__timeStamp\n\n    # logging control\n\n    def resetStartTime(self) -> None:\n        \"\"\"\n        Reset the start time of the log file for time stamps\n        \"\"\"\n        self.__startTime = time.time()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_103",
+    "parent": "processed_documents/context_documents/ec704797_Logger.json",
+    "chunk_number": 1669
+  }
+}

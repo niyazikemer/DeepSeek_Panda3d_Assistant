@@ -1,0 +1,9 @@
+{
+  "content": "# Get a handle to the joint.\n        joint = bundle.findChild(jointName)\n\n        if joint:\n            joint.clearNetTransforms()\n            joint.clearLocalTransforms()\n        else:\n            Actor.notify.warning(\"no joint named %s!\" % (jointName))\n\n    def getJoints(self, partName = None, jointName = '*', lodName = None):\n        \"\"\" Returns the list of all joints, from the named part or\n        from all parts, that match the indicated jointName.  The\n        jointName may include pattern characters like \\\\*. \"\"\"\n\n        joints=[]\n        pattern = GlobPattern(jointName)\n\n        if lodName is None and self.mergeLODBundles:\n            # Get the common bundle.\n            partBundleDicts = [self.__commonBundleHandles]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3092
+  }
+}

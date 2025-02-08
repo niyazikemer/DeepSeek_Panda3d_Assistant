@@ -1,0 +1,9 @@
+{
+  "content": "self['frameSize'] = (fpre[2], fpre[3], fpre[0], fpre[1])\n                tf = self.thumb['frameSize']\n                self.thumb['frameSize'] = (tf[2], tf[3], tf[0], tf[1])\n            self.guiItem.setAxis(Vec3(0, 0, 1))\n            self['frameVisibleScale'] = (0.25, 1)\n        elif self['orientation'] == DGG.VERTICAL_INVERTED:\n            if self._lastOrientation == DGG.HORIZONTAL:\n                fpre = self['frameSize']\n                # swap frameSize width and height to keep custom frameSizes\n                self['frameSize'] = (fpre[2], fpre[3], fpre[0], fpre[1])\n                tf = self.thumb['frameSize']\n                self.thumb['frameSize'] = (tf[2], tf[3], tf[0], tf[1])\n            self.guiItem.setAxis(Vec3(0, 0, -1))\n            self['frameVisibleScale'] = (0.25, 1)\n        else:\n            raise ValueError('Invalid value for orientation: %s' % (self['orientation']))\n        self._lastOrientation = self['orientation']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_90",
+    "parent": "processed_documents/context_documents/1d02830b_DirectSlider.json",
+    "chunk_number": 1576
+  }
+}

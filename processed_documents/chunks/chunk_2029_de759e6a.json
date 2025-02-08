@@ -1,0 +1,9 @@
+{
+  "content": "# These are modules that import other modules but shouldn't pick them up as\n# dependencies (usually because they are optional).  This prevents picking up\n# unwanted dependencies.\nignoreImports = {\n    'direct.showbase.PythonUtil': ['pstats', 'profile'],\n\n    'toml.encoder': ['numpy'],\n    'py._builtin': ['__builtin__'],\n\n    'site': ['android_log'],\n}\n\nif sys.version_info >= (3, 8):\n    # importlib.metadata is a \"provisional\" module introduced in Python 3.8 that\n    # conditionally pulls in dependency-rich packages like \"email\" and \"pep517\"\n    # (the latter of which is a thirdparty package!)  But it's only imported in\n    # one obscure corner, so we don't want to pull it in by default.\n    ignoreImports['importlib._bootstrap_external'] = ['importlib.metadata']\n    ignoreImports['importlib.metadata'] = ['pep517']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2029
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def onSelected(self, event):\n        pass\n\n    def onShowPopup(self, event):\n        pos = event.GetPosition()\n        pos = self.ScreenToClient(pos)\n        self.PopupMenu(self.popupmenu, pos)\n\n    def onPopupItemSelected(self, event):\n        menuItem = self.popupmenu.FindItemById(event.GetId())\n        text = menuItem.GetText()\n        if text == self.opSortAlpha:\n            self.opSort = self.opSortAlpha\n        elif text == self.opSortOrig:\n            self.opSort = self.opSortOrig\n        self.tree.SortTreeNodes(self.tree.GetRootItem())\n\n    def compareItems(self, item1, item2):\n        data1 = self.tree.GetItemText(item1)\n        data2 = self.tree.GetItemText(item2)\n        if self.opSort == self.opSortAlpha:\n            return (data1 > data2) - (data1 < data2)\n        else:\n            index1 = self.palette.dataKeys.index(data1)\n            index2 = self.palette.dataKeys.index(data2)\n            return (index1 > index2) - (index1 < index2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_33",
+    "parent": "processed_documents/context_documents/5984f907_ObjectPaletteUI.json",
+    "chunk_number": 486
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Offset for orbital mode\n        self.posOffset = Vec3(0)\n\n        # Set up event hooks\n        self.undoEvents = [('DIRECT_undo', self.undoHook),\n                           ('DIRECT_pushUndo', self.pushUndoHook),\n                           ('DIRECT_undoListEmpty', self.undoListEmptyHook),\n                           ('DIRECT_redo', self.redoHook),\n                           ('DIRECT_pushRedo', self.pushRedoHook),\n                           ('DIRECT_redoListEmpty', self.redoListEmptyHook)]\n        for event, method in self.undoEvents:\n            self.accept(event, method)\n\n        # Init movement mode\n        self.movementMode = 'Relative To:'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1042
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if finishIval:\n            transitionIval.append(finishIval)\n        return transitionIval\n\n    def irisIn(self, t=0.5, finishIval=None, blendType = 'noBlend'):\n        \"\"\"\n        Play an iris in transition over t seconds.\n        Places a polygon on the aspect2d plane then lerps the scale\n        of the iris polygon up so it looks like we iris in. When the\n        scale lerp is finished, it parents the iris polygon to hidden.\n        \"\"\"\n        if t == 0:\n            self.iris.detachNode()\n            fut = AsyncFuture()\n            fut.setResult(None)\n            return fut\n        else:\n            self.transitionIval = self.getIrisInIval(t, finishIval, blendType)\n            self.__transitionFuture = AsyncFuture()\n            self.transitionIval.start()\n            return self.__transitionFuture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4300
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def createRadiobutton(self, parent, side, category, text,\n                          balloonHelp, variable, value,\n                          command):\n        widget = tk.Radiobutton(parent, text = text, anchor = tk.W,\n                                variable = variable, value = value)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(side = side, fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget\n\n    def createFloaters(self, parent, widgetDefinitions):\n        widgets = []\n        for category, label, balloonHelp, command, min, max, resolution in widgetDefinitions:\n            widgets.append(\n                self.createFloater(parent, category, label, balloonHelp,\n                                   command, min, max, resolution)\n            )\n        return widgets",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 782
+  }
+}

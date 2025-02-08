@@ -1,0 +1,9 @@
+{
+  "content": "def makeTimeDataDatagram(self, frameCount, frameTime, dt):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_TIME_DATA)\n        datagram.addUint32(frameCount)\n        datagram.addFloat32(frameTime)\n        datagram.addFloat32(dt)\n        return datagram\n\n    def parseTimeDataDatagram(self, dgi):\n        frameCount=dgi.getUint32()\n        frameTime=dgi.getFloat32()\n        dt=dgi.getFloat32()\n        self.notify.debug('time data=%f %f' % (frameTime, dt))\n        return (frameCount, frameTime, dt)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1747
+  }
+}

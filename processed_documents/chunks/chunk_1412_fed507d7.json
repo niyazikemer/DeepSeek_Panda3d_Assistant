@@ -1,0 +1,9 @@
+{
+  "content": "# Is drag and drop enabled?\n        if self['enableEdit'] and self.guiEdit:\n            self.enableEdit()\n\n        # Set up event handling\n        suppressFlags = 0\n        if self['suppressMouse']:\n            suppressFlags |= MouseWatcherRegion.SFMouseButton\n            suppressFlags |= MouseWatcherRegion.SFMousePosition\n        if self['suppressKeys']:\n            suppressFlags |= MouseWatcherRegion.SFOtherButton\n        self.guiItem.setSuppressFlags(suppressFlags)\n\n        # Bind destroy hook\n        self.guiDict[self.guiId] = self\n        # self.bind(DGG.DESTROY, self.destroy)\n\n        # Update frame when everything has been initialized\n        self.postInitialiseFuncList.append(self.frameInitialiseFunc)\n\n        # Call option initialization functions\n        self.initialiseoptions(DirectGuiWidget)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1412
+  }
+}

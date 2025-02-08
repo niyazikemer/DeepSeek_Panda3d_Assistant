@@ -1,0 +1,9 @@
+{
+  "content": "def __len__(self):\n        if self._createJob:\n            if self._createJob.isFinished():\n                self._createJob.destroy()\n                self._createJob = None\n        self._createJob = _MessageListenerTypeLeakDetectorCreator(self)\n        jobMgr.add(self._createJob)\n        # are we leaking listener types?\n        return len(self._typeName2detector)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4762
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(\n        self,\n        path: str = \"./log_file\",\n        hourInterval: int | None = 24,\n        megabyteLimit: int | None = 1024,\n    ) -> None:\n        \"\"\"\n        Args:\n            path: a full or partial path with file name.\n            hourInterval: the number of hours at which to rotate the file.\n            megabyteLimit: the number of megabytes of file size the log may\n                grow to, after which the log is rotated.  Note: The log file\n                may get a bit larger than limit do to writing out whole lines\n                (last line may exceed megabyteLimit or \"megabyteGuidline\").\n        \"\"\"\n        self.path = path\n        self.timeInterval = None\n        self.timeLimit = None\n        self.sizeLimit = None\n        if hourInterval is not None:\n            self.timeInterval = hourInterval*60*60\n            self.timeLimit = time.time()+self.timeInterval\n        if megabyteLimit is not None:\n            self.sizeLimit = megabyteLimit*1024*1024",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_102",
+    "parent": "processed_documents/context_documents/f7306926_RotatingLog.json",
+    "chunk_number": 1662
+  }
+}

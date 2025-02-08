@@ -1,0 +1,9 @@
+{
+  "content": "class TimeManager(DistributedObject.DistributedObject):\n    \"\"\"\n    This DistributedObject lives on the AI and on the client side, and\n    serves to synchronize the time between them so they both agree, to\n    within a few hundred milliseconds at least, what time it is.\n\n    It uses a pull model where the client can request a\n    synchronization check from time to time.  It also employs a\n    round-trip measurement to minimize the effect of latency.\n    \"\"\"\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"TimeManager\")\n\n    # The number of seconds to wait between automatic\n    # synchronizations.  Set to 0 to disable auto sync after\n    # startup.\n    updateFreq = ConfigVariableDouble('time-manager-freq', 1800).getValue()\n\n    # The minimum number of seconds to wait between two unrelated\n    # synchronization attempts.  Increasing this number cuts down\n    # on frivolous synchronizations.\n    minWait = ConfigVariableDouble('time-manager-min-wait', 10).getValue()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5517
+  }
+}

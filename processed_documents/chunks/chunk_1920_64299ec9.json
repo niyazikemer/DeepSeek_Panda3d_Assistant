@@ -1,0 +1,9 @@
+{
+  "content": "def _parse_dict(input):\n    if isinstance(input, dict):\n        return input\n    d = {}\n    for item in _parse_list(input):\n        key, sep, value = item.partition('=')\n        d[key.strip()] = value.strip()\n    return d\n\n\ndef _register_python_loaders():\n    # We need this method so that we don't depend on direct.showbase.Loader.\n    if getattr(_register_python_loaders, 'done', None):\n        return\n\n    _register_python_loaders.done = True\n\n    from importlib.metadata import entry_points\n\n    eps = entry_points()\n    if isinstance(eps, dict): # Python 3.8 and 3.9\n        loaders = eps.get('panda3d.loaders', ())\n    else:\n        loaders = eps.select(group='panda3d.loaders')\n\n    registry = p3d.LoaderFileTypeRegistry.get_global_ptr()\n    for entry_point in loaders:\n        registry.register_deferred_type(entry_point)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1920
+  }
+}

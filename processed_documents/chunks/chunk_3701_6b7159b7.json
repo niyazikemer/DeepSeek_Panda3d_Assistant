@@ -1,0 +1,9 @@
+{
+  "content": "def setDelta(self):\n        \"\"\" Set Dial delta value: value = base + delta * numRevs \"\"\"\n        self._valuator['delta'] = self['delta']\n\n    def _setSnap(self):\n        \"\"\" Menu command to turn Dial angle snap on/off \"\"\"\n        self._valuator['fSnap'] = self._fSnap.get()\n\n    def setSnap(self):\n        \"\"\" Turn Dial angle snap on/off \"\"\"\n        self._fSnap.set(self['fSnap'])\n        # Call menu command to send down to valuator\n        self._setSnap()\n\n    def _setRollover(self):\n        \"\"\"\n        Menu command to turn Dial rollover on/off (i.e. does value accumulate\n        every time you complete a revolution of the dial?)\n        \"\"\"\n        self._valuator['fRollover'] = self._fRollover.get()\n\n    def setRollover(self):\n        \"\"\" Turn Dial rollover (accumulation of a sum) on/off \"\"\"\n        self._fRollover.set(self['fRollover'])\n        # Call menu command to send down to valuator\n        self._setRollover()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3701
+  }
+}

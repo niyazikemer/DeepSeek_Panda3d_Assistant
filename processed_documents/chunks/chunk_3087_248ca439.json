@@ -1,0 +1,9 @@
+{
+  "content": "def showPart(self, partName, lodName=\"lodRoot\"):\n        \"\"\"\n        Make the given part render while in the tree.\n        NOTE: this will affect child geometry\n        \"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return\n        partDef = partBundleDict.get(partName)\n        if partDef:\n            partDef.partBundleNP.show()\n        else:\n            Actor.notify.warning(\"no part named %s!\" % (partName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3087
+  }
+}

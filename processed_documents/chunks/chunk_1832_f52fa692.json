@@ -1,0 +1,9 @@
+{
+  "content": "def getMaxT(self):\n        return self.maxT * self.timeScale\n\n    def loadFile(self, filename, fReset = 1):\n        nodePath = base.loader.loadModel(filename)\n        if nodePath:\n            self.loadNodePath(nodePath)\n            nodePath.removeNode()\n        else:\n            print('Mopath: no data in file: %s' % filename)\n\n    def loadNodePath(self, nodePath, fReset = 1):\n        if fReset:\n            self.reset()\n\n        self.__extractCurves(nodePath)\n        if self.tNurbsCurve:\n            self.maxT = self.tNurbsCurve[-1].getMaxT()\n        elif self.xyzNurbsCurve is not None:\n            self.maxT = self.xyzNurbsCurve.getMaxT()\n        elif self.hprNurbsCurve is not None:\n            self.maxT = self.hprNurbsCurve.getMaxT()\n        else:\n            print('Mopath: no valid curves in nodePath: %s' % nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1832
+  }
+}

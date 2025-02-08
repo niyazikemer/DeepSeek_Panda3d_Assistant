@@ -1,0 +1,9 @@
+{
+  "content": "def isSet(self, name, inputSource=None):\n        \"\"\"\n        returns True/False\n        \"\"\"\n        #assert self.debugPrint(\"isSet(name=%s)\"%(name))\n        if name in self._forcingOn:\n            return True\n        elif name in self._forcingOff:\n            return False\n        if inputSource:\n            s = self._state.get(name)\n            if s:\n                return inputSource in s\n            else:\n                return False\n        else:\n            return name in self._state\n\n    def getEventName(self, name):\n        return \"InputState-%s\" % (name,)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4151
+  }
+}

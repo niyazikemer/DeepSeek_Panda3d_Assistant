@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, propertyDict, propertyList = None, parent = None,\n                 title = 'Widget Properties'):\n        \"\"\"Initialize a dialog.\n        Arguments:\n            propertyDict -- a dictionary of properties to be edited\n            parent -- a parent window (the application window)\n            title -- the dialog title\n        \"\"\"\n        # Record property list\n        self.propertyDict = propertyDict\n        self.propertyList = propertyList\n        if self.propertyList is None:\n            self.propertyList = sorted(self.propertyDict)\n        # Use default parent if none specified\n        if not parent:\n            parent = tk._default_root\n        # Create toplevel window\n        tk.Toplevel.__init__(self, parent)\n        self.transient(parent)\n        # Set title\n        if title:\n            self.title(title)\n        # Record parent\n        self.parent = parent\n        # Initialize modifications\n        self.modifiedDict = {}\n        # Create body",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3581
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if anim.animBundle:\n            # We already have a bundle; just bind it.\n            animControl = bundle.bindAnim(anim.animBundle, -1, subpartDef.subset)\n\n        else:\n            # Load and bind the anim.  This might be an asynchronous\n            # operation that will complete in the background, but if so it\n            # will still return a usable AnimControl.\n            animControl = bundle.loadBindAnim(\n                self.loader, Filename(anim.filename), -1,\n                subpartDef.subset, allowAsyncBind and self.allowAsyncBind)\n\n        if not animControl:\n            # Couldn't bind.  (This implies the binding operation was\n            # not attempted asynchronously.)\n            return None\n\n        # store the animControl\n        anim.animControl = animControl\n        assert Actor.notify.debug(\"binding anim: %s to part: %s, lod: %s\" %\n                                  (animName, partName, lodName))\n        return animControl",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3165
+  }
+}

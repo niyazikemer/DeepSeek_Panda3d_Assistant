@@ -1,0 +1,9 @@
+{
+  "content": "These values can be accessed and/or changed after the fact\n    >>> vg = adjust()\n    >>> vg['min']\n    0.0\n    >>> vg['min'] = 10.0\n    >>> vg['min']\n    10.0\n    \"\"\"\n    # Make sure we enable Tk\n    # Don't use a regular import, to prevent ModuleFinder from picking\n    # it up as a dependency when building a .p3d package.\n    Valuator = importlib.import_module('direct.tkwidgets.Valuator')\n    # Set command if specified\n    if command:\n        kw['command'] = lambda x: command(*x)\n        if parent is None:\n            kw['title'] = command.__name__\n    kw['dim'] = dim\n    # Create toplevel if needed\n    if not parent:\n        vg = Valuator.ValuatorGroupPanel(parent, **kw)\n    else:\n        vg = Valuator.ValuatorGroup(parent, **kw)\n        vg.pack(expand = 1, fill = 'x')\n    return vg",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4612
+  }
+}

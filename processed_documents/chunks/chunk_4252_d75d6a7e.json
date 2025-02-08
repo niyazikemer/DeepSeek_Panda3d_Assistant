@@ -1,0 +1,9 @@
+{
+  "content": "if self._args.verbose:\n            self.notify.info('found %s garbage items' % self.numGarbage)\n\n        # print the types of the garbage first, in case the repr of an object\n        # causes a crash\n        #if self.numGarbage > 0:\n        #    self.notify.info('TYPES ONLY (this is only needed if a crash occurs before GarbageReport finishes):')\n        #    for result in printNumberedTypesGen(self.garbage):\n        #        yield None\n\n        # Py obj id -> garbage list index\n        self._id2index = {}\n\n        self.referrersByReference = {}\n        self.referrersByNumber = {}\n\n        self.referentsByReference = {}\n        self.referentsByNumber = {}\n\n        self._id2garbageInfo = {}\n\n        self.cycles = []\n        self.cyclesBySyntax = []\n        self.uniqueCycleSets = set()\n        self.cycleIds = set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4252
+  }
+}

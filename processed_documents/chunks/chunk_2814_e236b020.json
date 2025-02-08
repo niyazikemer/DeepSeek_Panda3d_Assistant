@@ -1,0 +1,9 @@
+{
+  "content": "if endFrame is not None:\n                self.endFrame = endFrame\n            elif endTime is not None:\n                self.endFrame = endTime * self.frameRate\n            elif duration is not None:\n                if startTime is None:\n                    startTime = float(self.startFrame) / float(self.frameRate)\n                endTime = startTime + duration\n                self.endFrame = endTime * self.frameRate\n            else:\n                # No end frame specified.  Choose the maximum of all\n                # of the controls' numbers of frames.\n                maxFrames = self.controls[0].getNumFrames()\n                warned = 0\n                for i in range(1, len(self.controls)):\n                    numFrames = self.controls[i].getNumFrames()\n                    if numFrames != maxFrames and numFrames != 1 and not warned:\n                        self.notify.warning(\"Animations '%s' on %s have an inconsistent number of frames.\" % (animName, actor.getName()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2814
+  }
+}

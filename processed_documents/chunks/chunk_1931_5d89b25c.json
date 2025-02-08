@@ -1,0 +1,9 @@
+{
+  "content": "def find_spec(fullname, path=None, target=None):\n    spec = _find_spec(fullname, path=path, target=target)\n    if spec:\n        spec.has_location = True\n        spec.origin = sys.executable\n    return spec\n\ndef get_data(path):\n    with open(path, 'rb') as fp:\n        return fp.read()\n\nFrozenImporter.find_spec = find_spec\nFrozenImporter.get_data = get_data\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1931
+  }
+}

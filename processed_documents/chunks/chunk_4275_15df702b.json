@@ -1,0 +1,9 @@
+{
+  "content": "def _getCycles(self, index, uniqueCycleSets=None):\n        # detect garbage cycles for a particular item of garbage\n        assert self.notify.debugCall()\n        # returns list of lists, sublists are garbage reference cycles\n        cycles = []\n        # this lets us eliminate duplicate cycles\n        if uniqueCycleSets is None:\n            uniqueCycleSets = set()\n        stateStack = Stack()\n        rootId = index\n        # check if the root object is one of the garbage instances (has __del__)\n        objId = id(self.garbage[rootId])\n        numDelInstances = int(objId in self.garbageInstanceIds)\n        stateStack.push(([rootId], rootId, numDelInstances, 0))\n        while True:\n            yield None\n            if len(stateStack) == 0:\n                break\n            candidateCycle, curId, numDelInstances, resumeIndex = stateStack.pop()\n            if self.notify.getDebug():\n                if self._args.delOnly:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4275
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "item, cookie = self.tree.GetFirstChild(self.root)\n        while item:\n            itemList.append(item)\n            item, cookie = self.tree.GetNextChild(self.root, cookie)\n\n        #import pdb;set_trace()\n        for item in itemList:\n            if self.shouldShowPandaObjChildren:\n                self.addPandaObjectChildren(item)\n            else:\n                self.removePandaObjectChildren(item)\n            # continue iteration to the next child\n\n    def delete(self, itemId):\n        item = self.traverse(self.root, itemId)\n        if item:\n            self.tree.Delete(item)\n\n    def select(self, itemId):\n        item = self.traverse(self.root, itemId)\n        if item:\n            if not self.tree.IsSelected(item):\n                self.tree.SelectItem(item)\n                self.tree.EnsureVisible(item)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 369
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "smiley = loader.loadModel('smiley.egg')\nlerper = NodePath('lerper')\nsmiley.setTexProjector(TextureStage.getDefault(), NodePath(), lerper)\ni = lerper.posInterval(5, VBase3(0, 1, 0))\ni.loop()\n\nNote that you don't even have to parent the animated NodePath into the scene graph. In the above example, we have set up the interval i to repeatedly move the standalone NodePath lerper from position (0, 0, 0) to (0, 1, 0) over 5 seconds. Since smiley is assigned a TexProjector that copies the relative transform from NodePath() to lerper--that is, the net transform of lerper--it means we are really animating the texture coordinates on smiley from (0, 0) to (0, 1) (the Z coordinate is ignored for an ordinary 2-D texture).\n\nProjected Textures",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_433",
+    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
+    "chunk_number": 6199
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getBounds(self, state = 0):\n        self.stateNodePath[state].calcTightBounds(self.ll, self.ur)\n        # Scale bounds to give a pad around graphics\n        vec_right = Vec3.right()\n        vec_up = Vec3.up()\n        left = (vec_right[0] * self.ll[0]\n              + vec_right[1] * self.ll[1]\n              + vec_right[2] * self.ll[2])\n        right = (vec_right[0] * self.ur[0]\n               + vec_right[1] * self.ur[1]\n               + vec_right[2] * self.ur[2])\n        bottom = (vec_up[0] * self.ll[0]\n                + vec_up[1] * self.ll[1]\n                + vec_up[2] * self.ll[2])\n        top = (vec_up[0] * self.ur[0]\n             + vec_up[1] * self.ur[1]\n             + vec_up[2] * self.ur[2])\n        self.ll = Point3(left, 0.0, bottom)\n        self.ur = Point3(right, 0.0, top)\n        self.bounds = [self.ll[0] - self['pad'][0],\n                       self.ur[0] + self['pad'][0],\n                       self.ll[2] - self['pad'][1],",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1420
+  }
+}

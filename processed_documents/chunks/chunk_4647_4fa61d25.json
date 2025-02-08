@@ -1,0 +1,9 @@
+{
+  "content": "def weightedChoice(choiceList, rng=random.random, sum=None):\n    \"\"\"given a list of (weight, item) pairs, chooses an item based on the\n    weights. rng must return 0..1. if you happen to have the sum of the\n    weights, pass it in 'sum'.\"\"\"\n    # Throw an IndexError if we got an empty list.\n    if not choiceList:\n        raise IndexError('Cannot choose from an empty sequence')\n\n    # TODO: add support for dicts\n    if sum is None:\n        sum = 0.\n        for weight, item in choiceList:\n            sum += weight\n\n    rand = rng()\n    accum = rand * sum\n    item = None\n    for weight, item in choiceList:\n        accum -= weight\n        if accum <= 0.:\n            return item\n    # rand is ~1., and floating-point error prevented accum from hitting 0.\n    # Or you passed in a 'sum' that was was too large.\n    # Return the last item.\n    return item",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4647
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# continue iteration to the next child\n            item, cookie = self.tree.GetNextChild(parent, cookie)\n        return None\n\n    def reParentTree(self, parent, newParent):\n        # main loop - iterating over item's children\n        item, cookie = self.tree.GetFirstChild(parent)\n        while item:\n            data = self.tree.GetItemText(item)\n            itemId = self.tree.GetItemData(item)\n            newItem = self.tree.AppendItem(newParent, data)\n            self.tree.SetItemPyData(newItem, itemId)\n\n            # if an item had children, we need to re-parent them as well\n            if self.tree.ItemHasChildren(item):\n                # recursing...\n                self.reParentTree(item, newItem)\n\n            # continue iteration to the next child\n            item, cookie = self.tree.GetNextChild(parent, cookie)\n\n    def reParentData(self, parent, child):\n        child.wrtReparentTo(parent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 365
+  }
+}

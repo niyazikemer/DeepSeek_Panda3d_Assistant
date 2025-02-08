@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedSmoothNode(DistributedNode.DistributedNode,\n                            DistributedSmoothNodeBase.DistributedSmoothNodeBase):\n    \"\"\"\n    This specializes DistributedNode to add functionality to smooth\n    motion over time, via the SmoothMover C++ object defined in\n    DIRECT.\n    \"\"\"\n\n    def __init__(self, cr):\n        if not hasattr(self, 'DistributedSmoothNode_initialized'):\n            self.DistributedSmoothNode_initialized = 1\n            DistributedNode.DistributedNode.__init__(self, cr)\n            DistributedSmoothNodeBase.DistributedSmoothNodeBase.__init__(self)\n            self.smoothStarted = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5342
+  }
+}

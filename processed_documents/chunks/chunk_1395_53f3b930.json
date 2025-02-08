@@ -1,0 +1,9 @@
+{
+  "content": "# Get construction keywords\n        if hasattr(self, '_constructorKeywords'):\n            keywords = self._constructorKeywords\n        else:\n            keywords = {}\n\n        for alias, component in componentAliases:\n            # Create aliases to the component and its sub-components.\n            index = component.find('_')\n            if index < 0:\n                # Just a shorter name for one of this widget's components\n                self.__componentAliases[alias] = (component, None)\n            else:\n                # An alias for a component of one of this widget's components\n                mainComponent = component[:index]\n                subComponent = component[(index + 1):]\n                self.__componentAliases[alias] = (mainComponent, subComponent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1395
+  }
+}

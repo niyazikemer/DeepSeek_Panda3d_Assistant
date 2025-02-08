@@ -1,0 +1,9 @@
+{
+  "content": "if self._mainDialog.editor.animMgr.keyFramesInfo != {}:\n            self.keyFramesInfo = self._mainDialog.editor.animMgr.keyFramesInfo\n            for key in self.keyFramesInfo:\n                if key == (self.object[OG.OBJ_UID], 'X'):\n                    for i in range(len(self.keyFramesInfo[key])):\n                        item = self.keyFramesInfo[key][i]\n                        handler = self.generateHandler(item)\n                        self.X.append([key, i, handler[0], handler[1], handler[2], handler[3], handler[4]])\n                if key == (self.object[OG.OBJ_UID], 'Y'):\n                    for i in range(len(self.keyFramesInfo[key])):\n                        item = self.keyFramesInfo[key][i]\n                        handler = self.generateHandler(item)\n                        self.Y.append([key, i, handler[0], handler[1], handler[2], handler[3], handler[4]])\n                if key == (self.object[OG.OBJ_UID], 'Z'):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 247
+  }
+}

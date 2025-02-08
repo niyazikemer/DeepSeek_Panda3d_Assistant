@@ -1,0 +1,9 @@
+{
+  "content": "cmd &= ~0x80000000\n\n            if cmd == 0x01: # LC_SEGMENT\n                segname, vmaddr, vmsize, fileoff, filesize, maxprot, initprot, nsects, flags = \\\n                    struct.unpack_from(endian + '16sIIIIIIII', cmd_data)\n                segments.append((vmaddr, vmsize, fileoff))\n\n            elif cmd == 0x19: # LC_SEGMENT_64\n                segname, vmaddr, vmsize, fileoff, filesize, maxprot, initprot, nsects, flags = \\\n                    struct.unpack_from(endian + '16sQQQQIIII', cmd_data)\n                segments.append((vmaddr, vmsize, fileoff))\n\n            elif cmd == 0x2: # LC_SYMTAB\n                symoff, nsyms, stroff, strsize = \\\n                    struct.unpack_from(endian + 'IIII', cmd_data)\n\n                strings = macho_data[stroff:stroff+strsize]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2146
+  }
+}

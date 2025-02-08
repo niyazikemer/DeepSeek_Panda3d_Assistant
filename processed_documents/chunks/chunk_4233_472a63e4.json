@@ -1,0 +1,9 @@
+{
+  "content": "for layer in range(tex.getZSize()):\n                            self.cardmaker.setUvRange((0, 1, 1, 0), (0, 0, 1, 1),\\\n                                                      (layer, layer, layer, layer))\n                            card = NodePath(self.cardmaker.generate())\n                            # 2D texture arrays are not supported by\n                            # the fixed-function pipeline, so we need to\n                            # enable the shader generator to view them.\n                            card.setShaderAuto()\n                            card.setTexture(tex, sampler)\n                            cards.append(card)\n                    else:\n                        card = win.getTextureCard()\n                        card.setTexture(tex, sampler)\n                        cards.append(card)\n                    wins.append(win)\n                    exclude[tex] = 1\n        self.cards = cards\n        if len(cards) == 0:\n            self.task = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4233
+  }
+}

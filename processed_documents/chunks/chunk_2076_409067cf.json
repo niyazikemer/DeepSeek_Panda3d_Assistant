@@ -1,0 +1,9 @@
+{
+  "content": "path = None\n        baseName = moduleName\n        if '.' in baseName:\n            parentName, baseName = moduleName.rsplit('.', 1)\n            path = self.getModulePath(parentName)\n            if path is None:\n                return None\n\n        try:\n            file, pathname, description = self.mf.find_module(baseName, path)\n        except ImportError:\n            return None\n\n        if not self.mf._dir_exists(pathname):\n            return None\n\n        return [pathname]\n\n    def getModuleStar(self, moduleName):\n        \"\"\" Looks for the indicated directory module and returns the\n        __all__ member: the list of symbols within the module. \"\"\"\n\n        # Open the directory and scan for *.py files.\n        path = None\n        baseName = moduleName\n        if '.' in baseName:\n            parentName, baseName = moduleName.rsplit('.', 1)\n            path = self.getModulePath(parentName)\n            if path is None:\n                return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2076
+  }
+}

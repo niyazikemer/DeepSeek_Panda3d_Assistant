@@ -1,0 +1,9 @@
+{
+  "content": "class TaskManagerWidget(DirectObject):\n    \"\"\"\n    TaskManagerWidget class: this class contains methods for creating\n    a panel to control taskManager tasks.\n    \"\"\"\n\n    def __init__(self, parent, taskMgr):\n        \"\"\"\n        TaskManagerWidget class pops up a control panel to view/delete\n        tasks managed by the taskManager.\n        \"\"\"\n        # Record parent (used by ok cancel dialog boxes)\n        self.parent = parent\n        # Record taskManager\n        self.taskMgr = taskMgr\n        # Init current task\n        self.currentTask = None\n        self.__taskDict = {}\n\n        # Create widgets\n        # Create a listbox\n        self.taskListBox = Pmw.ScrolledListBox(\n            parent,\n            labelpos = tk.NW, label_text = 'Tasks:',\n            label_font=('MSSansSerif', 10, 'bold'),\n            listbox_takefocus = 1,\n            items = [],\n            selectioncommand = self.setCurrentTask)\n        self.taskListBox.pack(expand = 1, fill = tk.BOTH)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 900
+  }
+}

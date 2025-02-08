@@ -1,0 +1,9 @@
+{
+  "content": "def updateUI(self):\n        vbox = wx.BoxSizer(wx.VERTICAL)\n        for key in sorted(base.direct.hotKeyMap):\n            keyDesc = base.direct.hotKeyMap[key]\n            itemPanel = wx.Panel(self)\n            sizer = wx.BoxSizer(wx.HORIZONTAL)\n            space = wx.StaticText(itemPanel, label='', size=(10,20))\n            hotKey = wx.StaticText(itemPanel, label=key, size=(100, 20))\n            desc = wx.StaticText(itemPanel, label=keyDesc[0], size=(380, 20))\n            button = wx.Button(itemPanel, -1, 'Edit', size=(40, 20))\n            button.Bind(wx.EVT_BUTTON, lambda p0 = None, p1 = key: self.onEdit(p0, p1))\n            sizer.Add(button)\n            sizer.Add(space)\n            sizer.Add(hotKey)\n            sizer.Add(desc, 1, wx.EXPAND)\n            itemPanel.SetSizer(sizer)\n            vbox.Add(itemPanel)\n        self.SetSizer(vbox)\n        self.Layout()\n        self.SetupScrolling(self, scroll_y=True, rate_y=20)\n        self.parent.parent.updateMenu()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_41",
+    "parent": "processed_documents/context_documents/64346f52_HotKeyUI.json",
+    "chunk_number": 593
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "// Enable keyboard detection\nwindow->enable_keyboard();\n// Enable default camera movement\nwindow->setup_trackball();\n\nNow, we're going to check if the window has opened successfully. If so, the main loop must be called, using the function framework.main_loop(). This is equivalent to the base.run() function in Python.\n\nif (window != nullptr) {\n  nout << \"Opened the window successfully!\\n\";\n\n  // Put here your own code, such as the loading of your models\n\n  framework.main_loop();\n} else {\n  nout << \"Could not load the window!\\n\";\n}\n\nAfterwards, we need to close the framework:\n\nframework.close_framework();\nreturn (0);\n\nNow, compile and run <running-your-program> your file and you have your own window opened!\n\nThis is the completed application:\n\n// Include all the stuff\n#include \"pandaFramework.h\"\n#include \"pandaSystem.h\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_467",
+    "parent": "processed_documents/context_documents/252e272f_aebd239e_window-framework.json",
+    "chunk_number": 6386
+  }
+}

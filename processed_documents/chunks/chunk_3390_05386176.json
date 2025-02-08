@@ -1,0 +1,9 @@
+{
+  "content": "if self.oobeMode:\n            # Position a target point to lerp the oobe camera to\n            self.cameraControl.camManipRef.setPosHpr(self.trueCamera, 0, 0, 0, 0, 0, 0)\n            ival = self.oobeCamera.posHprInterval(\n                2.0, pos = Point3(0), hpr = Vec3(0),\n                other = self.cameraControl.camManipRef,\n                blendType = 'easeInOut')\n            ival = Sequence(ival, Func(self.endOOBE), name = 'oobeTransition')\n            ival.start()\n        else:\n            # Place camera marker at true camera location\n            self.oobeVis.reparentTo(self.trueCamera)\n            # Remove any transformation on the models arc\n            self.oobeVis.clearMat()\n            # Make oobeCamera be a sibling of wherever camera is now.\n            cameraParent = self.camera.getParent()\n            # Prepare oobe camera\n            self.oobeCamera.reparentTo(cameraParent)\n            self.oobeCamera.setPosHpr(self.trueCamera, 0, 0, 0, 0, 0, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3390
+  }
+}

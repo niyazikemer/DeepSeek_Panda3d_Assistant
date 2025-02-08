@@ -1,0 +1,9 @@
+{
+  "content": "g++ -c filename.cxx -o filename.o -std=gnu++11 -O2 -I{panda3dinclude}\n\nYou will need to replace {panda3dinclude} with the location of the Panda3D header files. On Linux, this is likely /usr/include/panda3d/. On macOS, this will be in /Library/Developer/Panda3D/include/ in Panda3D 1.10.5 and higher or /Developer/Panda3D/include/ in older versions.\n\nTo generate an executable, you can use the following command:\n\ng++ filename.o -o filename -L{panda3dlibs} -lp3framework -lpanda -lpandafx -lpandaexpress -lp3dtoolconfig -lp3dtool -lp3direct\n\nAs above, change {panda3dlibs} to point to the Panda3D libraries. On Linux this will be /usr/lib/panda3d or /usr/lib/x86_64-linux-gnu/panda3d, whereas on macOS it will be /Library/Developer/Panda3D/lib or /Developer/Panda3D/lib, depending on your exact version of Panda3D.\n\nHere is an equivalent SConstruct file, organized for clarity:\n\npandaInc = '/usr/include/panda3d'\npandaLib = '/usr/lib/panda3d'",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_696",
+    "parent": "processed_documents/context_documents/aaa30a21_73dc92f9_running-your-program.json",
+    "chunk_number": 7707
+  }
+}

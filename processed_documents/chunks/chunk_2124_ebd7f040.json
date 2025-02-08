@@ -1,0 +1,9 @@
+{
+  "content": "code = \\\n                    f'import sys;' \\\n                    f'del sys.modules[\"{moduleName}\"];' \\\n                    f'import sys,os;' \\\n                    f'from importlib.machinery import ExtensionFileLoader,ModuleSpec;' \\\n                    f'from importlib._bootstrap import _load;' \\\n                    f'path=os.path.join({direxpr}, \"{moduleName}{modext}\");' \\\n                    f'_load(ModuleSpec(name=\"{moduleName}\", loader=ExtensionFileLoader(\"{moduleName}\", path), origin=path))'\n\n                code = compile(code, moduleName, 'exec', optimize=self.optimize)\n                code = marshal.dumps(code)\n                moduleList.append((moduleName, len(pool), len(code)))\n                pool += code\n\n        # Determine the format of the header and module list entries depending\n        # on the platform.\n        num_pointers = 12\n        stub_data = bytearray(stub_file.read())\n        bitnesses = self._get_executable_bitnesses(stub_data)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2124
+  }
+}

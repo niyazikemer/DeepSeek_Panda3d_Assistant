@@ -1,0 +1,9 @@
+{
+  "content": "if \"BlurSharpen\" in configuration:\n                needtex.add(\"blur0\")\n                needtex.add(\"blur1\")\n                needtexcoord.add(\"blur1\")\n\n            if \"Bloom\" in configuration:\n                needtex.add(\"bloom0\")\n                needtex.add(\"bloom1\")\n                needtex.add(\"bloom2\")\n                needtex.add(\"bloom3\")\n                auxbits |= AuxBitplaneAttrib.ABOGlow\n                needtexcoord.add(\"bloom3\")\n\n            if \"ViewGlow\" in configuration:\n                auxbits |= AuxBitplaneAttrib.ABOGlow\n\n            if \"VolumetricLighting\" in configuration:\n                needtex.add(configuration[\"VolumetricLighting\"].source)\n\n            for tex in needtex:\n                self.textures[tex] = Texture(\"scene-\" + tex)\n                self.textures[tex].setWrapU(Texture.WMClamp)\n                self.textures[tex].setWrapV(Texture.WMClamp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3959
+  }
+}

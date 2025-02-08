@@ -1,0 +1,9 @@
+{
+  "content": "class TimeSlider(wx.Window):\n    \"\"\"\n    This is the Time Slider Panel.\n    \"\"\"\n    def __init__(self, parent, slidersize, sliderStartFrame, sliderEndFrame, curFrame):\n        wx.Window.__init__(self, parent, size = slidersize, style = wx.SUNKEN_BORDER)\n\n        self._mainDialog = wx.GetTopLevelParent(self)\n        self._mouseIn = False\n        self.points = []\n        self.numbers = []\n\n        self.curFrame = curFrame\n        self.sliderStartFrame = sliderStartFrame\n        self.sliderEndFrame = sliderEndFrame\n        self.frameNum = self.sliderEndFrame-self.sliderStartFrame+1\n\n        self.InitBuffer()\n\n        self.Bind(wx.EVT_PAINT, self.OnPaint)\n        self.Bind(wx.EVT_SIZE, self.OnSize)\n        self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)\n        self.Bind(wx.EVT_LEFT_UP, self.OnLeftUp)\n        self.Bind(wx.EVT_MOTION, self.OnMotion)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 650
+  }
+}

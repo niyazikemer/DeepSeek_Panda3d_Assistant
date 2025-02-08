@@ -1,0 +1,9 @@
+{
+  "content": "elif self.rendererType == \"SparkleParticleRenderer\":\n            file.write('# Sparkle parameters\\n')\n            sColor = self.renderer.getCenterColor()\n            file.write((targ + '.renderer.setCenterColor(Vec4(%.2f, %.2f, %.2f, %.2f))\\n' % (sColor[0], sColor[1], sColor[2], sColor[3])))\n            sColor = self.renderer.getEdgeColor()\n            file.write((targ + '.renderer.setEdgeColor(Vec4(%.2f, %.2f, %.2f, %.2f))\\n' % (sColor[0], sColor[1], sColor[2], sColor[3])))\n            file.write(targ + '.renderer.setBirthRadius(%.4f)\\n' % self.renderer.getBirthRadius())\n            file.write(targ + '.renderer.setDeathRadius(%.4f)\\n' % self.renderer.getDeathRadius())\n            lifeScale = self.renderer.getLifeScale()\n            lScale = \"SPNOSCALE\"\n            if lifeScale == SparkleParticleRenderer.SPSCALE:\n                lScale = \"SPSCALE\"\n            file.write(targ + '.renderer.setLifeScale(SparkleParticleRenderer.' + lScale + ')\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1282
+  }
+}

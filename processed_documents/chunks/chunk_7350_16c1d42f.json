@@ -1,0 +1,9 @@
+{
+  "content": "If you use a callback, you may also specify a priority, which specifies the relative importance over this model over all of the other asynchronous load requests (higher numbers are loaded first).\n\nThe following example shows how to use this feature.\n\nclass Game(ShowBase):\n    def __init__(self):\n        ShowBase.__init__(self)\n\n        self.accept('escape', self.quit)\n\n        self.loadRequest = None\n        self.startLoading()\n\n    def startLoading(self):\n        self.loadingText = OnscreenText(\"Loading\u2026\")\n\n        self.loadRequest = loader.loadModel([\"terrain\", \"city\"], callback=self.finishLoading)\n\n    def finishLoading(self, models):\n        # Get rid of temporary objects\n        self.loadRequest = None\n        self.loadingText.destroy()\n        del self.loadingText\n\n        # Process the models that finished loading\n        self.terrainModel, self.cityModel = models\n\n        self.terrainModel.reparentTo(render)\n        self.cityModel.reparentTo(render)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7350
+  }
+}

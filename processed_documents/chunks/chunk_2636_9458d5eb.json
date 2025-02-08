@@ -1,0 +1,9 @@
+{
+  "content": "result = self.__setState(request, *args)\n            return result._future or self.__doneFuture\n        finally:\n            self.fsmLock.release()\n\n    def demand(self, request, *args):\n        \"\"\"Requests a state transition, by code that does not expect\n        the request to be denied.  If the request is denied, raises a\n        `RequestDenied` exception.\n\n        Unlike `request()`, this method allows a new request to be made\n        while the FSM is currently in transition.  In this case, the\n        request is queued up and will be executed when the current\n        transition finishes.  Multiple requests will queue up in\n        sequence.\n\n        The return value of this function can be used in an `await`\n        expression to suspend the current coroutine until the\n        transition is done.\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2636
+  }
+}

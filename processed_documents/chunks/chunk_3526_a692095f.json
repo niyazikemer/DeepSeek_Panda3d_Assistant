@@ -1,0 +1,9 @@
+{
+  "content": "def _scaleCommand(self, val):\n        self.set(float(val))\n\n    # Methods to modify floater characteristics\n    def setMin(self):\n        self._minLabel['text'] = self.formatString % self['min']\n        if self['style'] == VALUATOR_FULL:\n            self._widget['from_'] = self['min']\n        self.updateIndicator(self.value)\n\n    def setMax(self):\n        self._maxLabel['text'] = self.formatString % self['max']\n        if self['style'] == VALUATOR_FULL:\n            self._widget['to'] = self['max']\n        self.updateIndicator(self.value)\n\n    def setNumDigits(self):\n        self.formatString = '%0.' + ('%d' % self['numDigits']) + 'f'\n        self._minLabel['text'] = self.formatString % self['min']\n        self._maxLabel['text'] = self.formatString % self['max']\n        self.updateIndicator(self.value)\n        self.increment = pow(10, -self['numDigits'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3526
+  }
+}

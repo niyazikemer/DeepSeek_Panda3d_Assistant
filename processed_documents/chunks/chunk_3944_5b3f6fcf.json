@@ -1,0 +1,9 @@
+{
+  "content": "void fshader(float2 l_texcoordNW : TEXCOORD0,\n             float2 l_texcoordNE : TEXCOORD1,\n             float2 l_texcoordSW : TEXCOORD2,\n             float2 l_texcoordSE : TEXCOORD3,\n             uniform sampler2D k_src : TEXUNIT0,\n             out float4 o_color : COLOR,\n             uniform float4 k_blend,\n             uniform float4 k_trigger,\n             uniform float4 k_desat\n             )\n{\n  float4 inputNW = tex2D(k_src, l_texcoordNW) - float4(0,0,0,0.5);\n  float briteNW = dot(inputNW, k_blend);\n  float scaleNW = saturate((briteNW - k_trigger.x) * k_trigger.y);\n  float4 colorNW = scaleNW * lerp(inputNW, float4(1,1,1,1), k_desat.x);\n\n  float4 inputNE = tex2D(k_src, l_texcoordNE) - float4(0,0,0,0.5);\n  float briteNE = dot(inputNE, k_blend);\n  float scaleNE = saturate((briteNE - k_trigger.x) * k_trigger.y);\n  float4 colorNE = scaleNE * lerp(inputNE, float4(1,1,1,1), k_desat.x);",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_215",
+    "parent": "processed_documents/context_documents/a6991670_filterBloomI.json",
+    "chunk_number": 3944
+  }
+}

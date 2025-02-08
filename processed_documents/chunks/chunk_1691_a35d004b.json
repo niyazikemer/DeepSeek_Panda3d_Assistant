@@ -1,0 +1,9 @@
+{
+  "content": "for serverConfig in configList:\n            server = DisplayConnection(\n                self.qcm, serverConfig.serverName,\n                serverConfig.serverMsgPort, self.msgHandler)\n            if server is None:\n                self.notify.error('Could not open %s on %s port %d' %\n                                  (serverConfig.serverConfigName,\n                                   serverConfig.serverName,\n                                   serverConfig.serverMsgPort))\n            else:\n                self.notify.debug('send cam pos')\n                #server.sendMoveCam(Point3(0), Vec3(0))\n                self.notify.debug('send cam offset')\n                server.sendCamOffset(serverConfig.xyz, serverConfig.hpr)\n                if serverConfig.fFrustum:\n                    self.notify.debug('send cam frustum')\n                    server.sendCamFrustum(serverConfig.focalLength,\n                                          serverConfig.filmSize,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1691
+  }
+}

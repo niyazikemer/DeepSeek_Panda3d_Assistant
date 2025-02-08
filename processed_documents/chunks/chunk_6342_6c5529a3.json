@@ -1,0 +1,9 @@
+{
+  "content": "It can take a while to prepare objects to be rendered.\n\nIdeally, you don't want this to happen the first time you see an object. You can offload the wait time to the beginning by calling:\n\n# self.myWorld is a NodePath that contains a ton of objects\nself.myWorld.prepareScene(base.win.getGsg())\n\nThis will walk through the scene graph, starting at self.myWorld, and prepare each object for rendering.\n\nIs there a way to hide the mouse pointer so that it doesn't show up on my screen?\n\nYou can change to properties of the Panda3D window so that it doesn't show the cursor.\n\nprops = WindowProperties()\nprops.setCursorHidden(True)\nbase.win.requestProperties(props)\n\nIf a model has an animation, then is that animation necessarily represented by an additional .egg file?\n\nNo. A .egg file can either be just geometry, just an animation or a combination of the two. It's often easiest, however, to create a separate egg for every animation and an egg that contains just the model/skeleton information.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6342
+  }
+}

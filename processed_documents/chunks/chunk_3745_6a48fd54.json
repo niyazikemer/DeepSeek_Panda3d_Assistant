@@ -1,0 +1,9 @@
+{
+  "content": "def newCreateOptionMenu(self, parent, category, text,\n                            help = '', command = None, items = [],\n                            labelpos = tk.W, label_anchor = tk.W,\n                            label_width = 16, menu_tearoff = 1,\n                            side = tk.LEFT, fill = tk.X, expand = 0, **kw):\n        # Create variable\n        variable = tk.StringVar()\n        if len(items) > 0:\n            variable.set(items[0])\n        # Update kw to reflect user inputs\n        kw['items'] = items\n        kw['label_text'] = text\n        kw['labelpos'] = labelpos\n        kw['label_anchor'] = label_anchor\n        kw['label_width'] = label_width\n        kw['menu_tearoff'] = menu_tearoff\n        kw['menubutton_textvariable'] = variable\n        # Create widget\n        widget = Pmw.OptionMenu(parent, **kw)\n        # Do this after so command isn't called on widget creation\n        widget['command'] = command\n        # Pack widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3745
+  }
+}

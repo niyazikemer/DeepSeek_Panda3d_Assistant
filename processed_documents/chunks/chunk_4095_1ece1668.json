@@ -1,0 +1,9 @@
+{
+  "content": "if self.needToDeltaPos:\n            self.setPriorParentVector()\n            self.needToDeltaPos = 0\n        if self.wantDebugIndicator:\n            self.displayDebugInfo()\n        if self.lifter.isOnGround():\n            if self.isAirborne:\n                self.isAirborne = 0\n                assert self.debugPrint(\"isAirborne 0 due to isOnGround() true\")\n                impact = self.lifter.getImpactVelocity()\n                if impact < -30.0:\n                    messenger.send(\"jumpHardLand\")\n                    self.startJumpDelay(0.3)\n                else:\n                    messenger.send(\"jumpLand\")\n                    if impact < -5.0:\n                        self.startJumpDelay(0.2)\n                    # else, ignore the little potholes.\n            assert self.isAirborne == 0\n            self.priorParent = Vec3.zero()\n            if jump and self.mayJump:\n                # The jump button is down and we're close\n                # enough to the ground to jump.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4095
+  }
+}

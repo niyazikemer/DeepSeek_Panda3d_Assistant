@@ -1,0 +1,9 @@
+{
+  "content": "def askForObjectFieldsByString(self, dbId, dclassName, objString, fieldNames, key=None, context=None):\n        assert AsyncRequest.notify.debugCall()\n        assert dbId\n        if key is None:\n            # default the dictionary key to the fieldNames\n            key = fieldNames\n        if context is None:\n            context=self.air.allocateContext()\n        self.air.contextToClassName[context]=dclassName\n        self.acceptOnce(\n            \"doFieldResponse-%s\"%(context,),\n            self._checkCompletion, [key])\n        self.air.queryObjectStringFields(dbId,dclassName,objString,fieldNames,context)\n        self._resetTimeoutTask()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5397
+  }
+}

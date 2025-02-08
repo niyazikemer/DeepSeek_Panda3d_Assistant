@@ -1,0 +1,9 @@
+{
+  "content": "if optimize is None or optimize < 0:\n            self.optimize = sys.flags.optimize\n        else:\n            self.optimize = optimize\n\n        self.mf = PandaModuleFinder(excludes=['doctest'], suffixes=suffixes,\n                                    path=path, optimize=self.optimize)\n\n    def excludeFrom(self, freezer):\n        \"\"\" Excludes all modules that have already been processed by\n        the indicated FreezeTool.  This is equivalent to passing the\n        indicated FreezeTool object as previous to this object's\n        constructor, but it may be called at any point during\n        processing. \"\"\"\n\n        for key, value in list(freezer.modules.items()):\n            self.previousModules[key] = value\n            self.modules[key] = value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2073
+  }
+}

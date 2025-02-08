@@ -1,0 +1,9 @@
+{
+  "content": "def onSelfButtonLClick(self, item):\n        pass\n\n    def onSelfButtonRClick(self, item):\n        parentItem = item.getParent()\n        self.resetCtrls()\n        self.addItemCtrls(parentItem)\n\n    def onChildButtonLClick(self, item):\n        if item.getNumChildren() == 0:\n            return\n\n        self.resetCtrls()\n        self.addItemCtrls(item)\n\n    def onChildButtonRClick(self, item):\n        parentItem = item.getParent()\n\n        if parentItem:\n            self.resetCtrls()\n            self.addItemCtrls(parentItem.getParent())\n\n    def addItemCtrls(self, item):\n        self.rootItem = item\n        if item is None:\n            self.createDefaultCtrls()\n        else:\n            self.addSelfCtrl(item, item.getVertexBytes())\n\n            for child in item.getChildren():\n                self.addChildCtrl(child, item.getVertexBytes())\n\n            self.setTitle(item.getPathName(), item.getVertexBytes())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3602
+  }
+}

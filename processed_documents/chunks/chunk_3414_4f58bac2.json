@@ -1,0 +1,9 @@
+{
+  "content": "def flash(self, nodePath = 'None Given'):\n        \"\"\" Highlight an object by setting it red for a few seconds \"\"\"\n        # Clean up any existing task\n        taskMgr.remove('flashNodePath')\n        # Spawn new task if appropriate\n        if nodePath == 'None Given':\n            # If nothing specified, try selected node path\n            nodePath = self.selected.last\n        if nodePath:\n            if nodePath.hasColor():\n                doneColor = nodePath.getColor()\n                flashColor = VBase4(1) - doneColor\n                flashColor.setW(1)\n            else:\n                doneColor = None\n                flashColor = VBase4(1, 0, 0, 1)\n            # Temporarily set node path color\n            nodePath.setColor(flashColor)\n            # Clean up color in a few seconds\n            t = taskMgr.doMethodLater(DG.DIRECT_FLASH_DURATION,\n                                      # This is just a dummy task\n                                      self.flashDummy,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3414
+  }
+}

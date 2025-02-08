@@ -1,0 +1,9 @@
+{
+  "content": "# [gjeon] to sort children\n        if self.fSortChildren:\n            def compareText(x, y):\n                textX = x.GetText()\n                textY = y.GetText()\n                if textX > textY:\n                    return 1\n                elif textX == textY:\n                    return 0\n                else: # textX < textY\n                    return -1\n            sublist.sort(compareText)\n        for item in sublist:\n            key = item.GetKey()\n            if fUseCachedChildren and key in self.children:\n                child = self.children[key]\n            else:\n                child = TreeNode(self.canvas, self, item, self.menuList)\n\n            # [gjeon] to set flag recursively\n            child.setFSortChildren(self.fSortChildren)\n            child.setChildrenTag(self.childrenTag, self.fModeChildrenTag)\n\n            self.children[key] = child\n            self.kidKeys.append(key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3683
+  }
+}

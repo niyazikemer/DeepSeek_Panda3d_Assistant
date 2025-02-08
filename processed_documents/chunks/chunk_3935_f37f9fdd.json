@@ -1,0 +1,9 @@
+{
+  "content": "def getNamePrefix(self, namePrefix):\n        return self._namePrefix\n\n    def _checkSpike(self, session):\n        duration = session.getDuration()\n        isSpike = False\n        # do we have enough samples?\n        if self.getNumDurationSamples() > self.MinSamples:\n            # was this a spike?\n            if duration > (self.getAvgDuration() * self.SpikeThreshold):\n                isSpike = True\n                avgSession = self.getAvgSession()\n                s = '\\n%s task CPU spike profile (%s) %s\\n' % ('=' * 30, self._namePrefix, '=' * 30)\n                s += ('|' * 80) + '\\n'\n                for sorts in (['cumulative'], ['time'], ['calls']):\n                    s += ('-- AVERAGE --\\n%s'\n                          '-- SPIKE --\\n%s' % (\n                        avgSession.getResults(sorts=sorts, totalTime=duration),\n                        session.getResults(sorts=sorts)))\n                self.notify.info(s)\n        return isSpike",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3935
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# For rebinding, let's remember this function interval on the class\n        if __debug__:\n            self.FunctionIntervals[self] = 1\n\n    @staticmethod\n    def makeUniqueName(func, suffix = ''):\n        func_name = getattr(func, '__name__', None)\n        if func_name is None:\n            func_name = str(func)\n        name = 'Func-%s-%d' % (func_name, FunctionInterval.functionIntervalNum)\n        FunctionInterval.functionIntervalNum += 1\n        if suffix:\n            name = '%s-%s' % (name, str(suffix))\n        return name\n\n    def privInstant(self):\n        # Evaluate the function\n        self.function(*self.extraArgs, **self.kw)\n        # Print debug information\n        self.notify.debug(\n            'updateFunc() - %s: executing Function' % self.name)\n\n\n### FunctionInterval subclass for throwing events ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2906
+  }
+}

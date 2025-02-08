@@ -1,0 +1,9 @@
+{
+  "content": "taskName = \"AvatarControls-%s\"%(id(self),)\n        # remove any old\n        taskMgr.remove(taskName)\n        # spawn the new task\n        taskMgr.add(self.handleAvatarControls, taskName)\n\n    def disableAvatarControls(self):\n        \"\"\"\n        Ignore the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"disableAvatarControls\")\n        taskName = \"AvatarControls-%s\"%(id(self),)\n        taskMgr.remove(taskName)\n\n    def flushEventHandlers(self):\n        if hasattr(self, 'cTrav'):\n            self.pusher.flush()\n        self.lifter.flush() # not currently defined or needed\n\n    if __debug__:\n        def debugPrint(self, message):\n            \"\"\"for debugging\"\"\"\n            return self.notify.debug(\n                    str(id(self))+' '+message)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4184
+  }
+}

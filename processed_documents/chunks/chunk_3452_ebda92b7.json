@@ -1,0 +1,9 @@
+{
+  "content": "def recompute(self):\n        # Compute bounds, min, max, etc.\n        self.computeTightBounds()\n        self.updateBBoxLines()\n\n    def computeTightBounds(self):\n        # Compute bounding box using tighter calcTightBounds function\n        # Need to clear out existing transform on node path\n        tMat = Mat4(self.nodePath.getMat())\n        self.nodePath.clearMat()\n        # Get bounds\n        self.min = Point3(0)\n        self.max = Point3(0)\n        self.nodePath.calcTightBounds(self.min, self.max)\n        # Calc center and radius\n        self.center = Point3((self.min + self.max)/2.0)\n        self.radius = Vec3(self.max - self.min).length()\n        # Restore transform\n        self.nodePath.setMat(tMat)\n        del tMat",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3452
+  }
+}

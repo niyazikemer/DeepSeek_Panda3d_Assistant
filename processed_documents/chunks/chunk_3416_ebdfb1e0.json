@@ -1,0 +1,9 @@
+{
+  "content": "def flashDummy(self, state):\n        # Real work is done in upon death function\n        return Task.done\n\n    def flashDone(self, state):\n        # Return node Path to original state\n        if state.nodePath.isEmpty():\n            # Node path doesn't exist anymore, bail\n            return\n        if state.doneColor:\n            state.nodePath.setColor(state.doneColor)\n        else:\n            state.nodePath.clearColor()\n\n    def fitOnNodePath(self, nodePath = 'None Given'):\n        if nodePath == 'None Given':\n            # If nothing specified, try selected node path\n            nodePath = self.selected.last\n        self.select(nodePath)\n\n        def fitTask(state, self = self):\n            self.cameraControl.fitOnWidget()\n            return Task.done\n        taskMgr.doMethodLater(0.1, fitTask, 'manipulateCamera')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3416
+  }
+}

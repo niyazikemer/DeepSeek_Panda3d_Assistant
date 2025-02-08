@@ -1,0 +1,9 @@
+{
+  "content": "newVec3 = Vec3(startValues)\n        newVec3.setCell(index, currBounceVal)\n\n        # create the right type of lerp\n        if bounceType >= SX_BOUNCE and bounceType <= SZ_BOUNCE:\n            result.append(LerpScaleInterval(\n                nodeObj, currTime, newVec3, blendType=blend))\n        elif bounceType >= TX_BOUNCE and bounceType <= TZ_BOUNCE:\n            result.append(LerpPosInterval(\n                nodeObj, currTime, newVec3, blendType=blend))\n        elif bounceType >= H_BOUNCE and bounceType <= R_BOUNCE:\n            result.append(LerpHprInterval(\n                nodeObj, currTime, newVec3, blendType=blend))\n\n        # the value diff from the base gets smaller for each\n        # consecutive bounce, and make sure to update for\n        # possibly a new amount of time the next bounce will\n        # take\n        #\n        currAmplitude *= 0.5\n        currTime = bounceTime\n\n    return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_170",
+    "parent": "processed_documents/context_documents/c94c3f02_Effects.json",
+    "chunk_number": 2947
+  }
+}

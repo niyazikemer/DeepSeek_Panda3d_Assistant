@@ -1,0 +1,9 @@
+{
+  "content": "def manipulateObjectCleanupHook(self, nodePathList = []):\n        # Clear flag\n        self.manipulandumId = None\n\n    def onDestroy(self, event):\n        # Remove hooks\n        for event, method in self.actionEvents:\n            self.ignore(event)\n        # remove start stop hook\n        self.ignore(self.startStopHook)\n        self.ignore(self.keyframeHook)\n        self.curveNodePath.reparentTo(self.recorderNodePath)\n        self.trace.reparentTo(self.recorderNodePath)\n        self.recorderNodePath.removeNode()\n        # Make sure markers are deselected\n        base.direct.deselect(self.playbackMarker)\n        base.direct.deselect(self.tangentMarker)\n        # Remove tasks\n        taskMgr.remove(self.name + '-recordTask')\n        taskMgr.remove(self.name + '-playbackTask')\n        taskMgr.remove(self.name + '-curveEditTask')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1165
+  }
+}

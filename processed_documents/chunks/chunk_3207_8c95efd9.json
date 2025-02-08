@@ -1,0 +1,9 @@
+{
+  "content": "for nodePath in selectionList:\n                    direct.select(nodePath, 1)\n\n            else:\n                entry = direct.iRay.pickGeom(skipFlags = skipFlags)\n                if entry:\n                    # Record hit point information\n                    self.hitPt.assign(entry.getSurfacePoint(entry.getFromNodePath()))\n                    self.hitPtDist = Vec3(self.hitPt).length()\n                    # Select it\n                    direct.select(entry.getIntoNodePath(), direct.fShift)\n                else:\n                    direct.deselectAll()\n        #elif self.mode == 'move':\n        self.manipulateObjectCleanup()\n\n        self.mode = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3207
+  }
+}

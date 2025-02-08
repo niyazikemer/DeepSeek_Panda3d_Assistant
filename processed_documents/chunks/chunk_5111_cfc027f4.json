@@ -1,0 +1,9 @@
+{
+  "content": "# do not light\n        node_path.setLightOff()\n\n        # disable writes to destination alpha, write out rgb colors only\n        node_path.setAttrib(ColorWriteAttrib.make(ColorWriteAttrib.CRed | ColorWriteAttrib.CGreen | ColorWriteAttrib.CBlue))\n\n        if not MotionTrail.task_added:\n            #taskMgr.add(self.motion_trail_task, \"motion_trail_task\", priority = 50)\n            taskMgr.add(self.motion_trail_task, MotionTrail.motion_trail_task_name)\n\n            self.acceptOnce(\"clientLogout\", remove_task)\n\n            MotionTrail.task_added = True\n\n        self.relative_to_render = False\n\n        #: Set this to True to use a NURBS curve to generate a smooth trail,\n        #: even if the underlying animation or movement is janky.\n        self.use_nurbs = False\n\n        #: This can be changed to fine-tune the resolution of the NURBS curve.\n        self.resolution_distance = 0.5\n\n        self.cmotion_trail = CMotionTrail()\n        self.cmotion_trail.setGeomNode(self.geom_node)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5111
+  }
+}

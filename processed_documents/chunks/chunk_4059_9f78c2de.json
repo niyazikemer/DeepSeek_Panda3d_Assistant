@@ -1,0 +1,9 @@
+{
+  "content": "# ...the avatar is very close to the ground (close enough to be\n            # considered on the ground).\n            if self.isAirborne and physObject.getVelocity().getZ() <= 0.0:\n                # ...the avatar has landed.\n                contactLength = contact.length()\n                if contactLength>self.__hardLandingForce:\n                    #print \"jumpHardLand\"\n                    messenger.send(\"jumpHardLand\")\n                else:\n                    #print \"jumpLand\"\n                    messenger.send(\"jumpLand\")\n                self.priorParent.setVector(Vec3.zero())\n                self.isAirborne = 0\n            elif jump:\n                #print \"jump\"\n                #self.__jumpButton = 0\n                messenger.send(\"jumpStart\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4059
+  }
+}

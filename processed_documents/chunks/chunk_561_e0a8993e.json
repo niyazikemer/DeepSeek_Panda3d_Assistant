@@ -1,0 +1,9 @@
+{
+  "content": "def OnEndLabelEdit(self, event):\n        #import pdb;set_trace()\n        item = event.GetItem()\n        if item != self.tree.GetRootItem():\n            newLabel = event.GetLabel()\n            if self.tree.traverse(self.tree.GetRootItem(), newLabel) is None:\n                oldLabel = self.tree.GetItemText(item)\n                if isinstance(self.editor.protoPalette.findItem(oldLabel), ObjectBase):\n                    event.Veto()\n                    wx.MessageBox(\"Only groups allowed to be renamed\", self.editorTxt, wx.OK|wx.ICON_EXCLAMATION)\n                elif not self.editor.protoPalette.rename(oldLabel, newLabel):\n                    event.Veto()\n                    wx.MessageBox(\"Label '%s' is not allowed\" % newLabel, self.editorTxt, wx.OK|wx.ICON_EXCLAMATION)\n            else:\n                event.Veto()\n                wx.MessageBox(\"There is already an item labled '%s'\" % newLabel, self.editorTxt, wx.OK|wx.ICON_EXCLAMATION)\n        else:\n            event.Veto()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 561
+  }
+}

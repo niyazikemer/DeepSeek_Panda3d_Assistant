@@ -1,0 +1,9 @@
+{
+  "content": "if sys.platform == 'emscripten':\n            return\n\n        # Set the clock to have last frame's time in case we were\n        # Paused at the prompt for a long time\n        t = self.globalClock.getFrameTime()\n        timeDelta = t - self.globalClock.getRealTime()\n        self.globalClock.setRealTime(t)\n        messenger.send(\"resetClock\", [timeDelta])\n\n        if self.resumeFunc is not None:\n            self.resumeFunc()\n\n        if self.stepping:\n            self.step()\n        else:\n            self.running = True\n            while self.running:\n                try:\n                    if len(self._frameProfileQueue) > 0:\n                        numFrames, session, callback = self._frameProfileQueue.pop(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3894
+  }
+}

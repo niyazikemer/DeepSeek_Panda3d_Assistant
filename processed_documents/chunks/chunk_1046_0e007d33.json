@@ -1,0 +1,9 @@
+{
+  "content": "modeMenu = Pmw.OptionMenu(menuFrame,\n                                  items = ('Relative To:',\n                                           'Orbit:'),\n                                  initialitem = 'Relative To:',\n                                  command = self.setMovementMode,\n                                  menubutton_width = 8)\n        modeMenu.pack(side = 'left', expand = 0)\n        self.bind(modeMenu, 'Select manipulation mode')\n\n        self.refNodePathMenu = Pmw.ComboBox(\n            menuFrame, entry_width = 16,\n            selectioncommand = self.selectRefNodePathNamed,\n            scrolledlist_items = self.refNodePathNames)\n        self.refNodePathMenu.selectitem('parent')\n        self.refNodePathMenuEntry = (\n            self.refNodePathMenu.component('entryfield_entry'))\n        self.refNodePathMenu.pack(side = 'left', fill = 'x', expand = 1)\n        self.bind(self.refNodePathMenu, 'Select relative node path')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1046
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "num_load_commands = mach_header_64[4]\n\n        load_commands = {}\n\n        curr_lc_offset = struct.calcsize(mach_header_64_layout)\n        for i in range(num_load_commands):\n            lc = struct.unpack_from(lc_header_layout, macho_data, curr_lc_offset)\n            layout = lc_layouts.get(lc[0])\n            if layout:\n                # Make it a list since we want to mutate it.\n                lc = list(struct.unpack_from(layout, macho_data, curr_lc_offset))\n\n                if lc[0] == LC_SEGMENT_64:\n                    stripped_name = lc[2].rstrip(b'\\0')\n                    if stripped_name in [b'__PANDA', b'__LINKEDIT']:\n                        load_commands[stripped_name] = (curr_lc_offset, lc)\n                else:\n                    load_commands[lc[0]] = (curr_lc_offset, lc)\n\n            curr_lc_offset += lc[1]\n\n        return load_commands",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2149
+  }
+}

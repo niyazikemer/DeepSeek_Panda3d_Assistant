@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nfrom panda3d.core import VirtualFileSystem\nfrom panda3d.core import Multifile\nfrom panda3d.core import Filename\n\nmf = Multifile()\nmf.openReadWrite(\"models.mf\")\n\nvfs = VirtualFileSystem.getGlobalPtr()\nif vfs.mount(mf, \"mysys\", VirtualFileSystem.MFReadOnly):\n    print('mounted')\n\ncpp\n\nPT(Multifile) mf = new Multifile;\nmf->open_read_write(\"models.mf\");\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nif (vfs->mount(mf, \"mysys\", VirtualFileSystem::MF_read_only) {\n    std::cerr << \"mounted\\n\";\n}\n\nIf you are having problems loading from multifiles you can list the complete contents of your .mf file with a command like:\n\nmultify -tvf mymultifile.mf\n\nDoing a sanity inspection like this can be useful to ensure that your assets are in the right place within the multifile.\n\nMultifile objects",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7599
+  }
+}

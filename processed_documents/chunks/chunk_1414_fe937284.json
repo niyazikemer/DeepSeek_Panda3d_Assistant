@@ -1,0 +1,9 @@
+{
+  "content": "def editStart(self, event):\n        taskMgr.remove('guiEditTask')\n        vWidget2render2d = self.getPos(ShowBaseGlobal.render2d)\n        vMouse2render2d = Point3(event.getMouse()[0], 0, event.getMouse()[1])\n        editVec = Vec3(vWidget2render2d - vMouse2render2d)\n        if base.mouseWatcherNode.getModifierButtons().isDown(\n                KeyboardButton.control()):\n            t = taskMgr.add(self.guiScaleTask, 'guiEditTask')\n            t.refPos = vWidget2render2d\n            t.editVecLen = editVec.length()\n            t.initScale = self.getScale()\n        else:\n            t = taskMgr.add(self.guiDragTask, 'guiEditTask')\n            t.editVec = editVec",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1414
+  }
+}

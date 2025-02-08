@@ -1,0 +1,9 @@
+{
+  "content": "def on_config_inited(app, config):\n    if config.html_absolute_url_root:\n        app.connect('builder-inited', on_builder_inited)\n        app.connect('html-page-context', on_html_page_context)\n\n        # This normally runs before our hook, so it still picks up the old\n        # pathto, hence we need to register it again\n        from sphinx.builders.html import setup_js_tag_helper\n        app.connect('html-page-context', setup_js_tag_helper)\n\n    # Used in searchbox.html.\n    if config.html_link_suffix is not None:\n        config.html_context['link_suffix'] = config.html_link_suffix\n    elif config.html_file_suffix is not None:\n        config.html_context['link_suffix'] = config.html_file_suffix\n    else:\n        config.html_context['link_suffix'] = '.html'\n\n\n# This is an awful hack to get the inheritance graphs to incorporate the\n# current variation into the links properly, and, at the same time, not\n# generate the arrow connections inverted. :-/",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 155
+  }
+}

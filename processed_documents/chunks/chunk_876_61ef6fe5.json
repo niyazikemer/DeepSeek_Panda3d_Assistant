@@ -1,0 +1,9 @@
+{
+  "content": "return frame\n\n    # get animation info from renderer into panel\n    def readSpriteRendererAnimations(self):\n        ren = self.particles.getRenderer()\n\n        for widget in self.rendererSpriteAnimationWidgetList:\n            if widget:\n                widget.pack_forget()\n                widget.destroy()\n\n        self.rendererSpriteAnimationWidgetList = []\n\n        for anim in [ren.getAnim(x) for x in range(ren.getNumAnims())]:\n            if anim.getSourceType() == SpriteAnim.STTexture:\n                w = self.createSpriteAnimationTextureWidget(self.rendererSpriteAnimationFrame, anim, repr(len(self.rendererSpriteAnimationWidgetList)))\n            else:\n                w = self.createSpriteAnimationNodeWidget(self.rendererSpriteAnimationFrame, anim, repr(len(self.rendererSpriteAnimationWidgetList)))\n            self.rendererSpriteAnimationWidgetList.append(w)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 876
+  }
+}

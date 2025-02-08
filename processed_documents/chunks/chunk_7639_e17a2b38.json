@@ -1,0 +1,9 @@
+{
+  "content": "python\n\n# Request 8 RGB bits, no alpha bits, and a depth buffer.\nfb_prop = FrameBufferProperties()\nfb_prop.setRgbColor(True)\nfb_prop.setRgbaBits(8, 8, 8, 0)\nfb_prop.setDepthBits(16)\n\n# Create a WindowProperties object set to 512x512 size.\nwin_prop = WindowProperties(size=(512, 512))\n\n# Don't open a window - force it to be an offscreen buffer.\nflags = GraphicsPipe.BF_refuse_window\n\nbase.graphicsEngine.make_output(base.pipe, \"My Buffer\", -100, fb_prop, win_prop, flags, base.win.getGsg(), base.win)\n\ncpp\n\n// Request 8 RGB bits, no alpha bits, and a depth buffer.\nFrameBufferProperties fb_prop;\nfb_prop.set_rgb_color(true);\nfb_prop.set_rgba_bits(8, 8, 8, 0);\nfb_prop.set_depth_bits(16);\n\n// Create a WindowProperties object set to 512x512 size.\nWindowProperties win_prop;\nwin_prop.set_size(512, 512);\n\n// Don't open a window - force it to be an offscreen buffer.\nint flags = GraphicsPipe::BF_refuse_window;",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_681",
+    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
+    "chunk_number": 7639
+  }
+}

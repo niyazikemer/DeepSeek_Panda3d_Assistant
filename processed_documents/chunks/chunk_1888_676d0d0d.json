@@ -1,0 +1,9 @@
+{
+  "content": "nptr = expdir.names\n        optr = expdir.ordinals\n        for i in range(expdir.nnames):\n            name_rva, = unpack('<I', self.vmem[nptr:nptr+4])\n            ordinal, = unpack('<H', self.vmem[optr:optr+2])\n            if name_rva != 0:\n                name = _unpack_zstring(self.vmem, name_rva)\n                if name == symbol_name:\n                    assert ordinal >= 0 and ordinal < expdir.nentries\n                    start = expdir.entries + 4 * ordinal\n                    addr, = unpack('<I', self.vmem[start:start+4])\n                    return addr\n            nptr += 4\n            optr += 2\n\n    def get_address_offset(self, addr):\n        \"\"\" Turns an address into a offset relative to the file beginning. \"\"\"\n\n        section = self.get_address_section(addr)\n        if section is not None:\n            return (addr - section.vaddr) + section.offset\n\n    def get_address_section(self, addr):\n        \"\"\" Returns the section that this virtual address belongs to. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1888
+  }
+}

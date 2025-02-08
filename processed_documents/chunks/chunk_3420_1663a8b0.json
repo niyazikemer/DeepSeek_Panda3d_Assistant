@@ -1,0 +1,9 @@
+{
+  "content": "def downAncestry(self):\n        if self.ancestry:\n            l = len(self.ancestry)\n            i = self.ancestryIndex - 1\n            if i >= 0:\n                np = self.ancestry[i]\n                name = np.getName()\n                if (name != 'render') and (name != 'renderTop'):\n                    self.ancestryIndex = i\n                    self.select(np, 0, 0)\n                    self.flash(np)\n\n    def getAndSetName(self, nodePath):\n        \"\"\" Prompt user for new node path name \"\"\"\n        from tkinter.simpledialog import askstring\n        newName = askstring('Node Path: ' + nodePath.getName(),\n                            'Enter new name:')\n        if newName:\n            nodePath.setName(newName)\n            messenger.send('DIRECT_nodePathSetName', [nodePath, newName])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3420
+  }
+}

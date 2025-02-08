@@ -1,0 +1,9 @@
+{
+  "content": "def isOn(self):\n        assert self.__debugPrint(\"isOn() returning %s (stateIndex=%s)\"%(self.stateIndex==4, self.stateIndex))\n        return self.stateIndex==4\n\n    def changedOnState(self, isOn):\n        \"\"\"\n        Allow derived classes to overide this.\n        The self.isOn value has toggled.  Call getIsOn() to\n        get the current state.\n        \"\"\"\n        assert self.__debugPrint(\"changedOnState(isOn=%s)\"%(isOn,))\n\n    ##### states #####\n\n    def switchToNextStateTask(self, task):\n        assert self.__debugPrint(\"switchToNextStateTask()\")\n        self.fsm.request(self.states[self.nextStateIndex])\n        return Task.done\n\n    def distributeStateChange(self):\n        \"\"\"\n        This function is intentionaly simple so that derived classes\n        may easily alter the network message.\n        \"\"\"\n        assert self.__debugPrint(\"distributeStateChange()\")\n        self.sendState()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_148",
+    "parent": "processed_documents/context_documents/ee9f969a_FourStateAI.json",
+    "chunk_number": 2690
+  }
+}

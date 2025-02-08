@@ -1,0 +1,9 @@
+{
+  "content": "if hitPt is None:\n            iRay.collideWithBitMask(BitMask32.bit(21))\n            iRay.ct.traverse(self.view.collPlane)\n            if iRay.getNumEntries() > 0:\n                entry = iRay.getEntry(0)\n                hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n\n        if hitPt:\n            # create a temp nodePath to get the position\n            np = NodePath('temp')\n            np.setPos(self.view.camera, hitPt)\n\n            if ShowBaseGlobal.direct.manipulationControl.fGridSnap:\n                snappedPos = self.view.grid.computeSnapPoint(np.getPos())\n                np.setPos(snappedPos)\n\n            # update temp nodePath's HPR and scale with newobj's\n            np.setHpr(newobj.getHpr())\n            np.setScale(newobj.getScale())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 425
+  }
+}

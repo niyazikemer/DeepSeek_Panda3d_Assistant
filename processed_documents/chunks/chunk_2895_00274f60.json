@@ -1,0 +1,9 @@
+{
+  "content": "def getIntervalStartTime(self, *args, **kw):\n        # This function overrides from the parent level to force it to\n        # update the interval list first, if necessary.\n\n        self.__updateIvals()\n        return CMetaInterval.getIntervalStartTime(self, *args, **kw)\n\n\n    def getDuration(self):\n        # This function overrides from the parent level to force it to\n        # update the interval list first, if necessary.\n\n        self.__updateIvals()\n        return CMetaInterval.getDuration(self)\n\n    duration = property(getDuration)\n\n    def __repr__(self, *args, **kw):\n        # This function overrides from the parent level to force it to\n        # update the interval list first, if necessary.\n\n        self.__updateIvals()\n        return CMetaInterval.__repr__(self, *args, **kw)\n\n    def __str__(self, *args, **kw):\n        # This function overrides from the parent level to force it to\n        # update the interval list first, if necessary.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2895
+  }
+}

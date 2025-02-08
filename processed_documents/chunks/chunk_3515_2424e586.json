@@ -1,0 +1,9 @@
+{
+  "content": "self._widget.bind('<Left>', self._decrementValue)\n            self._widget.bind('<Right>', self._incrementValue)\n            self._widget.bind('<Shift-Left>', self._bigDecrementValue)\n            self._widget.bind('<Shift-Right>', self._bigIncrementValue)\n            self._widget.bind('<Home>', self._goToMin)\n            self._widget.bind('<End>', self._goToMax)\n        else:\n            createSlider(interior)\n            self._widget['command'] = self._firstScaleCommand\n            self._widget.bind('<ButtonRelease-1>', self._scaleBtnRelease)\n            self._widget.bind('<ButtonPress-1>', self._scaleBtnPress)\n\n        # Check keywords and initialise options.\n        self.initialiseoptions(SliderWidget)\n\n        # Adjust relief\n        if 'relief' not in kw:\n            if self['style'] == VALUATOR_FULL:\n                self['relief'] = tk.FLAT\n\n        self.updateIndicator(self['value'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3515
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "else:\n                subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n                partDef = partBundleDict.get(subpartDef.truePartName)\n                if partDef is not None:\n                    bundles.append(partDef.getBundle())\n                else:\n                    Actor.notify.warning(\"Couldn't find part: %s\" % (partName))\n\n        return bundles\n\n    def __updateSortedLODNames(self):\n        # Reverse sort the doing a string->int\n        def sortKey(x):\n            if not str(x).isdigit():\n                smap = {'h':3,\n                        'm':2,\n                        'l':1,\n                        'f':0}\n\n                #sx = smap.get(x[0], None)\n                #\n                #if sx is None:\n                #    self.notify.error('Invalid lodName: %s' % x)\n                return smap[x[0]]\n            else:\n                return int(x)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3064
+  }
+}

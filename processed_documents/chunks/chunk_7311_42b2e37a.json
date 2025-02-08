@@ -1,0 +1,9 @@
+{
+  "content": "# Load the box\nbox = loader.loadModel(\"box\")\n# Make sure its center is at 0, 0, 0 like OdeBoxGeom\nbox.setPos(-.5, -.5, -.5)\nbox.flattenLight() # Apply transform\nbox.setTextureOff()\n\n# Add a random amount of boxes\nboxes = []\nfor i in range(randint(15, 30)):\n    # Setup the geometry\n    boxNP = box.copyTo(render)\n    boxNP.setPos(randint(-10, 10), randint(-10, 10), 10 + random())\n    boxNP.setColor(random(), random(), random(), 1)\n    boxNP.setHpr(randint(-45, 45), randint(-45, 45), randint(-45, 45))\n    # Create the body and set the mass\n    boxBody = OdeBody(world)\n    M = OdeMass()\n    M.setBox(50, 1, 1, 1)\n    boxBody.setMass(M)\n    boxBody.setPosition(boxNP.getPos(render))\n    boxBody.setQuaternion(boxNP.getQuat(render))\n    # Create a BoxGeom\n    boxGeom = OdeBoxGeom(space, 1, 1, 1)\n    boxGeom.setCollideBits(BitMask32(0x00000002))\n    boxGeom.setCategoryBits(BitMask32(0x00000001))\n    boxGeom.setBody(boxBody)\n    boxes.append((boxNP, boxBody))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_624",
+    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
+    "chunk_number": 7311
+  }
+}

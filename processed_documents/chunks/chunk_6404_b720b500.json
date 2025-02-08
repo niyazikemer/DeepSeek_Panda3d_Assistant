@@ -1,0 +1,9 @@
+{
+  "content": "The result doesn't look very good. It's just a thin line. But instead of the above code we can use a NURBS curve for visualization.\n\npython\n\nfrom panda3d.core import RopeNode\nfrom panda3d.core import NurbsCurveEvaluator\n\ncurve = NurbsCurveEvaluator()\ncurve.reset(res + 2)\n\nbodyNode.linkCurve(curve)\n\nvisNode = RopeNode('')\nvisNode.setCurve(curve)\nvisNode.setRenderMode(RopeNode.RMTube)\nvisNode.setUvMode(RopeNode.UVParametric)\nvisNode.setNumSubdiv(4)\nvisNode.setNumSlices(8)\nvisNode.setThickness(0.4)\nvisNP = self.worldNP.attachNewNode(visNode)\nvisNP.setTexture(loader.loadTexture('some_texture.jpg'))\n\ncpp\n\nTODO\n\nFirst we create a nurbs curve (NurbsCurveEvaluator), and then we link this nurbs curve to the soft body rope node. The soft body node will update the nurbs curve every frame from now on.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_470",
+    "parent": "processed_documents/context_documents/ff1adceb_3635e1a0_softbody-rope.json",
+    "chunk_number": 6404
+  }
+}

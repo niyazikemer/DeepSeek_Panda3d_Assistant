@@ -1,0 +1,9 @@
+{
+  "content": "self.oldState = self.state\n        self.newState = newState\n        self.state = None\n\n        try:\n            if not self.__callFromToFunc(self.oldState, self.newState, *args):\n                result = self.__callExitFunc(self.oldState)\n                if isinstance(result, types.CoroutineType):\n                    await result\n\n                result = self.__callEnterFunc(self.newState, *args)\n                if isinstance(result, types.CoroutineType):\n                    await result\n        except:\n            # If we got an exception during the enter or exit methods,\n            # go directly to state \"InternalError\" and raise up the\n            # exception.  This might leave things a little unclean\n            # since we've partially transitioned, but what can you do?\n\n            self.state = 'InternalError'\n            del self.oldState\n            del self.newState\n            raise",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2650
+  }
+}

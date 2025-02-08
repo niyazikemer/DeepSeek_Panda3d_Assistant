@@ -1,0 +1,9 @@
+{
+  "content": "def setupFloorSphere(self, bitmask, avatarRadius):\n        \"\"\"\n        Set up the collision sphere\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        # This is a tiny sphere concentric with the wallSphere to keep\n        # us from slipping through floors.\n        self.avatarRadius = avatarRadius\n        cSphere = CollisionSphere(0.0, 0.0, avatarRadius, 0.01)\n        cSphereNode = CollisionNode('GW.cFloorSphereNode')\n        cSphereNode.addSolid(cSphere)\n        cSphereNodePath = self.avatarNodePath.attachNewNode(cSphereNode)\n\n        cSphereNode.setFromCollideMask(bitmask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())\n\n        # set up collision mechanism\n        self.pusherFloorhandler = CollisionHandlerPusher()\n        self.pusherFloor.addCollider(cSphereNodePath, self.avatarNodePath)\n        self.cFloorSphereNodePath = cSphereNodePath\n\n    def setWallBitMask(self, bitMask):\n        self.wallBitmask = bitMask",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4078
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def parseCamMovementDatagram(self, dgi):\n        x=dgi.getFloat32()\n        y=dgi.getFloat32()\n        z=dgi.getFloat32()\n        h=dgi.getFloat32()\n        p=dgi.getFloat32()\n        r=dgi.getFloat32()\n        self.notify.debug(('  new position=%f %f %f  %f %f %f' %\n                           (x, y, z, h, p, r)))\n        return (x, y, z, h, p, r)\n\n    def parseNamedMovementDatagram(self, dgi):\n        name = dgi.getString()\n        x=dgi.getFloat32()\n        y=dgi.getFloat32()\n        z=dgi.getFloat32()\n        h=dgi.getFloat32()\n        p=dgi.getFloat32()\n        r=dgi.getFloat32()\n        sx = dgi.getFloat32()\n        sy = dgi.getFloat32()\n        sz = dgi.getFloat32()\n        red = dgi.getFloat32()\n        g = dgi.getFloat32()\n        b = dgi.getFloat32()\n        a = dgi.getFloat32()\n        hidden = dgi.getBool()\n        return (name,x, y, z, h, p, r, sx, sy, sz, red, g, b, a, hidden)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1743
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "newlines.append('')\n                continue\n            elif special == 'since':\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('.. versionadded:: ' + strline[7:])\n                newlines.append('')\n                continue\n            elif special == 'li':\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('* ' + convert_doxygen_format(strline[4:], name, domain))\n                newlines.append('')\n                continue\n            else:\n                print(\"Unhandled documentation tag: @\" + special)\n\n        if strline or len(newlines) > 0:\n            newlines.append('   '*indent + convert_doxygen_format(strline, name, domain))\n\n    return newlines",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 77
+  }
+}

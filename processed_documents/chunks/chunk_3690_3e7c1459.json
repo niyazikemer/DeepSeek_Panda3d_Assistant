@@ -1,0 +1,9 @@
+{
+  "content": "def select_or_edit(self, event=None):\n        if self.selected and self.item.IsEditable():\n            self.edit(event)\n        else:\n            self.select(event)\n\n    def edit(self, event=None):\n        self.entry = tk.Entry(self.label, bd=0, highlightthickness=1, width=0)\n        self.entry.insert(0, self.label['text'])\n        self.entry.selection_range(0, tk.END)\n        self.entry.pack(ipadx=5)\n        self.entry.focus_set()\n        self.entry.bind(\"<Return>\", self.edit_finish)\n        self.entry.bind(\"<Escape>\", self.edit_cancel)\n\n    def edit_finish(self, event=None):\n        try:\n            entry = self.entry\n            del self.entry\n        except AttributeError:\n            return\n        text = entry.get()\n        entry.destroy()\n        if text and text != self.item.GetText():\n            self.item.SetText(text)\n        text = self.item.GetText()\n        self.label['text'] = text\n        self.drawtext()\n        self.canvas.focus_set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3690
+  }
+}

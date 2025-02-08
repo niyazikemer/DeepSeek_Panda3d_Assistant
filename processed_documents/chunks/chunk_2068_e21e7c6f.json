@@ -1,0 +1,9 @@
+{
+  "content": "# Module with non-obvious dependencies\n        self.hiddenImports = defaultHiddenImports.copy()\n        if hiddenImports is not None:\n            self.hiddenImports.update(hiddenImports)\n\n        # Special hack for plyer, which has platform-specific hidden imports\n        plyer_platform = None\n        if self.platform.startswith('android'):\n            plyer_platform = 'android'\n        elif self.platform.startswith('linux'):\n            plyer_platform = 'linux'\n        elif self.platform.startswith('mac'):\n            plyer_platform = 'macosx'\n        elif self.platform.startswith('win'):\n            plyer_platform = 'win'\n\n        if plyer_platform:\n            self.hiddenImports['plyer'].append(f'plyer.platforms.{plyer_platform}.*')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2068
+  }
+}

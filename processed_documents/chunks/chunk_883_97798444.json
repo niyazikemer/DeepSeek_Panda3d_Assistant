@@ -1,0 +1,9 @@
+{
+  "content": "def addForceWidget(self, forceGroup, force):\n        forcePage = self.forcePage\n        pageName = self.forcePageName\n        # How many forces of the same type in the force group object\n        count = 0\n        for f in forceGroup:\n            if f.getClassType() == force.getClassType():\n                count += 1\n        if isinstance(force, LinearVectorForce):\n            self.createLinearVectorForceWidget(\n                forcePage, pageName, count, force)\n        elif isinstance(force, LinearNoiseForce):\n            self.createLinearRandomForceWidget(\n                forcePage, pageName, count, force, 'Noise')\n        elif isinstance(force, LinearJitterForce):\n            self.createLinearRandomForceWidget(\n                forcePage, pageName, count, force, 'Jitter')\n        elif isinstance(force, LinearFrictionForce):\n            self.createLinearFrictionForceWidget(\n                forcePage, pageName, count, force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 883
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def postInitialiseFunc(self):\n        for func in self.postInitialiseFuncList:\n            func()\n\n    def isinitoption(self, option):\n        \"\"\"\n        Is this opition one that can only be specified at construction?\n        \"\"\"\n        return self._optionInfo[option][DGG._OPT_FUNCTION] is DGG.INITOPT\n\n    def options(self):\n        \"\"\"\n        Print out a list of available widget options.\n        Does not include subcomponent options.\n        \"\"\"\n        options = []\n        if hasattr(self, '_optionInfo'):\n            for option, info in self._optionInfo.items():\n                isinit = info[DGG._OPT_FUNCTION] is DGG.INITOPT\n                default = info[DGG._OPT_DEFAULT]\n                options.append((option, default, isinit))\n            options.sort()\n        return options",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1381
+  }
+}

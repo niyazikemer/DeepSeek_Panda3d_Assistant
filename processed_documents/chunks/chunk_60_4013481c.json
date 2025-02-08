@@ -1,0 +1,9 @@
+{
+  "content": "ifunc = idb.lookup_function(modname, search)\n        if ifunc:\n            if domain == 'cpp':\n                func_name = interrogate_function_scoped_name(ifunc)\n                return ('func', func_name)\n            elif domain == 'py':\n                # Grab the mangled function name.\n                func_name = idb.get_function_name(ifunc, scoped=False, mangle=True)\n                if interrogate_function_is_method(ifunc):\n                    outer = interrogate_function_class(ifunc)\n                    prefix = interrogate_type_module_name(outer)\n                    if prefix:\n                        prefix += '.'\n                    type_name = idb.get_type_name(outer, mangle=False, scoped=True)\n                    if len(refpath) == 1 and interrogate_function_name(ifunc).lstrip('~') == interrogate_type_name(outer):\n                        # This matches a constructor, but we want the class.\n                        return ('class', prefix + type_name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 60
+  }
+}

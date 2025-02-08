@@ -1,0 +1,9 @@
+{
+  "content": "# Now check if anything is left over\n            unusedOptions = []\n            keywords = self._constructorKeywords\n            for name in keywords:\n                used = keywords[name][1]\n                if not used:\n                    # This keyword argument has not been used.  If it\n                    # does not refer to a dynamic group, mark it as\n                    # unused.\n                    index = name.find('_')\n                    if index < 0 or name[:index] not in self._dynamicGroups:\n                        unusedOptions.append(name)\n            self._constructorKeywords = {}\n            if len(unusedOptions) > 0:\n                if len(unusedOptions) == 1:\n                    text = 'Unknown option \"'\n                else:\n                    text = 'Unknown options \"'\n                raise KeyError(text + ', '.join(unusedOptions) + \\\n                        '\" for ' + myClass.__name__)\n            # Can now call post init func",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1379
+  }
+}

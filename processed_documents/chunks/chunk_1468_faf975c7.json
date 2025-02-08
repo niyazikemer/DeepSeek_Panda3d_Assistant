@@ -1,0 +1,9 @@
+{
+  "content": "self.isClean = 0\n\n        # Set ourselves up as the NodePath that points to this node.\n        self.assign(parent.attachNewNode(self.textNode, sort))\n\n    def cleanup(self):\n        self.textNode = None\n        if self.isClean == 0:\n            self.isClean = 1\n            self.removeNode()\n\n    def destroy(self):\n        self.cleanup()\n\n    def freeze(self):\n        pass\n\n    def thaw(self):\n        pass\n\n    # Allow changing of several of the parameters after the text has\n    # been created.  These should be used with caution; it is better\n    # to set all the parameters up front.  These functions are\n    # primarily intended for interactive placement of the initial\n    # text, and for those rare occasions when you actually want to\n    # change a text's property after it has been created.\n\n    def setDecal(self, decal):\n        self.textNode.setCardDecal(decal)\n\n    def getDecal(self):\n        return self.textNode.getCardDecal()\n\n    decal = property(getDecal, setDecal)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1468
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def updateParticlesMenus(self):\n        # Get rid of old particles entries if any\n        self.particlesEnableMenu.delete(0, 'end')\n        self.particlesLabelMenu.delete(2, 'end')\n        self.particlesLabelMenu.add_separator()\n        # Add in a checkbutton for each effect (to toggle on/off)\n        particles = self.particleEffect.getParticlesList()\n        for name in sorted(x.getName() for x in particles):\n            particle = self.particleEffect.getParticlesNamed(name)\n            self.particlesLabelMenu.add_command(\n                label = name,\n                command = (lambda s = self,\n                           n = name: s.selectParticlesNamed(n))\n            )\n            particleActive = tk.IntVar()\n            particleActive.set(particle.isEnabled())\n            self.particlesEnableMenu.add_checkbutton(\n                label = name,\n                variable = particleActive,\n                command = (lambda s = self,\n                           p = particle,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 795
+  }
+}

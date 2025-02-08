@@ -1,0 +1,9 @@
+{
+  "content": "def createListWidget(self):\n        listFrame = self.framePane.add('list')\n        listWidget = self.listWidget = Pmw.ScrolledListBox(\n            listFrame, vscrollmode = 'static')\n        listWidget.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)\n        # If you click in the list box, take focus so you can navigate\n        # with the cursor keys\n        listbox = listWidget.component('listbox')\n        listbox.bind('<ButtonPress-1>',\n                        lambda e, l = listbox: l.focus_set())\n        listbox.bind('<ButtonRelease-1>',  self.listSelectionChanged)\n        listbox.bind('<Double-Button-1>', self.popOrDive)\n        listbox.bind('<ButtonPress-3>', self.popupMenu)\n        listbox.bind('<KeyRelease-Up>',  self.listSelectionChanged)\n        listbox.bind('<KeyRelease-Down>',  self.listSelectionChanged)\n        listbox.bind('<KeyRelease-Left>', lambda e, s = self: s.pop())\n        listbox.bind('<KeyRelease-Right>', lambda e, s = self: s.dive())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1026
+  }
+}

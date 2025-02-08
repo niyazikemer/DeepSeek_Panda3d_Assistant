@@ -1,0 +1,9 @@
+{
+  "content": "mw = self.buttonThrowers[0].getParent()\n\n        #: A special ButtonThrower to generate keyboard events and\n        #: include the time from the OS.  This is separate only to\n        #: support legacy code that did not expect a time parameter; it\n        #: will eventually be folded into the normal ButtonThrower,\n        #: above.\n        self.timeButtonThrower = mw.attachNewNode(ButtonThrower('timeButtons'))\n        self.timeButtonThrower.node().setPrefix('time-')\n        self.timeButtonThrower.node().setTimeFlag(1)\n\n        # Tell the gui system about our new mouse watcher.\n        self.aspect2d.node().setMouseWatcher(mw.node())\n        self.pixel2d.node().setMouseWatcher(mw.node())\n        if self.wantRender2dp:\n            self.aspect2dp.node().setMouseWatcher(mw.node())\n            self.pixel2dp.node().setMouseWatcher(mw.node())\n\n        mw.node().addRegion(PGMouseWatcherBackground())\n\n        return self.buttonThrowers[0]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4934
+  }
+}

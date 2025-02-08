@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectHandler:\n    \"\"\" ObjectHandler will create and update objects \"\"\"\n\n    def __init__(self, editor):\n        self.editor = editor\n\n    def createDoubleSmiley(self, horizontal=True):\n        root = render.attachNewNode('doubleSmiley')\n        a = base.loader.loadModel('models/smiley.egg')\n        b = base.loader.loadModel('models/smiley.egg')\n        if horizontal:\n            a.setName('left')\n            b.setName('right')\n            a.setPos(-1, 0, 0)\n            b.setPos(1, 0, 0)\n        else:\n            a.setName('top')\n            b.setName('bottom')\n            a.setPos(0, 0, 1)\n            b.setPos(0, 0, -1)\n\n        a.reparentTo(root)\n        b.reparentTo(root)\n        return root",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_36",
+    "parent": "processed_documents/context_documents/7abd4bdb_ObjectHandler.json",
+    "chunk_number": 542
+  }
+}

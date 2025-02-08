@@ -1,0 +1,9 @@
+{
+  "content": "# change window coordinate to mouse coordinate\n        mx = 2 * (x/float(self.view.ClientSize.GetWidth()) - 0.5)\n        my = -2 * (y/float(self.view.ClientSize.GetHeight()) - 0.5)\n\n        # create ray from the camera to detect 3d position\n        iRay = SelectionRay(self.view.camera)\n        iRay.collider.setFromLens(self.view.camNode, mx, my)\n        hitPt = None\n        if self.editor.objectMgr.currLiveNP:\n            iRay.collideWithGeom()\n            iRay.ct.traverse(self.editor.objectMgr.currLiveNP)\n\n            def isEntryBackfacing(iRay, entry):\n                if not entry.hasSurfaceNormal():\n                    # Well, no way to tell.  Assume we're not backfacing.\n                    return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 423
+  }
+}

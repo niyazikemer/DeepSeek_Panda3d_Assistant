@@ -1,0 +1,9 @@
+{
+  "content": "# Also try it without the dcSuffix.\n            if classDef is None:\n                className = dclass.getName()\n                classDef = dcImports.get(className)\n            if classDef is None:\n                self.notify.debug(\"No class definition for %s.\" % (className))\n            else:\n                if inspect.ismodule(classDef):\n                    if not hasattr(classDef, className):\n                        self.notify.warning(\"Module %s does not define class %s.\" % (className, className))\n                        continue\n                    classDef = getattr(classDef, className)\n\n                if not inspect.isclass(classDef):\n                    self.notify.error(\"Symbol %s is not a class name.\" % (className))\n                else:\n                    dclass.setClassDef(classDef)\n\n            self.dclassesByName[className] = dclass\n            if number >= 0:\n                self.dclassesByNumber[number] = dclass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5316
+  }
+}

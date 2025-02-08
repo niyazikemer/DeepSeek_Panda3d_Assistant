@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Extends setuptools with the ``build_apps`` and ``bdist_apps`` commands.\n\nSee the :ref:`distribution` section of the programming manual for information\non how to use these commands.\n\"\"\"\n\nimport os\nimport plistlib\nimport sys\nimport subprocess\nimport zipfile\nimport re\nimport shutil\nimport stat\nimport struct\nimport string\nimport tempfile\n\nimport setuptools\nimport distutils.log\n\nfrom . import FreezeTool\nfrom . import pefile\nfrom . import installers\nfrom .icon import Icon\nfrom ._dist_hooks import finalize_distribution_options\nimport panda3d.core as p3d\n\n\ndef _parse_list(input):\n    if isinstance(input, str):\n        input = input.strip().replace(',', '\\n')\n        if input:\n            return [item.strip() for item in input.split('\\n') if item.strip()]\n        else:\n            return []\n    else:\n        return input",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1919
+  }
+}

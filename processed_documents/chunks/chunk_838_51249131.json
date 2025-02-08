@@ -1,0 +1,9 @@
+{
+  "content": "def selectRendererPage(self):\n        type = self.particles.renderer.__class__.__name__\n        if type == 'SpriteParticleRendererExt':\n            type = 'SpriteParticleRenderer'\n        self.rendererNotebook.selectpage(type)\n        self.getVariable('Renderer', 'Renderer Type').set(type)\n\n    # All #\n    def setRendererAlphaMode(self, alphaMode):\n        if alphaMode == 'NO_ALPHA':\n            aMode = BaseParticleRenderer.PRALPHANONE\n        elif alphaMode == 'ALPHA_OUT':\n            aMode = BaseParticleRenderer.PRALPHAOUT\n        elif alphaMode == 'ALPHA_IN':\n            aMode = BaseParticleRenderer.PRALPHAIN\n        elif alphaMode == 'ALPHA_IN_OUT':\n            aMode = BaseParticleRenderer.PRALPHAINOUT\n        elif alphaMode == 'ALPHA_USER':\n            aMode = BaseParticleRenderer.PRALPHAUSER\n        self.particles.renderer.setAlphaMode(aMode)\n\n    def setRendererUserAlpha(self, alpha):\n        self.particles.renderer.setUserAlpha(alpha)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 838
+  }
+}

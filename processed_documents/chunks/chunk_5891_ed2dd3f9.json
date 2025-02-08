@@ -1,0 +1,9 @@
+{
+  "content": "The complete documentation for using the egg interfaces has yet to be written, but the egg library is really quite simple to use. The basic idea is that you create an EggData, and an EggVertexPool to hold your vertices; and then you can create a series of EggVertex and EggPolygon objects. If you want to create some structure in your egg file, you can create one or more EggGroups to separate the polygons into different groups. Here is an example:\n\nfrom panda3d.core import Point3D, deg2Rad, NodePath, Filename, CSZupRight\nfrom panda3d.egg import EggPolygon, EggVertexPool, EggData, EggVertex, loadEggData, EggCoordinateSystem\nimport math\n\n...\n\ndef makeWedge(angleDegrees = 360, numSteps = 16):\n\n    z_up = EggCoordinateSystem()\n    z_up.setValue(CSZupRight)\n\n    data = EggData()\n    data.addChild(z_up)\n\n    vp = EggVertexPool('fan')\n    data.addChild(vp)\n\n    poly = EggPolygon()\n    data.addChild(poly)\n\n    v = EggVertex()\n    v.setPos(Point3D(0, 0, 0))\n    poly.addVertex(vp.addVertex(v))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_366",
+    "parent": "processed_documents/context_documents/d6c83d00_80ac7690_writing-models-to-disk.json",
+    "chunk_number": 5891
+  }
+}

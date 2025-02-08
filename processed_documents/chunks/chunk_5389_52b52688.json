@@ -1,0 +1,9 @@
+{
+  "content": "else:\n                assert self.notify.debug(\"Objects still pending: %s\" % (doIdsPending))\n\n    def __generateObjectList(self, doIdList):\n        objects = []\n        doIdsPending = []\n\n        for doId in doIdList:\n            if doId:\n                object = self.cr.doId2do.get(doId)\n                objects.append(object)\n                if object is None:\n                    doIdsPending.append(doId)\n            else:\n                objects.append(None)\n\n        return objects, doIdsPending",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5389
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, timeslice=None):\n        # how long do we run per frame\n        self._timeslice = timeslice\n        # store the jobs in these structures to allow fast lookup by various keys\n        # priority -> jobId -> job\n        self._pri2jobId2job = {}\n        # priority -> chronological list of jobIds\n        self._pri2jobIds = {}\n        # jobId -> priority\n        self._jobId2pri = {}\n        # how many timeslices to give each job; this is used to efficiently implement\n        # the relative job priorities\n        self._jobId2timeslices = {}\n        # how much time did the job use beyond the allotted timeslice, used to balance\n        # out CPU usage\n        self._jobId2overflowTime = {}\n        self._useOverflowTime = None\n        # this is a generator that we use to give high-priority jobs more timeslices,\n        # it yields jobIds in a sequence that includes high-priority jobIds more often\n        # than low-priority\n        self._jobIdGenerator = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4198
+  }
+}

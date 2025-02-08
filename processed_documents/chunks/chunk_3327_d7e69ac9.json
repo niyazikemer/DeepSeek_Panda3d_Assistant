@@ -1,0 +1,9 @@
+{
+  "content": "def mouseRollTask(self, state):\n        wrt = state.wrt\n        angle = getCrankAngle(state.coaCenter)\n        deltaAngle = angle - state.lastAngle\n        state.lastAngle = angle\n        self.camManipRef.setHpr(self.camManipRef, 0, 0, deltaAngle)\n        if self.lockRoll:\n            # flatten roll\n            self.camManipRef.setR(0)\n        ShowBaseGlobal.direct.camera.setTransform(self.camManipRef, wrt)\n        return Task.cont\n\n    def lockCOA(self):\n        self.fLockCOA = 1\n        ShowBaseGlobal.direct.message('COA Lock On')\n\n    def unlockCOA(self):\n        self.fLockCOA = 0\n        ShowBaseGlobal.direct.message('COA Lock Off')\n\n    def toggleCOALock(self):\n        self.fLockCOA = 1 - self.fLockCOA\n        if self.fLockCOA:\n            ShowBaseGlobal.direct.message('COA Lock On')\n        else:\n            ShowBaseGlobal.direct.message('COA Lock Off')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3327
+  }
+}

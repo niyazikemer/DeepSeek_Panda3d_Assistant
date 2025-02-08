@@ -1,0 +1,9 @@
+{
+  "content": "for platform in self.platforms:\n            # Create the build directory, or ensure it is empty.\n            build_dir = os.path.join(self.build_base, platform)\n\n            if os.path.exists(build_dir):\n                for entry in os.listdir(build_dir):\n                    path = os.path.join(build_dir, entry)\n                    if os.path.islink(path) or os.path.isfile(path):\n                        os.unlink(path)\n                    else:\n                        shutil.rmtree(path)\n            else:\n                os.makedirs(build_dir)\n\n            if platform == 'android':\n                # Make a multi-arch build for Android.\n                data_dir = os.path.join(build_dir, 'assets')\n                os.makedirs(data_dir, exist_ok=True)\n\n                for abi in self.android_abis:\n                    lib_dir = os.path.join(build_dir, 'lib', abi)\n                    os.makedirs(lib_dir, exist_ok=True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1949
+  }
+}

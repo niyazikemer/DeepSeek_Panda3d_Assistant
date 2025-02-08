@@ -1,0 +1,9 @@
+{
+  "content": "if sys.platform == \"win32\":\n                text += 'static struct _inittab extensions[] = {\\n'\n            else:\n                text += 'struct _inittab _PyImport_Inittab[] = {\\n'\n\n            for module, fn in self.extras:\n                if sys.platform != \"win32\" or fn:\n                    libName = module.split('.')[-1]\n                    initFunc = builtinInitFuncs.get(module, 'PyInit_' + libName) or 'NULL'\n                    text += '  {\"%s\", %s},\\n' % (module, initFunc)\n            text += '  {0, 0},\\n'\n            text += '};\\n\\n'\n\n            # Python 2 case.\n            text += '#else\\n'\n            for module, fn in self.extras:\n                if sys.platform != \"win32\" or fn:\n                    libName = module.split('.')[-1]\n                    initFunc = builtinInitFuncs.get(module, 'init' + libName)\n                    if initFunc:\n                        text += 'extern PyAPI_FUNC(void) %s(void);\\n' % (initFunc)\n            text += '\\n'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2112
+  }
+}

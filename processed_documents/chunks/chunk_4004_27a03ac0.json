@@ -1,0 +1,9 @@
+{
+  "content": "if region is None:\n            self.notify.error('Could not find appropriate DisplayRegion to filter')\n            return\n\n        # Instance Variables.\n\n        self.win = win\n        self.forcex = forcex\n        self.forcey = forcey\n        self.engine = win.getGsg().getEngine()\n        self.region = region\n        self.wclears = self.getClears(self.win)\n        self.rclears = self.getClears(self.region)\n        self.camera = cam\n        self.caminit = cam.node().getInitialState()\n        self.camstate = self.caminit\n        self.buffers = []\n        self.sizes = []\n        self.nextsort = self.win.getSort() - 9\n        self.basex = 0\n        self.basey = 0\n        self.accept(\"window-event\", self.windowEvent)\n\n\n    def getClears(self, region):\n        clears = []\n        for i in range(GraphicsOutput.RTPCOUNT):\n            clears.append((region.getClearActive(i), region.getClearValue(i)))\n        return clears",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4004
+  }
+}

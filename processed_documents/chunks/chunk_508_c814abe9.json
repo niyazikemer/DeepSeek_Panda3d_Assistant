@@ -1,0 +1,9 @@
+{
+  "content": "return Task.cont\n\n    def updateObjectTransform(self, event):\n        if self.currNodePath is None:\n            return\n\n        np = hidden.attachNewNode('temp')\n        np.setX(float(self.editor.ui.objectPropertyUI.propX.getValue()))\n        np.setY(float(self.editor.ui.objectPropertyUI.propY.getValue()))\n        np.setZ(float(self.editor.ui.objectPropertyUI.propZ.getValue()))\n\n        h = float(self.editor.ui.objectPropertyUI.propH.getValue())\n        while h < 0:\n            h = h + 360.0\n\n        while h > 360:\n            h = h - 360.0\n\n        p = float(self.editor.ui.objectPropertyUI.propP.getValue())\n        while p < 0:\n            p = p + 360.0\n\n        while p > 360:\n            p = p - 360.0\n\n        r = float(self.editor.ui.objectPropertyUI.propR.getValue())\n        while r < 0:\n            r = r + 360.0\n\n        while r > 360:\n            r = r - 360.0\n\n        np.setH(h)\n        np.setP(p)\n        np.setR(r)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 508
+  }
+}

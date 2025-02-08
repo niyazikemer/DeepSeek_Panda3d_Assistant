@@ -1,0 +1,9 @@
+{
+  "content": "def setCardSize(self, x, y):\n        \"\"\"Set the size of each card.  The units are relative to\n        render2d (ie, 1x1 card is not square).  If one of the\n        dimensions is zero, then the viewer will choose a value\n        for that dimension so as to ensure that the aspect ratio\n        of the card matches the aspect ratio of the source-window.\n        If both dimensions are zero, the viewer uses a heuristic\n        to choose a reasonable size for the card.  The initial\n        value is (0, 0).\"\"\"\n        if x < 0 or y < 0:\n            BufferViewer.notify.error('invalid parameter to BufferViewer.setCardSize')\n            return\n        self.sizex = x\n        self.sizey = y\n        self.dirty = 1\n\n    def setPosition(self, pos):\n        \"\"\"Set the position of the cards.  The valid values are:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4220
+  }
+}

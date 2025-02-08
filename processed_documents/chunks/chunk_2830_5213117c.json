@@ -1,0 +1,9 @@
+{
+  "content": "if self.particleEffect:\n            for forceGroup in self.particleEffect.getForceGroupList():\n                forceGroup.enable()\n\n        Interval.privInitialize(self,t)\n\n    def privInstant(self):\n        self.privInitialize(self.getDuration())\n        self.privFinalize()\n\n    def privStep(self, t):\n        if self.state == CInterval.SPaused or t < self.currT:\n            # Restarting from a pause.\n            self.privInitialize(t)\n        else:\n            if not self.__softStopped and t > self.softStopT:\n                self.__step(self.softStopT-self.currT)\n                self.__softStop()\n                self.__step(t-self.softStopT)\n            else:\n                self.__step(t-self.currT)\n            Interval.privStep(self,t)\n\n    def privFinalize(self):\n        Interval.privFinalize(self)\n        if self.cleanup and self.particleEffect:\n            self.particleEffect.cleanup()\n            self.particleEffect = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_163",
+    "parent": "processed_documents/context_documents/654cc874_ParticleInterval.json",
+    "chunk_number": 2830
+  }
+}

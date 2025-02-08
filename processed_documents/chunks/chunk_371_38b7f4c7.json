@@ -1,0 +1,9 @@
+{
+  "content": "def deSelect(self, itemId):\n        item =  self.traverse(self.root, itemId)\n        if item is not None:\n            self.tree.UnselectItem(item)\n\n    def onSelected(self, event):\n        item = event.GetItem()\n        if item:\n            itemId = self.tree.GetItemData(item)\n            if itemId:\n                obj = self.editor.objectMgr.findObjectById(itemId)\n                if obj:\n                    selections = self.tree.GetSelections()\n                    if len(selections) > 1:\n                        base.direct.select(obj[OG.OBJ_NP], fMultiSelect = 1, fLEPane = 0)\n                    else:\n                        base.direct.select(obj[OG.OBJ_NP], fMultiSelect = 0, fLEPane = 0)\n\n    def onBeginDrag(self, event):\n        item = event.GetItem()\n\n        if item != self.tree.GetRootItem(): # prevent dragging root item\n            text = self.tree.GetItemText(item)\n            print(\"Starting SceneGraphUI drag'n'drop with %s...\" % repr(text))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 371
+  }
+}

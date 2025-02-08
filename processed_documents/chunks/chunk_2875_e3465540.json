@@ -1,0 +1,9 @@
+{
+  "content": "def remove(self, ival):\n        # Removes the indicated interval from the list.\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals.remove(ival)\n        self.__ivalsDirty = 1\n\n    def reverse(self):\n        # Reverses the order of the intervals.\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals.reverse()\n        self.__ivalsDirty = 1\n\n    def sort(self, cmpfunc = None):\n        # Sorts the intervals. (?)\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.__ivalsDirty = 1\n        if cmpfunc is None:\n            self.ivals.sort()\n        else:\n            self.ivals.sort(cmpfunc)\n\n    def __len__(self):\n        return len(self.ivals)\n\n    def __getitem__(self, index):\n        return self.ivals[index]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2875
+  }
+}

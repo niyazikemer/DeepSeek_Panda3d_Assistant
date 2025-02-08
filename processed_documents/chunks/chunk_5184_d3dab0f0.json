@@ -1,0 +1,9 @@
+{
+  "content": "object = self.Object(doId, zoneId, dclass)\n            client.objectsByDoId[doId] = object\n            client.objectsByZoneId.setdefault(zoneId, set()).add(object)\n            self.objectsByZoneId.setdefault(zoneId, set()).add(object)\n\n            self.updateClientInterestZones(client)\n\n\n        # Rebuild the new datagram that we'll send on.  We shim in the\n        # doIdBase of the owner.\n        dg = PyDatagram()\n        dg.addUint16(OBJECT_GENERATE_CMU)\n        dg.addUint32(client.doIdBase)\n        dg.addUint32(zoneId)\n        dg.addUint16(classId)\n        dg.addUint32(doId)\n        dg.appendData(dgi.getRemainingBytes())\n\n        self.sendToZoneExcept(zoneId, dg, [client])\n\n    def handleClientObjectUpdateField(self, datagram, dgi, targeted = False):\n        \"\"\" Received an update request from a client. \"\"\"\n        connection = datagram.getConnection()\n        client = self.clientsByConnection[connection]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5184
+  }
+}

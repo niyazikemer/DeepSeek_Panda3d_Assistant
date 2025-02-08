@@ -1,0 +1,9 @@
+{
+  "content": "if name is None:\n            name = '%s-%s' % (self.__class__.__name__,\n                              self.projectileIntervalNum)\n            ProjectileInterval.projectileIntervalNum += 1\n\n        args = (startPos, endPos, duration, startVel, endZ,\n                wayPoint, timeToWayPoint, gravityMult)\n        self.implicitStartPos = 0\n        if startPos is None:\n            if duration is None:\n                self.notify.error('must provide either startPos or duration')\n            self.duration = duration\n            # we can't calc the trajectory until we know our starting\n            # position; delay until the interval is actually started\n            self.trajectoryArgs = args\n            self.implicitStartPos = 1\n        else:\n            self.trajectoryArgs = args\n            self.__calcTrajectory(*args)\n\n        Interval.__init__(self, name, self.duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2923
+  }
+}

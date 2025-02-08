@@ -1,0 +1,9 @@
+{
+  "content": "def findClass(className):\n    \"\"\"\n    Look in sys.modules dictionary for a module that defines a class\n    with this className.\n    \"\"\"\n    for moduleName, module in sys.modules.items():\n        # Some modules are None for some reason\n        if module:\n            # print \"Searching in \", moduleName\n            classObj = module.__dict__.get(className)\n            # If this modules defines some object called classname and the\n            # object is a class or type definition and that class's module\n            # is the same as the module we are looking in, then we found\n            # the matching class and a good module namespace to redefine\n            # our class in.\n            if classObj and isinstance(classObj, type) and \\\n               classObj.__module__ == moduleName:\n                return [classObj, module.__dict__]\n    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4551
+  }
+}

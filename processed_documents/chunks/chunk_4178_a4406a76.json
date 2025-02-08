@@ -1,0 +1,9 @@
+{
+  "content": "def oneTimeCollide(self):\n        \"\"\"\n        Makes one quick collision pass for the avatar, for instance as\n        a one-time straighten-things-up operation after collisions\n        have been disabled.\n        \"\"\"\n        tempCTrav = CollisionTraverser(\"oneTimeCollide\")\n        tempCTrav.addCollider(self.cSphereNodePath, self.pusher)\n        tempCTrav.addCollider(self.cRayNodePath, self.lifter)\n        tempCTrav.traverse(base.render)\n\n    def addBlastForce(self, vector):\n        pass\n\n    def displayDebugInfo(self):\n        \"\"\"\n        For debug use.\n        \"\"\"\n        onScreenDebug.add(\"controls\", \"NonPhysicsWalker\")\n\n    def _calcSpeeds(self):\n        # get the button states:\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\")\n        turnRight = inputState.isSet(\"turnRight\")\n        slide = inputState.isSet(self.slideName) or 0\n        #jump = inputState.isSet(\"jump\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4178
+  }
+}

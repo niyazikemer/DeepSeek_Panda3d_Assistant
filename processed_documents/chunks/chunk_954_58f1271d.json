@@ -1,0 +1,9 @@
+{
+  "content": "def createTasksPage(self, tasksPage):\n        tk.Label(tasksPage, text = 'TASKS',\n              font=('MSSansSerif', 14, 'bold')).pack(expand = 0)\n        self.taskMgrPanel = TaskManagerWidget(tasksPage, taskMgr)\n        self.taskMgrPanel.taskListBox['listbox_height'] = 10\n\n    def createMemPage(self, memPage):\n        self.MemExp = MemoryExplorer.MemoryExplorer(\n            memPage, nodePath = ShowBaseGlobal.base.render,\n            scrolledCanvas_hull_width = 250,\n            scrolledCanvas_hull_height = 250)\n        self.MemExp.pack(fill = tk.BOTH, expand = 1)\n\n    def toggleDirect(self):\n        if self.directEnabled.get():\n            ShowBaseGlobal.direct.enable()\n        else:\n            ShowBaseGlobal.direct.disable()\n\n    def toggleDirectGrid(self):\n        if self.directGridEnabled.get():\n            ShowBaseGlobal.direct.grid.enable()\n        else:\n            ShowBaseGlobal.direct.grid.disable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 954
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.isolate = self.render2d.attachNewNode('isolate')\n\n        wx, wy = self.winSize\n\n        # Put a label on the bottom of the screen.\n        tn = TextNode('tn')\n        tn.setText('%s\\n%s x %s\\n%s' % (\n            tr.tex.getName(), tr.tex.getXSize(), tr.tex.getYSize(),\n            self.formatSize(tr.size)))\n        tn.setAlign(tn.ACenter)\n        tn.setCardAsMargin(100.0, 100.0, 0.1, 0.1)\n        tn.setCardColor(0.1, 0.2, 0.4, 1)\n        tnp = self.isolate.attachNewNode(tn)\n        scale = 30.0 / wy\n        tnp.setScale(scale * wy / wx, scale, scale)\n        tnp.setPos(base.render2d, 0, 0, -1 - tn.getBottom() * scale)\n\n        labelTop = tn.getHeight() * scale\n\n        # Make a card that shows the texture in actual pixel size, but\n        # don't let it exceed the screen size.\n        tw = tr.tex.getXSize()\n        th = tr.tex.getYSize()\n\n        wx = float(wx)\n        wy = float(wy) * (2.0 - labelTop) * 0.5\n\n        w = min(tw, wx)\n        h = min(th, wy)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2971
+  }
+}

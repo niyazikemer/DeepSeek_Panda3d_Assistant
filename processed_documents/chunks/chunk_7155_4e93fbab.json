@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nele = file('models/tetra.1.ele', 'r').read()\nface = file('models/tetra.1.face', 'r').read()\nnode = file('models/tetra.1.node', 'r').read()\n\nbodyNode = BulletSoftBodyNode.makeTetMesh(info, ele, face, node)\n\ncpp\n\nTODO\n\nOnce the soft body is created we still have to set it up properly. The following code snippet shows how to do so:\n\npython\n\nbodyNode.setName('Tetra')\nbodyNode.setVolumeMass(300)\nbodyNode.getShape(0).setMargin(0.01)\nbodyNode.getMaterial(0).setLinearStiffness(0.1)\nbodyNode.getCfg().setPositionsSolverIterations(1)\nbodyNode.getCfg().clearAllCollisionFlags()\nbodyNode.getCfg().setCollisionFlag(BulletSoftBodyConfig.CFClusterSoftSoft, True)\nbodyNode.getCfg().setCollisionFlag(BulletSoftBodyConfig.CFClusterRigidSoft, True)\nbodyNode.generateClusters(6)\n\nbodyNP = self.worldNP.attachNewNode(bodyNode)\nbodyNP.setPos(0, 0, 8)\nbodyNP.setHpr(45, 0, 0)\nworld.attachSoftBody(bodyNode)\n\ncpp\n\nTODO",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_596",
+    "parent": "processed_documents/context_documents/44951a7f_af197370_softbody-tetrahedron.json",
+    "chunk_number": 7155
+  }
+}

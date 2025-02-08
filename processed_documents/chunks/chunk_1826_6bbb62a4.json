@@ -1,0 +1,9 @@
+{
+  "content": "# Documentation\n# http://www.python.org/doc/2.2.3/lib/module-gc.html\n# http://www.python.org/~jeremy/weblog/030410.html\n\n# Before you chase down leaks, make sure you Config:\n# want-dev 0\n\n# You may also want to run pyo-shell so __debug__ is False and assert code is removed.\n\nimport gc\ngc.set_debug(gc.DEBUG_LEAK)\ngc.collect()\nprint(gc.garbage)\n\n# Inside DistributedObjectAI, you can uncomment the __del__ function to\n# see when your objects are being deleted (or not)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_119",
+    "parent": "processed_documents/context_documents/05ca780e_MemoryLeakHelpers.json",
+    "chunk_number": 1826
+  }
+}

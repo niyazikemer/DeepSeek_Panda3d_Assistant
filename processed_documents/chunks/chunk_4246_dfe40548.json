@@ -1,0 +1,9 @@
+{
+  "content": "def __init__(self, name, log=True, verbose=False, fullReport=False, findCycles=True,\n                 threaded=False, doneCallback=None, autoDestroy=False, priority=None,\n                 safeMode=False, delOnly=False, collect=True):\n        # if autoDestroy is True, GarbageReport will self-destroy after logging\n        # if false, caller is responsible for calling destroy()\n        # if threaded is True, processing will be performed over multiple frames\n        # if collect is False, we assume that the caller just did a collect and the results\n        # are still in gc.garbage\n        Job.__init__(self, name)\n        # stick the arguments onto a ScratchPad so we can delete them all at once\n        self._args = ScratchPad(name=name, log=log, verbose=verbose, fullReport=fullReport,\n                                findCycles=findCycles, doneCallback=doneCallback,\n                                autoDestroy=autoDestroy, safeMode=safeMode, delOnly=delOnly,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4246
+  }
+}

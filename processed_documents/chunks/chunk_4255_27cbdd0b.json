@@ -1,0 +1,9 @@
+{
+  "content": "# find the cycles\n        if self._args.findCycles and self.numGarbage > 0:\n            if self._args.verbose:\n                self.notify.info('calculating cycles...')\n            for i in range(self.numGarbage):\n                yield None\n                for newCycles in self._getCycles(i, self.uniqueCycleSets):\n                    yield None\n                self.cycles.extend(newCycles)\n                # create a representation of the cycle in human-readable form\n                newCyclesBySyntax = []\n                for cycle in newCycles:\n                    cycleBySyntax = ''\n                    objs = []\n                    # leave off the last index, it's a repeat of the first index\n                    for index in cycle[:-1]:\n                        objs.append(self.garbage[index])\n                        yield None\n                    # make the list repeat so we can safely iterate off the end\n                    numObjs = len(objs) - 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4255
+  }
+}

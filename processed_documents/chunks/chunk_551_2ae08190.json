@@ -1,0 +1,9 @@
+{
+  "content": "def updateScene(self):\n        curveObjNP = self.editor.objectMgr.addNewCurve(self.curveControl, self.degree, nodePath=self.currentRope)\n        curveObj = self.editor.objectMgr.findObjectByNodePath(curveObjNP)\n        for item in self.curveControl:\n            item[1].reparentTo(curveObjNP)\n        self.editor.objectMgr.updateObjectPropValue(curveObj, 'Degree', self.degree, fSelectObject=False, fUndo=False)\n\n    def doneEdit(self):\n        base.direct.selected.last = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 551
+  }
+}

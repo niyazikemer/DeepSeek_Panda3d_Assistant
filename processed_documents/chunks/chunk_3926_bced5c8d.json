@@ -1,0 +1,9 @@
+{
+  "content": "# schedule the next profile\n        delay = max(time - ClockObject.getGlobalClock().getFrameTime(), 0.)\n        self._task = taskMgr.doMethodLater(delay, self._scheduleNextProfileDoLater,\n                                           'FrameProfiler-%s' % serialNum())\n\n    def _analyzeResults(self, sessionId):\n        # do the analysis in a task 1) to separate the processing from the profiled frame,\n        # and 2) to get the processing to show up in a named task instead of in the taskMgr\n        self._id2task[sessionId] = taskMgr.add(\n            Functor(self._doAnalysis, sessionId), 'FrameProfilerAnalysis-%s' % sessionId)\n\n    def _doAnalysis(self, sessionId, task):\n        if hasattr(task, '_generator'):\n            gen = task._generator\n        else:\n            gen = self._doAnalysisGen(sessionId)\n            task._generator = gen\n        result = next(gen)\n        if result == Task.done:\n            del task._generator\n        return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3926
+  }
+}

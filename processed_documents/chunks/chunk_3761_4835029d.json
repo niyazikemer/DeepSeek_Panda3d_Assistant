@@ -1,0 +1,9 @@
+{
+  "content": "class Thread(ThreadBase):\n    \"\"\" This class provides a wrapper around Panda's PythonThread\n    object.  The wrapper is designed to emulate Python's own\n    threading.Thread object. \"\"\"\n\n    def __init__(self, group=None, target=None, name=None, args=(), kwargs={}, daemon=None):\n        ThreadBase.__init__(self)\n\n        assert group is None\n        self.__target = target\n        self.__args = args\n        self.__kwargs = kwargs\n\n        if not name:\n            name = _newname()\n\n        current = current_thread()\n        if daemon is not None:\n            self.__dict__['daemon'] = daemon\n        else:\n            self.__dict__['daemon'] = current.daemon\n        self.__dict__['name'] = name\n\n        def call_run():\n            # As soon as the thread is done, break the circular reference.\n            try:\n                self.run()\n            finally:\n                self.__thread = None\n                _thread._remove_thread_id(self.ident)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3761
+  }
+}

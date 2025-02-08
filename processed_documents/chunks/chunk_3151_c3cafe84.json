@@ -1,0 +1,9 @@
+{
+  "content": "if isinstance(filename, NodePath):\n                    # We were given a pre-load anim bundle, not a filename.\n                    assert not filename.isEmpty()\n                    if filename.node().isOfType(AnimBundleNode.getClassType()):\n                        animBundleNP = filename\n                    else:\n                        animBundleNP = filename.find('**/+AnimBundleNode')\n                    assert not animBundleNP.isEmpty()\n                    self.__animControlDict[lName][partName][animName].animBundle = animBundleNP.node().getBundle()\n\n                else:\n                    # We were given a filename that must be loaded.\n                    # Store the filename only; we will load and bind\n                    # it (and produce an AnimControl) when it is\n                    # played.\n                    self.__animControlDict[lName][partName][animName].filename = filename",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3151
+  }
+}

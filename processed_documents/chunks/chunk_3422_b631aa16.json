@@ -1,0 +1,9 @@
+{
+  "content": "def pushRedo(self, nodePathList):\n        # Assemble group of changes\n        redoGroup = []\n        for nodePath in nodePathList:\n            t = nodePath.getTransform()\n            redoGroup.append([nodePath, t])\n        # Now record redo group\n        self.redoList.append(redoGroup)\n        # Truncate list\n        self.redoList = self.redoList[-25:]\n        # Alert anyone who cares\n        messenger.send('DIRECT_pushRedo')\n\n    def popRedoGroup(self):\n        # Get last item\n        redoGroup = self.redoList[-1]\n        # Strip last item off of redo list\n        self.redoList = self.redoList[:-1]\n        # Update state of redo button\n        if not self.redoList:\n            messenger.send('DIRECT_redoListEmpty')\n        # Return last item\n        return redoGroup",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3422
+  }
+}

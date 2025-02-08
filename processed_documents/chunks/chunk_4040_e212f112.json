@@ -1,0 +1,9 @@
+{
+  "content": "self.phys.attachLinearIntegrator(LinearEulerIntegrator())\n        self.phys.attachPhysicalNode(physicsActor.node())\n\n        self.acForce=LinearVectorForce(0.0, 0.0, 0.0)\n        fn=ForceNode(\"avatarControls\")\n        fnp=NodePath(fn)\n        fnp.reparentTo(render)\n        fn.addForce(self.acForce)\n        self.phys.addLinearForce(self.acForce)\n        #self.phys.removeLinearForce(self.acForce)\n        #fnp.remove()\n        return avatarNodePath\n\n    def initializeCollisions(self, collisionTraverser, avatarNodePath,\n            wallBitmask, floorBitmask,\n            avatarRadius = 1.4, floorOffset = 1.0, reach = 1.0):\n        \"\"\"\n        Set up the avatar collisions\n        \"\"\"\n        assert self.debugPrint(\"initializeCollisions()\")\n\n        assert not avatarNodePath.isEmpty()\n\n        self.cTrav = collisionTraverser\n        self.floorOffset = floorOffset = 7.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4040
+  }
+}

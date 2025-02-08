@@ -1,0 +1,9 @@
+{
+  "content": "location = emitter.getLocation()\n            self.getWidget('Point Emitter', 'Position').set(\n                [location[0], location[1], location[2]], 0)\n        elif isinstance(emitter, RectangleEmitter):\n            min = emitter.getMinBound()\n            self.getWidget('Rectangle Emitter', 'Min').set(\n                [min[0], min[1]], 0)\n            max = emitter.getMaxBound()\n            self.getWidget('Rectangle Emitter', 'Max').set(\n                [max[0], max[1]], 0)\n        elif isinstance(emitter, RingEmitter):\n            radius = emitter.getRadius()\n            self.getWidget('Ring Emitter', 'Radius').set(radius, 0)\n            radiusSpread = emitter.getRadiusSpread()\n            self.getWidget('Ring Emitter', 'Radius Spread').set(radiusSpread, 0)\n            angle = emitter.getAngle()\n            self.getWidget('Ring Emitter', 'Angle').set(angle, 0)\n        elif isinstance(emitter, SphereVolumeEmitter):\n            radius = emitter.getRadius()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 816
+  }
+}

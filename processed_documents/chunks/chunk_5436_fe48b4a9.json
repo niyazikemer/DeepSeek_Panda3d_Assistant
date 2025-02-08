@@ -1,0 +1,9 @@
+{
+  "content": "def webPrintObjectCount(self):\n        strToReturn = '==== OBJECT COUNT ====\\n'\n        if self.hasOwnerView():\n            strToReturn = '%s == doId2do\\n' % (strToReturn)\n        strToReturn = '%s%s' % (strToReturn, self._returnObjects(self.getDoTable(ownerView=False)))\n        if self.hasOwnerView():\n            strToReturn = '%s\\n== doId2ownerView\\n' % (strToReturn)\n            strToReturn = '%s%s' % (strToReturn, self._returnObjects(self.getDoTable(ownerView=False)))\n        return strToReturn\n\n    def printObjectCount(self):\n        # print object counts by distributed object type\n        print('==== OBJECT COUNT ====')\n        if self.hasOwnerView():\n            print('== doId2do')\n        self._printObjects(self.getDoTable(ownerView=False))\n        if self.hasOwnerView():\n            print('== doId2ownerView')\n            self._printObjects(self.getDoTable(ownerView=True))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5436
+  }
+}

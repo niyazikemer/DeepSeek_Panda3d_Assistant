@@ -1,0 +1,9 @@
+{
+  "content": "if not getattr(mod, '__file__', None):\n            return None\n\n        fullname = mod.__name__\n        dirname = Filename.fromOsSpecific(mod.__file__).getDirname()\n\n        parentname = None\n        basename = fullname\n        if '.' in fullname:\n            parentname, basename = fullname.rsplit('.', 1)\n\n        path = None\n        if parentname:\n            parent = sys.modules[parentname]\n            path = parent.__path__\n        if path is None:\n            path = sys.path\n\n        for dir in path:\n            pdir = str(Filename.fromOsSpecific(dir))\n            if pdir + '/' + basename == dirname:\n                # We found it!\n                return dir\n\n        # Couldn't figure it out.\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4343
+  }
+}

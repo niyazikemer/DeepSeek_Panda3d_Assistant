@@ -1,0 +1,9 @@
+{
+  "content": "self.SetSizer(dialogSizer)\n        self.Layout()\n\n        self.dialogSizer = dialogSizer\n\n    def OnCurrentTime(self, evt):\n        self.curFrame = evt.GetInt()\n        self.timeSlider.SetTimeSliderData(self.sliderStartFrame, self.sliderEndFrame, self.curFrame)\n        self.OnAnimation(self.curFrame)\n\n    def OnControl(self):\n        self.curFrameSpin.SetValue(self.curFrame)\n        self.timeSlider.SetTimeSliderData(self.sliderStartFrame, self.sliderEndFrame, self.curFrame)\n        self.OnAnimation(self.curFrame)\n\n    def OnFirstFrame(self, evt):\n        self.curFrame = self.sliderStartFrame\n        self.OnControl()\n\n    def OnPreFrame(self, evt):\n        if self.curFrame-1 >= self.startFrame:\n            self.curFrame -= 1\n            self.OnControl()\n        else:\n            evt.Skip()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 680
+  }
+}

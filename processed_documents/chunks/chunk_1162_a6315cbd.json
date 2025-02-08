@@ -1,0 +1,9 @@
+{
+  "content": "self.nurbsCurveDrawer.draw()\n            # Update tangent\n            if self.manipulandumId == self.tangentMarker.id():\n                # If manipulating marker, update tangent\n                # Hide playback marker\n                self.playbackMarker.getChild(0).hide()\n                # Where is tangent marker relative to playback marker\n                tan = self.tangentMarker.getPos()\n                # Transform this vector to curve space\n                tan2Curve = Vec3(\n                    self.playbackMarker.getMat(\n                    self.nodePathParent).xformVec(tan))\n                # Update nurbs curve\n                self.curveCollection.getXyzCurve().adjustTangent(\n                    self.playbackTime,\n                    tan2Curve[0], tan2Curve[1], tan2Curve[2])\n                # Note: this calls recompute on the curves\n                self.nurbsCurveDrawer.draw()\n            else:\n                # Show playback marker",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1162
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "You may alter gravity by providing a multiplier in 'gravityMult'.\n        '2.' will make gravity twice as strong, '.5' half as strong.\n        '-1.' will reverse gravity\n\n        If collNode is not None, it should be an empty CollisionNode\n        which will be filled with an appropriate CollisionParabola\n        when the interval starts.  This CollisionParabola will be set\n        to match the interval's parabola, and its t1, t2 values will\n        be updated automatically as the interval plays.  It will *not*\n        be automatically removed from the node when the interval\n        finishes.\n\n        \"\"\"\n        self.node = node\n        self.collNode = collNode\n        if self.collNode:\n            if isinstance(self.collNode, NodePath):\n                self.collNode = self.collNode.node()\n            assert self.collNode.getNumSolids() == 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2922
+  }
+}

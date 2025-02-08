@@ -1,0 +1,9 @@
+{
+  "content": "def highlightKnob(self, event):\n        self._widget.itemconfigure('knob', fill = 'black')\n\n    def restoreKnob(self, event):\n        self._widget.itemconfigure('knob', fill = 'grey50')\n\n    # To call user callbacks\n    def _onButtonPress(self, *args):\n        \"\"\" User redefinable callback executed on button press \"\"\"\n        if self['preCallback']:\n            self['preCallback'](*self['callbackData'])\n\n    def _onButtonRelease(self, *args):\n        \"\"\" User redefinable callback executed on button release \"\"\"\n        if self['postCallback']:\n            self['postCallback'](*self['callbackData'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3718
+  }
+}

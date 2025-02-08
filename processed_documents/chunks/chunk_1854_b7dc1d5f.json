@@ -1,0 +1,9 @@
+{
+  "content": "- :func:`verify()` will still function in the release build.  It will not be\n  removed by -O like assert will.\n\n:func:`verify()` will also throw an AssertionError, but you can ignore that if\nyou like (I don't suggest trying to catch it, it's just doing it so that it can\nreplace assert more fully).\n\nPlease do not use assert for things that you want run on release builds.\nThat is a bad thing to do.  One of the main reasons that assert exists\nis to stip out debug code from a release build.  The fact that it throws\nan exception can get it mistaken for an error handler.  If your code\nneeds to handle an error or throw an exception, you should do that\n(and not just assert for it).\n\nIf you want to be a super keen software engineer then avoid using\n:func:`verify()`.  If you want to be, or already are, a super keen software\nengineer, but you don't always have the time to write proper error handling,\ngo ahead and use :func:`verify()` -- that's what it's for.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_127",
+    "parent": "processed_documents/context_documents/1af78250_Verify.json",
+    "chunk_number": 1854
+  }
+}

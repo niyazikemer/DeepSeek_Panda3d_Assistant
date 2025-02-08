@@ -1,0 +1,9 @@
+{
+  "content": "def _exceptionLogged(*args, **kArgs):\n                try:\n                    return f(*args, **kArgs)\n                except Exception as e:\n                    try:\n                        s = '%s(' % f.__name__\n                        for arg in args:\n                            s += '%s, ' % arg\n                        for key, value in list(kArgs.items()):\n                            s += '%s=%s, ' % (key, value)\n                        if len(args) > 0 or len(kArgs) > 0:\n                            s = s[:-2]\n                        s += ')'\n                        if append:\n                            appendStr(e, '\\n%s' % s)\n                        else:\n                            exceptionLoggedNotify.info(s)\n                    except Exception:\n                        exceptionLoggedNotify.info(\n                            '%s: ERROR IN PRINTING' % f.__name__)\n                    raise\n            _exceptionLogged.__doc__ = f.__doc__",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4696
+  }
+}

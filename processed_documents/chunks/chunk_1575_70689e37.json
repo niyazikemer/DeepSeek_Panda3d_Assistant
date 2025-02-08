@@ -1,0 +1,9 @@
+{
+  "content": "def setOrientation(self):\n        if self['orientation'] == DGG.HORIZONTAL:\n            if self._lastOrientation in (DGG.VERTICAL, DGG.VERTICAL_INVERTED):\n                fpre = self['frameSize']\n                # swap frameSize width and height to keep custom frameSizes\n                self['frameSize'] = (fpre[2], fpre[3], fpre[0], fpre[1])\n                tf = self.thumb['frameSize']\n                self.thumb['frameSize'] = (tf[2], tf[3], tf[0], tf[1])\n            self.guiItem.setAxis(Vec3(1, 0, 0))\n            self['frameVisibleScale'] = (1, 0.25)\n        elif self['orientation'] == DGG.VERTICAL:\n            if self._lastOrientation == DGG.HORIZONTAL:\n                fpre = self['frameSize']\n                # swap frameSize width and height to keep custom frameSizes\n                self['frameSize'] = (fpre[2], fpre[3], fpre[0], fpre[1])\n                tf = self.thumb['frameSize']\n                self.thumb['frameSize'] = (tf[2], tf[3], tf[0], tf[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_90",
+    "parent": "processed_documents/context_documents/1d02830b_DirectSlider.json",
+    "chunk_number": 1575
+  }
+}

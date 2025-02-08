@@ -1,0 +1,9 @@
+{
+  "content": "# Spawn task to have object handles follow the selected object\n            taskMgr.remove('followSelectedNodePath')\n            t = Task.Task(self.followSelectedNodePathTask)\n            t.dnp = dnp\n            taskMgr.add(t, 'followSelectedNodePath')\n            # Send an message marking the event\n            messenger.send('DIRECT_selectedNodePath', [dnp])\n            messenger.send('DIRECT_selectedNodePath_fMulti_fTag', [dnp, fMultiSelect, fSelectTag])\n            messenger.send('DIRECT_selectedNodePath_fMulti_fTag_fLEPane', [dnp, fMultiSelect, fSelectTag, fLEPane])\n\n    def followSelectedNodePathTask(self, state):\n        mCoa2Render = state.dnp.mCoa2Dnp * state.dnp.getMat(base.render)\n        decomposeMatrix(mCoa2Render,\n                        self.scale, self.hpr, self.pos,\n                        CSDefault)\n        self.widget.setPosHpr(self.pos, self.hpr)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3410
+  }
+}

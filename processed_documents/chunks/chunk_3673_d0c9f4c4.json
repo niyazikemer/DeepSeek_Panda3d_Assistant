@@ -1,0 +1,9 @@
+{
+  "content": "class TreeNode:\n\n    def __init__(self, canvas, parent, item, menuList = []):\n        self.canvas = canvas\n        self.parent = parent\n        self.item = item\n        self.state = 'collapsed'\n        self.selected = 0\n        self.children = {}\n        self.kidKeys = []\n        self.x = self.y = None\n        self.iconimages = {} # cache of PhotoImage instances for icons\n        self.menuList = menuList\n        if self.menuList:\n            if self.menuList[-1] == 'Separator':\n                self.menuList = self.menuList[:-1]\n        self.menuVar = tk.IntVar()\n        self.menuVar.set(0)\n        self._popupMenu = None\n        self.fSortChildren = False # [gjeon] flag for sorting children or not\n        self.fModeChildrenTag = 0 # [gjeon] flag for using filter or not\n        self.childrenTag = None # [gjeon] filter dictionary for\n        self.setAsTarget = 0 # [gjeon] to visualize reparent target",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3673
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if self.useLifter:\n            # set up floor collision mechanism\n            self.lifter = CollisionHandlerFloor()\n            self.lifter.setInPattern(\"enter%in\")\n            self.lifter.setOutPattern(\"exit%in\")\n            self.lifter.setOffset(floorOffset)\n\n            # Limit our rate-of-fall with the lifter.\n            # If this is too low, we actually \"fall\" off steep stairs\n            # and float above them as we go down. I increased this\n            # from 8.0 to 16.0 to prevent this\n            #self.lifter.setMaxVelocity(16.0)\n\n            #self.bobNodePath = self.avatarNodePath.attachNewNode(\"bob\")\n            #self.lifter.addCollider(self.cRayNodePath, self.cRayNodePath)\n            self.lifter.addCollider(self.cRayNodePath, self.avatarNodePath)\n        else: # useCollisionHandlerQueue\n            self.cRayQueue = CollisionHandlerQueue()\n            self.cTrav.addCollider(self.cRayNodePath, self.cRayQueue)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4034
+  }
+}

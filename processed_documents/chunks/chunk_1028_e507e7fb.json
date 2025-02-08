@@ -1,0 +1,9 @@
+{
+  "content": "def createTextWidgets(self):\n        textWidgetsFrame = self.framePane.add('textWidgets')\n        self.textPane = Pmw.PanedWidget(textWidgetsFrame, orient = tk.VERTICAL)\n        textFrame = self.textPane.add('text', size = 200)\n        self.textWidget = Pmw.ScrolledText(\n            textFrame, vscrollmode = 'static', text_state = 'disabled')\n        self.textWidget.pack(fill=tk.BOTH, expand=1)\n        commandFrame = self.textPane.add('command')\n        self.commandWidget = Pmw.ScrolledText(\n            commandFrame, vscrollmode = 'static')\n        self.commandWidget.insert(1.0, '>>> ')\n        self.commandWidget.pack(fill = tk.BOTH, expand = 1)\n        self.commandWidget.component('text').bind(\n            '<KeyRelease-Return>', self.evalCommand)\n        self.textPane.pack(expand = 1, fill = tk.BOTH)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1028
+  }
+}

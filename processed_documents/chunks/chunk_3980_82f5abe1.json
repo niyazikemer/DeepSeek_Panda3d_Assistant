@@ -1,0 +1,9 @@
+{
+  "content": "if changed == \"VolumetricLighting\" or fullrebuild:\n            if \"VolumetricLighting\" in configuration:\n                config = configuration[\"VolumetricLighting\"]\n                tcparam = config.density / float(config.numsamples)\n                self.finalQuad.setShaderInput(\"vlparams\", tcparam, config.decay, config.exposure, 0.0)\n\n        if changed == \"AmbientOcclusion\" or fullrebuild:\n            if \"AmbientOcclusion\" in configuration:\n                config = configuration[\"AmbientOcclusion\"]\n                self.ssao[0].setShaderInput(\"params1\", config.numsamples, -float(config.amount) / config.numsamples, config.radius, 0)\n                self.ssao[0].setShaderInput(\"params2\", config.strength, config.falloff, 0, 0)\n\n        if changed == \"ExposureAdjust\" or fullrebuild:\n            if \"ExposureAdjust\" in configuration:\n                stops = configuration[\"ExposureAdjust\"]\n                self.finalQuad.setShaderInput(\"exposure\", 2 ** stops)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3980
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.numGarbageInstances = len(garbageInstances)\n            # grab the ids of the garbage instances (objects with __del__)\n            self.garbageInstanceIds = set()\n            for i in range(len(garbageInstances)):\n                self.garbageInstanceIds.add(id(garbageInstances[i]))\n                if i % 20 == 0:\n                    yield None\n            # then release the list of instances so that it doesn't interfere with the gc.collect() below\n            del garbageInstances\n        else:\n            self.garbageInstanceIds = set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4250
+  }
+}

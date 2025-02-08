@@ -1,0 +1,9 @@
+{
+  "content": "if not ShowBaseGlobal.direct.gotAlt(modifiers):\n            if entry:\n                # Check to see if we are moving the object\n                # We are moving the object if we either wait long enough\n                taskMgr.doMethodLater(DG.MANIPULATION_MOVE_DELAY,\n                                      self.switchToMoveMode,\n                                      'manip-move-wait')\n                # Or we move far enough\n                self.moveDir = None\n                watchMouseTask = Task.Task(self.watchMouseTask)\n                watchMouseTask.initX = ShowBaseGlobal.direct.dr.mouseX\n                watchMouseTask.initY = ShowBaseGlobal.direct.dr.mouseY\n                taskMgr.add(watchMouseTask, 'manip-watch-mouse')\n            else:\n                if ShowBaseGlobal.direct.fControl:\n                    self.mode = 'move'\n                    self.manipulateObject()\n                elif not ShowBaseGlobal.direct.fAlt and self.fAllowMarquee:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3196
+  }
+}

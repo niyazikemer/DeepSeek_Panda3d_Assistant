@@ -1,0 +1,9 @@
+{
+  "content": "def delHalfPixelShift(self):\n        if \"HalfPixelShift\" in self.configuration:\n            del self.configuration[\"HalfPixelShift\"]\n            return self.reconfigure(True, \"HalfPixelShift\")\n        return True\n\n    def setViewGlow(self):\n        fullrebuild = (\"ViewGlow\" not in self.configuration)\n        self.configuration[\"ViewGlow\"] = 1\n        return self.reconfigure(fullrebuild, \"ViewGlow\")\n\n    def delViewGlow(self):\n        if \"ViewGlow\" in self.configuration:\n            del self.configuration[\"ViewGlow\"]\n            return self.reconfigure(True, \"ViewGlow\")\n        return True\n\n    def setInverted(self):\n        fullrebuild = (\"Inverted\" not in self.configuration)\n        self.configuration[\"Inverted\"] = 1\n        return self.reconfigure(fullrebuild, \"Inverted\")\n\n    def delInverted(self):\n        if \"Inverted\" in self.configuration:\n            del self.configuration[\"Inverted\"]\n            return self.reconfigure(True, \"Inverted\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3986
+  }
+}

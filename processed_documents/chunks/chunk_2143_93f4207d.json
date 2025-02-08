@@ -1,0 +1,9 @@
+{
+  "content": "# Loop through to find the offset of the \"blobinfo\" symbol.\n        for offset, size, link, entsize in symbol_tables:\n            entries = size // entsize\n            for i in range(entries):\n                ptr = offset + i * entsize\n                fields = struct.unpack_from(symbol_struct, elf_data[ptr:ptr+entsize])\n                if is_64bit:\n                    name, info, other, shndx, value, size = fields\n                else:\n                    name, value, size, info, other, shndx = fields\n\n                if not name:\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2143
+  }
+}

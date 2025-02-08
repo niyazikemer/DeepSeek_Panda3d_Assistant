@@ -1,0 +1,9 @@
+{
+  "content": "self.PopupMenu(self.popupmenu, pos)\n\n    def onPopupItemSelected(self, event):\n        menuItem = self.popupmenu.FindItemById(event.GetId())\n        text = menuItem.GetText()\n        if text == self.opAdd:\n            self.tree.AddGroup()\n        elif text == self.opDelete:\n            self.tree.DeleteSelected()\n        elif text == self.opSortAlpha:\n            self.opSort = self.opSortAlpha\n            self.tree.SortTreeNodes(self.tree.GetRootItem())\n        elif text == self.opSortOrig:\n            self.opSort = self.opSortOrig\n            self.tree.SortTreeNodes(self.tree.GetRootItem())\n\n    def AquireFile(self, filename):\n        name = os.path.basename(filename)\n\n        if self.editor.protoPalette.findItem(name):\n            item = self.tree.traverse(self.tree.root, name)\n            if item:\n                self.tree.DeleteItem(item)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 564
+  }
+}

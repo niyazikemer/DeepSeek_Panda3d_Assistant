@@ -1,0 +1,9 @@
+{
+  "content": "class ActionChangeHierarchy(ActionBase):\n    \"\"\" Action class for changing Scene Graph Hierarchy \"\"\"\n\n    def __init__(self, editor, oldGrandParentId, oldParentId, newParentId, childName, *args, **kargs):\n        self.editor = editor\n        self.oldGrandParentId = oldGrandParentId\n        self.oldParentId = oldParentId\n        self.newParentId = newParentId\n        self.childName = childName\n        function = self.editor.ui.sceneGraphUI.parent\n        ActionBase.__init__(self, function, self.oldParentId, self.newParentId, self.childName, **kargs)\n\n    def undo(self):\n        self.editor.ui.sceneGraphUI.parent(self.oldParentId, self.oldGrandParentId, self.childName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 611
+  }
+}

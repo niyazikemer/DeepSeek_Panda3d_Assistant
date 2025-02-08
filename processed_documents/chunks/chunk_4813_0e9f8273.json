@@ -1,0 +1,9 @@
+{
+  "content": "def printStatsWhenAble(self):\n        self.shouldPrintStats = True\n\n    def myrepr(self, referrer, refersTo):\n        pre = ''\n        if isinstance(referrer, dict):\n            for k,v in referrer.items():\n                if v is refersTo:\n                    pre = self.truncateAtNewLine(fastRepr(k)) + ']-> '\n                    break\n        elif isinstance(referrer, (list, tuple)):\n            for x, ref in enumerate(referrer):\n                if ref is refersTo:\n                    pre = '%s]-> ' % (x)\n                    break\n\n        if isinstance(refersTo, dict):\n            post = 'dict['\n        elif isinstance(refersTo, list):\n            post = 'list['\n        elif isinstance(refersTo, tuple):\n            post = 'tuple['\n        elif isinstance(refersTo, set):\n            post = 'set->'\n        else:\n            post = self.truncateAtNewLine(fastRepr(refersTo)) + \"-> \"\n\n        return '%s%s' % (pre, post)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4813
+  }
+}

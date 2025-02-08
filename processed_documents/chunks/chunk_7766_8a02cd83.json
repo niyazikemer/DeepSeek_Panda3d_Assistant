@@ -1,0 +1,9 @@
+{
+  "content": "This works for simple cases, but it is often necessary to have more specific information about the way the keys are mapped in the user's system. For example, showing \"press W to move forward\" may be confusing on someone with an AZERTY layout, in which case it is more appropriate to say \"press Z to move forward\". When the application has a configuration screen for the keyboard control scheme, acquiring more information about the mapping may also be necessary.\n\nThis can be done using the ~.GraphicsWindow.get_keyboard_map() method on the GraphicsWindow object, returning a .ButtonMap object, which can be used to find out which virtual key event will be fired for a certain raw keyboard button:\n\npython\n\n# Get the current keyboard layout.\n# This may be a somewhat expensive operation, so don't call\n# it all the time, instead storing the result when possible.\nmap = base.win.get_keyboard_map()\n\n# Use this to print all key mappings\nprint(map)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_711",
+    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
+    "chunk_number": 7766
+  }
+}

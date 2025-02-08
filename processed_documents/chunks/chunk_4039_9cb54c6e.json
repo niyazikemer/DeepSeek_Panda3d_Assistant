@@ -1,0 +1,9 @@
+{
+  "content": "fn=ForceNode(\"priorParent\")\n        fnp=NodePath(fn)\n        fnp.reparentTo(render)\n        priorParent=LinearVectorForce(0.0, 0.0, 0.0)\n        fn.addForce(priorParent)\n        self.phys.addLinearForce(priorParent)\n        self.priorParentNp = fnp\n        self.priorParent = priorParent\n\n        fn=ForceNode(\"viscosity\")\n        fnp=NodePath(fn)\n        #fnp.reparentTo(physicsActor)\n        fnp.reparentTo(render)\n        self.avatarViscosity=LinearFrictionForce(0.0, 1.0, 0)\n        #self.avatarViscosity.setCoef(0.9)\n        fn.addForce(self.avatarViscosity)\n        self.phys.addLinearForce(self.avatarViscosity)\n\n        self.phys.attachLinearIntegrator(LinearEulerIntegrator())\n        self.phys.attachPhysicalNode(physicsActor.node())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4039
+  }
+}

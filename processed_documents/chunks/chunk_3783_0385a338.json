@@ -1,0 +1,9 @@
+{
+  "content": "raw = StreamIOWrapper(stream, needsVfsClose=True)\n        raw.mode = mode\n        raw.name = vfile.getFilename().toOsSpecific()\n\n    # If a binary stream was requested, return the stream we've created.\n    if binary:\n        return raw\n\n    line_buffering = False\n    if buffering == 1:\n        line_buffering = True\n    elif buffering == 0:\n        raise ValueError(\"can't have unbuffered text I/O\")\n\n    # Otherwise, create a TextIOWrapper object to wrap it.\n    wrapper = io.TextIOWrapper(raw, encoding, errors, newline, line_buffering)\n    wrapper.mode = mode\n    return wrapper",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3783
+  }
+}

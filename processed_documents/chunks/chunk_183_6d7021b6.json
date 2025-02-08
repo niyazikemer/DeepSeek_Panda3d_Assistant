@@ -1,0 +1,9 @@
+{
+  "content": "def createInterface(self):\n        self.createMenu()\n        self.mainFrame = wx.SplitterWindow(self, style = wx.SP_3D | wx.SP_BORDER)\n        self.leftFrame = wx.SplitterWindow(self.mainFrame, style = wx.SP_3D | wx.SP_BORDER)\n        self.baseFrame = wx.SplitterWindow(self.mainFrame, style = wx.SP_3D | wx.SP_BORDER)\n        self.viewFrame = FWS.FourWaySplitter(self.baseFrame, style=wx.SP_LIVE_UPDATE)\n        self.rightFrame = wx.SplitterWindow(self.baseFrame, style = wx.SP_3D | wx.SP_BORDER)\n\n        self.topView = Viewport.makeTop(self.viewFrame)\n        self.viewFrame.AppendWindow(self.topView)\n\n        self.frontView = Viewport.makeFront(self.viewFrame)\n        self.viewFrame.AppendWindow(self.frontView)\n\n        self.leftView = Viewport.makeLeft(self.viewFrame)\n        self.viewFrame.AppendWindow(self.leftView)\n\n        self.perspView = Viewport.makePerspective(self.viewFrame)\n        self.viewFrame.AppendWindow(self.perspView)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 183
+  }
+}

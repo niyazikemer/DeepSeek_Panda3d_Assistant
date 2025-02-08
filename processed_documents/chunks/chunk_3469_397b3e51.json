@@ -1,0 +1,9 @@
+{
+  "content": "if base.direct:\n            self.collider.setFromLens(base.direct.camNode, mx, my)\n        else:\n            self.collider.setFromLens(base.camNode, mx, my)\n        self.ct.traverse(targetNodePath)\n        self.sortEntries()\n\n    def pickBitMask(self, bitMask = BitMask32.allOff(),\n                    targetNodePath = None,\n                    skipFlags = DG.SKIP_ALL):\n        if targetNodePath is None:\n            targetNodePath = render\n        self.collideWithBitMask(bitMask)\n        self.pick(targetNodePath)\n        # Determine collision entry\n        return self.findCollisionEntry(skipFlags)\n\n    def pickGeom(self, targetNodePath = None, skipFlags = DG.SKIP_ALL,\n                 xy = None):\n        if targetNodePath is None:\n            targetNodePath = render\n        self.collideWithGeom()\n        self.pick(targetNodePath, xy = xy)\n        # Determine collision entry\n        return self.findCollisionEntry(skipFlags)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3469
+  }
+}

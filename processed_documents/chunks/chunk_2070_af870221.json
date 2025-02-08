@@ -1,0 +1,9 @@
+{
+  "content": "abi_version = '{0}{1}'.format(*sys.version_info)\n            abi_flags = ''\n            if sys.version_info < (3, 8):\n                abi_flags += 'm'\n\n            if 'android' in self.platform:\n                arch = self.platform.split('_', 1)[1]\n                if arch in ('arm64', 'aarch64'):\n                    suffixes.append(('.cpython-{0}{1}-aarch64-linux-android.so'.format(abi_version, abi_flags), 'rb', 3))\n                elif arch in ('arm', 'armv7l'):\n                    suffixes.append(('.cpython-{0}{1}-arm-linux-androideabi.so'.format(abi_version, abi_flags), 'rb', 3))\n                elif arch in ('x86_64', 'amd64'):\n                    suffixes.append(('.cpython-{0}{1}-x86_64-linux-android.so'.format(abi_version, abi_flags), 'rb', 3))\n                elif arch in ('i386', 'i686'):\n                    suffixes.append(('.cpython-{0}{1}-i686-linux-android.so'.format(abi_version, abi_flags), 'rb', 3))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2070
+  }
+}

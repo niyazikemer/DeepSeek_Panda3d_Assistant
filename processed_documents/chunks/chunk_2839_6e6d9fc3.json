@@ -1,0 +1,9 @@
+{
+  "content": "def isPlaying(self):\n        return taskMgr.hasTaskNamed(self.getName() + '-play')\n\n    def getPlayRate(self):\n        \"\"\" Returns the play rate as set by the last call to start(),\n        loop(), or setPlayRate(). \"\"\"\n        return self.__playRate\n\n    def setPlayRate(self, playRate):\n        \"\"\" Changes the play rate of the interval.  If the interval is\n        already started, this changes its speed on-the-fly.  Note that\n        since playRate is a parameter to start() and loop(), the next\n        call to start() or loop() will reset this parameter. \"\"\"\n\n        if self.isPlaying():\n            self.pause()\n            self.__playRate = playRate\n            self.resume()\n        else:\n            self.__playRate = playRate\n\n    def setDoneEvent(self, event):\n        self.doneEvent = event\n\n    def getDoneEvent(self):\n        return self.doneEvent",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2839
+  }
+}

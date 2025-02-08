@@ -1,0 +1,9 @@
+{
+  "content": "excludeJoints is a list of joint names that are *not* to be\n        animated by the subpart.  As in includeJoints, each name can\n        include globbing characters.  If a joint is named by\n        excludeJoints, it will not be included (and neither will any\n        of its descendents), even if a parent joint was named by\n        includeJoints.\n\n        if overlapping is False, an error is raised (in the dev build)\n        if this subpart shares joints with any other subparts.  If\n        overlapping is True, no such error is raised.\n\n        parent is the actual partName that this subpart is based\n        on.\"\"\"\n\n        assert partName not in self.__subpartDict\n\n        subpartDef = self.__subpartDict.get(parent, Actor.SubpartDef(''))\n\n        subset = PartSubset(subpartDef.subset)\n        for name in includeJoints:\n            subset.addIncludeJoint(GlobPattern(name))\n        for name in excludeJoints:\n            subset.addExcludeJoint(GlobPattern(name))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3144
+  }
+}

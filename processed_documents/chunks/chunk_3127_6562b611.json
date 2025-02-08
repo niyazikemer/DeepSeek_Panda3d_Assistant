@@ -1,0 +1,9 @@
+{
+  "content": "partDict = self.__animControlDict.get(lodName)\n        # if this assertion fails, named lod was not present\n        assert partDict is not None\n\n        animDict = partDict.get(partName)\n        if animDict is None:\n            # part was not present\n            Actor.notify.warning(\"couldn't find part: %s\" % (partName))\n        else:\n            anim = animDict.get(animName)\n            if anim is None:\n                # anim was not present\n                assert Actor.notify.debug(\"couldn't find anim: %s\" % (animName))\n            else:\n                # bind the animation first if we need to\n                if not anim.animControl:\n                    self.__bindAnimToPart(animName, partName, lodName,\n                                          allowAsyncBind = allowAsyncBind)\n                elif not allowAsyncBind:\n                    anim.animControl.waitPending()\n                return anim.animControl\n\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3127
+  }
+}

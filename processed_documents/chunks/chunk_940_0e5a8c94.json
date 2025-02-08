@@ -1,0 +1,9 @@
+{
+  "content": "# Widget to select a light to configure\n        nameList = ShowBaseGlobal.direct.lights.getNameList()\n        lightMenuFrame = tk.Frame(lightFrame)\n\n        self.lightMenu = Pmw.ComboBox(\n            lightMenuFrame, labelpos = tk.W, label_text = 'Light:',\n            entry_width = 20,\n            selectioncommand = self.selectLightNamed,\n            scrolledlist_items = nameList)\n        self.lightMenu.pack(side = tk.LEFT, fill = tk.X, expand = 0)\n        self.bind(self.lightMenu, 'Select light to configure')\n\n        self.lightActive = tk.BooleanVar()\n        self.lightActiveButton = tk.Checkbutton(\n            lightMenuFrame,\n            text = 'On/Off',\n            variable = self.lightActive,\n            command = self.toggleActiveLight)\n        self.lightActiveButton.pack(side = tk.LEFT, fill = tk.X, expand = 0)\n\n        # Pack light menu\n        lightMenuFrame.pack(fill = tk.X, expand = 0, padx = 2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 940
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Note: this calls recompute on the curves\n                self.nurbsCurveDrawer.draw()\n            else:\n                # Show playback marker\n                self.playbackMarker.getChild(0).show()\n                # Update tangent marker line\n                tan = Point3(0)\n                self.curveCollection.getXyzCurve().getTangent(\n                    self.playbackTime, tan)\n                # Transform this point to playback marker space\n                tan.assign(\n                    self.nodePathParent.getMat(\n                    self.playbackMarker).xformVec(tan))\n                self.tangentMarker.setPos(tan)\n            # In either case update tangent line\n            self.tangentLines.setVertex(1, tan[0], tan[1], tan[2])\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1163
+  }
+}

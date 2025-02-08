@@ -1,0 +1,9 @@
+{
+  "content": "# Now go through and make sure we unplace (and remove!) any\n        # textures that we didn't visit at all this pass.\n        for tex, tr in neverVisited.items():\n            self.unplaceTexture(tr)\n            del self.texRecordsByTex[tex]\n            del self.texRecordsByKey[tr.key]\n\n        self.totalSize = totalSize\n        self.sizeText.setText(self.formatSize(self.totalSize))\n        if totalSize > self.limit and self.dynamicLimit:\n            # Actually, never mind on the update: we have exceeded the\n            # dynamic limit computed before, and therefore we need to\n            # repack.\n            self.repack()\n\n        else:\n            overflowCount = sum([tp.overflowed for tp in self.texPlacements.keys()])\n            if totalSize <= self.limit and overflowCount:\n                # Shouldn't be overflowing any more.  Better repack.\n                self.repack()\n\n            else:\n                # Pack in just the newly-loaded textures.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2977
+  }
+}

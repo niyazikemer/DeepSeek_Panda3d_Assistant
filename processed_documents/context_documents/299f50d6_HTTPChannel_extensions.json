@@ -1,0 +1,9 @@
+{
+  "content": "####################################################################\n#Dtool_funcToMethod(func, class)\n#del func\n#####################################################################\n\nfrom panda3d import core\nfrom .extension_native_helpers import Dtool_funcToMethod\n\n\ndef spawnTask(self, name = None, callback = None, extraArgs = []):\n    \"\"\"Spawns a task to service the download recently requested\n    via beginGetDocument(), etc., and/or downloadToFile() or\n    downloadToRam().  If a callback is specified, that function is\n    called when the download is complete, passing in the extraArgs\n    given.\n\n    Returns the newly-spawned task.\n    \"\"\"\n    if not name:\n        name = str(self.getUrl())\n    from direct.task import Task\n    from direct.task.TaskManagerGlobal import taskMgr\n    task = Task.Task(self.doTask)\n    task.callback = callback\n    task.callbackArgs = extraArgs\n    return taskMgr.add(task, name)\n\nif hasattr(core, 'HTTPChannel'):\n    Dtool_funcToMethod(spawnTask, core.HTTPChannel)\ndel spawnTask\n#####################################################################\n\ndef doTask(self, task):\n    from direct.task import Task\n    if self.run():\n        return Task.cont\n    if task.callback:\n        task.callback(*task.callbackArgs)\n    return Task.done\n\nif hasattr(core, 'HTTPChannel'):\n    Dtool_funcToMethod(doTask, core.HTTPChannel)\ndel doTask\n#####################################################################\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/extensions_native/HTTPChannel_extensions.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/299f50d6_HTTPChannel_extensions.json",
+    "doc_id": "doc_344"
+  }
+}

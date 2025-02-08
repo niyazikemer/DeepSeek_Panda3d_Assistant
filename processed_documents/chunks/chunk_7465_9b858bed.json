@@ -1,0 +1,9 @@
+{
+  "content": "datagram = NetDatagram()\nif cReader.getData(datagram):\n    myProcessDataFunction(datagram)\n\nA NetDatagram contains the original information that was stored in the transmitted PyDatagram. It also contains knowledge of the connection over which it was received and the address of the connection. To retrieve the connection, use the getConnection method:\n\nsourceOfMessage = datagram.getConnection()\n\nTo retrieve the contents of the message, use the PyDatagramIterator. The iterator class acts as the complement of the PyDatagram class; its methods can be used to retrieve the content that was encoded using PyDatagram.\n\ndef myProcessDataFunction(netDatagram):\n    myIterator = PyDatagramIterator(netDatagram)\n    msgID = myIterator.getUint8()\n    if msgID == PRINT_MESSAGE:\n        messageToPrint = myIterator.getString()\n        print(messageToPrint)\n\nNote",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_652",
+    "parent": "processed_documents/context_documents/fa93ed35_a2fae2c7_transmitting-data.json",
+    "chunk_number": 7465
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Check keywords and initialise options based on input values.\n        self.initialiseoptions(EntryScale)\n\n    def askForLabel(self, event = None):\n        newLabel = askstring(title = self['text'],\n                             prompt = 'New label:',\n                             initialvalue = repr(self['text']),\n                             parent = self.interior())\n        if newLabel:\n            self['text'] = newLabel\n\n    def askForMin(self, event = None):\n        newMin = askfloat(title = self['text'],\n                          prompt = 'New min val:',\n                          initialvalue = repr(self['min']),\n                          parent = self.interior())\n        if newMin:\n            self.setMin(newMin)\n\n    def setMin(self, newMin):\n        self['min'] = newMin\n        self.scale['from_'] = newMin\n        self.minLabel['text'] = newMin\n        self.entry.checkentry()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3559
+  }
+}

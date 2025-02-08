@@ -1,0 +1,9 @@
+{
+  "content": "# Make sure input variables processed\n        self.initialiseoptions(ParticlePanel)\n\n    ### WIDGET UTILITY FUNCTIONS ###\n    def createCheckbutton(self, parent, category, text,\n                          balloonHelp, command, initialState, side = 'top'):\n        bool = tk.BooleanVar()\n        bool.set(initialState)\n        widget = tk.Checkbutton(parent, text = text, anchor = tk.W,\n                                variable = bool)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X, side = side)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        self.variableDict[category + '-' + text] = bool\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 781
+  }
+}

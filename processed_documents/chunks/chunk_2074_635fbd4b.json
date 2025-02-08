@@ -1,0 +1,9 @@
+{
+  "content": "for key, value in list(freezer.modules.items()):\n            self.previousModules[key] = value\n            self.modules[key] = value\n\n    def excludeModule(self, moduleName, forbid = False, allowChildren = False,\n                      fromSource = None):\n        \"\"\" Adds a module to the list of modules not to be exported by\n        this tool.  If forbid is true, the module is furthermore\n        forbidden to be imported, even if it exists on disk.  If\n        allowChildren is true, the children of the indicated module\n        may still be included.\"\"\"\n\n        self.modules[moduleName] = self.ModuleDef(\n            moduleName, exclude = True,\n            forbid = forbid, allowChildren = allowChildren,\n            fromSource = fromSource)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2074
+  }
+}

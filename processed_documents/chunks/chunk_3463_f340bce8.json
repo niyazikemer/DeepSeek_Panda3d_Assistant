@@ -1,0 +1,9 @@
+{
+  "content": "def collideWithWidget(self):\n        # This collision node should not be tested against by any other\n        # collision solids\n        self.collisionNode.setIntoCollideMask(BitMask32().allOff())\n        # This collision node will test for collisions with any collision\n        # solids with a bit mask set to 0x80000000\n        mask = BitMask32()\n        mask.setWord(0x80000000)\n        self.collisionNode.setFromCollideMask(mask)\n\n    def addUnpickable(self, item):\n        if item not in self.unpickable:\n            self.unpickable.append(item)\n\n    def removeUnpickable(self, item):\n        if item in self.unpickable:\n            self.unpickable.remove(item)\n\n    def setCurrentIndex(self, index):\n        if (index < 0) or (index >= self.getNumEntries()):\n            self.index = -1\n        else:\n            self.index = index\n\n    def setCurrentEntry(self, entry):\n        self.entry = entry\n\n    def getCurrentEntry(self):\n        return self.entry",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3463
+  }
+}

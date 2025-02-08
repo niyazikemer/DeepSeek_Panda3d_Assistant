@@ -1,0 +1,9 @@
+{
+  "content": "# Hide custom widgets\n            if isinstance(self.particles.emitter, DiscEmitter):\n                self.discCustomFrame.pack_forget()\n            elif isinstance(self.particles.emitter, RingEmitter):\n                self.ringCustomFrame.pack_forget()\n        elif type == BaseParticleEmitter.ETCUSTOM:\n            self.getWidget(\n                'Emitter', 'Radiate Origin')['state'] = 'disabled'\n            self.getWidget(\n                'Emitter', 'Explicit Velocity')['state'] = 'disabled'\n            # Show custom widgets\n            if isinstance(self.particles.emitter, DiscEmitter):\n                self.discCustomFrame.pack(fill = tk.BOTH, expand = 1)\n            elif isinstance(self.particles.emitter, RingEmitter):\n                self.ringCustomFrame.pack(fill = tk.BOTH, expand = 1)\n\n    def setEmitterAmplitude(self, value):\n        self.particles.emitter.setAmplitude(value)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 819
+  }
+}

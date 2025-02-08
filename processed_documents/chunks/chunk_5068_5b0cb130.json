@@ -1,0 +1,9 @@
+{
+  "content": "def findAll(self, needle, limit=None):\n        \"\"\"\n        return a dict of events (needle) if found (in haystack).\n        limit may be None or an integer (e.g. 1).\n        This is primarily a debugging tool.\n        \"\"\"\n        matches = {}\n        for event in sorted(self.__callbacks):\n            if repr(event).find(needle) >= 0:\n                matches[event] = self.__callbacks[event]\n                # if the limit is not None, decrement and\n                # check for break:\n                if limit > 0:\n                    limit -= 1\n                    if limit == 0:\n                        break\n        return matches",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5068
+  }
+}

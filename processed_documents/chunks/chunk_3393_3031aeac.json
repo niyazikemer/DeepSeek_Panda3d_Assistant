@@ -1,0 +1,9 @@
+{
+  "content": "# EVENT FUNCTIONS\n    def enableActionEvents(self):\n        for event in self.actionEvents:\n            self.accept(event[0], event[1], extraArgs = event[2:])\n\n    def enableModifierEvents(self):\n        for event in self.modifierEvents:\n            self.accept(event, self.inputHandler, [event])\n\n    def enableKeyEvents(self):\n        for event in self.keyEvents:\n            self.accept(event, self.inputHandler, [event])\n\n    def enableMouseEvents(self):\n        for event in self.mouseEvents:\n            self.accept(event, self.inputHandler, [event])\n\n    def disableActionEvents(self):\n        for event, method in self.actionEvents:\n            self.ignore(event)\n\n    def disableModifierEvents(self):\n        for event in self.modifierEvents:\n            self.ignore(event)\n\n    def disableKeyEvents(self):\n        for event in self.keyEvents:\n            self.ignore(event)\n\n    def disableMouseEvents(self):\n        for event in self.mouseEvents:\n            self.ignore(event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3393
+  }
+}

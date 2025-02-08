@@ -1,0 +1,9 @@
+{
+  "content": "from direct.fsm.FSM import FSM\n\nclass AvatarFSM(FSM):\n    def __init__(self):#optional because FSM already defines __init__\n        #if you do write your own, you *must* call the base __init__ :\n        FSM.__init__(self, 'AvatarFSM')\n        ##do your init code here\n\n    def enterWalk(self):\n        avatar.loop('walk')\n        footstepsSound.play()\n        enableDoorCollisions()\n\n    def exitWalk(self):\n        avatar.stop()\n        footstepsSound.stop()\n        disableDoorCollisions()\n\n    def enterSwim(self):\n        avatar.loop('swim')\n        underwaterSound.play()\n        render.setFog(underwaterFog)\n        startAirTimer()\n\n    def exitSwim(self):\n        avatar.stop()\n        underwaterSound.stop()\n        render.clearFog()\n        stopAirTimer()\n\nmyfsm = AvatarFSM()\n\nKeep in mind this is just an imaginary example, but it should give you an idea of what an FSM class looks like.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_537",
+    "parent": "processed_documents/context_documents/1ec143d1_47834cc9_fsm-introduction.json",
+    "chunk_number": 6680
+  }
+}

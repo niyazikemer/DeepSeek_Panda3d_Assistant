@@ -1,0 +1,9 @@
+{
+  "content": "def colorPickerExitCB(self, evt=None):\n        self.lastColorPickerPos = self.colorPicker.GetPosition()\n        self.colorPicker.Destroy()\n        self.colorPicker = None\n\n    def colorPickerUpdateCB(self, rr, gg, bb, aa):\n        r = rr / 255.0\n        g = gg / 255.0\n        b = bb / 255.0\n        a = aa / 255.0\n        self.propCR.setValue(r)\n        self.propCG.setValue(g)\n        self.propCB.setValue(b)\n        self.propCA.setValue(a)\n\n        self.editor.objectMgr.updateObjectColor(r, g, b, a)\n\n    def onColorSlider(self, evt):\n        r = float(self.editor.ui.objectPropertyUI.propCR.getValue())\n        g = float(self.editor.ui.objectPropertyUI.propCG.getValue())\n        b = float(self.editor.ui.objectPropertyUI.propCB.getValue())\n        a = float(self.editor.ui.objectPropertyUI.propCA.getValue())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 331
+  }
+}

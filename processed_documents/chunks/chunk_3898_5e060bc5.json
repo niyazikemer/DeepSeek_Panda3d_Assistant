@@ -1,0 +1,9 @@
+{
+  "content": "self.mgr.stopThreads()\n\n    def _unpackIOError(self, ioError):\n        # IOError unpack from http://www.python.org/doc/essays/stdexceptions/\n        # this needs to be in its own method, exceptions that occur inside\n        # a nested try block are not caught by the inner try block's except\n        try:\n            (code, message) = ioError\n        except Exception:\n            code = 0\n            message = ioError\n        return code, message\n\n    def stop(self) -> None:\n        # Set a flag so we will stop before beginning next frame\n        self.running = False\n\n    def __tryReplaceTaskMethod(self, task, oldMethod, newFunction):\n        if not isinstance(task, PythonTask):\n            return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3898
+  }
+}

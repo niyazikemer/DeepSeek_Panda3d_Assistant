@@ -1,0 +1,9 @@
+{
+  "content": "cm = CardMaker('background')\n        cm.setFrame(0, 1, 0, 1)\n        cm.setUvRange((0, 0), (1, 1))\n        self.canvasBackground.attachNewNode(cm.generate())\n\n        cm.setFrame(0, 1, 1, self.top)\n        cm.setUvRange((0, 1), (1, self.top))\n        bad = self.canvasBackground.attachNewNode(cm.generate())\n        bad.setColor((0.8, 0.2, 0.2, 1))\n\n        self.canvasBackground.setTexture(self.checkTex)\n\n    def setLimit(self, limit = None):\n        \"\"\" Indicates the texture memory limit.  If limit is None or\n        unspecified, the limit is taken from the GSG, if any; or there\n        is no limit. \"\"\"\n\n        self.__doSetLimit(limit)\n        self.reconfigureWindow()\n\n    def __doSetLimit(self, limit):\n        \"\"\" Internal implementation of setLimit(). \"\"\"\n        self.limit = limit\n        self.lruLimit = False\n        self.dynamicLimit = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2963
+  }
+}

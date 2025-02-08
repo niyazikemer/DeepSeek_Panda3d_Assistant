@@ -1,0 +1,9 @@
+{
+  "content": "def getDeselectedAsList(self):\n        return list(self.deselectedDict.values())\n\n    def getDeselectedDict(self, id):\n        \"\"\"\n        Search deselectedDict for node path, try to repair broken node paths.\n        \"\"\"\n        dnp = self.deselectedDict.get(id, None)\n        if dnp:\n            # Yes\n            return dnp\n        else:\n            # Not in deselected dictionary\n            return None\n\n    def forEachSelectedNodePathDo(self, func):\n        \"\"\"\n        Perform given func on selected node paths.  No node path\n        connectivity verification performed\n        \"\"\"\n        selectedNodePaths = self.getSelectedAsList()\n        for nodePath in selectedNodePaths:\n            func(nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3447
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getAnimBlends(self, animName=None, partName=None, lodName=None):\n        \"\"\"Returns a list of the form::\n\n           [ (lodName, [(animName, [(partName, effect), (partName, effect), ...]),\n                        (animName, [(partName, effect), (partName, effect), ...]),\n                        ...]),\n             (lodName, [(animName, [(partName, effect), (partName, effect), ...]),\n                        (animName, [(partName, effect), (partName, effect), ...]),\n                        ...]),\n              ... ]\n\n        This list reports the non-zero control effects for each\n        partName within a particular animation and LOD. \"\"\"\n\n        result = []\n\n        if animName is None:\n            animNames = self.getAnimNames()\n        else:\n            animNames = [animName]\n\n        if lodName is None:\n            lodNames = self.getLODNames()\n            if self.mergeLODBundles:\n                lodNames = lodNames[:1]\n        else:\n            lodNames = [lodName]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3170
+  }
+}

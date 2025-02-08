@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedNode(DistributedObject.DistributedObject, NodePath):\n    \"\"\"Distributed Node class:\"\"\"\n\n    def __init__(self, cr):\n        if not hasattr(self, 'DistributedNode_initialized'):\n            self.DistributedNode_initialized = 1\n            self.gotStringParentToken = 0\n            DistributedObject.DistributedObject.__init__(self, cr)\n            if not self.this:\n                NodePath.__init__(self, \"DistributedNode\")\n\n            # initialize gridParent\n            self.gridParent = None\n\n    def disable(self):\n        if self.activeState != DistributedObject.ESDisabled:\n            if not self.isEmpty():\n                self.reparentTo(hidden)\n            DistributedObject.DistributedObject.disable(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_292",
+    "parent": "processed_documents/context_documents/de7f0b01_DistributedNode.json",
+    "chunk_number": 5151
+  }
+}

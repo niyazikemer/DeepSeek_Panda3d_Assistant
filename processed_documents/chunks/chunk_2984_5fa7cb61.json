@@ -1,0 +1,9 @@
+{
+  "content": "def placeTexture(self, tr):\n        \"\"\" Places the texture somewhere on the canvas where it will\n        fit. \"\"\"\n\n        tr.computePlacementSize(self)\n        tr.overflowed = 0\n\n        shouldFit = False\n        availableSize = self.limit - self.placedSize\n        if availableSize >= tr.size:\n            shouldFit = True\n            availableQSize = self.area - self.placedQSize\n            if availableQSize < tr.area:\n                # The texture should fit, but won't, due to roundoff\n                # error.  Make it correspondingly smaller, so we can\n                # place it anyway.\n                tr.area = availableQSize",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2984
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nplight.attenuation = (c, l, q)\n\ncpp\n\nplight->set_attenuation(LVecBase3(c, l, q));\n\nThe default values for these constants are (1, 0, 0), respectively. This means that the intensity of a light is by default not dependent on the distance to the light source.\n\nIn real-life, lighting conforms to what is known as the inverse-square law. This means that the light falls off proportional to the inverse of the square of the distance. To achieve this effect, you need to set the quadratic coefficient to 1:\n\npython\n\nplight.attenuation = (0, 0, 1)\n\ncpp\n\nplight->set_attenuation(LVecBase3(0, 0, 1));\n\nOne disadvantage of this is that the light intensity will approach infinity as the distance approaches zero. A common way to avoid this in real-time rendering is to set the constant coefficient to 1.\n\npython\n\nplight.attenuation = (1, 0, 1)\n\ncpp\n\nplight->set_attenuation(LVecBase3(1, 0, 1));\n\nThis will make the light intensity smoothly reach 1 as the distance to the light source approaches zero.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5878
+  }
+}

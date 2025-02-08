@@ -1,0 +1,9 @@
+{
+  "content": "for pattern in pattern_list:\n                # If the pattern is absolute, match against the absolute filename.\n                if pattern.pattern[0] == '/':\n                    #print('check ignore: {} {} {}'.format(pattern, src, pattern.matches_file(abspath)))\n                    if pattern.matches_file(abspath):\n                        return True\n                else:\n                    #print('check ignore: {} {} {}'.format(pattern, src, pattern.matches_file(path)))\n                    if pattern.matches_file(path):\n                        return True\n            return False\n\n        def check_file(fname):\n            return check_pattern(fname, include_copy_list) and \\\n                not check_pattern(fname, ignore_copy_list)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1995
+  }
+}

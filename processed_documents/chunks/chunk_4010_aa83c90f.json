@@ -1,0 +1,9 @@
+{
+  "content": "texgroup = (depthtex, colortex, auxtex0, auxtex1)\n\n        # Choose the size of the offscreen buffer.\n\n        (winx, winy) = self.getScaledSize(1,1,1)\n        if fbprops is not None:\n            buffer = self.createBuffer(\"filter-base\", winx, winy, texgroup, fbprops=fbprops)\n        else:\n            buffer = self.createBuffer(\"filter-base\", winx, winy, texgroup)\n\n        if buffer is None:\n            return None\n\n        cm = CardMaker(\"filter-base-quad\")\n        cm.setFrameFullscreenQuad()\n        quad = NodePath(cm.generate())\n        quad.setDepthTest(0)\n        quad.setDepthWrite(0)\n        quad.setTexture(colortex)\n        quad.setColor(1, 0.5, 0.5, 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4010
+  }
+}

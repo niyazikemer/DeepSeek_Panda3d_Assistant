@@ -1,0 +1,9 @@
+{
+  "content": "if hasattr(curObj, '__dict__'):\n                    child = curObj.__dict__\n                    hasLength = self._hasLength(child)\n                    notDeadEnd = not self._isDeadEnd(child)\n                    if hasLength or notDeadEnd:\n                        # prevent cycles in the references (i.e. base.loader.base)\n                        for goesThrough in parentObjRef.goesThroughGen(child):\n                            # don't yield, container might lose this element\n                            pass\n                        if not goesThrough:\n                            objRef = ObjectRef(Indirection(evalStr='.__dict__'),\n                                               id(child), parentObjRef)\n                            yield None\n                            if hasLength:\n                                for i in self._addContainerGen(child, objRef):\n                                    yield None\n                            if notDeadEnd:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4504
+  }
+}

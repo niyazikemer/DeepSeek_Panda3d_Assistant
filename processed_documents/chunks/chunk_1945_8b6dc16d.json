@@ -1,0 +1,9 @@
+{
+  "content": "self.exclude_dependencies = [p3d.GlobPattern(i) for i in self.exclude_dependencies]\n        for glob in self.exclude_dependencies:\n            glob.case_sensitive = False\n\n        # bam_model_extensions registers a 2bam handler for each given extension.\n        # They can override a default handler, but not a custom handler.\n        if self.bam_model_extensions:\n            for ext in self.bam_model_extensions:\n                ext = '.' + ext.lstrip('.')\n                handler = self.file_handlers.get(ext)\n                if handler != _model_to_bam:\n                    assert handler is None, \\\n                        'Extension {} occurs in both file_handlers and bam_model_extensions!'.format(ext)\n                self.file_handlers[ext] = _model_to_bam\n\n        tmp = self.default_file_handlers.copy()\n        tmp.update(self.file_handlers)\n        self.file_handlers = tmp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1945
+  }
+}

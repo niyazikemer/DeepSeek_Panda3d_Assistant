@@ -1,0 +1,9 @@
+{
+  "content": "if not found_in_wheel:\n                        self.warn('{} was not found in any downloaded wheel, is a dependency missing from requirements.txt?'.format(basename))\n            else:\n                # Builtin module, but might not be builtin in wheel libs, so double check\n                if module in whl_modules:\n                    source_path = os.path.join(p3dwhlfn, whl_modules[module])\n                    basename = os.path.basename(source_path)\n                    #XXX should we remove python version string here too?\n                else:\n                    continue\n\n            if platform.startswith('android'):\n                # Python modules on Android need a special prefix to be loadable\n                # as a library.\n                basename = 'libpy.' + basename",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1989
+  }
+}

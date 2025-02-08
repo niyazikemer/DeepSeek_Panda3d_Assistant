@@ -1,0 +1,9 @@
+{
+  "content": "def debugStateCall(self, obj=None, fsmMemberName='fsm',\n            secondaryFsm='secondaryFSM'):\n        \"\"\"\n        If this notify is in debug mode, print the time of the\n        call followed by the [fsm state] notifier category and\n        the function call (with parameters).\n        \"\"\"\n        #f.f_locals['self'].__init__.im_class.__name__\n        if __debug__ and self.__debug:\n            state = ''\n            doId = ''\n            if obj is not None:\n\n                fsm=obj.__dict__.get(fsmMemberName)\n                if fsm is not None:\n                    stateObj = fsm.getCurrentState()\n                    if stateObj is not None:\n                        #state = \"%s=%s\"%(fsmMemberName, stateObj.getName())\n                        state = stateObj.getName()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1682
+  }
+}

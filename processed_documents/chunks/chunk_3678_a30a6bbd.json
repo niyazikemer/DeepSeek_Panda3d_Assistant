@@ -1,0 +1,9 @@
+{
+  "content": "def collapse(self, event=None):\n        if self.state != 'collapsed':\n            self.state = 'collapsed'\n            self.update()\n\n    def view(self):\n        top = self.y - 2\n        bottom = self.lastvisiblechild().y + 17\n        height = bottom - top\n        visible_top = self.canvas.canvasy(0)\n        visible_height = self.canvas.winfo_height()\n        visible_bottom = self.canvas.canvasy(visible_height)\n        if visible_top <= top and bottom <= visible_bottom:\n            return\n        x0, y0, x1, y1 = self.canvas._getints(self.canvas['scrollregion'])\n        if top >= visible_top and height <= visible_height:\n            fraction = top + height - visible_height\n        else:\n            fraction = top\n        fraction = float(fraction) / y1\n        self.canvas.yview_moveto(fraction)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3678
+  }
+}

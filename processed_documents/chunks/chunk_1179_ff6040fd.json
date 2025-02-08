@@ -1,0 +1,9 @@
+{
+  "content": "def addKeyframe(self, fToggleRecord = 1):\n        # Make sure we're in a recording mode!\n        if fToggleRecord and not self.getVariable('Recording', 'Record').get():\n            # Set sampling mode\n            self.setSamplingMode('Keyframe')\n            # This will automatically add the first point\n            self.toggleRecordVar()\n        else:\n            # Use distance as a time\n            pos = self.nodePath.getPos(self.nodePathParent)\n            deltaPos = Vec3(pos - self.lastPos).length()\n            if deltaPos != 0:\n                # If we've moved at all, use delta Pos as time\n                self.deltaTime = self.deltaTime + deltaPos\n            else:\n                # Otherwise add one second\n                self.deltaTime = self.deltaTime + 1.0\n            # Record point at new time\n            self.recordPoint(self.recordStart + self.deltaTime)\n            # Update last pos\n            self.lastPos.assign(pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1179
+  }
+}

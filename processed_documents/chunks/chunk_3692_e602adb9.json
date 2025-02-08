@@ -1,0 +1,9 @@
+{
+  "content": "# Use existing child or create new TreeNode if none exists\n            if key in self.children:\n                child = self.children[key]\n            else:\n                child = TreeNode(self.canvas, self, item, self.menuList)\n                # Update local list of children and keys\n                self.children[key] = child\n                self.kidKeys.append(key)\n            # [gjeon] to set flag recursively\n            child.setChildrenTag(self.childrenTag, self.fModeChildrenTag)\n\n            # See if node is child (or one of child's descendants)\n            retVal = child.find(searchKey)\n            if retVal:\n                return retVal\n        # Not here\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3692
+  }
+}

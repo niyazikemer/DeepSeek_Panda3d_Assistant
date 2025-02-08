@@ -1,0 +1,9 @@
+{
+  "content": "nodeCamDist = Vec3(dnp.getPos(base.camList[3])).length()\n                    sf = 0.075 * nodeCamDist * math.tan(deg2Rad(self.drList[3].fovV))\n                    self.manipulationControl.widgetList[3].setDirectScalingFactor(sf)\n\n                else:\n                    nodeCamDist = Vec3(dnp.getPos(self.camera)).length()\n                    sf = 0.075 * nodeCamDist * math.tan(deg2Rad(self.drList.getCurrentDr().fovV))\n                    self.widget.setDirectScalingFactor(sf)\n        return Task.cont\n\n    def select(self, nodePath, fMultiSelect = 0,\n               fSelectTag = 1, fResetAncestry = 1, fLEPane=0, fUndo=1):\n        messenger.send('DIRECT-select', [nodePath, fMultiSelect, fSelectTag, fResetAncestry, fLEPane, fUndo])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3406
+  }
+}

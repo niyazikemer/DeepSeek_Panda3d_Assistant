@@ -1,0 +1,9 @@
+{
+  "content": "def enableAvatarControls(self):\n        \"\"\"\n        Activate the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"enableAvatarControls\")\n\n        if self.task:\n            # remove any old\n            self.task.remove(self.task)\n        # spawn the new task\n        self.task = taskMgr.add(\n            self.handleAvatarControls, \"AvatarControls-dev-%s\"%(id(self),))\n\n    def disableAvatarControls(self):\n        \"\"\"\n        Ignore the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"disableAvatarControls\")\n        if self.task:\n            self.task.remove()\n            self.task = None\n\n    def flushEventHandlers(self):\n        pass\n\n    if __debug__:\n        def debugPrint(self, message):\n            \"\"\"for debugging\"\"\"\n            return self.notify.debug(\n                    str(id(self))+' '+message)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_227",
+    "parent": "processed_documents/context_documents/dffaf03d_DevWalker.json",
+    "chunk_number": 4113
+  }
+}

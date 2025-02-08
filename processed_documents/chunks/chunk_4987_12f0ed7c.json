@@ -1,0 +1,9 @@
+{
+  "content": "def showCameraFrustum(self):\n        # Create a visible representation of the frustum.\n        self.removeCameraFrustum()\n        geom = self.camLens.makeGeometry()\n        if geom is not None:\n            gn = GeomNode('frustum')\n            gn.addGeom(geom)\n            self.camFrustumVis = self.camera.attachNewNode(gn)\n\n    def removeCameraFrustum(self):\n        if self.camFrustumVis:\n            self.camFrustumVis.removeNode()\n\n    def screenshot(self, namePrefix = 'screenshot',\n                   defaultFilename = 1, source = None,\n                   imageComment=\"\", blocking=True):\n        \"\"\" Captures a screenshot from the main window or from the\n        specified window or Texture and writes it to a filename in the\n        current directory (or to a specified directory).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4987
+  }
+}

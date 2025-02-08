@@ -1,0 +1,9 @@
+{
+  "content": "self.sections.sort()\n\n        # Read the sections into some kind of virtual memory.\n        self.vmem = bytearray(self.sections[-1].vaddr + self.sections[-1].size)\n        memview = memoryview(self.vmem)\n\n        for section in self.sections:\n            fp.seek(section.offset)\n            fp.readinto(memview[section.vaddr:section.vaddr+section.size])\n\n        # Read the import table.\n        start = self.imp_rva.addr\n        dir = impdirtab(*unpack('<IIIII', self.vmem[start:start+20]))\n\n        imports = []\n        while dir.name and dir.lookup:\n            name = _unpack_zstring(self.vmem, dir.name)\n            imports.append(name)\n\n            start += 20\n            dir = impdirtab(*unpack('<IIIII', self.vmem[start:start+20]))\n\n        # Make it a tuple to indicate we don't support modifying it for now.\n        self.imports = tuple(imports)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1885
+  }
+}

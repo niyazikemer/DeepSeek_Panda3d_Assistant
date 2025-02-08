@@ -1,0 +1,9 @@
+{
+  "content": "def doFindAll(self, str):\n        \"\"\"\n        Returns list of distributed objects with matching str in value.\n        \"\"\"\n        matches = []\n        for value in self.doId2do.values():\n            if repr(value).find(str) >= 0:\n                matches.append(value)\n        return matches\n\n    def doFindAllMatching(self, str):\n        \"\"\"\n        Returns list of distributed objects with matching str in value.\n        \"\"\"\n        matches = []\n        for value in self.doId2do.values():\n            if re.search(str,repr(value)):\n                matches.append(value)\n        return matches\n\n    def doFindAllOfType(self, query):\n        \"\"\"\n        Useful method for searching through the Distributed Object collection\n        for objects of a particular type\n        \"\"\"\n        matches = []\n        for value in self.doId2do.values():\n            if query in str(value.__class__):\n                matches.append(value)\n        return matches, len(matches)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5431
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Again, all parameter names must be recognized. There is a list of GLSL shader inputs <list-of-glsl-shader-inputs> as well as a list of Cg shader inputs <list-of-possible-cg-shader-inputs> that shows all the valid parameter names and the data that Panda3D will supply.\n\nSupplying Data to the Shader Manually\n\nMost of the data that the shader could want can be fetched from Panda3D at runtime by using the appropriate parameter names. However, it is sometimes necessary to supply some user-provided data to the shader. For this, you need .NodePath.set_shader_input(). Here is an example:\n\npython\n\nmyModel.setShaderInput(\"tint\", (1.0, 0.5, 0.5, 1.0))\n\ncpp\n\nmyModel.set_shader_input(\"tint\", LVector4(1.0, 0.5, 0.5, 1.0));\n\nThe method .NodePath.set_shader_input() stores data that can be accessed by the shader. It is possible to store data of type .Texture, .NodePath, and any vector object.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_462",
+    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
+    "chunk_number": 6368
+  }
+}

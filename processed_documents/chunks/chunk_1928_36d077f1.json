@@ -1,0 +1,9 @@
+{
+  "content": "class AndroidExtensionFinder:\n    @classmethod\n    def find_spec(cls, fullname, path=None, target=None):\n        soname = 'libpy.' + fullname + '.so'\n        path = os.path.join(sys.platlibdir, soname)\n\n        if os.path.exists(path):\n            loader = _bootstrap_external.ExtensionFileLoader(fullname, path)\n            return _bootstrap.ModuleSpec(fullname, loader, origin=path)\n\n\nsys.meta_path.append(AndroidExtensionFinder)\n\n\nfrom _frozen_importlib import _imp, FrozenImporter\nfrom io import RawIOBase, TextIOWrapper\n\nfrom android_log import write as android_log_write\n\n\nsys.frozen = True\n\n# Temporary hack for plyer to detect Android, see kivy/plyer#670\nos.environ['ANDROID_ARGUMENT'] = ''\n\n\n# Replace stdout/stderr with something that writes to the Android log.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1928
+  }
+}

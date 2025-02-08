@@ -1,0 +1,9 @@
+{
+  "content": "def __del__(self) -> None:\n        self.close()\n\n    def close(self) -> None:\n        if hasattr(self, \"file\"):\n            self.file.flush()\n            self.file.close()\n            self.closed = self.file.closed\n            del self.file\n        else:\n            self.closed = True\n\n    def shouldRotate(self) -> bool:\n        \"\"\"\n        Returns a bool about whether a new log file should\n        be created and written to (while at the same time\n        stopping output to the old log file and closing it).\n        \"\"\"\n        if not hasattr(self, \"file\"):\n            return True\n        if self.timeLimit is not None and time.time() > self.timeLimit:\n            return True\n        if self.sizeLimit is not None and self.file.tell() > self.sizeLimit:\n            return True\n        return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_102",
+    "parent": "processed_documents/context_documents/f7306926_RotatingLog.json",
+    "chunk_number": 1663
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": ":rtype: panda3d.core.GraphicsPipe\n        \"\"\"\n\n        selection = GraphicsPipeSelection.getGlobalPtr()\n        return selection.makeModulePipe(moduleName)\n\n    def makeAllPipes(self):\n        \"\"\"\n        Creates all GraphicsPipes that the system knows about and fill up\n        `pipeList` with them.\n        \"\"\"\n        selection = GraphicsPipeSelection.getGlobalPtr()\n        selection.loadAuxModules()\n\n        # First, we should make sure the default pipe exists.\n        if self.pipe is None:\n            self.makeDefaultPipe()\n\n        # Now go through the list of known pipes, and make each one if\n        # we don't have one already.\n        numPipeTypes = selection.getNumPipeTypes()\n        for i in range(numPipeTypes):\n            pipeType = selection.getPipeType(i)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4882
+  }
+}

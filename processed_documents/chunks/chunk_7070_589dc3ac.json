@@ -1,0 +1,9 @@
+{
+  "content": "port_address = 9099  # same for client and server\n\n# A valid server URL. You can also use a DNS name\n# if the server has one, such as \"localhost\" or \"panda3d.org\"\nip_address = \"192.168.0.50\"\n\n# How long, in milliseconds, until we give up trying to reach the server?\ntimeout = 3000  # 3 seconds\n\nmyConnection = cManager.openTCPClientConnection(ip_address, port_address, timeout)\nif myConnection:\n    cReader.addConnection(myConnection)  # receive messages from server\n\nWhen the client has finished communicating with the server, it can close the connection.\n\ncManager.closeConnection(myConnection)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_579",
+    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
+    "chunk_number": 7070
+  }
+}

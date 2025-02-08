@@ -1,0 +1,9 @@
+{
+  "content": "def acceptSwitchModeEvent(self, button = R_UPPER):\n        self.accept(self.getEventName(button), self.switchMode)\n\n    def ignoreSwitchModeEvent(self, button = R_UPPER):\n        self.ignore(self.getEventName(button))\n\n    def switchMode(self):\n        try:\n            # Get current mode\n            self.modeFunc = self.modeList[0]\n            # Rotate mode list\n            self.modeList = self.modeList[1:] + self.modeList[:1]\n            # Call new mode\n            self.modeFunc()\n        except IndexError:\n            pass\n\n    def showMode(self, modeText):\n        def hideText(state, s=self):\n            s.readout.setText('')\n            return Task.done\n        taskMgr.remove(self.name + '-showMode')\n        # Update display\n        self.readout.setText(modeText)\n        t = taskMgr.doMethodLater(3.0, hideText, self.name + '-showMode')\n        t.setUponDeath(hideText)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1799
+  }
+}

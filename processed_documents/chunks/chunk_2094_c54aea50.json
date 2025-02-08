@@ -1,0 +1,9 @@
+{
+  "content": "if tempPath:\n                del self.mf.path[-1]\n\n        else:\n            # Otherwise, we can just import it normally.\n            self.mf.import_hook(mdef.moduleName)\n\n    def reset(self):\n        \"\"\" After a previous call to done(), this resets the\n        FreezeTool object for a new pass.  More modules may be added\n        and dumped to a new target.  Previously-added modules are\n        remembered and will not be dumped again. \"\"\"\n\n        self.mf = None\n        self.previousModules = dict(self.modules)\n\n    def mangleName(self, moduleName):\n        return 'M_' + moduleName.replace('.', '__').replace('-', '_')\n\n    def getAllModuleNames(self):\n        \"\"\" Return a list of all module names that have been included\n        or forbidden, either in this current pass or in a previous\n        pass.  Module names that have been excluded are not included\n        in this list. \"\"\"\n\n        moduleNames = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2094
+  }
+}

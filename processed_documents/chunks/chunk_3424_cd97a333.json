@@ -1,0 +1,9 @@
+{
+  "content": "# UTILITY FUNCTIONS\n    def message(self, text):\n        taskMgr.remove('hideDirectMessage')\n        taskMgr.remove('hideDirectMessageLater')\n        self.directMessageReadout.reparentTo(base.a2dTopLeft)\n        self.directMessageReadout.setText(text)\n        self.hideDirectMessageLater()\n\n    def hideDirectMessageLater(self):\n        taskMgr.doMethodLater(3.0, self.hideDirectMessage, 'hideDirectMessage')\n\n    def hideDirectMessage(self, state):\n        self.directMessageReadout.reparentTo(hidden)\n        return Task.done\n\n    def useObjectHandles(self):\n        self.widget = self.manipulationControl.objectHandles\n        self.widget.reparentTo(self.group)\n\n    def hideSelectedNPReadout(self):\n        self.selectedNPReadout.reparentTo(hidden)\n\n    def hideActiveParentReadout(self):\n        self.activeParentReadout.reparentTo(hidden)\n\n    def toggleWidgetVis(self):\n        self.widget.toggleWidget()\n\n    def setCOAMode(self, mode):\n        self.coaMode = mode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3424
+  }
+}

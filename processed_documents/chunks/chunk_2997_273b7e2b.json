@@ -1,0 +1,9 @@
+{
+  "content": "class TexRecord:\n    def __init__(self, key, tex, size, active):\n        self.key = key\n        self.tex = tex\n        self.active = active\n        self.root = None\n        self.regions = []\n        self.placements = []\n        self.overflowed = 0\n\n        self.setSize(size)\n\n    def setSize(self, size):\n        self.size = size\n        x = self.tex.getXSize()\n        y = self.tex.getYSize()\n        r = float(y) / float(x)\n\n        # Card size, in unscaled texel units.\n        self.tw = math.sqrt(self.size) / math.sqrt(r)\n        self.th = self.tw * r\n\n    def computePlacementSize(self, tmw):\n        self.w = max(int(self.tw / tmw.quantize + 0.5), 1)\n        self.h = max(int(self.th / tmw.quantize + 0.5), 1)\n        self.area = self.w * self.h",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2997
+  }
+}

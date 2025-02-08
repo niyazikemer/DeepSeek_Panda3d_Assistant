@@ -1,0 +1,9 @@
+{
+  "content": "topName = parentName[:-2]\n            newTopName = newParentName[:-2]\n            parentNames = []\n            modulePath = self.getModulePath(topName)\n            if modulePath:\n                for dirname in modulePath:\n                    for basename in sorted(self.mf._listdir(dirname)):\n                        if self.mf._file_exists(os.path.join(dirname, basename, '__init__.py')):\n                            parentName = '%s.%s' % (topName, basename)\n                            newParentName = '%s.%s' % (newTopName, basename)\n                            if self.getModulePath(parentName):\n                                parentNames.append((parentName, newParentName))\n\n        for parentName, newParentName in parentNames:\n            modules = self.getModuleStar(parentName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2079
+  }
+}

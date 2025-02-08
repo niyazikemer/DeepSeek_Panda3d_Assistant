@@ -1,0 +1,9 @@
+{
+  "content": "self.variableList = []\n        self.entryList = []\n        for index in range(self['dim']):\n            var = tk.StringVar()\n            self.variableList.append(var)\n            # To set the configuration of all entrys in a vector use:\n            # ve.configure(Entry_XXX = YYY)\n            # To configure an individual entryfield's entry use:\n            # ve.configure(entry0_XXX = YYY)\n            entry = self.createcomponent(\n                'entryField%d' % index,\n                (('entry%d' % index,\n                  'entryField%d_entry' % index),),\n                'Entry',\n                Pmw.EntryField, (interior,),\n                entry_justify = tk.RIGHT,\n                entry_textvariable = var,\n                command = lambda s = self, i = index: s._entryUpdateAt(i))\n            entry.pack(side = tk.LEFT, expand = 1, fill = tk.X)\n            self.entryList.append(entry)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3535
+  }
+}

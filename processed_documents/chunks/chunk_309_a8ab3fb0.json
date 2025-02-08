@@ -1,0 +1,9 @@
+{
+  "content": "newItem = self.AppendItem(parent, namestr)\n        itemData = ObjectGen(name=namestr)\n        parentName = self.GetItemText(parent)\n        if parentName == self.rootName:\n            self.paletteUI.palette.add(itemData)\n        else:\n            self.paletteUI.palette.add(itemData, parentName)\n        self.SetItemPyData(newItem, itemData)\n\n        self.Expand(self.GetRootItem())\n        self.ScrollTo(newItem)\n\n    def DeleteItem(self, item):\n        itemText = self.GetItemText(item)\n        if item and itemText != self.rootName:\n            self.Delete(item)\n            self.paletteUI.palette.delete(itemText)\n\n    def DeleteSelected(self):\n        item = self.GetSelection()\n        self.DeleteItem(item)\n\n    def ReParent(self, parent, newParent):\n        # main loop - iterating over item's children\n        item, cookie = self.GetFirstChild(parent)\n        while item:\n            itemName = self.GetItemText(item)\n            itemData = self.GetItemData(item)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 309
+  }
+}

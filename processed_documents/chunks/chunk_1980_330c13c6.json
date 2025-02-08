@@ -1,0 +1,9 @@
+{
+  "content": "if platform.startswith('win'):\n                stub_name += '.exe'\n                target_name += '.exe'\n\n            if use_wheels:\n                if stub_name.endswith('.so'):\n                    stub_file = p3dwhl.open('deploy_libs/{0}'.format(stub_name))\n                else:\n                    stub_file = p3dwhl.open('panda3d_tools/{0}'.format(stub_name))\n            else:\n                dtool_path = p3d.Filename(p3d.ExecutionEnvironment.get_dtool_name()).to_os_specific()\n                stub_path = os.path.join(os.path.dirname(dtool_path), '..', 'bin', stub_name)\n                stub_file = open(stub_path, 'rb')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1980
+  }
+}

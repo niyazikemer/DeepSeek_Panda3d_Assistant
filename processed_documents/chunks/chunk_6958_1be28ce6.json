@@ -1,0 +1,9 @@
+{
+  "content": "To do this, place gl-coordinate-system default in your Config.prc file.\n\nRecommendation: Don't use API View Space or API Clip Space\n\nThe coordinate systems \"API View Space\" and \"API Clip Space\" are not very useful. The fact that their behavior changes from one rendering API to the next makes them extremely hard to work with. Of course, you have to use the composed modelview/projection matrix to transform your vertices, and in doing so, you are implicitly using these spaces. But aside from that, it is strongly recommended that you not use these spaces for anything else.\n\nModel_of_x, View_of_x, Clip_of_x\n\nWhen you use the word \"model\" in a trans directive, you implicitly mean \"the model currently being rendered.\" But you can make any nodepath accessible to the shader subsystem using .NodePath.set_shader_input():\n\npython\n\nmyhouse = loader.loadModel(\"myhouse\")\nrender.setShaderInput(\"myhouse\", myhouse)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_557",
+    "parent": "processed_documents/context_documents/84f019c6_7f49f363_coordinate-spaces.json",
+    "chunk_number": 6958
+  }
+}

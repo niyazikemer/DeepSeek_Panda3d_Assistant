@@ -1,0 +1,9 @@
+{
+  "content": "if len(dwords) > 0:\n            self.signature = dwords[0]\n        if len(dwords) > 1:\n            self.struct_version = dwords[1]\n        if len(dwords) > 3:\n            self.file_version = \\\n                (int(dwords[2] >> 16), int(dwords[2] & 0xffff),\n                int(dwords[3] >> 16), int(dwords[3] & 0xffff))\n        if len(dwords) > 5:\n            self.product_version = \\\n                (int(dwords[4] >> 16), int(dwords[4] & 0xffff),\n                int(dwords[5] >> 16), int(dwords[5] & 0xffff))\n        if len(dwords) > 7:\n            self.file_flags_mask = dwords[6]\n            self.file_flags = dwords[7]\n        if len(dwords) > 8:\n            self.file_os = dwords[8]\n        if len(dwords) > 9:\n            self.file_type = dwords[9]\n        if len(dwords) > 10:\n            self.file_subtype = dwords[10]\n        if len(dwords) > 12:\n            self.file_date = (dwords[11], dwords[12])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1870
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "elif bpp == 8:\n            # We'll have to generate a palette of 256 colors.\n            hist = PNMImage.Histogram()\n            image2 = PNMImage(image)\n            if image2.hasAlpha():\n                image2.premultiplyAlpha()\n                image2.removeAlpha()\n            image2.quantize(256)\n            image2.make_histogram(hist)\n            colors = list(hist.get_pixels())\n            assert len(colors) <= 256\n\n            # Write the palette.\n            i = 0\n            while i < 256 and i < len(colors):\n                r, g, b, a = colors[i]\n                fp.write(struct.pack('<BBBB', b, g, r, 0))\n                i += 1\n            if i < 256:\n                # Fill the rest with zeroes.\n                fp.write(b'\\x00' * (4 * (256 - i)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2191
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def setOrientation(self):\n        if self['orientation'] == DGG.HORIZONTAL:\n            if self._lastOrientation in (DGG.VERTICAL, DGG.VERTICAL_INVERTED):\n                fpre = self['frameSize']\n                # swap frameSize width and height to keep custom frameSizes\n                self['frameSize'] = (fpre[2], fpre[3], fpre[0], fpre[1])\n                f = self.decButton['frameSize']\n                self.decButton['frameSize'] = (f[2], f[3], f[0], f[1])\n                f = self.incButton['frameSize']\n                self.incButton['frameSize'] = (f[2], f[3], f[0], f[1])\n            self.guiItem.setAxis(Vec3(1, 0, 0))\n        elif self['orientation'] == DGG.VERTICAL:\n            if self._lastOrientation == DGG.HORIZONTAL:\n                fpre = self['frameSize']\n                # swap frameSize width and height to keep custom frameSizes\n                self['frameSize'] = (fpre[2], fpre[3], fpre[0], fpre[1])\n                f = self.decButton['frameSize']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_88",
+    "parent": "processed_documents/context_documents/c8becc07_DirectScrollBar.json",
+    "chunk_number": 1540
+  }
+}

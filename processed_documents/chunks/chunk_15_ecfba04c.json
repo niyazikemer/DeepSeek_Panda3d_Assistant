@@ -1,0 +1,9 @@
+{
+  "content": "# Accepts arrow keys to move either the player or the menu cursor,\n    # Also deals with grid checking and collision detection\n    def move(self):\n\n        # Get the time elapsed since last frame. We need this\n        # for framerate-independent movement.\n        elapsed = globalClock.getDt()\n\n        # If the camera-left key is pressed, move camera left.\n        # If the camera-right key is pressed, move camera right.\n        if self.switchState is False:\n            base.camera.lookAt(self.ralph)\n            if self.keyMap[\"cam-left\"] != 0:\n                base.camera.setX(base.camera, -(elapsed * 20))\n            if self.keyMap[\"cam-right\"] != 0:\n                base.camera.setX(base.camera, +(elapsed * 20))\n\n        # save ralph's initial position so that we can restore it,\n        # in case he falls off the map or runs into something.\n\n        startpos = self.ralph.getPos()\n\n        # If a move-key is pressed, move ralph in the specified direction.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 15
+  }
+}

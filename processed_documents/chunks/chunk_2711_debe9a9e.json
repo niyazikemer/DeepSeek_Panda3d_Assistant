@@ -1,0 +1,9 @@
+{
+  "content": "Each states also has an associated on or off value.  The only\n        state that is 'on' is state 4.  So, the transition states\n        between off and on (states 1 and 3) are also considered\n        off (and so is state 2 which is oposite of 4 and therefore\n        oposite of 'on').\n        \"\"\"\n        self.stateIndex = 0\n        assert self.__debugPrint(\"FourState(names=%s)\"%(names))\n        self.track = None\n        self.stateTime = 0.0\n        self.names = names\n        self.durations = durations\n        self.states = {\n            0: State.State(names[0],\n                           self.enterState0,\n                           self.exitState0,\n                           [names[1],\n                           names[2],\n                           names[3],\n                           names[4]]),\n            1: State.State(names[1],\n                           self.enterState1,\n                           self.exitState1,\n                           [names[2], names[3]]),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_151",
+    "parent": "processed_documents/context_documents/c156758e_FourState.json",
+    "chunk_number": 2711
+  }
+}

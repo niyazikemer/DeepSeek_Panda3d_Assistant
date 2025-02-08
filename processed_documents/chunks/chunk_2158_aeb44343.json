@@ -1,0 +1,9 @@
+{
+  "content": "def _dir_exists(self, path):\n        \"\"\"Returns True if the given directory exists, either on disk or inside\n        a wheel.\"\"\"\n\n        if os.path.isdir(path):\n            return True\n\n        # Is there a zip file along the path?\n        dir, dirname = os.path.split(path.rstrip(os.path.sep + '/'))\n        fn = dirname\n        while dirname:\n            if os.path.isfile(dir):\n                # Okay, this is actually a file.  Is it a zip file?\n                if dir in self._zip_files:\n                    # Yes, and we've previously opened this.\n                    zip = self._zip_files[dir]\n                elif zipfile.is_zipfile(dir):\n                    zip = zipfile.ZipFile(dir)\n                    self._zip_files[dir] = zip\n                else:\n                    # It's a different kind of file.  Stop looking.\n                    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2158
+  }
+}

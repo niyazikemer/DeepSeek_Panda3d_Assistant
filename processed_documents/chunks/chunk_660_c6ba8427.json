@@ -1,0 +1,9 @@
+{
+  "content": "i = self.curFrame-self.sliderStartFrame\n        st = str(self.curFrame)\n        tw,th = dc.GetTextExtent(st)\n        dc.DrawText(st, float(self.unitWidth)*float(i)+2, self.h-th-0.5)\n\n    def DrawFrame(self, dc):\n        i = self.curFrame-self.sliderStartFrame\n        pos = float(self.unitWidth)*float(i)\n        self.curRect = wx.Rect(pos, float(0), self.unitWidth, self.h)\n\n        oldPen, oldBrush, oldMode = dc.GetPen(), dc.GetBrush(), dc.GetLogicalFunction()\n\n        gray = wx.Colour(200, 200, 200)\n        grayPen = wx.Pen(gray)\n        grayBrush = wx.Brush(gray)\n        dc.SetPen(grayPen)\n        dc.SetBrush(grayBrush)\n        dc.SetLogicalFunction(wx.XOR)\n        dc.DrawRectangleRect(self.curRect)\n\n        dc.SetPen(oldPen)\n        dc.SetBrush(oldBrush)\n        dc.SetLogicalFunction(oldMode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 660
+  }
+}

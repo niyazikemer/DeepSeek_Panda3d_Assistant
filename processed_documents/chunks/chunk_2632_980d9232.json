@@ -1,0 +1,9 @@
+{
+  "content": "if __debug__:\n            from direct.fsm.ClassicFSM import _debugFsms\n            import weakref\n            _debugFsms[name]=weakref.ref(self)\n\n    def cleanup(self):\n        # A convenience function to force the FSM to clean itself up\n        # by transitioning to the \"Off\" state.\n        self.fsmLock.acquire()\n        try:\n            assert self.state\n            if self.state != 'Off':\n                self.__setState('Off')\n        finally:\n            self.fsmLock.release()\n\n    def setBroadcastStateChanges(self, doBroadcast):\n        self._broadcastStateChanges = doBroadcast\n    def getStateChangeEvent(self):\n        # if setBroadcastStateChanges(True), this event will be sent through\n        # the messenger on every state change. The new and old states are\n        # accessible as self.oldState and self.newState, and the transition\n        # functions will already have been called.\n        return 'FSM-%s-%s-stateChange' % (self._serialNum, self._name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2632
+  }
+}

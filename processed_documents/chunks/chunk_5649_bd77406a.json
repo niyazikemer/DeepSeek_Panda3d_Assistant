@@ -1,0 +1,9 @@
+{
+  "content": "def testFixture(self, index):\n        if index < len(self.fixtures):\n            self.getObject().testFixture(index)\n\n    def removeFixture(self, index):\n        self.fixtures.pop(index)\n        self.b_setFixtures(self.fixtures)\n\n    def saveFixture(self, index = None):\n        \"\"\"\n        Position the camera with ~oobe, then call this to save its telemetry.\n        \"\"\"\n        parent = self.getObject().getCamParent()\n        pos = base.cam.getPos(parent)\n        hpr = base.cam.getHpr(parent)\n        return self.addFixture([pos[0], pos[1], pos[2],\n                                hpr[0], hpr[1], hpr[2],\n                                'Standby'],\n                               index)\n\n    def startRecording(self):\n        self.accept('escape', self.stopRecording)\n        for fixture in self.fixtures:\n            fixture[6] = 'Recording'\n        self.b_setFixtures(self.fixtures)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_331",
+    "parent": "processed_documents/context_documents/3deb3265_DistributedCameraOV.json",
+    "chunk_number": 5649
+  }
+}

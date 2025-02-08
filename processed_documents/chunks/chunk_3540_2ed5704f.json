@@ -1,0 +1,9 @@
+{
+  "content": "def get(self):\n        return self._value\n\n    def getAt(self, index):\n        return self._value[index]\n\n    def set(self, value, fCommand = 1):\n        if type(value) in (float, int):\n            value = [value] * self['dim']\n        for i in range(self['dim']):\n            self._value[i] = value[i]\n            self.variableList[i].set(self.entryFormat % value[i])\n        self.action(fCommand)\n\n    def setAt(self, index, value, fCommand = 1):\n        self.variableList[index].set(self.entryFormat % value)\n        self._value[index] = value\n        self.action(fCommand)\n\n    def _entryUpdateAt(self, index):\n        entryVar = self.variableList[index]\n        # Did we get a valid float?\n        try:\n            newVal = float(entryVar.get())\n        except ValueError:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3540
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class PosHprInterval(FunctionInterval):\n    # PosHprInterval counter\n    posHprIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, pos, hpr, duration = 0.0,\n                 name = None, other = None):\n        \"\"\"__init__(nodePath, pos, hpr, duration, name)\n        \"\"\"\n        # Create function\n        def posHprFunc(np = nodePath, pos = pos, hpr = hpr, other = other):\n            if other:\n                np.setPosHpr(other, pos, hpr)\n            else:\n                np.setPosHpr(pos, hpr)\n        # Determine name\n        if name is None:\n            name = 'PosHprInterval-%d' % PosHprInterval.posHprIntervalNum\n            PosHprInterval.posHprIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, posHprFunc, name = name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2914
+  }
+}

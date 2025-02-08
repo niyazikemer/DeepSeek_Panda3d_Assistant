@@ -1,0 +1,9 @@
+{
+  "content": "# Expand option string to write on error\n                    option = component + '_' + componentOption\n\n                if component in self.__componentInfo:\n                    # Call cget on the component.\n                    componentCget = self.__componentInfo[component][3]\n                    return componentCget(componentOption)\n                else:\n                    # If this is a group name, call cget for one of\n                    # the components in the group.\n                    for info in self.__componentInfo.values():\n                        if info[4] == component:\n                            componentCget = info[3]\n                            return componentCget(componentOption)\n\n        # Option not found\n        raise KeyError('Unknown option \"' + option + \\\n                '\" for ' + self.__class__.__name__)\n\n    # Allow index style refererences\n    __getitem__ = cget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1393
+  }
+}

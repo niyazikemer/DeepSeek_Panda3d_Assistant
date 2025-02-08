@@ -1,0 +1,9 @@
+{
+  "content": "break\n            candidateCycle, curId, numDelInstances, resumeIndex = stateStack.pop()\n            if self.notify.getDebug():\n                if self._args.delOnly:\n                    print('restart: %s root=%s cur=%s numDelInstances=%s resume=%s' % (\n                        candidateCycle, rootId, curId, numDelInstances, resumeIndex))\n                else:\n                    print('restart: %s root=%s cur=%s resume=%s' % (\n                        candidateCycle, rootId, curId, resumeIndex))\n            for index in range(resumeIndex, len(self.referentsByNumber[curId])):\n                yield None\n                refId = self.referentsByNumber[curId][index]\n                if self.notify.getDebug():\n                    print('       : %s -> %s' % (curId, refId))\n                if refId == rootId:\n                    # we found a cycle! mark it down and move on to the next refId\n                    normCandidateCycle = self._getNormalizedCycle(candidateCycle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4276
+  }
+}

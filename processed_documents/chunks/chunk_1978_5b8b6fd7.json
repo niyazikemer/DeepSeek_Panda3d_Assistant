@@ -1,0 +1,9 @@
+{
+  "content": "return search_path\n\n        def create_runtime(platform, appname, mainscript, use_console):\n            freezer = FreezeTool.Freezer(\n                platform=platform,\n                path=path,\n                hiddenImports=self.hidden_imports,\n                optimize=2 if self.strip_docstrings else 1\n            )\n            freezer.addModule('__main__', filename=mainscript)\n            if platform.startswith('android'):\n                freezer.addModule('site', filename='site.py', text=SITE_PY_ANDROID)\n            else:\n                freezer.addModule('site', filename='site.py', text=SITE_PY)\n            for incmod in self.include_modules.get(appname, []) + self.include_modules.get('*', []):\n                freezer.addModule(incmod)\n            for exmod in self.exclude_modules.get(appname, []) + self.exclude_modules.get('*', []):\n                freezer.excludeModule(exmod)\n            freezer.done(addStartupModules=True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1978
+  }
+}

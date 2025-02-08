@@ -1,0 +1,9 @@
+{
+  "content": "if not anyGood:\n            self.notify.warning(\"Cannot control joint %s\" % (jointName))\n\n        return node\n\n    def freezeJoint(self, partName, jointName, transform = None,\n                    pos=Vec3(0,0,0), hpr=Vec3(0,0,0), scale=Vec3(1,1,1)):\n        \"\"\"Similar to controlJoint, but the transform assigned is\n        static, and may not be animated at runtime (without another\n        subsequent call to freezeJoint).  This is slightly more\n        optimal than controlJoint() for cases in which the transform\n        is not intended to be animated during the lifetime of the\n        Actor. \"\"\"\n        if transform is None:\n            transform = TransformState.makePosHprScale(pos, hpr, scale)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3101
+  }
+}

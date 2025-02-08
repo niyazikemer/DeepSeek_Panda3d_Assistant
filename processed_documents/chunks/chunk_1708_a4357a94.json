@@ -1,0 +1,9 @@
+{
+  "content": "def startSwapCoordinatorTask(self):\n        taskMgr.add(self.swapCoordinator, \"clientSwapCoordinator\", 51)\n\n    def swapCoordinator(self, task):\n        self.ready = 1\n        if self.waitForSwap:\n            self.waitForSwap=0\n            self.notify.debug(\n                \"START get swaps----------------------------------\")\n            for server in self.serverList:\n                server.getSwapReady()\n            self.notify.debug(\n                \"----------------START swap now--------------------\")\n            for server in self.serverList:\n                server.sendSwapNow()\n            self.notify.debug(\n                \"------------------------------START swap----------\")\n            base.graphicsEngine.flipFrame()\n            self.notify.debug(\n                \"------------------------------------------END swap\")\n\n        #print \"syncing\"\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1708
+  }
+}

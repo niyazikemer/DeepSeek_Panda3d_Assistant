@@ -1,0 +1,9 @@
+{
+  "content": "class ReferrerSearch(Job):\n    def __init__(self, obj, maxRefs = 100):\n        Job.__init__(self, 'ReferrerSearch')\n        self.obj = obj\n        self.maxRefs = maxRefs\n        self.visited = set()\n        self.depth = 0\n        self.found = 0\n        self.shouldPrintStats = False\n\n    def __call__(self):\n        safeReprNotify = _getSafeReprNotify()\n        info = safeReprNotify.getInfo()\n        safeReprNotify.setInfo(0)\n\n        self.visited = set()\n        try:\n            self.step(0, [self.obj])\n        finally:\n            self.obj = None\n\n        safeReprNotify.setInfo(info)\n\n    def run(self):\n        safeReprNotify = _getSafeReprNotify()\n        self.info = safeReprNotify.getInfo()\n        safeReprNotify.setInfo(0)\n\n        print('RefPath(%s): Beginning ReferrerSearch for %s' %(self._id, fastRepr(self.obj)))\n\n        self.visited = set()\n        for x in self.stepGenerator(0, [self.obj]):\n            yield None\n\n        yield Job.Done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4811
+  }
+}

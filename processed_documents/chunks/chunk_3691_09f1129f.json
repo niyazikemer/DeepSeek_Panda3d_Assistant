@@ -1,0 +1,9 @@
+{
+  "content": "def edit_cancel(self, event=None):\n        self.drawtext()\n        self.canvas.focus_set()\n\n    def find(self, searchKey):\n        # Search for a node who's key matches the given key\n        # Is it this node\n        if searchKey == self.item.GetKey():\n            # [gjeon] to filter by given tag\n            if self.fModeChildrenTag:\n                if self.childrenTag:\n                    showThisItem = False\n                    for tagKey in list(self.childrenTag.keys()):\n                        if self.item.nodePath.hasTag(tagKey):\n                            showThisItem = self.childrenTag[tagKey]\n                    if not showThisItem:\n                        return None\n            return self\n        # Nope, check the children\n        sublist = self.item._GetSubList()\n        for item in sublist:\n            key = item.GetKey()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3691
+  }
+}

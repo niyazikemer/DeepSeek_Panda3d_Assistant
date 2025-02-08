@@ -1,0 +1,9 @@
+{
+  "content": "def curveEditTask(self, state):\n        if self.curveCollection is not None:\n            # Update curve position\n            if self.manipulandumId == self.playbackMarker.id():\n                # Show playback marker\n                self.playbackMarker.getChild(0).show()\n                pos = Point3(0)\n                hpr = Point3(0)\n                pos = self.playbackMarker.getPos(self.nodePathParent)\n                hpr = self.playbackMarker.getHpr(self.nodePathParent)\n                self.curveCollection.adjustXyz(\n                    self.playbackTime, VBase3(pos[0], pos[1], pos[2]))\n                self.curveCollection.adjustHpr(\n                    self.playbackTime, VBase3(hpr[0], hpr[1], hpr[2]))\n                # Note: this calls recompute on the curves\n                self.nurbsCurveDrawer.draw()\n            # Update tangent\n            if self.manipulandumId == self.tangentMarker.id():\n                # If manipulating marker, update tangent",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1161
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "python\n\ndef processPrimitive(prim, vdata):\n    vertex = GeomVertexReader(vdata, 'vertex')\n\n    prim = prim.decompose()\n\n    for p in range(prim.getNumPrimitives()):\n        s = prim.getPrimitiveStart(p)\n        e = prim.getPrimitiveEnd(p)\n        for i in range(s, e):\n            vi = prim.getVertex(i)\n            vertex.setRow(vi)\n            v = vertex.getData3()\n            print(\"prim %s has vertex %s: %s\" % (p, vi, repr(v)))\n\ncpp\n\nvoid processPrimitive(const GeomPrimitive *orig_prim, const GeomVertexData *vdata) {\n  GeomVertexReader vertex(vdata, \"vertex\");\n\n  CPT(GeomPrimitive) prim = orig_prim->decompose();\n\n  for (size_t k = 0; k < prim->get_num_primitives(); ++k) {\n    int s = prim->get_primitive_start(k);\n    int e = prim->get_primitive_end(k);\n    for (int i = s; i < e; ++i) {\n      int vi = prim->get_vertex(b);\n      vertex.set_row(vi);\n      LVector3 v = vertex.get_data3();\n      nout << \"prim \" << k << \" has vertex \" << vi <<\": \" << v << endl;\n    }\n  }\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_373",
+    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
+    "chunk_number": 5932
+  }
+}

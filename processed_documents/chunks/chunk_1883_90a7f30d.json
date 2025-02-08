@@ -1,0 +1,9 @@
+{
+  "content": "if nscns == 0:\n            raise ValueError(\"No sections found.\")\n\n        if not opthdr:\n            raise ValueError(\"No opthdr found.\")\n\n        # Read part of the opthdr.\n        magic, self.code_size, self.initialized_size, self.uninitialized_size = \\\n            unpack('<HxxIII', fp.read(16))\n\n        # Read alignments.\n        fp.seek(16, 1)\n        self.section_alignment, self.file_alignment = unpack('<II', fp.read(8))\n\n        # Read header/image sizes.\n        fp.seek(16, 1)\n        self.image_size, self.header_size = unpack('<II', fp.read(8))\n\n        if magic == 0x010b: # 32-bit.\n            fp.seek(28, 1)\n        elif magic == 0x20B: # 64-bit.\n            fp.seek(44, 1)\n        else:\n            raise ValueError(\"unknown type 0x%x\" % (magic))\n\n        self.rva_offset = fp.tell()\n        numrvas, = unpack('<I', fp.read(4))\n\n        self.exp_rva = RVASize(0, 0)\n        self.imp_rva = RVASize(0, 0)\n        self.res_rva = RVASize(0, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1883
+  }
+}

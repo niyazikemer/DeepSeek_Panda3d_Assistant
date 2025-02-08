@@ -1,0 +1,9 @@
+{
+  "content": "def create_nsis(command, basename, build_dir):\n    platform = command.get_current_platform()\n    if not platform.startswith('win'):\n        command.announce(\n            '\\tNSIS installer not supported for platform: {}'.format(platform),\n            distutils.log.ERROR\n        )\n        return\n    try:\n        subprocess.call(['makensis', '--version'])\n    except OSError:\n        command.announce(\n            '\\tCould not find makensis tool that is required to build NSIS installers',\n            distutils.log.ERROR\n        )\n        return\n\n    is_64bit = platform == 'win_amd64'\n    # Get a list of build applications\n    build_cmd = command.get_finalized_command('build_apps')\n    apps = build_cmd.gui_apps.copy()\n    apps.update(build_cmd.console_apps)\n    apps = [\n        '{}.exe'.format(i)\n        for i in apps\n    ]\n\n    shortname = command.distribution.get_name()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1907
+  }
+}

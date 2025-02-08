@@ -1,0 +1,9 @@
+{
+  "content": "### Task management methods ###\n\n    def startTask(self):\n        self.stopTask()\n        taskMgr.doMethodLater(self.updateFreq, self.doUpdate, \"timeMgrTask\")\n\n    def stopTask(self):\n        taskMgr.remove(\"timeMgrTask\")\n\n    def doUpdate(self, task):\n        self.synchronize(\"timer\")\n        # Spawn the next one\n        taskMgr.doMethodLater(self.updateFreq, self.doUpdate, \"timeMgrTask\")\n        return Task.done\n\n    ### Automatic clock error handling ###\n\n    def handleClockError(self):\n        self.synchronize(\"clock error\")\n\n    ### Synchronization methods ###\n\n    def synchronize(self, description):\n        \"\"\"synchronize(self, string description)\n\n        Call this function from time to time to synchronize watches\n        with the server.  This initiates a round-trip transaction;\n        when the transaction completes, the time will be synced.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5521
+  }
+}

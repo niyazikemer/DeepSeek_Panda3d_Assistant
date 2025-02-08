@@ -1,0 +1,9 @@
+{
+  "content": "python\n\nsmiley = loader.loadModel('smiley.egg')\nfromObject = smiley.attachNewNode(CollisionNode('colNode'))\nfromObject.node().addSolid(CollisionRay(0, 0, 0, 0, 0, -1))\n\nlifter = CollisionHandlerFloor()\nlifter.addCollider(fromObject, smiley)\n\ncpp\n\nsmiley = window->load_model(framework.get_models(), \"smiley.egg\");\nfromObject = smiley.attach_new_node(new CollisionNode(\"colNode\"));\nfromObject.node()->add_solid(new CollisionRay(0, 0, 0, 0, 0, -1));\n\nPT(CollisionHandlerFloor) lifter = new CollisionHandlerFloor;\nlifter->add_collider(fromObject, smiley);\n\nCollisionHandlerGravity\n\nThis handler is very similar to CollisionHandlerFloor, but rather than positioning objects directly at the floor, it can apply an acceleration to make them fall gradually to the ground.\n\nThe main parameter to adjust is the gravity property, which sets the acceleration. If your scene unit is metres, and your simulation takes place on earth, then you will want to set this to a value of around 9.81.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6453
+  }
+}

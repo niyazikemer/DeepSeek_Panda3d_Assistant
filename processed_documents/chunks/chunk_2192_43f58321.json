@@ -1,0 +1,9 @@
+{
+  "content": "# Write indices.  Align rows to 4-byte boundary.\n            rowalign = b'\\0' * (-size & 3)\n            for y in range(size):\n                for x in range(size):\n                    pixel = image2.get_pixel(x, size - y - 1)\n                    index = colors.index(pixel)\n                    fp.write(struct.pack('<B', index))\n                fp.write(rowalign)\n        else:\n            raise ValueError(\"Invalid bpp %d\" % (bpp))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2192
+  }
+}

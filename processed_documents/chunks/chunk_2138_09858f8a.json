@@ -1,0 +1,9 @@
+{
+  "content": "if data.startswith(b'MZ'):\n            # A Windows PE file.\n            pe = pefile.PEFile()\n            pe.read(io.BytesIO(data))\n            addr = pe.get_export_address(symbol_name)\n            if addr is not None:\n                # We found it, return its offset in the file.\n                offset = pe.get_address_offset(addr)\n                if offset is not None:\n                    data[offset:offset+len(replacement)] = replacement\n                    return True\n\n        elif data.startswith(b\"\\177ELF\"):\n            return self._replace_symbol_elf(data, symbol_name, replacement)\n\n        elif data[:4] in (b'\\xFE\\xED\\xFA\\xCE', b'\\xCE\\xFA\\xED\\xFE',\n                          b'\\xFE\\xED\\xFA\\xCF', b'\\xCF\\xFA\\xED\\xFE'):\n            off = self._find_symbol_macho(data, symbol_name)\n            if off is not None:\n                data[off:off+len(replacement)] = replacement\n                return True\n            return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2138
+  }
+}

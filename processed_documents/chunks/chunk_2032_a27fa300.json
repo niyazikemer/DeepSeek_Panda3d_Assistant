@@ -1,0 +1,9 @@
+{
+  "content": "class CompilationEnvironment:\n    \"\"\" Create an instance of this class to record the commands to\n    invoke the compiler on a given platform.  If needed, the caller\n    can create a custom instance of this class (or simply set the\n    compile strings directly) to customize the build environment. \"\"\"\n\n    def __init__(self, platform):\n        self.platform = platform\n\n        # The command to compile a c to an object file.  Replace %(basename)s\n        # with the basename of the source file, and an implicit .c extension.\n        self.compileObj = 'error'\n\n        # The command to link a single object file into an executable.  As\n        # above, replace $(basename)s with the basename of the original source\n        # file, and of the target executable.\n        self.linkExe = 'error'\n\n        # The command to link a single object file into a shared library.\n        self.linkDll = 'error'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2032
+  }
+}

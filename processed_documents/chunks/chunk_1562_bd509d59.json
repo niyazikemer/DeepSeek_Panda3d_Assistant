@@ -1,0 +1,9 @@
+{
+  "content": "bHeight = bWidth = 0\n        # Resize frame to fit text and buttons\n        l = min(bPos + bl, l) - pad[0]\n        r = max(bMax + br, r) + pad[0]\n        sidePad = self['sidePad']\n        l -= sidePad\n        r += sidePad\n        # reduce bottom by pad, button height and 2*button pad\n        b = min(b - self['midPad'] - bpad[1] - bHeight - bpad[1], b) - pad[1]\n        t = t + self['topPad'] + pad[1]\n        if self['frameSize'] is None:\n            self['frameSize'] = (l, r, b, t)\n        self['image_scale'] = (r - l, 1, t - b)\n        # Center frame about text and buttons\n        self['image_pos'] = ((l+r)*0.5, 0.0, (b+t)*0.5)\n        self.resetFrameSize()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1562
+  }
+}

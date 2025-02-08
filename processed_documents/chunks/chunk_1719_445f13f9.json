@@ -1,0 +1,9 @@
+{
+  "content": "hpr = configData.get('hpr', Vec3(0))\n        # Init Frustum if specified\n        fl = configData.get('focal length', None)\n        fs = configData.get('film size', None)\n        fo = configData.get('film offset', None)\n        if displayMode == 'client':\n            #lens.setInterocularDistance(pos[0])\n            base.cam.setPos(pos)\n            lens = base.cam.node().getLens()\n            lens.setViewHpr(hpr)\n            if fl is not None:\n                lens.setFocalLength(fl)\n            if fs is not None:\n                lens.setFilmSize(fs[0], fs[1])\n            if fo is not None:\n                lens.setFilmOffset(fo[0], fo[1])\n        else:\n            serverConfigName = 'cluster-server-%s' % displayName\n            serverName = base.config.GetString(serverConfigName, '')\n            if serverName == '':\n                base.notify.warning(\n                    '%s undefined in Configrc: expected by %s display client.'%",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1719
+  }
+}

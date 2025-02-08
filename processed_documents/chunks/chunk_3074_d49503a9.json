@@ -1,0 +1,9 @@
+{
+  "content": "Returns True if any joint has changed as a result of this,\n        False otherwise. \"\"\"\n\n        if lodName is None:\n            lodNames = self.getLODNames()\n        else:\n            lodNames = [lodName]\n\n        anyChanged = False\n        if lod < len(lodNames):\n            lodName = lodNames[lod]\n            if partName is None:\n                partBundleDict = self.__partBundleDict[lodName]\n                partNames = list(partBundleDict.keys())\n            else:\n                partNames = [partName]\n\n            for partName in partNames:\n                partBundle = self.getPartBundle(partName, lodNames[lod])\n                if force:\n                    if partBundle.forceUpdate():\n                        anyChanged = True\n                else:\n                    if partBundle.update():\n                        anyChanged = True\n        else:\n            self.notify.warning('update() - no lod: %d' % lod)\n\n        return anyChanged",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3074
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "widget.showWidget()\n            else:\n                self.widget.showWidget()\n            editTypes = self.manipulationControl.getEditTypes([dnp])\n            if (editTypes & DG.EDIT_TYPE_UNEDITABLE) == DG.EDIT_TYPE_UNEDITABLE:\n                self.manipulationControl.disableWidgetMove()\n            else:\n                self.manipulationControl.enableWidgetMove()\n            # Update camera controls coa to this point\n            # Coa2Camera = Coa2Dnp * Dnp2Camera\n            mCoa2Camera = dnp.mCoa2Dnp * dnp.getMat(self.camera)\n            row = mCoa2Camera.getRow(3)\n            coa = Vec3(row[0], row[1], row[2])\n            self.cameraControl.updateCoa(coa)\n            # Adjust widgets size\n            # This uses the additional scaling factor used to grow and\n            # shrink the widget\n            if not self.fScaleWidgetByCam: # [gjeon] for not scaling widget by distance from camera\n                if self.manipulationControl.fMultiView:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3408
+  }
+}

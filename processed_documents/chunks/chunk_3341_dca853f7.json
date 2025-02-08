@@ -1,0 +1,9 @@
+{
+  "content": "def spawnMoveToView(self, view):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Record undo point\n        direct = ShowBaseGlobal.direct\n        direct.pushUndo([direct.camera])\n        # Calc hprOffset\n        hprOffset = VBase3()\n        if view == 8:\n            # Try the next roll angle\n            self.orthoViewRoll = (self.orthoViewRoll + 90.0) % 360.0\n            # but use the last view\n            view = self.lastView\n        else:\n            self.orthoViewRoll = 0.0\n        # Adjust offset based on specified view\n        if view == 1:\n            hprOffset.set(180., 0., 0.)\n        elif view == 2:\n            hprOffset.set(0., 0., 0.)\n        elif view == 3:\n            hprOffset.set(90., 0., 0.)\n        elif view == 4:\n            hprOffset.set(-90., 0., 0.)\n        elif view == 5:\n            hprOffset.set(0., -90., 0.)\n        elif view == 6:\n            hprOffset.set(0., 90., 0.)\n        elif view == 7:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3341
+  }
+}

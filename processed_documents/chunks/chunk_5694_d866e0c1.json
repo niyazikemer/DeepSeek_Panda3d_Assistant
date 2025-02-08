@@ -1,0 +1,9 @@
+{
+  "content": "def handleLogicalZoneChange(self, newZoneId, oldZoneId):\n        \"\"\"this function gets called as if we never go through the\n        quiet zone. Note that it is called once you reach the newZone,\n        and not at the time that you leave the oldZone.\"\"\"\n        messenger.send(self.getLogicalZoneChangeEvent(),\n                       [newZoneId, oldZoneId])\n\n    def getZoneData(self):\n        # Call this to get an AIZoneData object for the current zone.\n        # This class will hold onto it as self._zoneData\n        # setLocation destroys self._zoneData if we move away to\n        # a different zone\n        if self._zoneData is None:\n            from otp.ai.AIZoneData import AIZoneData  # type: ignore[import-not-found]\n            self._zoneData = AIZoneData(self.air, self.parentId, self.zoneId)\n        return self._zoneData",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5694
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Inspector:\n    def __init__(self, anObject):\n        self.object = anObject\n        self.lastPartNumber = 0\n        self.initializePartsList()\n        self.initializePartNames()\n\n    def __str__(self):\n        return __name__ + '(' + str(self.object) + ')'\n\n    def initializePartsList(self):\n        self._partsList = []\n        for each in sorted(self.namedParts()):\n            self._partsList.append(each)\n            #if not callable(getattr(self.object, each)):\n            #    self._partsList.append(each)\n\n    def initializePartNames(self):\n        self._partNames = ['up'] + [str(each) for each in self._partsList]\n\n    def title(self):\n        \"Subclasses may override.\"\n        return self.objectType().__name__.capitalize()\n\n    def getLastPartNumber(self):\n        return self.lastPartNumber\n\n    def selectedPart(self):\n        return self.partNumber(self.getLastPartNumber())\n\n    def namedParts(self):\n        return dir(self.object)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1020
+  }
+}

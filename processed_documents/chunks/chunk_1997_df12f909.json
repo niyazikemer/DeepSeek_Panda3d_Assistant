@@ -1,0 +1,9 @@
+{
+  "content": "if path.startswith(pattern_dir + '/'):\n                    return True\n\n            return False\n\n        def copy_file(src, dst):\n            src = os.path.normpath(src)\n            dst = os.path.normpath(dst)\n\n            if not check_file(src):\n                self.announce('skipping file {}'.format(src))\n                return\n\n            dst_dir = os.path.dirname(dst)\n            if not os.path.exists(dst_dir):\n                os.makedirs(dst_dir)\n\n            ext = os.path.splitext(src)[1]\n            # If the file ends with .gz/.pz, we strip this off.\n            if ext in ('.gz', '.pz'):\n                ext = os.path.splitext(src[:-3])[1]\n            if not ext:\n                ext = os.path.basename(src)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1997
+  }
+}

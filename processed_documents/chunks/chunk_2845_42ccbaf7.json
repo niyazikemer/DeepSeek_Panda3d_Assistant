@@ -1,0 +1,9 @@
+{
+  "content": "if self.__endTAtEnd:\n                self.__endT = self.getDuration()\n\n            if t < self.__endT:\n                # In the middle of the interval, not a problem.\n                if self.isStopped():\n                    self.privInitialize(t)\n                else:\n                    self.privStep(t)\n\n            else:\n                # Past the ending point; time to finalize.\n                if self.__endTAtEnd:\n                    # Only finalize if the playback cycle includes the\n                    # whole interval.\n                    if self.isStopped():\n                        if self.getOpenEnded() or self.__loopCount != 0:\n                            self.privInstant()\n                    else:\n                        self.privFinalize()\n                else:\n                    if self.isStopped():\n                        self.privInitialize(self.__endT)\n                    else:\n                        self.privStep(self.__endT)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2845
+  }
+}

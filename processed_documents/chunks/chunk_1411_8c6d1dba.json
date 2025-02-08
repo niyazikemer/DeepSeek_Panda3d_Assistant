@@ -1,0 +1,9 @@
+{
+  "content": "self.assign(parent.attachNewNode(self.guiItem, self['sortOrder']))\n        # Update pose to initial values\n        if self['pos']:\n            self.setPos(self['pos'])\n        if self['hpr']:\n            self.setHpr(self['hpr'])\n        if self['scale']:\n            self.setScale(self['scale'])\n        if self['color']:\n            self.setColor(self['color'])\n        # Initialize names\n        # Putting the class name in helps with debugging.\n        self.setName(\"%s-%s\" % (self.__class__.__name__, self.guiId))\n        # Create\n        self.stateNodePath = []\n        for i in range(self['numStates']):\n            self.stateNodePath.append(NodePath(self.guiItem.getStateDef(i)))\n        # Initialize frame style\n        self.frameStyle = []\n        for i in range(self['numStates']):\n            self.frameStyle.append(PGFrameStyle())\n        # For holding bounds info\n        self.ll = Point3(0)\n        self.ur = Point3(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1411
+  }
+}

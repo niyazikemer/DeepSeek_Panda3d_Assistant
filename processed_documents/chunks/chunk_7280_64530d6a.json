@@ -1,0 +1,9 @@
+{
+  "content": "# Add several vertices with a single call\nshape2 = BulletConvexHullShape()\nshape2.addArray([\n   Point3(1, 1, 2),\n   Point3(0, 0, 0),\n   Point3(2, 0, 0),\n   Point3(0, 2, 0),\n   Point3(2, 2, 0),\n])\n\n# Add all vertices which can be found in a Geom object\ngeomNodes = loader.loadModel(path).findAllMatches('**/+GeomNode')\ngeomNode = geomNodes.getPath(0).node()\ngeom = geomNode.getGeom(0)\nshape3 = BulletConvexHullShape()\nshape3.addGeom(geom)\n\ncpp\n\n#include \"bulletConvexHullShape.h\"\n...\n\n// Add each vertex separately\nPT(BulletConvexHullShape) convex_hull_shape = new BulletConvexHullShape();\nconvex_hull_shape->add_point(LPoint3(1, 1, 2));\nconvex_hull_shape->add_point(LPoint3(0, 0, 0));\nconvex_hull_shape->add_point(LPoint3(2, 0, 0));\nconvex_hull_shape->add_point(LPoint3(0, 2, 0));\nconvex_hull_shape->add_point(LPoint3(2, 2, 0));\n\nTriangle Mesh Shape",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7280
+  }
+}

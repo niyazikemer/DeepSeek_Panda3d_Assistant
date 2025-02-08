@@ -1,0 +1,9 @@
+{
+  "content": "if propType == OG.PROP_UI_ENTRY:\n                propUI = ObjectPropUIEntry(self.propsPane, key)\n                propUI.setValue(value)\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_SLIDE:\n                if len(propDef) <= OG.PROP_RANGE:\n                    continue\n                propRange = propDef[OG.PROP_RANGE]\n\n                if value is None:\n                    continue\n\n                if propDataType != OG.PROP_FLOAT:\n                    value = float(value)\n\n                propUI = ObjectPropUISlider(self.propsPane, key, value, propRange[OG.RANGE_MIN], propRange[OG.RANGE_MAX])\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_SPIN:\n                if len(propDef) <= OG.PROP_RANGE:\n                    continue\n                propRange = propDef[OG.PROP_RANGE]\n\n                if value is None:\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 341
+  }
+}

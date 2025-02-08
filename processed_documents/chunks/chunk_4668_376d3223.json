@@ -1,0 +1,9 @@
+{
+  "content": "class Sync:\n    _SeriesGen = SerialNumGen()\n\n    def __init__(self, name, other=None):\n        self._name = name\n        if other is None:\n            self._series = self._SeriesGen.next()\n            self._value = 0\n        else:\n            self._series = other._series\n            self._value = other._value\n\n    def invalidate(self):\n        self._value = None\n\n    def change(self):\n        self._value += 1\n\n    def sync(self, other):\n        if (self._series != other._series) or (self._value != other._value):\n            self._series = other._series\n            self._value = other._value\n            return True\n        else:\n            return False\n\n    def isSynced(self, other):\n        return ((self._series == other._series) and\n                (self._value == other._value))\n\n    def __repr__(self):\n        return '%s(%s)<family=%s,value=%s>' % (self.__class__.__name__,\n                              self._name, self._series, self._value)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4668
+  }
+}

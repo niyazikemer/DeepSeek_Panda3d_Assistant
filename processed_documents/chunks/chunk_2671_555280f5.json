@@ -1,0 +1,9 @@
+{
+  "content": "@classmethod\n        def replaceMethod(cls, oldFunction, newFunction):\n            import types\n            count = 0\n            for state in cls.States:\n                # Note: you can only replace methods currently\n                enterFunc = state.getEnterFunc()\n                exitFunc = state.getExitFunc()\n                # print 'testing: ', state, enterFunc, exitFunc, oldFunction\n                if isinstance(enterFunc, types.MethodType):\n                    if enterFunc.__func__ == oldFunction:\n                        # print 'found: ', enterFunc, oldFunction\n                        state.setEnterFunc(types.MethodType(newFunction,\n                                                            enterFunc.__self__))\n                        count += 1\n                if isinstance(exitFunc, types.MethodType):\n                    if exitFunc.__func__ == oldFunction:\n                        # print 'found: ', exitFunc, oldFunction",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2671
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# create a lerp interval for each bounce, making sure to\n    # figure out the new value, which progressively gets closer\n    # to our start value\n    #\n    for bounceNum in range(numBounces * 2):\n        # determine the direction that this value should go,\n        # alternating for each lerp interval to simulate\n        # a spring effect\n        #\n        if bounceNum % 2:\n            # bounce down\n            currBounceVal = startValues[index]\n            blend = 'easeIn'\n        else:\n            # bounce up\n            currBounceVal = startValues[index] + currAmplitude\n            blend = 'easeOut'\n\n        newVec3 = Vec3(startValues)\n        newVec3.setCell(index, currBounceVal)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_170",
+    "parent": "processed_documents/context_documents/c94c3f02_Effects.json",
+    "chunk_number": 2946
+  }
+}

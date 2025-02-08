@@ -1,0 +1,9 @@
+{
+  "content": "newItem = self.tree.AppendItem(self.editor.ui.protoPaletteUI.tree.root, name)\n        self.tree.SetItemPyData(newItem, itemData)\n        self.tree.ScrollTo(newItem)\n\n    def addNewItem(self, result):\n        if len(result) == 2:\n            itemData = ObjectBase(name=result[0], model=result[1], actor=False)\n        elif len(result) == 3:\n            itemData = ObjectBase(name=result[0], model=result[1], anims=[result[2]], actor=True)\n        else:\n            return\n        self.palette.add(itemData)\n        newItem = self.tree.AppendItem(self.tree.root, itemData.name)\n        self.tree.SetItemPyData(newItem, itemData)\n        self.tree.ScrollTo(newItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 566
+  }
+}

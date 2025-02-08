@@ -1,0 +1,9 @@
+{
+  "content": "def validateEntryInput(self, event):\n        \"\"\" Check validity of entry and if valid pass along to valuator \"\"\"\n        input = self._entryVal.get()\n        try:\n            # Reset background\n            self._entry.configure(background = self._entryBackground)\n            # Get new value and check validity\n            newValue = float(input)\n            # If OK, execute preCallback if one defined\n            self._preCallback()\n            # Call set to update valuator\n            self.set(newValue)\n            # Execute callback\n            self._postCallback()\n            # Update valuator to reflect adjusted value\n            # Don't execute command\n            self._valuator.set(self.adjustedValue, 0)\n        except ValueError:\n            # Invalid entry, flash background\n            self._entry.configure(background = 'Pink')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3643
+  }
+}

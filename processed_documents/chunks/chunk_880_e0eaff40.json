@@ -1,0 +1,9 @@
+{
+  "content": "def addForce(self, f):\n        if self.forceGroup is None:\n            self.createNewForceGroup()\n        self.forceGroup.addForce(f)\n        self.addForceWidget(self.forceGroup, f)\n\n    ## SYSTEM COMMANDS ##\n    def createNewEffect(self):\n        name = askstring('Particle Panel', 'Effect Name:',\n                         parent = self.parent)\n        if name:\n            particles = Particles.Particles()\n            particles.setBirthRate(0.02)\n            particles.setLitterSize(10)\n            particles.setLitterSpread(0)\n            particles.setFactory(\"PointParticleFactory\")\n            particles.setRenderer(\"PointParticleRenderer\")\n            particles.setEmitter(\"SphereVolumeEmitter\")\n            particles.enable()\n            effect = ParticleEffect.ParticleEffect(name, particles)\n            self.effectsDict[name] = effect\n            self.updateMenusAndLabels()\n            self.selectEffectNamed(name)\n            effect.reparentTo(render)\n            effect.enable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 880
+  }
+}

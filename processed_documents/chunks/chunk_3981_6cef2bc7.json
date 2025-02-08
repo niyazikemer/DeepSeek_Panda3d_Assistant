@@ -1,0 +1,9 @@
+{
+  "content": "self.update()\n        return True\n\n    def update(self, task = None):\n        \"\"\"Updates the shader inputs that need to be updated every frame.\n        Normally, you shouldn't call this, it's being called in a task.\"\"\"\n\n        if \"VolumetricLighting\" in self.configuration:\n            caster = self.configuration[\"VolumetricLighting\"].caster\n            casterpos = LPoint2()\n            self.manager.camera.node().getLens().project(caster.getPos(self.manager.camera), casterpos)\n            self.finalQuad.setShaderInput(\"casterpos\", LVecBase4(casterpos.getX() * 0.5 + 0.5, (casterpos.getY() * 0.5 + 0.5), 0, 0))\n        if task is not None:\n            return task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3981
+  }
+}

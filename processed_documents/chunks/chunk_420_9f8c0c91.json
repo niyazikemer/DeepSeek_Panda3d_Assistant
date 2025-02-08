@@ -1,0 +1,9 @@
+{
+  "content": "def updateStatusReadoutTimeouts(self,task=None):\n        removalList = []\n        for currLine in self.statusLines:\n            if ClockObject.getGlobalClock().getRealTime() >= currLine[0]:\n                removalList.append(currLine)\n        for currRemoval in removalList:\n            self.statusLines.remove(currRemoval)\n        self.updateStatusReadout(None)\n        # perform doMethodLater again after delay\n        # This crashes when CTRL-C'ing, so this is a cheap hack.\n        #return 2\n        from direct.task import Task\n        return Task.again\n\n    def propMeetsReq(self, typeName, parentNP):\n        if self.ui.parentToSelectedMenuItem.IsChecked():\n            if base.direct.selected.last:\n                parent = base.le.objectMgr.findObjectByNodePath(base.direct.selected.last)\n                if parent:\n                    parentNP[0] = parent[OG.OBJ_NP]\n        else:\n            parentNP[0] = None\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 420
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\" This module contains code to freeze a number of Python modules\ninto a single (mostly) standalone DLL or EXE. \"\"\"\n\nimport modulefinder\nimport sys\nimport os\nimport marshal\nimport platform\nimport struct\nimport io\nimport sysconfig\nimport zipfile\nimport importlib\nimport warnings\nfrom importlib import machinery\n\nfrom . import pefile\n\n# Temporary (?) try..except to protect against unbuilt p3extend_frozen.\ntry:\n    import p3extend_frozen\nexcept ImportError:\n    p3extend_frozen = None\n\nfrom panda3d.core import Filename, Multifile, PandaSystem, StringStream\n\n# Old imp constants.\n_PY_SOURCE = 1\n_PY_COMPILED = 2\n_C_EXTENSION = 3\n_PKG_DIRECTORY = 5\n_C_BUILTIN = 6\n_PY_FROZEN = 7\n\n_PKG_NAMESPACE_DIRECTORY = object()\n\n# Check to see if we are running python_d, which implies we have a\n# debug build, and we have to build the module with debug options.\n# This is only relevant on Windows.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2024
+  }
+}

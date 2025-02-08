@@ -1,0 +1,9 @@
+{
+  "content": "def privReverseInstant(self):\n        state = self.interval.getState()\n        if (state == CInterval.SInitial or state == CInterval.SFinal) and \\\n           self.startAtStart:\n            self.interval.privReverseInstant()\n            self.currT = 0\n            self.interval.privPostEvent()\n        else:\n            if state == CInterval.SInitial or state == CInterval.SFinal:\n                self.interval.privReverseInitialize(self.endT)\n            else:\n                self.interval.privStep(self.endT)\n            self.privReverseFinalize()\n\n    def privReverseFinalize(self):\n        if self.startAtStart:\n            self.interval.privReverseFinalize()\n        else:\n            self.interval.privStep(self.endT)\n            self.interval.privInterrupt()\n        self.currT = 0\n        self.state = CInterval.SInitial\n        self.interval.privPostEvent()\n\n    def privInterrupt(self):\n        self.interval.privInterrupt()\n        self.interval.privPostEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_152",
+    "parent": "processed_documents/context_documents/43d373be_IndirectInterval.json",
+    "chunk_number": 2724
+  }
+}

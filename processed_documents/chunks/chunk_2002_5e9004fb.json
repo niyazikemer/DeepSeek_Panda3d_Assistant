@@ -1,0 +1,9 @@
+{
+  "content": "for dir in search_path:\n            if os.path.isdir(dir):\n                files = os.listdir(dir)\n                files_lower = [file.lower() for file in files]\n\n                if name_lower in files_lower:\n                    name = files[files_lower.index(name_lower)]\n                    source_path = os.path.join(dir, name)\n                    target_path = os.path.join(target_dir, name)\n                    self.copy_with_dependencies(source_path, target_path, search_path)\n\n        # Warn if we can't find it, but only once.\n        self.warn(\"could not find dependency {0} (referenced by {1})\".format(name, referenced_by))\n        self.exclude_dependencies.append(p3d.GlobPattern(name.lower()))\n\n    def copy(self, source_path, target_path):\n        \"\"\" Copies source_path to target_path.\n\n        source_path may be located inside a .whl file. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2002
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def onSize(self, evt):\n        \"\"\"Invoked when the viewport is resized.\"\"\"\n        WxPandaWindow.onSize(self, evt)\n\n        if self.win is not None:\n            newWidth = self.ClientSize.GetWidth()\n            newHeight = self.ClientSize.GetHeight()\n\n            if hasattr(base, \"direct\") and base.direct:\n                for dr in base.direct.drList:\n                    if dr.camNode == self.camNode:\n                        dr.updateFilmSize(newWidth, newHeight)\n                        break\n\n    def onRightDown(self, evt = None):\n        \"\"\"Invoked when the viewport is right-clicked.\"\"\"\n        if evt is None:\n            mpos = wx.GetMouseState()\n            mpos = self.ScreenToClient((mpos.x, mpos.y))\n        else:\n            mpos = evt.GetPosition()\n        self.Update()\n        #self.PopupMenu(self.menu, mpos)\n        #self.menu.Destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 223
+  }
+}

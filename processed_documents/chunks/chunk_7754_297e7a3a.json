@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nframework->define_key(<event name>, <description>, <function>, nullptr);\nframework->define_key(<event name>, <description>, <function>, <data>);\n\n<event name> is a string that labels the event. <function> is an EventCallbackFunction to be called when the event is sent. <data> is an arbitrary pointer to be passed when the framework calls <function>.\n\npython\n\nIf you're wondering which events are being fired for certain keyboard activity, it is advised to call base.messenger.toggleVerbose(). This will cause Panda3D to print out all the events that are being sent to the command-line prompt. This way, you can find out which keyboard key corresponds to which event name.\n\nIn general, the keyboard event naming follows the following rules:\n\nKeys that type a character are named that character. It is always lowercase, even when shift or caps lock is pressed. (Shift and other modifiers are explained below.)\n\n\"a\", \"b\", \"3\", \"[\", etc. not \"A\", \"B\", \"#\", \"{\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_711",
+    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
+    "chunk_number": 7754
+  }
+}

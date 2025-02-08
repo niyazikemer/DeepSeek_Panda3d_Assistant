@@ -1,0 +1,9 @@
+{
+  "content": "def __getitem__(self, key):\n        return self.__dict__[key]\n\n    def setOrientation(self):\n        # MRM This assumes orientation is set on transform above cam\n        hpr = self.cam.getHpr()\n        if hpr[2] < 135 and hpr[2]>45 or hpr[2]>225 and hpr[2]<315:\n            self.isSideways = 1\n        elif hpr[2] > -135 and hpr[2] < -45 or hpr[2] < -225 and hpr[2] > -315:\n            self.isSideways = 1\n        else:\n            self.isSideways = 0\n\n    # The following take into consideration sideways displays\n    def getHfov(self):\n        if self.isSideways:\n            return self.camLens.getVfov()\n        else:\n            return self.camLens.getHfov()\n\n    def getVfov(self):\n        if self.isSideways:\n            return self.camLens.getHfov()\n        else:\n            return self.camLens.getVfov()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3428
+  }
+}

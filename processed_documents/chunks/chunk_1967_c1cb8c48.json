@@ -1,0 +1,9 @@
+{
+  "content": "act_icon = self.icon_objects.get(appname)\n            if act_icon and act_icon is not app_icon:\n                activity.set('android:icon', '@mipmap/ic_' + appname)\n\n            meta_data = ET.SubElement(activity, 'meta-data')\n            meta_data.set('android:name', 'android.app.lib_name')\n            meta_data.set('android:value', appname)\n\n            intent_filter = ET.SubElement(activity, 'intent-filter')\n            ET.SubElement(intent_filter, 'action').set('android:name', 'android.intent.action.MAIN')\n            ET.SubElement(intent_filter, 'category').set('android:name', 'android.intent.category.LAUNCHER')\n            ET.SubElement(intent_filter, 'category').set('android:name', 'android.intent.category.LEANBACK_LAUNCHER')\n\n        tree = ET.ElementTree(manifest)\n        with open(path, 'wb') as fh:\n            tree.write(fh, encoding='utf-8', xml_declaration=True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1967
+  }
+}

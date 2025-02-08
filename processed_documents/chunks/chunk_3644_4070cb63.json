@@ -1,0 +1,9 @@
+{
+  "content": "# Callbacks executed on mouse down/up\n    def _mouseDown(self):\n        \"\"\" Function to execute at start of mouse interaction \"\"\"\n        # Execute pre interaction callback\n        self._preCallback()\n\n    def _mouseUp(self):\n        \"\"\" Function to execute at end of mouse interaction \"\"\"\n        # Execute post interaction callback\n        self._postCallback()\n        # Update valuator to reflect adjusted value\n        # Don't execute command\n        self._valuator.set(self.adjustedValue, 0)\n\n    # Callback functions\n    def _preCallback(self):\n        if self['preCallback']:\n            self['preCallback'](*self['callbackData'])\n\n    def _postCallback(self):\n        # Exectute post callback if one defined\n        if self['postCallback']:\n            self['postCallback'](*self['callbackData'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3644
+  }
+}

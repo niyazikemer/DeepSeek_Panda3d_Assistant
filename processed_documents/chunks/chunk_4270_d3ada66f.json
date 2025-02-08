@@ -1,0 +1,9 @@
+{
+  "content": "yield Job.Done\n\n    def finished(self):\n        if self._args.doneCallback:\n            self._args.doneCallback(self)\n        if self._args.autoDestroy:\n            self.destroy()\n\n    def destroy(self):\n        #print 'GarbageReport.destroy'\n        del self._args\n        del self.garbage\n        # don't get rid of these, we might need them\n        #del self.numGarbage\n        #del self.numCycles\n        del self.referrersByReference\n        del self.referrersByNumber\n        del self.referentsByReference\n        del self.referentsByNumber\n        if hasattr(self, 'cycles'):\n            del self.cycles\n        del self._report\n        if hasattr(self, '_reportStr'):\n            del self._reportStr\n        Job.destroy(self)\n\n    def getNumCycles(self):\n        # if the job hasn't run yet, we don't have a numCycles yet\n        return self.numCycles",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4270
+  }
+}

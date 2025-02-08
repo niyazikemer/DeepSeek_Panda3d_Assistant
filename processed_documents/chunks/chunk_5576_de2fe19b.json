@@ -1,0 +1,9 @@
+{
+  "content": "# Put the avatar on the grid\n        self.handleAvatarZoneChange(av, useZoneId)\n\n        if startAutoUpdate and not self.updateTaskStarted:\n            self.startUpdateGridTask()\n\n    def removeObjectFromGrid(self, av):\n        # TODO: WHAT LOCATION SHOULD WE SET THIS TO?\n        #av.wrtReparentTo(self.parentNP)\n        #av.setLocation(self.air.districtId, 1000)\n\n        # Remove grid parent for this av\n        avId = av.doId\n        if avId in self.gridObjects:\n            del self.gridObjects[avId]\n\n        # Stop task if there are no more av's being managed\n        if len(self.gridObjects) == 0:\n            self.stopUpdateGridTask()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_325",
+    "parent": "processed_documents/context_documents/7ef9e01d_DistributedCartesianGridAI.json",
+    "chunk_number": 5576
+  }
+}

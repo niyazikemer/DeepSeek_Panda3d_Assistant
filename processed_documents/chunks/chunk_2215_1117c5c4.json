@@ -1,0 +1,9 @@
+{
+  "content": "resources = self.resources[type]\n        if name in resources:\n            entry_id = resources.index(name)\n        else:\n            entry_id = len(resources)\n            resources.append(name)\n\n        id = (0x7f << 24) | (type_id << 16) | (entry_id)\n        return id\n\n    def dumps(self):\n        return self.root.SerializeToString()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_136",
+    "parent": "processed_documents/context_documents/d67df3a6__android.json",
+    "chunk_number": 2215
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def updateCoa(self, ref2point, coaDist = None, ref = None):\n        self.coa.set(ref2point[0], ref2point[1], ref2point[2])\n        if not coaDist:\n            coaDist = Vec3(self.coa - DG.ZERO_POINT).length()\n        # Place the marker in render space\n        if ref is None:\n            # KEH: use the current display region\n            # ref = base.cam\n            ref = ShowBaseGlobal.direct.drList.getCurrentDr().cam\n        self.coaMarker.setPos(ref, self.coa)\n        pos = self.coaMarker.getPos()\n        self.coaMarker.setPosHprScale(pos, Vec3(0), Vec3(1))\n        # Resize it\n        self.updateCoaMarkerSize(coaDist)\n        # Record marker pos in render space\n        self.coaMarkerPos.assign(self.coaMarker.getPos())\n\n    def updateCoaMarkerSizeOnDeath(self):\n        # Needed because tasks pass in state as first arg\n        self.updateCoaMarkerSize()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3332
+  }
+}

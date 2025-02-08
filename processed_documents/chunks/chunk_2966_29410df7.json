@@ -1,0 +1,9 @@
+{
+  "content": "self.canvasLens.setFilmSize(1, self.top)\n        self.canvasLens.setFilmOffset(0.5, self.top / 2.0)  # lens covers 0..1 in x and y\n\n    def cleanup(self):\n        if not self.cleanedUp:\n            self.cleanedUp = True\n\n            # Remove the window.\n            self.win.engine.removeWindow(self.win)\n            self.win = None\n            self.gsg = None\n            self.pipe = None\n\n            # Remove the mouse.\n            self.mouse.detachNode()\n\n            taskMgr.remove(self.task)\n            self.ignoreAll()\n\n            self.canvas.getChildren().detach()\n            self.texRecordsByTex = {}\n            self.texRecordsByKey = {}\n            self.texPlacements = {}\n\n    def graphicsMemoryLimitChanged(self):\n        if self.dynamicLimit or self.lruLimit:\n            self.__doSetLimit(None)\n            self.reconfigureWindow()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2966
+  }
+}

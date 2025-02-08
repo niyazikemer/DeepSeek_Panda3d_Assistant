@@ -1,0 +1,9 @@
+{
+  "content": "self.label = tk.Label(self.canvas, text=text, bd=0, padx=2, pady=2)\n        if self.selected:\n            self.label.configure(fg=\"white\", bg=\"darkblue\")\n        elif self.setAsTarget:\n            self.label.configure(fg=\"white\", bg=\"red\")\n        else:\n            fg = self.item.GetTextFg()\n            bg = self.item.GetTextBg()\n            self.label.configure(fg=fg, bg=bg)\n        id = self.canvas.create_window(textx, texty,\n                                       anchor=\"nw\", window=self.label)\n        self.label.bind(\"<1>\", self.select_or_edit)\n        self.label.bind(\"<Double-1>\", self.flip)\n        self.label.bind(\"<3>\", self.popupMenu)\n        # Update text if necessary\n        if text != self.label['text']:\n            self.label['text'] = text\n        self.text_id = id",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3689
+  }
+}

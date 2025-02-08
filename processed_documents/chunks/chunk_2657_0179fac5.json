@@ -1,0 +1,9 @@
+{
+  "content": "def _removeSubscription(self, subscriber):\n        self._subscribers.remove(subscriber)\n\n    def _handlePotentialStateChange(self, value):\n        oldValue = self._value\n        self._value = value\n        if oldValue != value:\n            self._handleStateChange()\n\n    def _handleStateChange(self):\n        # push this object's state to the subscribing objects\n        for subscriber in self._subscribers:\n            subscriber._recvStatePush(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2657
+  }
+}

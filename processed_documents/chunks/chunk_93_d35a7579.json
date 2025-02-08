@@ -1,0 +1,9 @@
+{
+  "content": "def setup(app):\n    from sphinx.ext.inheritance_diagram import InheritanceGraph\n    InheritanceGraph.generate_dot = generate_dot\n\n    app.add_config_value('html_absolute_url_root', None, 'html')\n    app.connect('config-inited', on_config_inited)\n\n    app.connect('autodoc-skip-member', on_autodoc_skip_member)\n    app.connect('autodoc-process-docstring', on_autodoc_process_docstring)\n\n    app.connect('missing-reference', on_missing_reference, priority=901)\n\n    app.add_autodocumenter(ExcludeDocumenter)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 93
+  }
+}

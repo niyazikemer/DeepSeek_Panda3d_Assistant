@@ -1,0 +1,9 @@
+{
+  "content": "-h Do not return hidden nodes +h Return hidden nodes -s Do not return stashed nodes unless explicitly referenced with\n@@ +s Return stashed nodes even without any explicit @@ characters -i Node name comparisons are not case insensitive: case must match\nexactly +i Node name comparisons are case insensitive: case is not important.\nThis affects matches against the node name only; node type and tag\nstrings are always case sensitive\n\nThe default flags are +h-s-i.\n\nThe ~.NodePath.find method searches for a single node that matches the path string given. If there are multiple matches, the method returns the shortest match. If it finds no match, it will return an empty NodePath. On the other hand, ~.NodePath.find_all_matches will return all NodePaths found, shortest first.\n\npython\n\nmyNodePath.find(\"<Path>\")\nmyNodePath.findAllMatches(\"<Path>\")\n\ncpp\n\nmyNodePath.find(\"<Path>\");\nmyNodePath.find_all_matches(\"<Path>\");\n\nSome examples:\n\npython\n\nmyNodePath.find(\"house/door\")\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_352",
+    "parent": "processed_documents/context_documents/5c5edf9d_4e620445_searching-scene-graph.json",
+    "chunk_number": 5825
+  }
+}

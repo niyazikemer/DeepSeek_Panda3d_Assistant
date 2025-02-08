@@ -1,0 +1,9 @@
+{
+  "content": "def isAtRoot(self, at, path):\n        # Now we define our 'roots', or places where we will\n        # end this particular thread of search\n\n        # We found a circular reference\n        if at in path:\n            sys.stdout.write(\"RefPath(%s): Circular: \" % self._id)\n            path = list(reversed(path))\n            path.insert(0,0)\n            for x in range(len(path) - 1):\n                sys.stdout.write(self.myrepr(path[x], path[x+1]))\n            print(\"\")\n            return True\n\n        # __builtins__\n        if at is __builtins__:\n            sys.stdout.write(\"RefPath(%s): __builtins__-> \" % self._id)\n            path = list(reversed(path))\n            path.insert(0,0)\n            for x in range(len(path) - 1):\n                sys.stdout.write(self.myrepr(path[x], path[x+1]))\n            print(\"\")\n            return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4819
+  }
+}

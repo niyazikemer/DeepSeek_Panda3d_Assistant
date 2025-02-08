@@ -1,0 +1,9 @@
+{
+  "content": "def join(self, timeout=None):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        assert self.__started, \"cannot join thread before it is started\"\n        assert self is not currentThread(), \"cannot join current thread\"\n        if __debug__:\n            if not self.__stopped:\n                self._note(\"%s.join(): waiting until thread stops\", self)\n        self.__block.acquire()\n        try:\n            if timeout is None:\n                while not self.__stopped:\n                    self.__block.wait()\n                if __debug__:\n                    self._note(\"%s.join(): thread stopped\", self)\n            else:\n                deadline = _time() + timeout\n                while not self.__stopped:\n                    delay = deadline - _time()\n                    if delay <= 0:\n                        if __debug__:\n                            self._note(\"%s.join(): timed out\", self)\n                        break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3837
+  }
+}

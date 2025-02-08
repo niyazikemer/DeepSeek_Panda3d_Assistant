@@ -1,0 +1,9 @@
+{
+  "content": "base.direct.deselectAllCB()\n        for newNodePath in duplicatedNPs:\n            base.direct.select(newNodePath, fMultiSelect = 1, fUndo=0)\n\n        self.editor.fNeedToSave = True\n\n    def makeSelectedLive(self):\n        obj = self.findObjectByNodePath(base.direct.selected.last)\n        if obj:\n            if self.currLiveNP:\n                self.currLiveNP.clearColorScale()\n                if self.currLiveNP == obj[OG.OBJ_NP]:\n                    self.currLiveNP = None\n                    return\n\n            self.currLiveNP = obj[OG.OBJ_NP]\n            self.currLiveNP.setColorScale(0, 1, 0, 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 529
+  }
+}

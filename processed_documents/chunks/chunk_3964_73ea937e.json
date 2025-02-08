@@ -1,0 +1,9 @@
+{
+  "content": "if \"Bloom\" in configuration:\n                bloomconf = configuration[\"Bloom\"]\n                bloom0 = self.textures[\"bloom0\"]\n                bloom1 = self.textures[\"bloom1\"]\n                bloom2 = self.textures[\"bloom2\"]\n                bloom3 = self.textures[\"bloom3\"]\n                if bloomconf.size == \"large\":\n                    scale=8\n                    downsamplerName=\"filter-down4\"\n                    downsampler=DOWN_4\n                elif bloomconf.size == \"medium\":\n                    scale=4\n                    downsamplerName=\"filter-copy\"\n                    downsampler=COPY\n                else:\n                    scale=2\n                    downsamplerName=\"filter-copy\"\n                    downsampler=COPY\n                self.bloom.append(self.manager.renderQuadInto(\"filter-bloomi\", colortex=bloom0, div=2,     align=scale))\n                self.bloom.append(self.manager.renderQuadInto(downsamplerName, colortex=bloom1, div=scale, align=scale))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3964
+  }
+}

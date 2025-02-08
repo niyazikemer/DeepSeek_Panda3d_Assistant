@@ -1,0 +1,9 @@
+{
+  "content": "python\n\npoint = collisionEntry.getSurfacePoint(collisionEntry.getIntoNodePath())\n\ncpp\n\npoint = collisionEntry->get_surface_point(collisionEntry->get_into_node_path());\n\nIf you wanted to put an axis at the point of the collision to visualize it, you might do something like this:\n\npython\n\naxis = loader.loadModel('zup-axis.egg')\naxis.reparentTo(render)\npoint = collisionEntry.getSurfacePoint(render)\nnormal = collisionEntry.getSurfaceNormal(render)\naxis.setPos(point)\naxis.lookAt(point + normal)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_570",
+    "parent": "processed_documents/context_documents/d84ad332_d80fc34e_collision-entries.json",
+    "chunk_number": 7042
+  }
+}

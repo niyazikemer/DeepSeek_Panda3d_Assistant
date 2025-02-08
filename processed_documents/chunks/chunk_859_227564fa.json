@@ -1,0 +1,9 @@
+{
+  "content": "fun = seg.getFunction()\n        if isinstance(fun,ColorInterpolationFunctionSinusoid):\n            self.addSinusoidInterpolationSegment(id)\n        elif isinstance(fun,ColorInterpolationFunctionStepwave):\n            self.addStepwaveInterpolationSegment(id)\n        elif isinstance(fun,ColorInterpolationFunctionLinear):\n            self.addLinearInterpolationSegment(id)\n        elif isinstance(fun,ColorInterpolationFunctionConstant):\n            self.addConstantInterpolationSegment(id)\n\n    def createInterpolationSegmentFrame(self, parent, segName, seg):\n        frame = tk.Frame(parent, relief = tk.RAISED, borderwidth = 2)\n        lFrame = tk.Frame(frame, relief = tk.FLAT)\n\n        def removeInterpolationSegmentFrame(s = self, seg = seg, fr = frame):\n            s.particles.getRenderer().getColorInterpolationManager().clearSegment(seg.getId())\n            fr.pack_forget()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 859
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def resumeUntil(self, endT):\n        duration = self.getDuration()\n\n        if endT < 0 or endT >= duration:\n            self.__endT = duration\n            self.__endTAtEnd = 1\n        else:\n            self.__endT = endT\n            self.__endTAtEnd = 0\n\n        self.setupResume()\n        if not self.isPlaying():\n            self.__spawnTask()\n\n    def finish(self):\n        state = self.getState()\n        if state == CInterval.SInitial:\n            self.privInstant()\n        elif state != CInterval.SFinal:\n            self.privFinalize()\n        self.privPostEvent()\n        self.__removeTask()\n\n    def clearToInitial(self):\n        # This method resets the interval's internal state to the\n        # initial state, abandoning any parts of the interval that\n        # have not yet been called.  Calling it is like pausing the\n        # interval and creating a new one in its place.\n        self.pause()\n        self.state = CInterval.SInitial\n        self.currT = 0.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2838
+  }
+}

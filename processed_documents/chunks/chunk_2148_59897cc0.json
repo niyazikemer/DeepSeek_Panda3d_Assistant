@@ -1,0 +1,9 @@
+{
+  "content": "# If the entry's type has any bits at 0xe0 set, it's a debug\n                    # symbol, and will point us to the wrong place.\n                    if name == b'_' + symbol_name and type & 0xe0 == 0:\n                        # Find out in which segment this is.\n                        for vmaddr, vmsize, fileoff in segments:\n                            # Is it defined in this segment?\n                            rel = value - vmaddr\n                            if rel >= 0 and rel < vmsize:\n                                # Yes, so return the symbol offset.\n                                return fileoff + rel\n                        print(\"Could not find memory address for symbol %s\" % (symbol_name))\n\n    def _parse_macho_load_commands(self, macho_data):\n        \"\"\"Returns the list of load commands from macho_data.\"\"\"\n        mach_header_64 = list(\n            struct.unpack_from(mach_header_64_layout, macho_data, 0))\n\n        num_load_commands = mach_header_64[4]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2148
+  }
+}

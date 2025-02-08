@@ -1,0 +1,9 @@
+{
+  "content": "def connectStates(self, fromState, toState):\n        endpts = self.computeEndpoints(fromState, toState)\n        line = self._canvas.create_line(endpts, tags = ('arrow',),\n                                        arrow = 'last')\n\n    def computeEndpoints(self, fromState, toState):\n        # Compute angle between two points\n        fromCenter = fromState.center()\n        toCenter = toState.center()\n        angle = self.findAngle(fromCenter, toCenter)\n\n        # Compute offset fromState point\n        newFromPt = map(operator.__add__,\n                        fromCenter,\n                        self.computePoint(fromState.radius,\n                                           angle + DELTA))\n\n        # Compute offset toState point\n        newToPt = map(operator.__sub__,\n                      toCenter,\n                      self.computePoint(toState.radius,\n                                         angle - DELTA))\n        return list(newFromPt) + list(newToPt)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1097
+  }
+}

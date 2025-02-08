@@ -1,0 +1,9 @@
+{
+  "content": "fbprops = kw.get('fbprops', None)\n            if fbprops is None:\n                fbprops = FrameBufferProperties.getDefault()\n\n            attribList = kw.get('attribList', None)\n            if attribList is None:\n                attribList = [\n                    wxgl.WX_GL_RGBA, True,\n                    wxgl.WX_GL_LEVEL, 0,\n                ]\n                if not fbprops.isSingleBuffered():\n                    attribList.append(wxgl.WX_GL_DOUBLEBUFFER)\n                    attribList.append(True)\n                if fbprops.getDepthBits() > 0:\n                    attribList.append(wxgl.WX_GL_DEPTH_SIZE)\n                    if fbprops.getDepthBits() <= 16:\n                        attribList.append(16)\n                    elif fbprops.getDepthBits() <= 24:\n                        attribList.append(24)\n                    else:\n                        attribList.append(32)\n\n                kw['attribList'] = attribList",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 206
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def reset(self):\n        #import pdb;set_trace()\n        self.layersDataDict.clear()\n        self.layersDataDictNextKey = 0\n        self.llist.DeleteAllItems()\n        self.systemLayerKeys = []\n\n    def findLabel(self, text):\n        found = False\n        for index in range(self.llist.GetItemCount()):\n            itemtext = self.llist.GetItemText(index)\n            if itemtext == text:\n                return True\n        return found\n\n    def addLayerData(self, idx, objUID):\n        self.removeObjData(objUID)\n        layerData = self.layersDataDict[idx]\n        layerData.append(objUID)\n\n    def addLayerEntry(self, name, idx):\n        index = self.llist.InsertStringItem(self.llist.GetItemCount(), name)\n        self.llist.SetItemData(index, idx)\n        layersData = list()\n        self.layersDataDict[idx] = layersData\n        if idx > self.layersDataDictNextKey:\n            self.layersDataDictNextKey = idx",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 576
+  }
+}

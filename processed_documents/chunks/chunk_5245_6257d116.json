@@ -1,0 +1,9 @@
+{
+  "content": "class DistributedObjectBase(DirectObject):\n    \"\"\"\n    The Distributed Object class is the base class for all network based\n    (i.e. distributed) objects.  These will usually (always?) have a\n    dclass entry in a \\\\*.dc file.\n    \"\"\"\n    notify = directNotify.newCategory(\"DistributedObjectBase\")\n\n    def __init__(self, cr):\n        assert self.notify.debugStateCall(self)\n        self.cr = cr\n        self.parentId = None\n        self.zoneId = None\n\n    if __debug__:\n        def status(self, indent=0):\n            \"\"\"\n            print out \"doId(parentId, zoneId) className\"\n            \"\"\"\n            spaces = ' ' * (indent + 2)\n            try:\n                print(\"%s%s:\" % (' ' * indent, self.__class__.__name__))\n                print(\"%sfrom DistributedObject doId:%s, parent:%s, zone:%s\" % (\n                    spaces, self.doId, self.parentId, self.zoneId))\n            except Exception as e:\n                print(\"%serror printing status %s\" % (spaces, e))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_296",
+    "parent": "processed_documents/context_documents/084461fa_DistributedObjectBase.json",
+    "chunk_number": 5245
+  }
+}

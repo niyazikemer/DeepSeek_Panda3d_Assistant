@@ -1,0 +1,9 @@
+{
+  "content": "def createClusterClient():\n    # setup camera offsets based on cluster-config\n    clusterConfig = base.config.GetString('cluster-config', 'single-server')\n    # No cluster config specified!\n    if clusterConfig not in ClientConfigs:\n        base.notify.warning(\n            'createClusterClient: %s cluster-config is undefined.' %\n            clusterConfig)\n        return None\n    # Get display config for each server in the cluster\n    displayConfigs = []\n    configList = ClientConfigs[clusterConfig]\n    numConfigs = len(configList)\n    for i in range(numConfigs):\n        configData = configList[i]\n        displayName = configData.get('display name', ('display%d' % i))\n        displayMode = configData.get('display mode', 'server')\n        # Init Cam Offset\n        pos = configData.get('pos', Vec3(0))\n        hpr = configData.get('hpr', Vec3(0))\n        # Init Frustum if specified\n        fl = configData.get('focal length', None)\n        fs = configData.get('film size', None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1718
+  }
+}

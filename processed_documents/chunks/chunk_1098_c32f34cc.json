@@ -1,0 +1,9 @@
+{
+  "content": "def computePoint(self, radius, angle):\n        x = radius * math.cos(angle)\n        y = radius * math.sin(angle)\n        return (x, y)\n\n    def findAngle(self, fromPoint, toPoint):\n        dx = toPoint[0] - fromPoint[0]\n        dy = toPoint[1] - fromPoint[1]\n        return math.atan2(dy, dx)\n\n    def mouse2Down(self, event):\n        self._width = 1.0 * self._canvas.winfo_width()\n        self._height = 1.0 * self._canvas.winfo_height()\n        xview = self._canvas.xview()\n        yview = self._canvas.yview()\n        self._left = xview[0]\n        self._top = yview[0]\n        self._dxview = xview[1] - xview[0]\n        self._dyview = yview[1] - yview[0]\n        self._2lx = event.x\n        self._2ly = event.y",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1098
+  }
+}

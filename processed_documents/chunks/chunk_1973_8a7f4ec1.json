@@ -1,0 +1,9 @@
+{
+  "content": "if var == 'audio-library-name':\n                    # We have the default set to p3fmod_audio on macOS in 1.10,\n                    # but this can be unexpected as other platforms use OpenAL\n                    # by default.  Switch it up if FMOD is not included.\n                    if value not in self.plugins and value == 'p3fmod_audio' and 'p3openal_audio' in self.plugins:\n                        self.warn(\"Missing audio plugin p3fmod_audio referenced in PRC data, replacing with p3openal_audio\")\n                        value = 'p3openal_audio'\n\n                if var == 'aux-display':\n                    # Silently remove aux-display lines for missing plugins.\n                    if value not in self.plugins:\n                        continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1973
+  }
+}

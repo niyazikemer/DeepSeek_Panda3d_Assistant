@@ -1,0 +1,9 @@
+{
+  "content": "ls = LineSegs('frame')\n            ls.setColor(0, 0, 0, 1)\n            ls.moveTo(l, 0, b)\n            ls.drawTo(r, 0, b)\n            ls.drawTo(r, 0, t)\n            ls.drawTo(l, 0, t)\n            ls.drawTo(l, 0, b)\n            cards.attachNewNode(ls.create())\n\n        # Scale both sides by the aspect ratio.\n        if self.tex.getXSize() > self.tex.getYSize():\n            cards.setScale(1, 1, float(self.tex.getYSize()) / self.tex.getXSize())\n        else:\n            cards.setScale(float(self.tex.getXSize()) / self.tex.getYSize(), 1, 1)\n\n        # Label the texture.\n        tn = TextNode('label')\n        tn.setShadow(0.1, 0.1)\n        tn.setText(self.tex.getName())\n        tn.setAlign(tn.ACenter)\n        tnp = self.root.attachNewNode(tn)\n        tnp.setScale(0.1)\n        tnp.setPos(0, 0, -tn.getHeight() * 0.1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_174",
+    "parent": "processed_documents/context_documents/4108ccf1_TexViewer.json",
+    "chunk_number": 3027
+  }
+}

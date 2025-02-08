@@ -1,0 +1,9 @@
+{
+  "content": "if self.mergeLODBundles:\n            # Re-merge all bundles, and restore the common bundle map.\n            self.__commonBundleHandles = {}\n            for lodName, bundleDict in self.__partBundleDict.items():\n                for partName, partDef in bundleDict.items():\n                    loadedBundleHandle = self.__commonBundleHandles.get(partName, None)\n                    node = partDef.partBundleNP.node()\n                    if loadedBundleHandle:\n                        node.mergeBundles(partDef.partBundleHandle, loadedBundleHandle)\n                        partDef.partBundleHandle = loadedBundleHandle\n                    else:\n                        self.__commonBundleHandles[partName] = partDef.partBundleHandle\n\n        # Since we may have merged together some bundles, all of\n        # our anims are now suspect.  Force them to reload.\n        self.unloadAnims()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3155
+  }
+}

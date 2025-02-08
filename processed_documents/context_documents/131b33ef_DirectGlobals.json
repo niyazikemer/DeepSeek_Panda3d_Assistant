@@ -1,0 +1,9 @@
+{
+  "content": "from panda3d.core import Vec3, Point3, BitMask32\n\nUNPICKABLE = ['x-disc-visible', 'y-disc-visible', 'z-disc-visible',\n              'GridBack', 'unpickable']\n\n# For linmath operations\nX_AXIS = Vec3(1, 0, 0)\nY_AXIS = Vec3(0, 1, 0)\nZ_AXIS = Vec3(0, 0, 1)\nNEG_X_AXIS = Vec3(-1, 0, 0)\nNEG_Y_AXIS = Vec3(0, -1, 0)\nNEG_Z_AXIS = Vec3(0, 0, -1)\nZERO_VEC = ORIGIN = Vec3(0)\nUNIT_VEC = Vec3(1)\nZERO_POINT = Point3(0)\n\nDIRECT_FLASH_DURATION = 1.5\n\nMANIPULATION_MOVE_DELAY = 0.65\n\nQ_EPSILON = 1e-10\n\nDIRECT_NO_MOD = 0\nDIRECT_SHIFT_MOD = 1\nDIRECT_CONTROL_MOD = 2\nDIRECT_ALT_MOD = 4\n\nSKIP_NONE = 0\nSKIP_HIDDEN = 1\nSKIP_BACKFACE = 2\nSKIP_CAMERA = 4\nSKIP_UNPICKABLE = 8\nSKIP_WIDGET = 16\nSKIP_ALL = SKIP_HIDDEN | SKIP_BACKFACE | SKIP_CAMERA | SKIP_UNPICKABLE | SKIP_WIDGET\n\n# bit flags for indicating how editable an object is\nEDIT_TYPE_UNMOVABLE = 1\nEDIT_TYPE_UNSCALABLE = 2\nEDIT_TYPE_UNROTATABLE = 4\nEDIT_TYPE_UNEDITABLE = EDIT_TYPE_UNMOVABLE | EDIT_TYPE_UNSCALABLE | EDIT_TYPE_UNROTATABLE\n\n# [gjeon] stuffs for new LE multi camera support\nLE_TOP_CAM_MASK = BitMask32.bit(0)\nLE_FRONT_CAM_MASK = BitMask32.bit(1)\nLE_LEFT_CAM_MASK = BitMask32.bit(2)\nLE_PERSP_CAM_MASK = BitMask32.bit(3)\n\nLE_CAM_MASKS = {'persp':LE_PERSP_CAM_MASK,\n                 'left':LE_LEFT_CAM_MASK,\n                 'front':LE_FRONT_CAM_MASK,\n                 'top':LE_TOP_CAM_MASK}\n\ndef LE_showInAllCam(nodePath):\n    for camName, mask in LE_CAM_MASKS.items():\n        nodePath.show(mask)\n\ndef LE_showInOneCam(nodePath, thisCamName):\n    LE_showInAllCam(nodePath)\n    for camName, mask in LE_CAM_MASKS.items():\n        if camName != thisCamName:\n            nodePath.hide(mask)\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/directtools/DirectGlobals.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/131b33ef_DirectGlobals.json",
+    "doc_id": "doc_182"
+  }
+}

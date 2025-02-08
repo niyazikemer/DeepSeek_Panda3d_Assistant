@@ -1,0 +1,9 @@
+{
+  "content": "class Event:\n    \"\"\" This class is designed to emulate Python's own threading.Event\n    object. \"\"\"\n\n    def __init__(self):\n        self.__lock = core.Mutex(\"Python Event\")\n        self.__cvar = core.ConditionVar(self.__lock)\n        self.__flag = False\n\n    def is_set(self):\n        return self.__flag\n\n    isSet = is_set\n\n    def set(self):\n        self.__lock.acquire()\n        try:\n            self.__flag = True\n            self.__cvar.notifyAll()\n\n        finally:\n            self.__lock.release()\n\n    def clear(self):\n        self.__lock.acquire()\n        try:\n            self.__flag = False\n\n        finally:\n            self.__lock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3768
+  }
+}

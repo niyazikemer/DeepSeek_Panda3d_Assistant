@@ -1,0 +1,9 @@
+{
+  "content": "# Functions to make the MetaInterval object act just like a Python\n    # list of intervals:\n\n    def append(self, ival):\n        # Appends a single interval to the list so far.\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals.append(ival)\n        self.__ivalsDirty = 1\n        assert self.validateComponent(ival)\n\n    def extend(self, ivals):\n        # Appends a list of intervals to the list so far.\n        self += ivals\n\n    def count(self, ival):\n        # Returns the number of occurrences of the indicated interval.\n        return self.ivals.count(ival)\n\n    def index(self, ival):\n        # Returns the position of the indicated interval within the list.\n        return self.ivals.index(ival)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2873
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def createKeyFrameAnimation(self, parallel, startFrame, endFrame):\n        #generate key frame animation for normal property\n        self.editor.objectMgr.findNodes(render)\n        for node in self.editor.objectMgr.Nodes:\n            for property in list(self.keyFramesInfo.keys()):\n                if property[AG.UID] == node[OG.OBJ_UID] and property[AG.PROP_NAME] != 'X' and property[AG.PROP_NAME] != 'Y' and property[AG.PROP_NAME] != 'Z':\n                    mysequence = Sequence(name = node[OG.OBJ_UID])\n                    keyFramesInfo = self.keyFramesInfo[property]\n                    if len(keyFramesInfo) == 1:\n                        myLerp = LerpFunc(self.lerpFuncs[property[AG.PROP_NAME]],fromData=float(keyFramesInfo[0][AG.VALUE]),toData=float(keyFramesInfo[0][AG.VALUE]),duration = float(endFrame-startFrame)/float(24),blendType = 'noBlend',extraArgs = [node[OG.OBJ_NP]])\n                        mysequence.append(myLerp)\n                        parallel.append(mysequence)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 383
+  }
+}

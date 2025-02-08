@@ -1,0 +1,9 @@
+{
+  "content": "return target\n\n    def generateRuntimeFromStub(self, target, stub_file, use_console, fields={},\n                                log_append=False, log_filename_strftime=False):\n        self.__replacePaths()\n\n        # We must have a __main__ module to make an exe file.\n        if not self.__writingModule('__main__'):\n            message = \"Can't generate an executable without a __main__ module.\"\n            raise Exception(message)\n\n        if self.platform.startswith('win'):\n            modext = '.pyd'\n        else:\n            modext = '.so'\n\n        # First gather up the strings and code for all the module names, and\n        # put those in a string pool.\n        pool = b\"\"\n        strings = set()\n\n        for moduleName, mdef in self.getModuleDefs():\n            strings.add(moduleName.encode('ascii'))\n\n        for value in fields.values():\n            if value is not None:\n                strings.add(value.encode('utf-8'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2120
+  }
+}

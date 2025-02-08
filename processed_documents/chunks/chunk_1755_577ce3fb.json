@@ -1,0 +1,9 @@
+{
+  "content": "def addNamedObjectMapping(self, object, name, hasColor = True,\n                              priority = 0):\n        if name not in self.objectMappings:\n            self.objectMappings[name] = object\n            self.objectHasColor[name] = hasColor\n        else:\n            self.notify.debug('attempt to add duplicate named object: '+name)\n\n    def removeObjectMapping(self, name):\n        if name in self.objectMappings:\n            self.objectMappings.pop(name)\n\n    def redoSortedPriorities(self):\n        self.sortedControlMappings = sorted(\n            [self.controlPriorities[key], key] for key in self.objectMappings\n        )",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1755
+  }
+}

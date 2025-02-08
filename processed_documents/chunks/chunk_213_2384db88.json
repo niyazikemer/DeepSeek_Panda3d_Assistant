@@ -1,0 +1,9 @@
+{
+  "content": "return None\n\n        def __keystroke(self, event):\n            if hasattr(event, 'GetUnicodeKey'):\n                code = event.GetUnicodeKey()\n            else:\n                code = event.GetKeyCode()\n                if code < 0x20 or code >= 0x80:\n                    return\n\n            self.inputDevice.keystroke(code)\n\n        def __eventsCallback(self, data):\n            data.upcall()\n\n        def __propertiesCallback(self, data):\n            data.upcall()\n\n        def __renderCallback(self, data):\n            cbType = data.getCallbackType()\n            if cbType == CallbackGraphicsWindow.RCTBeginFrame:\n                if not self.visible:\n                    data.setRenderFlag(False)\n                    return\n                self.SetCurrent()\n\n                # Don't upcall() in this case.\n                return\n\n            elif cbType == CallbackGraphicsWindow.RCTEndFlip:\n                self.SwapBuffers()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 213
+  }
+}

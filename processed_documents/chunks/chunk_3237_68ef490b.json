@@ -1,0 +1,9 @@
+{
+  "content": "### FREE MANIPULATION METHODS ###\n    def xlateCamXZ(self, state):\n        \"\"\"Constrained 2D motion parallel to the camera's image plane\n        This moves the object in the camera's XZ plane\"\"\"\n        # reset fHitInit in case we later switch to manip mode\n        self.fHitInit = 1\n        # Reset scaling init flag\n        self.fScaleInit = 1\n        # Where is the widget relative to current camera view\n        vWidget2Camera = ShowBaseGlobal.direct.widget.getPos(ShowBaseGlobal.direct.camera)\n        x = vWidget2Camera[0]\n        y = vWidget2Camera[1]\n        z = vWidget2Camera[2]\n        # Move widget (and objects) based upon mouse motion\n        # Scaled up accordingly based upon widget distance\n        dr = ShowBaseGlobal.direct.dr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3237
+  }
+}

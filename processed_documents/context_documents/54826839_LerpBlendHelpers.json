@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"LerpBlendHelpers module: contains LerpBlendHelpers class\"\"\"\n\n__all__ = ['getBlend']\n\nfrom panda3d.direct import EaseInBlendType, EaseInOutBlendType, EaseOutBlendType, NoBlendType\n\n\neaseIn = EaseInBlendType()\n\neaseOut = EaseOutBlendType()\n\neaseInOut = EaseInOutBlendType()\n\nnoBlend = NoBlendType()\n\n\ndef getBlend(blendType):\n    \"\"\"\n    Return the C++ blend class corresponding to blendType string\n    \"\"\"\n    # Note, this is temporary until blend functions get exposed\n    if blendType == \"easeIn\":\n        return easeIn\n    elif blendType == \"easeOut\":\n        return easeOut\n    elif blendType == \"easeInOut\":\n        return easeInOut\n    elif blendType == \"noBlend\":\n        return noBlend\n    else:\n        raise Exception(\n            'Error: LerpInterval.__getBlend: Unknown blend type')\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/interval/LerpBlendHelpers.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/54826839_LerpBlendHelpers.json",
+    "doc_id": "doc_162"
+  }
+}

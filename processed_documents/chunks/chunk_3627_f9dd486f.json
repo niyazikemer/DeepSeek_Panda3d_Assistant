@@ -1,0 +1,9 @@
+{
+  "content": "def get(self):\n        return self._value\n\n    def getAt(self, index):\n        return self._value[index]\n\n    # This is the command is used to set the groups value\n    def set(self, value, fCommand = 1):\n        for i in range(self['dim']):\n            self._value[i] = value[i]\n            # Update floater, but don't execute its command\n            self.floaterList[i].set(value[i], 0)\n        if fCommand and (self['command'] is not None):\n            self['command'](self._value)\n\n    def setAt(self, index, value):\n        # Update floater and execute its command\n        self.floaterList[index].set(value)\n\n    # This is the command used by the floater\n    def _floaterSetAt(self, index, value):\n        self._value[index] = value\n        if self['command']:\n            self['command'](self._value)\n\n    def reset(self):\n        self.set(self['value'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3627
+  }
+}

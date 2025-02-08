@@ -1,0 +1,9 @@
+{
+  "content": "pathname = mdef.filename.toOsSpecific()\n            ext = mdef.filename.getExtension()\n            if ext == 'pyc' or ext == 'pyo':\n                fp = open(pathname, 'rb')\n                stuff = (\"\", \"rb\", _PY_COMPILED)\n                self.mf.load_module(mdef.moduleName, fp, pathname, stuff)\n            else:\n                stuff = (\"\", \"rb\", _PY_SOURCE)\n                if mdef.text is not None:\n                    fp = io.StringIO(mdef.text)\n                else:\n                    fp = open(pathname, 'rb')\n                self.mf.load_module(mdef.moduleName, fp, pathname, stuff)\n\n            if tempPath:\n                del self.mf.path[-1]\n\n        else:\n            # Otherwise, we can just import it normally.\n            self.mf.import_hook(mdef.moduleName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2093
+  }
+}

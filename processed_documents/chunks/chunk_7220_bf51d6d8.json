@@ -1,0 +1,9 @@
+{
+  "content": "Note that unlike Python modules, C++ modules are not cross-platform and might not run on another OS or platform. This is why it's a good idea to save this option for last. You will have to have one compiled module for every platform your game is meant to run on. You can do something like this if you want to be really sure that your game will run on any platform out-of-the-box:\n\ntry:\n    import cVersionOfModule\nexcept ImportError:\n    import pythonVersionOfModule\n\nThen the game will use the Python version of the module if the C++ version will fail to load. Your game will use the slow Python version in that case, but at least it won't crash.\n\nNote: unlike modifying Panda3D's source, compiling a C++ module doesn't require you to recompile the whole engine.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_608",
+    "parent": "processed_documents/context_documents/02342f82_6bc54e8d_python-calculation.json",
+    "chunk_number": 7220
+  }
+}

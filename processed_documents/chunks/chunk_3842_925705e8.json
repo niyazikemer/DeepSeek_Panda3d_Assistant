@@ -1,0 +1,9 @@
+{
+  "content": "class _MainThread(Thread):\n\n    def __init__(self):\n        Thread.__init__(self, name=\"MainThread\")\n        self._Thread__started = True\n        _active_limbo_lock.acquire()\n        _active[get_ident()] = self\n        _active_limbo_lock.release()\n\n    def _set_daemon(self):\n        return False\n\n    def _exitfunc(self):\n        self._Thread__stop()\n        t = _pickSomeNonDaemonThread()\n        if t:\n            if __debug__:\n                self._note(\"%s: waiting for other threads\", self)\n        while t:\n            t.join()\n            t = _pickSomeNonDaemonThread()\n        if __debug__:\n            self._note(\"%s: exiting\", self)\n        self._Thread__delete()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3842
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class DirectAnalogs(AnalogNode, DirectObject):\n    analogCount = 0\n\n    _analogDeadband = ConfigVariableDouble('vrpn-analog-deadband', ANALOG_DEADBAND)\n    _analogMin = ConfigVariableDouble('vrpn-analog-min', ANALOG_MIN)\n    _analogMax = ConfigVariableDouble('vrpn-analog-max', ANALOG_MAX)\n    _analogCenter = ConfigVariableDouble('vrpn-analog-center', ANALOG_CENTER)\n\n    def __init__(self, vrpnClient, device):\n        # Keep track of number of analogs created\n        DirectAnalogs.analogCount += 1\n        # Create a new analog node for the given device\n        AnalogNode.__init__(self, vrpnClient, device)\n        # Create a unique name for this analog object\n        self.name = 'DirectAnalogs-' + repr(DirectAnalogs.analogCount)\n\n        # Attach node to data graph\n        try:\n            self._base = base\n        except NameError:\n            self._base = simbase\n        self.nodePath = self._base.dataRoot.attachNewNode(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1777
+  }
+}

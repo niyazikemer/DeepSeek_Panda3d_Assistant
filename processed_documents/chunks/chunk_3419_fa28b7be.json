@@ -1,0 +1,9 @@
+{
+  "content": "def removeAllSelected(self):\n        self.selected.removeAll()\n\n    def showAllDescendants(self, nodePath = None):\n        \"\"\" Show the level and its descendants \"\"\"\n        if nodePath is None:\n            nodePath = base.render\n\n        if not isinstance(nodePath, CollisionNode):\n            nodePath.show()\n\n        for child in nodePath.getChildren():\n            self.showAllDescendants(child)\n\n    def upAncestry(self):\n        if self.ancestry:\n            l = len(self.ancestry)\n            i = self.ancestryIndex + 1\n            if i < l:\n                np = self.ancestry[i]\n                name = np.getName()\n                if (name != 'render') and (name != 'renderTop'):\n                    self.ancestryIndex = i\n                    self.select(np, 0, 0)\n                    self.flash(np)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3419
+  }
+}

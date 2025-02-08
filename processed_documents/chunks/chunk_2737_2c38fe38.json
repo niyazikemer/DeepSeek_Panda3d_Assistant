@@ -1,0 +1,9 @@
+{
+  "content": "def finish(self, *args, **kArgs):\n        self._inFinish = True\n        Interval.Interval.finish(self, *args, **kArgs)\n        del self._inFinish\n\n    def privFinalize(self):\n        # if we're just coming to the end of a seamlessloop, leave the sound alone,\n        # let the audio subsystem loop it\n        if self._seamlessLoop and self._soundPlaying and self.getLoop() and \\\n           not hasattr(self, '_inFinish'):\n            base.sfxPlayer.setFinalVolume(self.sound, self.node, self.volume,\n                                          self.listenerNode, self.cutOff)\n            return\n        elif self.sound is not None:\n            self.sound.stop()\n            self._soundPlaying = False\n        self.currT = self.getDuration()\n        self.state = CInterval.SFinal\n\n    def privReverseInitialize(self, t):\n        self._reverse = True\n\n    def privReverseInstant(self):\n        self.state = CInterval.SInitial",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_155",
+    "parent": "processed_documents/context_documents/3a83844b_SoundInterval.json",
+    "chunk_number": 2737
+  }
+}

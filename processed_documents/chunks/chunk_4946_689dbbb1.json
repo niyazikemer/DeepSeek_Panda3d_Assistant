@@ -1,0 +1,9 @@
+{
+  "content": "if not self.physicsMgr:\n                PMG = importlib.import_module('direct.showbase.PhysicsManagerGlobal')\n                physics = importlib.import_module('panda3d.physics')\n                self.physicsMgr = PMG.physicsMgr\n                integrator = physics.LinearEulerIntegrator()\n                self.physicsMgr.attachLinearIntegrator(integrator)\n\n            self.particleMgrEnabled = 1\n            self.physicsMgrEnabled = 1\n            self.taskMgr.remove('manager-update')\n            self.taskMgr.add(self.updateManagers, 'manager-update')\n\n    def disableParticles(self):\n        \"\"\"\n        The opposite of `enableParticles()`.\n        \"\"\"\n        if self.particleMgrEnabled:\n            self.particleMgrEnabled = 0\n            self.physicsMgrEnabled = 0\n            self.taskMgr.remove('manager-update')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4946
+  }
+}

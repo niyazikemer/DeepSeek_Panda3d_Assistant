@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Undocumented Module\"\"\"\n\n__all__ = ['doTest']\n\nfrom panda3d.core import Point3\nfrom .ProjectileInterval import ProjectileInterval\n\n\ndef doTest():\n    smiley = base.loader.loadModel('models/misc/smiley')\n    smiley.reparentTo(render)\n\n    pi = ProjectileInterval(smiley, startPos=Point3(0, 0, 0),\n                            endZ = -10, wayPoint=Point3(10, 0, 0),\n                            timeToWayPoint=3)\n    pi.loop()\n    return pi\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/interval/ProjectileIntervalTest.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/538c58ad_ProjectileIntervalTest.json",
+    "doc_id": "doc_157"
+  }
+}

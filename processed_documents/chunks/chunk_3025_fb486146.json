@@ -1,0 +1,9 @@
+{
+  "content": "class TexViewer(DirectObject):\n    \"\"\" A simple class to pop up a card onscreen to see the contents\n    of a texture. \"\"\"\n\n    def __init__(self, tex):\n        self.tex = tex\n        self.cleanedUp = False\n\n        self.root = ShowBaseGlobal.aspect2d.attachNewNode('texViewer')\n        self.root.setBin('gui-popup', 10000)\n\n        cards = self.root.attachNewNode('cards')\n\n        # We'll put the full-resolution texture on the left.\n        cm = CardMaker('left')\n        l, r, b, t = (-1.0, -0.1, 0.0, 0.9)\n        cm.setFrame(l, r, b, t)\n        left = cards.attachNewNode(cm.generate())\n        left.setTexture(self.tex)\n        left.setTransparency(TransparencyAttrib.MAlpha)\n\n        ls = LineSegs('frame')\n        ls.setColor(0, 0, 0, 1)\n        ls.moveTo(l, 0, b)\n        ls.drawTo(r, 0, b)\n        ls.drawTo(r, 0, t)\n        ls.drawTo(l, 0, t)\n        ls.drawTo(l, 0, b)\n        cards.attachNewNode(ls.create())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_174",
+    "parent": "processed_documents/context_documents/4108ccf1_TexViewer.json",
+    "chunk_number": 3025
+  }
+}

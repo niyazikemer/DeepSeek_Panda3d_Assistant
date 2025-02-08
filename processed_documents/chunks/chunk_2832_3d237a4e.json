@@ -1,0 +1,9 @@
+{
+  "content": "class Interval(DirectObject):\n    \"\"\"Interval class: Base class for timeline functionality\"\"\"\n\n    # create Interval DirectNotify category\n    notify = directNotify.newCategory(\"Interval\")\n\n    playbackCounter = 0\n\n    # Class methods\n    def __init__(self, name, duration, openEnded=1):\n        self.name = name\n        self.duration = max(duration, 0.0)\n        self.state = CInterval.SInitial\n        self.currT = 0.0\n        self.doneEvent = None\n        self.setTHooks = []\n        self.__startT = 0\n        self.__startTAtStart = 1\n        self.__endT = duration\n        self.__endTAtEnd = 1\n        self.__playRate = 1.0\n        self.__doLoop = 0\n        self.__loopCount = 0\n\n        self.pstats = None\n        if __debug__ and TaskManager.taskTimerVerbose:\n            self.pname = name.split('-', 1)[0]\n            self.pstats = PStatCollector(\"App:Tasks:ivalLoop:%s\" % (self.pname))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2832
+  }
+}

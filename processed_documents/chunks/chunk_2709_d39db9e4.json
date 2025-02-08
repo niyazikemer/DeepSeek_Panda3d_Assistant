@@ -1,0 +1,9 @@
+{
+  "content": "There is a fifth off state, but that is an implementation\n    detail (and that's why it's not called a five state ClassicFSM).\n\n    I found that this pattern repeated in several things I was\n    working on, so this base class was created.\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory('FourState')\n\n    def __init__(self, names, durations = [0, 1, None, 1, 1]):\n        \"\"\"\n        Names is a list of state names.  Some examples are::\n\n            ['off', 'opening', 'open', 'closing', 'closed',]\n\n            ['off', 'locking', 'locked', 'unlocking', 'unlocked',]\n\n            ['off', 'deactivating', 'deactive', 'activating', 'activated',]\n\n        durations is a list of time values (floats) or None values.\n\n        Each list must have five entries.\n\n        .. rubric:: More Details\n\n        Here is a diagram showing the where the names from the list\n        are used::",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_151",
+    "parent": "processed_documents/context_documents/c156758e_FourState.json",
+    "chunk_number": 2709
+  }
+}

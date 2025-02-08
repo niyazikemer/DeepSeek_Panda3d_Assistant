@@ -1,0 +1,9 @@
+{
+  "content": "if isinstance(stream, core.Ostream):\n            self.__writer = core.StreamWriter(stream, False)\n            self.__lastWrite = True\n            self.__write = self.__writer.appendData\n\n    def __repr__(self):\n        s = \"<direct.stdpy.file.StreamIOWrapper\"\n        if hasattr(self, 'name'):\n            s += \" name='%s'\" % (self.name)\n        if hasattr(self, 'mode'):\n            s += \" mode='%s'\" % (self.mode)\n        s += \">\"\n        return s\n\n    def readable(self):\n        return self.__reader is not None\n\n    def writable(self):\n        return self.__writer is not None\n\n    def close(self):\n        if self.__needsVfsClose:\n            if self.__reader and self.__writer:\n                _vfs.closeReadWriteFile(self.__stream)\n            elif self.__reader:\n                _vfs.closeReadFile(self.__stream)\n            else:  # self.__writer:\n                _vfs.closeWriteFile(self.__stream)\n\n            self.__needsVfsClose = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3785
+  }
+}

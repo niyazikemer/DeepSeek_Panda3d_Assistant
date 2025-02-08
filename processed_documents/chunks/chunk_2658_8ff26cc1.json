@@ -1,0 +1,9 @@
+{
+  "content": "class ReceivesStateChanges:\n    # base class for objects that subscribe to state changes from PushesStateChanges objects\n    def __init__(self, source):\n        self._source = None\n        self._initSource = source\n\n    def _finishInit(self):\n        # initialization is split across two functions to allow objects that derive from this\n        # class to set everything up so that they can respond appropriately to the initial\n        # state push from the state source\n        self._subscribeTo(self._initSource)\n        del self._initSource\n\n    def destroy(self):\n        self._unsubscribe()\n        del self._source\n\n    def _subscribeTo(self, source):\n        self._unsubscribe()\n        self._source = source\n        if self._source:\n            self._source._addSubscription(self)\n\n    def _unsubscribe(self):\n        if self._source:\n            self._source._removeSubscription(self)\n            self._source = None\n\n    def _recvStatePush(self, source):\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2658
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "## RENDERER PAGE ##\n    def selectRendererType(self, type):\n        self.rendererNotebook.selectpage(type)\n        self.particles.setRenderer(type)\n        self.updateRendererWidgets()\n\n    def updateRendererWidgets(self):\n        renderer = self.particles.renderer\n        alphaMode = renderer.getAlphaMode()\n        if alphaMode == BaseParticleRenderer.PRALPHANONE:\n            aMode = 'NO_ALPHA'\n        elif alphaMode == BaseParticleRenderer.PRALPHAOUT:\n            aMode = 'ALPHA_OUT'\n        elif alphaMode == BaseParticleRenderer.PRALPHAIN:\n            aMode = 'ALPHA_IN'\n        elif alphaMode == BaseParticleRenderer.PRALPHAINOUT:\n            aMode = 'ALPHA_IN_OUT'\n        elif alphaMode == BaseParticleRenderer.PRALPHAUSER:\n            aMode = 'ALPHA_USER'\n        self.getVariable('Renderer', 'Alpha Mode').set(aMode)\n        userAlpha = renderer.getUserAlpha()\n        self.getWidget('Renderer', 'User Alpha').set(userAlpha)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 825
+  }
+}

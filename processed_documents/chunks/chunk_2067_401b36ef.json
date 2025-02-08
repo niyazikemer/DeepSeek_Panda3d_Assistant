@@ -1,0 +1,9 @@
+{
+  "content": "# Actually, make sure we know how to find all of the\n        # already-imported modules.  (Some of them might do their own\n        # special path mangling.)\n        for moduleName, module in list(sys.modules.items()):\n            if module and getattr(module, '__path__', None) is not None:\n                modPath = list(getattr(module, '__path__'))\n                if modPath:\n                    modulefinder.AddPackagePath(moduleName, modPath[0])\n\n        # Module with non-obvious dependencies\n        self.hiddenImports = defaultHiddenImports.copy()\n        if hiddenImports is not None:\n            self.hiddenImports.update(hiddenImports)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2067
+  }
+}

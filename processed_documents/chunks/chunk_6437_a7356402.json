@@ -1,0 +1,9 @@
+{
+  "content": "It is your responsibility to ensure that all of the parameters passed to ~.GeomVertexArrayFormat.add_column() are appropriate for the column you are defining. The column data will be stored exactly as you specify. When rendering, Panda will attempt to convert the column data as it is stored to whatever format your graphics API (e.g. OpenGL or DirectX) expects to receive.\n\nFor instance, to define a vertex format that includes a vertex position and a (U, V) texture coordinate:\n\npython\n\narray = GeomVertexArrayFormat()\narray.addColumn(\"vertex\", 3, Geom.NTFloat32, Geom.CPoint)\narray.addColumn(\"texcoord\", 2, Geom.NTFloat32, Geom.CTexcoord)\n\ncpp\n\nPT(GeomVertexArrayFormat) array;\narray = new GeomVertexArrayFormat();\narray->add_column(InternalName::make(\"vertex\"), 3,\n                  Geom::NT_float32, Geom::C_point);\narray->add_column(InternalName::make(\"texcoord\"), 2,\n                  Geom::NT_float32, Geom::C_texcoord);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_482",
+    "parent": "processed_documents/context_documents/98868df0_5990f8cd_custom-vertex-format.json",
+    "chunk_number": 6437
+  }
+}

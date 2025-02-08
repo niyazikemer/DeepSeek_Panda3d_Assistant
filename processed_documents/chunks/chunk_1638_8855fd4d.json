@@ -1,0 +1,9 @@
+{
+  "content": "for i_ntype in range(interrogate_type_number_of_nested_types(type)):\n        processType(handle, interrogate_type_get_nested_type(type, i_ntype))\n\n    for i_method in range(interrogate_type_number_of_constructors(type)):\n        processFunction(handle, interrogate_type_get_constructor(type, i_method), True)\n\n    for i_method in range(interrogate_type_number_of_methods(type)):\n        processFunction(handle, interrogate_type_get_method(type, i_method))\n\n    for i_method in range(interrogate_type_number_of_make_seqs(type)):\n        print(\"list\", translateFunctionName(interrogate_make_seq_seq_name(interrogate_type_get_make_seq(type, i_method))), \"();\", file=handle)\n\n    for i_element in range(interrogate_type_number_of_elements(type)):\n        processElement(handle, interrogate_type_get_element(type, i_element))\n\n    print(\"};\", file=handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1638
+  }
+}

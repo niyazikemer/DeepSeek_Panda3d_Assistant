@@ -1,0 +1,9 @@
+{
+  "content": "def onPopupItemSelected(self, event):\n        menuItem = self.popupmenu.FindItemById(event.GetId())\n        text = menuItem.GetText()\n        if text == self.opAddObj:\n            self.addObj()\n        elif text == self.opRemoveObj:\n            self.removeObj()\n        elif text == self.opShowObj:\n            self.HideObj(False)\n        elif text == self.opHideObj:\n            self.HideObj(True)\n        elif text == self.opAdd:\n            self.addLayer()\n        elif text == self.opDelete:\n            self.deleteLayer()\n        elif text == self.opRename:\n            self.renameLayer()\n        else:\n            wx.MessageBox(\"You selected item '%s'\" % text)\n\n    def reset(self):\n        #import pdb;set_trace()\n        self.layersDataDict.clear()\n        self.layersDataDictNextKey = 0\n        self.llist.DeleteAllItems()\n        self.systemLayerKeys = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 575
+  }
+}

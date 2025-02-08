@@ -1,0 +1,9 @@
+{
+  "content": "class _BoundedSemaphore(_Semaphore):\n    \"\"\"Semaphore that checks that # releases is <= # acquires\"\"\"\n    def __init__(self, value=1, verbose=None):\n        _Semaphore.__init__(self, value, verbose)\n        self._initial_value = value\n\n    def release(self):\n        if self._Semaphore__value >= self._initial_value:\n            raise ValueError(\"Semaphore released too many times\")\n        return _Semaphore.release(self)\n\n\ndef Event(*args, **kwargs):\n    return _Event(*args, **kwargs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3823
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "elif isinstance(model, ModelNode):\n            # Maybe we were given a node\n            modelNode = model\n\n        elif isinstance(model, (str, Filename)):\n            # If we were given a filename, we have to ask the loader\n            # to resolve it for us.\n            options = LoaderOptions(LoaderOptions.LFSearch | LoaderOptions.LFNoDiskCache | LoaderOptions.LFCacheOnly)\n            modelNode = self.loader.loadSync(Filename(model), options)\n            if modelNode is None:\n                # Model not found.\n                assert Loader.notify.debug(\"Unloading model not loaded: %s\" % (model))\n                return\n\n            assert Loader.notify.debug(\"%s resolves to %s\" % (model, modelNode.getFullpath()))\n\n        else:\n            raise TypeError('Invalid parameter to unloadModel: %s' % (model))\n\n        assert Loader.notify.debug(\"Unloading model: %s\" % (modelNode.getFullpath()))\n        ModelPool.releaseModel(modelNode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4386
+  }
+}

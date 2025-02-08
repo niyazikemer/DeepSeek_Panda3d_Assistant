@@ -1,0 +1,9 @@
+{
+  "content": "self.info(\"Notify clock adjusted by %s (and timezone adjusted by %s hours) to synchronize with server.\" % (PythonUtil.formatElapsedSeconds(delta), (time.timezone - timezone) / 3600))\n\n    def getTime(self) -> str:\n        \"\"\"\n        Return the time as a string suitable for printing at the\n        head of any notify message\n        \"\"\"\n        # for some strange reason, time.time() updates only once/minute if\n        # the task is out of focus on win32.  time.clock doesn't have this problem.\n        return time.strftime(\":%m-%d-%Y %H:%M:%S \", time.localtime(time.time() + self.serverDelta))\n\n    def getOnlyTime(self) -> str:\n        \"\"\"\n        Return the time as a string.\n        The Only in the name is referring to not showing the date.\n        \"\"\"\n        return time.strftime(\"%H:%M:%S\", time.localtime(time.time() + self.serverDelta))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1675
+  }
+}

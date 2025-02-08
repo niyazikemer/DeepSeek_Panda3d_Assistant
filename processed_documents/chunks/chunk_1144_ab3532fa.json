@@ -1,0 +1,9 @@
+{
+  "content": "widget = self.createSlider(refineFrame,\n                                       'Refine Page', 'Refine From',\n                                       'Begin time of refine pass',\n                                       resolution = 0.01,\n                                       command = self.setRecordStart)\n        widget['preCallback'] = self.setRefineMode\n        widget['postCallback'] = lambda s = self: s.getPrePoints('Refine')\n        widget = self.createSlider(\n            refineFrame, 'Refine Page',\n            'Control Start',\n            'Time when full control of node path is given during refine pass',\n            resolution = 0.01,\n            command = self.setControlStart)\n        widget['preCallback'] = self.setRefineMode\n        widget = self.createSlider(\n            refineFrame, 'Refine Page',\n            'Control Stop',\n            'Time when node path begins transition back to original curve',\n            resolution = 0.01,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1144
+  }
+}

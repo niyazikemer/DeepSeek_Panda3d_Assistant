@@ -1,0 +1,9 @@
+{
+  "content": "# Call option initialization functions\n        self.initialiseoptions(DirectGuiWidget)\n\n    def frameInitialiseFunc(self):\n        # Now allow changes to take effect\n        self.updateFrameStyle()\n        if not self['frameSize']:\n            self.resetFrameSize()\n\n    def enableEdit(self):\n        self.bind(DGG.B2PRESS, self.editStart)\n        self.bind(DGG.B2RELEASE, self.editStop)\n        self.bind(DGG.PRINT, self.printConfig)\n        # Can we move this to showbase\n        # Certainly we don't need to do this for every button!\n        #mb = base.mouseWatcherNode.getModifierButtons()\n        #mb.addButton(KeyboardButton.control())\n        #base.mouseWatcherNode.setModifierButtons(mb)\n\n    def disableEdit(self):\n        self.unbind(DGG.B2PRESS)\n        self.unbind(DGG.B2RELEASE)\n        self.unbind(DGG.PRINT)\n        #mb = base.mouseWatcherNode.getModifierButtons()\n        #mb.removeButton(KeyboardButton.control())\n        #base.mouseWatcherNode.setModifierButtons(mb)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1413
+  }
+}

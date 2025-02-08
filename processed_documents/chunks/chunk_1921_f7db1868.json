@@ -1,0 +1,9 @@
+{
+  "content": "def _model_to_bam(_build_cmd, srcpath, dstpath):\n    if dstpath.endswith('.gz') or dstpath.endswith('.pz'):\n        dstpath = dstpath[:-3]\n    dstpath = dstpath + '.bam'\n\n    src_fn = p3d.Filename.from_os_specific(srcpath)\n    dst_fn = p3d.Filename.from_os_specific(dstpath)\n    dst_fn.set_binary()\n\n    _register_python_loaders()\n\n    loader = p3d.Loader.get_global_ptr()\n    options = p3d.LoaderOptions(p3d.LoaderOptions.LF_report_errors |\n                                p3d.LoaderOptions.LF_no_ram_cache)\n    node = loader.load_sync(src_fn, options)\n    if not node:\n        raise IOError('Failed to load model: %s' % (srcpath))\n\n    stream = p3d.OFileStream()\n    if not dst_fn.open_write(stream):\n        raise IOError('Failed to open .bam file for writing: %s' % (dstpath))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1921
+  }
+}

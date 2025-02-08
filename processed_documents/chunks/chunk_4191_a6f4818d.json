@@ -1,0 +1,9 @@
+{
+  "content": "# Also send the event down into C++ land\n            handler = self.eventHandler\n            if handler:\n                handler.dispatchEvent(event)\n\n        else:\n            # An unnamed event from C++ is probably a bad thing\n            EventManager.notify.warning('unnamed event in processEvent')\n\n    def processEventPstats(self, event):\n        \"\"\"\n        Process a C++ event with pstats tracking\n        Duplicate any changes in processEvent\n        \"\"\"\n        # ********************************************************\n        # ******** Duplicate any changes in processEvent *********\n        # ********************************************************\n        # Get the event name\n        eventName = event.name\n        if eventName:\n            paramList = []\n            for eventParameter in event.parameters:\n                eventParameterData = self.parseEventParameter(eventParameter)\n                paramList.append(eventParameterData)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4191
+  }
+}

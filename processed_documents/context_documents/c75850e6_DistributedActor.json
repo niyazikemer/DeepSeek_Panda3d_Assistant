@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"DistributedActor module: contains the DistributedActor class\"\"\"\n\n__all__ = ['DistributedActor']\n\nfrom direct.distributed import DistributedNode\n\nfrom . import Actor\n\nclass DistributedActor(DistributedNode.DistributedNode, Actor.Actor):\n    def __init__(self, cr):\n        if not hasattr(self, 'DistributedActor_initialized'):\n            self.DistributedActor_initialized = 1\n            Actor.Actor.__init__(self)\n            DistributedNode.DistributedNode.__init__(self, cr)\n            # Since actors are probably fairly heavyweight, we'd\n            # rather cache them than delete them if possible.\n            self.setCacheable(1)\n\n    def disable(self):\n        # remove all anims, on all parts and all lods\n        if not self.isEmpty():\n            Actor.Actor.unloadAnims(self, None, None, None)\n        DistributedNode.DistributedNode.disable(self)\n\n    def delete(self):\n        if not hasattr(self, 'DistributedActor_deleted'):\n            self.DistributedActor_deleted = 1\n            DistributedNode.DistributedNode.delete(self)\n            Actor.Actor.delete(self)\n\n\n    def loop(self, animName, restart=1, partName=None, fromFrame=None, toFrame=None):\n        return Actor.Actor.loop(self, animName, restart, partName, fromFrame, toFrame)\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/actor/DistributedActor.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/c75850e6_DistributedActor.json",
+    "doc_id": "doc_176"
+  }
+}

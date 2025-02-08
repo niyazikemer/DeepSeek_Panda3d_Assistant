@@ -1,0 +1,9 @@
+{
+  "content": "def makeCopy(self):\n            return Actor.AnimDef(self.filename, self.animBundle)\n\n        def __repr__(self):\n            return 'Actor.AnimDef(%s)' % (repr(self.filename))\n\n\n        #snake_case alias:\n        make_copy = makeCopy\n\n    class SubpartDef:\n\n        \"\"\"Instances of this class are stored within the SubpartDict\n        to track the existance of arbitrary sub-parts.  These are\n        designed to appear to the user to be identical to true \"part\"\n        of a multi-part Actor, but in fact each subpart represents a\n        subset of the joints of an existing part (which is accessible\n        via a different name). \"\"\"\n\n        def __init__(self, truePartName, subset = PartSubset()):\n            self.truePartName = truePartName\n            self.subset = subset\n\n        def makeCopy(self):\n            return Actor.SubpartDef(self.truePartName, PartSubset(self.subset))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3037
+  }
+}

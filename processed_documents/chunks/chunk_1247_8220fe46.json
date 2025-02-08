@@ -1,0 +1,9 @@
+{
+  "content": "class SpriteParticleRendererExt(SpriteParticleRenderer):\n    \"\"\"\n    Contains methods to extend functionality\n    of the SpriteParticleRenderer class\n    \"\"\"\n\n    # Initialize class variables for texture, source file and node for texture and\n    # node path textures to None.  These will be initialized to a hardcoded default\n    # or whatever the user specifies in his/her Configrc variable the first time they\n    # are accessed\n    # Will use instance copy of this in functions below\n    sourceTextureName = None\n    sourceFileName = None\n    sourceNodeName = None\n\n    def getSourceTextureName(self):\n        if self.sourceTextureName is None:\n            SpriteParticleRendererExt.sourceTextureName = ConfigVariableString(\n                'particle-sprite-texture', 'maps/lightbulb.rgb').value\n        # Return instance copy of class variable\n        return self.sourceTextureName",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_68",
+    "parent": "processed_documents/context_documents/09ed8d32_SpriteParticleRendererExt.json",
+    "chunk_number": 1247
+  }
+}

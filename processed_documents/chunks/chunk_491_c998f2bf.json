@@ -1,0 +1,9 @@
+{
+  "content": "def addNewCurveFromFile(self, curveInfo, degree, uid=None, parent=None, fSelectObject=True, nodePath=None):\n        \"\"\" function to add new curve to the scene from file\"\"\"\n        curve = []\n        curveControl = []\n\n        #transfer the curve information from simple positions into control nodes\n        for item in curveInfo:\n            controler = base.render.attachNewNode(\"controler\")\n            controler = base.loader.loadModel('models/misc/smiley')\n            controlerPathname = f'controler{item[0]}'\n            controler.setName(controlerPathname)\n            controler.setPos(item[1])\n            controler.setColor(0, 0, 0, 1)\n            controler.setScale(0.2)\n            controler.reparentTo(base.render)\n            controler.setTag('OBJRoot', '1')\n            controler.setTag('Controller', '1')\n            curve.append((None, item[1]))\n            curveControl.append((item[0], controler))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 491
+  }
+}

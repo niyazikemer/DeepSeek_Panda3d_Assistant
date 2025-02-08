@@ -1,0 +1,9 @@
+{
+  "content": "with open(target, 'wb') as f:\n            if append_blob:\n                f.write(stub_data)\n                assert f.tell() == blob_offset\n                f.write(blob)\n            else:\n                stub_data[blob_offset:blob_offset + blob_size] = blob\n                f.write(stub_data)\n\n        os.chmod(target, 0o755)\n        return target\n\n    def _get_executable_bitnesses(self, data):\n        \"\"\"Returns the bitnesses (32 or 64) of the given executable data.\n        This will contain 1 element for non-fat executables.\"\"\"\n\n        if data.startswith(b'MZ'):\n            # A Windows PE file.\n            offset, = struct.unpack_from('<I', data, 0x3c)\n            assert data[offset:offset+4] == b'PE\\0\\0'\n\n            magic, = struct.unpack_from('<H', data, offset + 24)\n            assert magic in (0x010b, 0x020b)\n            if magic == 0x020b:\n                return (64,)\n            else:\n                return (32,)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2134
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "# Only allow integer values\n                if fAllowNone:\n                    entry['validate'] = {'validator': self.intOrNone}\n                else:\n                    entry['validate'] = {'validator': 'integer'}\n                if helpString is None:\n                    helpString = f'Enter an integer{extra}.'\n            else:\n                # Anything goes with a string widget\n                if helpString is None:\n                    helpString = f'Enter a string{extra}.'\n            # Bind balloon with help string to entry\n            balloon.bind(entry, helpString)\n            # Create callback to execute whenever a value is changed\n            modifiedCallback = (lambda f=self.modified, w=widget, e=entry,\n                                p=property, t=entryType, fn=fAllowNone:\n                                f(w, e, p, t, fn))\n            entry['modifiedcommand'] = modifiedCallback\n            # Keep track of the entrys\n            entryList.append(entry)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3587
+  }
+}

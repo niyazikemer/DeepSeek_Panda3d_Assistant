@@ -1,0 +1,9 @@
+{
+  "content": "def watchWithModifiers(self, name, event, startState=False, inputSource=None):\n        patterns = ('%s', 'control-%s', 'shift-control-%s', 'alt-%s',\n                    'control-alt-%s', 'shift-%s', 'shift-alt-%s')\n        tGroup = InputStateTokenGroup()\n        for pattern in patterns:\n            tGroup.addToken(self.watch(name, pattern % event, '%s-up' % event, startState=startState, inputSource=inputSource))\n        return tGroup\n\n    def _ignore(self, token):\n        \"\"\"\n        Undo a watch(). Don't call this directly, call release() on the token that watch() returned.\n        \"\"\"\n        inputSource = self._token2inputSource.pop(token)\n        name, eventOn, eventOff = self._watching[inputSource].pop(token)\n        token.invalidate()\n        DirectObject.DirectObject.ignore(self, eventOn)\n        DirectObject.DirectObject.ignore(self, eventOff)\n        if len(self._watching[inputSource]) == 0:\n            del self._watching[inputSource]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4157
+  }
+}

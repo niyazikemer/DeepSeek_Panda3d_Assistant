@@ -1,0 +1,9 @@
+{
+  "content": "Note that the alpha cutout is preserved, but the effects of lighting (which are considered part of the underlying texture) have been lost.\n\nDecal mode\n\nIn this mode the top texture completely replaces the bottom texture, but only where alpha = 1 in the top texture. When alpha = 0, the bottom texture shows through, and there is a smooth blending for alpha values between 0 and 1.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MDecal)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_decal);\nsmiley.set_texture(ts, tex);\n\nNote that the alpha cutout is no longer preserved in this mode, because alpha is used to determine which texture should be visible. Also note that the effects of lighting are lost for the decalled part of the texture.\n\nPanda3D also provides a built-in decal capability, for rendering a small polygon coplanar with and embedded within a larger polygon, which is not related to the decal texture blend mode.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7030
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "Auxiliary Bitplane Control\n\nThe framebuffer always contains a color bitplane and a depth bitplane. It may also have a stencil bitplane or accumulation bitplane. In addition, if it is a render-to-texture framebuffer, it may have auxiliary bitplanes. These allow more or less arbitrary user-defined data to be stored along with each pixel in the framebuffer, alongside its color and depth value.\n\nThe main use case for this is to pass along additional information to a postprocessing shader, which operates on the pixels of the rendered image. For example, the cartoon inking shader needs to have the normal vector of every rendered pixel in order to determine where the edges of the objects are.\n\nWhen per-pixel lighting is enabled via the shader generator <the-shader-generator>, the shader generator can be asked to produce extra data into the auxiliary bitplanes. This is done by setting an .AuxBitplaneAttrib:\n\npython\n\nnp.setAttrib(AuxBitplaneAttrib.make(bits))\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_456",
+    "parent": "processed_documents/context_documents/2fd4e877_bb797688_auxiliary-bitplane-control.json",
+    "chunk_number": 6322
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if (auto ptr = weak_ptr.lock()) {\n  // Safely use ptr in here.\n} else {\n  // The pointer has been deleted.\n}\n\nCircular References\n\nWhen designing your class hierarchy, you should be particularly wary of circular references. This happens when object A stores a reference to object B, but object B also stores a reference to object A. Since each object will always retain a reference to the other object, the reference count will never reach zero and memory leaks may ensue.\n\nOne way to solve this problem is to store a regular, non-reference counted pointer to object A in object B, and let object A unset the reference to itself in its destructor. This is not a general solution, however, and the most optimal solution depends on the specific situation.\n\nStack Allocation\n\nIn some rare cases, it is desirable to create a temporary instance of the object on the stack. To achieve this, it is necessary to call ~ReferenceCount::local_object() on the object directly after allocation:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_614",
+    "parent": "processed_documents/context_documents/34116fa8_637658a3_reference-counting.json",
+    "chunk_number": 7246
+  }
+}

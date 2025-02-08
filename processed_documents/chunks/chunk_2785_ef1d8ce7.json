@@ -1,0 +1,9 @@
+{
+  "content": "class LerpTexScaleInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, texScale, startTexScale = None,\n                 other = None, blendType = 'noBlend',\n                 textureStage = None,\n                 bakeInStart = 1, name = None, override = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, 0, nodePath, other)\n        self.setEndTexScale(texScale)\n        if startTexScale is not None:\n            self.setStartTexScale(startTexScale)\n        if textureStage is not None:\n            self.setTextureStage(textureStage)\n        if override is not None:\n            self.setOverride(override)\n\n\n#\n# The remaining intervals defined in this module are the old-school\n# Python-based intervals.\n#",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2785
+  }
+}

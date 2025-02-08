@@ -1,0 +1,9 @@
+{
+  "content": "# Next we find the vector from viewpoint to the widget through\n        # the mouse's position on near plane.\n        # This defines the intersection ray\n        lineDir = Vec3(mCam2NodePath.xformVec(ShowBaseGlobal.direct.dr.nearVec))\n        lineDir.normalize()\n        # Find the hit point\n        if plane == 'x':\n            self.hitPt.assign(planeIntersect(\n                lineOrigin, lineDir, DG.ORIGIN, DG.X_AXIS))\n        elif plane == 'y':\n            self.hitPt.assign(planeIntersect(\n                lineOrigin, lineDir, DG.ORIGIN, DG.Y_AXIS))\n        elif plane == 'z':\n            self.hitPt.assign(planeIntersect(\n                lineOrigin, lineDir, DG.ORIGIN, DG.Z_AXIS))\n\n        return self.hitPt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3292
+  }
+}

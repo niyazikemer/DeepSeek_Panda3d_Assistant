@@ -1,0 +1,9 @@
+{
+  "content": "# This should be called before the constructor of the base\n        # class, so that default values defined in the derived class\n        # override those in the base class.\n        if not hasattr(self, '_constructorKeywords'):\n            tmp = {}\n            for option, value in keywords.items():\n                tmp[option] = [value, 0]\n            self._constructorKeywords = tmp\n            self._optionInfo = {}\n        # Initialize dictionary of dynamic groups\n        if not hasattr(self, '_dynamicGroups'):\n            self._dynamicGroups = ()\n        self._dynamicGroups = self._dynamicGroups + tuple(dynamicGroups)\n        # Reconcile command line and default options\n        self.addoptions(optionDefs, keywords)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1374
+  }
+}

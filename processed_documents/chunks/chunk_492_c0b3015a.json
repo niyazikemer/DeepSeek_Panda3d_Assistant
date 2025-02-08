@@ -1,0 +1,9 @@
+{
+  "content": "self.editor.curveEditor.degree = degree\n        self.editor.curveEditor.ropeUpdate(curve)\n        #add new curve to the scene\n        curveObjNP = self.addNewCurve(curveControl, degree, uid, parent, fSelectObject, nodePath=self.editor.curveEditor.currentRope)\n        curveObj = self.findObjectByNodePath(curveObjNP)\n        self.editor.objectMgr.updateObjectPropValue(curveObj, 'Degree', degree, fSelectObject=False, fUndo=False)\n\n        for item in curveControl:\n            item[1].reparentTo(curveObjNP)\n            item[1].hide()\n\n        curveControl = []\n        curve = []\n        self.editor.curveEditor.currentRope = None\n\n        return curveObjNP\n\n    def addNewCurve(self, curveInfo, degree, uid=None, parent=None, fSelectObject=True, nodePath=None):\n        \"\"\" function to add new curve to the scene\"\"\"\n        if parent is None:\n            parent = self.editor.NPParent\n\n        if uid is None:\n            uid = self.genUniqueId()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 492
+  }
+}

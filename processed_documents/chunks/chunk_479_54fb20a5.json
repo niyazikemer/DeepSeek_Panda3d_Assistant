@@ -1,0 +1,9 @@
+{
+  "content": "def delete(self, name):\n        try:\n            deleteItems = {}\n            node = self.deleteStruct(name, deleteItems)\n            if node is not None:\n                deleteItems[name] = node\n            for key in list(deleteItems.keys()):\n                item = self.dataStruct.pop(key)\n        except Exception:\n            return\n\n    def findItem(self, name):\n        try:\n            item = self.data[name]\n        except Exception:\n            return None\n        return item\n\n    def findChildren(self, name):\n        result = []\n        for key in self.dataKeys:\n            if self.dataStruct[key] == name:\n                result.append(key)\n\n        return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_31",
+    "parent": "processed_documents/context_documents/b4cff924_ObjectPaletteBase.json",
+    "chunk_number": 479
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class DirectNotify:\n    \"\"\"\n    DirectNotify class: this class contains methods for creating\n    mulitple notify categories via a dictionary of Notifiers.\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"\n        DirectNotify class keeps a dictionary of Notfiers\n        \"\"\"\n        self.__categories: dict[str, Notifier.Notifier] = {}\n        # create a default log file\n        self.logger = Logger.Logger()\n\n        # This will get filled in later by ShowBase.py with a\n        # C++-level StreamWriter object for writing to standard\n        # output.\n        self.streamWriter: StreamWriter | None = None\n\n    def __str__(self) -> str:\n        \"\"\"\n        Print handling routine\n        \"\"\"\n        return \"DirectNotify categories: %s\" % (self.__categories)\n\n    #getters and setters\n    def getCategories(self) -> list[str]:\n        \"\"\"\n        Return list of category dictionary keys\n        \"\"\"\n        return list(self.__categories.keys())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_99",
+    "parent": "processed_documents/context_documents/455d71b3_DirectNotify.json",
+    "chunk_number": 1651
+  }
+}

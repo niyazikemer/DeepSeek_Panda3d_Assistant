@@ -1,0 +1,9 @@
+{
+  "content": "def __len__(self):\n        return len(self.ivals)\n\n    def __getitem__(self, index):\n        return self.ivals[index]\n\n    def __setitem__(self, index, value):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals[index] = value\n        self.__ivalsDirty = 1\n        assert self.validateComponent(value)\n\n    def __delitem__(self, index):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        del self.ivals[index]\n        self.__ivalsDirty = 1\n\n    def __getslice__(self, i, j):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        return self.__class__(self.ivals[i: j])\n\n    def __setslice__(self, i, j, s):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals[i: j] = s\n        self.__ivalsDirty = 1\n        assert self.validateComponents(s)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2876
+  }
+}

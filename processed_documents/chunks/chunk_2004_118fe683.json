@@ -1,0 +1,9 @@
+{
+  "content": "# Make the directory if it does not yet exist.\n        target_dir = os.path.dirname(target_path)\n        if not os.path.isdir(target_dir):\n            os.makedirs(target_dir)\n\n        # Copy the file, and open it for analysis.\n        if '.whl' in source_path:\n            # This was found in a wheel, extract it\n            whl, wf = source_path.split('.whl' + os.path.sep)\n            whl += '.whl'\n            whlfile = self._get_zip_file(whl)\n            data = whlfile.read(wf.replace(os.path.sep, '/'))\n            with open(target_path, 'wb') as f:\n                f.write(data)\n        else:\n            # Regular file, copy it\n            shutil.copyfile(source_path, target_path)\n\n    def copy_with_dependencies(self, source_path, target_path, search_path):\n        \"\"\" Copies source_path to target_path.  It also scans source_path for\n        any dependencies, which are located along the given search_path and\n        copied to the same directory as target_path.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2004
+  }
+}

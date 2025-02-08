@@ -1,0 +1,9 @@
+{
+  "content": "def findCollisionEntry(self, skipFlags = DG.SKIP_NONE, startIndex = 0):\n        # Init self.index and self.entry\n        self.setCurrentIndex(-1)\n        self.setCurrentEntry(None)\n        # Pick out the closest object that isn't a widget\n        for i in range(startIndex, self.getNumEntries()):\n            entry = self.getEntry(i)\n            nodePath = entry.getIntoNodePath()\n            if (skipFlags & DG.SKIP_HIDDEN) and nodePath.isHidden():\n                # Skip if hidden node\n                pass\n            elif (skipFlags & DG.SKIP_BACKFACE) and self.isEntryBackfacing(entry):\n                # Skip, if backfacing poly\n                pass\n            elif (skipFlags & DG.SKIP_CAMERA) and \\\n                 (base.camera in nodePath.getAncestors()):\n                # Skip if parented to a camera.\n                pass\n            # Can pick unpickable, use the first visible node\n            elif (skipFlags & DG.SKIP_UNPICKABLE) and \\",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3466
+  }
+}

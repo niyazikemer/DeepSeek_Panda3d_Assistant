@@ -1,0 +1,9 @@
+{
+  "content": "class NonPhysicsWalker(DirectObject.DirectObject):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"NonPhysicsWalker\")\n    wantDebugIndicator = ConfigVariableBool('want-avatar-physics-indicator', False)\n\n    # Ghost mode overrides this:\n    slideName = \"slide-is-disabled\"\n\n    # special methods\n    def __init__(self):\n        DirectObject.DirectObject.__init__(self)\n        self.worldVelocity = Vec3.zero()\n        self.collisionsActive = 0\n        self.speed=0.0\n        self.rotationSpeed=0.0\n        self.slideSpeed=0.0\n        self.vel=Vec3(0.0, 0.0, 0.0)\n        self.stopThisFrame = 0\n\n    def setWalkSpeed(self, forward, jump, reverse, rotate):\n        assert self.debugPrint(\"setWalkSpeed()\")\n        self.avatarControlForwardSpeed=forward\n        #self.avatarControlJumpForce=jump\n        self.avatarControlReverseSpeed=reverse\n        self.avatarControlRotateSpeed=rotate",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4171
+  }
+}

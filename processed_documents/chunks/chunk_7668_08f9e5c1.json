@@ -1,0 +1,9 @@
+{
+  "content": "To understand how async functions run, you must understand that you cannot simply invoke an async function as though it were a regular function. Some process needs to be in charge of the lifetime of a coroutine, resuming it whenever necessary. In regular Python, this is the asyncio event loop, but Panda3D already has the task manager to schedule the execution of functions, which (unlike asyncio) is thread-safe, and integrates cleanly with the rest of Panda3D.\n\nLet's take this Python function as an example of a regular, synchronous function that generates undesirable lag. It counts down a given number of seconds and then prints \"Launch!\" to the console.\n\nimport time\n\n\ndef launchRocket(countdown):\n    print(\"Beginning countdown\u2026\")\n\n    while countdown > 0:\n       print(countdown)\n\n       # Suspend the application for a second\n       time.sleep(1.0)\n       countdown -= 1\n\n    print(\"Launch!\")\n\nlaunchRocket(countdown=3)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_689",
+    "parent": "processed_documents/context_documents/0a46205a_9afad06b_coroutines.json",
+    "chunk_number": 7668
+  }
+}

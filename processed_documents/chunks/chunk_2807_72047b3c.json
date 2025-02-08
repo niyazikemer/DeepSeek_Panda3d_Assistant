@@ -1,0 +1,9 @@
+{
+  "content": "def __doPythonCallbacks(self):\n        # This method does all of the required Python post-processing\n        # after performing some C++-level action.\n        # It is important to call all of the python callbacks on the\n        # just-removed intervals before we call any of the callbacks\n        # on the still-running intervals.\n        index = self.getNextRemoval()\n        while index >= 0:\n            # We have to clear the interval first before we call\n            # privPostEvent() on it, because the interval might itself\n            # try to add a new interval.\n            ival = self.ivals[index]\n            self.ivals[index] = None\n            ival.privPostEvent()\n            index = self.getNextRemoval()\n\n        index = self.getNextEvent()\n        while index >= 0:\n            self.ivals[index].privPostEvent()\n            index = self.getNextEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_160",
+    "parent": "processed_documents/context_documents/493662c0_IntervalManager.json",
+    "chunk_number": 2807
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if logger is None:\n            self.__logger = defaultLogger\n        else:\n            self.__logger = logger\n\n        # Global default levels are initialized here\n        self.__info = True\n        self.__warning = True\n        self.__debug = False\n        self.__logging = False\n\n    def setServerDelta(self, delta: float, timezone: int) -> None:\n        \"\"\"\n        Call this method on any Notify object to globally change the\n        timestamp printed for each line of all Notify objects.\n\n        This synchronizes the timestamp with the server's known time\n        of day, and also switches into the server's timezone.\n        \"\"\"\n        delta = int(round(delta))\n        Notifier.serverDelta = delta + time.timezone - timezone\n\n        # The following call is necessary to make the output from C++\n        # notify messages show the same timestamp as those generated\n        # from Python-level notify messages.\n        NotifyCategory.setServerDelta(self.serverDelta)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1674
+  }
+}

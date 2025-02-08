@@ -1,0 +1,9 @@
+{
+  "content": "objNP = obj[OG.OBJ_NP]\n            objDef = obj[OG.OBJ_DEF]\n            objRGBA = obj[OG.OBJ_RGBA]\n            uid = obj[OG.OBJ_UID]\n\n            # load new model\n            if objDef.actor:\n                try:\n                    newobj = Actor(model)\n                except Exception:\n                    newobj = Actor(Filename.fromOsSpecific(model).getFullpath())\n            else:\n                newobjModel = base.loader.loadModel(model, okMissing=True)\n                if newobjModel is None:\n                    print(\"Can't load model %s\"%model)\n                    return\n                self.flatten(newobjModel, model, objDef, uid)\n                newobj = PythonNodePath(newobjModel)\n            newobj.setTag('OBJRoot', '1')\n\n            # reparent children\n            objNP.findAllMatches(\"=OBJRoot\").reparentTo(newobj)\n\n            # reparent to parent\n            newobj.reparentTo(objNP.getParent())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 511
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "for child in item.getChildren():\n                self.addChildCtrl(child, item.getVertexBytes())\n\n            self.setTitle(item.getPathName(), item.getVertexBytes())\n\n    #--------------------------------------------------------------------------\n    # List & Analyze\n    #--------------------------------------------------------------------------\n    def makeList(self):\n        self.renderItem = MemoryExplorerItem(None, base.render)\n        self.buildList(self.renderItem)\n\n        self.render2dItem = MemoryExplorerItem(None, base.render2d)\n        self.buildList(self.render2dItem)\n\n    def buildList(self, parentItem):\n        for nodePath in parentItem.nodePath.getChildren():\n            item = MemoryExplorerItem(parentItem, nodePath)\n            parentItem.addChild(item)\n            self.buildList(item)\n\n    def analyze(self):\n        self.renderItem.analyze()\n        self.render2dItem.analyze()\n\n    def refresh(self):\n        self.makeList()\n        self.analyze()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3603
+  }
+}

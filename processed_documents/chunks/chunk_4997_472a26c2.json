@@ -1,0 +1,9 @@
+{
+  "content": "fm = FisheyeMaker('card')\n        fm.setNumVertices(numVertices)\n        fm.setSquareInscribed(1, 1.1)\n        fm.setReflection(1)\n        card = root.attachNewNode(fm.generate())\n        card.setTexture(buffer.getTexture())\n\n        # Now render a frame.  This will render out the cube map and\n        # then apply it to the the card in the toSphere buffer.\n        rig.reparentTo(camera)\n        self.graphicsEngine.openWindows()\n        self.graphicsEngine.renderFrame()\n\n        # One more frame for luck.\n        self.graphicsEngine.renderFrame()\n        self.graphicsEngine.syncFrame()\n\n        saved = self.screenshot(namePrefix = namePrefix,\n                                defaultFilename = defaultFilename,\n                                source = toSphere.getTexture())\n\n        self.graphicsEngine.removeWindow(buffer)\n        self.graphicsEngine.removeWindow(toSphere)\n        rig.removeNode()\n\n        return saved",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4997
+  }
+}

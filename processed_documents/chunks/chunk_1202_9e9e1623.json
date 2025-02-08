@@ -1,0 +1,9 @@
+{
+  "content": "def setRecordStart(self, value):\n        self.recordStart = value\n        # Someone else is adjusting values, let them take care of it\n        if self.fAdjustingValues:\n            return\n        self.fAdjustingValues = 1\n        # Adjust refine widgets\n        # Make sure we're in sync\n        self.getWidget('Refine Page', 'Refine From').set(\n            self.recordStart)\n        self.getWidget('Extend Page', 'Extend From').set(\n            self.recordStart)\n        # Check bounds\n        if self.recordStart > self.controlStart:\n            self.getWidget('Refine Page', 'Control Start').set(\n                self.recordStart)\n            self.getWidget('Extend Page', 'Control Start').set(\n                self.recordStart)\n        if self.recordStart > self.controlStop:\n            self.getWidget('Refine Page', 'Control Stop').set(\n                self.recordStart)\n        if self.recordStart > self.recordStop:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1202
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "hSizer.Add(self.uiAmPm)\n        hSizer.Add(self.uiHour)\n        hSizer.Add(self.uiMin)\n        self.uiPane.SetSizer(hSizer)\n\n        self.setValue(value)\n        self.eventType = wx.EVT_CHOICE\n        self.Layout()\n\n    def setValue(self, value):\n        hourVal = int(math.floor(value))\n        minVal = [0, 15, 30, 45][int((value - hourVal) * 4)]\n\n        if hourVal > 11:\n            ampmStr = 'PM'\n            hourVal = hourVal - 12\n        else:\n            ampmStr = 'AM'\n\n        if hourVal == 0:\n            hourVal = 12\n\n        self.uiAmPm.SetStringSelection(ampmStr)\n        self.uiHour.SetStringSelection(str(hourVal))\n        self.uiMin.SetStringSelection(str(minVal))\n\n    def getValue(self):\n        ampmStr = self.uiAmPm.GetStringSelection()\n        hourVal = int(self.uiHour.GetStringSelection())\n        if hourVal == 12:\n            hourVal = 0\n        if ampmStr == 'PM':\n            hourVal += 12",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 327
+  }
+}

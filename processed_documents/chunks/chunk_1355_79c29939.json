@@ -1,0 +1,9 @@
+{
+  "content": "def clearImage(self):\n        self['image'] = None\n        self.setImage()\n\n    def setImage(self, image=None):\n        if image is not None:\n            self[\"image\"] = image\n\n        image = self[\"image\"]\n        if image is None or \\\n           isinstance(image, NodePath) or \\\n           isinstance(image, Texture) or \\\n           isinstance(image, str) or \\\n           isinstance(image, Filename) or \\\n           (len(image) == 2 and \\\n            isinstance(image[0], str) and \\\n            isinstance(image[1], str)):\n            image_list = (image,) * self['numStates']\n        else:\n            image_list = image\n\n        self.__reinitComponent(\"image\", OnscreenImage, image_list,\n            scale=1,\n            sort=DGG.IMAGE_SORT_INDEX)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_76",
+    "parent": "processed_documents/context_documents/85a9ae3c_DirectFrame.json",
+    "chunk_number": 1355
+  }
+}

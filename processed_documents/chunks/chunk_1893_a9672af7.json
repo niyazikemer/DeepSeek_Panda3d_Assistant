@@ -1,0 +1,9 @@
+{
+  "content": "# Align the offset.\n        section.offset = _padded(section.offset, self.file_alignment)\n\n        # Find a place to put it in the virtual address space.\n        section.vaddr = len(self.vmem)\n        align = section.vaddr % self.section_alignment\n        if align:\n            pad = self.section_alignment - align\n            self.vmem += bytearray(pad)\n            section.vaddr += pad\n\n        section.vsize = len(data)\n        section.size = _padded(section.vsize, self.file_alignment)\n        self.vmem += data\n        self.sections.append(section)\n\n        # Update the size tallies from the opthdr.\n        self.image_size += _padded(section.vsize, self.section_alignment)\n        if flags & 0x20:\n            self.code_size += section.size\n        if flags & 0x40:\n            self.initialized_size += section.size\n        if flags & 0x80:\n            self.uninitialized_size += section.size\n\n        return section",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1893
+  }
+}

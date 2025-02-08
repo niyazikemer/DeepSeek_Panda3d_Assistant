@@ -1,0 +1,9 @@
+{
+  "content": "color = GeomVertexReader(vdata, 'color')\n\nBecause the GeomVertexReader and GeomVertexWriter classes only store a temporary pointer, which might become invalid between frames or even between different tasks within a frame, these objects should not be stored in any persistent object. Instead, they are designed to be temporary objects that are constructed locally, used immediately to iterate through a list of vertices, and then released. If you need to keep a persistent iterator for your vertex data, to be used over a long period of time (e.g. over several frames), then you should store just the GeomVertexData pointer (along with the current vertex index number if you require this), and construct a temporary GeomVertexReader/Writer each time you need to access it.\n\nThe following methods are available to read and write data in a column:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_517",
+    "parent": "processed_documents/context_documents/0c23aa57_d4dd2496_more-about-reader-writer-rewriter.json",
+    "chunk_number": 6594
+  }
+}

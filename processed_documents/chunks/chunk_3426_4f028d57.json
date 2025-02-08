@@ -1,0 +1,9 @@
+{
+  "content": "class DisplayRegionContext(DirectObject):\n    regionCount = 0\n\n    def __init__(self, cam):\n        self.cam = cam\n        self.camNode = self.cam.node()\n        self.camLens = self.camNode.getLens()\n        # set lens change callback\n        changeEvent = 'dr%d-change-event' % DisplayRegionContext.regionCount\n        DisplayRegionContext.regionCount += 1\n        self.camLens.setChangeEvent(changeEvent)\n        self.accept(changeEvent, self.camUpdate)\n        self.iRay = SelectionRay(self.cam)\n        self.nearVec = Vec3(0)\n        self.mouseX = 0.0\n        self.mouseY = 0.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3426
+  }
+}

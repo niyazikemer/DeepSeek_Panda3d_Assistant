@@ -1,0 +1,9 @@
+{
+  "content": "ButtonThrower *bt = DCAST(ButtonThrower, window->get_mouse().get_child(0).node());\nif (bt != nullptr) {\n  bt->set_modifier_buttons(ModifierButtons());\n}\n\nPolling interface\n\nThe above interfaces make use of events to cause a method to be called when the key pressed or released. However, in some situations, it may be more desirable to instead ask Panda every frame whether or not a certain key is pressed. In this situation, you can use the polling interface instead, via the ~.MouseWatcher.is_button_down() method on the MouseWatcher node. (The name of this class is a bit misleading - it listens for keyboard events as well.)\n\npython\n\nforward_speed = 5.0 # units per second\nbackward_speed = 2.0\nforward_button = KeyboardButton.ascii_key('w')\nbackward_button = KeyboardButton.ascii_key('s')\n\ndef move_task(self, task):\n    speed = 0.0\n\n    # Check if the player is holding W or S\n    is_down = base.mouseWatcherNode.is_button_down\n\n    if is_down(forward_button):\n        speed += forward_speed",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_711",
+    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
+    "chunk_number": 7761
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def fitTask(state, self = self):\n            self.cameraControl.fitOnWidget()\n            return Task.done\n        taskMgr.doMethodLater(0.1, fitTask, 'manipulateCamera')\n\n    def isolate(self, nodePath = 'None Given'):\n        \"\"\" Show a node path and hide its siblings \"\"\"\n        # First kill the flashing task to avoid complications\n        taskMgr.remove('flashNodePath')\n        # Use currently selected node path if node selected\n        if nodePath == 'None Given':\n            nodePath = self.selected.last\n        # Do we have a node path?\n        if nodePath:\n            # Yes, show everything in level\n            self.showAllDescendants(nodePath.getParent())\n            # Now hide all of this node path's siblings\n            for sib in nodePath.getParent().getChildren():\n                if sib.node() != nodePath.node():\n                    sib.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3417
+  }
+}

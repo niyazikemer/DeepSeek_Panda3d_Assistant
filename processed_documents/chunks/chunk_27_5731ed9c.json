@@ -1,0 +1,9 @@
+{
+  "content": "# Create the main character, Ralph\n        self.ralph = []\n        self.positions = []\n        self.positions_new = []\n        for i in range(4):\n            self.ralph.append(Actor(\"models/ralph\",\n                                    {\"run\": \"models/ralph-run\",\n                                     \"walk\": \"models/ralph-walk\"}))\n            self.ralph[i].reparentTo(render)\n            self.ralph[i].setScale(2)\n\n            self.positions.append(NodePath(str(i)))\n            self.positions_new.append(NodePath(str(i)))\n            if i < 2:\n                self.ralph[i].setPos(Point3(-61, -34 + (i * 40), 0))\n            else:\n                self.ralph[i].setPos(Point3(61, -34 + ((i - 2) * 40), 0))\n\n            self.positions.append(NodePath(str(i)))\n            self.positions_new.append(NodePath(str(i)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 27
+  }
+}

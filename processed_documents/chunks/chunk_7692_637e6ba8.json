@@ -1,0 +1,9 @@
+{
+  "content": "Note\n\nThe paths used in the Actor constructor must follow Panda's filename conventions, so a forward slash is used even on Windows. See filename-syntax for more information. Loading actors and animations utilizes the panda model path, the same as for static models.\n\ncpp\n\nThe Actor class which is available to Python users is not available to C++ users. If you need such a class you have to create your own class which at least should do the following:\n\nload the Actor Model\n\nload the animations\n\nbind the model and the animations using AnimControl or AnimControlCollection\n\nRequired Includes\n\n#include <auto_bind.h>\n#include <animControlCollection.h>\n\nLoad the Actor Model\n\nNodePath actor = window->load_model(window->get_render(), \"panda-model\");\n\nLoad the Animation\n\nwindow->load_model(actor, \"panda-walk\");\n\nBind the Model and the Animation\n\n// don't use PT or CPT with AnimControlCollection\nAnimControlCollection anim_collection;",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_694",
+    "parent": "processed_documents/context_documents/604afc7a_b9f103d9_loading-actors-and-animations.json",
+    "chunk_number": 7692
+  }
+}

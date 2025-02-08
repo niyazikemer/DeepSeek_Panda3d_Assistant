@@ -1,0 +1,9 @@
+{
+  "content": "Also see Notify.setServerDelta(), which also accounts for a\n        timezone shift.\n        \"\"\"\n        self.serverDelta = delta\n\n    def getServerDelta(self):\n        return self.serverDelta\n\n    def getServerTimeOfDay(self):\n        \"\"\"\n        Returns the current time of day (seconds elapsed since the\n        1972 epoch) according to the server's clock.  This is in GMT,\n        and hence is irrespective of timezones.\n\n        The value is computed based on the client's clock and the\n        known delta from the server's clock, which is not terribly\n        precisely measured and may drift slightly after startup, but\n        it should be accurate plus or minus a couple of seconds.\n        \"\"\"\n        return time.time() + self.serverDelta",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5595
+  }
+}

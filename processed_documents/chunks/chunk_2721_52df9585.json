@@ -1,0 +1,9 @@
+{
+  "content": "Interval.Interval.__init__(self, name, duration)\n\n    def __calcT(self, t):\n        return self.startT + self.deltaT * self.blendType(t / self.duration)\n\n    def privInitialize(self, t):\n        state = self.interval.getState()\n        if state == CInterval.SInitial or state == CInterval.SFinal:\n            self.interval.privInitialize(self.__calcT(t))\n        else:\n            self.interval.privStep(self.__calcT(t))\n        self.currT = t\n        self.state = CInterval.SStarted\n        self.interval.privPostEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_152",
+    "parent": "processed_documents/context_documents/43d373be_IndirectInterval.json",
+    "chunk_number": 2721
+  }
+}

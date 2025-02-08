@@ -1,0 +1,9 @@
+{
+  "content": "if 'pandagles2' in self.plugins:\n            uses_feature = ET.SubElement(manifest, 'uses-feature')\n            uses_feature.set('android:glEsVersion', '0x00020000')\n            uses_feature.set('android:required', 'false' if 'pandagles' in self.plugins else 'true')\n\n        if 'p3openal_audio' in self.plugins:\n            uses_feature = ET.SubElement(manifest, 'uses-feature')\n            uses_feature.set('android:name', 'android.hardware.audio.output')\n            uses_feature.set('android:required', 'false')\n\n        uses_feature = ET.SubElement(manifest, 'uses-feature')\n        uses_feature.set('android:name', 'android.hardware.gamepad')\n        uses_feature.set('android:required', 'false')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1964
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class NewStyle(FSM.FSM):\n\n    def enterRed(self):\n        print(\"enterRed(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def filterRed(self, request, args):\n        print(\"filterRed(self, '%s', %s)\" % (request, args))\n        if request == 'advance':\n            return 'Green'\n        return self.defaultFilter(request, args)\n\n    def exitRed(self):\n        print(\"exitRed(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def enterYellow(self):\n        print(\"enterYellow(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def filterYellow(self, request, args):\n        print(\"filterYellow(self, '%s', %s)\" % (request, args))\n        if request == 'advance':\n            return 'Red'\n        return self.defaultFilter(request, args)\n\n    def exitYellow(self):\n        print(\"exitYellow(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def enterGreen(self):\n        print(\"enterGreen(self, '%s', '%s')\" % (self.oldState, self.newState))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_149",
+    "parent": "processed_documents/context_documents/c3ea557f_SampleFSM.json",
+    "chunk_number": 2696
+  }
+}

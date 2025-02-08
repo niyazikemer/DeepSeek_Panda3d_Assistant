@@ -1,0 +1,9 @@
+{
+  "content": "raise ImportError(name)\n\n    def find_all_submodules(self, m):\n        # Overridden so that we can define our own suffixes.\n        if not m.__path__:\n            return\n        modules = {}\n        for dir in m.__path__:\n            try:\n                names = self._listdir(dir)\n            except OSError:\n                self.msg(2, \"can't list directory\", dir)\n                continue\n            for name in sorted(names):\n                mod = None\n                for suff in self.suffixes:\n                    n = len(suff)\n                    if name[-n:] == suff:\n                        mod = name[:-n]\n                        break\n                if mod and mod != \"__init__\":\n                    modules[mod] = mod\n        return modules.keys()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2177
+  }
+}

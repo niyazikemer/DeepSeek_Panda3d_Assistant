@@ -1,0 +1,9 @@
+{
+  "content": "# broadcast a message to all clients\nmyPyDatagram = myNewPyDatagram()  # build a datagram to send\nfor aClient in activeConnections:\n    cWriter.send(myPyDatagram,aClient)\n\nFinally, the server may terminate a connection by removing it from the QueuedConnectionReader's responsibility. It may also deactivate its listener so that no more connections are received.\n\n# terminate connection to all clients\n\nfor aClient in activeConnections:\n    cReader.removeConnection(aClient)\nactiveConnections = []\n\n# close down our listener\ncManager.closeConnection(tcpSocket)\n\nConnecting with a client",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_579",
+    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
+    "chunk_number": 7068
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class ClassicFSM(DirectObject):\n    \"\"\"\n    Finite State Machine class.\n\n    This module and class exist only for backward compatibility with\n    existing code.  New code should use the FSM class instead.\n    \"\"\"\n\n    # create ClassicFSM DirectNotify category\n    notify = directNotify.newCategory(\"ClassicFSM\")\n\n    # special methods\n\n    # these are flags that tell the ClassicFSM what to do when an\n    # undefined transition is requested:\n    ALLOW = 0            # print a warning, and do the transition\n    DISALLOW = 1         # silently ignore the request (don't do the transition)\n    DISALLOW_VERBOSE = 2 # print a warning, and don't do the transition\n    ERROR = 3            # print an error message and raise an exception\n\n    def __init__(self, name, states=[], initialStateName=None,\n                 finalStateName=None, onUndefTransition=DISALLOW_VERBOSE):\n        \"\"\"__init__(self, string, State[], string, string, int)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2605
+  }
+}

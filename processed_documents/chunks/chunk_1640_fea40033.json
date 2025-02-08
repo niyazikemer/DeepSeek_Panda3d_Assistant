@@ -1,0 +1,9 @@
+{
+  "content": "for i_func in range(interrogate_number_of_global_functions()):\n        func = interrogate_get_global_function(i_func)\n\n        if interrogate_function_has_module_name(func):\n            module_name = interrogate_function_module_name(func)\n            if \"panda3d.\" + package == module_name:\n                processFunction(handle, func)\n        else:\n            funcname = interrogate_function_name(func)\n            print(\"Function %s has no module name\" % funcname)\n\n    print(\"}\", file=handle)\n\n\nif __name__ == \"__main__\":\n    handle = open(\"pandadoc.hpp\", \"w\")\n\n    mainpage = MAINPAGE.strip()\n    if mainpage:\n        print(\"/**\\n * \" + mainpage.replace('\\n', '\\n * ') + '\\n */', file=handle)\n\n    print(comment(\"Panda3D modules that are implemented in C++.\"), file=handle)\n    print(\"namespace panda3d {\", file=handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1640
+  }
+}

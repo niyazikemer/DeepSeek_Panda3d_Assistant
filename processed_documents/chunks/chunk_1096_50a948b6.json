@@ -1,0 +1,9 @@
+{
+  "content": "self.createStateInspectors()\n\n        self.initialiseoptions(FSMInspector)\n\n    def scrolledCanvas(self):\n        return self._scrolledCanvas\n\n    def canvas(self):\n        return self._canvas\n\n    def setFontSize(self, size):\n        self._canvas.itemconfigure('labels', font = ('MS Sans Serif', size))\n\n    def setMarkerSize(self, size):\n        for key in self.stateInspectorDict:\n            self.stateInspectorDict[key].setRadius(size)\n        self.drawConnections()\n\n    def drawConnections(self, event = None):\n        # Get rid of existing arrows\n        self._canvas.delete('arrow')\n        for key in self.stateInspectorDict:\n            si = self.stateInspectorDict[key]\n            state = si.state\n            if state.getTransitions():\n                for name in state.getTransitions():\n                    self.connectStates(si, self.getStateInspector(name))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1096
+  }
+}

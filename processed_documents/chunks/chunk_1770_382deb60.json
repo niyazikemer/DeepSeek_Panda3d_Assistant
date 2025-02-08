@@ -1,0 +1,9 @@
+{
+  "content": "# Spawn update task\n        self.updateFunc = self.fastrakUpdate\n        self.enable()\n\n    def enable(self):\n        # Kill existing task\n        self.disable()\n        # Initialize tracker\n        self.tracker = base.direct.deviceManager.createTracker(self.device)\n        # Update task\n        taskMgr.add(self.updateTask, self.name + '-updateTask')\n\n    def disable(self):\n        taskMgr.remove(self.name + '-updateTask')\n\n    def destroy(self):\n        self.disable()\n        self.tempCS.removeNode()\n\n    def updateTask(self, state):\n        self.updateFunc()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_110",
+    "parent": "processed_documents/context_documents/f1774c70_DirectFastrak.json",
+    "chunk_number": 1770
+  }
+}

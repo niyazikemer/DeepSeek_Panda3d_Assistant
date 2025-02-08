@@ -1,0 +1,9 @@
+{
+  "content": "def setNumSamples(self, numSamples):\n        self.numSamples = int(numSamples)\n\n    def sampleCurve(self, fCompute = 1):\n        if self.curveCollection is None:\n            print('MopathRecorder.sampleCurve: Must define curve first')\n            return\n        # Reset curve fitters\n        self.curveFitter.reset()\n        # Sample curve using specified number of samples\n        self.curveFitter.sample(self.curveCollection, self.numSamples)\n        if fCompute:\n            # Now recompute curves\n            self.computeCurves()\n        # Get point set from the curve fitter\n        self.extractPointSetFromCurveFitter()\n\n    def makeEven(self):\n        # Note: segments_per_unit = 2 seems to give a good fit\n        self.curveCollection.makeEven(self.maxT, 2)\n        # Get point set from curve\n        self.extractPointSetFromCurveCollection()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1199
+  }
+}

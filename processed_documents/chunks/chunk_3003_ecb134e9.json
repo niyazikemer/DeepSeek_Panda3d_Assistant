@@ -1,0 +1,9 @@
+{
+  "content": "l, r, b, t = self.p\n        mask = ~BitArray.range(l, r - l)\n\n        for yi in range(b, t):\n            assert (bitmasks[yi] | mask).isAllOn()\n            bitmasks[yi] &= mask\n\n    def hasOverlap(self, bitmasks):\n        \"\"\" Returns true if there is an overlap with this region and\n        any other region, false otherwise. \"\"\"\n\n        l, r, b, t = self.p\n        mask = BitArray.range(l, r - l)\n\n        for yi in range(b, t):\n            if not (bitmasks[yi] & mask).isZero():\n                return True\n        return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 3003
+  }
+}

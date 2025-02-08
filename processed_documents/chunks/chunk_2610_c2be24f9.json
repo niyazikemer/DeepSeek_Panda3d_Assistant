@@ -1,0 +1,9 @@
+{
+  "content": "def setFinalState(self, finalStateName):\n        self.__finalState = self.getStateNamed(finalStateName)\n\n    def requestFinalState(self):\n        self.request(self.getFinalState().getName())\n\n    def getCurrentState(self):\n        return self.__currentState\n\n    # lookup funcs\n\n    def getStateNamed(self, stateName):\n        \"\"\"\n        Return the state with given name if found, issue warning otherwise\n        \"\"\"\n        state = self.__states.get(stateName)\n        if state:\n            return state\n        else:\n            ClassicFSM.notify.warning(\"[%s]: getStateNamed: %s, no such state\" %\n                                      (self.__name, stateName))\n\n    def hasStateNamed(self, stateName):\n        \"\"\"\n        Return True if stateName is a valid state, False otherwise.\n        \"\"\"\n        result = False\n        state = self.__states.get(stateName)\n        if state:\n            result = True\n        return result\n\n    # basic ClassicFSM functionality",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2610
+  }
+}

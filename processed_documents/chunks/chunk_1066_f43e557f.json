@@ -1,0 +1,9 @@
+{
+  "content": "def setActiveNodePath(self, nodePath):\n        self['nodePath'] = nodePath\n        if self['nodePath']:\n            self.nodePathMenuEntry.configure(\n                background = self.nodePathMenuBG)\n            # Check to see if node path and ref node path are the same\n            if self.refCS is not None and self.refCS == self['nodePath']:\n                # Yes they are, use temp CS as ref\n                # This calls updatePlacer\n                self.setReferenceNodePath(self.tempCS)\n                # update listbox accordingly\n                self.refNodePathMenu.selectitem('parent')\n            else:\n                # Record initial value and initialize the widgets\n                self.updatePlacer()\n            # Record initial position\n            self.updateResetValues(self['nodePath'])\n            # Set scaling mode based on node path's current scale\n            self.setScalingMode()\n        else:\n            # Flash entry",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1066
+  }
+}

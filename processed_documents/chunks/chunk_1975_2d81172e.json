@@ -1,0 +1,9 @@
+{
+  "content": "# Export PRC data\n        prcexport = '\\n'.join(prcexport)\n        if not self.embed_prc_data:\n            prcdir = self.default_prc_dir.replace('<auto>', '')\n            prcdir = os.path.join(binary_dir, prcdir)\n            os.makedirs(prcdir)\n            with open(os.path.join(prcdir, '00-panda3d.prc'), 'w') as f:\n                f.write(prcexport)\n\n        # Create runtimes\n        freezer_extras = set()\n        freezer_modules = set()\n        ext_suffixes = set()\n\n        def get_search_path_for(source_path):\n            search_path = [os.path.dirname(source_path)]\n            if use_wheels:\n                search_path.append(os.path.join(p3dwhlfn, 'deploy_libs'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1975
+  }
+}

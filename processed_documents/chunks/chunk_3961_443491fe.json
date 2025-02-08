@@ -1,0 +1,9 @@
+{
+  "content": "if \"BlurSharpen\" in configuration:\n                blur0 = self.textures[\"blur0\"]\n                blur1 = self.textures[\"blur1\"]\n                self.blur.append(self.manager.renderQuadInto(\"filter-blur0\", colortex=blur0, div=2))\n                self.blur.append(self.manager.renderQuadInto(\"filter-blur1\", colortex=blur1))\n                self.blur[0].setShaderInput(\"src\", self.textures[\"color\"])\n                self.blur[0].setShader(Shader.make(BLUR_X, Shader.SL_Cg))\n                self.blur[1].setShaderInput(\"src\", blur0)\n                self.blur[1].setShader(Shader.make(BLUR_Y, Shader.SL_Cg))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3961
+  }
+}

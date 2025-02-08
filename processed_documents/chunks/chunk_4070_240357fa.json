@@ -1,0 +1,9 @@
+{
+  "content": "class GravityWalker(DirectObject.DirectObject):\n    notify = directNotify.newCategory(\"GravityWalker\")\n    wantDebugIndicator = ConfigVariableBool('want-avatar-physics-indicator', False)\n    wantFloorSphere = ConfigVariableBool('want-floor-sphere', False)\n    earlyEventSphere = ConfigVariableBool('early-event-sphere', False)\n\n    DiagonalFactor = math.sqrt(2.) / 2.\n\n    # special methods\n    def __init__(self, gravity = 64.348, standableGround=0.707,\n            hardLandingForce=16.0, legacyLifter=False):\n        assert self.notify.debugStateCall(self)\n        DirectObject.DirectObject.__init__(self)\n        self.__gravity=gravity\n        self.__standableGround=standableGround\n        self.__hardLandingForce=hardLandingForce\n        self._legacyLifter = legacyLifter\n\n        self.mayJump = 1\n        self.jumpDelayTask = None\n\n        self.controlsTask = None\n        self.indicatorTask = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4070
+  }
+}

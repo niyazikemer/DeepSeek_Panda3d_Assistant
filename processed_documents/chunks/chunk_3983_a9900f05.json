@@ -1,0 +1,9 @@
+{
+  "content": "def delMSAA(self):\n        if \"MSAA\" in self.configuration:\n            del self.configuration[\"MSAA\"]\n            return self.reconfigure(True, \"MSAA\")\n        return True\n\n    def setCartoonInk(self, separation=1, color=(0, 0, 0, 1)):\n        fullrebuild = (\"CartoonInk\" not in self.configuration)\n        newconfig = FilterConfig()\n        newconfig.separation = separation\n        newconfig.color = color\n        self.configuration[\"CartoonInk\"] = newconfig\n        return self.reconfigure(fullrebuild, \"CartoonInk\")\n\n    def delCartoonInk(self):\n        if \"CartoonInk\" in self.configuration:\n            del self.configuration[\"CartoonInk\"]\n            return self.reconfigure(True, \"CartoonInk\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3983
+  }
+}

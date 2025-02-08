@@ -1,0 +1,9 @@
+{
+  "content": "# reparent children\n            objNP.findAllMatches(\"=OBJRoot\").reparentTo(newobj)\n\n            # reparent to parent\n            newobj.reparentTo(objNP.getParent())\n\n            # copy transform\n            newobj.setPos(objNP.getPos())\n            newobj.setHpr(objNP.getHpr())\n            newobj.setScale(objNP.getScale())\n\n            # copy RGBA data\n            self.updateObjectColor(objRGBA[0], objRGBA[1], objRGBA[2], objRGBA[3], newobj)\n\n            # delete old geom\n            del self.npIndex[NodePath(objNP)]\n            objNP.removeNode()\n\n            # register new geom\n            obj[OG.OBJ_NP] = newobj\n            obj[OG.OBJ_MODEL] = model\n            self.npIndex[NodePath(newobj)] = obj[OG.OBJ_UID]\n\n            # update scene graph label\n            self.editor.ui.sceneGraphUI.changeLabel(obj[OG.OBJ_UID], newobj.getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 512
+  }
+}

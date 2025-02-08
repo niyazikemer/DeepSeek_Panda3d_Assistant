@@ -1,0 +1,9 @@
+{
+  "content": "self.onUndefTransition = onUndefTransition\n\n        # Flag to see if we are inspecting\n        self.inspecting = 0\n\n        # We do not enter the initial state to separate\n        # construction from activation\n        self.__currentState = None\n\n        # We set this while we are modifying the state.  No one else\n        # should recursively attempt to modify the state while we are\n        # doing this.\n        self.__internalStateInFlux = 0\n        if __debug__:\n            _debugFsms[name] = weakref.ref(self)\n\n    # I know this isn't how __repr__ is supposed to be used, but it\n    # is nice and convenient.\n    def __repr__(self):\n        return self.__str__()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2607
+  }
+}

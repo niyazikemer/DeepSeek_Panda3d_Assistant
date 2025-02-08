@@ -1,0 +1,9 @@
+{
+  "content": "tex = loader.loadTexture('streetscene_env.jpg')\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MEyeSphereMap)\nteapot.setTexture(tex)\n\nIn this example, you can see that the key to sphere mapping in Panda is to set the TexGen mode <automatic-texture-coordinates> to MEyeSphereMap. This mode computes a spherical (u, v) texture coordinate pair based on the reflection vector for each vertex of the teapot. In order for this to work, your model must have normals defined for all its vertices (the teapot has good normals).\n\nShiny teapots are one thing, but it would be nice to make something like, say, a car look shiny. We could just do exactly the same thing as above, but our car has a texture map already. If we just replace the texture map with the environment map we'll end up with a chrome car:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_347",
+    "parent": "processed_documents/context_documents/a66d1af9_840bebd2_simple-environment-mapping.json",
+    "chunk_number": 5800
+  }
+}

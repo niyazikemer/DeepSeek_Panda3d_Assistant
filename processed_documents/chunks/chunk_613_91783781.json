@@ -1,0 +1,9 @@
+{
+  "content": "class ActionTransformObj(ActionBase):\n    \"\"\" Action class for object transformation \"\"\"\n\n    def __init__(self, editor, *args, **kargs):\n        self.editor = editor\n        function = self.editor.objectMgr.setObjectTransform\n        ActionBase.__init__(self, function, *args, **kargs)\n        self.uid = args[0]\n        #self.xformMat = Mat4(args[1])\n        self.origMat = None\n\n    def saveStatus(self):\n        obj = self.editor.objectMgr.findObjectById(self.uid)\n        if obj:\n            self.origMat = Mat4(self.editor.objectMgr.objectsLastXform[obj[OG.OBJ_UID]])\n            #self.origMat = Mat4(obj[OG.OBJ_NP].getMat())\n\n    def _do__call__(self, *args, **kargs):\n        self.result = ActionBase._do__call__(self, *args, **kargs)\n        obj = self.editor.objectMgr.findObjectById(self.uid)\n        if obj:\n            self.editor.objectMgr.objectsLastXform[self.uid] = Mat4(obj[OG.OBJ_NP].getMat())\n        return self.result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 613
+  }
+}

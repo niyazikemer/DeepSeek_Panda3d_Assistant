@@ -1,0 +1,9 @@
+{
+  "content": "Normally, you would use a GeomVertexRewriter to walk through the list of vertices from the beginning to end, reading and writing as it goes. For instance, to set all of the Z components of a piece of geometry to 0.0, while preserving the X and Y components, you might write a loop such as:\n\nvertex = GeomVertexRewriter(vdata, 'vertex')\nwhile not vertex.isAtEnd():\n    v = vertex.getData3()\n    vertex.setData3(v[0], v[1], 0.0)\n\nNote that this example code calls getData3() and setData3() exactly once through each iteration, which increments the current read row and current write row, respectively; so the current read row and current write row are kept in sync with each other.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_517",
+    "parent": "processed_documents/context_documents/0c23aa57_d4dd2496_more-about-reader-writer-rewriter.json",
+    "chunk_number": 6602
+  }
+}

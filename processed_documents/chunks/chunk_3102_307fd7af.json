@@ -1,0 +1,9 @@
+{
+  "content": "subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        trueName = subpartDef.truePartName\n        anyGood = False\n        for bundleDict in self.__partBundleDict.values():\n            if bundleDict[trueName].getBundle().freezeJoint(jointName, transform):\n                anyGood = True\n\n        if not anyGood:\n            self.notify.warning(\"Cannot freeze joint %s\" % (jointName))\n\n    def releaseJoint(self, partName, jointName):\n        \"\"\"Undoes a previous call to controlJoint() or freezeJoint()\n        and restores the named joint to its normal animation. \"\"\"\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        trueName = subpartDef.truePartName\n        for bundleDict in self.__partBundleDict.values():\n            bundleDict[trueName].getBundle().releaseJoint(jointName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3102
+  }
+}

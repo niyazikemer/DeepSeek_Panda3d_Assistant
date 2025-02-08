@@ -1,0 +1,9 @@
+{
+  "content": "class NetMessenger(Messenger):\n    \"\"\"\n    This works very much like the Messenger class except that messages\n    are sent over the network and (possibly) handled (accepted) on a\n    remote machine (server).\n    \"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory('NetMessenger')\n\n    def __init__(self, air, channels):\n        \"\"\"\n        air is the AI Repository.\n        channels is a list of channel IDs (uint32 values)\n        \"\"\"\n        assert self.notify.debugCall()\n        Messenger.__init__(self)\n        self.air=air\n        self.channels=channels\n        for i in self.channels:\n            self.air.registerForChannel(i)\n\n    def clear(self):\n        assert self.notify.debugCall()\n        for i in self.channels:\n            self.air.unRegisterChannel(i)\n        del self.air\n        del self.channels\n        Messenger.clear(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_313",
+    "parent": "processed_documents/context_documents/9d0f4180_NetMessenger.json",
+    "chunk_number": 5425
+  }
+}

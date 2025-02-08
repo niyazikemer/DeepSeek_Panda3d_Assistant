@@ -1,0 +1,9 @@
+{
+  "content": "print('TestStart: Starting up test environment.')\n\nimport direct.showbase.PythonUtil  # pylint: disable=unused-import\n\nfrom direct.showbase import ShowBase\nbase = ShowBase.ShowBase()\n\n# Put an axis in the world:\nbase.loader.loadModel(\"models/misc/xyzAxis\").reparentTo(base.render)\n\nassert base.camera is not None\nassert base.camLens is not None\n\nbase.camera.setPosHpr(0, -10.0, 0, 0, 0, 0)\nbase.camLens.setFov(52.0)\nbase.camLens.setNearFar(1.0, 10000.0)\n\nbase.clock.setMaxDt(0.2)\nbase.enableParticles()\n\n# Force the screen to update:\nbase.graphicsEngine.renderFrame()\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/directbase/TestStart.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/d6b81cdc_TestStart.json",
+    "doc_id": "doc_118"
+  }
+}

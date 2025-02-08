@@ -1,0 +1,9 @@
+{
+  "content": "def removeMatchingTasks(self):\n        name = self.taskListBox.getcurselection()[0]\n        ok = 1\n        if ((name == 'dataLoop') or\n            (name == 'resetPrevTransform') or\n            (name == 'tkLoop') or\n            (name == 'eventManager') or\n            (name == 'igLoop')):\n            ok = askokcancel('TaskManagerControls',\n                             'Remove tasks named: %s?' % name,\n                             parent = self.parent,\n                             default = 'cancel')\n        if ok:\n            self.taskMgr.remove(name)\n            self.updateTaskListBox()\n\n    def onDestroy(self):\n        self.ignore('TaskManager-spawnTask')\n        self.ignore('TaskManager-removeTask')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 908
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __removeTask(self):\n        # Kill old task(s), including those from a similarly-named but\n        # different interval.\n        taskName = self.getName() + '-play'\n        oldTasks = taskMgr.getTasksNamed(taskName)\n        for task in oldTasks:\n            if hasattr(task, \"interval\"):\n                task.interval.privInterrupt()\n                taskMgr.remove(task)\n\n    def __playTask(self, task):\n        again = self.stepPlay()\n        self.privPostEvent()\n        if again:\n            return Task.cont\n        else:\n            return Task.done\n\n    def popupControls(self, tl = None):\n        \"\"\"\n        Popup control panel for interval.\n        \"\"\"\n        # Don't use a regular import, to prevent ModuleFinder from picking\n        # it up as a dependency when building a .p3d package.\n        import importlib\n        EntryScale = importlib.import_module('direct.tkwidgets.EntryScale')\n        tkinter = importlib.import_module('tkinter')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2851
+  }
+}

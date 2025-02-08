@@ -1,0 +1,9 @@
+{
+  "content": "return Task.cont\n\n    def setKey(self, key, value):\n        self.keyMap[key] = value\n\n    def Mover(self, task):\n        startPos = self.pointer.getPos()\n        if self.keyMap[\"left\"] != 0:\n            self.pointer.setPos(startPos + Point3(-speed, 0, 0))\n        if self.keyMap[\"right\"] != 0:\n            self.pointer.setPos(startPos + Point3(speed, 0, 0))\n        if self.keyMap[\"up\"] != 0:\n            self.pointer.setPos(startPos + Point3(0, speed, 0))\n        if self.keyMap[\"down\"] != 0:\n            self.pointer.setPos(startPos + Point3(0, -speed, 0))\n\n        if self.pointer_move is True and self.box != 0:\n            self.box.setPos(self.pointer.getPos())\n\n        return Task.cont\n\n\nw = World()\nbase.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_10",
+    "parent": "processed_documents/context_documents/db6dae55_1bbd6cf1_static-obstacles.json",
+    "chunk_number": 177
+  }
+}

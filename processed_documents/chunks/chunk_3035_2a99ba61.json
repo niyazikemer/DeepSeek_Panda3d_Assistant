@@ -1,0 +1,9 @@
+{
+  "content": "class PartDef:\n\n        \"\"\"Instances of this class are stored within the\n        PartBundleDict to track all of the individual PartBundles\n        associated with the Actor.  In general, each separately loaded\n        model file is a different PartBundle.  This can include the\n        multiple different LOD's, as well as the multiple different\n        pieces of a multipart Actor. \"\"\"\n\n        def __init__(self, partBundleNP, partBundleHandle, partModel):\n            # We also save the ModelRoot node along with the\n            # PartBundle, so that the reference count in the ModelPool\n            # will be accurate.\n            self.partBundleNP = partBundleNP\n            self.partBundleHandle = partBundleHandle\n            self.partModel = partModel\n\n        def getBundle(self):\n            return self.partBundleHandle.getBundle()\n\n        def __repr__(self):\n            return 'Actor.PartDef(%s, %s)' % (repr(self.partBundleNP), repr(self.partModel))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3035
+  }
+}

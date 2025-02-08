@@ -1,0 +1,9 @@
+{
+  "content": "for wf in filenames:\n                        if wf.endswith('/'):\n                            # Skip directories.\n                            continue\n\n                        if wf.lower().startswith(source_dir.lower() + '/'):\n                            if not srcglob.matches(wf.lower()):\n                                continue\n\n                            wf = wf.replace('/', os.sep)\n                            relpath = wf[len(source_dir) + 1:]\n                            source_path = os.path.join(whl, wf)\n                            target_path = os.path.join(target_dir, relpath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1992
+  }
+}

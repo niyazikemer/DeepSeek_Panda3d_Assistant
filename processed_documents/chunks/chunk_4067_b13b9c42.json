@@ -1,0 +1,9 @@
+{
+  "content": "taskName = \"AvatarControlsIndicator%s\"%(id(self),)\n        taskMgr.remove(taskName)\n\n        if __debug__:\n            self.ignore(\"control-f3\") #*#\n            self.ignore(\"f3\")\n\n    def flushEventHandlers(self):\n        if hasattr(self, 'cTrav'):\n            if self.useLifter:\n                self.lifter.flush() # not currently defined or needed\n            self.pusher.flush()\n\n    if __debug__:\n        def setupAvatarPhysicsIndicator(self):\n            if self.wantDebugIndicator:\n                indicator = base.loader.loadModel('phase_5/models/props/dagger')\n                #self.walkControls.setAvatarPhysicsIndicator(indicator)\n\n        def debugPrint(self, message):\n            \"\"\"for debugging\"\"\"\n            return self.notify.debug(\n                    str(id(self))+' '+message)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4067
+  }
+}

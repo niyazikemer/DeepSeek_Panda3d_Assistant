@@ -1,0 +1,9 @@
+{
+  "content": "def createNewParticles(self):\n        name = askstring('Particle Panel', 'Particles Name:',\n                         parent = self.parent)\n        if name:\n            p = Particles.Particles(name)\n            self.particleEffect.addParticles(p)\n            self.updateParticlesMenus()\n            self.selectParticlesNamed(name)\n            p.enable()\n\n    def createNewForceGroup(self):\n        name = askstring('Particle Panel', 'ForceGroup Name:',\n                         parent = self.parent)\n        if name:\n            forceGroup = ForceGroup.ForceGroup(name)\n            self.particleEffect.addForceGroup(forceGroup)\n            self.updateForceGroupMenus()\n            self.addForceGroupNotebookPage(self.particleEffect, forceGroup)\n            self.selectForceGroupNamed(name)\n            forceGroup.enable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 881
+  }
+}

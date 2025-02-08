@@ -1,0 +1,9 @@
+{
+  "content": "# Do not print the new frame debug, it is too noisy!\n            if EventManager.notify.getDebug() and eventName != 'NewFrame':\n                EventManager.notify.debug('received C++ event named: ' + eventName +\n                                          ' parameters: ' + repr(paramList))\n            # Send the event, we used to send it with the event\n            # name as a parameter, but now you can use extraArgs for that\n            # ********************************************************\n            # ******** Duplicate any changes in processEvent *********\n            # ********************************************************\n            name = eventName\n            hyphen = name.find('-')\n            if hyphen >= 0:\n                name = name[0:hyphen]\n            pstatCollector = PStatCollector('App:Tasks:eventManager:' + name)\n            pstatCollector.start()\n            if self.eventHandler:\n                cppPstatCollector = PStatCollector(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4192
+  }
+}

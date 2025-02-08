@@ -1,0 +1,9 @@
+{
+  "content": "def getSoundMaxDistance(self, sound):\n        \"\"\"\n        Controls the maximum distance (in units) that this sound stops falling off.\n        The sound does not stop at that point, it just doesn't get any quieter.\n        You should rarely need to adjust this.\n        Default is 1000000000.0\n        \"\"\"\n        return sound.get3dMaxDistance()\n\n    def setSoundVelocity(self, sound, velocity):\n        \"\"\"\n        Set the velocity vector (in units/sec) of the sound, for calculating doppler shift.\n        This is relative to the sound root (probably render).\n        Default: VBase3(0, 0, 0)\n        \"\"\"\n        if isinstance(velocity, tuple) and len(velocity) == 3:\n            velocity = VBase3(*velocity)\n        if not isinstance(velocity, VBase3):\n            raise TypeError(\"Invalid argument 1, expected <VBase3>\")\n        self.vel_dict[sound] = velocity",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4457
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class _Event(_Verbose):\n\n    # After Tim Peters' event class (without is_posted())\n\n    def __init__(self, verbose=None):\n        _Verbose.__init__(self, verbose)\n        self.__cond = Condition(Lock())\n        self.__flag = False\n\n    def isSet(self):\n        return self.__flag\n\n    def set(self):\n        self.__cond.acquire()\n        try:\n            self.__flag = True\n            self.__cond.notifyAll()\n        finally:\n            self.__cond.release()\n\n    def clear(self):\n        self.__cond.acquire()\n        try:\n            self.__flag = False\n        finally:\n            self.__cond.release()\n\n    def wait(self, timeout=None):\n        self.__cond.acquire()\n        try:\n            if not self.__flag:\n                self.__cond.wait(timeout)\n        finally:\n            self.__cond.release()\n\n# Active thread administration\n_active_limbo_lock = _allocate_lock()\n_active = {}    # maps thread id to Thread object\n_limbo = {}\n\n\n# Main class for threads",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3824
+  }
+}

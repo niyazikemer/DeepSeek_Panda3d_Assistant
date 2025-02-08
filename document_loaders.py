@@ -7,7 +7,7 @@ import json
 import hashlib
 
 class CustomDocumentLoader:
-    def __init__(self, source_dir: str, output_dir: str = "processed_documents"):
+    def __init__(self, source_dir: str, output_dir: str = "processed_documents/context_documents"):
         self.source_dir = source_dir
         self.output_dir = output_dir
         self.doc_counter = 0
@@ -83,7 +83,7 @@ class CustomDocumentLoader:
                         print(f"Error loading RST file {file_path}: {e}")
         return documents
         
-    def load_all(self) -> List[Document]:
+    def load_save_all(self) -> List[Document]:
         documents = []
         documents.extend(self.load_python_files())
         documents.extend(self.load_rst_files())
@@ -93,7 +93,7 @@ class CustomDocumentLoader:
 
 # Usage example
 if __name__ == "__main__":
-    loader = CustomDocumentLoader("_test_source_code")
-    documents = loader.load_all()
+    loader = CustomDocumentLoader("corpus_panda3d")
+    documents = loader.load_save_all()
     print(f"Loaded {len(documents)} documents")
     #print(documents[1])

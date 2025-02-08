@@ -1,0 +1,9 @@
+{
+  "content": "if t < b + h:\n                    # Not tall enough.\n                    continue\n\n                tp = TexPlacement(l, r, b, t)\n                return tp\n\n            lastTuples = tuples\n            b += 1\n\n    def findEmptyRuns(self, bm):\n        \"\"\" Separates a bitmask into a list of (l, r) tuples,\n        corresponding to the empty regions in the row between 0 and\n        self.w. \"\"\"\n\n        tuples = set()\n        l = bm.getLowestOffBit()\n        assert l != -1\n        if l < self.w:\n            r = bm.getNextHigherDifferentBit(l)\n            if r == l or r >= self.w:\n                r = self.w\n            tuples.add((l, r))\n            l = bm.getNextHigherDifferentBit(r)\n            while l != r and l < self.w:\n                r = bm.getNextHigherDifferentBit(l)\n                if r == l or r >= self.w:\n                    r = self.w\n                tuples.add((l, r))\n                l = bm.getNextHigherDifferentBit(r)\n\n        return tuples",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2996
+  }
+}

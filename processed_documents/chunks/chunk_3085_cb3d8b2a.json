@@ -1,0 +1,9 @@
+{
+  "content": "def removePart(self, partName, lodName=\"lodRoot\"):\n        \"\"\"\n        Remove the geometry and animations of the named part of the\n        optional named lod if present.\n        NOTE: this will remove child geometry also!\n        \"\"\"\n        # find the corresponding part bundle dict\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return\n\n        # remove the part\n        if partName in partBundleDict:\n            partBundleDict[partName].partBundleNP.removeNode()\n            del partBundleDict[partName]\n\n        # find the corresponding anim control dict\n        if self.mergeLODBundles:\n            lodName = 'common'\n        partDict = self.__animControlDict.get(lodName)\n        if not partDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3085
+  }
+}

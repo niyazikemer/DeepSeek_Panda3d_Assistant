@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectMgrBase:\n    \"\"\" ObjectMgr will create, manage, update objects in the scene \"\"\"\n\n    def __init__(self, editor):\n        self.editor = editor\n\n        # main obj repository of objects in the scene\n        self.objects = {}\n        self.npIndex = {}\n        self.saveData = []\n        self.objectsLastXform = {}\n\n        self.lastUid = ''\n        self.lastUidMode = 0\n        self.currNodePath = None\n        self.currLiveNP = None\n\n        self.Actor = []\n        self.findActors(base.render)\n        self.Nodes = []\n        self.findNodes(base.render)\n\n    def reset(self):\n        base.direct.deselectAllCB()\n\n        for id in list(self.objects.keys()):\n            try:\n                self.objects[id][OG.OBJ_NP].removeNode()\n            except Exception:\n                pass\n            del self.objects[id]\n\n        for np in list(self.npIndex.keys()):\n            del self.npIndex[np]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 489
+  }
+}

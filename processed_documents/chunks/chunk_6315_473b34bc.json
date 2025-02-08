@@ -1,0 +1,9 @@
+{
+  "content": "When you are done with reparenting the nodes, you need to call ~.RigidBodyCombiner.collect() on the original .RigidBodyCombiner instance. This is a fairly expensive call and you should normally only call this once -- but after you called ~.RigidBodyCombiner.collect() you may freely transform all nodes below without having to call this again. If you later add more children to the RBC, though, you will need to call ~.RigidBodyCombiner.collect() again.\n\nThe vertices of the objects you attach to the RigidBodyCombiner must be transformed each frame on the CPU. For this reason, you may find a performance advantage in limiting the number of vertices in the models you use. Also, be sure you do not have normals on your models unless you are actually using lighting.\n\npython\n\nHere is a small example showing a random cloud of boxes:\n\nfrom direct.directbase.DirectStart import *\nfrom panda3d.core import RigidBodyCombiner, NodePath, Vec3\nimport random",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_454",
+    "parent": "processed_documents/context_documents/63223705_5b100b10_rigid-body-combiner.json",
+    "chunk_number": 6315
+  }
+}

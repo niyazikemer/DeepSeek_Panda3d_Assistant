@@ -1,0 +1,9 @@
+{
+  "content": "def _unforce(self, token):\n        \"\"\"\n        Stop forcing a value. Don't call this directly, call release() on your token.\n        \"\"\"\n        name, inputSource = self._token2forceInfo[token]\n        token.invalidate()\n        if name in self._forcingOn:\n            self._forcingOn[name].discard(inputSource)\n            if len(self._forcingOn[name]) == 0:\n                del self._forcingOn[name]\n        if name in self._forcingOff:\n            self._forcingOff[name].discard(inputSource)\n            if len(self._forcingOff[name]) == 0:\n                del self._forcingOff[name]\n\n    def debugPrint(self, message):\n        \"\"\"for debugging\"\"\"\n        return self.notify.debug(\n            \"%s (%s) %s\"%(id(self), len(self._state), message))\n\n    #snake_case alias:\n    watch_with_modifiers = watchWithModifiers\n    is_set = isSet\n    get_event_name = getEventName\n    debug_print = debugPrint\n    release_inputs = releaseInputs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4161
+  }
+}

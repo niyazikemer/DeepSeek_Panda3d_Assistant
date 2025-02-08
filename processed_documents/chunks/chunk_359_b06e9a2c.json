@@ -1,0 +1,9 @@
+{
+  "content": "parent.SetDropTarget(SceneGraphUIDropTarget(self.editor))\n\n        self.tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.onSelected)\n        self.tree.Bind(wx.EVT_TREE_BEGIN_DRAG, self.onBeginDrag)\n\n        self.currItem = None\n        self.currObj = None\n        self.menu = wx.Menu()\n        self.populateMenu()\n        self.Bind(wx.EVT_CONTEXT_MENU, self.onShowPopup)\n\n    def reset(self):\n        #import pdb;set_trace()\n        itemList = list()\n        item, cookie = self.tree.GetFirstChild(self.root)\n        while item:\n            itemList.append(item)\n            item, cookie = self.tree.GetNextChild(self.root, cookie)\n\n        for item in itemList:\n            self.tree.Delete(item)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 359
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def planetFly(self):\n        # Do nothing if no nodePath selected\n        if self.nodePath is None:\n            return\n        hprScale = (self.normalizeChannel(L_SLIDE, 0.1, 100) *\n                    DirectJoybox.hprMultiplier)\n        posScale = (self.normalizeChannel(R_SLIDE, 0.1, 100) *\n                    DirectJoybox.xyzMultiplier)\n        dr = -1 * hprScale * self.aList[R_TWIST] * self.deltaTime\n        dp = -1 * hprScale * self.aList[R_FWD_BACK] * self.deltaTime\n        dh = -1 * hprScale * self.aList[R_LEFT_RIGHT] * self.deltaTime\n        self.nodePath.setHpr(self.nodePath, dh, dp, dr)\n        dy = posScale * self.aList[L_FWD_BACK] * self.deltaTime\n        dPos = VBase3(0, dy, 0)\n        for planet, radius in self.auxData:\n            # Are we within min radius?\n            # How far above planet are we?\n            np2planet = Vec3(self.nodePath.getPos(planet))\n            # Compute dist\n            offsetDist = np2planet.length()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1809
+  }
+}

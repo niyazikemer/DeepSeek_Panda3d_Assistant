@@ -1,0 +1,9 @@
+{
+  "content": "def addItem(self, item, refresh=1):\n        \"\"\"\n        Add this string and extraArg to the list\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        if not isinstance(item, str):\n            # cant add attribs to non-classes (like strings & ints)\n            item.itemID = self.nextItemID\n            self.nextItemID += 1\n        self['items'].append(item)\n        if not isinstance(item, str):\n            item.reparentTo(self.itemFrame)\n        if refresh:\n            self.refresh()\n        if not isinstance(item, str):\n            return item.itemID  # to pass to scrollToItemID",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1618
+  }
+}

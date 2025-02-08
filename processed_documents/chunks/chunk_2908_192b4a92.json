@@ -1,0 +1,9 @@
+{
+  "content": "class IgnoreInterval(FunctionInterval):\n    # Initialization\n    def __init__(self, dirObj, event, name = None):\n        \"\"\"__init__(dirObj, event, name)\n        \"\"\"\n        def ignoreFunc(dirObj = dirObj, event = event):\n            dirObj.ignore(event)\n        # Determine name\n        if name is None:\n            name = 'Ignore-' + event\n        # Create function interval\n        FunctionInterval.__init__(self, ignoreFunc, name = name)\n\n### Function Interval subclass for adjusting scene graph hierarchy ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2908
+  }
+}

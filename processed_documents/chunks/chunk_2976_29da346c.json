@@ -1,0 +1,9 @@
+{
+  "content": "tr = self.texRecordsByTex.get(tex, None)\n\n            if size:\n                totalSize += size\n                active = tex.getActive(pgo)\n                if not tr:\n                    # This is a new texture; need to record it.\n                    key = self.nextTexRecordKey\n                    self.nextTexRecordKey += 1\n                    tr = TexRecord(key, tex, size, active)\n                    texRecords.append(tr)\n                else:\n                    tr.setActive(active)\n                    if tr.size != size or not tr.placements:\n                        # The size has changed; reapply it.\n                        tr.setSize(size)\n                        self.unplaceTexture(tr)\n                        texRecords.append(tr)\n            else:\n                if tr:\n                    # This texture is no longer resident; need to remove it.\n                    self.unplaceTexture(tr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2976
+  }
+}

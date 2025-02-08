@@ -1,0 +1,9 @@
+{
+  "content": "def xlate2D(self, state):\n        assert self.constraint is not None\n\n        # Constrained 2D (planar) translation\n        # Compute point of intersection of ray from eyepoint through cursor\n        # to one of the three orthogonal planes on the widget.\n        # This point tracks all subsequent mouse movements\n        self.hitPt.assign(self.objectHandles.getWidgetIntersectPt(\n            ShowBaseGlobal.direct.widget, self.constraint[:1]))\n\n        # use it to see how far to move the widget\n        if self.fHitInit:\n            # First time through just record hit point\n            self.fHitInit = 0\n            self.prevHit.assign(self.hitPt)\n        else:\n            offset = self.hitPt - self.prevHit",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3229
+  }
+}

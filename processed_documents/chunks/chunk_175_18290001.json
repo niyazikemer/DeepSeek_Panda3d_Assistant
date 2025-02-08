@@ -1,0 +1,9 @@
+{
+  "content": "self.AIchar = AICharacter(\"ralph\", self.ralph, 60, 0.05, 15)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        self.AIbehaviors.initPathFind(\"models/navmesh.csv\")\n\n        # AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n        # Movement task\n        taskMgr.add(self.Mover, \"Mover\")\n\n        self.dirnlight1 = DirectionalLight(\"dirn_light1\")\n        self.dirnlight1.setColor((1.0, 1.0, 1.0, 1.0))\n        self.dirnlightnode1 = render.attachNewNode(self.dirnlight1)\n        self.dirnlightnode1.setHpr(0, 317, 0)\n        render.setLight(self.dirnlightnode1)\n\n    def setMove(self):\n        self.AIbehaviors.pathFindTo(self.pointer)\n        self.ralph.loop(\"run\")\n\n    def addBlock(self):\n        self.pointer_move = True\n        self.box = loader.loadModel(\"models/box\")\n        self.box.setPos(0, -60, 0)\n        self.box.setScale(1)\n        self.box.reparentTo(render)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_10",
+    "parent": "processed_documents/context_documents/db6dae55_1bbd6cf1_static-obstacles.json",
+    "chunk_number": 175
+  }
+}

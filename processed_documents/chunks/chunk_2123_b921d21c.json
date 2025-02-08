@@ -1,0 +1,9 @@
+{
+  "content": "# This is a module with no associated Python code.  It is either\n            # an extension module or a builtin module.  Get the filename, if\n            # it is the former.\n            extensionFilename = getattr(module, '__file__', None)\n\n            if extensionFilename:\n                self.extras.append((moduleName, extensionFilename))\n\n            # If it is a submodule of a frozen module, Python will have\n            # trouble importing it as a builtin module.  Synthesize a frozen\n            # module that loads it dynamically.\n            if '.' in moduleName and not self.platform.startswith('android'):\n                if self.platform.startswith(\"macosx\") and not use_console:\n                    # We write the Frameworks directory to sys.path[0].\n                    direxpr = 'sys.path[0]'\n                else:\n                    direxpr = 'os.path.dirname(sys.executable)'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2123
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.smoother.setPhonyTimestamp(local,True)\n                self.smoother.markPosition()\n\n        self.stopped = False\n\n    # distributed set pos and hpr functions\n    # 'send' versions are inherited from DistributedSmoothNodeBase\n    def setSmStop(self, timestamp=None):\n        self.setComponentTLive(timestamp)\n        self.stopped = True\n\n    def setSmH(self, h, timestamp=None):\n        self._checkResume(timestamp)\n        self.setComponentH(h)\n        self.setComponentTLive(timestamp)\n\n    def setSmZ(self, z, timestamp=None):\n        self._checkResume(timestamp)\n        self.setComponentZ(z)\n        self.setComponentTLive(timestamp)\n\n    def setSmXY(self, x, y, timestamp=None):\n        self._checkResume(timestamp)\n        self.setComponentX(x)\n        self.setComponentY(y)\n        self.setComponentTLive(timestamp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5349
+  }
+}

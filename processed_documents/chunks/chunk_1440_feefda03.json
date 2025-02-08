@@ -1,0 +1,9 @@
+{
+  "content": "def setFrameSize(self, fClearFrame = 0):\n\n        if self['frameSize']:\n            # Use user specified bounds\n            self.bounds = self['frameSize']\n            frameType = self.frameStyle[0].getType()\n            ibw = self.indicator['borderWidth']\n        else:\n            # Use ready state to compute bounds\n            frameType = self.frameStyle[0].getType()\n            if fClearFrame and (frameType != PGFrameStyle.TNone):\n                self.frameStyle[0].setType(PGFrameStyle.TNone)\n                self.guiItem.setFrameStyle(0, self.frameStyle[0])\n                # To force an update of the button\n                self.guiItem.getStateDef(0)\n            # Clear out frame before computing bounds\n            self.getBounds()\n            # Restore frame style if necessary\n            if frameType != PGFrameStyle.TNone:\n                self.frameStyle[0].setType(frameType)\n                self.guiItem.setFrameStyle(0, self.frameStyle[0])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_80",
+    "parent": "processed_documents/context_documents/b50b78f4_DirectRadioButton.json",
+    "chunk_number": 1440
+  }
+}

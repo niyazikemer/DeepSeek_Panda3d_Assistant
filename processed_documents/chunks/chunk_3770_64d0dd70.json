@@ -1,0 +1,9 @@
+{
+  "content": "class Timer(Thread):\n    \"\"\"Call a function after a specified number of seconds:\n\n    t = Timer(30.0, f, args=[], kwargs={})\n    t.start()\n    t.cancel() # stop the timer's action if it's still waiting\n    \"\"\"\n\n    def __init__(self, interval, function, args=[], kwargs={}):\n        Thread.__init__(self)\n        self.interval = interval\n        self.function = function\n        self.args = args\n        self.kwargs = kwargs\n        self.finished = Event()\n\n    def cancel(self):\n        \"\"\"Stop the timer if it hasn't finished yet\"\"\"\n        self.finished.set()\n\n    def run(self):\n        self.finished.wait(self.interval)\n        if not self.finished.isSet():\n            self.function(*self.args, **self.kwargs)\n        self.finished.set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3770
+  }
+}

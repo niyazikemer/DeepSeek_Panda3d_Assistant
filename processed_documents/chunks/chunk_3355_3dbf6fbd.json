@@ -1,0 +1,9 @@
+{
+  "content": "class DirectGrid(NodePath, DirectObject):\n    def __init__(self,gridSize=100.0,gridSpacing=5.0,planeColor=(0.5,0.5,0.5,0.5),parent = None):\n        # Initialize superclass\n        NodePath.__init__(self, 'DirectGrid')\n        # Don't wireframe or light\n        useDirectRenderStyle(self)\n\n        # Load up grid parts to initialize grid object\n        # Polygon used to mark grid plane\n        self.gridBack = ShowBaseGlobal.loader.loadModel('models/misc/gridBack')\n        self.gridBack.reparentTo(self)\n        self.gridBack.setColor(*planeColor)\n\n        # Grid Lines\n        self.lines = self.attachNewNode('gridLines')\n        self.minorLines = LineNodePath(self.lines)\n        self.minorLines.lineNode.setName('minorLines')\n        self.minorLines.setColor(VBase4(0.3, 0.55, 1, 1))\n        self.minorLines.setThickness(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_183",
+    "parent": "processed_documents/context_documents/fba96cb7_DirectGrid.json",
+    "chunk_number": 3355
+  }
+}

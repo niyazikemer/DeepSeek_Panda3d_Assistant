@@ -1,0 +1,9 @@
+{
+  "content": "# AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n        taskMgr.add(self.Mover, \"mover\")\n\n        self.setMove(1)\n\n    def setMove(self, type):\n        if type == 1:\n            for i in range(4):\n                if i == 0:\n                    self.AIbehaviors[i].pathFindTo(self.positions_new[0], \"addPath\")\n                    self.AIbehaviors[i].addDynamicObstacle(self.ralph[2])\n                if i == 1:\n                    self.AIbehaviors[i].pathFindTo(self.positions_new[1], \"addPath\")\n                    self.AIbehaviors[i].addDynamicObstacle(self.ralph[3])\n                if i == 2:\n                    self.AIbehaviors[i].pathFindTo(self.positions_new[2], \"addPath\")\n                if i == 3:\n                    self.AIbehaviors[i].pathFindTo(self.positions_new[3], \"addPath\")\n                if self.firstTime is False:\n                    self.AIbehaviors[i].addDynamicObstacle(self.Target)\n                self.ralph[i].loop(\"run\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 30
+  }
+}

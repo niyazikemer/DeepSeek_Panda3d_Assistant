@@ -1,0 +1,9 @@
+{
+  "content": "def parseCamFrustumDatagram(self, dgi):\n        focalLength = dgi.getFloat32()\n        filmSize    = (dgi.getFloat32(), dgi.getFloat32())\n        filmOffset  = (dgi.getFloat32(), dgi.getFloat32())\n        self.notify.debug('fl, fs, fo=%f, (%f, %f), (%f, %f)' %\n                          (focalLength, filmSize[0], filmSize[1],\n                           filmOffset[0], filmOffset[1]))\n        return (focalLength, filmSize, filmOffset)\n\n    def makeCamMovementDatagram(self, xyz, hpr):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_CAM_MOVEMENT)\n        datagram.addFloat32(xyz[0])\n        datagram.addFloat32(xyz[1])\n        datagram.addFloat32(xyz[2])\n        datagram.addFloat32(hpr[0])\n        datagram.addFloat32(hpr[1])\n        datagram.addFloat32(hpr[2])\n        return datagram\n\n\n    def makeNamedMovementDone(self):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1740
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.accept(\"DIRECT-enter\", self.onBaseMode)\n\n    def editCurve(self, task):\n        if self.editor.mode == self.editor.EDIT_CURVE_MODE:\n            if not self.editor.fMoveCamera:\n                self.selected = None\n                self.selected = base.direct.selected.last\n                if self.selected is not None:\n                    for item in self.curveControl:\n                        if item[1] == self.selected:\n                            self.point = item  #temporarily save the controler information for further use\n                            self.currentCurve = self.currentRope.ropeNode.getCurve()\n                            self.currentCurve.setVertex(item[0], self.selected.getPos())\n                            self.accept(\"DIRECT-delete\", self.onControlerDelete)\n                            return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 548
+  }
+}

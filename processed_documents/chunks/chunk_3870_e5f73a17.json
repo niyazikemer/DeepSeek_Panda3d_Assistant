@@ -1,0 +1,9 @@
+{
+  "content": "def destroy(self) -> None:\n        # This should be safe to call multiple times.\n        self.running = False\n        self.notify.info(\"TaskManager.destroy()\")\n        self.destroyed = True\n        self._frameProfileQueue.clear()\n        self.mgr.cleanup()\n\n    def __getClock(self) -> ClockObject:\n        return self.mgr.getClock()\n\n    def setClock(self, clockObject: ClockObject) -> None:\n        self.mgr.setClock(clockObject)\n        self.globalClock = clockObject\n\n    clock = property(__getClock, setClock)\n\n    def invokeDefaultHandler(self, signalNumber, stackFrame):\n        print('*** allowing mid-frame keyboard interrupt.')\n        # Restore default interrupt handler\n        if signal:\n            signal.signal(signal.SIGINT, self.__prevHandler)\n        # and invoke it\n        raise KeyboardInterrupt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3870
+  }
+}

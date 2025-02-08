@@ -1,0 +1,9 @@
+{
+  "content": "self.__subpartDict[partName] = Actor.SubpartDef(parent, subset)\n\n        if __dev__ and not overlapping and self.validateSubparts.getValue():\n            # Without the overlapping flag True, we're not allowed to\n            # define overlapping sub-parts.  Verify that we haven't.\n            for otherPartName, otherPartDef in self.__subpartDict.items():\n                if otherPartName != partName and otherPartDef.truePartName == parent:\n                    joints = self.getOverlappingJoints(partName, otherPartName)\n                    if joints:\n                        raise Exception('Overlapping joints: %s and %s' % (partName, otherPartName))\n\n    def setSubpartsComplete(self, flag):\n\n        \"\"\"Sets the subpartsComplete flag.  This affects the behavior\n        of play(), loop(), stop(), etc., when no explicit parts are\n        specified.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3145
+  }
+}

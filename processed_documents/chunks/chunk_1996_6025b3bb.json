@@ -1,0 +1,9 @@
+{
+  "content": "def check_file(fname):\n            return check_pattern(fname, include_copy_list) and \\\n                not check_pattern(fname, ignore_copy_list)\n\n        def skip_directory(src):\n            # Provides a quick-out for directory checks.  NOT recursive.\n            fn = p3d.Filename.from_os_specific(os.path.normpath(src))\n            path = fn.get_fullpath()\n            fn.make_absolute()\n            abspath = fn.get_fullpath()\n\n            for pattern in ignore_copy_list:\n                if not pattern.pattern.endswith('/*') and \\\n                   not pattern.pattern.endswith('/**'):\n                    continue\n\n                pattern_dir = p3d.Filename(pattern.pattern).get_dirname()\n                if abspath.startswith(pattern_dir + '/'):\n                    return True\n\n                if path.startswith(pattern_dir + '/'):\n                    return True\n\n            return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1996
+  }
+}

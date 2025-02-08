@@ -1,0 +1,9 @@
+{
+  "content": "Detach all 3D sounds connected to class NodePaths \u2013 3D sounds won\u2019t actually retain references to the custom class, but if the NodePaths they are attached to are removed with ~.NodePath.remove_node() and the sounds aren\u2019t detached, they\u2019ll generate an error and crash the program when they try to access the removed NodePaths. Play it safe and detach the sounds.\n\nEnd all tasks running in the class \u2013 The task manager will retain a reference to the class instance so long as the class instance has a task running, so set up all of the tasks in the custom class to end themselves with return task.done. This is the most reliable way to stop them and clear the reference to the custom class in the task manager.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_493",
+    "parent": "processed_documents/context_documents/34bfddd9_5e9b18c7_removing-custom-class-instances.json",
+    "chunk_number": 6481
+  }
+}

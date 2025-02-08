@@ -1,0 +1,9 @@
+{
+  "content": "class CommonFilters:\n    \"\"\" Class CommonFilters implements certain common image postprocessing\n    filters.  The constructor requires a filter builder as a parameter. \"\"\"\n\n    def __init__(self, win, cam):\n        self.manager = FilterManager(win, cam)\n        self.configuration = {}\n        self.task = None\n        self.cleanup()\n\n    def cleanup(self):\n        self.manager.cleanup()\n        self.textures = {}\n        self.finalQuad = None\n        self.bloom = []\n        self.blur = []\n        self.ssao = []\n        if self.task is not None:\n            taskMgr.remove(self.task)\n            self.task = None\n\n    def reconfigure(self, fullrebuild, changed):\n        \"\"\" Reconfigure is called whenever any configuration change is made. \"\"\"\n\n        configuration = self.configuration\n\n        if fullrebuild:\n            self.cleanup()\n\n            if len(configuration) == 0:\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3957
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def setHeadingNodePath(self,np):\n\n        self.headingNP = np\n\n    def enable(self):\n        # Kill existing task\n        self.disable()\n        # Accept button events\n        self.acceptSwitchModeEvent()\n        self.acceptUprightCameraEvent()\n        # Update task\n        taskMgr.add(self.updateTask, self.name + '-updateTask')\n\n    def disable(self):\n        taskMgr.remove(self.name + '-updateTask')\n        # Ignore button events\n        self.ignoreSwitchModeEvent()\n        self.ignoreUprightCameraEvent()\n\n    def destroy(self):\n        self.disable()\n        self.tempCS.removeNode()\n\n    def addButtonEvents(self):\n        self.breg = ButtonRegistry.ptr()\n        # MRM: Hard coded!\n        for i in range(8):\n            self.buttons.setButtonMap(\n                i, self.breg.getButton(self.getEventName(i)))\n        self.eventThrower = self.buttons.getNodePath().attachNewNode(\n            ButtonThrower('JB Button Thrower'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1794
+  }
+}

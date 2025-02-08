@@ -1,0 +1,9 @@
+{
+  "content": "self.setTitle(\"ALL\", totalBytes)\n\n    def setTitle(self, parent, bytes):\n        self.frame[\"label_text\"] = \"[%s] - %s bytes\" % (parent, bytes)\n\n    def resetCtrls(self):\n        for button in self.buttons:\n            self.balloon.unbind(button)\n            button.destroy()\n        self.buttons = []\n\n        for label in self.labels:\n            label.destroy()\n        self.labels = []\n\n    def getNewButton(self, width, ratio):\n        newBT =  tk.Button(self.frame.interior(),\n                           anchor = tk.W,\n                           width = width)\n\n        if ratio == 0.0:\n            newBT['bg'] = \"grey\"\n            newBT['text'] = \".\"\n        else:\n            newBT['bg'] = Pmw.Color.hue2name(0.0, 1.0-ratio)\n            newBT['text'] = \"%0.2f%%\" % (ratio*100.0)\n\n        return newBT\n\n    def addSelfCtrl(self, item, totalBytes):\n        self.addLabel(\"[self] : %s bytes\" % item.getSelfVertexBytes())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3597
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getVfov(self):\n        if self.isSideways:\n            return self.camLens.getHfov()\n        else:\n            return self.camLens.getVfov()\n\n    def setHfov(self, hfov):\n        if self.isSideways:\n            self.camLens.setFov(self.camLens.getHfov(), hfov)\n        else:\n            self.camLens.setFov(hfov, self.camLens.getVfov())\n\n    def setVfov(self, vfov):\n        if self.isSideways:\n            self.camLens.setFov(vfov, self.camLens.getVfov())\n        else:\n            self.camLens.setFov(self.camLens.getHfov(), vfov)\n\n    def setFov(self, hfov, vfov):\n        if self.isSideways:\n            self.camLens.setFov(vfov, hfov)\n        else:\n            self.camLens.setFov(hfov, vfov)\n\n    def getWidth(self):\n        prop = ShowBaseGlobal.direct.win.getProperties()\n        if prop.hasSize():\n            return prop.getXSize()\n        else:\n            return 640",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3429
+  }
+}

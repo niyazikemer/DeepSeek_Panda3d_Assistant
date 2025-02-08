@@ -1,0 +1,9 @@
+{
+  "content": "def save(self):\n        self.ui.SetCursor(wx.StockCursor(wx.CURSOR_WAIT))\n        if self.currentFile:\n            self.fileMgr.saveToFile(self.currentFile)\n        self.ui.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))\n\n    def saveAs(self, fileName):\n        self.ui.SetCursor(wx.StockCursor(wx.CURSOR_WAIT))\n        self.fileMgr.saveToFile(fileName)\n        self.currentFile = fileName\n        self.ui.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))\n\n    def load(self, fileName):\n        self.ui.SetCursor(wx.StockCursor(wx.CURSOR_WAIT))\n        self.reset()\n        self.fileMgr.loadFromFile(fileName)\n        self.currentFile = fileName\n        self.ui.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))\n\n    def saveSettings(self):\n        if self.settingsFile is None:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 412
+  }
+}

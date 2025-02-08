@@ -1,0 +1,9 @@
+{
+  "content": "category = self.getCategory(categoryName)\n        assert category is not None, f'failed to find category: {categoryName!r}'\n        # Note - this print statement is making it difficult to\n        # achieve \"no output unless there's an error\" operation - Josh\n        # print (\"Setting DirectNotify category: \" + categoryName +\n        #        \" to severity: \" + level)\n        if level == \"error\":\n            category.setWarning(False)\n            category.setInfo(False)\n            category.setDebug(False)\n        elif level == \"warning\":\n            category.setWarning(True)\n            category.setInfo(False)\n            category.setDebug(False)\n        elif level == \"info\":\n            category.setWarning(True)\n            category.setInfo(True)\n            category.setDebug(False)\n        elif level == \"debug\":\n            category.setWarning(True)\n            category.setInfo(True)\n            category.setDebug(True)\n        else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_99",
+    "parent": "processed_documents/context_documents/455d71b3_DirectNotify.json",
+    "chunk_number": 1655
+  }
+}

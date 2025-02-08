@@ -1,0 +1,9 @@
+{
+  "content": "class DisplayRegionList(DirectObject):\n    def __init__(self):\n        self.displayRegionList = []\n        i = 0\n        # Things are funky if we are oobe\n        if getattr(base, 'oobeMode', False):\n            # assume we only have one cam at this point\n            drc = DisplayRegionContext(base.cam)\n            self.displayRegionList.append(drc)\n        else:\n            # MRM: Doesn't properly handle multiple camera groups anymore\n            # Assumes everything is under main camera",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3433
+  }
+}

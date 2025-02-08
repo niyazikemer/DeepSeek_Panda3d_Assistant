@@ -1,0 +1,9 @@
+{
+  "content": "# Internal functions:\n\n    def validateComponent(self, component):\n        # This is called only in debug mode to verify that the\n        # indicated component added to the MetaInterval is appropriate\n        # to this type of MetaInterval.  In most cases except Track,\n        # this is the same as asking that the component is itself an\n        # Interval.\n        return isinstance(component, CInterval) or \\\n               isinstance(component, Interval.Interval)\n\n    def validateComponents(self, components):\n        # This is called only in debug mode to verify that all the\n        # components on the indicated list are appropriate to this\n        # type of MetaInterval.\n        for component in components:\n            if not self.validateComponent(component):\n                return 0\n        return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2888
+  }
+}

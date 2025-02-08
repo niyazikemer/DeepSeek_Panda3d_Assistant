@@ -1,0 +1,9 @@
+{
+  "content": "app_icon = self.icon_objects.get('*', self.icon_objects.get(self.macos_main_app))\n        if app_icon:\n            application.set('android:icon', '@mipmap/ic_launcher')\n\n        for appname in self.gui_apps:\n            activity = ET.SubElement(application, 'activity')\n            activity.set('android:name', 'org.panda3d.android.PythonActivity')\n            activity.set('android:label', appname)\n            activity.set('android:theme', '@android:style/Theme.NoTitleBar.Fullscreen')\n            activity.set('android:alwaysRetainTaskState', 'true')\n            activity.set('android:configChanges', 'layoutDirection|locale|grammaticalGender|fontScale|fontWeightAdjustment|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation')\n            activity.set('android:launchMode', 'singleInstance')\n            activity.set('android:preferMinimalPostProcessing', 'true')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1966
+  }
+}

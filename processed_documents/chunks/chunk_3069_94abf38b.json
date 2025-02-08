@@ -1,0 +1,9 @@
+{
+  "content": "def setLOD(self, lodName, inDist=0, outDist=0):\n        \"\"\"setLOD(self, string)\n        Set the switch distance for given LOD\n        \"\"\"\n        # save the switch distance info\n        self.switches[lodName] = [inDist, outDist]\n        # add the switch distance info\n        self.__LODNode.node().setSwitch(self.getLODIndex(lodName), inDist, outDist)\n\n    def getLODIndex(self, lodName):\n        \"\"\"getLODIndex(self)\n        safe method (but expensive) for retrieving the child index\n        \"\"\"\n        return list(self.__LODNode.getChildren()).index(self.getLOD(lodName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3069
+  }
+}

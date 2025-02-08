@@ -1,0 +1,9 @@
+{
+  "content": "for c in key:\n            data += pack('<H', ord(c))\n        data += b'\\x00\\x00'\n        if len(data) & 2:\n            data += b'\\x00\\x00'\n        assert len(data) & 3 == 0\n\n        if isinstance(value, dict):\n            for key2, value2 in sorted(value.items(), key=lambda x:x[0]):\n                self._pack_info(data, key2, value2)\n        elif isinstance(value, bytes) or isinstance(value, str):\n            for c in value:\n                data += pack('<H', ord(c))\n            data += b'\\x00\\x00'\n        else:\n            data += value\n            if len(data) & 1:\n                data += b'\\x00'\n\n        if len(data) & 2:\n            data += b'\\x00\\x00'\n        assert len(data) & 3 == 0\n\n        data[offset:offset+2] = pack('<H', len(data) - offset)\n\n    def unpack_from(self, data):\n        length, value_length = unpack('<HH', data[0:4])\n        offset = 40 + value_length + (value_length & 1)\n        dwords = array('I')\n        dwords.frombytes(bytes(data[40:offset]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1869
+  }
+}

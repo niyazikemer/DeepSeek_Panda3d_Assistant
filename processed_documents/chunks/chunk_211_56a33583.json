@@ -1,0 +1,9 @@
+{
+  "content": "def __buttonDown(self, button):\n            self.SetFocus()\n            if not self.hasCapture:\n                self.CaptureMouse()\n                self.hasCapture = True\n            self.inputDevice.buttonDown(button)\n\n        def __buttonUp(self, button):\n            if self.hasCapture:\n                self.ReleaseMouse()\n                self.hasCapture = False\n            self.inputDevice.buttonUp(button)\n\n        def __mouseMotion(self, event):\n            self.inputDevice.setPointerInWindow(*event.GetPosition())\n\n        def __mouseWheel(self, event):\n            amount = event.GetWheelRotation()\n            if amount > 0.0:\n                self.inputDevice.buttonDown(MouseButton.wheelUp())\n                self.inputDevice.buttonUp(MouseButton.wheelUp())\n            elif amount < 0.0:\n                self.inputDevice.buttonDown(MouseButton.wheelDown())\n                self.inputDevice.buttonUp(MouseButton.wheelDown())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 211
+  }
+}

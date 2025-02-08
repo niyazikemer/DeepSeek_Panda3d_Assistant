@@ -1,0 +1,9 @@
+{
+  "content": "if __debug__:\n        def lockControls(self):\n            self.ignoreUse=True\n\n        def unlockControls(self):\n            if hasattr(self, \"ignoreUse\"):\n                del self.ignoreUse\n\n    def use(self, name, avatar):\n        \"\"\"\n        name is a key (string) that was previously passed to add().\n\n        Use a previously added control system.\n\n        See also: :meth:`add()`.\n        \"\"\"\n        assert self.notify.debugCall(id(self))\n        if __debug__ and hasattr(self, \"ignoreUse\"):\n            return\n        controls = self.controls.get(name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4133
+  }
+}

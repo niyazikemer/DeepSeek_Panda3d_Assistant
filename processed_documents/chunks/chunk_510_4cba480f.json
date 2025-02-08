@@ -1,0 +1,9 @@
+{
+  "content": "def updateObjectColor(self, r, g, b, a, np=None):\n        if np is None:\n            np = self.currNodePath\n\n        obj = self.findObjectByNodePath(np)\n        if not obj:\n            return\n        obj[OG.OBJ_RGBA] = (r,g,b,a)\n        for child in np.getChildren():\n            if not child.hasTag('OBJRoot') and\\\n               not child.hasTag('_le_sys') and\\\n               child.getName() != 'bboxLines':\n                child.setTransparency(1)\n                child.setColorScale(r, g, b, a)\n        self.editor.fNeedToSave = True\n\n    def updateObjectModel(self, model, obj, fSelectObject=True):\n        \"\"\" replace object's model \"\"\"\n        if obj[OG.OBJ_MODEL] != model:\n            base.direct.deselectAllCB()\n\n            objNP = obj[OG.OBJ_NP]\n            objDef = obj[OG.OBJ_DEF]\n            objRGBA = obj[OG.OBJ_RGBA]\n            uid = obj[OG.OBJ_UID]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 510
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "You can create CollisionSolids interactively in program code, or you can construct them in your modeling package and load them up from an egg or bam file along with the rest of your scene.\n\nWhen you create a CollisionSolid interactively, you must also create a CollisionNode to hold the solid. (When you load your CollisionSolids in from an egg file, the CollisionNodes are created for you.) Often, a CollisionNode will be used to hold only one solid, but in fact a CollisionNode can contain any number of solids, and this is sometimes a useful optimization, especially if you have several solids that always move together as a unit.\n\npython\n\ncs = CollisionSphere(0, 0, 0, 1)\ncnodePath = avatar.attachNewNode(CollisionNode('cnode'))\ncnodePath.node().addSolid(cs)\n\ncpp\n\nPT(CollisionSphere) cs = new CollisionSphere();\ncSphere_node= new CollisionNode(\"Sphere\");\ncSphere_node->add_solid(cs);\n\nCollisionNodes are hidden by default, but they may be shown for debugging purposes:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_633",
+    "parent": "processed_documents/context_documents/62537003_cc9627be_collision-solids.json",
+    "chunk_number": 7378
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __createMenuBar(self):\n        self.menuFrame = tk.Frame(self._hull)\n        self.menuBar = self.createcomponent('menubar', (), None,\n                                            Pmw.MenuBar,\n                                            (self.menuFrame,),\n                                            hull_relief=tk.FLAT,\n                                            hull_borderwidth=0,\n                                            balloon=self.balloon())\n\n        self.menuBar.addmenu('Help', 'About %s' % self.appname, side = 'right')\n        self.menuBar.addmenu('File', 'File commands and Quit')\n        self.menuBar.pack(fill=tk.X, side = tk.LEFT)\n\n        # Force some space between pull down menus and other widgets\n        spacer = tk.Label(self.menuFrame, text = '   ')\n        spacer.pack(side = tk.LEFT, expand = 0)\n\n        self.menuFrame.pack(fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3725
+  }
+}

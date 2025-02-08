@@ -1,0 +1,9 @@
+{
+  "content": "# Call the configure methods for any components.\n        # Pass in the dictionary of keyword/values created above\n        for func, options in indirectOptions.items():\n            func(**options)\n\n        # Call the configuration callback function for each option.\n        for option in directOptions:\n            info = optionInfo[option]\n            func = info[DGG._OPT_FUNCTION]\n            if func is not None:\n                func()\n\n    # Allow index style references\n    def __setitem__(self, key, value):\n        self.configure(**{key: value})",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1391
+  }
+}

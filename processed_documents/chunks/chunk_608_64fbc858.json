@@ -1,0 +1,9 @@
+{
+  "content": "def saveStatus(self):\n        def saveObjStatus(uid_np, isUID=False):\n            if isUID:\n                obj = self.editor.objectMgr.findObjectById(uid_np)\n            else:\n                obj = self.editor.objectMgr.findObjectByNodePath(uid_np)\n            if obj:\n                uid = obj[OG.OBJ_UID]\n                objNP = obj[OG.OBJ_NP]\n                self.objInfos[uid] = obj\n                self.objTransforms[uid] = objNP.getMat()\n                parentNP = objNP.getParent()\n                if parentNP == render:\n                    self.hierarchy[uid] = None\n                else:\n                    parentObj = self.editor.objectMgr.findObjectByNodePath(parentNP)\n                    if parentObj:\n                        self.hierarchy[uid] = parentObj[OG.OBJ_UID]\n\n                for child in objNP.getChildren():\n                    if child.hasTag('OBJRoot'):\n                        saveObjStatus(child)\n\n        saveObjStatus(self.uid, True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 608
+  }
+}

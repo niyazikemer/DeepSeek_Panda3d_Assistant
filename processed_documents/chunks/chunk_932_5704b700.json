@@ -1,0 +1,9 @@
+{
+  "content": "drFrame = tk.Frame(envPage, borderwidth = 2, relief = 'sunken')\n        tk.Label(drFrame, text = 'Display Region',\n                 font=('MSSansSerif', 14, 'bold')).pack(expand = 0)\n\n        nameList = ['Display Region ' + repr(x) for x in range(len(ShowBaseGlobal.direct.drList))]\n        self.drMenu = Pmw.ComboBox(\n            drFrame, labelpos = tk.W, label_text = 'Display Region:',\n            entry_width = 20,\n            selectioncommand = self.selectDisplayRegionNamed,\n            scrolledlist_items = nameList)\n        self.drMenu.pack(fill = tk.X, expand = 0)\n        self.bind(self.drMenu, 'Select display region to configure')\n\n        self.nearPlane = Floater.Floater(\n            drFrame,\n            text = 'Near Plane',\n            min = 0.01)\n        self.nearPlane['command'] = self.setNear\n        self.nearPlane.pack(fill = tk.X, expand = 0)\n        self.bind(self.nearPlane, 'Set near plane distance')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 932
+  }
+}

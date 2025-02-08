@@ -1,0 +1,9 @@
+{
+  "content": "# finally call update function\n                #func(**kwargs)\n        else:\n            oldVal = objProp[propName]\n            func = None\n            undoFunc = None\n        action = ActionUpdateObjectProp(self.editor, fSelectObject, obj, propName, val, oldVal, func, undoFunc)\n        if fUndo:\n            self.editor.actionMgr.push(action)\n        action()\n\n        if self.editor:\n            self.editor.fNeedToSave = True\n            if fSelectObject:\n                base.direct.select(obj[OG.OBJ_NP], fUndo=0)\n\n    def updateCurve(self, val, obj):\n        curve = obj[OG.OBJ_NP]\n        degree = int(val)\n        curveNode = obj[OG.OBJ_PROP]['curveInfo']\n        curveInfor = []\n        for item in curveNode:\n            curveInfor.append((None, item[1].getPos()))\n        curve.setup(degree, curveInfor)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 520
+  }
+}

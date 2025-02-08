@@ -1,0 +1,9 @@
+{
+  "content": "#ifdef MS_WINDOWS\n    PyImport_ExtendInittab(extensions);\n#endif /* MS_WINDOWS */\n\n    if (argc >= 1) {\n#if PY_MAJOR_VERSION >= 3\n        Py_SetProgramName(argv_copy[0]);\n#else\n        Py_SetProgramName(argv[0]);\n#endif\n    }\n\n    Py_Initialize();\n#ifdef MS_WINDOWS\n    PyWinFreeze_ExeInit();\n#endif\n\n    if (Py_VerboseFlag)\n        fprintf(stderr, \"Python %s\\\\n%s\\\\n\",\n            Py_GetVersion(), Py_GetCopyright());\n\n#if PY_MAJOR_VERSION >= 3\n    PySys_SetArgv(argc, argv_copy);\n#else\n    PySys_SetArgv(argc, argv);\n#endif\n\nEXTRA_INIT_FUNC_CALLS\n\n    n = PyImport_ImportFrozenModule(\"__main__\");\n    if (n == 0)\n        Py_FatalError(\"__main__ not frozen\");\n    if (n < 0) {\n        PyErr_Print();\n        sts = 1;\n    }\n    else\n        sts = 0;\n\n    if (inspect && isatty((int)fileno(stdin)))\n        sts = PyRun_AnyFile(stdin, \"<stdin>\") != 0;\n\n#ifdef MS_WINDOWS\n    PyWinFreeze_ExeTerm();\n#endif\n    Py_Finalize();",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2049
+  }
+}

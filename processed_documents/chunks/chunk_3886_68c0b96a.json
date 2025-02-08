@@ -1,0 +1,9 @@
+{
+  "content": "def __setupTask(\n        self,\n        funcOrTask: _FuncOrTask,\n        name: str | None,\n        priority: int | None,\n        sort: int | None,\n        extraArgs: Sequence | None,\n        taskChain: str | None,\n        appendTask: bool,\n        owner,\n        uponDeath: Callable[[], object] | None,\n    ) -> AsyncTask:\n        wasTask = False\n        if isinstance(funcOrTask, AsyncTask):\n            task = funcOrTask\n            wasTask = True\n        elif hasattr(funcOrTask, '__call__') or \\\n             hasattr(funcOrTask, 'cr_await') or \\\n             isinstance(funcOrTask, types.GeneratorType):\n            # It's a function, coroutine, or something emulating a coroutine.\n            task = PythonTask(funcOrTask)\n            if name is None:\n                name = getattr(funcOrTask, '__qualname__', None) or \\\n                       getattr(funcOrTask, '__name__', None)\n        else:\n            self.notify.error(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3886
+  }
+}

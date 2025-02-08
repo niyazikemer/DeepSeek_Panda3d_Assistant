@@ -1,0 +1,9 @@
+{
+  "content": "def get(self):\n        \"\"\"\n        self.get()\n        Get current slider value\n        \"\"\"\n        return self.value\n\n    def updateIndicator(self, value):\n        if self['style'] == VALUATOR_MINI:\n            # Get current marker position\n            percentX = (value - self['min'])/float(self['max'] - self['min'])\n            newX = percentX * (self.right - self.left) + self.left\n            markerX = self._getMarkerX()\n            dx = newX - markerX\n            self._widget.move('marker', dx, 0)\n        else:\n            # Update scale's variable, which update scale without\n            # Calling scale's command\n            self._widgetVar.set(value)\n\n    #======================================================================\n\n    # Private methods for slider.\n\n    def _postSlider(self, event = None):\n        self._isPosted = 1\n        self._fUpdate = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3517
+  }
+}

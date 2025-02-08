@@ -1,0 +1,9 @@
+{
+  "content": "# do a SAVEALL pass so that we have all of the objects involved in legitimate garbage cycles\n        # without SAVEALL, gc.garbage only contains objects with __del__ methods\n        gc.set_debug(gc.DEBUG_SAVEALL)\n        if self._args.collect:\n            gc.collect()\n        self.garbage = gc.garbage[:]\n        del gc.garbage[:]\n        # only yield if there's more time-consuming work to do,\n        # if there's no garbage, give instant feedback\n        if len(self.garbage) > 0:\n            yield None\n        # don't repr the garbage list if we don't have to\n        if self.notify.getDebug():\n            self.notify.debug('self.garbage == %s' % fastRepr(self.garbage))\n        gc.set_debug(oldFlags)\n\n        self.numGarbage = len(self.garbage)\n        # only yield if there's more time-consuming work to do,\n        # if there's no garbage, give instant feedback\n        if self.numGarbage > 0:\n            yield None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4251
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def hasChildren(self):\n        \"\"\"\n        Return true if state has child FSMs\n        \"\"\"\n        return len(self.__FSMList) > 0\n\n    def __enterChildren(self, argList):\n        \"\"\"\n        Enter all child FSMs\n        \"\"\"\n        for fsm in self.__FSMList:\n            # Check to see if the child fsm is already in a state\n            # if it is, politely request the initial state\n\n            if fsm.getCurrentState():\n                # made this 'conditional_request()' instead of 'request()' to avoid warning when\n                # loading minigames where rules->frameworkInit transition doesnt exist and you\n                # don't want to add it since it results in hanging the game\n                fsm.conditional_request((fsm.getInitialState()).getName())\n\n            # If it has no current state, I assume this means it\n            # has never entered the initial state, so enter it\n            # explicitly\n            else:\n                fsm.enterInitialState()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2677
+  }
+}

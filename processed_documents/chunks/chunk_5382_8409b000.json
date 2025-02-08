@@ -1,0 +1,9 @@
+{
+  "content": "# Make a copy of the original doIdList, so we can save it over\n        # a period of time without worrying about the caller modifying\n        # it.\n        doIdList = doIdList[:]\n\n        doLaterName = None\n        if timeout is not None:\n            doLaterName = \"RelatedObject-%s\" % (RelatedObjectMgr.doLaterSequence)\n            assert self.notify.debug(\"doLaterName = %s\" % (doLaterName))\n\n            RelatedObjectMgr.doLaterSequence += 1\n\n        tuple = (allCallback, eachCallback, timeoutCallback,\n                 doIdsPending, doIdList, doLaterName)\n\n        for doId in doIdsPending:\n            pendingList = self.pendingObjects.get(doId)\n            if pendingList is None:\n                pendingList = []\n                self.pendingObjects[doId] = pendingList\n                self.__listenFor(doId)\n\n            pendingList.append(tuple)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5382
+  }
+}

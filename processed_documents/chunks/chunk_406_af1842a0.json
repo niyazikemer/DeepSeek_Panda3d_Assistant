@@ -1,0 +1,9 @@
+{
+  "content": "def handleMouse3(self, modifiers):\n        if base.direct.fAlt or modifiers == 4:\n            self.fMoveCamera = True\n            return\n\n        self.ui.onRightDown()\n\n    def handleMouse3Up(self):\n        self.fMoveCamera = False\n\n    def handleDelete(self):\n        oldSelectedNPs = base.direct.selected.getSelectedAsList()\n        oldUIDs = []\n        for oldNP in oldSelectedNPs:\n            obj = self.objectMgr.findObjectByNodePath(oldNP)\n            if obj:\n                oldUIDs.append(obj[OG.OBJ_UID])\n\n        action = ActionDeleteObj(self)\n        self.actionMgr.push(action)\n        action()\n\n        for uid in oldUIDs:\n            self.ui.sceneGraphUI.delete(uid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 406
+  }
+}

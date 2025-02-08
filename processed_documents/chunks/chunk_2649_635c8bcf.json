@@ -1,0 +1,9 @@
+{
+  "content": "def __setState(self, newState, *args):\n        # Internal function to change unconditionally to the indicated state.\n\n        transition = Transition((newState,) + args)\n\n        # See if we can transition immediately by polling the coroutine.\n        coro = self.__transition(newState, *args)\n        try:\n            coro.send(None)\n        except StopIteration:\n            # We managed to apply this straight away.\n            return transition\n\n        # Continue the state transition in a task.\n        task = PythonTask(coro)\n        mgr = AsyncTaskManager.get_global_ptr()\n        mgr.add(task)\n        transition._future = task\n        return transition\n\n    async def __transition(self, newState, *args):\n        assert self.state\n        assert self.notify.debug(\"%s to state %s.\" % (self._name, newState))\n\n        self.oldState = self.state\n        self.newState = newState\n        self.state = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2649
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def recalculateSlopeBase(self, list):\n        #recalculate the tangent slope\n        moveX = self.newMidPos[0]-self.midPos[0]\n        moveY = self.newMidPos[1]-self.midPos[1]\n\n        for i in range(len(list)):\n            if list[i][AG.KEYFRAME][AG.SELECT] == 1:\n                if list[i][AG.IN_TANGENT][AG.SELECT] == 1:\n                    newPointX = list[i][AG.IN_TANGENT][AG.LOCAL_VALUE][0] + moveX\n                    newPointY = list[i][AG.IN_TANGENT][AG.LOCAL_VALUE][1] + moveY\n\n                    newSlope = [list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0] - newPointX, newPointY - list[i][AG.KEYFRAME][AG.LOCAL_VALUE][1]]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 277
+  }
+}

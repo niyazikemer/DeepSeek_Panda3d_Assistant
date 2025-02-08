@@ -1,0 +1,9 @@
+{
+  "content": "If the FSM is currently in transition (i.e. in the middle of\n        executing an enterState or exitState function), an\n        `AlreadyInTransition` exception is raised (but see `demand()`,\n        which will queue these requests up and apply when the\n        transition is complete).\n\n        If the previous state's exitFunc or the new state's enterFunc\n        is a coroutine, the state change may not have been applied by\n        the time request() returns, but you can use `await` on the\n        return value to await the transition.\"\"\"\n\n        self.fsmLock.acquire()\n        try:\n            assert isinstance(request, str)\n            self.notify.debug(\"%s.request(%s, %s\" % (\n                self._name, request, str(args)[1:]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2639
+  }
+}

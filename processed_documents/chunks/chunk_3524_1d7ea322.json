@@ -1,0 +1,9 @@
+{
+  "content": "def _unpostOnNextRelease(self, event = None):\n        self._fUnpost = 1\n\n    def _unpostSlider(self, event=None):\n        if not self._isPosted:\n            # It is possible to get events on an unposted popup.  For\n            # example, by repeatedly pressing the space key to post\n            # and unpost the popup.  The <space> event may be\n            # delivered to the popup window even though\n            # Pmw.popgrab() has set the focus away from the\n            # popup window.  (Bug in Tk?)\n            return\n\n        # Restore the focus before withdrawing the window, since\n        # otherwise the window manager may take the focus away so we\n        # can't redirect it.  Also, return the grab to the next active\n        # window in the stack, if any.\n        Pmw.popgrab(self._popup)\n        self._popup.withdraw()\n\n        self._isPosted = 0\n\n        # Raise up arrow button\n        self.interior()['relief'] = tk.RAISED",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3524
+  }
+}

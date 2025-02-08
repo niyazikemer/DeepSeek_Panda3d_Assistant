@@ -1,0 +1,9 @@
+{
+  "content": "assert Actor.notify.debug(\"in loadAnims: %s, part: %s, lod: %s\" %\n                                  (anims, partName, lodNames[0]))\n\n        firstLoad = True\n        if not reload:\n            if lodNames[0] in self.__animControlDict and \\\n               partName in self.__animControlDict[lodNames[0]]:\n                firstLoad = False\n\n        for lName in lodNames:\n            if firstLoad:\n                self.__animControlDict.setdefault(lName, {})\n                self.__animControlDict[lName].setdefault(partName, {})\n\n        for animName, filename in anims.items():\n            # make sure this lod is in anim control dict\n            for lName in lodNames:\n                if firstLoad:\n                    self.__animControlDict[lName][partName][animName] = Actor.AnimDef()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3150
+  }
+}

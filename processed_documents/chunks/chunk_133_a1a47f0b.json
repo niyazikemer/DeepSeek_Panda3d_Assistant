@@ -1,0 +1,9 @@
+{
+  "content": "if word.endswith('.') or word.endswith(',') or word.endswith(';'):\n            # Punctuation.\n            suffix = word[-1]\n            word = word[:-1]\n        else:\n            suffix = ''\n\n        if word.endswith(')') and word.count(')') > word.count('('):\n            # It could be the last word in a parenthesized statement.\n            word = word[:-1]\n            suffix = ')' + suffix\n\n        # Don't replace the class name on the page of the class itself, unless\n        # it's already in backticks.\n        if word.rstrip('()') == parent:\n            continue\n\n        word = word.strip('`')\n\n        m = re.fullmatch(method_class_ref_pattern, word)\n        if not m:\n            continue\n\n        plural = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 133
+  }
+}

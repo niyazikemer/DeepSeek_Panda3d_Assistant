@@ -1,0 +1,9 @@
+{
+  "content": "Structs\n\nstruct BarrierData {\n  uint16 context;\n  string name;\n  uint32 avIds[];\n};\n\nYou can define C-style structs in addition to the dclass (defined below). This is really the same thing as a dclass, except it can be embedded in a message rather than created as an object in its own right. The struct may or may not correspond with a Python class of the same name. If the struct does have a Python representation, an instance of that class is created and passed in to functions that receive this kind of parameter; otherwise, a tuple with all of the fields is passed instead.\n\nArrays\n\nEach variable can be an array by appending [#] on the end of a value where # is the size of the array. You can also leave the value between the columns empty and it will become a dynamic array. So it could look like this for a fixed:\n\nint8[16] foo\n\nand a dynamic array:\n\nint8[] foo\n\nAllowed range and list of ranges",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_411",
+    "parent": "processed_documents/context_documents/c7129d08_ae3cc5ca_dc-definition-files.json",
+    "chunk_number": 6101
+  }
+}

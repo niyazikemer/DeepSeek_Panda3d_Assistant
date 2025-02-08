@@ -1,0 +1,9 @@
+{
+  "content": "class MiniLogSentry:\n    def __init__(self, log, funcName, *args, **kw):\n        self.log = log\n        if self.log:\n            self.log.enterFunction(funcName, *args, **kw)\n\n    def __del__(self):\n        if self.log:\n            self.log.exitFunction()\n        del self.log\n\n\ndef logBlock(id, msg):\n    print('<< LOGBLOCK(%03d)' % id)\n    print(str(msg))\n    print('/LOGBLOCK(%03d) >>' % id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4708
+  }
+}

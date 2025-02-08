@@ -1,0 +1,9 @@
+{
+  "content": "class ViewportManager:\n    \"\"\"Manages the global viewport stuff.\"\"\"\n    viewports: list[Viewport] = []\n    gsg = None\n\n    @staticmethod\n    def initializeAll(*args, **kwargs):\n        \"\"\"Calls initialize() on all the viewports.\"\"\"\n        for v in ViewportManager.viewports:\n            v.initialize(*args, **kwargs)\n\n    @staticmethod\n    def updateAll(*args, **kwargs):\n        \"\"\"Calls Update() on all the viewports.\"\"\"\n        for v in ViewportManager.viewports:\n            v.Update(*args, **kwargs)\n\n    @staticmethod\n    def layoutAll(*args, **kwargs):\n        \"\"\"Calls Layout() on all the viewports.\"\"\"\n        for v in ViewportManager.viewports:\n            v.Layout(*args, **kwargs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 218
+  }
+}

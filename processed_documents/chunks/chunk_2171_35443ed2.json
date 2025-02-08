@@ -1,0 +1,9 @@
+{
+  "content": "if fromlist and \"*\" in fromlist:\n                    if name:\n                        mm = self.modules.get(parent.__name__ + \".\" + name)\n                    else:\n                        mm = self.modules.get(parent.__name__)\n\n                    if mm is not None:\n                        m.globalnames.update(mm.globalnames)\n                        m.starimports.update(mm.starimports)\n                        if mm.__code__ is None:\n                            m.starimports[name] = 1\n                    else:\n                        m.starimports[name] = 1\n            else:\n                # We don't expect anything else from the generator.\n                raise RuntimeError(what)\n\n        for c in co.co_consts:\n            if isinstance(c, type(co)):\n                self.scan_code(c, m)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2171
+  }
+}

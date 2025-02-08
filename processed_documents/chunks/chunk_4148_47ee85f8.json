@@ -1,0 +1,9 @@
+{
+  "content": "class InputStateWatchToken(InputStateToken, DirectObject.DirectObject):\n    def release(self):\n        self._inputState._ignore(self)\n        self.ignoreAll()\n\n\nclass InputStateForceToken(InputStateToken):\n    def release(self):\n        self._inputState._unforce(self)\n\n\nclass InputStateTokenGroup:\n    def __init__(self):\n        self._tokens = []\n\n    def addToken(self, token):\n        self._tokens.append(token)\n\n    def release(self):\n        for token in self._tokens:\n            token.release()\n        self._tokens = []\n\n    #snake_case alias:\n    add_token = addToken",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4148
+  }
+}

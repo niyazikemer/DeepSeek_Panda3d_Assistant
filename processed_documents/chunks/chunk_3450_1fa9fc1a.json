@@ -1,0 +1,9 @@
+{
+  "content": "def toggleVisAll(self):\n        # Toggle viz for all selected node paths\n        selectedNodePaths = self.getSelectedAsList()\n        for nodePath in selectedNodePaths:\n            if nodePath.isHidden():\n                nodePath.show()\n            else:\n                nodePath.hide()\n\n    def isolateSelected(self):\n        selected = self.last\n        if selected:\n            selected.showAllDescendents()\n            for sib in selected.getParent().getChildren():\n                if sib.node() != selected.node():\n                    sib.hide()\n\n    def getDirectNodePath(self, nodePath):\n        # Get this pointer\n        id = nodePath.get_key()\n        # First check selected dict\n        dnp = self.getSelectedDict(id)\n        if dnp:\n            return dnp\n        # Otherwise return result of deselected search\n        return self.getDeselectedDict(id)\n\n    def getNumSelected(self):\n        return len(self.selectedDict)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3450
+  }
+}

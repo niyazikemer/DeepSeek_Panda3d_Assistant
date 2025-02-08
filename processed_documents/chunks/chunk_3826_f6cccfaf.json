@@ -1,0 +1,9 @@
+{
+  "content": "# Set to True when the _shutdown handler is registered as atexit function.\n    # Protected by _active_limbo_lock.\n    __registered_atexit = False\n\n    def __init__(self, group=None, target=None, name=None,\n                 args=(), kwargs=None, verbose=None, daemon=None):\n        assert group is None, \"group argument must be None for now\"\n        _Verbose.__init__(self, verbose)\n        if kwargs is None:\n            kwargs = {}\n        self.__target = target\n        self.__name = str(name or _newname())\n        self.__args = args\n        self.__kwargs = kwargs\n        if daemon is not None:\n            self.__daemonic = daemon\n        else:\n            self.__daemonic = self._set_daemon()\n        self.__started = False\n        self.__stopped = False\n        self.__block = Condition(Lock())\n        self.__initialized = True\n        # sys.stderr is not stored in the class like\n        # sys.exc_info since it can be changed between instances\n        self.__stderr = _sys.stderr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3826
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "However, if you don't need such strict adherence to Python's original semantics, the \"threading\" module is probably a better choice. It is likely to be slightly faster than the threading2 module (and even slightly faster than Python's own threading module). It is also better integrated with Panda's threads, so that Panda's thread debug mechanisms will be easier to use and understand.\n\n# WRONG:\nimport threading\n# RIGHT:\nfrom direct.stdpy import threading\n# ALSO RIGHT:\nfrom direct.stdpy import threading2 as threading\n\nIt is permissible to mix-and-match both threading and threading2 within the same application.\n\nFile I/O\n\nPanda3D also offers a thread-safe replacement for the Python file module. You can find it in direct.stdpy.file. The interface is exactly the same as Python's, so it's safe to put this import above all the files where you want to use the open() function:\n\nfrom direct.stdpy.file import *",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_378",
+    "parent": "processed_documents/context_documents/e1cb27da_d50d13d2_threading.json",
+    "chunk_number": 5952
+  }
+}

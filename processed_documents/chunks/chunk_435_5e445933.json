@@ -1,0 +1,9 @@
+{
+  "content": "WxPandaShell.createMenu(self)\n\n    def onGraphEditor(self, e):\n        if ShowBaseGlobal.direct.selected.last is None:\n            dlg = wx.MessageDialog(None, 'Please select a object first.', 'NOTICE', wx.OK)\n            dlg.ShowModal()\n            dlg.Destroy()\n            self.graphEditorMenuItem.Check(False)\n        else:\n            currentObj = self.editor.objectMgr.findObjectByNodePath(ShowBaseGlobal.direct.selected.last)\n            self.graphEditorUI = GraphEditorUI(self, self.editor, currentObj)\n            self.graphEditorUI.Show()\n            self.graphEditorMenuItem.Check(True)\n\n    def onAnimation(self, e):\n        if self.editor.mode != self.editor.ANIM_MODE:\n            self.animUI = AnimControlUI(self, self.editor)\n            self.animUI.Show()\n            self.editor.mode = self.editor.ANIM_MODE\n        if self.editor.mode == self.editor.ANIM_MODE:\n            self.editAnimMenuItem.Check(True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 435
+  }
+}

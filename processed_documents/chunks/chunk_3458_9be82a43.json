@@ -1,0 +1,9 @@
+{
+  "content": "class SelectionQueue(CollisionHandlerQueue):\n    def __init__(self, parentNP = None):\n        if parentNP is None:\n            parentNP = render\n        # Initialize the superclass\n        CollisionHandlerQueue.__init__(self)\n        # Current index and entry in collision queue\n        self.index = -1\n        self.entry = None\n        self.skipFlags = DG.SKIP_NONE\n        # Create a collision node path attached to the given NP\n        self.collisionNodePath = NodePath(CollisionNode(\"collisionNP\"))\n        self.setParentNP(parentNP)\n        # Don't pay the penalty of drawing this collision ray\n        self.collisionNodePath.hide()\n        self.collisionNode = self.collisionNodePath.node()\n        # Intersect with geometry to begin with\n        self.collideWithGeom()\n        # And a traverser to do the actual collision tests\n        self.ct = CollisionTraverser(\"DirectSelection\")\n        self.ct.setRespectPrevTransform(False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3458
+  }
+}

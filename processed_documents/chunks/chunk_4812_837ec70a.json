@@ -1,0 +1,9 @@
+{
+  "content": "self.visited = set()\n        for x in self.stepGenerator(0, [self.obj]):\n            yield None\n\n        yield Job.Done\n\n    def finished(self):\n        print('RefPath(%s): Finished ReferrerSearch for %s' %(self._id, fastRepr(self.obj)))\n        self.obj = None\n\n        safeReprNotify = _getSafeReprNotify()\n        safeReprNotify.setInfo(self.info)\n\n    def __del__(self):\n        print('ReferrerSearch garbage collected')\n\n    def truncateAtNewLine(self, s):\n        if s.find('\\n') == -1:\n            return s\n        else:\n            return s[:s.find('\\n')]\n\n    def printStatsWhenAble(self):\n        self.shouldPrintStats = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4812
+  }
+}

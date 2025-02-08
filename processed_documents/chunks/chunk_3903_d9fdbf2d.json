@@ -1,0 +1,9 @@
+{
+  "content": "def flushTaskProfiles(self, name=None):\n        if self._taskProfiler:\n            self._taskProfiler.flush(name)\n\n    def _setProfileTask(self, task):\n        if self._taskProfileInfo.session:\n            self._taskProfileInfo.session.release()\n            self._taskProfileInfo.session = None\n        self._taskProfileInfo = ScratchPad(\n            taskFunc = task.getFunction(),\n            taskArgs = task.getArgs(),\n            task = task,\n            profiled = False,\n            session = None,\n        )\n\n        # Temporarily replace the task's own function with our\n        # _profileTask method.\n        task.setFunction(self._profileTask)\n        task.setArgs([self._taskProfileInfo], True)\n\n    def _profileTask(self, profileInfo, task):\n        # This is called instead of the task function when we have\n        # decided to profile a task.\n\n        assert profileInfo.task == task\n        # don't profile the same task twice in a row\n        assert not profileInfo.profiled",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3903
+  }
+}

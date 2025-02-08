@@ -1,0 +1,9 @@
+{
+  "content": "dc.SetPen(wx.Pen(wx.Colour(150, 150, 150)))\n        dc.SetBrush(wx.Brush(wx.Colour(150, 150, 150)))\n\n        if self.unitWidth >= 25:\n            posPos = self.zeroPos[0]+self.unitWidth\n            posNum = self.zero + 1\n            while posPos <= self.w:\n                dc.DrawLine(posPos, 0.0, posPos, self.h)\n                st = str(posNum)\n                self.drawXNumber(dc, st, posPos)\n                posPos += self.unitWidth\n                posNum += 1\n\n            negPos = self.zeroPos[0]-self.unitWidth\n            negNum = self.zero - 1\n            while negPos >= 0.0:\n                dc.DrawLine(negPos, 0.0, negPos, self.h)\n                st = str(negNum)\n                self.drawXNumber(dc, st, negPos)\n                negPos -= self.unitWidth\n                posNum -= 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 252
+  }
+}

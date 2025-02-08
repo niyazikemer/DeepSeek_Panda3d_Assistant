@@ -1,0 +1,9 @@
+{
+  "content": "if evt.Dragging() and evt.MiddleIsDown():\n            self.newMidPos = (evt.GetX(), evt.GetY())\n            if self.newMidPos[1] >= 0.0 and self.newMidPos[1] <= float(self.h):\n                if self.newMidPos[0] >= 0.0 and self.newMidPos[0] <= float(self.w):\n                    self._mouseIn = True\n\n            if self._mouseIn:\n                if self.newMidPos == self.midPos:\n                    evt.Skip()\n                    self._mouseIn = False\n                else:\n                    self.recalculateSlope()\n                    self.onAnimation()\n                    self.midPos = self.newMidPos\n\n        evt.Skip()\n        self._mouseIn = False\n        self._selectRec = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 270
+  }
+}

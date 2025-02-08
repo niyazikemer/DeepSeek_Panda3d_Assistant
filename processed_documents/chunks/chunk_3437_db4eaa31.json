@@ -1,0 +1,9 @@
+{
+  "content": "def start(self):\n        # First shutdown any existing task\n        self.stop()\n        # Start a new context task\n        self.spawnContextTask()\n\n    def stop(self):\n        # Kill the existing context task\n        taskMgr.remove('DIRECTContextTask')\n\n    def spawnContextTask(self):\n        taskMgr.add(self.contextTask, 'DIRECTContextTask')\n\n    def removeContextTask(self):\n        taskMgr.remove('DIRECTContextTask')\n\n    def contextTask(self, state):\n        # Window Data\n        self.mouseUpdate()\n        # hack to test movement\n        return Task.cont\n\n    def addDisplayRegionContext(self, cam):\n        self.displayRegionList.append(DisplayRegionContext(cam))\n\n    def removeDisplayRegionContext(self, cam):\n        for drc in self.displayRegionList:\n            if drc.cam == cam:\n                self.displayRegionList.remove(drc)\n                break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3437
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.camLens.setFilmSize(width, height)\n\n    def camUpdate(self, lens = None):\n        # Window Data\n        self.near = self.camLens.getNear()\n        self.far = self.camLens.getFar()\n        self.fovH = self.camLens.getHfov()\n        self.fovV = self.camLens.getVfov()\n        self.nearWidth = math.tan(deg2Rad(self.fovH * 0.5)) * self.near * 2.0\n        self.nearHeight = math.tan(deg2Rad(self.fovV * 0.5)) * self.near * 2.0\n        self.left = -self.nearWidth * 0.5\n        self.right = self.nearWidth * 0.5\n        self.top = self.nearHeight * 0.5\n        self.bottom = -self.nearHeight * 0.5\n\n    def mouseUpdate(self):\n        # Mouse Data\n        # Last frame\n        self.mouseLastX = self.mouseX\n        self.mouseLastY = self.mouseY",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3431
+  }
+}

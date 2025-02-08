@@ -1,0 +1,9 @@
+{
+  "content": "exist = False\n            for keyFrame in self.parent.editor.animMgr.keyFrames:\n                if frame == keyFrame:\n                    exist = True\n                    break\n\n            if not exist:\n                self.parent.editor.animMgr.keyFrames.append(frame)\n            self.parent.editor.ui.animUI.OnPropKey()\n        else:\n            evt.Skip()\n\n    def setValue(self, value):\n        self.ui.SetValue(value)\n\n    def getValue(self):\n        return self.ui.GetValue()\n\n    def bindFunc(self, inFunc, outFunc, valFunc = None):\n        self.ui.Bind(wx.EVT_ENTER_WINDOW, inFunc)\n        self.ui.Bind(wx.EVT_LEAVE_WINDOW, outFunc)\n        if valFunc:\n            self.ui.Bind(self.eventType, valFunc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 320
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "__doneFuture = AsyncFuture()\n    __doneFuture.set_result(None)\n\n    # An enum class for special states like the DEFAULT or ANY state,\n    # that should be treatened by the FSM in a special way\n    class EnumStates():\n        ANY = 1\n        DEFAULT = 2\n\n    def __init__(self, name):\n        self.fsmLock = RLock()\n        self._name = name\n        self.stateArray = []\n        self._serialNum = FSM.SerialNum\n        FSM.SerialNum += 1\n        self._broadcastStateChanges = False\n        # Initially, we are in the Off state by convention.\n        self.state = 'Off'\n\n        # This member records transition requests made by demand() or\n        # forceTransition() while the FSM is in transition between\n        # states.\n        self.__requestQueue = []\n\n        if __debug__:\n            from direct.fsm.ClassicFSM import _debugFsms\n            import weakref\n            _debugFsms[name]=weakref.ref(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2631
+  }
+}

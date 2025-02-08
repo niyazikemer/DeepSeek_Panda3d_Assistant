@@ -1,0 +1,9 @@
+{
+  "content": "Bullet Ghosts\n\nGhost objects are intangible objects. They do collide with other objects, but they won't create any collision response (forces etc.) from such collisions. Ghost objects keep track of all objects they collide with, and it is possible to query them for all objects they currently overlap with.\n\nGhost objects therefore can be used to implement a sensor, which detects the presence of any (or a particular) object within the sensor's shape. For example an automatic door which should open if the player is in front of the door, or an area which triggers some event if the player moves through the area.\n\npython\n\nExample for how to set up a ghost object:\n\nfrom panda3d.bullet import BulletGhostNode\nfrom panda3d.bullet import BulletBoxShape\n\nshape = BulletBoxShape(Vec3(1, 1, 1))\n\nghost = BulletGhostNode('Ghost')\nghost.addShape(shape)\nghostNP = render.attachNewNode(ghost)\nghostNP.setPos(0, 0, 0)\nghostNP.setCollideMask(BitMask32(0x0f))\n\nworld.attachGhost(ghost)\n\nExample for how to get overlapping objects:\n\ndef checkGhost(self, task):\n    ghost = ghostNP.node()\n    print(ghost.getNumOverlappingNodes())\n    for node in ghost.getOverlappingNodes():\n        print(node)\n\n    return task.cont\n\ntaskMgr.add(checkGhost, 'checkGhost')",
+  "metadata": {
+    "source": "corpus_panda3d/collected_docs/ed5b24b1_ghosts.rst",
+    "doc_type": "rst",
+    "file_path": "processed_documents/context_documents/58f92caf_ed5b24b1_ghosts.json",
+    "doc_id": "doc_576"
+  }
+}

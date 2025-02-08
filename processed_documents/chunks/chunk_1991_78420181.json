@@ -1,0 +1,9 @@
+{
+  "content": "self.announce('Copying data files for module: {}'.format(module), distutils.log.INFO)\n\n            # OK, find out in which .whl this occurs.\n            for whl in wheelpaths:\n                whlfile = self._get_zip_file(whl)\n                filenames = whlfile.namelist()\n                for source_pattern, target_dir, flags in datadesc:\n                    srcglob = p3d.GlobPattern(source_pattern.lower())\n                    source_dir = os.path.dirname(source_pattern)\n                    # Relocate the target dir to the build directory.\n                    target_dir = target_dir.replace('/', os.sep)\n                    target_dir = os.path.join(data_dir, target_dir)\n\n                    for wf in filenames:\n                        if wf.endswith('/'):\n                            # Skip directories.\n                            continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1991
+  }
+}

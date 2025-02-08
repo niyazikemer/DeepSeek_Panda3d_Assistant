@@ -1,0 +1,9 @@
+{
+  "content": "# Update object handles visibility\n            if hasattr(direct, 'widget'):\n                direct.widget.showGuides()\n                direct.widget.hideAllHandles()\n                direct.widget.showHandle(self.constraint)\n            else:\n                self.objectHandles.showGuides()\n                self.objectHandles.hideAllHandles()\n                self.objectHandles.showHandle(self.constraint)\n            if direct.clusterMode == 'client':\n                oh = 'direct.manipulationControl.objectHandles'\n                cluster = direct.cluster\n                cluster(oh + '.showGuides()', 0)\n                cluster(oh + '.hideAllHandles()', 0)\n                cluster(oh + ('.showHandle(\"%s\")'% self.constraint), 0)\n            # Record relationship between selected nodes and widget\n            direct.selected.getWrtAll()\n            # hide the bbox of the selected objects during interaction\n            direct.selected.dehighlightAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3216
+  }
+}

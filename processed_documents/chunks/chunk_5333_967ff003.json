@@ -1,0 +1,9 @@
+{
+  "content": "def handleReaderOverflow(self):\n        # this is called if the incoming-datagram queue overflowed and\n        # we lost some data. Override and handle if desired.\n        pass\n\n    def lostConnection(self):\n        # This should be overrided by a derived class to handle an\n        # unexpectedly lost connection to the gameserver.\n        self.notify.warning(\"Lost connection to gameserver.\")\n\n    def handleDatagram(self, di):\n        # This class is meant to be pure virtual, and any classes that\n        # inherit from it need to make their own handleDatagram method\n        pass\n\n    def send(self, datagram):\n        # Zero-length datagrams might freak out the server.  No point\n        # in sending them, anyway.\n        if datagram.getLength() > 0:\n##             if self.notify.getDebug():\n##                 print \"ConnectionRepository sending datagram:\"\n##                 datagram.dumpHex(ostream)\n\n            self.sendDatagram(datagram)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5333
+  }
+}

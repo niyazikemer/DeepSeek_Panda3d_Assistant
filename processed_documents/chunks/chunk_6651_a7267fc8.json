@@ -1,0 +1,9 @@
+{
+  "content": "def filterEast(self, request, args):\n        if request == 'straight':\n            return 'East'\n        elif request == 'left':\n            return 'North'\n        else:\n            return None\n\nNote that input strings, by convention, should begin with a lowercase letter, as opposed to state names, which should begin with an uppercase letter. This allows you to make the distinction between requesting a state directly, and feeding a particular input string to an FSM. To feed input to this FSM, you would use the request() call, just as before:\n\nmyfsm.request('left') # or myfsm.request_left()\nmyfsm.request('left')\nmyfsm.request('straight') # or myfsm.request_straight()\nmyfsm.request('left')\n\nIf the FSM had been in state North originally, after the above sequence of operations it would now be in state East.\n\nThe defaultFilter method",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_528",
+    "parent": "processed_documents/context_documents/72c7beb9_6de13beb_fsm-with-input.json",
+    "chunk_number": 6651
+  }
+}

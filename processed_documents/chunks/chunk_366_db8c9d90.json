@@ -1,0 +1,9 @@
+{
+  "content": "# continue iteration to the next child\n            item, cookie = self.tree.GetNextChild(parent, cookie)\n\n    def reParentData(self, parent, child):\n        child.wrtReparentTo(parent)\n\n    def reParent(self, oldParent, newParent, child):\n        if newParent is None:\n            newParent = self.root\n        itemId = self.tree.GetItemData(oldParent)\n        newItem = self.tree.AppendItem(newParent, child)\n        self.tree.SetItemPyData(newItem, itemId)\n        self.reParentTree(oldParent, newItem)\n\n        obj = self.editor.objectMgr.findObjectById(itemId)\n        itemId = self.tree.GetItemData(newParent)\n        if itemId != \"render\":\n            newParentObj = self.editor.objectMgr.findObjectById(itemId)\n            self.reParentData(newParentObj[OG.OBJ_NP], obj[OG.OBJ_NP])\n        else:\n            self.reParentData(render, obj[OG.OBJ_NP])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 366
+  }
+}

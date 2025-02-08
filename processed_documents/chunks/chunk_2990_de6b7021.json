@@ -1,0 +1,9 @@
+{
+  "content": "result = []\n\n        while area > 0:\n\n            # We have to call findLargestHole() each time through this\n            # loop, instead of just walking through\n            # findAvailableHoles() in order, because\n            # findAvailableHoles() might return a list of overlapping\n            # holes.\n            tp = self.findLargestHole()\n            if not tp:\n                break\n\n            l, r, b, t = tp.p\n            tpArea = (r - l) * (t - b)\n            if tpArea >= area:\n                # we're done.\n                shorten = (tpArea - area) // (r - l)\n                t -= shorten\n                tp.p = (l, r, b, t)\n                tp.area = (r - l) * (t - b)\n                result.append(tp)\n                self.texPlacements = savedTexPlacements\n                self.bitmasks = savedBitmasks\n                return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2990
+  }
+}

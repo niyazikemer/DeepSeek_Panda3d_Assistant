@@ -1,0 +1,9 @@
+{
+  "content": "def enable(self, parent = None):\n        if parent:\n            self.reparentTo(parent)\n        else:\n            self.reparentTo(ShowBaseGlobal.direct.group)\n\n        self.updateGrid()\n        self.fEnabled = 1\n\n    def disable(self):\n        self.detachNode()\n        self.fEnabled = 0\n\n    def toggleGrid(self, parent = None):\n        if self.fEnabled:\n            self.disable()\n        else:\n            self.enable(parent = parent)\n\n    def isEnabled(self):\n        return self.fEnabled\n\n    def updateGrid(self):\n        # Update grid lines based upon current grid spacing and grid size\n        # First reset existing grid lines\n        self.minorLines.reset()\n        self.majorLines.reset()\n        self.centerLines.reset()\n\n        # Now redraw lines\n        numLines = int(math.ceil(self.gridSize/self.gridSpacing))\n        scaledSize = numLines * self.gridSpacing",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_183",
+    "parent": "processed_documents/context_documents/fba96cb7_DirectGrid.json",
+    "chunk_number": 3357
+  }
+}

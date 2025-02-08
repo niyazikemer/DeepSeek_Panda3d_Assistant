@@ -1,0 +1,9 @@
+{
+  "content": "def ChangeHierarchy(self, itemName, x, y):\n        parent = self.GetRootItem()\n        item = self.traverse(parent, itemName)\n        if item is None:\n            return\n\n        dragToItem, flags = self.HitTest(wx.Point(x, y))\n        if dragToItem.IsOk():\n            # prevent draging into itself\n            if dragToItem == item:\n                return\n            dragToItemName = self.GetItemText(dragToItem)\n            if isinstance(self.paletteUI.palette.findItem(dragToItemName), ObjectBase):\n                # this is a file node, bailing out\n                return\n\n            newItem = self.AppendItem(dragToItem, itemName)\n\n            itemObj = self.paletteUI.palette.findItem(itemName)\n            if itemObj is not None:\n                # reparenting the data objects...\n                if dragToItemName == self.rootName:\n                    self.paletteUI.palette.add(itemObj)\n                else:\n                    self.paletteUI.palette.add(itemObj, dragToItemName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 311
+  }
+}

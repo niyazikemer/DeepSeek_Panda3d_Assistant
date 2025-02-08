@@ -1,0 +1,9 @@
+{
+  "content": "# We use our own zip implementation, which can create the correct\n    # alignment and signature needed by Android automatically.\n    bundle_fn.unlink()\n\n    bundle = p3d.ZipArchive()\n    if not bundle.open_read_write(bundle_fn):\n        command.announce(\n            f'\\tUnable to open {bundle_fn} for writing', distutils.log.ERROR)\n        return\n\n    config = BundleConfig()\n    config.bundletool.version = '1.1.0'\n    config.optimizations.splits_config.Clear()\n    config.optimizations.uncompress_native_libraries.enabled = False\n    bundle.add_subfile('BundleConfig.pb', p3d.StringStream(config.SerializeToString()), 9)\n\n    resources = ResourceTable()\n    package = resources.package.add()\n    package.package_id.id = 0x7f\n    for attrib in axml.root.element.attribute:\n        if attrib.name == 'package':\n            package.package_name = attrib.value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1914
+  }
+}

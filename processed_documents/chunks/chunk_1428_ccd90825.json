@@ -1,0 +1,9 @@
+{
+  "content": "# Destroy children\n            for child in self.getChildren():\n                childGui = self.guiDict.get(child.getName())\n                if childGui:\n                    childGui.destroy()\n                else:\n                    # RAU since we added the class to the name, try\n                    # it with the original name\n                    parts = child.getName().split('-')\n                    simpleChildGui = self.guiDict.get(parts[-1])\n                    if simpleChildGui:\n                        simpleChildGui.destroy()\n                # messenger.send(DESTROY + child.getName())\n            del self.guiDict[self.guiId]\n            del self.frameStyle\n            # Get rid of node path\n            self.removeNode()\n            for nodePath in self.stateNodePath:\n                nodePath.removeNode()\n            del self.stateNodePath\n            del self.guiItem\n            # Call superclass destruction method (clears out hooks)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1428
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if 'WindowsSdkDir' in os.environ:\n                self.PSDK = os.environ['WindowsSdkDir']\n            elif platform.architecture()[0] == '32bit' and Filename('/c/Program Files/Microsoft Platform SDK for Windows Server 2003 R2').exists():\n                self.PSDK = Filename('/c/Program Files/Microsoft Platform SDK for Windows Server 2003 R2').toOsSpecific()\n            elif os.path.exists(os.path.join(self.MSVC, 'PlatformSDK')):\n                self.PSDK = os.path.join(self.MSVC, 'PlatformSDK')\n            else:\n                print('Could not locate the Microsoft Windows Platform SDK! Try running from the Visual Studio Command Prompt.')\n                sys.exit(1)\n\n            # We need to use the correct compiler setting for debug vs. release builds.\n            self.MD = '/MD'\n            if isDebugBuild:\n                self.MD = '/MDd'\n                self.dllext = '_d'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2036
+  }
+}

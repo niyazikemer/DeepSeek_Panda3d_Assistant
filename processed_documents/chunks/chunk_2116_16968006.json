@@ -1,0 +1,9 @@
+{
+  "content": "code = code.replace('EXTRA_INIT_FUNC_DECLS', decls)\n            code = code.replace('EXTRA_INIT_FUNC_CALLS', calls)\n\n            if self.platform.startswith('win'):\n                code += self.frozenDllMainCode\n            initCode = self.mainInitCode % {\n                'frozenMainCode': code,\n                'programName': os.path.basename(basename),\n                'dllexport': dllexport,\n                'dllimport': dllimport,\n            }\n            if self.platform.startswith('win'):\n                target = basename + '.exe'\n            else:\n                target = basename\n\n            compileFunc = self.cenv.compileExe\n\n        else:\n            if self.platform.startswith('win'):\n                target = basename + self.cenv.dllext + '.pyd'\n            else:\n                target = basename + '.so'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2116
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def __closeLogFile(self) -> None:\n        \"\"\"\n        Close the error/warning output file\n        \"\"\"\n        if self.__logFile is not None:\n            self.__logFile.close()\n\n    def __getTimeStamp(self) -> str:\n        \"\"\"\n        Return the offset between current time and log file startTime\n        \"\"\"\n        t = time.time()\n        dt = t - self.__startTime\n        days, dt = divmod(dt, 86400)\n        hours, dt = divmod(dt, 3600)\n        minutes, dt = divmod(dt, 60)\n        seconds = int(math.ceil(dt))\n        return \"%02d:%02d:%02d:%02d: \" % (days, hours, minutes, seconds)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_103",
+    "parent": "processed_documents/context_documents/ec704797_Logger.json",
+    "chunk_number": 1671
+  }
+}

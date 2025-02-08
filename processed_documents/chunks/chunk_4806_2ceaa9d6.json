@@ -1,0 +1,9 @@
+{
+  "content": "phase = self.aliasPhaseMap.get(aPhase,aPhase)\n        assert isinstance(phase,int), 'Phase alias \\'%s\\' not found' % aPhase\n        assert phase >= -1, 'Invalid phase number \\'%s\\'' % phase\n\n        if phase > self.phase:\n            for x in range(self.phase + 1, phase + 1):\n                self.__loadPhase(x)\n        elif phase < self.phase:\n            for x in range(self.phase, phase, -1):\n                self.__unloadPhase(x)\n\n        self.__phasing = False\n\n    def cleanup(self):\n        \"\"\"\n        Will force the unloading, in correct order, of all currently\n        loaded phases.\n        \"\"\"\n        if self.phase >= 0:\n            self.setPhase(-1)\n\n    def __loadPhase(self, phase):\n        aPhase = self.phaseAliasMap.get(phase, phase)\n        getattr(self, f'loadPhase{aPhase}',\n                lambda: self.__phaseNotFound('load', aPhase))()\n        self.phase = phase",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_278",
+    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
+    "chunk_number": 4806
+  }
+}

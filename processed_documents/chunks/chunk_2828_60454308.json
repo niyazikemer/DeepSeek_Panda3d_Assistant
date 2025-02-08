@@ -1,0 +1,9 @@
+{
+  "content": "# Generate unique name\n        id = 'Particle-%d' % ParticleInterval.particleNum\n        ParticleInterval.particleNum += 1\n        if name is None:\n            name = id\n        # Record instance variables\n        self.particleEffect = particleEffect\n        self.cleanup = cleanup\n\n        if parent is not None:\n            self.particleEffect.reparentTo(parent)\n        if worldRelative:\n            renderParent = render\n        if renderParent:\n            for particles in self.particleEffect.getParticlesList():\n                particles.setRenderParent(renderParent.node())\n\n        self.__softStopped = False\n\n        if softStopT == 0.0:\n            self.softStopT = duration\n        elif softStopT < 0.0:\n            self.softStopT = duration+softStopT\n        else:\n            self.softStopT = softStopT\n\n        # Initialize superclass\n        Interval.__init__(self, name, duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_163",
+    "parent": "processed_documents/context_documents/654cc874_ParticleInterval.json",
+    "chunk_number": 2828
+  }
+}

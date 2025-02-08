@@ -1,0 +1,9 @@
+{
+  "content": "def setNear(self, near):\n        dr = self.activeDisplayRegion\n        if dr:\n            dr.camLens.setNear(near)\n            ShowBaseGlobal.direct.cluster('base.camLens.setNear(%f)' % near, 0)\n\n    def setFar(self, far):\n        dr = self.activeDisplayRegion\n        if dr:\n            dr.camLens.setFar(far)\n            ShowBaseGlobal.direct.cluster('base.camLens.setFar(%f)' % far, 0)\n\n    def setHFov(self, hFov):\n        dr = self.activeDisplayRegion\n        if dr:\n            if self.lockedFov.get():\n                sf = hFov/dr.getHfov()\n                vFov = min(dr.getVfov() * sf, 170.0)\n                dr.setFov(hFov, vFov)\n                # Update scale\n                self.vFov.set(vFov, 0)\n            else:\n                # Just set horizontal\n                dr.setHfov(hFov)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 962
+  }
+}

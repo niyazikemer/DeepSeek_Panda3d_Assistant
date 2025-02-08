@@ -1,0 +1,9 @@
+{
+  "content": "To get the position:\n\npython\n\nif base.mouseWatcherNode.hasMouse():\n  x = base.mouseWatcherNode.getMouseX()\n  y = base.mouseWatcherNode.getMouseY()\n\ncpp\n\nif (mouseWatcher->has_mouse()) {\n  if (window->get_graphics_window()) {\n    int x = window->get_graphics_window()->get_pointer(0).get_x();\n    int y = window->get_graphics_window()->get_pointer(0).get_y();\n  }\n}\n\nThe mouse clicks generate \"events.\" To understand what events are, and how to process them, you will need to read the Event Handling <tasks-and-event-handling> section. The names of the events generated are:\n\nmouse1 Mouse Button 1 Pressed mouse2 Mouse Button 2 Pressed mouse3 Mouse Button 3 Pressed mouse1-up Mouse Button 1 Released mouse2-up Mouse Button 2 Released mouse3-up Mouse Button 3 Released wheel_up Mouse Wheel rolled upwards wheel_down Mouse Wheel rolled downwards\n\nIf you want to hide the mouse cursor, you want the line: cursor-hidden true in your Config.prc <configuring-panda3d> or this section of code:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_615",
+    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
+    "chunk_number": 7249
+  }
+}

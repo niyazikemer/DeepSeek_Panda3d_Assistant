@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis is just a sample code.\n\nLevelLoader should be rewritten\nto be game specific.\n\nYou need to define which ObjectMgr, ObjectHandler,\nObjectPalette, ProtoPalette would be used by importing section.\nThen declare them in initLoader function.\nYou also need to define defaultPath in initLoader function, too.\n\"\"\"\n\nimport os\n\nfrom direct.leveleditor.LevelLoaderBase import LevelLoaderBase\nfrom direct.leveleditor.ObjectMgr import ObjectMgr\nfrom direct.leveleditor.ProtoPalette import ProtoPalette\nfrom .ObjectHandler import ObjectHandler\nfrom .ObjectPalette import ObjectPalette\n\n\nclass LevelLoader(LevelLoaderBase):\n    def __init__(self):\n        LevelLoaderBase.__init__(self)\n\n    def initLoader(self):\n        self.defaultPath = os.path.dirname(__file__)\n\n        from direct.showbase import ShowBaseGlobal\n        base = ShowBaseGlobal.base\n        base.objectPalette = ObjectPalette()\n        base.protoPalette = ProtoPalette()\n        base.objectHandler = ObjectHandler(None)\n        base.objectMgr = ObjectMgr(None)\n",
+  "metadata": {
+    "source": "corpus_panda3d/source_code/direct/src/leveleditor/LevelLoader.py",
+    "doc_type": "python",
+    "file_path": "processed_documents/context_documents/a0e21ba6_LevelLoader.json",
+    "doc_id": "doc_51"
+  }
+}

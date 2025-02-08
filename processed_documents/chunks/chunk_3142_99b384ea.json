@@ -1,0 +1,9 @@
+{
+  "content": "node = bundleNP.node()\n        # A model loaded from disk will always have just one bundle.\n        assert node.getNumBundles() == 1\n        bundleHandle = node.getBundleHandle(0)\n\n        if self.mergeLODBundles:\n            loadedBundleHandle = self.__commonBundleHandles.get(partName, None)\n            if loadedBundleHandle:\n                # We've already got a bundle for this part; merge it.\n                node.mergeBundles(bundleHandle, loadedBundleHandle)\n                bundleHandle = loadedBundleHandle\n            else:\n                # We haven't already got a bundle for this part; store it.\n                self.__commonBundleHandles[partName] = bundleHandle\n\n        bundleDict[partName] = Actor.PartDef(bundleNP, bundleHandle, partModel)\n\n\n    def makeSubpart(self, partName, includeJoints, excludeJoints = (),\n                    parent=\"modelRoot\", overlapping = False):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3142
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if not name:\n                    continue\n\n                name = string_tables[link][name : string_tables[link].find(b'\\0', name)]\n                if name == symbol_name:\n                    if shndx == 0: # SHN_UNDEF\n                        continue\n                    elif shndx >= 0xff00 and shndx <= 0xffff:\n                        assert False\n                    else:\n                        # Got it.  Make the replacement.\n                        off = section_offsets[shndx] + value\n                        elf_data[off:off+len(replacement)] = replacement\n                        replaced = True\n\n        return replaced\n\n    def _find_symbol_macho(self, macho_data, symbol_name):\n        \"\"\" Returns the offset of the given symbol in the binary file. \"\"\"\n\n        if macho_data[:4] in (b'\\xCE\\xFA\\xED\\xFE', b'\\xCF\\xFA\\xED\\xFE'):\n            endian = '<'\n        else:\n            endian = '>'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2144
+  }
+}

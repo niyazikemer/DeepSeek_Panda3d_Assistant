@@ -1,0 +1,9 @@
+{
+  "content": "class Semaphore(core.Semaphore):\n    \"\"\" This class provides a wrapper around Panda's Semaphore\n    object.  The wrapper is designed to emulate Python's own\n    threading.Semaphore object. \"\"\"\n\n    def __init__(self, value = 1):\n        core.Semaphore.__init__(self, value)\n\n    def acquire(self, blocking = True):\n        if blocking:\n            core.Semaphore.acquire(self)\n            return True\n        else:\n            return core.Semaphore.tryAcquire(self)\n\n    __enter__ = acquire\n\n    def __exit__(self, t, v, tb):\n        self.release()\n\n\nclass BoundedSemaphore(Semaphore):\n    \"\"\" This class provides a wrapper around Panda's Semaphore\n    object.  The wrapper is designed to emulate Python's own\n    threading.BoundedSemaphore object. \"\"\"\n\n    def __init__(self, value = 1):\n        self.__max = value\n        Semaphore.__init__(value)\n\n    def release(self):\n        if self.getCount() > self.__max:\n            raise ValueError\n\n        Semaphore.release(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3767
+  }
+}

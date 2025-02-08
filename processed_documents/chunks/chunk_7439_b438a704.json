@@ -1,0 +1,9 @@
+{
+  "content": "Creating New Textures from Scratch\n\nThe PNMImage Class\n\nThis class is how Panda3D handles regular images (.gif, .jpg, and the like). This class allows you to manipulate individual pixels of the image. You can load existing images using the function read(filename) <.PNMImage.read> where filename is the path to the image file. Or, you can create a brand new image from scratch, by passing the x, y size to the constructor.\n\npython\n\nmyImage = PNMImage()\nmyImage.read(\"testImg.png\")\n\nmyEmptyImage = PNMImage(256, 256)\n\ncpp\n\nPNMImage my_image;\nmy_image.read(Filename(\"testImg.png\"));\n\nPNMImage my_empty_image(256, 256);\n\nYou can get the size of the image you have read using the ~.PNMImage.get_x_size() and ~.PNMImage.get_y_size() methods. Although you cannot change the size of an image directly, you can rescale an image by filtering it into a larger or smaller PNMImage:\n\npython\n\nfullSize = PNMImage(Filename(\"testImg.png\"))\nreduced = PNMImage(256, 256)\nreduced.gaussianFilterFrom(1.0, fullSize)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_647",
+    "parent": "processed_documents/context_documents/c417f3fc_7487dfe5_creating-textures.json",
+    "chunk_number": 7439
+  }
+}

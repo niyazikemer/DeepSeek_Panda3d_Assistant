@@ -1,0 +1,9 @@
+{
+  "content": "Polygon Occluder Culling\n\nIntroduction\n\nOne method of occlusion culling is to explicitly define a shape which will block out objects behind it. This is called a Polygon Occluder and is represented in Panda by the .OccluderNode.\n\nCreating an OccluderNode\n\nAn occluder is defined by four vertices. The order of the vertices is important as this defines which way the normal of the polygon is facing.\n\npython\n\noccluder = OccluderNode('my occluder', Point3(0, 0, 0), Point3(1, 0, 0),\n                                       Point3(1, 1, 0), Point3(0, 1, 0))\noccluder_nodepath = render.attachNewNode(occluder)\nrender.setOccluder(occluder_nodepath)\n\ncpp\n\nPT(OccluderNode) occluder = new OccluderNode(\"my occluder\",\n   LPoint3(0, 0, 0), LPoint3(1, 0, 0), LPoint3(1, 1, 0), LPoint3(0, 1, 0));\nNodePath occluder_nodepath = render.attach_new_node(occluder);\nrender.set_occluder(occluder_nodepath);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_555",
+    "parent": "processed_documents/context_documents/c0ffb5e8_79358048_polygon-occluder-culling.json",
+    "chunk_number": 6949
+  }
+}

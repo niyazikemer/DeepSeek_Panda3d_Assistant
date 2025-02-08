@@ -1,0 +1,9 @@
+{
+  "content": "class Func(FunctionInterval):\n    def __init__(self, *args, **kw):\n        function = args[0]\n        assert hasattr(function, '__call__')\n        extraArgs = args[1:]\n        kw['extraArgs'] = extraArgs\n        FunctionInterval.__init__(self, function, **kw)\n\nclass Wait(WaitInterval):\n    def __init__(self, duration):\n        WaitInterval.__init__(self, duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2917
+  }
+}

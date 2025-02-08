@@ -1,0 +1,9 @@
+{
+  "content": "def onViewChange(self, evt, viewIdx):\n        for i in range(4):\n            if viewIdx >=0 and\\\n               i != viewIdx:\n                base.winList[i].setActive(0)\n            else:\n                base.winList[i].setActive(1)\n\n        self.viewFrame.SetExpanded(viewIdx)\n\n    def getCurrentView(self):\n        \"\"\"Function for get the current Viewport\"\"\"\n        if self.viewFrame._expanded == -1: #four view\n            self.currentView = None\n        if self.viewFrame._expanded == 0: #top view\n            self.currentView = self.topView\n        if self.viewFrame._expanded == 1: #front view\n            self.currentView = self.frontView\n        if self.viewFrame._expanded == 2: #left view\n            self.currentView = self.leftView\n        if self.viewFrame._expanded == 3: #perspect view\n            self.currentView = self.perspView\n\n        return self.currentView",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 191
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "self.lastPos.assign(Point3(\n                    self.nodePath.getPos(self.nodePathParent)))\n                # Init delta time\n                self.deltaTime = 0.0\n                # Record first point\n                self.recordPoint(self.recordStart)\n            # Everything else\n            else:\n                if self.recordingType.get() == 'Refine' or \\\n                   self.recordingType.get() == 'Extend':\n                    # Turn off looping playback\n                    self.loopPlayback = 0\n                    # Update widget to reflect new value\n                    self.getVariable('Playback', 'Loop').set(0)\n                    # Select tempCS as playback nodepath\n                    self.oldPlaybackNodePath = self.playbackNodePath\n                    self.setPlaybackNodePath(self.tempCS)\n                    # Parent record node path to temp\n                    self.nodePath.reparentTo(self.playbackNodePath)\n                    # Align with temp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1174
+  }
+}

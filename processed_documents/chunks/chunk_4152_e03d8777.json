@@ -1,0 +1,9 @@
+{
+  "content": "def set(self, name, isActive, inputSource=None):\n        assert self.debugPrint(\"set(name=%s, isActive=%s, inputSource=%s)\"%(name, isActive, inputSource))\n        # inputSource is a string that identifies where this input change\n        # is coming from (like 'WASD', 'ArrowKeys', etc.)\n        # Each unique inputSource is allowed to influence this input item\n        # once: it's either 'active' or 'not active'. If at least one source\n        # activates this input item, the input item is considered to be active\n        if inputSource is None:\n            inputSource = 'anonymous'\n        if isActive:\n            self._state.setdefault(name, set())\n            self._state[name].add(inputSource)\n        else:\n            if name in self._state:\n                self._state[name].discard(inputSource)\n                if len(self._state[name]) == 0:\n                    del self._state[name]\n        # We change the name before sending it because this may",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4152
+  }
+}

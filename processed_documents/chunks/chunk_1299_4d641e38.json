@@ -1,0 +1,9 @@
+{
+  "content": "return dict(zip(('min','median','max'),[l*s/b for l,s,b in zip(litterRange,lifespanRange,birthRateRange)]))\n\n    def accelerate(self,time,stepCount = 1,stepTime=0.0):\n        if time > 0.0:\n            if stepTime == 0.0:\n                stepTime = float(time)/stepCount\n                remainder = 0.0\n            else:\n                stepCount = int(float(time)/stepTime)\n                remainder = time-stepCount*stepTime\n\n            for step in range(stepCount):\n                base.particleMgr.doParticles(stepTime,self,False)\n                base.physicsMgr.doPhysics(stepTime,self)\n\n            if remainder:\n                base.particleMgr.doParticles(remainder,self,False)\n                base.physicsMgr.doPhysics(remainder,self)\n\n            self.render()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1299
+  }
+}

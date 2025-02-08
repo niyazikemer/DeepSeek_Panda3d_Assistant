@@ -1,0 +1,9 @@
+{
+  "content": "def processType(handle, type):\n    typename = translated_type_name(type, scoped=False)\n    derivations = [translated_type_name(interrogate_type_get_derivation(type, n)) for n in range(interrogate_type_number_of_derivations(type))]\n\n    if interrogate_type_has_comment(type):\n        print(block_comment(interrogate_type_comment(type)), file=handle)\n\n    if interrogate_type_is_enum(type):\n        print(\"enum %s {\" % typename, file=handle)\n        for i_value in range(interrogate_type_number_of_enum_values(type)):\n            docstring = comment(interrogate_type_enum_value_comment(type, i_value))\n            if docstring:\n                print(docstring, file=handle)\n            print(interrogate_type_enum_value_name(type, i_value), \"=\", interrogate_type_enum_value(type, i_value), \",\", file=handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1636
+  }
+}

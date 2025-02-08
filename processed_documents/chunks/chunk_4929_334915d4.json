@@ -1,0 +1,9 @@
+{
+  "content": "if hasattr(dr, 'setIncompleteRender'):\n            dr.setIncompleteRender(False)\n\n        left, right, bottom, top = coords\n\n        # Now make a new Camera node.\n        if cameraName:\n            cam2dNode = Camera('cam2dp_' + cameraName)\n        else:\n            cam2dNode = Camera('cam2dp')\n\n        if lens is None:\n            lens = OrthographicLens()\n            lens.setFilmSize(right - left, top - bottom)\n            lens.setFilmOffset((right + left) * 0.5, (top + bottom) * 0.5)\n            lens.setNearFar(-1000, 1000)\n        cam2dNode.setLens(lens)\n\n        # self.camera2d is the analog of self.camera, although it's\n        # not as clear how useful it is.\n        if self.camera2dp is None:\n            self.camera2dp = self.render2dp.attachNewNode('camera2dp')\n\n        camera2dp = self.camera2dp.attachNewNode(cam2dNode)\n        dr.setCamera(camera2dp)\n\n        if self.cam2dp is None:\n            self.cam2dp = camera2dp\n\n        return camera2dp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4929
+  }
+}

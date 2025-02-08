@@ -1,0 +1,9 @@
+{
+  "content": "myScrolledList = DirectScrolledList(incButton_propertyName=value,\n                                    decButton_propertyName=value)\n\nincButton scrolls forward through the list; decButton backward. Note that this only works for initialization. To change a property of the scroll buttons later in the program, you must use:\n\nmyScrolledList.incButton['propertyName'] = value\nmyScrolledList.decButton['propertyName'] = value\n\nUnlike the first method, this does not work with NodePath options like position; use setPos(...) for that.\n\nFor example, the following creates a scrolled list and resizes and moves the buttons appropriately.\n\nmyScrolledList = DirectScrolledList(\n    incButton_pos=(.5, 0, 0), incButton_text=\"Inc\",\n    decButton_pos=(-.5, 0, 0), decButton_text=\"Dec\")\nmyScrolledList.incButton['frameSize'] = (0, 0.2, 0, 0.2)\nmyScrolledList.decButton['frameSize'] = (0, 0.2, 0, 0.2)\nmyScrolledList.incButton['text_scale'] = .2\nmyScrolledList.decButton['text_scale'] = .2",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_688",
+    "parent": "processed_documents/context_documents/2cf25dcb_54242df3_directscrolledlist.json",
+    "chunk_number": 7663
+  }
+}

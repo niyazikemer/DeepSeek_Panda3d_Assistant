@@ -1,0 +1,9 @@
+{
+  "content": "# Utility to see if we are looking at the top or bottom of\n        # a 2D planar widget or if we are looking at a 2D planar widget\n        # edge on\n        # Based upon angle between view vector from eye through the\n        # widget's origin and one of the three principle axes\n        axis = self.constraint[:1]\n        # First compute vector from eye through widget origin\n        mWidget2Cam = ShowBaseGlobal.direct.widget.getMat(ShowBaseGlobal.direct.camera)\n        # And determine where the viewpoint is relative to widget\n        pos = VBase3(0)\n        decomposeMatrix(mWidget2Cam, VBase3(0), VBase3(0), pos,\n                        CSDefault)\n        widgetDir = Vec3(pos)\n        widgetDir.normalize()\n        # Convert specified widget axis to view space\n        if axis == 'x':\n            widgetAxis = Vec3(mWidget2Cam.xformVec(DG.X_AXIS))\n        elif axis == 'y':\n            widgetAxis = Vec3(mWidget2Cam.xformVec(DG.Y_AXIS))\n        elif axis == 'z':",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3235
+  }
+}

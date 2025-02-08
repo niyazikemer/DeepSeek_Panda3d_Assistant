@@ -1,0 +1,9 @@
+{
+  "content": "# Allow index style references\n    def __setitem__(self, key, value):\n        self.configure(*(), **{key: value})\n\n    def cget(self, option):\n        # Get current configuration setting.\n        # This is for compatibility with DirectGui functions\n        getter = getattr(self, 'get' + option[0].upper() + option[1:])\n        return getter()\n\n    # Allow index style refererences\n    __getitem__ = cget\n\n    def destroy(self):\n        self.removeNode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_75",
+    "parent": "processed_documents/context_documents/c320ed49_OnscreenImage.json",
+    "chunk_number": 1347
+  }
+}

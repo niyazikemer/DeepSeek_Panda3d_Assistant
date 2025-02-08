@@ -1,0 +1,9 @@
+{
+  "content": "if \"ViewGlow\" in configuration:\n                text += \"  o_color.r = o_color.a;\\n\"\n            if \"VolumetricLighting\" in configuration:\n                text += \"  float decay = 1.0f;\\n\"\n                text += \"  float2 curcoord = %s;\\n\" % (texcoords[\"color\"])\n                text += \"  float2 lightdir = curcoord - k_casterpos.xy;\\n\"\n                text += \"  lightdir *= k_vlparams.x;\\n\"\n                text += \"  half4 sample = tex2D(k_txcolor, curcoord);\\n\"\n                text += \"  float3 vlcolor = sample.rgb * sample.a;\\n\"\n                text += \"  for (int i = 0; i < %s; i++) {\\n\" % (int(configuration[\"VolumetricLighting\"].numsamples))\n                text += \"    curcoord -= lightdir;\\n\"\n                text += \"    sample = tex2D(k_tx%s, curcoord);\\n\" % (configuration[\"VolumetricLighting\"].source)\n                text += \"    sample *= sample.a * decay;//*weight\\n\"\n                text += \"    vlcolor += sample.rgb;\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3973
+  }
+}

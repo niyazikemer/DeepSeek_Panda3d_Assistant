@@ -1,0 +1,9 @@
+{
+  "content": "# make sure we don't have a stale location\n            distObj.parentId = None\n            distObj.zoneId = None\n            distObj.setLocation(parentId, zoneId)\n            distObj.updateRequiredFields(dclass, di)\n            # updateRequiredFields calls announceGenerate\n        else:\n            # ...it is not in the dictionary or the cache.\n            # Construct a new one\n            classDef = dclass.getClassDef()\n            if classDef is None:\n                self.notify.error(\"Could not create an undefined %s object.\" % (dclass.getName()))\n            distObj = classDef(self)\n            distObj.dclass = dclass\n            # Assign it an Id\n            distObj.doId = doId\n            # Put the new do in the dictionary\n            self.doId2do[doId] = distObj\n            # Update the required fields\n            distObj.generateInit()  # Only called when constructed\n            distObj._retrieveCachedData()\n            distObj.generate()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5601
+  }
+}

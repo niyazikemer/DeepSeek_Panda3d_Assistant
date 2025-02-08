@@ -1,0 +1,9 @@
+{
+  "content": "self._dynamicGroups\n        A list of group names for which it is permissible to specify options\n        before components of that group are created.\n        If a widget is a derived class the order of execution would be::\n\n          foo.optiondefs = {}\n          foo.defineoptions()\n            fooParent()\n               fooParent.optiondefs = {}\n               fooParent.defineoptions()\n\n3)  :func:`~DirectGuiBase.addoptions` is called.  This combines options\n    specified as keywords to the widget constructor (stored in\n    self._constructorKeywords) with the default options (stored in optiondefs).\n    Results are stored in\n    ``self._optionInfo = { keyword: [default, current, handler] }``.\n    If a keyword is of the form 'component_option' it is left in the\n    self._constructorKeywords dictionary (for use by component constructors),\n    otherwise it is 'used', and deleted from self._constructorKeywords.\n\n    Notes:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1362
+  }
+}

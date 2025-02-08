@@ -1,0 +1,9 @@
+{
+  "content": "# Determine what the speeds are based on the buttons:\n        self.speed=(forward and self.avatarControlForwardSpeed or\n                    reverse and -self.avatarControlReverseSpeed)\n        # Slide speed is a scaled down version of forward speed\n        # Note: you can multiply a factor in here if you want slide to\n        # be slower than normal walk/run. Let's try full speed.\n        #self.slideSpeed=(slideLeft and -self.avatarControlForwardSpeed*0.75 or\n        #                 slideRight and self.avatarControlForwardSpeed*0.75)\n        self.slideSpeed=(reverse and slideLeft and -self.avatarControlReverseSpeed*0.75 or\n                         reverse and slideRight and self.avatarControlReverseSpeed*0.75 or\n                         slideLeft and -self.avatarControlForwardSpeed*0.75 or\n                         slideRight and self.avatarControlForwardSpeed*0.75)\n        self.rotationSpeed=not (slideLeft or slideRight) and (",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4092
+  }
+}

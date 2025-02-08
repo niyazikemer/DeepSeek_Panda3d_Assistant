@@ -1,0 +1,9 @@
+{
+  "content": "# Event Handling\n    def listSelectionChanged(self, event):\n        partNumber = self.selectedIndex()\n        if partNumber is None:\n            partNumber = 0\n        string = self.topInspector().stringForPartNumber(partNumber)\n        self.textWidget.component('text').configure(state = 'normal')\n        self.textWidget.delete('1.0', tk.END)\n        self.textWidget.insert(tk.END, string)\n        self.textWidget.component('text').configure(state = 'disabled')\n\n    def popOrDive(self, event):\n        \"\"\"The list has been double-clicked. If the selection is 'self' then pop,\n        otherwise dive into the selected part\"\"\"\n        if self.selectedIndex() == 0:\n            self.pop()\n        else:\n            self.dive()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1030
+  }
+}

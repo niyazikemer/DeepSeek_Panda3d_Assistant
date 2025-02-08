@@ -1,0 +1,9 @@
+{
+  "content": "def _doProfileTasks(self, task=None):\n        # gather data from the previous frame\n        # set up for the next frame\n        if self._task is not None and taskMgr._hasProfiledDesignatedTask():\n            session = taskMgr._getLastTaskProfileSession()\n            # if we couldn't profile, throw this result out\n            if session.profileSucceeded():\n                namePrefix = self._task.getNamePrefix()\n                if namePrefix not in self._namePrefix2tracker:\n                    self._namePrefix2tracker[namePrefix] = TaskTracker(namePrefix)\n                tracker = self._namePrefix2tracker[namePrefix]\n                tracker.addProfileSession(session)\n\n        # set up the next task\n        self._task = taskMgr._getRandomTask()\n        taskMgr._setProfileTask(self._task)\n\n        return task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3941
+  }
+}

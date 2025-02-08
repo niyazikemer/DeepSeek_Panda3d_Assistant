@@ -1,0 +1,9 @@
+{
+  "content": "// This is probably the most important uniform, transforming a model-space\n// coordinate into a clip-space (ie. relative to the window) coordinate.  This\n// is usually used in the vertex shader to transform p3d_Vertex and store the\n// result in gl_Position.\nuniform mat4 p3d_ModelViewProjectionMatrix;\n\n// These are parts of the above matrix.\nuniform mat4 p3d_ModelViewMatrix;\nuniform mat4 p3d_ProjectionMatrix;\nuniform mat4 p3d_ModelMatrix;\nuniform mat4 p3d_ViewMatrix;\nuniform mat4 p3d_ViewProjectionMatrix;\n\n// This is the upper 3x3 of the inverse transpose of the ModelViewMatrix.  It is\n// used to transform the normal vector into view-space coordinates.\nuniform mat3 p3d_NormalMatrix;\n\n// It's possible to append Inverse, Transpose, or InverseTranspose to any of the\n// above matrix names to get an inverse and/or transpose version of that matrix:\nuniform mat4 p3d_ProjectionMatrixInverse;\nuniform mat4 p3d_ProjectionMatrixTranspose;\nuniform mat4 p3d_ModelViewMatrixInverseTranspose;",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_659",
+    "parent": "processed_documents/context_documents/f02f1382_244963d7_list-of-glsl-inputs.json",
+    "chunk_number": 7520
+  }
+}

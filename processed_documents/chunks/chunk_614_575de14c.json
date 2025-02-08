@@ -1,0 +1,9 @@
+{
+  "content": "def undo(self):\n        if self.origMat is None:\n            print(\"Can't undo this transform\")\n        else:\n            print(\"Undo: transformObject\")\n            obj = self.editor.objectMgr.findObjectById(self.uid)\n            if obj:\n                obj[OG.OBJ_NP].setMat(self.origMat)\n                self.editor.objectMgr.objectsLastXform[self.uid] = Mat4(self.origMat)\n            del self.origMat\n            self.origMat = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 614
+  }
+}

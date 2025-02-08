@@ -1,0 +1,9 @@
+{
+  "content": "def loadFromFile(self, fileName, filePath=None):\n        if filePath is None:\n            filePath = self.defaultPath\n\n        if fileName.endswith('.py'):\n            fileName = fileName[:-3]\n        file, pathname, description = imp.find_module(fileName, [filePath])\n        try:\n            module = imp.load_module(fileName, file, pathname, description)\n            return True\n        except Exception:\n            print('failed to load %s'%fileName)\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_48",
+    "parent": "processed_documents/context_documents/779aa814_LevelLoaderBase.json",
+    "chunk_number": 627
+  }
+}

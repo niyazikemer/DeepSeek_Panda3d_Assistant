@@ -1,0 +1,9 @@
+{
+  "content": "def enableAvatarControls(self):\n        \"\"\"\n        Activate the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"enableAvatarControls()\")\n        assert self.collisionsActive\n\n        if __debug__:\n            #self.accept(\"control-f3\", self.spawnTest) #*#\n            self.accept(\"f3\", self.reset) # for debugging only.\n\n        taskName = \"AvatarControls-%s\"%(id(self),)\n        # remove any old\n        taskMgr.remove(taskName)\n        # spawn the new task\n        taskMgr.add(self.handleAvatarControls, taskName, 25)\n        if self.physVelocityIndicator:\n            taskMgr.add(self.avatarPhysicsIndicator, \"AvatarControlsIndicator%s\"%(id(self),), 35)\n\n    def disableAvatarControls(self):\n        \"\"\"\n        Ignore the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"disableAvatarControls()\")\n        taskName = \"AvatarControls-%s\"%(id(self),)\n        taskMgr.remove(taskName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4066
+  }
+}

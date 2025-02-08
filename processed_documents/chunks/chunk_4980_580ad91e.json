@@ -1,0 +1,9 @@
+{
+  "content": "self.oobeVis = base.loader.loadModel('models/misc/camera', okMissing = True)\n            if not self.oobeVis:\n                # Sometimes we have default-model-extension set to\n                # egg, but the file might be a bam file.\n                self.oobeVis = base.loader.loadModel('models/misc/camera.bam', okMissing = True)\n            if not self.oobeVis:\n                self.oobeVis = NodePath('oobeVis')\n            self.oobeVis.node().setFinal(1)\n            self.oobeVis.setLightOff(1)\n            self.oobeCullFrustum = None\n\n            self.__directObject.accept('oobe-down', self.__oobeButton, extraArgs = [''])\n            self.__directObject.accept('oobe-repeat', self.__oobeButton, extraArgs = ['-repeat'])\n            self.__directObject.accept('oobe-up', self.__oobeButton, extraArgs = ['-up'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4980
+  }
+}

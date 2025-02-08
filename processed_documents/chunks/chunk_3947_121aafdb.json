@@ -1,0 +1,9 @@
+{
+  "content": "DOWN_4 = \"\"\"\n//Cg\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float2 l_texcoordNW : TEXCOORD0,\n             out float2 l_texcoordNE : TEXCOORD1,\n             out float2 l_texcoordSW : TEXCOORD2,\n             out float2 l_texcoordSE : TEXCOORD3,\n             uniform float4 texpad_src,\n             uniform float4 texpix_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  float2 c = vtx_texcoord * texpad_src.xy * 2;\n  l_texcoordNW = c + float2( texpix_src.x, -texpix_src.y);\n  l_texcoordNE = c + float2( texpix_src.x,  texpix_src.y);\n  l_texcoordSW = c + float2(-texpix_src.x, -texpix_src.y);\n  l_texcoordSE = c + float2(-texpix_src.x,  texpix_src.y);\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_217",
+    "parent": "processed_documents/context_documents/1f46d8bc_filterDown4.json",
+    "chunk_number": 3947
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if not isinstance(value, ResourceTable):\n            self._descs_size += 16\n\n        value._ident = self._ident + (key,)\n        i = 0\n        while i < len(leaves):\n            idname, leaf = leaves[i]\n            if idname >= key:\n                if key == idname:\n                    if not isinstance(leaves[i][1], ResourceTable):\n                        self._descs_size -= 16\n                    leaves[i] = (key, value)\n                    return\n                break\n            i += 1\n        if not isinstance(key, int):\n            self._strings_size += _padded(len(key) * 2 + 2, 4)\n        leaves.insert(i, (key, value))\n\n    def __len__(self):\n        return len(self._name_leaves) + len(self._id_leaves)\n\n    def __iter__(self):\n        keys = []\n        for name, leaf in self._name_leaves:\n            keys.append(name)\n        for id, leaf in self._id_leaves:\n            keys.append(id)\n        return iter(keys)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1876
+  }
+}

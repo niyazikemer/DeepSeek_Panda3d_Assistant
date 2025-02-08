@@ -1,0 +1,9 @@
+{
+  "content": "def createLinearFrictionForceWidget(self, forcePage, pageName,\n                                        count, force):\n        def setCoef(coef, f = force):\n            f.setCoef(coef)\n        forceName = 'Friction Force-' + repr(count)\n        frame = self.createForceFrame(forcePage, forceName, force)\n        self.createLinearForceWidgets(frame, pageName, forceName, force)\n        self.createFloater(frame, pageName, forceName + ' Coef',\n                           'Set linear friction force',\n                           command = setCoef, min = None,\n                           value = force.getCoef())\n        self.createForceActiveWidget(frame, pageName, forceName, force)\n\n    def createLinearCylinderVortexForceWidget(self, forcePage, pageName,\n                                              count, force):\n        forceName = 'Vortex Force-' + repr(count)\n\n        def setCoef(coef, f = force):\n            f.setCoef(coef)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 892
+  }
+}

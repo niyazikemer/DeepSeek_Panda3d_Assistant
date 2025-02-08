@@ -1,0 +1,9 @@
+{
+  "content": "def evalCommand(self, event):\n        \"\"\"Eval text in commandWidget\"\"\"\n        insertPt = self.commandWidget.index(tk.INSERT)\n        commandLineStart = self.commandWidget.search(\n            '>>> ', tk.INSERT, backwards = 1)\n        if commandLineStart:\n            commandStart = self.commandWidget.index(\n                commandLineStart + ' + 4 chars')\n            command = self.commandWidget.get(commandStart,\n                                             commandStart + ' lineend')\n            if command:\n                partDict = {'this': self.selectedPart(),\n                            'object': self.topInspector().object}\n                result = eval(command, partDict)\n                self.commandWidget.insert(tk.INSERT, repr(result) + '\\n>>> ')\n                self.commandWidget.see(tk.INSERT)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1031
+  }
+}

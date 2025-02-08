@@ -1,0 +1,9 @@
+{
+  "content": "for partBundleDict in partBundleDicts:\n            parts = []\n            if partName:\n                subpartDef = self.__subpartDict.get(partName, None)\n                if not subpartDef:\n                    # Whole part\n                    subset = None\n                    partDef = partBundleDict.get(partName)\n                else:\n                    # Sub-part\n                    subset = subpartDef.subset\n                    partDef = partBundleDict.get(subpartDef.truePartName)\n                if not partDef:\n                    Actor.notify.warning(\"no part named %s!\" % (partName))\n                    return []\n                parts = [partDef]\n            else:\n                subset = None\n                parts = partBundleDict.values()\n\n            for partData in parts:\n                partBundle = partData.getBundle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3094
+  }
+}

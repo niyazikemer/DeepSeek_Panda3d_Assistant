@@ -1,0 +1,9 @@
+{
+  "content": "if self.wantRender2dp:\n            builtins.render2dp = self.render2dp\n            builtins.aspect2dp = self.aspect2dp\n            builtins.pixel2dp = self.pixel2dp\n\n        # Now add this instance to the ShowBaseGlobal module scope.\n        builtins.run = ShowBaseGlobal.run\n        ShowBaseGlobal.base = self\n        ShowBaseGlobal.__dev__ = self.__dev__\n\n        if self.__dev__:\n            ShowBase.notify.debug('__dev__ == %s' % self.__dev__)\n        else:\n            ShowBase.notify.info('__dev__ == %s' % self.__dev__)\n\n        self.createBaseAudioManagers()\n\n        if self.__dev__ and ConfigVariableBool('track-gui-items', False):\n            # dict of guiId to gui item, for tracking down leaks\n            if not hasattr(ShowBase, 'guiItems'):\n                ShowBase.guiItems = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4872
+  }
+}

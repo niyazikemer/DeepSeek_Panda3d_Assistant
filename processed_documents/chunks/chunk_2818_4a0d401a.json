@@ -1,0 +1,9 @@
+{
+  "content": "# Calc integer frame number\n        intFrame = int(math.floor(absFrame + 0.0001))\n\n        # Pose anim\n\n        # We use our pre-computed list of animControls for\n        # efficiency's sake, rather than going through the relatively\n        # expensive Actor interface every frame.\n        for control in self.controls:\n            # Each animControl might have a different number of frames.\n            numFrames = control.getNumFrames()\n            if self.loopAnim:\n                frame = (intFrame % numFrames) + (absFrame - intFrame)\n            else:\n                frame = max(min(absFrame, numFrames - 1), 0)\n\n            control.pose(frame)\n\n        if self.forceUpdate:\n            self.actor.update()\n        self.state = CInterval.SStarted\n        self.currT = t",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2818
+  }
+}

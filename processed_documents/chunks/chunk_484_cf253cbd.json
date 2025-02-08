@@ -1,0 +1,9 @@
+{
+  "content": "class ObjectPaletteUI(wx.Panel):\n    def __init__(self, parent, editor):\n        wx.Panel.__init__(self, parent)\n\n        self.editor = editor\n\n        self.palette = self.editor.objectPalette\n        self.tree = PaletteTreeCtrl(self, treeStyle=wx.TR_DEFAULT_STYLE, rootName='Objects')\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.tree, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n        self.Layout()\n\n        parentSizer = wx.BoxSizer(wx.VERTICAL)\n        parentSizer.Add(self, 1, wx.EXPAND, 0)\n        parent.SetSizer(parentSizer)\n        parent.Layout()\n\n        self.opSortAlpha = \"Sort Alphabetical Order\"\n        self.opSortOrig  = \"Sort Original Order\"\n        self.opSort = self.opSortOrig\n\n        self.menuItems = list()\n        self.menuItems.append(self.opSortAlpha)\n        self.menuItems.append(self.opSortOrig)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_33",
+    "parent": "processed_documents/context_documents/5984f907_ObjectPaletteUI.json",
+    "chunk_number": 484
+  }
+}

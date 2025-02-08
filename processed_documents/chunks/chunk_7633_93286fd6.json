@@ -1,0 +1,9 @@
+{
+  "content": "cpp\n\nPT(GraphicsOutput) mybuffer;\nPT(Texture) mytexture;\nPT(Camera) mycamera;\nPT(DisplayRegion) region;\nNodePath mycameraNP;\nNodePath myscene;\n\nmybuffer = window->get_graphics_output()->make_texture_buffer(\"My Buffer\", 512, 512);\nmytexture = mybuffer->get_texture();\nmybuffer->set_sort(-100);\nmycamera = new Camera(\"my camera\");\nmycameraNP = window->get_render().attach_new_node(mycamera);\nregion = mybuffer->make_display_region();\nregion->set_camera(mycameraNP);\nmyscene = NodePath(\"My Scene\");\nmycameraNP.reparent_to(myscene)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_681",
+    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
+    "chunk_number": 7633
+  }
+}

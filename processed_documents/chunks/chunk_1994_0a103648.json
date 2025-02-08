@@ -1,0 +1,9 @@
+{
+  "content": "def build_assets(self, platform, data_dir):\n        \"\"\" Builds the data files for the given platform. \"\"\"\n\n        # Copy Game Files\n        self.announce('Copying assets for platform: {}'.format(platform), distutils.log.INFO)\n        ignore_copy_list = [\n            '**/__pycache__/**',\n            '**/*.pyc',\n            '**/*.py',\n            '{}/**'.format(self.build_base),\n        ]\n        ignore_copy_list += self.exclude_patterns\n        ignore_copy_list += self.extra_prc_files\n        ignore_copy_list = [p3d.GlobPattern(p3d.Filename.from_os_specific(i).get_fullpath()) for i in ignore_copy_list]\n\n        include_copy_list = [p3d.GlobPattern(i) for i in self.include_patterns]\n\n        def check_pattern(src, pattern_list):\n            # Normalize file paths across platforms\n            fn = p3d.Filename.from_os_specific(os.path.normpath(src))\n            path = fn.get_fullpath()\n            fn.make_absolute()\n            abspath = fn.get_fullpath()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1994
+  }
+}

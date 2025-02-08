@@ -1,0 +1,9 @@
+{
+  "content": "cam.reparentTo(self.oobeCameraTrackball)\n\n            # Temporarily disable button events by routing them\n            # through the oobe filters.\n            bt = self.buttonThrowers[0].node()\n            bt.setSpecificFlag(0)\n            bt.setButtonDownEvent('oobe-down')\n            bt.setButtonRepeatEvent('oobe-repeat')\n            bt.setButtonUpEvent('oobe-up')\n\n            # Don't change the camera lens--keep it with the original lens.\n            #if cam == self.cam:\n            #    self.camNode.setLens(self.oobeLens)\n\n            if self.oobeVis:\n                self.oobeVis.reparentTo(self.camera)\n            self.oobeMode = 1\n\n    def __oobeButton(self, suffix, button):\n        if button.startswith('mouse'):\n            # Eat mouse buttons.\n            return\n\n        # Transmit other buttons.\n        messenger.send(button + suffix)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4984
+  }
+}

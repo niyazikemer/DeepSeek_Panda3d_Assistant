@@ -1,0 +1,9 @@
+{
+  "content": "icns.write(png_types[size])\n                icns.write(struct.pack('>I', len(pngdata)))\n                icns.write(pngdata)\n\n            elif size in icon_types:\n                # If it has an alpha channel, we write out a mask too.\n                if image.hasAlpha():\n                    icns.write(mask_types[size])\n                    icns.write(struct.pack('>I', size * size + 8))\n\n                    for y in range(size):\n                        for x in range(size):\n                            icns.write(struct.pack('<B', int(image.getAlpha(x, y) * 255)))\n\n                icns.write(icon_types[size])\n                icns.write(struct.pack('>I', size * size * 4 + 8))\n\n                for y in range(size):\n                    for x in range(size):\n                        r, g, b = image.getXel(x, y)\n                        icns.write(struct.pack('>BBBB', 0, int(r * 255), int(g * 255), int(b * 255)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2198
+  }
+}

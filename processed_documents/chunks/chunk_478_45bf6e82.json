@@ -1,0 +1,9 @@
+{
+  "content": "if parentName is None:\n            parentName = self.rootName\n\n        self.dataStruct[item.name] = parentName\n        self.data[item.name] = item\n        self.dataKeys.append(item.name)\n\n    def add(self, item, parentName=None):\n        if isinstance(item, str):\n            self.insertItem(ObjectGen(name=item), parentName)\n        else:\n            self.insertItem(item, parentName)\n\n    def addHidden(self, item):\n        if hasattr(item, 'name'):\n            self.data[item.name] = item\n\n    def deleteStruct(self, name, deleteItems):\n        try:\n            item = self.data.pop(name)\n            for key in list(self.dataStruct.keys()):\n                if self.dataStruct[key] == name:\n                    node = self.deleteStruct(key, deleteItems)\n                    if node is not None:\n                        deleteItems[key] = node\n            return item\n        except Exception:\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_31",
+    "parent": "processed_documents/context_documents/b4cff924_ObjectPaletteBase.json",
+    "chunk_number": 478
+  }
+}

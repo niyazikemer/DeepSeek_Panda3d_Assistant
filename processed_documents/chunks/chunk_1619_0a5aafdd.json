@@ -1,0 +1,9 @@
+{
+  "content": "def removeItem(self, item, refresh=1):\n        \"\"\"\n        Remove this item from the panel\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        #print \"remove item called\", item\n        #print \"items list\", self['items']\n        if item in self[\"items\"]:\n            #print \"removing item\", item\n            if hasattr(self, \"currentSelected\") and self.currentSelected is item:\n                del self.currentSelected\n            self[\"items\"].remove(item)\n            if not isinstance(item, str):\n                item.reparentTo(ShowBaseGlobal.hidden)\n            self.refresh()\n            return 1\n        else:\n            return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1619
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def sendState(self):\n        assert self.__debugPrint(\"sendState()\")\n        self.sendUpdate('setState', self.getState())\n\n    def setIsOn(self, isOn):\n        assert self.__debugPrint(\"setIsOn(isOn=%s)\"%(isOn,))\n        if isOn:\n            if self.stateIndex != 4:\n                # ...if it's not On; request turning on:\n                self.fsm.request(self.states[3])\n        else:\n            if self.stateIndex != 2:\n                # ...if it's not Off; request turning off:\n                self.fsm.request(self.states[1])\n        #if isOn:\n        #    nextState = (4, 3, 3, 4, None)[self.stateIndex]\n        #else:\n        #    nextState = (2, 2, None, 1, 1)[self.stateIndex]\n        #if nextState is not None:\n        #    self.fsm.request(self.states[nextState])\n\n    def isOn(self):\n        assert self.__debugPrint(\"isOn() returning %s (stateIndex=%s)\"%(self.stateIndex==4, self.stateIndex))\n        return self.stateIndex==4",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_148",
+    "parent": "processed_documents/context_documents/ee9f969a_FourStateAI.json",
+    "chunk_number": 2689
+  }
+}

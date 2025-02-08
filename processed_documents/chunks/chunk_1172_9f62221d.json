@@ -1,0 +1,9 @@
+{
+  "content": "def reset(self):\n        self.pointSet = []\n        self.hasPoints = 0\n        self.curveCollection = None\n        self.curveFitter.reset()\n        self.nurbsCurveDrawer.hide()\n\n    def setSamplingMode(self, mode):\n        self.samplingMode = mode\n\n    def disableKeyframeButton(self):\n        self.getWidget('Recording', 'Add Keyframe')['state'] = 'disabled'\n\n    def enableKeyframeButton(self):\n        self.getWidget('Recording', 'Add Keyframe')['state'] = 'normal'\n\n    def setRecordingType(self, type):\n        self.recordingType.set(type)\n\n    def setNewCurveMode(self):\n        self.setRecordingType('New Curve')\n\n    def setRefineMode(self):\n        self.setRecordingType('Refine')\n\n    def setExtendMode(self):\n        self.setRecordingType('Extend')\n\n    def toggleRecordVar(self):\n        # Get recording variable\n        v = self.getVariable('Recording', 'Record')\n        # Toggle it\n        v.set(1 - v.get())\n        # Call the command\n        self.toggleRecord()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1172
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if style & wx.SL_AUTOTICKS:\n            newStyle |= wx.SL_AUTOTICKS\n\n        wx.Slider.__init__(self, parent, id, intVal, intMin, intMax, pos, size, style=newStyle)\n        self.Disable()\n\n    def GetValue(self):\n        # overriding wx.Slider.GetValue()\n        if self.textValue is not None: # Horizontal with labels\n            return float(self.textValue.GetValue()) # [gjeon] since the value from the slider is not as precise as the value entered by the user\n        else:\n            return (wx.Slider.GetValue(self) * (self.maxValue - self.minValue) / 100.0 + self.minValue)\n\n    def SetValue(self, value):\n        # overriding wx.Slider.SetValue()\n        if self.textValue is not None:\n            self.textValue.SetValue(\"%.2f\" % value)\n        intVal = 100.0 / (self.maxValue - self.minValue) * (value - self.minValue)\n        wx.Slider.SetValue(self, intVal)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_14",
+    "parent": "processed_documents/context_documents/4f1c6a8b_WxSlider.json",
+    "chunk_number": 195
+  }
+}

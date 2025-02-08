@@ -1,0 +1,9 @@
+{
+  "content": "def deeptype(obj, maxLen=100, _visitedIds=None):\n    if _visitedIds is None:\n        _visitedIds = set()\n    if id(obj) in _visitedIds:\n        return '<ALREADY-VISITED %s>' % itype(obj)\n    t = type(obj)\n    if t in (tuple, list):\n        s = ''\n        s += {tuple: '(',\n              list:  '[',}[type(obj)]\n        if maxLen is not None and len(obj) > maxLen:\n            o = obj[:maxLen]\n            ellips = '...'\n        else:\n            o = obj\n            ellips = ''\n        _visitedIds.add(id(obj))\n        for item in o:\n            s += deeptype(item, maxLen, _visitedIds=_visitedIds)\n            s += ', '\n        _visitedIds.remove(id(obj))\n        s += ellips\n        s += {tuple: ')',\n              list:  ']',}[type(obj)]\n        return s\n    elif type(obj) is dict:\n        s = '{'\n        if maxLen is not None and len(obj) > maxLen:\n            o = list(obj.keys())[:maxLen]\n            ellips = '...'\n        else:\n            o = list(obj.keys())\n            ellips = ''",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4670
+  }
+}

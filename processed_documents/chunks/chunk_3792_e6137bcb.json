@@ -1,0 +1,9 @@
+{
+  "content": "def isfile(path):\n    return _vfs.isRegularFile(core.Filename.fromOsSpecific(path))\n\n\ndef isdir(path):\n    return _vfs.isDirectory(core.Filename.fromOsSpecific(path))\n\n\ndef exists(path):\n    return _vfs.exists(core.Filename.fromOsSpecific(path))\n\n\ndef lexists(path):\n    return _vfs.exists(core.Filename.fromOsSpecific(path))\n\n\ndef getmtime(path):\n    file = _vfs.getFile(core.Filename.fromOsSpecific(path), True)\n    if not file:\n        raise os.error\n    return file.getTimestamp()\n\n\ndef getsize(path):\n    file = _vfs.getFile(core.Filename.fromOsSpecific(path), True)\n    if not file:\n        raise os.error\n    return file.getFileSize()\n\n\ndef execfile(path, globals=None, locals=None):\n    file = _vfs.getFile(core.Filename.fromOsSpecific(path), True)\n    if not file:\n        raise os.error\n\n    data = file.readFile(False)\n    exec(data, globals, locals)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3792
+  }
+}
