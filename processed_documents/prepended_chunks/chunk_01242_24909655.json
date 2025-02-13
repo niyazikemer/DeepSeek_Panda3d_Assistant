@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `ParticleEffect` class, specifically within the `save_config` method. It is responsible for serializing particle system configurations into a script file by iterating over all particles and force groups in the effect, writing each to the file so they can be reloaded later.\n\nContext: This code writes both particles and force group data to a configuration file during the save process of a particle effect.\n\n# Save all the particles to file\n            num = 0\n            for p in list(self.particlesDict.values()):\n                target = 'p%d' % num\n                num = num + 1\n                f.write(target + ' = Particles.Particles(\\'%s\\')\\n' % p.getName())\n                p.printParams(f, target)\n                f.write('self.addParticles(%s)\\n' % target)\n\n            # Save all the forces to file\n            num = 0\n            for fg in list(self.forceGroupDict.values()):\n                target = 'f%d' % num\n                num = num + 1\n                f.write(target + ' = ForceGroup.ForceGroup(\\'%s\\')\\n' % \\\n                                                    fg.getName())\n                fg.printParams(f, target)\n                f.write('self.addForceGroup(%s)\\n' % target)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1242
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a Python class named `Mopath`, which appears to handle motion paths or animations for objects in a 3D environment. The specific code block deals with adjusting an object's orientation (using the `lookAt` function) based on the position of another node path if it exists, and whether to reverse the up vector direction. This functionality is likely part of a method that handles object movement along a predefined path, ensuring proper orientation relative to a specified point or vector.\n\n# use the self.upVectorNodePath position if it exists to\n            # create an up vector for lookAt\n            if self.upVectorNodePath is None:\n                node.lookAt(lookPoint)\n            else:\n                if not self.reverseUpVector:\n                    node.lookAt(lookPoint,\n                                self.upVectorNodePath.getPos() - self.posPoint)\n                else:\n                    node.lookAt(lookPoint,\n                                self.posPoint - self.upVectorNodePath.getPos())\n\n    def play(self, node, time = 0.0, loop = 0):\n        if self.xyzNurbsCurve is None and self.hprNurbsCurve is None:\n            print('Mopath: Mopath has no curves')\n            return\n        self.node = node\n        self.loop = loop\n        self.stop()\n        t = taskMgr.add(self.__playTask, self.name + '-play')\n        t.currentTime = time\n        t.lastTime = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1837
+  }
+}

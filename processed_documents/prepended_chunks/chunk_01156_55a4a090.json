@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function or method responsible for constructing a graphical user interface (GUI) configuration panel. It creates a UI element allowing users to select a \"Pre-Record Func\" from a predefined list (`PRF_UTILITIES`) using a combo box, with associated help text and a checkbutton to enable/disable the functionality. The context is within a section configuring application-specific recording or sampling options, specifically handling hooks and functions related to keyframe recording.\n\nframe, 'Recording', 'Keyframe Hook',\n            'Hook used to add a new keyframe',\n            value = self.keyframeHook,\n            command = self.setKeyframeHook)[0]\n        label = self.getWidget('Recording', 'Keyframe Hook-Label')\n        label.configure(width = 16, anchor = tk.W)\n        self.setKeyframeHook()\n        frame.pack(expand = 1, fill = tk.X)\n        # PreRecordFunc\n        frame = tk.Frame(optionsFrame)\n        widget = self.createComboBox(\n            frame, 'Recording', 'Pre-Record Func',\n            'Function called before sampling each point',\n            PRF_UTILITIES, self.setPreRecordFunc,\n            history = 1, expand = 1)\n        widget.configure(label_width = 16, label_anchor = tk.W)\n        widget.configure(entryfield_entry_state = 'normal')\n        # Initialize preRecordFunc\n        self.preRecordFunc = eval(PRF_UTILITIES[0])\n        self.createCheckbutton(frame, 'Recording', 'PRF Active',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1156
+  }
+}

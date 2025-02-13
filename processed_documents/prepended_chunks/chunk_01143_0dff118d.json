@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk creates UI components for adjusting desample and refine curve parameters, utilizing slider controls with callbacks to modify curve processing behavior, within the context of a GUI application managing 3D rendering or animation workflows.\n\n# Desample\n        desampleFrame = tk.Frame(\n            self.resamplePage, relief = tk.SUNKEN, borderwidth = 2)\n        tk.Label(desampleFrame, text = 'DESAMPLE CURVE',\n              font=('MSSansSerif', 12, 'bold')).pack()\n        widget = self.createSlider(\n            desampleFrame, 'Resample', 'Points Between Samples',\n            'Specify number of points to skip between samples',\n            min = 1, max = 100, resolution = 1,\n            command = self.setDesampleFrequency)\n        widget.component('hull')['relief'] = tk.RIDGE\n        widget['postCallback'] = self.desampleCurve\n        desampleFrame.pack(fill = tk.X, expand = 0, pady = 2)\n\n        ## REFINE PAGE ##\n        refineFrame = tk.Frame(self.refinePage, relief = tk.SUNKEN,\n                               borderwidth = 2)\n        label = tk.Label(refineFrame, text = 'REFINE CURVE',\n                         font=('MSSansSerif', 12, 'bold'))\n        label.pack(fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1143
+  }
+}

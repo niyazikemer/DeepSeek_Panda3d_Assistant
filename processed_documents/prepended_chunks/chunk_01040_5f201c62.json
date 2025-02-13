@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk initializes the `Placer` class as an application shell designed for managing 3D object placement in a Panda3D-based environment. It sets up essential UI parameters and initializes coordinate systems required for object manipulation tasks.\n\nclass Placer(AppShell):\n    # Override class variables here\n    appname = 'Placer Panel'\n    frameWidth      = 625\n    frameHeight     = 215\n    usecommandarea = 0\n    usestatusarea  = 0\n\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('title',       self.appname,       None),\n            ('nodePath',    ShowBaseGlobal.direct.camera,      None),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Call superclass initialization function\n        AppShell.__init__(self)\n\n        self.initialiseoptions(Placer)\n\n    def appInit(self):\n        # Initialize state\n        self.tempCS = ShowBaseGlobal.direct.group.attachNewNode('placerTempCS')\n        self.orbitFromCS = ShowBaseGlobal.direct.group.attachNewNode(\n            'placerOrbitFromCS')\n        self.orbitToCS = ShowBaseGlobal.direct.group.attachNewNode('placerOrbitToCS')\n        self.refCS = self.tempCS",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1040
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk consists of methods for controlling animation playback and display settings within an animation control panel, enabling users to adjust timing offsets, toggle control states, and switch between frame counts and seconds displays.\n\ndef setOffset(self):\n        newOffset = askfloat(parent = self.interior(),\n                             title = self['text'],\n                             prompt = 'Start offset (seconds):')\n        if newOffset is not None:\n            self.offset = newOffset\n            self.updateDisplay()\n\n    def enableControl(self):\n        self.frameActiveVar.set(1)\n\n    def disableControl(self):\n        self.frameActiveVar.set(0)\n\n    def displayFrameCounts(self):\n        self.unitsVar.set(FRAMES)\n        self.updateDisplay()\n\n    def displaySeconds(self):\n        self.unitsVar.set(SECONDS)\n        self.updateDisplay()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1005
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class that handles animation or camera path manipulation, specifically for adjusting the duration of an animation path. The methods `setPathDuration` and `setPathDurationTo` allow scaling the time values of keyframes in an animation path by a factor derived from user input. They update internal data structures to reflect the new timing and refresh related UI elements to display the changes.\n\ndef setPathDuration(self, event):\n        newMaxT = float(self.getWidget('Resample', 'Path Duration').get())\n        self.setPathDurationTo(newMaxT)\n\n    def setPathDurationTo(self, newMaxT):\n        # Compute scale factor\n        sf = newMaxT/self.maxT\n        # Scale curve collection\n        self.curveCollection.resetMaxT(newMaxT)\n        # Scale point set\n        # Save handle to old point set\n        oldPointSet = self.pointSet\n        # Create new point set\n        self.createNewPointSet()\n        # Reset curve fitters\n        self.curveFitter.reset()\n        # Now scale values\n        for time, pos, hpr in oldPointSet:\n            newTime = time * sf\n            # Update point set\n            self.pointSet.append([newTime, Point3(pos), Point3(hpr)])\n            # Add it to the curve fitters\n            self.curveFitter.addXyzHpr(newTime, pos, hpr)\n        # Update widgets\n        self.updateWidgets()\n        # Compute curve\n        #self.computeCurves()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1201
+  }
+}

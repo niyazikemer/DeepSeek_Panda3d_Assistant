@@ -1,0 +1,9 @@
+{
+  "content": "The chunk pertains to the positioning and rotational attributes of an OnscreenText object in Panda3D, implementing deprecated getter methods alongside newer property-based accessors for text alignment and rotation configuration.\n\ndef getPos(self):\n        \"\"\"\n        .. deprecated:: 1.11.0\n           Use `.getTextPos()` method or `.text_pos` property instead.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"Use `.getTextPos()` method or `.text_pos` property instead.\", DeprecationWarning, stacklevel=2)\n        return self.__pos\n\n    pos = property(getPos)\n\n    def setTextR(self, r):\n        \"\"\"setTextR(self, float)\n        Rotates the text around the screen's normal.\n\n        .. versionadded:: 1.10.8\n        \"\"\"\n        self.__roll = -r\n        self.updateTransformMat()\n\n    def getTextR(self):\n        return -self.__roll\n\n    text_r = property(getTextR, setTextR)\n\n    def setRoll(self, roll):\n        \"\"\"setRoll(self, float)\n        Rotate the onscreen text around the screen's normal.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1472
+  }
+}

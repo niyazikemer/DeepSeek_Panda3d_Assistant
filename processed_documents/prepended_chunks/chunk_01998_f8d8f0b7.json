@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a command in Python for building application distributions across different platforms, specifically handling file operations such as copying and updating file paths during the build process. It includes logic for executing file-specific handlers or copying files when no handler is available, along with error handling. The `update_path` function renames file paths according to predefined input-output path mappings.\n\nif ext in self.file_handlers:\n                buildscript = self.file_handlers[ext]\n                self.announce('running {} on src ({})'.format(buildscript.__name__, src))\n                try:\n                    dst = self.file_handlers[ext](self, src, dst)\n                except Exception as err:\n                    self.announce('{}'.format(err), distutils.log.ERROR)\n            else:\n                self.announce('copying {0} -> {1}'.format(src, dst))\n                shutil.copyfile(src, dst)\n\n        def update_path(path):\n            normpath = p3d.Filename.from_os_specific(os.path.normpath(src)).c_str()\n            for inputpath, outputpath in self.rename_paths.items():\n                if normpath.startswith(inputpath):\n                    normpath = normpath.replace(inputpath, outputpath, 1)\n            return p3d.Filename(normpath).to_os_specific()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1998
+  }
+}

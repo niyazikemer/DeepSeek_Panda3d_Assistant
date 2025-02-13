@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within a function responsible for constructing deployment files for different platforms, specifically determining the correct names of deployment stubs and target executables based on the platform (Windows, macOS, or Android) and whether the application should use a console interface.\n\nstub_name = 'deploy-stub'\n            target_name = appname\n            if platform.startswith('win') or 'macosx' in platform:\n                if not use_console:\n                    stub_name = 'deploy-stubw'\n            elif platform.startswith('android'):\n                if not use_console:\n                    stub_name = 'libdeploy-stubw.so'\n                    target_name = 'lib' + target_name + '.so'\n\n            if platform.startswith('win'):\n                stub_name += '.exe'\n                target_name += '.exe'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1979
+  }
+}

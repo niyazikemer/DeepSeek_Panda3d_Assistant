@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an animation recording system where interpolated position and rotation data are being collected and processed to create smooth animations.\n\nqR = Quat()\n                qR.setHpr(rHpr)\n                t = self.easeInOut(((time - self.controlStop)/\n                                    (self.recordStop - self.controlStop)))\n                # Transition between the recorded node path and the driven one\n                pos = (pos * (1 - t)) + (rPos * t)\n                q = qSlerp(qNP, qR, t)\n                hpr.assign(q.getHpr())\n        # Add it to the point set\n        self.pointSet.append([time, pos, hpr])\n        # Add it to the curve fitters\n        self.curveFitter.addXyzHpr(time, pos, hpr)\n        # Update trace now if recording keyframes\n        if self.samplingMode == 'Keyframe':\n            self.trace.reset()\n            for t, p, h in self.pointSet:\n                self.trace.drawTo(p[0], p[1], p[2])\n            self.trace.create()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1183
+  }
+}

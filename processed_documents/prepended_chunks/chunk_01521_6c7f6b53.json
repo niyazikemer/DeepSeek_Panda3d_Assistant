@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of three methods from the `OnscreenGeom` class: `setGeom`, `getGeom`, and `configure`. \n\n- The `setGeom` method is responsible for assigning geometry, handling transformations, and setting colors. It ensures that the geometry is properly set up within the scene graph.\n- The `getGeom` method simply returns the instance itself, allowing access to its NodePath functionality.\n- The `configure` method dynamically sets configuration options by calling appropriate setter methods based on keyword arguments, enhancing flexibility for adjusting properties like position, rotation, and scale.\n\nThese methods are integral to managing geometry display and configuration in the OnscreenGeom class.\n\nif not self.isEmpty():\n            if transform:\n                self.setTransform(transform.compose(self.getTransform()))\n\n            # Set color, if specified\n            if color:\n                self.setColor(color[0], color[1], color[2], color[3])\n\n    def getGeom(self):\n        return self\n\n    def configure(self, option=None, **kw):\n        for option, value in kw.items():\n            # Use option string to access setter function\n            try:\n                setter = getattr(self, 'set' + option[0].upper() + option[1:])\n                if (((setter == self.setPos) or\n                     (setter == self.setHpr) or\n                     (setter == self.setScale)) and\n                    (isinstance(value, tuple) or\n                     isinstance(value, list))):\n                    setter(*value)\n                else:\n                    setter(value)\n            except AttributeError:\n                print('OnscreenText.configure: invalid option: %s' % option)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_85",
+    "parent": "processed_documents/context_documents/fef1fa21_OnscreenGeom.json",
+    "chunk_number": 1521
+  }
+}

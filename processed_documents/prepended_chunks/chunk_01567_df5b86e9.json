@@ -1,0 +1,9 @@
+{
+  "content": "The `YesNoCancelDialog` class is a specific implementation of the `DirectDialog` class designed to create a dialog box with three buttons: \"Yes,\" \"No,\" and \"Cancel.\" This class inherits from `DirectFrame` and is part of a collection of predefined dialog classes provided in the document. The class initializes with default button text and corresponding values, allowing users to interact with these options within a graphical user interface (GUI).\n\nclass YesNoCancelDialog(DirectDialog):\n    def __init__(self, parent = None, **kw):\n        # Inherits from DirectFrame\n        optiondefs = (\n            # Define type of DirectGuiWidget\n            ('buttonTextList',  ['Yes', 'No', 'Cancel'],  DGG.INITOPT),\n            ('buttonValueList', [DGG.DIALOG_YES, DGG.DIALOG_NO, DGG.DIALOG_CANCEL],\n             DGG.INITOPT),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n        DirectDialog.__init__(self, parent)\n        self.initialiseoptions(YesNoCancelDialog)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1567
+  }
+}

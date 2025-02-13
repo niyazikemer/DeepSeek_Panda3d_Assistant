@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines properties for configuring background, shadow, and frame visual elements of OnscreenText in Panda3D. The setters handle enabling or disabling these features based on alpha value checks (shadow/frame) or directly setting colors (background).\n\nbg = property(__getBg, setBg)\n\n    def __getShadow(self):\n        return self.textNode.getShadowColor()\n\n    def setShadow(self, shadow):\n        if shadow[3] != 0:\n            # If we have a shadow color, create a shadow.\n            self.textNode.setShadowColor(shadow[0], shadow[1], shadow[2], shadow[3])\n            self.textNode.setShadow(0.04, 0.04)\n        else:\n            # Otherwise, remove the shadow.\n            self.textNode.clearShadow()\n\n    shadow = property(__getShadow, setShadow)\n\n    def __getFrame(self):\n        return self.textNode.getFrameColor()\n\n    def setFrame(self, frame):\n        if frame[3] != 0:\n            # If we have a frame color, create a frame.\n            self.textNode.setFrameColor(frame[0], frame[1], frame[2], frame[3])\n            self.textNode.setFrameAsMargin(0.1, 0.1, 0.1, 0.1)\n        else:\n            # Otherwise, remove the frame.\n            self.textNode.clearFrame()\n\n    frame = property(__getFrame, setFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1478
+  }
+}

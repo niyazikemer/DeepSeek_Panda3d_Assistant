@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is a method within a class responsible for handling network communication in a distributed system. The `handleDatagram` method processes incoming packets from servers, queues named object movements, and executes them when the corresponding 'done' packet is received, ensuring that camera positions are updated correctly across clients.\n\ndef handleDatagram(self,dgi,type,server):\n        if type == CLUSTER_NONE:\n            pass\n        elif type == CLUSTER_NAMED_OBJECT_MOVEMENT:\n            self.serverQueues[server].append(self.msgHandler.parseNamedMovementDatagram(dgi))\n            #self.handleNamedMovement(dgi)\n        # when we recieve a 'named movement done' packet from a server we handle\n        # all of its messages\n        elif type == CLUSTER_NAMED_MOVEMENT_DONE:\n            self.handleMessageQueue(server)\n        else:\n            self.notify.warning(\"Received unsupported packet type:\" % type)\n        return type\n\n    def handleMessageQueue(self,server):\n        queue = self.serverQueues[server]\n        # handle all messages in the queue\n        for data in queue:\n            #print dgi\n            self.handleNamedMovement(data)\n\n        # clear the queue\n        self.serverQueues[server] = []\n\n    def handleNamedMovement(self, data):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1704
+  }
+}

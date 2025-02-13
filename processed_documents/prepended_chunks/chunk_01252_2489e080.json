@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents the `addTextureFromNode` method within the `SpriteParticleRendererExt` class, which extends functionality for adding particle textures derived from specific nodes in loaded models.\n\nif modelName is None:\n            modelName = self.getSourceFileName()\n            if nodeName is None:\n                nodeName = self.getSourceNodeName()\n\n        # Load model and get texture\n        m = base.loader.loadModel(modelName)\n        if m is None:\n            print(\"SpriteParticleRendererExt: Couldn't find model: %s!\" % modelName)\n            return False\n\n        np = m.find(nodeName)\n        if np.isEmpty():\n            print(\"SpriteParticleRendererExt: Couldn't find node: %s!\" % nodeName)\n            m.removeNode()\n            return False\n\n        self.addFromNode(np, modelName, nodeName, sizeFromTexels)\n        m.removeNode()\n\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_68",
+    "parent": "processed_documents/context_documents/09ed8d32_SpriteParticleRendererExt.json",
+    "chunk_number": 1252
+  }
+}

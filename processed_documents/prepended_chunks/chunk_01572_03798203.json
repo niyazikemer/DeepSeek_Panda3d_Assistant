@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the initialization process of a DirectSlider widget in Panda3D, focusing on merging keyword options with default settings, initializing superclass components, creating and configuring the thumb button, setting its size based on orientation, storing the last orientation state, binding the command function to handle slider adjustments, and associating the thumb button with the slider's GUI item.\n\n# Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n\n        # Initialize superclasses\n        DirectFrame.__init__(self, parent)\n\n        self.thumb = self.createcomponent(\"thumb\", (), None,\n                                          DirectButton, (self,),\n                                          borderWidth = self['borderWidth'])\n        if self.thumb['frameSize'] is None:\n            # Compute a default frameSize for the thumb.\n            f = self['frameSize']\n            if self['orientation'] == DGG.HORIZONTAL:\n                self.thumb['frameSize'] = (f[0]*0.05, f[1]*0.05, f[2], f[3])\n            else:\n                self.thumb['frameSize'] = (f[0], f[1], f[2]*0.05, f[3]*0.05)\n\n        self._lastOrientation = self['orientation']\n\n        self.guiItem.setThumbButton(self.thumb.guiItem)\n\n        # Bind command function\n        self.bind(DGG.ADJUST, self.commandFunc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_90",
+    "parent": "processed_documents/context_documents/1d02830b_DirectSlider.json",
+    "chunk_number": 1572
+  }
+}

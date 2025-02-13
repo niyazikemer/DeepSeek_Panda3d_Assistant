@@ -1,0 +1,9 @@
+{
+  "content": "These methods are part of the DirectNotify class, which manages notification categories. The chunk includes `setDconfigLevels` for applying configuration levels across all categories, `setVerbose` to enable detailed logging output, `popupControls` to display a control panel for notify settings using Tkinter, and `giveNotify` to add a notify category to a specified class.\n\ndef setDconfigLevels(self) -> None:\n        for categoryName in self.getCategories():\n            self.setDconfigLevel(categoryName)\n\n    def setVerbose(self) -> None:\n        for categoryName in self.getCategories():\n            category = self.getCategory(categoryName)\n            assert category is not None\n            category.setWarning(True)\n            category.setInfo(True)\n            category.setDebug(True)\n\n    def popupControls(self, tl = None):\n        # Don't use a regular import, to prevent ModuleFinder from picking\n        # it up as a dependency when building a .p3d package.\n        import importlib\n        NotifyPanel = importlib.import_module('direct.tkpanels.NotifyPanel')\n        NotifyPanel.NotifyPanel(self, tl)\n\n    def giveNotify(self, cls) -> None:\n        cls.notify = self.newCategory(cls.__name__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_99",
+    "parent": "processed_documents/context_documents/455d71b3_DirectNotify.json",
+    "chunk_number": 1657
+  }
+}

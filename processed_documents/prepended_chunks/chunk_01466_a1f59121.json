@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Python class (likely `OnscreenText`) that configures text properties in a graphical user interface library (possibly Panda3D). The code handles setting up shadows, frames, and text direction for on-screen text elements based on certain conditions. Specifically:\n\n- It checks if a shadow color has an alpha value (`shadow[3]`), then sets the shadow color components and applies a shadow offset.\n- Similarly, it handles frame colors with transparency.\n- It processes text direction (RTL or LTR) from string inputs to set appropriate alignment properties.\n\nThis code is part of a method that configures visual properties for on-screen text elements, ensuring proper rendering based on user-defined styles.\n\nif shadow[3] != 0:\n            # If we have a shadow color, create a shadow.\n            # Can't use the *shadow interface because it might be a VBase4.\n            #textNode.setShadowColor(*shadow)\n            textNode.setShadowColor(shadow[0], shadow[1], shadow[2], shadow[3])\n            textNode.setShadow(*shadowOffset)\n\n        if frame[3] != 0:\n            # If we have a frame color, create a frame.\n            textNode.setFrameColor(frame[0], frame[1], frame[2], frame[3])\n            textNode.setFrameAsMargin(0.1, 0.1, 0.1, 0.1)\n\n        if direction is not None:\n            if isinstance(direction, str):\n                direction = direction.lower()\n                if direction == 'rtl':\n                    direction = TextProperties.D_rtl\n                elif direction == 'ltr':\n                    direction = TextProperties.D_ltr\n                else:\n                    raise ValueError('invalid direction')\n            textNode.setDirection(direction)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1466
+  }
+}

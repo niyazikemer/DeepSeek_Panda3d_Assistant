@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk defines three methods within a class related to creating a scrollable list interface in Python, likely using a GUI framework like Panda3D's DirectGui:\n\n1. `setNumItemsVisible()`: Controls the number of items visible at once in the scroll list.\n\n2. `destroy()`: Handles cleanup when destroying an instance, removing tasks and callbacks, and cleaning up button elements.\n\n3. `selectListItem()`: Manages selection state for individual list items, providing visual feedback by disabling selected items.\n\nThese methods are core to implementing interactive scrollable lists with dynamic item management and proper resource cleanup.\n\ndef setNumItemsVisible(self):\n        assert self.notify.debugStateCall(self)\n        # Items per second to move\n        self.__numItemsVisible = self[\"numItemsVisible\"]\n\n    def destroy(self):\n        assert self.notify.debugStateCall(self)\n        taskMgr.remove(self.taskName(\"scroll\"))\n        if hasattr(self, \"currentSelected\"):\n            del self.currentSelected\n        if self.__incButtonCallback:\n            self.__incButtonCallback = None\n        if self.__decButtonCallback:\n            self.__decButtonCallback = None\n        self.incButton.destroy()\n        self.decButton.destroy()\n        DirectFrame.destroy(self)\n\n    def selectListItem(self, item):\n        assert self.notify.debugStateCall(self)\n        if hasattr(self, \"currentSelected\"):\n            self.currentSelected['state'] = DGG.NORMAL\n        item['state'] = DGG.DISABLED\n        self.currentSelected = item",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1605
+  }
+}

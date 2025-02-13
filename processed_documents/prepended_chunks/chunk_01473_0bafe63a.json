@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines properties for managing the rotational positioning of on-screen text. It introduces deprecated methods `setRoll` and `getRoll`, which have been replaced with `setTextR` and `getTextR`. The chunk also includes a note about a sign change in the rotation value when using the new method.\n\ntext_r = property(getTextR, setTextR)\n\n    def setRoll(self, roll):\n        \"\"\"setRoll(self, float)\n        Rotate the onscreen text around the screen's normal.\n\n        .. deprecated:: 1.11.0\n           Use ``setTextR(-roll)`` instead (note the negated sign).\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"Use ``setTextR(-roll)`` instead (note the negated sign).\", DeprecationWarning, stacklevel=2)\n        self.__roll = roll\n        self.updateTransformMat()\n\n    def getRoll(self):\n        \"\"\"\n        .. deprecated:: 1.11.0\n           Use ``-getTextR()`` instead (note the negated sign).\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"Use ``-getTextR()`` instead (note the negated sign).\", DeprecationWarning, stacklevel=2)\n        return self.__roll\n\n    roll = property(getRoll, setRoll)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1473
+  }
+}

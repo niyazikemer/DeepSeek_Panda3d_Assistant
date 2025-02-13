@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `recordPoint` method within a class managing camera display windows and node path recordings, handling position and orientation capture while considering playback blending during refine or extend operations.\n\ndef recordPoint(self, time):\n        # Call user define callback before recording point\n        if self.getVariable('Recording', 'PRF Active').get() and \\\n           self.preRecordFunc is not None:\n            self.preRecordFunc()\n        # Get point\n        pos = self.nodePath.getPos(self.nodePathParent)\n        hpr = self.nodePath.getHpr(self.nodePathParent)\n        qNP = Quat()\n        qNP.setHpr(hpr)\n        # Blend between recordNodePath and self.nodePath\n        if self.recordingType.get() == 'Refine' or \\\n           self.recordingType.get() == 'Extend':\n            if time < self.controlStart and \\\n               self.controlStart - self.recordStart != 0.0:\n                rPos = self.playbackNodePath.getPos(self.nodePathParent)\n                rHpr = self.playbackNodePath.getHpr(self.nodePathParent)\n                qR = Quat()\n                qR.setHpr(rHpr)\n                t = self.easeInOut(((time - self.recordStart)/",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1181
+  }
+}

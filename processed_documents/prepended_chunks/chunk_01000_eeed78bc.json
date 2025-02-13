@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk creates a scale-based frame control UI element within an animation panel for controlling frame-by-frame animation playback, including frame position labeling and click handlers. This is part of a larger class that manages animation controls and display for characters in a graphical interface.\n\n# Scale to control animation\n        frameFrame = tk.Frame(interior, relief = tk.SUNKEN, bd = 1)\n        self.minLabel = self.createcomponent(\n            'minLabel', (), 'sLabel',\n            tk.Label, (frameFrame,),\n            text = 0)\n        self.minLabel.pack(side = tk.LEFT)\n\n        self.frameControl = self.createcomponent(\n            'scale', (), None,\n            tk.Scale, (frameFrame,),\n            from_ = 0, to = 24, resolution = 1.0,\n            command = self.goTo,\n            orient = tk.HORIZONTAL, showvalue = 1)\n        self.frameControl.pack(side = tk.LEFT, expand = 1)\n        self.frameControl.bind('<Button-1>', self.__onPress)\n        self.frameControl.bind('<ButtonRelease-1>', self.__onRelease)\n\n        self.maxLabel = self.createcomponent(\n            'maxLabel', (), 'sLabel',\n            tk.Label, (frameFrame,),\n            text = 24)\n        self.maxLabel.pack(side = tk.LEFT)\n        frameFrame.pack(side = tk.LEFT, expand = 1, fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1000
+  }
+}

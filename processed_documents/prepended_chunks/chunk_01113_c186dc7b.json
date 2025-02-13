@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of methods from a class related to handling state visualization in a finite state machine (FSM) inspector tool. The methods include `setText` for updating text display on canvas elements, `setPos` for moving visual state objects with optional grid snapping, `center` for calculating the center position of a state marker, `getName` for retrieving the state's identifier, and event handlers `mouseEnter` and `mouseLeave` that modify the visual appearance of states when the mouse hovers over or leaves them. These methods are essential for managing user interaction with FSM state representations in a graphical interface.\n\nContext: Methods for managing visual representation, text display, position adjustments, and hover effects for state objects in an FSM visualization tool.\n\ndef setText(self, text = None):\n        self._canvas.itemconfigure(self.text, text = text)\n\n    def setPos(self, x, y, snapToGrid = 0):\n        if self.fGridSnap:\n            self.x = round(x / self.gridSize) * self.gridSize\n            self.y = round(y / self.gridSize) * self.gridSize\n        else:\n            self.x = x\n            self.y = y\n        # How far do we have to move?\n        cx, cy = self.center()\n        self._canvas.move(self.tag, self.x - cx, self.y - cy)\n\n    def center(self):\n        c = self._canvas.coords(self.marker)\n        return (c[0] + c[2])/2.0, (c[1] + c[3])/2.0\n\n    def getName(self):\n        return self.tag\n\n    # Event Handlers\n    def mouseEnter(self, event):\n        self._canvas.itemconfig(self.marker, width = 2)\n\n    def mouseLeave(self, event):\n        self._canvas.itemconfig(self.marker, width = 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1113
+  }
+}

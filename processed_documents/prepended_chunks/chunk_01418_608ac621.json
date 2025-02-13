@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a larger class definition managing GUI elements in Panda3D. It appears in a method that handles frame styling and border width adjustments. The code temporarily clears the frame style to compute accurate bounds before restoring the original style, ensuring proper layout updates when frame properties change.\n\nelse:\n            if fClearFrame and frameType != PGFrameStyle.TNone:\n                self.frameStyle[0].setType(PGFrameStyle.TNone)\n                self.guiItem.setFrameStyle(0, self.frameStyle[0])\n                # To force an update of the button\n                self.guiItem.getStateDef(0)\n            # Clear out frame before computing bounds\n            self.getBounds()\n            # Restore frame style if necessary\n            if frameType != PGFrameStyle.TNone:\n                self.frameStyle[0].setType(frameType)\n                self.guiItem.setFrameStyle(0, self.frameStyle[0])\n\n            if frameType != PGFrameStyle.TNone and \\\n               frameType != PGFrameStyle.TFlat:\n                bw = self['borderWidth']\n            else:\n                bw = (0, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1418
+  }
+}

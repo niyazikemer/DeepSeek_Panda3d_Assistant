@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains method definitions for the `DirectScrolledFrame` class in a Python module, focusing on functionality related to scroll bar width adjustment, canvas size management, and retrieval of the virtual canvas element. These methods (`setScrollBarWidth`, `setCanvasSize`, `getCanvas`, and `setManageScrollBars`) are essential for configuring and managing the appearance and behavior of the scrolled frame interface.\n\n# Call option initialization functions\n        self.initialiseoptions(DirectScrolledFrame)\n\n    def setScrollBarWidth(self):\n        if self.fInit:\n            return\n\n        w = self['scrollBarWidth']\n        self.verticalScroll[\"frameSize\"] = (-w / 2.0, w / 2.0, self.verticalScroll[\"frameSize\"][2], self.verticalScroll[\"frameSize\"][3])\n        self.horizontalScroll[\"frameSize\"] = (self.horizontalScroll[\"frameSize\"][0], self.horizontalScroll[\"frameSize\"][1], -w / 2.0, w / 2.0)\n\n    def setCanvasSize(self):\n        f = self['canvasSize']\n        self.guiItem.setVirtualFrame(f[0], f[1], f[2], f[3])\n\n    def getCanvas(self):\n        \"\"\"Returns the NodePath of the virtual canvas.  Nodes parented to this\n        canvas will show inside the scrolled area.\n        \"\"\"\n        return self.canvas\n\n    def setManageScrollBars(self):\n        self.guiItem.setManagePieces(self['manageScrollBars'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_74",
+    "parent": "processed_documents/context_documents/680bc0fa_DirectScrolledFrame.json",
+    "chunk_number": 1336
+  }
+}

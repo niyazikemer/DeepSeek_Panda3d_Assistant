@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two methods for handling item selection and indexing in a popup menu. `selectHighlightedIndex` selects highlighted menu items based on cursor position, while `index` converts item identifiers to their respective indices.\n\ndef selectHighlightedIndex(self, event = None):\n        \"\"\"\n        Check to see if item is highlighted (by cursor being within\n        that item).  If so, selected it.  If not, do nothing\n        \"\"\"\n        if self.highlightedIndex is not None:\n            self.set(self.highlightedIndex)\n            self.hidePopupMenu()\n\n    def index(self, index):\n        intIndex = None\n        if isinstance(index, int):\n            intIndex = index\n        elif index in self['items']:\n            i = 0\n            for item in self['items']:\n                if item == index:\n                    intIndex = i\n                    break\n                i += 1\n        return intIndex",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1330
+  }
+}

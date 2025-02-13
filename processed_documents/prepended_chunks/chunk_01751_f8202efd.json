@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents the constructor (`__init__` method) of a class (likely `ClusterServer` or similar), which initializes essential components for managing a cluster. It sets up references to a camera jig and actual camera, creates network management objects for handling connections and messages, and establishes a TCP server rendezvous for communication. The initialization also involves setting global variables related to clustering and prepares the infrastructure needed for server-client interactions in a distributed environment.\n\ndef __init__(self, cameraJig, camera):\n        global clusterServerPort, clusterSyncFlag\n        global clusterDaemonClient, clusterDaemonPort\n        # Store information about the cluster's camera\n        self.cameraJig = cameraJig\n        self.camera = camera\n        self.lens = camera.node().getLens()\n        self.lastConnection = None\n        self.fPosReceived = 0\n        # Create network layer objects\n        self.qcm = QueuedConnectionManager()\n        self.qcl = QueuedConnectionListener(self.qcm, 0)\n        self.qcr = QueuedConnectionReader(self.qcm, 0)\n        self.cw = ConnectionWriter(self.qcm, 0)\n        try:\n            port = clusterServerPort\n        except NameError:\n            port = CLUSTER_SERVER_PORT\n        self.tcpRendezvous = self.qcm.openTCPServerRendezvous(port, 1)\n        self.qcl.addConnection(self.tcpRendezvous)\n        self.msgHandler = ClusterMsgHandler(ClusterServer.MSG_NUM, self.notify)\n        # Start cluster tasks",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1751
+  }
+}

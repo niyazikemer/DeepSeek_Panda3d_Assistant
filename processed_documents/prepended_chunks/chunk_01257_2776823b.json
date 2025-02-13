@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `Particles` class, which inherits from `ParticleSystem`, initializing particle effects with default parameters such as name, pool size, and setting up necessary physical nodes.\n\nclass Particles(ParticleSystem):\n    notify = directNotify.newCategory('Particles')\n    id = 1\n\n    def __init__(self, name=None, poolSize=1024):\n        if name is None:\n            self.name = 'particles-%d' % Particles.id\n            Particles.id += 1\n        else:\n            self.name = name\n        ParticleSystem.__init__(self, poolSize)\n        # self.setBirthRate(0.02)\n        # self.setLitterSize(10)\n        # self.setLitterSpread(0)\n\n        # Set up a physical node\n        self.node = PhysicalNode(self.name)\n        self.nodePath = NodePath(self.node)\n        self.setRenderParent(self.node)\n        self.node.addPhysical(self)\n\n        self.factory = None\n        self.factoryType = \"undefined\"\n        # self.setFactory(\"PointParticleFactory\")\n        self.renderer = None\n        self.rendererType = \"undefined\"\n        # self.setRenderer(\"PointParticleRenderer\")\n        self.emitter = None\n        self.emitterType = \"undefined\"\n        # self.setEmitter(\"SphereVolumeEmitter\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1257
+  }
+}

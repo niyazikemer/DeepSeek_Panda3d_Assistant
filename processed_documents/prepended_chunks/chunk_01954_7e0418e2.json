@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears within a function responsible for downloading required Python package dependencies using `pip` during the build process. It sets up command-line arguments for `pip` to download wheels into a specific directory, reads requirements from a file, and configures platform-specific settings (including manylinux compatibility) and optional indexes for optimized or additional packages.\n\npip_args = [\n            '--disable-pip-version-check',\n            'download',\n            '-d', whldir,\n            '-r', self.requirements_path,\n            '--only-binary', ':all:',\n            '--abi', abi_tag,\n            '--platform', platform,\n        ]\n\n        if platform.startswith('linux_'):\n            # Also accept manylinux.\n            arch = platform[6:]\n            pip_args += ['--platform', 'manylinux2014_' + arch]\n\n        if self.use_optimized_wheels:\n            pip_args += [\n                '--extra-index-url', self.optimized_wheel_index\n            ]\n\n        for index in self.pypi_extra_indexes:\n            pip_args += ['--extra-index-url', index]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1954
+  }
+}

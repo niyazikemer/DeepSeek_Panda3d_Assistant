@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains import statements, button mappings, analog control definitions, and joybox configuration constants that should be placed near the top of the document, likely before the `DirectJoybox` class definition. These imports and constants provide essential setup and definitions used throughout the class implementation.\n\n\"\"\" Class used to create and control joybox device \"\"\"\nfrom direct.showbase.DirectObject import DirectObject\nfrom .DirectDeviceManager import ANALOG_DEADBAND, ANALOG_MAX, ANALOG_MIN, DirectDeviceManager\nfrom direct.directtools.DirectUtil import CLAMP\nfrom direct.gui import OnscreenText\nfrom direct.task import Task\nfrom direct.task.TaskManagerGlobal import taskMgr\nfrom panda3d.core import ButtonRegistry, ButtonThrower, ClockObject, NodePath, VBase3, Vec3\n\nimport math\n\n#TODO: Handle interaction between widget, followSelectedTask and updateTask\n\n# BUTTONS\nL_STICK = 0\nL_UPPER = 1\nL_LOWER = 2\nR_STICK = 3\nR_UPPER = 4\nR_LOWER = 5\n# ANALOGS\nNULL_AXIS = -1\nL_LEFT_RIGHT = 0\nL_FWD_BACK = 1\nL_TWIST = 2\nL_SLIDE = 3\nR_LEFT_RIGHT = 4\nR_FWD_BACK = 5\nR_TWIST = 6\nR_SLIDE = 7\n\nJOYBOX_MIN = ANALOG_MIN + ANALOG_DEADBAND\nJOYBOX_MAX = ANALOG_MAX - ANALOG_DEADBAND\nJOYBOX_RANGE = JOYBOX_MAX - JOYBOX_MIN\n\nJOYBOX_TREAD_SEPERATION = 1.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1789
+  }
+}

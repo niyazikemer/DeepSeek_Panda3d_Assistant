@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines four new control modes (`lookAroundMode`, `demoMode`, `hprXyzMode`, `mopathMode`) for a joystick controller, each configuring how input axes map to movements or rotations using `joyboxFly` as the core controller.\n\ndef lookAroundMode(self):\n        self.mapping = [NULL_AXIS, NULL_AXIS, NULL_AXIS,\n                        R_LEFT_RIGHT, R_FWD_BACK, NULL_AXIS]\n        self.modifier = [0, 0, 0, -1, -1, 0]\n        self.setMode(self.joyboxFly, 'Lookaround Mode')\n\n    def demoMode(self):\n        self.mapping = [R_LEFT_RIGHT, R_FWD_BACK, L_FWD_BACK,\n                        R_TWIST, NULL_AXIS, NULL_AXIS]\n        self.modifier = [1, 1, 1, -1, 0, 0]\n        self.setMode(self.joyboxFly, 'Demo Mode')\n\n    def hprXyzMode(self):\n        self.mapping = [R_LEFT_RIGHT, R_FWD_BACK, R_TWIST,\n                        L_TWIST, L_FWD_BACK, L_LEFT_RIGHT]\n        self.modifier = [1, 1, -1, -1, -1, 1]\n        self.setMode(self.joyboxFly, 'HprXyz Mode')\n\n    def mopathMode(self):\n        self.mapping = [R_LEFT_RIGHT, R_FWD_BACK, R_TWIST,\n                        L_LEFT_RIGHT, L_FWD_BACK, L_LEFT_RIGHT]\n        self.modifier = [1, 1, -1, -1, 1, 0]\n        self.setMode(self.joyboxFly, 'Mopath Mode')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1805
+  }
+}

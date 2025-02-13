@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a function or method called `create_aab` which creates an Android App Bundle (AAB). The specific lines shown are adding essential components to the bundle, including resource files, native libraries, the manifest, and compiled dex code. This section comes after initializing the bundle but before finalizing it with optional signing and closure.\n\nContext: Adding core app components to the AAB, ensuring compatibility across devices by including necessary resources and binaries for different architectures.\n\nbundle.add_subfile('base/resources.pb', p3d.StringStream(resources.SerializeToString()), 9)\n\n    native = NativeLibraries()\n    for abi in os.listdir(os.path.join(build_dir, 'lib')):\n        native_dir = native.directory.add()\n        native_dir.path = 'lib/' + abi\n        native_dir.targeting.abi.alias = getattr(AbiAlias, abi.upper().replace('-', '_'))\n    bundle.add_subfile('base/native.pb', p3d.StringStream(native.SerializeToString()), 9)\n\n    bundle.add_subfile('base/manifest/AndroidManifest.xml', p3d.StringStream(axml.dumps()), 9)\n\n    # Add the classes.dex.\n    bundle.add_subfile('base/dex/classes.dex', build_dir_fn / 'classes.dex', 9)\n\n    # Add libraries, compressed.\n    for abi in os.listdir(os.path.join(build_dir, 'lib')):\n        abi_dir = os.path.join(build_dir, 'lib', abi)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1916
+  }
+}

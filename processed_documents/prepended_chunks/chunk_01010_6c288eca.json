@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk demonstrates the setup and configuration process for creating and animating 3D character models in a scene using Panda3D or similar libraries. The code creates two character instances (`a` and `a2`), attaches their body parts (head, torso, legs) with specified joints, configures their draw-in-front properties to handle rendering order, sets Level of Detail (LOD) parameters for each model at different distances (250, 500, 1000 units), fixes node bounds for accurate spatial calculations, and finally reparents the characters to the main render scene.\n\n\"run\":\"phase_3/models/char/dogMM_Shorts-head-run\"}, \\\n                 \"torso\":{\"walk\":\"phase_3/models/char/dogMM_Shorts-torso-walk\", \\\n                          \"run\":\"phase_3/models/char/dogMM_Shorts-torso-run\"}, \\\n                 \"legs\":{\"walk\":\"phase_3/models/char/dogMM_Shorts-legs-walk\", \\\n                         \"run\":\"phase_3/models/char/dogMM_Shorts-legs-run\"}})\na.attach(\"head\", \"torso\", \"joint-head\", 250)\na.attach(\"torso\", \"legs\", \"joint-hips\", 250)\na.attach(\"head\", \"torso\", \"joint-head\", 500)\na.attach(\"torso\", \"legs\", \"joint-hips\", 500)\na.attach(\"head\", \"torso\", \"joint-head\", 1000)\na.attach(\"torso\", \"legs\", \"joint-hips\", 1000)\na.drawInFront(\"joint-pupil?\", \"eyes*\", -1, lodName=250)\na.drawInFront(\"joint-pupil?\", \"eyes*\", -1, lodName=500)\na.drawInFront(\"joint-pupil?\", \"eyes*\", -1, lodName=1000)\na.setLOD(250, 250, 75)\na.setLOD(500, 75, 15)\na.setLOD(1000, 15, 1)\na.fixBounds()\na.reparentTo(render)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1010
+  }
+}

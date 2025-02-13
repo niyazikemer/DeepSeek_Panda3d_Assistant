@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of method definitions for a Python class likely related to managing forces and rendering nodes within a particle system or similar simulation framework. The `addForce` and `removeForce` methods handle the addition and removal of linear or angular forces, respectively, which are essential for simulating physical effects on particles. The `setRenderNodePath` method sets the node path for rendering purposes, enabling proper visualization of the particle system within a 3D scene. Additionally, the getter methods (`getName`, `getFactory`, `getEmitter`, and `getRenderer`) provide access to key properties and components of the class instance, facilitating interaction and configuration of the particle system.\n\ndef addForce(self, force):\n        if force.isLinear():\n            self.addLinearForce(force)\n        else:\n            self.addAngularForce(force)\n\n    def removeForce(self, force):\n        if force is None:\n            self.notify.warning('removeForce() - force is None!')\n            return\n        if force.isLinear():\n            self.removeLinearForce(force)\n        else:\n            self.removeAngularForce(force)\n\n    def setRenderNodePath(self, nodePath):\n        self.setRenderParent(nodePath.node())\n\n    ## Getters ##\n    def getName(self):\n        return self.name\n\n    def getFactory(self):\n        return self.factory\n\n    def getEmitter(self):\n        return self.emitter\n\n    def getRenderer(self):\n        return self.renderer",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1264
+  }
+}

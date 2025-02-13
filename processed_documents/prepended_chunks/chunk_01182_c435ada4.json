@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears to be part of an animation or recording system where position and orientation (HPR) interpolation is being handled during playback, specifically transitioning between recorded node paths and driven ones using quaternion slerp.\n\nrHpr = self.playbackNodePath.getHpr(self.nodePathParent)\n                qR = Quat()\n                qR.setHpr(rHpr)\n                t = self.easeInOut(((time - self.recordStart)/\n                                    (self.controlStart - self.recordStart)))\n                # Transition between the recorded node path and the driven one\n                pos = (rPos * (1 - t)) + (pos * t)\n                q = qSlerp(qR, qNP, t)\n                hpr.assign(q.getHpr())\n            elif self.recordingType.get() == 'Refine' and \\\n                 time > self.controlStop and \\\n                 self.recordStop - self.controlStop != 0.0:\n                rPos = self.playbackNodePath.getPos(self.nodePathParent)\n                rHpr = self.playbackNodePath.getHpr(self.nodePathParent)\n                qR = Quat()\n                qR.setHpr(rHpr)\n                t = self.easeInOut(((time - self.controlStop)/\n                                    (self.recordStop - self.controlStop)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1182
+  }
+}

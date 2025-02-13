@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines `self.posY`, a component of the `Placer` class that manages the Y-axis position adjustments through a graphical user interface (GUI) element (`Floater`). The `posY` widget is initialized with default settings, including labels and callbacks for transformation operations, enabling users to interactively modify the Y-coordinate of a node path in 3D space.\n\nself.posY = self.createcomponent('posY', (), None,\n                                         Floater.Floater, (posInterior,),\n                                         text = 'Y', relief = tk.FLAT,\n                                         value = 0.0,\n                                         label_foreground = '#00A000')\n        self.posY['commandData'] = ['y']\n        self.posY['preCallback'] = self.xformStart\n        self.posY['postCallback'] = self.xformStop\n        self.posY['callbackData'] = ['y']\n        self.posY.pack(expand=1, fill='both')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1050
+  }
+}

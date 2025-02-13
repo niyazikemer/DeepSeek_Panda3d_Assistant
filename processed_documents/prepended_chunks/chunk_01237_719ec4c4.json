@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk introduces `enable()`, `disable()`, and `isEnabled()` methods to control the active state of a particle effect system by managing render parents and enabling/disabling force groups and particles. These methods are integral for lifecycle management, ensuring components function correctly when enabled or cease operations when disabled.\n\ndef enable(self):\n        # band-aid added for client crash - grw\n        if self.__isValid():\n            if self.renderParent:\n                for p in self.particlesDict.values():\n                    p.setRenderParent(self.renderParent.node())\n            for f in self.forceGroupDict.values():\n                f.enable()\n            for p in self.particlesDict.values():\n                p.enable()\n            self.fEnabled = 1\n\n    def disable(self):\n        self.detachNode()\n        # band-aid added for client crash - grw\n        if self.__isValid():\n            for p in self.particlesDict.values():\n                p.setRenderParent(p.node)\n            for f in self.forceGroupDict.values():\n                f.disable()\n            for p in self.particlesDict.values():\n                p.disable()\n            self.fEnabled = 0\n\n    def isEnabled(self):\n        \"\"\"\n        Note: this may be misleading if enable(), disable() not used\n        \"\"\"\n        return self.fEnabled",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1237
+  }
+}

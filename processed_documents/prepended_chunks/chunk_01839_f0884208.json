@@ -1,0 +1,9 @@
+{
+  "content": "The `draw` method is part of a class designed for managing and animating motion paths in 3D space. This specific method visualizes the motion path by generating line segments along the curve defined by the motion path's points, allowing for easy visualization during development or debugging.\n\ndef draw(self, subdiv = 1000):\n        \"\"\" Draws a quick and cheesy visualization of the Mopath using\n        LineSegs.  Returns the NodePath representing the drawing. \"\"\"\n\n        ls = LineSegs('mopath')\n        p = Point3()\n        for ti in range(subdiv):\n            t = float(ti) / float(subdiv) * self.maxT\n            tp = self.calcTime(t)\n            self.xyzNurbsCurve.getPoint(tp, p)\n            ls.drawTo(p)\n\n        return NodePath(ls.create())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1839
+  }
+}

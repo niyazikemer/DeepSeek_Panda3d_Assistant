@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `setControlStop` method that manages timeline control values in an animation or media player application. It ensures consistency across related controls by updating start and refine times as needed while temporarily disabling automatic value adjustments to prevent conflicts.\n\n**Context:**  \nMethod for synchronizing timeline controls in a media/animation editor, ensuring consistent time range updates without interference from concurrent adjustments.\n\ndef setControlStop(self, value):\n        self.controlStop = value\n        # Someone else is adjusting values, let them take care of it\n        if self.fAdjustingValues:\n            return\n        self.fAdjustingValues = 1\n        if self.controlStop < self.recordStart:\n            self.getWidget('Refine Page', 'Refine From').set(\n                self.controlStop)\n        if self.controlStop < self.controlStart:\n            self.getWidget('Refine Page', 'Control Start').set(\n                self.controlStop)\n        if self.controlStop > self.recordStop:\n            self.getWidget('Refine Page', 'Refine To').set(\n                self.controlStop)\n        # Move playback node path to specified time\n        self.getWidget('Playback', 'Time').set(value)\n        self.fAdjustingValues = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1207
+  }
+}

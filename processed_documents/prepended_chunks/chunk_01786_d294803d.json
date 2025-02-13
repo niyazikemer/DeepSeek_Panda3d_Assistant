@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains essential lifecycle management and identification methods (`enable()`, `disable()`, `getName()`, and `getNodePath()`) that are common across all VRPN device classes. These methods are fundamental for enabling or disabling device nodes, retrieving their names, and accessing their node paths in the scene graph. They provide a standardized interface for managing and identifying various VRPN devices such as analog inputs, timecode readers, buttons, trackers, and dials within a virtual reality environment.\n\ndef enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)\n\n    def disable(self):\n        self.nodePath.reparentTo(self._base.dataUnused)\n\n    def getName(self):\n        return self.name\n\n    def getNodePath(self):\n        return self.nodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1786
+  }
+}

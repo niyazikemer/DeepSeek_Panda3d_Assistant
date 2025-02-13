@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within a function responsible for gathering dependencies when building installers. Specifically, it checks if each dependency file (source_path) is located within any of the specified wheel directories (wheelpaths). If a file isn't found in these wheels, it indicates a potential issue where the file might belong to the current platform instead of the target one, which could cause compatibility problems during installation. This ensures that all necessary files come from the correct wheels intended for the target platform.\n\n# Was this not found in a wheel?  Then we may have a problem,\n                # since it may be for the current platform instead of the target\n                # platform.\n                if use_wheels:\n                    found_in_wheel = False\n                    for whl in wheelpaths:\n                        whl = os.path.normpath(whl)\n                        if source_path.lower().startswith(os.path.join(whl, '').lower()):\n                            found_in_wheel = True\n                            break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1988
+  }
+}

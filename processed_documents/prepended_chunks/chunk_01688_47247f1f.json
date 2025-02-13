@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within a function responsible for creating and managing cluster clients. Specifically, the chunk sits in a section where the application initializes communication with remote servers by starting a daemon listener on a specified port and sending commands to manage server applications (e.g., killing existing instances and starting new ones). This is part of setting up a distributed system or client-server architecture, likely for rendering or simulation purposes.\n\n# Start listening for the response\n        self.daemon.listenTo(clusterClientDaemonPort)\n        # Contact server daemons and start up remote server application\n        for serverConfig in configList:\n            # First kill existing application\n            self.daemon.tellServer(serverConfig.serverName,\n                                   serverConfig.serverDaemonPort,\n                                   'ka')\n            # Now start up new application\n            serverCommand = (SERVER_STARTUP_STRING %\n                             (serverConfig.serverMsgPort,\n                              clusterSyncFlag,\n                              clusterClientDaemonHost,\n                              clusterClientDaemonPort))\n            self.daemon.tellServer(serverConfig.serverName,\n                                   serverConfig.serverDaemonPort,\n                                   serverCommand)\n        print('Begin waitForServers')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1688
+  }
+}

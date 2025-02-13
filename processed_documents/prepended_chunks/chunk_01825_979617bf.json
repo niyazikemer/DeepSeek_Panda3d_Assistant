@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis chunk initializes a Panda3D graphics environment for testing purposes. It sets up core components including camera positioning, lens configuration, particle system enablement, and forces an initial frame render to establish the test environment.\n\"\"\"\n\nprint('TestStart: Starting up test environment.')\n\nimport direct.showbase.PythonUtil  # pylint: disable=unused-import\n\nfrom direct.showbase import ShowBase\nbase = ShowBase.ShowBase()\n\n# Put an axis in the world:\nbase.loader.loadModel(\"models/misc/xyzAxis\").reparentTo(base.render)\n\nassert base.camera is not None\nassert base.camLens is not None\n\nbase.camera.setPosHpr(0, -10.0, 0, 0, 0, 0)\nbase.camLens.setFov(52.0)\nbase.camLens.setNearFar(1.0, 10000.0)\n\nbase.clock.setMaxDt(0.2)\nbase.enableParticles()\n\n# Force the screen to update:\nbase.graphicsEngine.renderFrame()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_118",
+    "parent": "processed_documents/context_documents/d6b81cdc_TestStart.json",
+    "chunk_number": 1825
+  }
+}

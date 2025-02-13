@@ -1,0 +1,9 @@
+{
+  "content": "The `xform` method is part of the `Placer` class, which manages node path transformations in a 3D environment. This method handles scaling and relative or orbital movement based on the current transformation mode.\n\n### NODE PATH TRANSFORMATION OPERATIONS ###\n    def xform(self, value, axis):\n        if axis in ['sx', 'sy', 'sz']:\n            self.xformScale(value, axis)\n        elif self.movementMode == 'Relative To:':\n            self.xformRelative(value, axis)\n        elif self.movementMode == 'Orbit:':\n            self.xformOrbit(value, axis)\n        if self.nodePathMenu.get() == 'widget':\n            if ShowBaseGlobal.direct.manipulationControl.fSetCoa:\n                # Update coa based on current widget position\n                ShowBaseGlobal.direct.selected.last.mCoa2Dnp.assign(\n                    ShowBaseGlobal.direct.widget.getMat(ShowBaseGlobal.direct.selected.last))\n            else:\n                # Move the objects with the widget\n                ShowBaseGlobal.direct.selected.moveWrtWidgetAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1074
+  }
+}

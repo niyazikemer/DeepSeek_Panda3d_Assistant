@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes the base classes `DirectGuiBase` and `NodePath`, creates a GUI item via `self['pgFunc']('')`, assigns a unique ID (handling potential duplicates), and optionally tracks GUI elements for leak detection.\n\n# Initialize the base classes (after defining the options).\n        DirectGuiBase.__init__(self)\n        NodePath.__init__(self)\n        # Create a button\n        self.guiItem = self['pgFunc']('')\n        # Override automatically generated guiId\n        if self['guiId']:\n            self.guiItem.setId(self['guiId'])\n        self.guiId = self.guiItem.getId()\n\n        if ShowBaseGlobal.__dev__:\n            # track gui items by guiId for tracking down leaks\n            if _track_gui_items:\n                if not hasattr(ShowBase, 'guiItems'):\n                    ShowBase.guiItems = {}\n                if self.guiId in ShowBase.guiItems:\n                    ShowBase.notify.warning('duplicate guiId: %s (%s stomping %s)' %\n                                            (self.guiId, self,\n                                             ShowBase.guiItems[self.guiId]))\n                ShowBase.guiItems[self.guiId] = self",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1409
+  }
+}

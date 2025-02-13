@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is a method within the `Mopath` class, which manages motion paths using Nurbs curves. The method updates the position and orientation of a 3D node along the path at a specified time, ensuring proper handling of rotation and forward-facing adjustments.\n\ndef goTo(self, node, time):\n        if self.xyzNurbsCurve is None and self.hprNurbsCurve is None:\n            print('Mopath: Mopath has no curves')\n            return\n        time /= self.timeScale\n        self.playbackTime = self.calcTime(CLAMP(time, 0.0, self.maxT))\n        if self.xyzNurbsCurve is not None:\n            self.xyzNurbsCurve.getPoint(self.playbackTime, self.posPoint)\n            if self.fluid:\n                node.setFluidPos(self.posPoint)\n            else:\n                node.setPos(self.posPoint)\n        if self.hprNurbsCurve is not None:\n            self.hprNurbsCurve.getPoint(self.playbackTime, self.hprPoint)\n            node.setHpr(self.hprPoint)\n        elif self.fFaceForward and self.xyzNurbsCurve is not None:\n            if self.faceForwardDelta:\n                # Look at a point a bit ahead in parametric time.\n                t = min(self.playbackTime + self.faceForwardDelta, self.xyzNurbsCurve.getMaxT())\n                lookPoint = Point3()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1835
+  }
+}

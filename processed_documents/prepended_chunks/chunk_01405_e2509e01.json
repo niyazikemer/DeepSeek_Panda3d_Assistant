@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces the `DirectGuiWidget` class, a fundamental component within a GUI framework, setting up essential configurations such as grid behavior, edit mode status, and widget management through a dictionary.\n\nclass DirectGuiWidget(DirectGuiBase, NodePath):\n    # Toggle if you wish widget's to snap to grid when draggin\n    snapToGrid = 0\n    gridSpacing = 0.05\n\n    # Determine the default initial state for inactive (or\n    # unclickable) components.  If we are in edit mode, these are\n    # actually clickable by default.\n    guiEdit = ConfigVariableBool('direct-gui-edit', False)\n    if guiEdit:\n        inactiveInitState = DGG.NORMAL\n    else:\n        inactiveInitState = DGG.DISABLED\n\n    guiDict: dict[str, DirectGuiWidget] = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1405
+  }
+}

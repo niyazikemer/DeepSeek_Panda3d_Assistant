@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a function responsible for translating type names within a larger system that generates C++ documentation (using Doxygen) from Python modules. The function handles type name translation to ensure proper representation in the generated documentation, particularly avoiding mangling of specific types like `size_t` and correctly formatting nested class names with scope resolution operators (`::`).\n\nif not typename.endswith('_t'):\n        # Hack: don't mangle size_t etc.\n        typename = translateTypeName(typename)\n\n    if scoped and interrogate_type_is_nested(type):\n        return translated_type_name(interrogate_type_outer_class(type)) + '::' + typename\n    else:\n        return typename",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1632
+  }
+}

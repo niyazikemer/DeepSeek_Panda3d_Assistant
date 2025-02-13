@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a server implementation that manages networked communication between a client and server, specifically handling camera synchronization and task coordination. The `_syncReaderPollTask` method ensures continuous data processing until position updates are received, maintaining real-time synchronization. The `startSwapCoordinator` method initializes a task for managing resource or memory swaps, enhancing efficiency during operations.\n\ndef _syncReaderPollTask(self, task):\n        if self.lastConnection is None:\n            pass\n        elif self.qcr.isConnectionOk(self.lastConnection):\n            # Process datagrams till you get a postion update\n            type = CLUSTER_NONE\n            while type != CLUSTER_CAM_MOVEMENT:\n                # Block until you get a new datagram\n                (datagram, dgi, type) = self.msgHandler.blockingRead(self.qcr)\n                # Process datagram\n                self.handleDatagram(dgi, type)\n        return Task.cont\n\n    def startSwapCoordinator(self):\n        taskMgr.add(self.swapCoordinatorTask, \"serverSwapCoordinator\", 51)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1760
+  }
+}

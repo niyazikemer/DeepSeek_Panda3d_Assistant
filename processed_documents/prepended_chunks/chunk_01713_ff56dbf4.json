@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python module implementing a networking system for managing distributed rendering or object synchronization in a 3D graphics application. The code handles sending movement-related data for named objects over network connections to ensure consistent state across multiple client/server nodes in a clustered environment.\n\ndef sendNamedMovementDone(self):\n\n        datagram = self.msgHandler.makeNamedMovementDone()\n        self.cw.send(datagram, self.tcpConn)\n\n    def sendMoveNamedObject(self, xyz, hpr, scale, color, hidden, name):\n        ClusterClient.notify.debug(\"send named object move...\")\n        ClusterClient.notify.debug((\"packet %d xyz, hpr=%f %f %f %f %f %f\" %\n             (self.msgHandler.packetNumber, xyz[0], xyz[1], xyz[2],\n             hpr[0], hpr[1], hpr[2])))\n        datagram = self.msgHandler.makeNamedObjectMovementDatagram(xyz,hpr,scale,\n                                                                   color,hidden,\n                                                                   name)\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1713
+  }
+}

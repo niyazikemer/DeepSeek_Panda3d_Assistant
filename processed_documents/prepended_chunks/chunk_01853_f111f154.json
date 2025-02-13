@@ -1,0 +1,9 @@
+{
+  "content": "The document provides an overview of the `verify()` function, its purpose as a replacement for `assert`, and its key differences in behavior. The chunk describes how `verify()` differs from `assert` with specific examples, including import requirements, syntax rules, exception handling, optional pdb integration, and functionality in release builds.\n\n\"\"\"\nYou can use :func:`verify()` just like assert, with these small differences:\n\n- you may need to ``import Verify``, if someone hasn't done it for you.\n\n- unlike assert where using parentheses are optional, :func:`verify()`\n  requires them, e.g.::\n\n    assert foo  # OK\n    verify foo  # Error\n    assert foo  # Not Recomended (may be interpreted as a tuple)\n    verify(foo) # OK\n\n- :func:`verify()` will print something like this before raising an exception::\n\n    verify failed:\n        File \"direct/src/showbase/ShowBase.py\", line 60\n\n- :func:`verify()` will optionally start pdb for you (this is currently false\n  by default).  You can either edit Verify.py to set ``wantVerifyPdb = 1`` or\n  if you are using ShowBase you can set ``want-verify-pdb 1`` in your\n  Config.prc file to start pdb automatically.\n\n- :func:`verify()` will still function in the release build.  It will not be\n  removed by -O like assert will.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_127",
+    "parent": "processed_documents/context_documents/1af78250_Verify.json",
+    "chunk_number": 1853
+  }
+}

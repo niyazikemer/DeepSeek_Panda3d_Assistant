@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines mappings for package data directories in a Python setup script. It specifies how certain packages (like matplotlib, cefpython3, pytz) should handle their data files during distribution packaging.\n\nPACKAGE_DATA_DIRS = {\n    'matplotlib':  [('matplotlib/mpl-data/*', 'mpl-data', {})],\n    'jsonschema':  [('jsonschema/schemas/*', 'schemas', {})],\n    'cefpython3': [\n        ('cefpython3/*.pak', '', {}),\n        ('cefpython3/*.dat', '', {}),\n        ('cefpython3/*.bin', '', {}),\n        ('cefpython3/*.dll', '', {}),\n        ('cefpython3/libcef.so', '', {}),\n        ('cefpython3/LICENSE.txt', '', {}),\n        ('cefpython3/License', '', {}),\n        ('cefpython3/subprocess*', '', {'PKG_DATA_MAKE_EXECUTABLE'}),\n        ('cefpython3/locals/*', 'locals', {}),\n        ('cefpython3/Chromium Embedded Framework.framework/Resources', 'Chromium Embedded Framework.framework/Resources', {}),\n        ('cefpython3/Chromium Embedded Framework.framework/Chromium Embedded Framework', '', {'PKG_DATA_MAKE_EXECUTABLE'}),\n    ],\n    'pytz': [('pytz/zoneinfo/*', 'zoneinfo', ())],\n    'certifi': [('certifi/cacert.pem', '', {})],\n    '_tkinter_ext': [('_tkinter_ext/tcl/**', 'tcl', {})],\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1924
+  }
+}

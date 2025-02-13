@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a method (likely `printStats()`) that writes out particle system parameters to a file. The specific functionality in the chunk handles writing renderer attributes related to **color blending modes** and **color interpolation segments** for the particle system. It retrieves color blend attributes, processes their mode and operands, and writes them to a file using `ColorBlendAttrib` constants, followed by iterating over color interpolation segment IDs.\n\nThis code is used for serializing or documenting the current state of a particle system's renderer configuration, particularly focusing on its visual blending properties and color transitions.\n\ncbAttrib = self.renderer.getRenderNode().getAttrib(ColorBlendAttrib.getClassType())\n            if cbAttrib:\n                cbMode = cbAttrib.getMode()\n                if cbMode > 0:\n                    if cbMode in (ColorBlendAttrib.MAdd, ColorBlendAttrib.MSubtract, ColorBlendAttrib.MInvSubtract):\n                        cboa = cbAttrib.getOperandA()\n                        cbob = cbAttrib.getOperandB()\n                        file.write(targ+'.renderer.setColorBlendMode(ColorBlendAttrib.%s, ColorBlendAttrib.%s, ColorBlendAttrib.%s)\\n' %\n                                (cbmLut[cbMode], cboLut[cboa], cboLut[cbob]))\n                    else:\n                        file.write(targ+'.renderer.setColorBlendMode(ColorBlendAttrib.%s)\\n' % cbmLut[cbMode])\n            cim = self.renderer.getColorInterpolationManager()\n            segIdList = [int(seg) for seg in cim.getSegmentIdList().split()]\n            for sid in segIdList:\n                seg = cim.getSegment(sid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1287
+  }
+}

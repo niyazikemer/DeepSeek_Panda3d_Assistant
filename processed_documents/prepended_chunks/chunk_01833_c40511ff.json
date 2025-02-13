@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two methods: `reset()` which resets instance variables to default values, and `__extractCurves()` which recursively parses a nodePath hierarchy to identify and collect ParametricCurve nodes based on their types (e.g., PCTXYZ for position curves, PCTHPR for rotation curves). These methods are part of the Mopath class's initialization and setup process.\n\ndef reset(self):\n        self.maxT = 0.0\n        self.loop = 0\n        self.xyzNurbsCurve = None\n        self.hprNurbsCurve = None\n        self.tNurbsCurve = []\n        self.node = None\n\n    def __extractCurves(self, nodePath):\n        node = nodePath.node()\n        if isinstance(node, ParametricCurve):\n            if node.getCurveType() == PCTXYZ:\n                self.xyzNurbsCurve = node\n            elif node.getCurveType() == PCTHPR:\n                self.hprNurbsCurve = node\n            elif node.getCurveType() == PCTNONE:\n                if self.xyzNurbsCurve is None:\n                    self.xyzNurbsCurve = node\n                else:\n                    print('Mopath: got a PCT_NONE curve and an XYZ Curve in nodePath: %s' % nodePath)\n            elif node.getCurveType() == PCTT:\n                self.tNurbsCurve.append(node)\n        else:\n            # Iterate over children if any\n            for child in nodePath.getChildren():\n                self.__extractCurves(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1833
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `DirectWaitBar` class initialization in Python, where default options like texture, relief, and sortOrder are defined. It checks if text is provided to include additional text formatting options. These settings are merged with user-provided keyword arguments, initializing the widget's appearance and functionality.\n\n('barTexture',     None,               self.setBarTexture),\n            ('barRelief',      DGG.FLAT,           self.setBarRelief),\n            ('sortOrder',      DGG.NO_FADE_SORT_INDEX, None),\n        )\n        if 'text' in kw:\n            textoptiondefs = (\n                ('text_pos',    (0, -0.025),          None),\n                ('text_scale',  0.1,                 None)\n            )\n        else:\n            textoptiondefs = ()\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs + textoptiondefs)\n        # Initialize superclasses\n        DirectFrame.__init__(self, parent)\n        self.barStyle = PGFrameStyle()\n        # Call option initialization functions\n        self.initialiseoptions(DirectWaitBar)\n        self.updateBarStyle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_92",
+    "parent": "processed_documents/context_documents/e1fb356e_DirectWaitBar.json",
+    "chunk_number": 1591
+  }
+}

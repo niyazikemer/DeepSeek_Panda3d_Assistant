@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk initializes the 'R' rotation component (roll) within a graphical user interface (GUI) for manipulating 3D objects, using Dial.Styles to create an interactive angle dial. The component is configured with callbacks to handle transformation start/stop events (`xformStart`, `xformStop`) and uses a command data identifier ('r') to specify roll rotation adjustments. It is part of a broader 3D object placement tool that allows users to interactively modify the position, orientation (heading, pitch, roll), and scale of selected node paths in a 3D scene.\n\nself.hprR = self.createcomponent('hprR', (), None,\n                                         Dial.AngleDial, (hprInterior,),\n                                         style = 'mini',\n                                         text = 'R', value = 0.0,\n                                         relief = tk.FLAT,\n                                         label_foreground = '#00A000')\n        self.hprR['commandData'] = ['r']\n        self.hprR['preCallback'] = self.xformStart\n        self.hprR['postCallback'] = self.xformStop\n        self.hprR['callbackData'] = ['r']\n        self.hprR.pack(expand=1, fill='both')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1055
+  }
+}

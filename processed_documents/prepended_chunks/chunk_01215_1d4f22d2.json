@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method responsible for loading and rendering 3D curves from a specified model path. It initializes the curve collection, processes the loaded node data, draws the curve using a NurbsCurveDrawer, and extracts point sets for further use. This functionality would typically be situated within a class or function dedicated to handling 3D object rendering and curve manipulation, ensuring that it's separate from camera setup but integrated into the broader rendering pipeline of the application.\n\nparent = self.parent)\n        if mopathFilename and mopathFilename != 'None':\n            self.reset()\n            nodePath = base.loader.loadModel(\n                Filename.fromOsSpecific(mopathFilename))\n            self.curveCollection = ParametricCurveCollection()\n            # MRM: Add error check\n            self.curveCollection.addCurves(nodePath.node())\n            nodePath.removeNode()\n            if self.curveCollection:\n                # Draw the curve\n                self.nurbsCurveDrawer.setCurves(self.curveCollection)\n                self.nurbsCurveDrawer.draw()\n                # Save a pointset for this curve\n                self.extractPointSetFromCurveCollection()\n            else:\n                self.reset()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1215
+  }
+}

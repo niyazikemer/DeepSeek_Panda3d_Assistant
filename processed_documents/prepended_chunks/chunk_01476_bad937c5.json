@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Python class definition for `OnscreenText`, which handles the display and manipulation of on-screen text in a graphical user interface. The chunk specifically includes properties and methods related to scaling (`scale`), transformation matrix updates (`updateTransformMat`), word wrapping configuration (`setWordwrap`, `getWordwrap`), and foreground color management (`fg`). These elements are essential for controlling the visual presentation and layout of text on the screen.\n\nscale = property(getScale, setScale)\n\n    def updateTransformMat(self):\n        assert isinstance(self.textNode, TextNode)\n        mat = (\n            Mat4.scaleMat(Vec3.rfu(self.__scale[0], 1, self.__scale[1])) *\n            Mat4.rotateMat(self.__roll, Vec3.back()) *\n            Mat4.translateMat(Point3.rfu(self.__pos[0], 0, self.__pos[1]))\n        )\n        self.textNode.setTransform(mat)\n\n    def setWordwrap(self, wordwrap):\n        self.__wordwrap = wordwrap\n\n        if wordwrap:\n            self.textNode.setWordwrap(wordwrap)\n        else:\n            self.textNode.clearWordwrap()\n\n    def getWordwrap(self):\n        return self.__wordwrap\n\n    wordwrap = property(getWordwrap, setWordwrap)\n\n    def __getFg(self):\n        return self.textNode.getTextColor()\n\n    def setFg(self, fg):\n        self.textNode.setTextColor(fg[0], fg[1], fg[2], fg[3])\n\n    fg = property(__getFg, setFg)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1476
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines specialized `Inspector` subclasses for different data types: \n\n- **CodeInspector** (for code objects), \n- **ComplexInspector** (handles complex numbers with 'real' and 'imag' parts), and \n- **DictionaryInspector** (inspect dictionaries, listing sorted keys and handling both dictionary items and attributes).\n\nclass CodeInspector(Inspector):\n    def title(self):\n        return str(self.object)\n\n###\n\n\nclass ComplexInspector(Inspector):\n    def namedParts(self):\n        return ['real', 'imag']\n\n###\n\n\nclass DictionaryInspector(Inspector):\n\n    def initializePartsList(self):\n        Inspector.initializePartsList(self)\n        for each in sorted(self.object):\n            self._partsList.append(each)\n\n    def partNumber(self, partNumber):\n        self.lastPartNumber = partNumber\n        if partNumber == 0:\n            return self.object\n        key = self.privatePartNumber(partNumber)\n        if key in self.object:\n            return self.object[key]\n        else:\n            return getattr(self.object, key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1023
+  }
+}

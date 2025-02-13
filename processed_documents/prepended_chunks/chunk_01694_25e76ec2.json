@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods for synchronizing frame timing across distributed server clients and starting a task to move the camera in a graphics engine setup.\n\ndef startSynchronizeTimeTask(self):\n        self.notify.debug('broadcasting frame time')\n        taskMgr.add(self.synchronizeTimeTask, \"synchronizeTimeTask\", -40)\n\n    def synchronizeTimeTask(self, task):\n        clock = ClockObject.getGlobalClock()\n        frameCount = clock.getFrameCount()\n        frameTime = clock.getFrameTime()\n        dt = clock.dt\n        for server in self.serverList:\n            server.sendTimeData(frameCount, frameTime, dt)\n        return Task.cont\n\n    def startMoveCamTask(self):\n        self.notify.debug('adding move cam')\n        taskMgr.add(self.moveCameraTask, \"moveCamTask\", 49)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1694
+  }
+}

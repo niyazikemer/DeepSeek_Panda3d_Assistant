@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `setEmitter` method, which is part of a particle system class. This method allows setting different types of emitters (e.g., ArcEmitter, BoxEmitter) to control how particles are generated and distributed in space, enabling customization of particle emission patterns.\n\ndef setEmitter(self, type):\n        if self.emitterType == type:\n            return None\n        if self.emitter:\n            self.emitter = None\n        self.emitterType = type\n        if type == \"ArcEmitter\":\n            self.emitter = ArcEmitter()\n        elif type == \"BoxEmitter\":\n            self.emitter = BoxEmitter()\n        elif type == \"DiscEmitter\":\n            self.emitter = DiscEmitter()\n        elif type == \"LineEmitter\":\n            self.emitter = LineEmitter()\n        elif type == \"PointEmitter\":\n            self.emitter = PointEmitter()\n        elif type == \"RectangleEmitter\":\n            self.emitter = RectangleEmitter()\n        elif type == \"RingEmitter\":\n            self.emitter = RingEmitter()\n        elif type == \"SphereSurfaceEmitter\":\n            self.emitter = SphereSurfaceEmitter()\n        elif type == \"SphereVolumeEmitter\":\n            self.emitter = SphereVolumeEmitter()\n            self.emitter.setRadius(1.0)\n        elif type == \"TangentRingEmitter\":",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1262
+  }
+}

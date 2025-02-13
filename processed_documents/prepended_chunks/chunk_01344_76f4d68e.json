@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `setImage` method in the `OnscreenImage` class, which handles different types of image inputs (NodePath, string/Texture, or tuple) and assigns corresponding geometry. This section creates a CardMaker for texture-based images or extracts nodes from models when given a file-node tuple.\n\n# Assign geometry\n        if isinstance(image, NodePath):\n            self.assign(image.copyTo(parent, sort))\n        elif isinstance(image, str) or isinstance(image, Texture):\n            if isinstance(image, Texture):\n                # It's a Texture\n                tex = image\n            else:\n                # It's a Texture file name\n                tex = TexturePool.loadTexture(image)\n                if not tex:\n                    raise IOError('Could not load texture: %s' % (image))\n            cm = CardMaker('OnscreenImage')\n            cm.setFrame(-1, 1, -1, 1)\n            self.assign(parent.attachNewNode(cm.generate(), sort))\n            self.setTexture(tex)\n        elif isinstance(image, tuple):\n            # Assume its a file+node name, extract texture from node\n            model = base.loader.loadModel(image[0])\n            if model:\n                node = model.find(image[1])\n                if node:\n                    self.assign(node.copyTo(parent, sort))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_75",
+    "parent": "processed_documents/context_documents/c320ed49_OnscreenImage.json",
+    "chunk_number": 1344
+  }
+}

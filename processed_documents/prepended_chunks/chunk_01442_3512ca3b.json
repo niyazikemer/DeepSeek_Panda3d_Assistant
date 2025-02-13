@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk calculates the dimensions of an indicator and adjusts the bounds to ensure proper display based on the specified placement (left, right, above, or below).\n\nibw = self.indicator['borderWidth']\n            indicatorWidth = (self.indicator.getWidth() + (2*ibw[0]))\n            indicatorHeight = (self.indicator.getHeight() + (2*ibw[1]))\n            diff = (indicatorHeight + (2*self['boxBorder']) -\n                    (self.bounds[3] - self.bounds[2]))\n            # If background is smaller then indicator, enlarge background\n            if diff > 0:\n                if self['boxPlacement'] == 'left':            #left\n                    self.bounds[0] += -(indicatorWidth + (2*self['boxBorder']))\n                    self.bounds[3] += diff/2\n                    self.bounds[2] -= diff/2\n                elif self['boxPlacement'] == 'below':          #below\n                    self.bounds[2] += -(indicatorHeight+(2*self['boxBorder']))\n                elif self['boxPlacement'] == 'right':          #right\n                    self.bounds[1] += indicatorWidth + (2*self['boxBorder'])\n                    self.bounds[3] += diff/2",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_80",
+    "parent": "processed_documents/context_documents/b50b78f4_DirectRadioButton.json",
+    "chunk_number": 1442
+  }
+}

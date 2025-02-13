@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class that manages playback functionality, including stopping playback, jumping to specific time points, toggling play/pause, and setting desample frequency. This is situated within a larger context where the class also handles camera setup and display regions, suggesting it's an interactive visualization or animation tool. The functions interact with UI variables and widgets to control playback parameters, enhancing user interaction with animated content displayed through the Panda3D rendering system.\n\n</context>\n\ndef stopPlayback(self):\n        self.getVariable('Playback', 'Play').set(0)\n        taskMgr.remove(self.name + '-playbackTask')\n\n    def jumpToStartOfPlayback(self):\n        self.stopPlayback()\n        self.getWidget('Playback', 'Time').set(0.0)\n\n    def jumpToEndOfPlayback(self):\n        self.stopPlayback()\n        if self.curveCollection is not None:\n            self.getWidget('Playback', 'Time').set(self.maxT)\n\n    def startStopPlayback(self):\n        if self.getVariable('Playback', 'Play').get():\n            self.startPlayback()\n        else:\n            self.stopPlayback()\n\n    def setDesampleFrequency(self, frequency):\n        self.desampleFrequency = frequency",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1197
+  }
+}

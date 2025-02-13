@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk consists of two methods (`sendExit` and `sendTimeData`) within a class related to network communication in a distributed rendering or networking system. These methods are responsible for sending specific commands or timing information over the network to coordinate client-server interactions, ensuring proper synchronization or termination of operations across multiple nodes in a cluster setup.\n\ndef sendExit(self):\n        ClusterClient.notify.debug(\n            \"display connect send exit, packet %d\" %\n            self.msgHandler.packetNumber)\n        datagram = self.msgHandler.makeExitDatagram()\n        self.cw.send(datagram, self.tcpConn)\n\n    def sendTimeData(self, frameCount, frameTime, dt):\n        ClusterClient.notify.debug(\"send time data...\")\n        datagram = self.msgHandler.makeTimeDataDatagram(\n            frameCount, frameTime, dt)\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1716
+  }
+}

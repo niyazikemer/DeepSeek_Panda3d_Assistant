@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `DirectScrolledList` class, which manages a scrollable list interface. The specific method, `removeAndDestroyAllItems`, iterates through all items in the list, removes each item from the visible UI, destroys their associated DirectGUI elements to prevent memory leaks, and optionally refreshes the display after all items are cleared. This method is designed to comprehensively clean up all items within the scroll list while ensuring proper resource management.\n\nif refresh:\n            self.refresh()\n\n        return retval\n\n    def removeAndDestroyAllItems(self, refresh = 1):\n        \"\"\"\n        Remove and destroy all items from the panel.\n        Warning 2006_10_19 tested only in the trolley metagame\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        retval = 0\n        while len(self[\"items\"]) > 0:\n            item = self['items'][0]\n            if hasattr(self, \"currentSelected\") and self.currentSelected is item:\n                del self.currentSelected\n            if hasattr(item, 'destroy') and hasattr(item.destroy, '__call__'):\n                item.destroy()\n            self[\"items\"].remove(item)\n            if not isinstance(item, str):\n                #RAU possible leak here, let's try to do the right thing\n                #item.reparentTo(ShowBaseGlobal.hidden)\n                item.removeNode()\n            retval = 1\n        if refresh:\n            self.refresh()\n        return retval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1622
+  }
+}

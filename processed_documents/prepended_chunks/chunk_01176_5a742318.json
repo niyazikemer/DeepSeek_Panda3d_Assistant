@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method responsible for handling animation refinement or extension operations. It manages node path reparenting, keyframe addition, and cleanup during refine/extend modes, ensuring proper state restoration and point merging.\n\nif self.recordingType.get() == 'Refine' or \\\n                   self.recordingType.get() == 'Extend':\n                    # Reparent node path back to parent\n                    self.nodePath.wrtReparentTo(self.nodePathParent)\n                    # Restore playback Node Path\n                    self.setPlaybackNodePath(self.oldPlaybackNodePath)\n            else:\n                # Add last point\n                self.addKeyframe(0)\n            # Reset sampling mode\n            self.setSamplingMode('Continuous')\n            self.enableKeyframeButton()\n            # Clean up after refine or extend\n            if self.recordingType.get() == 'Refine' or \\\n               self.recordingType.get() == 'Extend':\n                # Merge prePoints, pointSet, postPoints\n                self.mergePoints()\n                # Clear out pre and post list\n                self.prePoints = []\n                self.postPoints = []\n                # Reset recording mode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1176
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method for starting a swap coordinator task (`startSwapCoordinator`) which adds a task to the task manager. The `swapCoordinatorTask` handles receiving position updates from clients, sending swap ready notifications (`sendSwapReady`), and waiting for swap commands. It uses the message handler to read datagrams and process them, including handling intermediate messages until receiving the swap command.\n\ndef startSwapCoordinator(self):\n        taskMgr.add(self.swapCoordinatorTask, \"serverSwapCoordinator\", 51)\n\n    def swapCoordinatorTask(self, task):\n        if self.fPosReceived:\n            self.fPosReceived = 0\n            # Alert client that this server is ready to swap\n            self.sendSwapReady()\n            # Wait for swap command (processing any intermediate datagrams)\n            while 1:\n                (datagram, dgi, type) = self.msgHandler.blockingRead(self.qcr)\n                self.handleDatagram(dgi, type)\n                if type == CLUSTER_SWAP_NOW:\n                    break\n        return Task.cont\n\n    def sendSwapReady(self):\n        self.notify.debug(\n            'send swap ready packet %d' % self.msgHandler.packetNumber)\n        datagram = self.msgHandler.makeSwapReadyDatagram()\n        self.cw.send(datagram, self.lastConnection)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1761
+  }
+}

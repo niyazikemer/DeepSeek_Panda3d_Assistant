@@ -1,0 +1,9 @@
+{
+  "content": "The `create_tarball` function is part of an application build process, responsible for generating distributable tar archives with specific compression and file permission settings, situating it within a broader context of application distribution and packaging.\n\ndef create_tarball(command, basename, build_dir, tar_compression):\n    base_dir = command.get_archive_basedir()\n    build_cmd = command.get_finalized_command('build_apps')\n    binary_names = list(build_cmd.console_apps.keys()) + list(build_cmd.gui_apps.keys())\n\n    source_date = os.environ.get('SOURCE_DATE_EPOCH', '').strip()\n    if source_date:\n        max_mtime = int(source_date)\n    else:\n        max_mtime = None\n\n    def tarfilter(tarinfo):\n        if tarinfo.isdir() or os.path.basename(tarinfo.name) in binary_names:\n            tarinfo.mode = 0o755\n        else:\n            tarinfo.mode = 0o644\n\n        # This isn't interesting information to retain for distribution.\n        tarinfo.uid = 0\n        tarinfo.gid = 0\n        tarinfo.uname = \"\"\n        tarinfo.gname = \"\"\n\n        if max_mtime is not None and tarinfo.mtime >= max_mtime:\n            tarinfo.mtime = max_mtime\n\n        return tarinfo",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1904
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python script that generates Doxygen-compatible C++ header files from Python bindings to a C++ library called Panda3D. The specific code processes function parameters to generate function signatures in the documentation, handling both regular functions and constructors (via `__init__`).\n\nprint(translateFunctionName(interrogate_function_name(function)) + \"(\", end=' ', file=handle)\n        else:\n            print(\"__init__(\", end=' ', file=handle)\n\n        first = True\n        for i_param in range(interrogate_wrapper_number_of_parameters(wrapper)):\n            if not interrogate_wrapper_parameter_is_this(wrapper, i_param):\n                if not first:\n                    print(\",\", end=' ', file=handle)\n                print(translated_type_name(interrogate_wrapper_parameter_type(wrapper, i_param)), end=' ', file=handle)\n                if interrogate_wrapper_parameter_has_name(wrapper, i_param):\n                    print(interrogate_wrapper_parameter_name(wrapper, i_param), end=' ', file=handle)\n                first = False\n\n        print(\");\", file=handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1635
+  }
+}

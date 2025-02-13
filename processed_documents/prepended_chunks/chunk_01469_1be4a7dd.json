@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces additional methods for managing text properties in the `OnscreenText` class, including setting/decal effects, font management, and manipulating text content through methods like `clearText()`, `setText()`, `appendText()`, and `getText()`. These methods extend the core functionality of the class to handle text appearance and modification. The chunk is situated within the main body of the `OnscreenText` class definition, following other property setters and getters related to position, alignment, and styling options.\n\ndef setDecal(self, decal):\n        self.textNode.setCardDecal(decal)\n\n    def getDecal(self):\n        return self.textNode.getCardDecal()\n\n    decal = property(getDecal, setDecal)\n\n    def setFont(self, font):\n        self.textNode.setFont(font)\n\n    def getFont(self):\n        return self.textNode.getFont()\n\n    font = property(getFont, setFont)\n\n    def clearText(self):\n        self.textNode.clearText()\n\n    def setText(self, text):\n        assert not isinstance(text, bytes)\n        self.textNode.setWtext(text)\n\n    def appendText(self, text):\n        assert not isinstance(text, bytes)\n        self.textNode.appendWtext(text)\n\n    def getText(self):\n        return self.textNode.getWtext()\n\n    text = property(getText, setText)\n\n    def setTextX(self, x):\n        \"\"\"\n        .. versionadded:: 1.10.8\n        \"\"\"\n        self.setTextPos(x, self.__pos[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1469
+  }
+}

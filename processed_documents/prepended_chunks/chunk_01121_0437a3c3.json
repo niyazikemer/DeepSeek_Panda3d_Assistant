@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines an `appInit` method within a class that initializes core application state and components, including dictionaries for widget management, active node paths, parent references, top-level node setup, temporary coordinate systems, and a playback marker for visualization. This initialization supports recording and playback functionality in a 3D environment.\n\ndef appInit(self):\n        self.name = self['name']\n        # Dictionary of widgets\n        self.widgetDict = {}\n        self.variableDict = {}\n        # Initialize state\n        # The active node path\n        self.nodePath = self['nodePath']\n        self.playbackNodePath = self.nodePath\n        # The active node path's parent\n        self.nodePathParent = render\n        # Top level node path\n        self.recorderNodePath = base.direct.group.attachNewNode(self.name)\n        # Temp CS for use in refinement/path extension\n        self.tempCS = self.recorderNodePath.attachNewNode(\n            'mopathRecorderTempCS')\n        # Marker for use in playback\n        self.playbackMarker = base.loader.loadModel('models/misc/smiley')\n        self.playbackMarker.setName('Playback Marker')\n        self.playbackMarker.reparentTo(self.recorderNodePath)\n        self.playbackMarkerIds = self.getChildIds(\n            self.playbackMarker.getChild(0))\n        self.playbackMarker.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1121
+  }
+}

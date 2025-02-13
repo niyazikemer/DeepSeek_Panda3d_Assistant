@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function that processes different types in the Panda3D API documentation generator. Specifically, it handles `typedef` type definitions, checking if the wrapped type is global before printing the corresponding C++ typedef line to the output file. If the wrapped type is not global, it returns early. This section comes after handling enum types and before processing other composite types like structs, classes, and unions.\n\n```python\nelif interrogate_otype_is_typedef(type):\n    # Handle typedef type definitions by checking if the wrapped type is global,\n    # then printing a C++ typedef line to the output file.\n    # Returns early if the wrapped type is not global.\n```\n\nelif interrogate_type_is_typedef(type):\n        wrapped_type = interrogate_type_wrapped_type(type)\n        if interrogate_type_is_global(wrapped_type):\n            wrapped_type_name = translated_type_name(wrapped_type)\n            print(\"typedef %s %s;\" % (wrapped_type_name, typename), file=handle)\n        return\n    else:\n        if interrogate_type_is_struct(type):\n            classtype = \"struct\"\n        elif interrogate_type_is_class(type):\n            classtype = \"class\"\n        elif interrogate_type_is_union(type):\n            classtype = \"union\"\n        else:\n            print(\"I don't know what type %s is\" % interrogate_type_true_name(type))\n            return\n\n        if len(derivations) > 0:\n            print(\"%s %s : public %s {\" % (classtype, typename, \", public \".join(derivations)), file=handle)\n        else:\n            print(\"%s %s {\" % (classtype, typename), file=handle)\n        print(\"public:\", file=handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1637
+  }
+}

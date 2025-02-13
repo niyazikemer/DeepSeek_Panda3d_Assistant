@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a class, likely responsible for setting up frame controls in an animation panel. The code configures labels and a control (possibly a slider) to display either integer frames or floating-point time values, depending on whether `self.maxFrame` is defined. This setup enhances user interaction by adapting the interface for discrete frames or continuous time-based animations.\n\nfromFrame = 0\n            toFrame = self.maxFrame\n            self.minLabel['text'] = fromFrame\n            self.maxLabel['text'] = toFrame\n            self.frameControl.configure(from_ = fromFrame,\n                                        to = toFrame,\n                                        resolution = 1.0)\n        else:\n            self.minLabel['text'] = '0.0'\n            self.maxLabel['text'] = \"%.2f\" % self.duration\n            self.frameControl.configure(from_ = 0.0,\n                                        to = self.duration,\n                                        resolution = 0.01)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1003
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a method `bundle_macos_app` that creates a macOS `.app` bundle by organizing files into specific directories such as `Contents`, `MacOS`, `Frameworks`, and `Resources`. This method is part of the distribution process for creating platform-specific application packages, specifically tailored for macOS. It is used within the context of building and distributing Panda3D applications, ensuring that the final package adheres to macOS's expected structure for `.app` files.\n\ndef bundle_macos_app(self, builddir):\n        \"\"\"Bundle built runtime into a .app for macOS\"\"\"\n\n        appname = '{}.app'.format(self.macos_main_app)\n        appdir = os.path.join(builddir, appname)\n        contentsdir = os.path.join(appdir, 'Contents')\n        macosdir = os.path.join(contentsdir, 'MacOS')\n        fwdir = os.path.join(contentsdir, 'Frameworks')\n        resdir = os.path.join(contentsdir, 'Resources')\n\n        self.announce('Bundling macOS app into {}'.format(appdir), distutils.log.INFO)\n\n        # Create initial directory structure\n        os.makedirs(macosdir)\n        os.makedirs(fwdir)\n        os.makedirs(resdir)\n\n        # Move files over\n        for fname in os.listdir(builddir):\n            src = os.path.join(builddir, fname)\n            if appdir in src:\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1959
+  }
+}

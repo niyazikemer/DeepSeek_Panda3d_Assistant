@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods, `setCropFrom` and `setCropTo`, which manage crop parameters within a rendering or UI context. These methods ensure that 'cropFrom' does not exceed 'cropTo' and vice versa, updating related widgets for consistency. They are part of a class handling user interaction with cropping settings, ensuring correct playback time synchronization and preventing reentrancy issues through a flag mechanism.\n\ndef setCropFrom(self, value):\n        self.cropFrom = value\n        # Someone else is adjusting values, let them take care of it\n        if self.fAdjustingValues:\n            return\n        self.fAdjustingValues = 1\n        if self.cropFrom > self.cropTo:\n            self.getWidget('Crop Page', 'Crop To').set(\n                self.cropFrom)\n        # Move playback node path to specified time\n        self.getWidget('Playback', 'Time').set(value)\n        self.fAdjustingValues = 0\n\n    def setCropTo(self, value):\n        self.cropTo = value\n        # Someone else is adjusting values, let them take care of it\n        if self.fAdjustingValues:\n            return\n        self.fAdjustingValues = 1\n        if self.cropTo < self.cropFrom:\n            self.getWidget('Crop Page', 'Crop From').set(\n                self.cropTo)\n        # Move playback node path to specified time\n        self.getWidget('Playback', 'Time').set(value)\n        self.fAdjustingValues = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1211
+  }
+}

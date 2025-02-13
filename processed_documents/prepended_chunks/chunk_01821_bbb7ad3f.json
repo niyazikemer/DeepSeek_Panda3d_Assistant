@@ -1,0 +1,9 @@
+{
+  "content": "The `normalizeChannel` method in the DirectRadamec class is responsible for normalizing analog input values from the Radamec device into a specified numerical range, typically between -1 and 1. This normalization uses hard-coded minimum and maximum values specific to each channel of the Radamec device (e.g., pan, tilt, zoom, focus) to map raw input data into a standardized output format for consistent processing across different channels.\n\n# Normalize to the range [-minVal, maxVal] based on some hard-coded\n    # max/min numbers of the Radamec device\n    def normalizeChannel(self, chan, minVal = -1, maxVal = 1):\n        if chan < 0 or chan >= min(len(self.maxRange), len(self.minRange)):\n            raise RuntimeError(\"can't normalize this channel (channel %d)\" % chan)\n\n        maxRange = self.maxRange[chan]\n        minRange = self.minRange[chan]\n\n        diff = maxRange - minRange\n        clampedVal = max(min(self.aList[chan], maxRange), maxRange)\n        return ((maxVal - minVal) * (clampedVal - minRange) / diff) + minVal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_114",
+    "parent": "processed_documents/context_documents/cbf68dd6_DirectRadamec.json",
+    "chunk_number": 1821
+  }
+}

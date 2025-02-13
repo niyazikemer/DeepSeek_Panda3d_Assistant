@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nMethods for managing animation transitions and pre-recording functionality in a camera control system.\n- `easeInOut`: Implements an easing function for smooth animations/interpolations.\n- `setPreRecordFunc`: Dynamically sets a custom pre-recording function using eval,\n                     updating UI state to reflect activation.\n\"\"\"\n\ndef easeInOut(self, t):\n        x = t * t\n        return (3 * x) - (2 * t * x)\n\n    def setPreRecordFunc(self, func):\n        # Note: If func is one defined at command prompt, need to set\n        # __builtins__.func = func at command line\n        self.preRecordFunc = eval(func)\n        # Update widget to reflect new value\n        self.getVariable('Recording', 'PRF Active').set(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1180
+  }
+}

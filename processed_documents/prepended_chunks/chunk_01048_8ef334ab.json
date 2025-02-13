@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the creation and configuration of the 'Position' control group within the Placer tool's GUI, adding menu options for setting position to zero or resetting initial position.\n\n# Create and pack the Pos Controls\n        posGroup = Pmw.Group(interior,\n                             tag_pyclass = tk.Menubutton,\n                             tag_text = 'Position',\n                             tag_font=('MSSansSerif', 14),\n                             tag_activebackground = '#909090',\n                             ring_relief = tk.RIDGE)\n        posMenubutton = posGroup.component('tag')\n        self.bind(posMenubutton, 'Position menu operations')\n        posMenu = tk.Menu(posMenubutton, tearoff = 0)\n        posMenu.add_command(label = 'Set to zero', command = self.zeroPos)\n        posMenu.add_command(label = 'Reset initial',\n                            command = self.resetPos)\n        posMenubutton['menu'] = posMenu\n        posGroup.pack(side='left', fill = 'both', expand = 1)\n        posInterior = posGroup.interior()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1048
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The ParticleEffect class is a NodePath subclass designed to manage particle effects in Python, supporting particle systems through methods like birthLitter(), addParticles(), and removeParticles(). It maintains dictionaries for tracking particles and force groups, enabling lifecycle management of particle effects.\n\nclass ParticleEffect(NodePath):\n    notify = DirectNotifyGlobal.directNotify.newCategory('ParticleEffect')\n    pid = 1\n\n    def __init__(self, name=None, particles=None):\n        if name is None:\n            name = 'particle-effect-%d' % ParticleEffect.pid\n            ParticleEffect.pid += 1\n        NodePath.__init__(self, name)\n        # Record particle effect name\n        self.name = name\n        # Enabled flag\n        self.fEnabled = 0\n        # Dictionary of particles and forceGroups\n        self.particlesDict = {}\n        self.forceGroupDict = {}\n        # The effect's particle system\n        if particles is not None:\n            self.addParticles(particles)\n        self.renderParent = None\n\n    def birthLitter(self):\n        for p in self.particlesDict.values():\n            p.birthLitter()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1235
+  }
+}

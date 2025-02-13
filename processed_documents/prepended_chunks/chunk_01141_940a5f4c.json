@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the camera window setup code, adding a slider control for resampling curves with adjustable sample numbers on a dedicated resample page.\n\n## RESAMPLE PAGE\n        label = tk.Label(self.resamplePage, text = 'RESAMPLE CURVE',\n                         font=('MSSansSerif', 12, 'bold'))\n        label.pack(fill = tk.X)\n\n        # Resample\n        resampleFrame = tk.Frame(\n            self.resamplePage, relief = tk.SUNKEN, borderwidth = 2)\n        label = tk.Label(resampleFrame, text = 'RESAMPLE CURVE',\n                         font=('MSSansSerif', 12, 'bold')).pack()\n        widget = self.createSlider(\n            resampleFrame, 'Resample', 'Num. Samples',\n            'Number of samples in resampled curve',\n            resolution = 1, min = 2, max = 1000, command = self.setNumSamples)\n        widget.component('hull')['relief'] = tk.RIDGE\n        widget['postCallback'] = self.sampleCurve",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1141
+  }
+}

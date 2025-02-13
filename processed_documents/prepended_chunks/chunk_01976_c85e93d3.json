@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to handling `.whl` (wheel) files and their associated library paths during an application's build process. It is situated within a script responsible for building installers or distributing Python applications, likely as part of a setup or packaging routine. The chunk specifically checks if the source path contains a wheel directory, extracts relevant paths, and appends them to a search list to locate necessary libraries (e.g., `.libs` directories) following conventions used by tools like `auditwheel` and packages such as `numpy`. This ensures that required native libraries are correctly identified and included when distributing the application.\n\n# If the .whl containing this file has a .libs directory, add\n                # it to the path.  This is an auditwheel/numpy convention.\n                if '.whl' + os.sep in source_path:\n                    whl, wf = source_path.split('.whl' + os.path.sep)\n                    whl += '.whl'\n                    rootdir = wf.split(os.path.sep, 1)[0]\n                    search_path.append(os.path.join(whl, rootdir, '.libs'))\n\n                    # Also look for eg. numpy.libs or Pillow.libs in the root\n                    whl_name = os.path.basename(whl).split('-', 1)[0]\n                    search_path.append(os.path.join(whl, whl_name + '.libs'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1976
+  }
+}

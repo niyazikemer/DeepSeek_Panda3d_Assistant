@@ -1,0 +1,9 @@
+{
+  "content": "The `createCheckbutton` method is part of a larger class responsible for creating and managing various GUI widgets within a Tkinter application. The method creates a Checkbutton widget using Tkinter, sets its properties such as text, initial state, and command for interaction, packs it into the parent window with specified layout parameters, binds balloon help text for tooltips, and stores references to the widget and associated BooleanVar in dictionaries for later access.\n\ndef createCheckbutton(self, parent, category, text,\n                          balloonHelp, command, initialState,\n                          side = 'top', fill = tk.X, expand = 0):\n        bool = tk.BooleanVar()\n        bool.set(initialState)\n        widget = tk.Checkbutton(parent, text = text, anchor = tk.W,\n                                variable = bool)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(side = side, fill = fill, expand = expand)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        self.variableDict[category + '-' + text] = bool\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1221
+  }
+}

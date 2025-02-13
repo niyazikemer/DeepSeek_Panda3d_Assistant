@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `selectHighlightedIndex` method in a Python class that implements a popup menu button. The code shows the popup menu, ensures proper scaling, computes positioning based on bounds, aligns the selected item vertically, and checks for screen boundaries to ensure full visibility.\n\n# Show the menu\n        self.popupMenu.show()\n        # Make sure its at the right scale\n        self.popupMenu.setScale(self, VBase3(1))\n        # Compute bounds\n        b = self.getBounds()\n        fb = self.popupMenu.getBounds()\n        # Position menu at midpoint of button\n        xPos = (b[1] - b[0])/2.0 - fb[0]\n        self.popupMenu.setX(self, xPos)\n        # Try to set height to line up selected item with button\n        self.popupMenu.setZ(\n            self, self.minZ + (self.selectedIndex + 1)*self.maxHeight)\n        # Make sure the whole popup menu is visible\n        pos = self.popupMenu.getPos(ShowBaseGlobal.render2d)\n        scale = self.popupMenu.getScale(ShowBaseGlobal.render2d)\n        # How are we doing relative to the right side of the screen\n        maxX = pos[0] + fb[1] * scale[0]\n        if maxX > 1.0:\n            # Need to move menu to the left\n            self.popupMenu.setX(ShowBaseGlobal.render2d, pos[0] + (1.0 - maxX))\n        # How about up and down?",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1327
+  }
+}

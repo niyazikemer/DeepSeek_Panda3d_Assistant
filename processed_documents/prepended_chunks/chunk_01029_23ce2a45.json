@@ -1,0 +1,9 @@
+{
+  "content": "The `createMenus` and `fillList` methods are part of an `Inspector` class that manages a graphical user interface for inspecting object attributes. The `createMenus` method sets up the menu bar with \"Inspect\" and \"Help\" menus, while `fillList` populates a list widget with attribute names from the inspected object. These functions support interactive exploration and debugging by organizing UI elements and displaying inspection data.\n\ndef createMenus(self):\n        self.menuBar = tk.Menu(self.top)\n        self.top.config(menu=self.menuBar)\n        inspectMenu = tk.Menu(self.menuBar)\n        self.menuBar.add_cascade(label='Inspect', menu=inspectMenu)\n        inspectMenu.add_command(label='Pop', command=self.pop)\n        inspectMenu.add_command(label='Dive', command=self.dive)\n        inspectMenu.add_command(label='Inspect', command=self.inspect)\n        helpMenu = tk.Menu(self.menuBar)\n        self.menuBar.add_cascade(label='Help', menu=helpMenu)\n        helpMenu.add_command(label='Instructions', command=self.showHelp)\n\n    def fillList(self):\n        self.listWidget.delete(0, tk.END)\n        for each in self.topInspector().partNames():\n            self.listWidget.insert(tk.END, each)\n        self.listWidget.select_clear(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1029
+  }
+}

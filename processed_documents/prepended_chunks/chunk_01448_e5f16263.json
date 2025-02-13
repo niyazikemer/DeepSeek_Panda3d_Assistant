@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains critical methods for managing radio button interactions, including command processing (`commandFunc`), state management (`check`, `uncheck`), and coordination with related buttons (`setOthers`). The positioning logic ensures proper visual placement of indicator elements within the widget's bounds.\n\nself.indicator.setPos(newpos[0], newpos[1], newpos[2])\n\n    def commandFunc(self, event):\n        if len(self['value']) == len(self['variable']) != 0:\n            for i in range(len(self['value'])):\n                self['variable'][i] = self['value'][i]\n        self.check()\n\n    def check(self):\n        self['indicatorValue'] = 1\n        self.setIndicatorValue()\n\n        for other in self['others']:\n            if other != self:\n                other.uncheck()\n\n        if self['command']:\n            # Pass any extra args to command\n            self['command'](*self['extraArgs'])\n\n    def setOthers(self, others):\n        self['others'] = others\n\n    def uncheck(self):\n        self['indicatorValue'] = 0\n        if self.colors is not None:\n            self.component('indicator')['geom_color'] = self.colors[self['indicatorValue']]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_80",
+    "parent": "processed_documents/context_documents/b50b78f4_DirectRadioButton.json",
+    "chunk_number": 1448
+  }
+}

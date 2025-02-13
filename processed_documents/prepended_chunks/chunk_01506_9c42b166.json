@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods related to handling input events and error conditions in a GUI component, specifically focusing on auto-capitalization functionality when typing occurs and managing command execution outcomes.\n\ndef failedCommandFunc(self, event):\n        if self['failedCommand']:\n            # Pass any extra args\n            self['failedCommand'](*[self.get()] + self['failedExtraArgs'])\n\n    def autoCapitalizeFunc(self):\n        if self['autoCapitalize']:\n            self._autoCapListener.accept(self.guiItem.getTypeEvent(), self._handleTyping)\n            self._autoCapListener.accept(self.guiItem.getEraseEvent(), self._handleErasing)\n        else:\n            self._autoCapListener.ignore(self.guiItem.getTypeEvent())\n            self._autoCapListener.ignore(self.guiItem.getEraseEvent())\n\n    def focusInCommandFunc(self):\n        if self['focusInCommand']:\n            self['focusInCommand'](*self['focusInExtraArgs'])\n        if self['autoCapitalize']:\n            self.accept(self.guiItem.getTypeEvent(), self._handleTyping)\n            self.accept(self.guiItem.getEraseEvent(), self._handleErasing)\n\n    def _handleTyping(self, guiEvent):\n        self._autoCapitalize()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1506
+  }
+}

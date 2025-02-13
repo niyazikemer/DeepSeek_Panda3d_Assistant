@@ -1,0 +1,9 @@
+{
+  "content": "The `showHelp` method in the Inspector tool provides context-sensitive help documentation for users interacting with the tool's graphical interface components, including the listbox, value box, and command box.\n\ndef showHelp(self):\n        from direct.showbase import ShowBaseGlobal\n        help = tk.Toplevel(ShowBaseGlobal.base.tkRoot)\n        help.title(\"Inspector Help\")\n        frame = tk.Frame(help)\n        frame.pack()\n        text = tk.Label(\n            frame, justify = tk.LEFT,\n            text = \"ListBox shows selected object's attributes\\nDouble click or use right arrow on an instance variable to dive down.\\nDouble click self or use left arrow to pop back up.\\nUse up and down arrow keys to move from item to item in the current level.\\n\\nValue box (upper right) shows current value of selected item\\n\\nCommand box (lower right) is used to evaluate python commands\\nLocal variables 'object' and 'this' are defined as the current object being inspected\\nand the current attribute selected.\"\n        )\n        text.pack()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1034
+  }
+}

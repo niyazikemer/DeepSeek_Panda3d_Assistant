@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods, `setFrameTexture` and `setFrameVisibleScale`, which are part of a larger class designed for managing DirectGUI elements in Panda3D. These methods handle visual properties of GUI components across different states (e.g., active, inactive).\n\ndef setFrameTexture(self):\n        # this might be a single texture or a list of textures\n        textures = self['frameTexture']\n        if textures is None or \\\n           isinstance(textures, (Texture, str)):\n            textures = (textures,) * self['numStates']\n        for i in range(self['numStates']):\n            if i >= len(textures):\n                texture = textures[-1]\n            else:\n                texture = textures[i]\n            if isinstance(texture, str):\n                texture = base.loader.loadTexture(texture)\n            if texture:\n                self.frameStyle[i].setTexture(texture)\n            else:\n                self.frameStyle[i].clearTexture()\n        self.updateFrameStyle()\n\n    def setFrameVisibleScale(self):\n        scale = self['frameVisibleScale']\n        for i in range(self['numStates']):\n            self.frameStyle[i].setVisibleScale(scale[0], scale[1])\n        self.updateFrameStyle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1426
+  }
+}

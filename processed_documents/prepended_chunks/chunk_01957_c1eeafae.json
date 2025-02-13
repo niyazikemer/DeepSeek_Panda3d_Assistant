@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python setup script handling application packaging and distribution. It includes functionality for managing Wheel files and updating resources like icons in Windows executables during the build process.\n\n# Return a list of paths to the downloaded whls\n        return [\n            os.path.join(whldir, filename)\n            for filename in os.listdir(whldir)\n            if filename.endswith('.whl')\n        ]\n\n    def update_pe_resources(self, appname, runtime):\n        \"\"\"Update resources (e.g., icons) in windows PE file\"\"\"\n\n        icon = self.icon_objects.get(\n            appname,\n            self.icon_objects.get('*', None),\n        )",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1957
+  }
+}

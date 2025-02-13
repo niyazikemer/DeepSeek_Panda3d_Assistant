@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `YesNoDialog` class that inherits from `DirectDialog`, which itself is derived from `DirectFrame`. This dialog provides a simple yes/no interface with corresponding button values defined by `DGG. YesNoDialog` includes options for customizing text and values through keyword arguments, enabling flexible configuration. It is part of a suite of standard dialog classes alongside others like `OkCancelDialog` and `RetryCancelDialog`, designed to streamline user interaction in graphical applications.\n\nclass YesNoDialog(DirectDialog):\n    def __init__(self, parent = None, **kw):\n        # Inherits from DirectFrame\n        optiondefs = (\n            # Define type of DirectGuiWidget\n            ('buttonTextList',  ['Yes', 'No'],       DGG.INITOPT),\n            ('buttonValueList', [DGG.DIALOG_YES, DGG.DIALOG_NO], DGG.INITOPT),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n        DirectDialog.__init__(self, parent)\n        self.initialiseoptions(YesNoDialog)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1566
+  }
+}

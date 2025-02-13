@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within the `Placer` class, specifically within its undo/redo functionality. The `printNodePathInfo()` method prints details about the current node path, including its name, position, heading-pitch-roll (HPR), and scale, formatted as strings for readability.\n\ndef redoListEmptyHook(self):\n        # Make sure button is deactivated\n        self.redoButton.configure(state = 'disabled')\n\n    def printNodePathInfo(self):\n        np = self['nodePath']\n        if np:\n            name = np.getName()\n            pos = np.getPos()\n            hpr = np.getHpr()\n            scale = np.getScale()\n            posString = '%.2f, %.2f, %.2f' % (pos[0], pos[1], pos[2])\n            hprString = '%.2f, %.2f, %.2f' % (hpr[0], hpr[1], hpr[2])\n            scaleString = '%.2f, %.2f, %.2f' % (scale[0], scale[1], scale[2])\n            print('NodePath: %s' % name)\n            print('Pos: %s' % posString)\n            print('Hpr: %s' % hprString)\n            print('Scale: %s' % scaleString)\n            print(('%s.setPosHprScale(%s, %s, %s)' %\n                   (name, posString, hprString, scaleString)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1084
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk initializes essential variables, control mappings, and nodes for a joybox-based camera control system in a 3D environment. It sets up input axes (e.g., left/right, forward/back), defines modifier values for axis inversion, initializes timekeeping variables, establishes node paths for spatial positioning, configures reference coordinate systems for orbital mechanics, and creates UI elements for mode display. This initialization is critical for enabling smooth camera movement and orientation adjustments in a virtual environment using joysticks or similar input devices.\n\nself.aList = [0, 0, 0, 0, 0, 0, 0, 0]\n        self.bList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\n        # For joybox fly mode\n        # Default is joe mode\n        self.mapping = [R_LEFT_RIGHT, R_FWD_BACK, L_FWD_BACK,\n                        R_TWIST, L_TWIST, NULL_AXIS]\n        self.modifier = [1, 1, 1, -1, -1, 0]\n        # Initialize time\n        self.lastTime = ClockObject.getGlobalClock().getFrameTime()\n        # Record node path\n        self.nodePath = nodePath\n        self.headingNP = headingNP\n        self.useHeadingNP = False\n        self.rotateInPlace = False\n        self.floatingNP = NodePath(\"floating\")\n        # Ref CS for orbit mode\n        self.refCS = base.direct.cameraControl.coaMarker\n        self.tempCS = base.direct.group.attachNewNode('JoyboxTempCS')\n        # Text object to display current mode\n        self.readout = OnscreenText.OnscreenText(\n            pos = (-0.9, 0.95),\n            font = base.direct.font,\n            mayChange = 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1792
+  }
+}

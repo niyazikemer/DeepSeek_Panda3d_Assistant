@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk pertains to configuring the rendering properties of a particle system in a 3D graphics application. Specifically, it involves setting up the geometric reference node for rendering particles and defining various flags and lookup tables related to color blending modes (e.g., `cbmLut` for color blend modes and `cboLut` for color blend operations). Additionally, it configures scaling options along the X, Y, and Z axes for the particle renderer. This code is part of a broader system managing particle effects, including factory settings, emitter configurations, force additions, and simulation acceleration.\n\nfile.write(targ + '.renderer.setGeomNode(geomRef.node())\\n')\n            file.write(targ + '.geomReference = \"' + self.geomReference + '\"\\n')\n            cbmLut = ('MNone','MAdd','MSubtract','MInvSubtract','MMin','MMax')\n            cboLut = ('OZero','OOne','OIncomingColor','OOneMinusIncomingColor','OFbufferColor',\n                      'OOneMinusFbufferColor','OIncomingAlpha','OOneMinusIncomingAlpha',\n                      'OFbufferAlpha','OOneMinusFbufferAlpha','OConstantColor',\n                      'OOneMinusConstantColor','OConstantAlpha','OOneMinusConstantAlpha',\n                      'OIncomingColorSaturate')\n            file.write(targ + '.renderer.setXScaleFlag(%d)\\n' % self.renderer.getXScaleFlag())\n            file.write(targ + '.renderer.setYScaleFlag(%d)\\n' % self.renderer.getYScaleFlag())\n            file.write(targ + '.renderer.setZScaleFlag(%d)\\n' % self.renderer.getZScaleFlag())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1275
+  }
+}

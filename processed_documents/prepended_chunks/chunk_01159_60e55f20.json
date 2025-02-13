@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method `selectedNodePathHook` within a class (likely related to curve editing or animation) that handles node path selection, showing/hiding tangent groups, and adding/removing tasks for curve editing. This hook is used to manage playback markers and tangent markers when nodes are selected in the scene.\n\n</context>\n\ndef selectedNodePathHook(self, nodePath):\n        \"\"\"\n        Hook called upon selection of a node path used to select playback\n        marker if subnode selected\n        \"\"\"\n        taskMgr.remove(self.name + '-curveEditTask')\n        print(nodePath.getKey())\n        if nodePath.id() in self.playbackMarkerIds:\n            base.direct.select(self.playbackMarker)\n        elif nodePath.id() in self.tangentMarkerIds:\n            base.direct.select(self.tangentMarker)\n        elif nodePath.id() == self.playbackMarker.id():\n            self.tangentGroup.show()\n            taskMgr.add(self.curveEditTask,\n                                     self.name + '-curveEditTask')\n        elif nodePath.id() == self.tangentMarker.id():\n            self.tangentGroup.show()\n            taskMgr.add(self.curveEditTask,\n                                     self.name + '-curveEditTask')\n        else:\n            self.tangentGroup.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1159
+  }
+}

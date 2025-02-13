@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is the constructor method (`__init__`) of the `DirectFrame` class, which initializes the widget with various options and parameters such as image, geometry, text, states, and other properties. This method sets up the core functionality for creating a DirectGUI frame component in Panda3D, handling background textures, midground geometry items, and foreground text nodes, along with their respective states and dynamic groups. The context is part of a larger documentation explaining how to use the `DirectFrame` class and its components.\n\ndef __init__(self, parent=None, **kw):\n        # Inherits from DirectGuiWidget\n        optiondefs = (\n            # Define type of DirectGuiWidget\n            ('pgFunc',          PGItem,     None),\n            ('numStates',       1,          None),\n            ('state',           self.inactiveInitState, None),\n            # Frame can have:\n            # A background texture\n            ('image',           None,       self.setImage),\n            # A midground geometry item\n            ('geom',            None,       self.setGeom),\n            # A foreground text node\n            ('text',            None,       self.setText),\n            # Change default value of text mayChange flag from 0\n            # (OnscreenText.py) to 1\n            ('textMayChange',  1,          None),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs,\n                           dynamicGroups=DirectFrame.DefDynGroups)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_76",
+    "parent": "processed_documents/context_documents/85a9ae3c_DirectFrame.json",
+    "chunk_number": 1351
+  }
+}

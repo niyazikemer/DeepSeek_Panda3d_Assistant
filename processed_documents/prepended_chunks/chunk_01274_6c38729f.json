@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines sections of a method responsible for writing specific rendering parameters related to `LineParticleRenderer` and `GeomParticleRenderer` in a Panda3D particle system. These blocks are part of a larger conditional structure that handles different types of renderers, ensuring their properties (like colors, scale factors, and geometry references) are correctly saved or configured.\n\nelif self.rendererType == \"LineParticleRenderer\":\n            file.write('# Line parameters\\n')\n            sColor = self.renderer.getHeadColor()\n            file.write((targ + '.renderer.setHeadColor(Vec4(%.2f, %.2f, %.2f, %.2f))\\n' % (sColor[0], sColor[1], sColor[2], sColor[3])))\n            sColor = self.renderer.getTailColor()\n            file.write((targ + '.renderer.setTailColor(Vec4(%.2f, %.2f, %.2f, %.2f))\\n' % (sColor[0], sColor[1], sColor[2], sColor[3])))\n            sf = self.renderer.getLineScaleFactor()\n            file.write((targ + '.renderer.setLineScaleFactor(%.2f)\\n' % (sf)))\n        elif self.rendererType == \"GeomParticleRenderer\":\n            file.write('# Geom parameters\\n')\n            node = self.renderer.getGeomNode()\n            file.write('geomRef = loader.loadModel(\"' + self.geomReference + '\")\\n')\n            file.write(targ + '.renderer.setGeomNode(geomRef.node())\\n')\n            file.write(targ + '.geomReference = \"' + self.geomReference + '\"\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1274
+  }
+}

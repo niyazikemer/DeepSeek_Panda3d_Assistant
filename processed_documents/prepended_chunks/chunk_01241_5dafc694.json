@@ -1,0 +1,9 @@
+{
+  "content": "The `saveConfig` method within the ParticleEffect class is responsible for serializing the particle effect's configuration, including position, heading, pitch, roll (hpr), and scale into a specified filename. This method captures these properties and writes them to the file in a formatted manner, enabling the current state of the particle effect to be preserved and later reloaded.\n\ndef saveConfig(self, filename):\n        filename = Filename(filename)\n        with open(filename.toOsSpecific(), 'w') as f:\n            # Add a blank line\n            f.write('\\n')\n\n            # Make sure we start with a clean slate\n            f.write('self.reset()\\n')\n\n            pos = self.getPos()\n            hpr = self.getHpr()\n            scale = self.getScale()\n            f.write('self.setPos(%0.3f, %0.3f, %0.3f)\\n' %\n                    (pos[0], pos[1], pos[2]))\n            f.write('self.setHpr(%0.3f, %0.3f, %0.3f)\\n' %\n                    (hpr[0], hpr[1], hpr[2]))\n            f.write('self.setScale(%0.3f, %0.3f, %0.3f)\\n' %\n                    (scale[0], scale[1], scale[2]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1241
+  }
+}

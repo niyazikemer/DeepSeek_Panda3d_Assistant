@@ -1,0 +1,9 @@
+{
+  "content": "This code modifies the `FrozenImporter` class by adding methods for finding specifications and getting data, which is used in handling module imports in a frozen environment.\n\n</document>\n\nTo situate this chunk within the overall document, it would be placed near the end of the `bdist_egg` command implementation, just before the final setup commands. The context is that these functions are part of the build process for creating installers and ensure proper handling of module imports in a frozen environment.\n\nHere's where the code would be inserted:\n\n```python\n         </document>\n        and here is the chunk we want to situate within the whole document\n         <chunk>\n        def find_spec(fullname, path= None, target= None):\n    spec  = _find_spec(fullname, path= path, target= target)\n    if spec:\n        spec. has_location = True\n        spec. origin = sys. executable\n    return spec\n\ndef get_data(path):\n    with open(path, 'rb') as fp:\n        return fp.read()\n\nFrozenImporter. find_spec = find_ spec\nFrozenImporter.get_data  = get_data\n</chunk>\n```\n\nThis code is inserted to modify the `FrozenImporter` class for handling module imports in a frozen environment during the build process.\n\n         </document>\n\ndef find_spec(fullname, path=None, target=None):\n    spec = _find_spec(fullname, path=path, target=target)\n    if spec:\n        spec.has_location = True\n        spec.origin = sys.executable\n    return spec\n\ndef get_data(path):\n    with open(path, 'rb') as fp:\n        return fp.read()\n\nFrozenImporter.find_spec = find_spec\nFrozenImporter.get_data = get_data\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1931
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is responsible for processing resources related to icons. It iterates through different resource types and entries, specifically looking for icons referenced in the AndroidManifest.xml file. For each icon, it checks if corresponding image files exist in various mipmap directories (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi) within the build directory. If found, these images are added to the bundle's resource structure under the appropriate density folders. This ensures that the application has icons optimized for different screen densities, which is essential for maintaining visual consistency across devices with varying display resolutions.\n\n# Were there any icons referenced in the AndroidManifest.xml?\n    for type_i, type_name in enumerate(axml.resource_types):\n        res_type = package.type.add()\n        res_type.name = type_name\n        res_type.type_id.id = type_i + 1\n\n        for entry_id, res_name in enumerate(axml.resources[type_name]):\n            entry = res_type.entry.add()\n            entry.entry_id.id = entry_id\n            entry.name = res_name\n\n            for density, tag in (160, 'mdpi'), (240, 'hdpi'), (320, 'xhdpi'), (480, 'xxhdpi'), (640, 'xxxhdpi'):\n                path = f'res/mipmap-{tag}-v4/{res_name}.png'\n                if (build_dir_fn / path).exists():\n                    bundle.add_subfile('base/' + path, build_dir_fn / path, 0)\n                    config_value = entry.config_value.add()\n                    config_value.config.density = density\n                    config_value.value.item.file.path = path",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1915
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of NSI (Nullsoft Scriptable Install System) commands that configure a graphical user interface for an installer using MUI2. This section includes setup for welcome, directory selection, start menu options, installation files, and finish pages, as well as language settings. It is part of a function `build_windows_installer` that generates a `.nsi` script to create a Windows installer for an Android app package (.apk). The chunk is situated within the context where the NSIS script's user interface structure is being defined.\n\n# TODO offer run and desktop shortcut after we figure out how to deal\n    # with multiple apps\n\n    nsi.write('!include \"MUI2.nsh\"\\n')\n    nsi.write('!define MUI_ABORTWARNING\\n')\n    nsi.write('\\n')\n    nsi.write('Var StartMenuFolder\\n')\n    nsi.write('!insertmacro MUI_PAGE_WELCOME\\n')\n    # TODO license file\n    nsi.write('!insertmacro MUI_PAGE_DIRECTORY\\n')\n    nsi.write('!insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder\\n')\n    nsi.write('!insertmacro MUI_PAGE_INSTFILES\\n')\n    nsi.write('!insertmacro MUI_PAGE_FINISH\\n')\n    nsi.write('!insertmacro MUI_UNPAGE_WELCOME\\n')\n    nsi.write('!insertmacro MUI_UNPAGE_CONFIRM\\n')\n    nsi.write('!insertmacro MUI_UNPAGE_INSTFILES\\n')\n    nsi.write('!insertmacro MUI_UNPAGE_FINISH\\n')\n    nsi.write('!insertmacro MUI_LANGUAGE \"English\"\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1909
+  }
+}

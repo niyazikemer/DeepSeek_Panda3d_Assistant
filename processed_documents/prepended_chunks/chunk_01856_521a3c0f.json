@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is the implementation of the `verify()` function within the document. This section defines how `verify()` operates, ensuring that assertions are checked even in release builds by printing failure details, optionally starting a debugger (pdb), and raising an AssertionError. The context situates this implementation right after the introductory explanation of `verify()`, making it clear how the function achieves its intended functionality beyond the basic usage described earlier.\n\n**Context:**\nThe code chunk contains the implementation of the `verify()` function, which enforces runtime checks by printing detailed failure information, optionally invoking pdb for debugging, and raising an AssertionError when the condition fails. This section follows the initial explanation of `verify()`, providing insight into its inner workings and how it maintains functionality in release builds.\n\ndef verify(assertion):\n    \"\"\"\n    verify() is intended to be used in place of assert where you\n    wish to have the assertion checked, even in release (-O) code.\n    \"\"\"\n    if not assertion:\n        print(\"\\n\\nverify failed:\")\n        import sys\n        print(\"    File \\\"%s\\\", line %d\" % (\n                sys._getframe(1).f_code.co_filename,\n                sys._getframe(1).f_lineno))\n        if wantVerifyPdb:\n            import pdb\n            pdb.set_trace()\n        raise AssertionError\n\n\nif not hasattr(__builtins__, \"verify\"):\n    __builtins__[\"verify\"] = verify",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_127",
+    "parent": "processed_documents/context_documents/1af78250_Verify.json",
+    "chunk_number": 1856
+  }
+}

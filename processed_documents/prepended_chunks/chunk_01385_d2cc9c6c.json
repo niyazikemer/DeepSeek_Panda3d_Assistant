@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the initialization process for a GUI item in the DirectGuiItem class. It processes keyword arguments passed during object creation, checking if each option is valid and handling component-specific options with underscores. This occurs within the __init__ method when configuring the visual and functional properties of the GUI element.\n\nfor option, value in kw.items():\n            if optionInfo_has_key(option):\n                # This is one of the options of this gui item.\n                # Check it is an initialisation option.\n                if optionInfo[option][FUNCTION] is DGG.INITOPT:\n                    print('Cannot configure initialisation option \"' \\\n                          + option + '\" for ' + self.__class__.__name__)\n                    break\n                    #raise KeyError, \\\n                #           'Cannot configure initialisation option \"' \\\n                #           + option + '\" for ' + self.__class__.__name__\n                optionInfo[option][VALUE] = value\n                directOptions.append(option)\n            else:\n                index = option.find('_')\n                if index >= 0:\n                    # This option may be of the form <component>_<option>.\n                    # e.g. if alias ('efEntry', 'entryField_entry')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1385
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a Python class definition, likely `ForceGroup`, and contains core methods for managing forces, including disabling all forces, checking if enabled, adding/removing forces, and accessing properties. These methods enable functionality to manipulate force states and retrieve information about the group.\n\nAnswer:  \nThis code chunk represents essential methods in a class, such as enabling/disabling forces, managing force additions/removals, and providing property accessors, crucial for controlling and retrieving group state.\n\ndef disable(self):\n        \"\"\"Convenience function to disable all forces in force group\"\"\"\n        for i in range(self.node.getNumForces()):\n            f = self.node.getForce(i)\n            f.setActive(0)\n        self.fEnabled = 0\n\n    def isEnabled(self):\n        return self.fEnabled\n\n    def addForce(self, force):\n        self.node.addForce(force)\n        if self.particleEffect:\n            self.particleEffect.addForce(force)\n\n    def removeForce(self, force):\n        self.node.removeForce(force)\n        if self.particleEffect is not None:\n            self.particleEffect.removeForce(force)\n\n    # Get/set\n    def getName(self):\n        warnings.warn(\"Deprecated: access .name directly instead.\", DeprecationWarning, stacklevel=2)\n        return self.name\n\n    def getNode(self):\n        return self.node\n\n    def getNodePath(self):\n        return self.nodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1305
+  }
+}

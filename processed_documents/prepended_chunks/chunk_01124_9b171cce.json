@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is situated within a class that manages a camera window setup and 3D scene visualization in Panda3D. It handles motion tracking and point set management, including variables for pre- and post-recording points, curve fitting parameters, NURBS curve drawing, and hooks for user interaction (e.g., starting/stopping recording). The code is part of a system that records camera movement data over time and visualizes it as parametric curves.\n\nself.prePoints = []\n        self.postPoints = []\n        self.pointSetDict = {}\n        self.pointSetCount = 0\n        self.pointSetName = self.name + '-ps-' + repr(self.pointSetCount)\n        # User callback to call before recording point\n        self.samplingMode = 'Continuous'\n        self.preRecordFunc = None\n        # Hook to start/stop recording\n        self.startStopHook = 'f6'\n        self.keyframeHook = 'f10'\n        # Curve fitter object\n        self.lastPos = Point3(0)\n        self.curveFitter = CurveFitter()\n        # Curve variables\n        # Number of ticks per parametric unit\n        self.numTicks = 1\n        # Number of segments to represent each parametric unit\n        # This just affects the visual appearance of the curve\n        self.numSegs = 40\n        # The nurbs curves\n        self.curveCollection = None\n        # Curve drawers\n        self.nurbsCurveDrawer = NurbsCurveDrawer()\n        self.nurbsCurveDrawer.setCurves(ParametricCurveCollection())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1124
+  }
+}

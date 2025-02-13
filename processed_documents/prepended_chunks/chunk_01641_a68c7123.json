@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a script that generates Doxygen documentation for the Panda3D library. It handles setting up the environment, importing necessary modules, processing core and extension modules to generate documentation comments, and closing the output file. The chunk sits within a larger script responsible for automating documentation generation for C++-implemented Panda3D modules.\n\nprint(comment(\"Panda3D modules that are implemented in C++.\"), file=handle)\n    print(\"namespace panda3d {\", file=handle)\n\n    # Determine the path to the interrogatedb files\n    pandac = os.path.dirname(pandac.__file__)\n    interrogate_add_search_directory(os.path.join(pandac, \"..\", \"..\", \"etc\"))\n    interrogate_add_search_directory(os.path.join(pandac, \"input\"))\n\n    import panda3d.core\n    processModule(handle, \"core\")\n\n    # Determine the suffix for the extension modules.\n    import _imp\n    ext_suffix = _imp.extension_suffixes()[0]\n\n    for lib in os.listdir(os.path.dirname(panda3d.__file__)):\n        if lib.endswith(ext_suffix) and not lib.startswith('core.'):\n            module_name = lib[:-len(ext_suffix)]\n            __import__(\"panda3d.\" + module_name)\n            processModule(handle, module_name)\n\n    print(\"}\", file=handle)\n    handle.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1641
+  }
+}

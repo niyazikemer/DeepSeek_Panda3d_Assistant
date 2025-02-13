@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the section of an NSI (Nullsoft Scriptable Install System) script responsible for copying built files and directories into the installation directory during setup. It walks through the build output directory structure, adjusts file paths relative to the installer's base directory, and generates appropriate `File` commands in the NSI script to ensure all necessary files are included in the final installer package.\n\n# This section defines the installer.\n    nsi.write('Section \"\" SecCore\\n')\n    nsi.write('  SetOutPath \"$INSTDIR\"\\n')\n    curdir = \"\"\n    nsi_dir = p3d.Filename.fromOsSpecific(build_cmd.build_base)\n    build_root_dir = p3d.Filename.fromOsSpecific(build_dir)\n    for root, dirs, files in os.walk(build_dir):\n        dirs.sort()\n        for name in files:\n            basefile = p3d.Filename.fromOsSpecific(os.path.join(root, name))\n            file = p3d.Filename(basefile)\n            file.makeAbsolute()\n            file.makeRelativeTo(nsi_dir)\n            outdir = p3d.Filename(basefile)\n            outdir.makeAbsolute()\n            outdir.makeRelativeTo(build_root_dir)\n            outdir = outdir.getDirname().replace('/', '\\\\')\n            if curdir != outdir:\n                nsi.write('  SetOutPath \"$INSTDIR\\\\%s\"\\n' % outdir)\n                curdir = outdir\n            nsi.write('  File \"%s\"\\n' % (file.toOsSpecific()))\n    nsi.write('  SetOutPath \"$INSTDIR\"\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1910
+  }
+}

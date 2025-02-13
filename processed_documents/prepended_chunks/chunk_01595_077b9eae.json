@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the `finish()` method within the `DirectWaitBar` class. This method animates the progress bar by incrementally updating its value over a specified number of frames, creating a smooth visual effect as the bar fills up to completion. The blocking nature ensures that the animation completes before allowing further execution, enhancing user experience in applications requiring visual feedback during processes.\n\ndef finish(self, N = 10):\n        \"\"\"Fill the bar in N frames. This call is blocking.\"\"\"\n        remaining = self['range'] - self['value']\n        if remaining:\n            step = max(1, int(remaining / N))\n            count = self['value']\n            while count != self['range']:\n                count += step\n                if count > self['range']:\n                    count = self['range']\n                self.update(count)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_92",
+    "parent": "processed_documents/context_documents/e1fb356e_DirectWaitBar.json",
+    "chunk_number": 1595
+  }
+}

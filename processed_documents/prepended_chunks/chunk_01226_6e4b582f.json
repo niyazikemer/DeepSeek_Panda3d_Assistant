@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is a method within a class responsible for creating and configuring graphical user interface (GUI) elements. Specifically, this `createEntryScale` method creates an EntryScale widget with customizable parameters such as minimum and maximum values, resolution, layout options, and command bindings. The method configures the widget, binds balloon help tooltips, packs the widget into the parent window, and stores references to the widget for later access. This is part of a larger set of methods in the class that handle various GUI element creation and configuration tasks.\n\ndef createEntryScale(self, parent, category, text, balloonHelp,\n                         command = None, min = 0.0, max = 1.0,\n                         resolution = None,\n                         side = tk.TOP, fill = tk.X, expand = 1, **kw):\n        kw['text'] = text\n        kw['min'] = min\n        kw['max'] = max\n        kw['resolution'] = resolution\n        widget = EntryScale.EntryScale(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(side = side, fill = fill, expand = expand)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1226
+  }
+}

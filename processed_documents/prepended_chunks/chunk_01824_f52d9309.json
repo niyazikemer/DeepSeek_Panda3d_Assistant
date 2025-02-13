@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis code initializes a 3D environment using ThreeUpShow from the direct.showbase module. It sets up the camera position and lens properties, adds an axis model to visualize orientation in the scene, configures clock settings, enables particle effects, adds angular integrators for physics simulation, and forces the initial render frame.\n\"\"\"\n\nprint('ThreeUpStart: Starting up environment.')\n\nimport direct.showbase.PythonUtil  # pylint: disable=unused-import\n\nfrom direct.showbase import ThreeUpShow\n\nbase = ThreeUpShow.ThreeUpShow()\n\n# Put an axis in the world:\nbase.loader.loadModel(\"models/misc/xyzAxis\").reparentTo(base.render)\n\nassert base.camera is not None\nassert base.camLens is not None\n\nbase.camera.setPosHpr(0, -10.0, 0, 0, 0, 0)\nbase.camLens.setFov(52.0)\nbase.camLens.setNearFar(1.0, 10000.0)\n\nbase.clock.setMaxDt(0.2)\nbase.enableParticles()\nbase.addAngularIntegrator()\n\n# Force the screen to update:\nbase.graphicsEngine.renderFrame()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_117",
+    "parent": "processed_documents/context_documents/5b5d38cb_ThreeUpStart.json",
+    "chunk_number": 1824
+  }
+}

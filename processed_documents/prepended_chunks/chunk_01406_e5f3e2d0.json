@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a class definition for a DirectGuiWidget, which serves as a base class for creating and managing graphical user interface (GUI) elements in a 3D graphics environment. The `__init__` method initializes the widget with specific parameters such as parent node, state management, frame characteristics, and other properties that define its appearance and behavior within the application. This chunk is situated within the overall context of setting up and configuring a GUI component for use in a Panda3D-based application.\n\ndef __init__(self, parent = None, **kw):\n        # Direct gui widgets are node paths\n        # Direct gui widgets have:\n        # -  stateNodePaths (to hold visible representation of widget)\n        # State node paths can have:\n        # -  a frame of type (None, FLAT, RAISED, GROOVE, RIDGE)\n        # -  arbitrary geometry for each state\n        # They inherit from DirectGuiWidget\n        # -  Can create components (with aliases and groups)\n        # -  Can bind to mouse events\n        # They inherit from NodePath\n        # -  Can position/scale them\n        optiondefs = (\n            # Widget's constructor\n            ('pgFunc',         PGItem,       None),\n            ('numStates',      1,            None),\n            ('invertedFrames', (),           None),\n            ('sortOrder',      0,            None),\n            # Widget's initial state\n            ('state',          DGG.NORMAL,   self.setState),\n            # Widget's frame characteristics",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1406
+  }
+}

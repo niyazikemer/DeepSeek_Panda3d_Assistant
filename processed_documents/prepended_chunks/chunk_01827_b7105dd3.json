@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `DeltaProfiler` class in Python designed for measuring and printing time intervals between labeled points. The class includes an initializer (`__init__`) that sets up the profiler with optional name, prior label, prior time, and active state. The `printDeltaTime` method calculates the elapsed time since the last call or initialization if active, prints a formatted message with timing information, and updates the internal state for subsequent measurements. This tool is useful for profiling code execution times while excluding print statement overhead from the timing calculations.\n\nfrom time import time\n\nclass DeltaProfiler:\n    \"\"\"\n    This is a Python specific ProfileTimer.cxx.\n    It's not related directly to the ProfileTimer code, it just\n    shares some concepts.\n    \"\"\"\n    def __init__(self, name=\"\"):\n        self.name=name\n        self.priorLabel = \"\"\n        self.priorTime = 0\n        self.active=0\n\n    def printDeltaTime(self, label):\n        if self.active:\n            deltaTime=time()-self.priorTime\n            print(\"%s DeltaTime %-25s to %-25s: %3.5f\"%(\n                self.name,\n                self.priorLabel,\n                label,\n                deltaTime))\n            self.priorLabel=label\n            # The printing time is not included in the timing.\n            # This is intentional.\n            self.priorTime=time()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_120",
+    "parent": "processed_documents/context_documents/5cbfed29_DeltaProfiler.json",
+    "chunk_number": 1827
+  }
+}

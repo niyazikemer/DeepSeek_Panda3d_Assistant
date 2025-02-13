@@ -1,0 +1,9 @@
+{
+  "content": "The `setGeom` method is part of the `OnscreenGeom` class, which handles creating and managing on-screen geometry in a 3D environment. The method assigns new geometry while preserving existing parent, transform, sort order, and color settings if applicable. It supports both NodePath objects and string-based model loading for geometry assignment.\n\ndef setGeom(self, geom,\n                parent = NodePath(),\n                transform = None,\n                sort = 0,\n                color = None):\n        # Get the original parent, transform, and sort, if any, so we can\n        # preserve them across this call.\n        if not self.isEmpty():\n            parent = self.getParent()\n            if transform is None:\n                # If we're replacing a previous image, we throw away\n                # the new image's transform in favor of the original\n                # image's transform.\n                transform = self.getTransform()\n            sort = self.getSort()\n            if color is None and self.hasColor():\n                color = self.getColor()\n\n        self.removeNode()\n\n        # Assign geometry\n        if isinstance(geom, NodePath):\n            self.assign(geom.copyTo(parent, sort))\n        elif isinstance(geom, str):\n            self.assign(base.loader.loadModel(geom))\n            self.reparentTo(parent, sort)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_85",
+    "parent": "processed_documents/context_documents/fef1fa21_OnscreenGeom.json",
+    "chunk_number": 1520
+  }
+}

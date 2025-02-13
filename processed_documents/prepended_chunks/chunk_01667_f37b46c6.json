@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a custom `RotatingLog` class in Python designed to handle log file rotation based on size or time constraints. The chunk includes methods for interacting with the underlying file object (`file`) such as reading lines, seeking and telling positions, truncating the file, and writing multiple lines. These methods mirror standard file operations but are implemented within a rotating log context to ensure proper handling of rotated log files while maintaining compatibility with typical file-like interfaces.\n\ndef readlines(self, sizehint):\n        return self.file.readlines(sizehint)\n\n    def xreadlines(self):\n        return self.file.xreadlines()\n\n    def seek(self, offset: int, whence: int = 0) -> int:\n        return self.file.seek(offset, whence)\n\n    def tell(self) -> int:\n        return self.file.tell()\n\n    def truncate(self, size: int | None) -> int:\n        return self.file.truncate(size)\n\n    def writelines(self, sequence: Iterable[str]) -> None:\n        return self.file.writelines(sequence)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_102",
+    "parent": "processed_documents/context_documents/f7306926_RotatingLog.json",
+    "chunk_number": 1667
+  }
+}

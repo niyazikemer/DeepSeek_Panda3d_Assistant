@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk implements a method for applying relative transformations to a 3D object in a scene graph. The `Placer` class provides tools for positioning, rotating, and scaling nodes within a virtual environment. The `xformRelative` method handles movement or rotation of a node relative to a specified coordinate system reference (`refCS`), enabling precise control over the node's placement within the scene hierarchy.\n\ndef xformRelative(self, value, axis):\n        nodePath = self['nodePath']\n        if nodePath is not None and self.refCS is not None:\n            if axis == 'x':\n                nodePath.setX(self.refCS, value)\n            elif axis == 'y':\n                nodePath.setY(self.refCS, value)\n            elif axis == 'z':\n                nodePath.setZ(self.refCS, value)\n            else:\n                if axis == 'h':\n                    self.deltaHpr.setX(value)\n                elif axis == 'p':\n                    self.deltaHpr.setY(value)\n                elif axis == 'r':\n                    self.deltaHpr.setZ(value)\n                # Put node path at new hpr\n                nodePath.setHpr(self.refCS, self.deltaHpr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1077
+  }
+}

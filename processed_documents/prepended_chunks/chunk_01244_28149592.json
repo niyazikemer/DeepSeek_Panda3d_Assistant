@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a class designed for managing particle effects. It includes methods for smoothly stopping and starting particle emissions, along with a validation check. These methods are crucial for controlling the effect's runtime behavior.\n\n**Context:**  \nThis code manages the runtime control of particle effects, providing mechanisms to stop emissions smoothly (`softStop`) and start them again, optionally with a delay (`softStart`). The `__isValid` method ensures that these operations are only performed if the effect is properly initialized.\n\ndef softStop(self):\n        for particles in self.getParticlesList():\n            particles.softStop()\n\n    def softStart(self, firstBirthDelay=None):\n        if self.__isValid():\n            for particles in self.getParticlesList():\n                if firstBirthDelay is not None:\n                    particles.softStart(br=-1, first_birth_delay=firstBirthDelay)\n                else:\n                    particles.softStart()\n        else:\n            # Not asserting here since we want to crash live clients for more expedient bugfix\n            # (Sorry, live clients)\n            self.notify.error('Trying to start effect(%s) after cleanup.' % (self.getName(),))\n\n    def __isValid(self):\n        return hasattr(self, 'forceGroupDict') and \\\n               hasattr(self, 'particlesDict')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1244
+  }
+}

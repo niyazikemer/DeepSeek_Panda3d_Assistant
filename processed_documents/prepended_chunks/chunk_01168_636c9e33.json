@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines several methods related to point set selection and visualization settings in a 3D animation or curve-fitting system, including selecting named point sets for curve fitting and controlling the visibility of curves, knots, CVs (control vertices), and hulls used in NURBS curve drawing. These methods are part of an object-oriented system managing 3D graphics and animation workflows.\n\ndef selectPointSetNamed(self, name):\n        self.pointSet = self.pointSetDict.get(name, None)\n        # Reload points into curve fitter\n        # Reset curve fitters\n        self.curveFitter.reset()\n        for time, pos, hpr in self.pointSet:\n            # Add it to the curve fitters\n            self.curveFitter.addXyzHpr(time, pos, hpr)\n        # Compute curve\n        self.computeCurves()\n\n    def setPathVis(self):\n        if self.getVariable('Style', 'Path').get():\n            self.curveNodePath.show()\n        else:\n            self.curveNodePath.hide()\n\n    def setKnotVis(self):\n        self.nurbsCurveDrawer.setShowKnots(\n            self.getVariable('Style', 'Knots').get())\n\n    def setCvVis(self):\n        self.nurbsCurveDrawer.setShowCvs(\n            self.getVariable('Style', 'CVs').get())\n\n    def setHullVis(self):\n        self.nurbsCurveDrawer.setShowHull(\n            self.getVariable('Style', 'Hull').get())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1168
+  }
+}

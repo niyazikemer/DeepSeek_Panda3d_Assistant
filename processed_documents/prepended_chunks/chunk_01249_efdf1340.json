@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains code for adding textures from a file in the `SpriteParticleRendererExt` class, along with methods to manage configuration settings for particle sprite models.\n\nif fileName is None:\n            fileName = self.getSourceTextureName()\n\n        t = base.loader.loadTexture(fileName)\n        if t is not None:\n            self.addTexture(t, t.getYSize())\n            return True\n        else:\n            print(\"Couldn't find rendererSpriteTexture file: %s\" % fileName)\n            return False\n\n    def getSourceFileName(self):\n        if self.sourceFileName is None:\n            SpriteParticleRendererExt.sourceFileName = ConfigVariableString(\n                'particle-sprite-model', 'models/misc/smiley').value\n        # Return instance copy of class variable\n        return self.sourceFileName\n\n    def setSourceFileName(self, name):\n        # Set instance copy of class variable\n        self.sourceFileName = name",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_68",
+    "parent": "processed_documents/context_documents/09ed8d32_SpriteParticleRendererExt.json",
+    "chunk_number": 1249
+  }
+}

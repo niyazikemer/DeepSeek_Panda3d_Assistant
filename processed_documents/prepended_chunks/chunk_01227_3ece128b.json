@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods, `createVector2Entry` and `createVector3Entry`, within a class that manages UI elements. These methods create vector input widgets for handling 2D and 3D numerical data entry respectively. The widgets are configured with labels, commands, balloon help text, and packed into the parent UI container. They also update dictionaries to track widget instances.\n\ndef createVector2Entry(self, parent, category, text, balloonHelp,\n                           command = None, **kw):\n        # Set label's text\n        kw['text'] = text\n        widget = VectorWidgets.Vector2Entry(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget\n\n    def createVector3Entry(self, parent, category, text, balloonHelp,\n                           command = None, **kw):\n        # Set label's text\n        kw['text'] = text\n        widget = VectorWidgets.Vector3Entry(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1227
+  }
+}

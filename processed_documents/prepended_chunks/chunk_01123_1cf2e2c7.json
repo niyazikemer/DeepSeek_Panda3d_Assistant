@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk initializes variables related to tangent lines visualization, node path dictionaries for tracking objects in the scene, and data structures for recording and manipulating points during playback or manipulation operations.\n\nself.tangentLines.setThickness(1)\n        self.tangentLines.moveTo(0, 0, 0)\n        self.tangentLines.drawTo(0, 0, 0)\n        self.tangentLines.create()\n        # Active node path dictionary\n        self.nodePathDict = {}\n        self.nodePathDict['marker'] = self.playbackMarker\n        self.nodePathDict['camera'] = base.direct.camera\n        self.nodePathDict['widget'] = base.direct.widget\n        self.nodePathDict['mopathRecorderTempCS'] = self.tempCS\n        self.nodePathNames = ['marker', 'camera', 'selected']\n        # ID of selected object\n        self.manipulandumId = None\n        self.trace = LineNodePath(self.recorderNodePath)\n        self.oldPlaybackNodePath = None\n        # Count of point sets recorded\n        self.pointSet = []\n        self.prePoints = []\n        self.postPoints = []\n        self.pointSetDict = {}\n        self.pointSetCount = 0\n        self.pointSetName = self.name + '-ps-' + repr(self.pointSetCount)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1123
+  }
+}

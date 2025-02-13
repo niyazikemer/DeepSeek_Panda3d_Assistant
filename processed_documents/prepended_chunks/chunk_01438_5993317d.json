@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sits within the initialization section of the `DirectRadioButton` class, specifically after option initialization. It configures the indicator component's appearance based on provided parameters like `boxGeom`, `boxRelief`, and sets up default text positions. Additionally, it determines whether the radio button should be checked by comparing the `value` and `variable` attributes, setting a flag (`needToCheck`) for subsequent processing.\n\n# Call option initialization functions\n        self.initialiseoptions(DirectRadioButton)\n        # After initialization with X giving it the correct size, put back space\n        if self['boxGeom'] is None:\n            if 'boxRelief' not in kw and self['boxImage'] is None:\n                self.indicator['relief'] = DGG.SUNKEN\n            self.indicator['text'] = (' ', '*')\n            self.indicator['text_pos'] = (0, -.25)\n        else:\n            self.indicator['text'] = (' ', ' ')\n\n        if self['boxGeomColor'] is not None and self['boxGeom'] is not None:\n            self.colors = [VBase4(1, 1, 1, 0), self['boxGeomColor']]\n            self.component('indicator')['geom_color'] = VBase4(1, 1, 1, 0)\n\n        needToCheck = True\n        if len(self['value']) == len(self['variable']) != 0:\n            for i in range(len(self['value'])):\n                if self['variable'][i] != self['value'][i]:\n                    needToCheck = False\n                    break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_80",
+    "parent": "processed_documents/context_documents/b50b78f4_DirectRadioButton.json",
+    "chunk_number": 1438
+  }
+}

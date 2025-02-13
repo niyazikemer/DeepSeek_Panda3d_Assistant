@@ -1,0 +1,9 @@
+{
+  "content": "The `popupMenu` method within the provided document is designed to dynamically generate context-sensitive menus based on the selected item type in an inspector tool. This method checks if the selected part is a NodePath or ClassicFSM and creates appropriate popup menus with relevant actions, enhancing user interaction by providing immediate access to specific operations.\n\ndef popupMenu(self, event):\n        print(event)\n        partNumber = self.selectedIndex()\n        print(partNumber)\n        if partNumber is None:\n            return\n        part = self.topInspector().partNumber(partNumber)\n        print(part)\n        from panda3d.core import NodePath\n        from direct.fsm import ClassicFSM\n        popupMenu = None\n        if isinstance(part, NodePath):\n            popupMenu = self.createPopupMenu(\n                part,\n                [('Explore', NodePath.explore),\n                 ('Place', NodePath.place),\n                 ('Set Color', NodePath.rgbPanel)])\n        elif isinstance(part, ClassicFSM.ClassicFSM):\n            from . import FSMInspector\n            popupMenu = self.createPopupMenu(\n                part,\n                [('Inspect ClassicFSM', FSMInspector.FSMInspector)])\n        print(popupMenu)\n        if popupMenu:\n            popupMenu.post(event.widget.winfo_pointerx(),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1036
+  }
+}

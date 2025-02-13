@@ -1,0 +1,9 @@
+{
+  "content": "This chunk initializes a `DirectCheckButton` widget, managing its appearance based on specified properties such as images and colors, and handles resizing to accommodate its visual elements.\n\n# Call option initialization functions\n        self.initialiseoptions(DirectCheckButton)\n        # After initialization with X giving it the correct size, put back space\n        if self['boxImage'] is None:\n            self.indicator['text'] = (' ', '*')\n            self.indicator['text_pos'] = (0, -.2)\n        else:\n            self.indicator['text'] = (' ', ' ')\n        if self['boxImageColor'] is not None and self['boxImage'] is not None:\n            self.colors = [VBase4(0, 0, 0, 0), self['boxImageColor']]\n            self.component('indicator')['image_color'] = VBase4(0, 0, 0, 0)\n\n    # Override the resetFrameSize of DirectGuiWidget inorder to provide space for label\n    def resetFrameSize(self):\n        self.setFrameSize(fClearFrame = 1)\n\n    def setFrameSize(self, fClearFrame = 0):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_83",
+    "parent": "processed_documents/context_documents/a97813f6_DirectCheckButton.json",
+    "chunk_number": 1485
+  }
+}

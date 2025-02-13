@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class handling the modification of PE (Portable Executable) files. The `_pack_info` method formats string and variable file information into a specific structure required by PE files, while `write_changes` writes these modifications back to the executable. This code is used for updating metadata within the file's resources.\n\nThe methods are crucial for setting version info in executables, allowing users to modify or set details like product names and versions through a structured data format.\n\nself._pack_info(data, 'StringFileInfo', self.string_info)\n        self._pack_info(data, 'VarFileInfo', self.var_info)\n        data[0:2] = pack('<H', len(data))\n        return data\n\n    def _pack_info(self, data, key, value):\n        offset = len(data)\n\n        if isinstance(value, dict):\n            type = 1\n            value_length = 0\n        elif isinstance(value, bytes) or isinstance(value, str):\n            type = 1\n            value_length = len(value) * 2 + 2\n        else:\n            type = 0\n            value_length = len(value)\n\n        data += pack('<HHH', 0, value_length, type)\n\n        for c in key:\n            data += pack('<H', ord(c))\n        data += b'\\x00\\x00'\n        if len(data) & 2:\n            data += b'\\x00\\x00'\n        assert len(data) & 3 == 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1868
+  }
+}

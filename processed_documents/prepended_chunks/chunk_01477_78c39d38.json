@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Python class, specifically within the `OnscreenText` class, which manages on-screen text display. The provided code snippet contains getter and setter methods for handling various visual properties of the text, including foreground color (`fg`), background color (`bg`), shadow color, and frame color. These methods utilize property decorators to provide controlled access to these attributes, allowing users to configure the appearance of the on-screen text elements such as color, background (using cards with margins), and shadows.\n\ndef __getFg(self):\n        return self.textNode.getTextColor()\n\n    def setFg(self, fg):\n        self.textNode.setTextColor(fg[0], fg[1], fg[2], fg[3])\n\n    fg = property(__getFg, setFg)\n\n    def __getBg(self):\n        if self.textNode.hasCard():\n            return self.textNode.getCardColor()\n        else:\n            return LColor(0)\n\n    def setBg(self, bg):\n        if bg[3] != 0:\n            # If we have a background color, create a card.\n            self.textNode.setCardColor(bg[0], bg[1], bg[2], bg[3])\n            self.textNode.setCardAsMargin(0.1, 0.1, 0.1, 0.1)\n        else:\n            # Otherwise, remove the card.\n            self.textNode.clearCard()\n\n    bg = property(__getBg, setBg)\n\n    def __getShadow(self):\n        return self.textNode.getShadowColor()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1477
+  }
+}

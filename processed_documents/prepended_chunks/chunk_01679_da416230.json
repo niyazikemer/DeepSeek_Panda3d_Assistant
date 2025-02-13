@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods in a Python class related to debugging functionality, specifically including `getWarning`, `debug`, and `setDebug`. These methods handle enabling/disabling debug messages, logging debug information when enabled, and checking if warnings are active. The code is part of a broader notification management system within the document.\n\ndef getWarning(self) -> bool:\n        \"\"\"\n        Return whether the printing of warning messages is on or off\n        \"\"\"\n        return self.__warning\n\n    # debug funcs\n    def debug(self, debugString: object) -> int:\n        \"\"\"\n        Issue the debug message if debug flag is on\n        \"\"\"\n        if self.__debug:\n            message = str(debugString)\n            if Notifier.showTime:\n                string = f'{self.getTime()}{self.__name}(debug): {message}'\n            else:\n                string = f':{self.__name}(debug): {message}'\n            self.__log(string)\n            self.__print(string)\n        return 1 # to allow assert myNotify.debug(\"blah\")\n\n    def setDebug(self, enable: bool) -> None:\n        \"\"\"\n        Enable/Disable the printing of debug messages\n        \"\"\"\n        self.__debug = enable\n\n    def getDebug(self) -> bool:\n        \"\"\"\n        Return whether the printing of debug messages is on or off\n        \"\"\"\n        return self.__debug",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1679
+  }
+}

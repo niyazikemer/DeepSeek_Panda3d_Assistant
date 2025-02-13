@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk creates a new layer and display region in the Panda3D window, configures a camera node with a perspective lens, and sets up the camera to view the render scene, allowing for on-screen visualization of the 3D environment.\n\nwidget = self.createSlider(extendFrame,\n                                       'Extend Page', 'Extend From',\n                                       'Begin time of extend pass',\n                                       resolution = 0.01,\n                                       command = self.setRecordStart)\n        widget['preCallback'] = self.setExtendMode\n        widget['postCallback'] = lambda s = self: s.getPrePoints('Extend')\n        widget = self.createSlider(\n            extendFrame, 'Extend Page',\n            'Control Start',\n            'Time when full control of node path is given during extend pass',\n            resolution = 0.01,\n            command = self.setControlStart)\n        widget['preCallback'] = self.setExtendMode\n        extendFrame.pack(fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1147
+  }
+}

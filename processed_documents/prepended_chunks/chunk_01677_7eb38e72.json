@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines methods for a `Notifier` class handling logging and error management. The chunk includes `getSeverity()`, which determines log severity based on debug, info, or warning states, defaulting to error, and `error()`, which logs an error message and raises an exception with the given string.\n\ndef getSeverity(self) -> int:\n        from panda3d.core import NSDebug, NSInfo, NSWarning, NSError\n        if self.getDebug():\n            return NSDebug\n        elif self.getInfo():\n            return NSInfo\n        elif self.getWarning():\n            return NSWarning\n        else:\n            return NSError\n\n    # error funcs\n    def error(self, errorString: object, exception: type[Exception] = NotifierException) -> NoReturn:\n        \"\"\"\n        Raise an exception with given string and optional type:\n        Exception: error\n        \"\"\"\n        message = str(errorString)\n        if Notifier.showTime:\n            string = f'{self.getTime()}{exception!s}: {self.__name}(error): {message}'\n        else:\n            string = f'{exception!s}: {self.__name}(error): {message}'\n        self.__log(string)\n        raise exception(errorString)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1677
+  }
+}

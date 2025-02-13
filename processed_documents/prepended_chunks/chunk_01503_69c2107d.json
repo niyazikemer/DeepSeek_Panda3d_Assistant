@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk belongs within the `DirectEntry` class's initialization process. It handles option setup, text node configuration, GUI item setup, and initial text handling, which are essential during object creation.\n\n```python\nclass DirectEntry(DirectFrame):\n    \"\"\"\n    A DirectGUI entry field for text input with auto-capitalization options.\n    Handles user input, state management, and text display properties.\n    \"\"\"\n\n    def __init__(self, parent=None, **kw):\n        # Initialization code including the provided chunk\n        self.onscreenText = None\n        # ... rest of __init__ method ...\n\n    # Other methods follow\n```\n\n# Call option initialization functions\n        self.initialiseoptions(DirectEntry)\n\n        if not hasattr(self, 'autoCapitalizeAllowPrefixes'):\n            self.autoCapitalizeAllowPrefixes = DirectEntry.AllowCapNamePrefixes\n        if not hasattr(self, 'autoCapitalizeForcePrefixes'):\n            self.autoCapitalizeForcePrefixes = DirectEntry.ForceCapNamePrefixes\n\n        # Update TextNodes for each state\n        for i in range(self['numStates']):\n            self.guiItem.setTextDef(i, self.onscreenText.textNode)\n\n        # Now we should call setup() again to make sure it has the\n        # right font def.\n        self.setup()\n\n        # Update initial text\n        self.unicodeText = 0\n        if self['initialText']:\n            self.enterText(self['initialText'])\n\n    def destroy(self):\n        self.ignoreAll()\n        self._autoCapListener.ignoreAll()\n        DirectFrame.destroy(self)\n\n    def setup(self):\n        self.guiItem.setupMinimal(self['width'], self['numLines'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1503
+  }
+}

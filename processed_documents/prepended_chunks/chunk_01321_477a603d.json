@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method that initializes the layout of a popup menu button. It calculates the maximum width and height based on item bounds and positions each menu item within these dimensions to ensure proper alignment and interaction.\n\n</context>\n\nThis code chunk is part of the initialization process for setting up a popup menu button's layout. It determines the necessary size and positioning of each menu item by evaluating their bounds, ensuring items are properly aligned and spaced within the popup frame. This setup enables consistent visual presentation and user interaction with the menu options.\n\n</context>\n\nself.maxX = bounds[1]\n            if self.minZ is None:\n                self.minZ = bounds[2]\n            elif bounds[2] < self.minZ:\n                self.minZ = bounds[2]\n            if self.maxZ is None:\n                self.maxZ = bounds[3]\n            elif bounds[3] > self.maxZ:\n                self.maxZ = bounds[3]\n            itemIndex += 1\n        # Calc max width and height\n        self.maxWidth = self.maxX - self.minX\n        self.maxHeight = self.maxZ - self.minZ\n        # Adjust frame size for each item and bind actions to mouse events\n        for i in range(itemIndex):\n            item = self.component('item%d' %i)\n            # So entire extent of item's slot on popup is reactive to mouse\n            item['frameSize'] = (self.minX, self.maxX, self.minZ, self.maxZ)\n            # Move it to its correct position on the popup\n            item.setPos(-self.minX, 0, -self.maxZ - i * self.maxHeight)\n            item.bind(DGG.B1RELEASE, self.hidePopupMenu)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1321
+  }
+}

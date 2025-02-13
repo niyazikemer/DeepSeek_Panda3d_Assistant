@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Python class designed to handle version information in a Portable Executable (PE) file. The methods `_unpack_info`, `__getitem__`, and `__contains__` are used to parse and access structured data within the PE file's resources, specifically handling string and variable file information. This functionality is essential for modifying or extracting metadata such as product version, company name, and other details stored in the PE file format.\n\nwhile offset < length:\n            offset += self._unpack_info(self, data, offset)\n\n    def __getitem__(self, key):\n        if key == 'StringFileInfo':\n            return self.string_info\n        elif key == 'VarFileInfo':\n            return self.var_info\n        else:\n            raise KeyError(\"%s does not exist\" % (key))\n\n    def __contains__(self, key):\n        return key in ('StringFileInfo', 'VarFileInfo')\n\n    def _unpack_info(self, dict, data, offset):\n        length, value_length, type = unpack('<HHH', data[offset:offset+6])\n        assert length > 0\n        end = offset + length\n        offset += 6\n        key = \"\"\n        c, = unpack('<H', data[offset:offset+2])\n        offset += 2\n        while c:\n            key += chr(c)\n            c, = unpack('<H', data[offset:offset+2])\n            offset += 2\n\n        # Padding bytes to align value to 32-bit boundary.\n        offset = _padded(offset, 4)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1871
+  }
+}

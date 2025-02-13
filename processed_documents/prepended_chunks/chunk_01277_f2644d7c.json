@@ -1,0 +1,9 @@
+{
+  "content": "```python\n\"\"\"\nChunk: Handling color blending attributes and color interpolation segments in particle system renderer settings.\n\nContext: This code is part of a method that writes particle system renderer settings to a file, handling color blending modes (add, subtract, etc.) and their operands, as well as color interpolation segments. It's used within the ParticleSystemManager class to serialize renderer configurations.\n\"\"\"\n```\n\ncbAttrib = self.renderer.getRenderNode().getAttrib(ColorBlendAttrib.getClassType())\n            if cbAttrib:\n                cbMode = cbAttrib.getMode()\n                if cbMode > 0:\n                    if cbMode in (ColorBlendAttrib.MAdd, ColorBlendAttrib.MSubtract, ColorBlendAttrib.MInvSubtract):\n                        cboa = cbAttrib.getOperandA()\n                        cbob = cbAttrib.getOperandB()\n                        file.write(targ+'.renderer.setColorBlendMode(ColorBlendAttrib.%s, ColorBlendAttrib.%s, ColorBlendAttrib.%s)\\n' %\n                                (cbmLut[cbMode], cboLut[cboa], cboLut[cbob]))\n                    else:\n                        file.write(targ+'.renderer.setColorBlendMode(ColorBlendAttrib.%s)\\n' % cbmLut[cbMode])\n            cim = self.renderer.getColorInterpolationManager()\n            segIdList = [int(seg) for seg in cim.getSegmentIdList().split()]\n            for sid in segIdList:\n                seg = cim.getSegment(sid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1277
+  }
+}

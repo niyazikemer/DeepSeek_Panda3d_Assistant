@@ -1,0 +1,9 @@
+{
+  "content": "The `setCommandButtons` method in the `DirectButton` class manages the binding of click events to specified mouse buttons (left, middle, right) based on user configuration, enabling interactive functionality for graphical user interface components.\n\ndef setCommandButtons(self):\n        # Attach command function to specified buttons\n        # Left mouse button\n        if DGG.LMB in self['commandButtons']:\n            self.guiItem.addClickButton(MouseButton.one())\n            self.bind(DGG.B1CLICK, self.commandFunc)\n        else:\n            self.unbind(DGG.B1CLICK)\n            self.guiItem.removeClickButton(MouseButton.one())\n        # Middle mouse button\n        if DGG.MMB in self['commandButtons']:\n            self.guiItem.addClickButton(MouseButton.two())\n            self.bind(DGG.B2CLICK, self.commandFunc)\n        else:\n            self.unbind(DGG.B2CLICK)\n            self.guiItem.removeClickButton(MouseButton.two())\n        # Right mouse button\n        if DGG.RMB in self['commandButtons']:\n            self.guiItem.addClickButton(MouseButton.three())\n            self.bind(DGG.B3CLICK, self.commandFunc)\n        else:\n            self.unbind(DGG.B3CLICK)\n            self.guiItem.removeClickButton(MouseButton.three())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_91",
+    "parent": "processed_documents/context_documents/14ac1a1d_DirectButton.json",
+    "chunk_number": 1585
+  }
+}

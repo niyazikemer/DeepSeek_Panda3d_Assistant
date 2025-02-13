@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a function responsible for building application packages, specifically handling modules and plugins required by the Panda3D framework. It ensures that necessary dependencies are included in the build directory to facilitate proper packaging and distribution of the application across different platforms.\n\nfor mod in freezer_modules:\n            if mod in whl_modules:\n                freezer_extras.add((mod, None))\n\n        # Copy over necessary plugins\n        plugin_list = ['panda3d/lib{}'.format(i) for i in self.plugins]\n        for lib in p3dwhl.namelist():\n            plugname = lib.split('.', 1)[0]\n            if plugname in plugin_list:\n                source_path = os.path.join(p3dwhlfn, lib)\n                target_path = os.path.join(binary_dir, os.path.basename(lib))\n                search_path = [os.path.dirname(source_path)]\n                self.copy_with_dependencies(source_path, target_path, search_path)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1986
+  }
+}

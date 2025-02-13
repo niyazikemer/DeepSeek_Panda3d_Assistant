@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk belongs to the `DirectTimecodeReader` class within the given document. This class inherits from `AnalogNode` and `DirectObject`, and it's designed to handle timecode data from a VRPN client. The methods in the chunk (enable, disable, getName, getNodePath, __repr__) are part of this class, providing essential functionalities such as managing device state, retrieving identification information, and generating string representations for debugging or logging purposes.\n\nHere is the final answer:\n\nThe code chunk is part of the `DirectTimecodeReader` class within the provided document. These methods enable functionality to manage the device's state (enable/disable), retrieve its name and node path, and provide a string representation for object identification and debugging.\n\ndef __len__(self):\n        return self.getNumDials()\n\n    def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)\n\n    def disable(self):\n        self.nodePath.reparentTo(self._base.dataUnused)\n\n    def getName(self):\n        return self.name\n\n    def getNodePath(self):\n        return self.nodePath\n\n    def __repr__(self):\n        string = self.name + ': '\n        for i in range(self.getNumDials()):\n            string = string + '%.3f' % self[i] + ' '\n        return string",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1784
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a class `DirectButtons` that integrates VRPN button devices into a Panda3D-based application. The class extends `ButtonNode` and `DirectObject`, maintaining consistency with other device handling classes like `DirectTrackers` and `DirectJoysticks`. It manages button states, enabling integration of input from physical buttons or joypad buttons into the 3D environment.\n\nclass DirectButtons(ButtonNode, DirectObject):\n    buttonCount = 0\n    def __init__(self, vrpnClient, device):\n        # Keep track of number of buttons created\n        DirectButtons.buttonCount += 1\n        # Create a new button node for the given device\n        ButtonNode.__init__(self, vrpnClient, device)\n        # Create a unique name for this button object\n        self.name = 'DirectButtons-' + repr(DirectButtons.buttonCount)\n\n        # Attach node to data graph\n        try:\n            self._base = base\n        except NameError:\n            self._base = simbase\n        self.nodePath = self._base.dataRoot.attachNewNode(self)\n\n    def __getitem__(self, index):\n        if (index < 0) or (index >= self.getNumButtons()):\n            raise IndexError\n        return self.getButtonState(index)\n\n    def __len__(self):\n        return self.getNumButtons()\n\n    def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1775
+  }
+}

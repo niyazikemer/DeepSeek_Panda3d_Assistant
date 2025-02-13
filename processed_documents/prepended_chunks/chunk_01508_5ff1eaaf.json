@@ -1,0 +1,9 @@
+{
+  "content": "The `_autoCapitalize` method is a crucial component of a text entry widget within a GUI framework. It handles intelligent text capitalization, ensuring proper formatting while respecting special cases like \"Mc\" in names, enhancing user input accuracy and readability.\n\ndef _autoCapitalize(self):\n        name = self.guiItem.getWtext()\n        # capitalize each word, allowing for things like McMutton\n        capName = ''\n        # track each individual word to detect prefixes like Mc\n        wordSoFar = ''\n        # track whether the previous character was part of a word or not\n        wasNonWordChar = True\n        for i, character in enumerate(name):\n            # test to see if we are between words\n            # - Count characters that can't be capitalized as a break between words\n            #   This assumes that string.lower and string.upper will return different\n            #   values for all unicode letters.\n            # - Don't count apostrophes as a break between words\n            if character.lower() == character.upper() and character != \"'\":\n                # we are between words\n                wordSoFar = ''\n                wasNonWordChar = True\n            else:\n                capitalize = False\n                if wasNonWordChar:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1508
+  }
+}

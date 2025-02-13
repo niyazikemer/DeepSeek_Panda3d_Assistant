@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines the `addItem` method in the `DirectScrolledList` class, which is part of a Python implementation for creating and managing scrollable lists. The method handles adding items (either strings or objects) to the list, assigns unique IDs to non-string items, manages their display within the scrolling frame, and ensures proper visual updates when new items are added. This functionality is essential for building interactive GUI components with dynamic content management capabilities.\n\ndef addItem(self, item, refresh=1):\n        \"\"\"\n        Add this string and extraArg to the list\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        if not isinstance(item, str):\n            # cant add attribs to non-classes (like strings & ints)\n            item.itemID = self.nextItemID\n            self.nextItemID += 1\n        self['items'].append(item)\n        if not isinstance(item, str):\n            item.reparentTo(self.itemFrame)\n        if refresh:\n            self.refresh()\n        if not isinstance(item, str):\n            return item.itemID  # to pass to scrollToItemID",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1618
+  }
+}

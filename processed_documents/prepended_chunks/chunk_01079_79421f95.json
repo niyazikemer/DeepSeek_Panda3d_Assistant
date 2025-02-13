@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk includes methods from a `Placer` class used in 3D modeling or game development for scaling transformations (`xformScale`) and updating position widgets (`updatePosWidgets`). These methods handle scaling operations based on different modes (free, uniform, proportional) and update GUI elements with position data.\n\ndef xformScale(self, value, axis):\n        if self['nodePath']:\n            mode = self.scalingMode.get()\n            scale = self['nodePath'].getScale()\n            if mode == 'Scale Free':\n                if axis == 'sx':\n                    scale.setX(value)\n                elif axis == 'sy':\n                    scale.setY(value)\n                elif axis == 'sz':\n                    scale.setZ(value)\n            elif mode == 'Scale Uniform':\n                scale.set(value, value, value)\n            elif mode == 'Scale Proportional':\n                if axis == 'sx':\n                    sf = value / scale[0]\n                elif axis == 'sy':\n                    sf = value / scale[1]\n                elif axis == 'sz':\n                    sf = value / scale[2]\n                scale = scale * sf\n            self['nodePath'].setScale(scale)\n\n    def updatePosWidgets(self, pos):\n        self.posX.set(pos[0])\n        self.posY.set(pos[1])\n        self.posZ.set(pos[2])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1079
+  }
+}

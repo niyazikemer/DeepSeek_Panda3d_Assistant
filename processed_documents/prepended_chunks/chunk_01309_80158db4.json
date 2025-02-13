@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger method responsible for printing or serializing parameters of various force objects in a simulation. This specific section handles writing parameters for `AngularVectorForce` instances, which are subclasses of `AngularForce`. The context situates this within the broader structure that systematically processes different types of forces, ensuring each has its attributes correctly documented.\n\n**Context:**  \nThis code chunk is part of a method that writes out force parameters. It specifically handles AngularVectorForce objects by writing their quaternion values after processing other angular and linear force types.\n\nelif isinstance(f, LinearFrictionForce):\n                    file.write(fname + ' = LinearFrictionForce(%.4f, %.4f, %d)\\n' % (f.getCoef(), amplitude, massDependent))\n                elif isinstance(f, LinearJitterForce):\n                    file.write(fname + ' = LinearJitterForce(%.4f, %d)\\n' % (amplitude, massDependent))\n                elif isinstance(f, LinearNoiseForce):\n                    file.write(fname + ' = LinearNoiseForce(%.4f, %d)\\n' % (amplitude, massDependent))\n                elif isinstance(f, LinearVectorForce):\n                    vec = f.getLocalVector()\n                    file.write(fname + ' = LinearVectorForce(Vec3(%.4f, %.4f, %.4f), %.4f, %d)\\n' % (vec[0], vec[1], vec[2], amplitude, massDependent))\n                mask = f.getVectorMasks()\n                file.write(fname + '.setVectorMasks(%d, %d, %d)\\n' % (mask[0],mask[1],mask[2]))\n            elif isinstance(f, AngularForce):\n                if isinstance(f, AngularVectorForce):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1309
+  }
+}

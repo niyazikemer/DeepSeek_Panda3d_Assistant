@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods that manage reference node paths within the Placer tool. These methods allow users to set and add reference nodes to a menu, which are essential for positioning operations relative to other objects in the scene. The `setReferenceNodePath` method updates the reference node and reflects changes in the UI, while `addRefNodePath` adds new reference node paths to the available options.\n\ndef setReferenceNodePath(self, nodePath):\n        self.refCS = nodePath\n        if self.refCS:\n            self.refNodePathMenuEntry.configure(\n                background = self.nodePathMenuBG)\n            # Update placer to reflect new state\n            self.updatePlacer()\n        else:\n            # Flash entry\n            self.refNodePathMenuEntry.configure(background = 'Pink')\n\n    def addNodePath(self, nodePath):\n        self.addNodePathToDict(nodePath, self.nodePathNames,\n                               self.nodePathMenu, self.nodePathDict)\n\n    def addRefNodePath(self, nodePath):\n        self.addNodePathToDict(nodePath, self.refNodePathNames,\n                               self.refNodePathMenu, self.refNodePathDict)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1070
+  }
+}

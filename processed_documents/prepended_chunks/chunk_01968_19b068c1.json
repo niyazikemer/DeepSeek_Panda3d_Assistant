@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class responsible for managing cross-platform application builds and distributions using Panda3D, specifically handling binary package downloads to ensure compatibility across different operating systems.\n\ntree = ET.ElementTree(manifest)\n        with open(path, 'wb') as fh:\n            tree.write(fh, encoding='utf-8', xml_declaration=True)\n\n    def build_binaries(self, platform, binary_dir, data_dir=None):\n        \"\"\" Builds the binary data for the given platform. \"\"\"\n\n        use_wheels = True\n        path = sys.path[:]\n        p3dwhl = None\n        wheelpaths = []\n        has_tkinter_wheel = False\n\n        if use_wheels:\n            wheelpaths = self.download_wheels(platform)\n\n            for whl in wheelpaths:\n                if os.path.basename(whl).startswith('panda3d-'):\n                    p3dwhlfn = whl\n                    p3dwhl = self._get_zip_file(p3dwhlfn)\n                    break\n                elif os.path.basename(whl).startswith('tkinter-'):\n                    has_tkinter_wheel = True\n            else:\n                raise RuntimeError(\"Missing panda3d wheel for platform: {}\".format(platform))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1968
+  }
+}

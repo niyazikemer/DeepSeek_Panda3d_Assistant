@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method responsible for writing out configuration settings for a particle system to a file. The chunk specifically writes parameters related to the rotational motion of particles. If the `angularVelocity` parameter is set, it writes both the base and spread values for angular velocity. Otherwise, it writes the base and spread values for the `finalAngle`, which determines the orientation of particles at the end of their lifespan. This functionality allows for customizing how particles rotate over time in the simulation.\n\nThe context involves defining particle behavior through rotational properties, enabling developers to control whether particles should have a continuous angular velocity or reach a specific final angle with variability.\n\nfile.write(targ + '.factory.setAngularVelocity(%.4f)\\n' % \\\n                                            self.factory.getAngularVelocity())\n                file.write(targ + '.factory.setAngularVelocitySpread(%.4f)\\n' % \\\n                                            self.factory.getAngularVelocitySpread())\n            else:\n                file.write(targ + '.factory.setFinalAngle(%.4f)\\n' % \\\n                                            self.factory.getFinalAngle())\n                file.write(targ + '.factory.setFinalAngleSpread(%.4f)\\n' % \\\n                                        self.factory.getFinalAngleSpread())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1269
+  }
+}

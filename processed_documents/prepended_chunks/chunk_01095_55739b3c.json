@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes the main ScrolledCanvas component in the FSMInspector class, setting up the canvas area for visualizing states, configuring scroll regions, binding mouse events for interaction (e.g., drawing connections), and creating state inspectors to represent individual states within the FSM. This setup occurs early in the class initialization process before other components are initialized.\n\nContext: Initialization of GUI components and event bindings in the FSMInspector constructor (__init__ method).\n\n# The Scrolled Canvas\n        self._scrolledCanvas = self.createcomponent('scrolledCanvas',\n                (), None,\n                Pmw.ScrolledCanvas, (interior,),\n                hull_width = 400, hull_height = 400,\n                usehullsize = 1)\n        self._canvas = self._scrolledCanvas.component('canvas')\n        self._canvas['scrollregion'] = ('-2i', '-2i', '2i', '2i')\n        self._scrolledCanvas.resizescrollregion()\n        self._scrolledCanvas.pack(padx = 5, pady = 5, expand=1, fill = tk.BOTH)\n\n        # Update lines\n        self._canvas.bind('<B1-Motion>', self.drawConnections)\n        self._canvas.bind('<ButtonPress-2>', self.mouse2Down)\n        self._canvas.bind('<B2-Motion>', self.mouse2Motion)\n        self._canvas.bind('<Configure>',\n                          lambda e, sc = self._scrolledCanvas:\n                          sc.resizescrollregion())\n\n        self.createStateInspectors()\n\n        self.initialiseoptions(FSMInspector)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1095
+  }
+}

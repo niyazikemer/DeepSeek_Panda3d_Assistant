@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two private helper methods in the `InspectorGUI` class: `selectedIndex()` retrieves the currently selected index from a list widget, returning None if no item is selected. The `inspectorForSelectedPart()` method uses this index to obtain the corresponding part from the top-level inspector and returns an appropriate inspector for that part. These methods support core functionality related to managing selection state and retrieving inspectors within the GUI interface.\n\n#Private\n    def selectedIndex(self):\n        indices = list(map(int, self.listWidget.curselection()))\n        if len(indices) == 0:\n            return None\n        partNumber = indices[0]\n        return partNumber\n\n    def inspectorForSelectedPart(self):\n        partNumber = self.selectedIndex()\n        if partNumber is None:\n            return None\n        part = self.topInspector().partNumber(partNumber)\n        return self.topInspector().inspectorFor(part)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1035
+  }
+}

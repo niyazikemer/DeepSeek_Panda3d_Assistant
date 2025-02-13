@@ -1,0 +1,9 @@
+{
+  "content": "This chunk represents the section of a Python class dealing with warning notifications, specifically including methods to issue warnings, enable/disable warning messages, and check the current warning state.\n\n# warning funcs\n    def warning(self, warningString: object) -> int:\n        \"\"\"\n        Issue the warning message if warn flag is on\n        \"\"\"\n        if self.__warning:\n            message = str(warningString)\n            if Notifier.showTime:\n                string = f'{self.getTime()}{self.__name}(warning): {message}'\n            else:\n                string = f':{self.__name}(warning): {message}'\n            self.__log(string)\n            self.__print(string)\n        return 1 # to allow assert myNotify.warning(\"blah\")\n\n    def setWarning(self, enable: bool) -> None:\n        \"\"\"\n        Enable/Disable the printing of warning messages\n        \"\"\"\n        self.__warning = enable\n\n    def getWarning(self) -> bool:\n        \"\"\"\n        Return whether the printing of warning messages is on or off\n        \"\"\"\n        return self.__warning",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1678
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the configuration management within the DirectGuiBase class. It handles option queries when no keyword arguments are provided, returning details about the options such as their defaults and current values. This functionality allows users to retrieve information about how the GUI elements are configured.\n\n</context>\n\nThe code chunk is situated within a method responsible for configuring or querying options in the DirectGuiBase class. When no keyword arguments are given, it retrieves and returns the default and current values of specified options, enabling users to inspect the configuration state of the GUI components.\n\n# First, deal with the option queries.\n        if len(kw) == 0:\n            # This configure call is querying the values of one or all options.\n            # Return 3-tuples:\n            #     (optionName, default, value)\n            if option is None:\n                rtn = {}\n                for option, config in self._optionInfo.items():\n                    rtn[option] = (option,\n                                   config[DGG._OPT_DEFAULT],\n                                   config[DGG._OPT_VALUE])\n                return rtn\n            else:\n                config = self._optionInfo[option]\n                return (option, config[DGG._OPT_DEFAULT], config[DGG._OPT_VALUE])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1383
+  }
+}

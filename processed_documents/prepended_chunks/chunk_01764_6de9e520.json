@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods within a class handling server-specific tasks related to camera parameters. The `handleCamOffset` method sets the position and orientation of a camera relative to a jig using parsed data, while the `handleCamFrustum` method adjusts the camera's frustum settings based on received parameters. These methods are essential for synchronizing visual perspectives between client and server in a 3D application or game.\n\n# Server specific tasks\n    def handleCamOffset(self, dgi):\n        \"\"\" Set offset of camera from cameraJig \"\"\"\n        (x, y, z, h, p, r) = self.msgHandler.parseCamOffsetDatagram(dgi)\n        self.camera.setPos(x,y,z)\n        self.lens.setViewHpr(h, p, r)\n\n    def handleCamFrustum(self, dgi):\n        \"\"\" Adjust camera frustum based on parameters sent by client \"\"\"\n        (fl, fs, fo) = self.msgHandler.parseCamFrustumDatagram(dgi)\n        self.lens.setFocalLength(fl)\n        self.lens.setFilmSize(fs[0], fs[1])\n        self.lens.setFilmOffset(fo[0], fo[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1764
+  }
+}

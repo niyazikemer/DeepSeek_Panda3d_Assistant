@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of a larger Python class that implements functionality for recording and processing motion paths (mopaths). Specifically, these methods handle:\n\n- Setting desample frequency (setDesampleFrequency)\n- Desampling a recorded curve to reduce data points while maintaining smoothness (desampleCurve)\n- Setting the number of samples used in curve fitting (setNumSamples)\n\nThe code is likely part of a tool or system that records motion paths for animation, simulation, or 3D graphics applications. The desampling functionality suggests it's used to optimize recorded motion data by reducing unnecessary detail while preserving key characteristics of the motion path.\n\ndef setDesampleFrequency(self, frequency):\n        self.desampleFrequency = frequency\n\n    def desampleCurve(self):\n        if self.curveFitter.getNumSamples() == 0:\n            print('MopathRecorder.desampleCurve: Must define curve first')\n            return\n        # NOTE: This is destructive, points will be deleted from curve fitter\n        self.curveFitter.desample(self.desampleFrequency)\n        # Compute new curve based on desampled data\n        self.computeCurves()\n        # Get point set from the curve fitter\n        self.extractPointSetFromCurveFitter()\n\n    def setNumSamples(self, numSamples):\n        self.numSamples = int(numSamples)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1198
+  }
+}

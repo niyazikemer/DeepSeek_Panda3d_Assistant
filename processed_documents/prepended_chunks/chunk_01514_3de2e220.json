@@ -1,0 +1,9 @@
+{
+  "content": "This chunk calculates the visual bounds of a graphical element by projecting transformed 3D points into 2D screen coordinates, adjusting for padding and border width, to accurately render its position and size on the display.\n\nbottom = -0.3 * lineHeight - (lineHeight * (numLines - 1))\n        top = lineHeight\n\n        self.ll.set(left, 0.0, bottom)\n        self.ur.set(right, 0.0, top)\n        self.ll = mat.xformPoint(Point3.rfu(left, 0.0, bottom))\n        self.ur = mat.xformPoint(Point3.rfu(right, 0.0, top))\n\n        vec_right = Vec3.right()\n        vec_up = Vec3.up()\n        left = (vec_right[0] * self.ll[0]\n              + vec_right[1] * self.ll[1]\n              + vec_right[2] * self.ll[2])\n        right = (vec_right[0] * self.ur[0]\n               + vec_right[1] * self.ur[1]\n               + vec_right[2] * self.ur[2])\n        bottom = (vec_up[0] * self.ll[0]\n                + vec_up[1] * self.ll[1]\n                + vec_up[2] * self.ll[2])\n        top = (vec_up[0] * self.ur[0]\n             + vec_up[1] * self.ur[1]\n             + vec_up[2] * self.ur[2])\n        self.ll = Point3(left, 0.0, bottom)\n        self.ur = Point3(right, 0.0, top)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1514
+  }
+}

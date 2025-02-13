@@ -1,0 +1,9 @@
+{
+  "content": "The `xformOrbit` method is a transformation function within the `Placer` class that handles orbital positioning and rotation adjustments of 3D objects relative to reference coordinate systems. It modifies either positional offsets (x, y, z) or rotational angles (h, p, r) for orbital transformations, updating the node's position and orientation accordingly. This method is part of a suite of transformation tools enabling precise control over 3D object placement in a scene.\n\ndef xformOrbit(self, value, axis):\n        nodePath = self['nodePath']\n        if nodePath is not None and self.refCS is not None and \\\n           self.orbitFromCS is not None and self.orbitToCS is not None:\n            if axis == 'x':\n                self.posOffset.setX(value)\n            elif axis == 'y':\n                self.posOffset.setY(value)\n            elif axis == 'z':\n                self.posOffset.setZ(value)\n            elif axis == 'h':\n                self.orbitToCS.setH(self.orbitFromCS, value)\n            elif axis == 'p':\n                self.orbitToCS.setP(self.orbitFromCS, value)\n            elif axis == 'r':\n                self.orbitToCS.setR(self.orbitFromCS, value)\n            nodePath.setPosHpr(self.orbitToCS, self.posOffset, ZERO_VEC)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1078
+  }
+}

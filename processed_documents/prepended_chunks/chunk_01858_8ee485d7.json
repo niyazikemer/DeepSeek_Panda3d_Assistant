@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python module that handles distribution options for build applications, ensuring compatibility with setuptools versions >=61 while avoiding unintended dependencies or auto-discovery issues.\n\n# This module should not import Panda3D modules globally as it contains hooks\n# that may be invoked by setuptools even when Panda3D is not used.  If the\n# Panda3D installation is broken, it should not affect other applications.\n\n__all__ = ('finalize_distribution_options', )\n\n\ndef finalize_distribution_options(dist):\n    \"\"\"Entry point for compatibility with setuptools>=61, see #1394.\"\"\"\n\n    options = dist.get_option_dict('build_apps')\n    if options.get('gui_apps') or options.get('console_apps'):\n        # Make sure this is set to avoid auto-discovery taking place.\n        if getattr(dist.metadata, 'py_modules', None) is None and \\\n           getattr(dist.metadata, 'packages', None) is None:\n            dist.py_modules = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_129",
+    "parent": "processed_documents/context_documents/62a10906__dist_hooks.json",
+    "chunk_number": 1858
+  }
+}

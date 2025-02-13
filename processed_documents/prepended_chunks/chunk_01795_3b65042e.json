@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains core utility methods for managing and updating the DirectJoybox object, including setters and getters for nodePath and refCS properties, multiplier controls for movement scaling, event name generation, and the updateTask method that drives continuous input processing. These utilities enable state management, sensitivity control, and real-time interaction with joystick inputs.\n\ndef setNodePath(self, nodePath):\n        self.nodePath = nodePath\n\n    def getNodePath(self):\n        return self.nodePath\n\n    def setRefCS(self, refCS):\n        self.refCS = refCS\n\n    def getRefCS(self):\n        return self.refCS\n\n    def getEventName(self, index):\n        return self.name + '-button-' + repr(index)\n\n    def setXyzMultiplier(self, multiplier):\n        DirectJoybox.xyzMultiplier = multiplier\n\n    def getXyzMultiplier(self):\n        return DirectJoybox.xyzMultiplier\n\n    def setHprMultiplier(self, multiplier):\n        DirectJoybox.hprMultiplier = multiplier\n\n    def getHprMultiplier(self):\n        return DirectJoybox.hprMultiplier\n\n    def updateTask(self, state):\n        # old optimization\n        #self.updateValsUnrolled()\n        self.updateVals()\n        self.updateFunc()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1795
+  }
+}

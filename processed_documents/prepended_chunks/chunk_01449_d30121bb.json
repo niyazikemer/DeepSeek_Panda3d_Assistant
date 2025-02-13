@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods: `uncheck` and `setIndicatorValue`. These methods manage the visual state of a checkbox component in a GUI framework, updating its color and appearance when checked or unchecked to provide user feedback.\n\n```context\nUncheck and set indicator value for checkbox management. Handles color updates based on state changes.\n```\n\ndef uncheck(self):\n        self['indicatorValue'] = 0\n        if self.colors is not None:\n            self.component('indicator')['geom_color'] = self.colors[self['indicatorValue']]\n\n    def setIndicatorValue(self):\n        self.component('indicator').guiItem.setState(self['indicatorValue'])\n        if self.colors is not None:\n            self.component('indicator')['geom_color'] = self.colors[self['indicatorValue']]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_80",
+    "parent": "processed_documents/context_documents/b50b78f4_DirectRadioButton.json",
+    "chunk_number": 1449
+  }
+}

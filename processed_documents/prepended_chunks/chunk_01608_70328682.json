@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements logic to manage the state of increment and decrement buttons in a scrolled list interface, specifically handling cases where there are not enough items to require scrolling or when the user is at either end of the item list. This functionality ensures that scroll buttons are appropriately enabled or disabled based on the current index position within the list.\n\n# Not enough items to even worry about scrolling,\n        # just disable the buttons and do nothing\n        if len(self[\"items\"]) <= numItemsVisible:\n            self.incButton['state'] = DGG.DISABLED\n            self.decButton['state'] = DGG.DISABLED\n            # Hmm.. just reset self.index to 0 and bail out\n            self.index = 0\n            ret = 0\n        else:\n            if self.index <= 0:\n                self.index = 0\n                #print \"at list start, \", len(self[\"items\"]),\"  \", self[\"numItemsVisible\"]\n                self.decButton['state'] = DGG.DISABLED\n                self.incButton['state'] = DGG.NORMAL\n                ret = 0\n            elif self.index >= (numItemsTotal - numItemsVisible):\n                self.index = numItemsTotal - numItemsVisible\n                #print \"at list end, \", len(self[\"items\"]),\"  \", self[\"numItemsVisible\"]\n                self.incButton['state'] = DGG.DISABLED\n                self.decButton['state'] = DGG.NORMAL",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1608
+  }
+}

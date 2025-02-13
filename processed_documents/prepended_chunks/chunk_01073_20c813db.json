@@ -1,0 +1,9 @@
+{
+  "content": "The `updateAuxiliaryCoordinateSystems` method in the Placer class sets up and positions several auxiliary coordinate systems relative to a target nodePath. This includes setting the temporary CS (tempCS) at the current position and orientation of the nodePath, positioning the orbitFromCS at a reference point but aligned with the nodePath, and aligning the orbitToCS with orbitFromCS. The method also calculates the offset between the nodePath's current position and the origin of orbitFromCS, which is used for subsequent transformations.\n\nThis functionality is part of a toolset designed to manipulate 3D objects in a scene, providing features like translation, rotation, scaling, undo/redo support, and information display about object properties.\n\ndef updateAuxiliaryCoordinateSystems(self):\n        # Temp CS\n        self.tempCS.setPosHpr(self['nodePath'], 0, 0, 0, 0, 0, 0)\n        # Orbit CS\n        # At reference\n        self.orbitFromCS.setPos(self.refCS, 0, 0, 0)\n        # But aligned with target\n        self.orbitFromCS.setHpr(self['nodePath'], 0, 0, 0)\n        # Also update to CS\n        self.orbitToCS.setPosHpr(self.orbitFromCS, 0, 0, 0, 0, 0, 0)\n        # Get offset from origin\n        self.posOffset.assign(self['nodePath'].getPos(self.orbitFromCS))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1073
+  }
+}

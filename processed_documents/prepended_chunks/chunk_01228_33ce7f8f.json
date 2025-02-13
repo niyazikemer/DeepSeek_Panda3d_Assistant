@@ -1,0 +1,9 @@
+{
+  "content": "The `createColorEntry` method is part of a class designed to manage and create various UI components, specifically utilizing Tkinter and Pmw libraries. This particular function initializes a color entry widget, allowing users to select or input colors, which is integrated into the application's user interface for enhanced interaction.\n\ndef createColorEntry(self, parent, category, text, balloonHelp,\n                         command = None, **kw):\n        # Set label's text\n        kw['text'] = text\n        widget = VectorWidgets.ColorEntry(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1228
+  }
+}

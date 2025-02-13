@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the initialization of the `scaleZ` component within the Placer class, which creates a Tkinter Floater widget to adjust the Z-axis scale of a NodePath. The component includes configuration options (text label, relief style, minimum value, default value) and callback hooks (`xformStart`, `xformStop`) for handling user input, and is packed into the UI layout. This code sits within the class's initialization method, following similar configurations for X and Y scale components.\n\nself.scaleZ = self.createcomponent('scaleZ', (), None,\n                                           Floater.Floater, (scaleInterior,),\n                                           text = 'Z Scale',\n                                           relief = tk.FLAT,\n                                           min = 0.0001, value = 1.0,\n                                           resetValue = 1.0,\n                                           label_foreground = 'Blue')\n        self.scaleZ['commandData'] = ['sz']\n        self.scaleZ['callbackData'] = ['sz']\n        self.scaleZ['preCallback'] = self.xformStart\n        self.scaleZ['postCallback'] = self.xformStop\n        self.scaleZ.pack(expand=1, fill='both')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1060
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class handling network communication or data serialization, specifically creating different types of datagrams for various commands and operations. The `makeNamedMovementDone` method creates a datagram to signal the completion of a named movement operation.\n\nContext:\nThe function belongs in a section of the document that handles command creation, likely near other methods like `makeCommandStringDatagram`, `makeExitDatagram`, or `makeSwapReadyDatagram`.\n\ndef makeNamedMovementDone(self):\n\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_NAMED_MOVEMENT_DONE)\n        return datagram",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1741
+  }
+}

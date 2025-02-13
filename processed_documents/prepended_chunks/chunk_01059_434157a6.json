@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the creation and configuration of the `scaleY` component within the `Placer` class. This component is part of a larger set of controls for adjusting the 3D position, rotation (HPR), and scaling of nodes in a Direct or Panda3D environment. The `scaleY` control specifically allows users to manipulate the Y-axis scale value through a graphical interface, integrating with undo/redo functionality and transformation callbacks.\n\nself.scaleY = self.createcomponent('scaleY', (), None,\n                                           Floater.Floater, (scaleInterior,),\n                                           text = 'Y Scale',\n                                           relief = tk.FLAT,\n                                           min = 0.0001, value = 1.0,\n                                           resetValue = 1.0,\n                                           label_foreground = '#00A000')\n        self.scaleY['commandData'] = ['sy']\n        self.scaleY['callbackData'] = ['sy']\n        self.scaleY['preCallback'] = self.xformStart\n        self.scaleY['postCallback'] = self.xformStop\n        self.scaleY.pack(expand=1, fill='both')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1059
+  }
+}

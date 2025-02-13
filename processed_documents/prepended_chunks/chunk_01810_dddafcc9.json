@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `planetOrbit` method in the `DirectAnalogOrbitNode` class. It handles proximity checks and vector transformations to prevent nodes from penetrating planets during orbital movements.\n\n# How far above planet are we?\n            np2planet = Vec3(self.nodePath.getPos(planet))\n            # Compute dist\n            offsetDist = np2planet.length()\n            # Above threshold, leave velocity vec as is\n            if offsetDist > (1.2 * radius):\n                pass\n            else:\n                # Getting close, slow things down\n                # Compute normal vector through node Path\n                oNorm = Vec3()\n                oNorm.assign(np2planet)\n                oNorm.normalize()\n                # Xform fly vec to planet space\n                dPlanet = self.nodePath.getMat(planet).xformVec(Vec3(0, dy, 0))\n                # Compute radial component of fly vec\n                dotProd = oNorm.dot(dPlanet)\n                if dotProd < 0:\n                    # Trying to fly below radius, compute radial component\n                    radialComponent = oNorm * dotProd\n                    # How far above?\n                    above = offsetDist - radius",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1810
+  }
+}

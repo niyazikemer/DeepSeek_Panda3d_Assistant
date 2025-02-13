@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk includes methods for a ClusterClient class, which handles network communication between client and server nodes in a distributed application. The functions manage camera movement tasks and sending updates to selected objects across the cluster. Specifically:\n\n- `moveCameraTask`: Updates the server with the current camera position and rotation.\n- `moveSelectedTask`: Decomposes and sends transformation data for selected node paths (position, rotation, scale) to all connected servers.\n\nThese methods ensure synchronization of camera positions and object transformations across distributed nodes in a networked environment.\n\ndef moveCameraTask(self, task):\n        self.moveCamera(\n            base.camera.getPos(render),\n            base.camera.getHpr(render))\n        return Task.cont\n\n    def moveCamera(self, xyz, hpr):\n        self.notify.debug('moving unsynced camera')\n        for server in self.serverList:\n            server.sendMoveCam(xyz, hpr)\n\n    def startMoveSelectedTask(self):\n        taskMgr.add(self.moveSelectedTask, \"moveSelectedTask\", 48)\n\n    def moveSelectedTask(self, state):\n        # Update cluster if current display is a cluster client\n        if last is not None:\n            self.notify.debug('moving selected node path')\n            xyz = Point3(0)\n            hpr = VBase3(0)\n            scale = VBase3(1)\n            decomposeMatrix(last.getMat(), scale, hpr, xyz)\n            for server in self.serverList:\n                server.sendMoveSelected(xyz, hpr, scale)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1697
+  }
+}

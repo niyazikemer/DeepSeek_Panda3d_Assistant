@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a function responsible for configuring GUI components within a DirectGUI module. It determines whether a specified component exists as an individual element or as part of a group and retrieves the appropriate configuration functions accordingly.\n\n# Does this component exist\n                    if componentInfo_has_key(component):\n                        # Get the configure func for the named component\n                        # component = entryField\n                        componentConfigFuncs = [componentInfo[component][1]]\n                    else:\n                        # Check if this is a group name and configure all\n                        # components in the group.\n                        componentConfigFuncs = []\n                        # For each component\n                        for info in componentInfo.values():\n                            # Check if it is a member of this group\n                            if info[4] == component:\n                                # Yes, append its config func\n                                componentConfigFuncs.append(info[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1388
+  }
+}

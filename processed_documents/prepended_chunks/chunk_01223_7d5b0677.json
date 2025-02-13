@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a `createFloater` method within a larger class that manages various UI components. The method constructs and configures a Floater widget with specified attributes, integrates it into the UI layout, binds balloon help text for user assistance, and stores references to the widget for later access or modification.\n\ndef createFloater(self, parent, category, text, balloonHelp,\n                      command = None, min = 0.0, resolution = None,\n                      maxVelocity = 10.0, **kw):\n        kw['text'] = text\n        kw['min'] = min\n        kw['maxVelocity'] = maxVelocity\n        kw['resolution'] = resolution\n        widget = Floater.Floater(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1223
+  }
+}

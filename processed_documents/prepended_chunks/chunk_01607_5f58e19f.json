@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of two methods, `scrollToItemID` and `scrollTo`, which are part of the `DirectScrolledList` class in a Python document. These methods are used to control the scrolling behavior of a list interface. The `scrollToItemID` method scrolls the list to display an item with a specific ID, optionally centering it within the visible area. The `scrollTo` method adjusts the scroll position based on an index and whether the item should be centered or placed at the top. Together, these methods facilitate navigation and item positioning in a scrollable list interface, handling edge cases like invalid indices and crashes.\n\ndef scrollToItemID(self, itemID, centered=0):\n        assert self.notify.debugStateCall(self)\n        self.scrollTo(self.getItemIndexForItemID(itemID), centered)\n\n    def scrollTo(self, index, centered=0):\n        \"\"\" scrolls list so selected index is at top, or centered in box\"\"\"\n        assert self.notify.debugStateCall(self)\n        #print \"scrollTo[\", index,\"] called, len(self[items])=\", len(self[\"items\"]),\" self[numItemsVisible]=\", self[\"numItemsVisible\"]\n        try:\n            self[\"numItemsVisible\"]\n        except Exception:\n            # RAU hack to kill 27633\n            self.notify.info('crash 27633 fixed!')\n            return\n\n        numItemsVisible = self[\"numItemsVisible\"]\n        numItemsTotal = len(self[\"items\"])\n        if centered:\n            self.index = index - (numItemsVisible // 2)\n        else:\n            self.index = index",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1607
+  }
+}

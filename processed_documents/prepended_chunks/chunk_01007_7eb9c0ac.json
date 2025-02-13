@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of methods (`goToF`, `goToT`, `goTo`, and `resetToZero`) within an animation panel class for controlling time-based or frame-based navigation of character animations. These functions handle converting between units (frames/seconds), updating internal state, and applying the corresponding pose to one or more actors being animated. They are critical components for implementing timeline navigation controls in the GUI-based animation tool.\n\ndef goToF(self, f):\n        if self.unitsVar.get() == FRAMES:\n            self.frameControl.set(f)\n        else:\n            self.frameControl.set(f / self.fps)\n\n    def goToT(self, t):\n        if self.unitsVar.get() == FRAMES:\n            self.frameControl.set(t * self.fps)\n        else:\n            self.frameControl.set(t)\n\n    def goTo(self, t):\n        # Convert scale value to float\n        t = float(t)\n        # Now convert t to seconds for offset calculations\n        if self.unitsVar.get() == FRAMES:\n            t = t / self.fps\n        # Update currT\n        if self.fScaleCommand or self.fOneShot:\n            self.currT = t\n            self.fOneShot = 0\n        # Now update actor (pose specifed as frame count)\n        self['actor'].pose(self['active'],\n                           min(self.maxFrame, int(t * self.fps)))\n\n    def resetToZero(self):\n        # This flag forces self.currT to be updated to new value\n        self.fOneShot = 1\n        self.goToT(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1007
+  }
+}

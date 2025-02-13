@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a larger Python setup script used to manage the distribution of Panda3D applications. It handles the preparation of paths for building runtime environments, including managing wheel files and deployable libraries, and gathering platform-specific configuration data for the application. The code is executed during the build process to ensure proper dependency resolution and configuration handling before generating distributable packages or executables.\n\n# Add whl files to the path so they are picked up by modulefinder\n            for whl in wheelpaths:\n                path.insert(0, whl)\n\n            # Add deploy_libs from panda3d whl to the path\n            path.insert(0, os.path.join(p3dwhlfn, 'deploy_libs'))\n\n\n        self.announce('Building runtime for platform: {}'.format(platform), distutils.log.INFO)\n\n        # Gather PRC data\n        prcstring = ''\n        if not use_wheels:\n            dtool_fn = p3d.Filename(p3d.ExecutionEnvironment.get_dtool_name())\n            libdir = os.path.dirname(dtool_fn.to_os_specific())\n            etcdir = os.path.join(libdir, '..', 'etc')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1970
+  }
+}

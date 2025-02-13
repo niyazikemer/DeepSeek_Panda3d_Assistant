@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of the `DirectEntryScroll` class in a GUI system, handling scrolling for text entry fields. It includes methods for binding cursor movement events to scrolling logic (`bind(DGG.CURSORMOVE)`), detaching and cleaning up an associated entry widget (`clearEntry()`), and adjusting the visible position of the text canvas based on cursor movement to maintain visibility (`cursorMove()`). These methods are integral to enabling smooth scrolling behavior when interacting with text input fields.\n\nself.entry.bind(DGG.CURSORMOVE, self.cursorMove)\n\n    def clearEntry(self):\n        \"\"\"\n        detaches and unbinds the entry from the scroll frame and its\n        events. You'll be responsible for destroying it.\n        \"\"\"\n        if self.entry is None:\n            return\n        self.entry.unbind(DGG.CURSORMOVE)\n        self.entry.detachNode()\n        self.entry = None\n\n    def cursorMove(self, cursorX, cursorY):\n        cursorX = self.entry.guiItem.getCursorX() * self.entry['text_scale'][0]\n        canvasX = self.canvas.getX()\n        visXMin = self.clipXMin - canvasX\n        visXMax = self.clipXMax - canvasX\n        visXCenter = (visXMin + visXMax) * 0.5\n        distanceToCenter = visXCenter - cursorX\n        clipExtent = self.clipXMax - self.clipXMin\n\n        entryExtent = self.entry['text_scale'][0] * self.entry['width']\n        entryWiggle = entryExtent - clipExtent\n\n        if abs(distanceToCenter) > (clipExtent * 0.5):\n            self.moveToCenterCursor()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_87",
+    "parent": "processed_documents/context_documents/2b07ca75_DirectEntryScroll.json",
+    "chunk_number": 1529
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code contains methods (`setSourceFileName`, `getSourceNodeName`, `setSourceNodeName`, and part of `setTextureFromNode`) that enable setting the source file name for model loading and the node name within a 3D model from which to extract textures. These methods allow customization of particle renderer textures by specifying either specific nodes within models or default configurations using ConfigVariableString for fallback values when not explicitly set by the user.\n\ndef setSourceFileName(self, name):\n        # Set instance copy of class variable\n        self.sourceFileName = name\n\n    def getSourceNodeName(self):\n        if self.sourceNodeName is None:\n            SpriteParticleRendererExt.sourceNodeName = ConfigVariableString(\n                'particle-sprite-node', '**/*').value\n        # Return instance copy of class variable\n        return self.sourceNodeName\n\n    def setSourceNodeName(self, name):\n        # Set instance copy of class variable\n        self.sourceNodeName = name\n\n    def setTextureFromNode(self, modelName = None, nodeName = None, sizeFromTexels = False):\n        if modelName is None:\n            modelName = self.getSourceFileName()\n            if nodeName is None:\n                nodeName = self.getSourceNodeName()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_68",
+    "parent": "processed_documents/context_documents/09ed8d32_SpriteParticleRendererExt.json",
+    "chunk_number": 1250
+  }
+}

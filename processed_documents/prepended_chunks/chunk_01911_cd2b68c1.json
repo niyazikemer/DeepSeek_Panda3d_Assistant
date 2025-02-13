@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a larger document focused on creating an NSIS (Nullsoft Scriptable Install System) installer script. Specifically, the chunk pertains to generating sections of the installer script that handle file operations, start menu shortcuts, and uninstallation setup. The code writes key components of the installer's behavior, such as setting up the output directory, creating shortcuts for installed applications in the start menu, and writing the uninstaller executable.\n\ncurdir = outdir\n            nsi.write('  File \"%s\"\\n' % (file.toOsSpecific()))\n    nsi.write('  SetOutPath \"$INSTDIR\"\\n')\n    nsi.write('  WriteUninstaller \"$INSTDIR\\\\Uninstall.exe\"\\n')\n    nsi.write('  ; Start menu items\\n')\n    nsi.write('  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application\\n')\n    nsi.write('    CreateDirectory \"$SMPROGRAMS\\\\$StartMenuFolder\"\\n')\n    for app in apps:\n        nsi.write('    CreateShortCut \"$SMPROGRAMS\\\\$StartMenuFolder\\\\%s.lnk\" \"$INSTDIR\\\\%s\"\\n' % (shortname, app))\n    nsi.write('    CreateShortCut \"$SMPROGRAMS\\\\$StartMenuFolder\\\\Uninstall.lnk\" \"$INSTDIR\\\\Uninstall.exe\"\\n')\n    nsi.write('  !insertmacro MUI_STARTMENU_WRITE_END\\n')\n    nsi.write('SectionEnd\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1911
+  }
+}

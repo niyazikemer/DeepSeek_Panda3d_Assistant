@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `__init__` method of the `OnscreenText` class. It initializes key parameters including scale, position, roll, wordwrap, font, text color, alignment, and background properties. The code sets up these attributes to configure the appearance and behavior of the on-screen text element within the graphics system.\n\nif not isinstance(scale, tuple):\n            # If the scale is already a tuple, it's a 2-d (x, y) scale.\n            # Otherwise, it's a uniform scale--make it a tuple.\n            scale = (scale, scale)\n\n        # Save some of the parameters for posterity.\n        self.__scale = scale\n        self.__pos = pos\n        self.__roll = roll\n        self.__wordwrap = wordwrap\n\n        if decal:\n            textNode.setCardDecal(True)\n\n        if font is None:\n            font = DGG.getDefaultFont()\n\n        textNode.setFont(font)\n        textNode.setTextColor(fg[0], fg[1], fg[2], fg[3])\n        textNode.setAlign(align)\n\n        if wordwrap:\n            textNode.setWordwrap(wordwrap)\n\n        if bg[3] != 0:\n            # If we have a background color, create a card.\n            textNode.setCardColor(bg[0], bg[1], bg[2], bg[3])\n            textNode.setCardAsMargin(0.1, 0.1, 0.1, 0.1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1465
+  }
+}

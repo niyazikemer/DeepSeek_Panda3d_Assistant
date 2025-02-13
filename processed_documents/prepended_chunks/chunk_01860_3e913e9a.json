@@ -1,0 +1,9 @@
+{
+  "content": "These helper functions provide utility operations used within a Python class designed to manipulate PE (Portable Executable) files. `_unpack_wstring` reads Unicode strings from memory, supporting file parsing, while `_padded` ensures proper alignment of addresses and sizes as required by the PE format.\n\ndef _unpack_wstring(mem, offs=0):\n    \"Read a UCS-2 string from memory.\"\n    name_len, = unpack('<H', mem[offs:offs+2])\n    name = \"\"\n    for i in range(name_len):\n        offs += 2\n        name += chr(*unpack('<H', mem[offs:offs+2]))\n    return name\n\n\ndef _padded(n, boundary):\n    align = n % boundary\n    if align:\n        n += boundary - align\n    return n",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1860
+  }
+}

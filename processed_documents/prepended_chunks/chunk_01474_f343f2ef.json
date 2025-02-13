@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes methods for controlling the scaling of OnscreenText in 2D space, including `setTextScale`, `getTextScale`, and `setScale`. These methods allow setting uniform or individual x/y scales for on-screen text display.\n\nroll = property(getRoll, setRoll)\n\n    def setTextScale(self, sx, sy = None):\n        \"\"\"setTextScale(self, float, float)\n        Scale the text in 2d space.  You may specify either a single\n        uniform scale, or two scales, or a tuple of two scales.\n\n        .. versionadded:: 1.10.8\n        \"\"\"\n\n        if sy is None:\n            if isinstance(sx, tuple):\n                self.__scale = sx\n            else:\n                self.__scale = (sx, sx)\n        else:\n            self.__scale = (sx, sy)\n        self.updateTransformMat()\n\n    def getTextScale(self):\n        \"\"\"\n        .. versionadded:: 1.10.8\n        \"\"\"\n        return self.__scale\n\n    text_scale = property(getTextScale, setTextScale)\n\n    def setScale(self, sx, sy = None):\n        \"\"\"setScale(self, float, float)\n        Scale the text in 2d space.  You may specify either a single\n        uniform scale, or two scales, or a tuple of two scales.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1474
+  }
+}

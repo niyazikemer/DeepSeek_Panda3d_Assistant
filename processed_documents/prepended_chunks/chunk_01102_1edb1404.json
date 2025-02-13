@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of an FSM (Finite State Machine) visualization tool that provides a graphical interface for managing states and transitions. The chunk contains essential management functions for state inspectors, including adding, retrieving, and updating grid settings across all state inspectors. These functions are critical for maintaining the visual representation of states and their interactions within the FSM framework.\n\ndef getStateInspector(self, name):\n        return self.stateInspectorDict.get(name, None)\n\n    def addState(self, state):\n        si = self.stateInspectorDict[state.getName()] = (\n            StateInspector(self, state))\n        return si\n\n    def enteredState(self, stateName):\n        si = self.stateInspectorDict.get(stateName, None)\n        if si:\n            si.enteredState()\n\n    def exitedState(self, stateName):\n        si = self.stateInspectorDict.get(stateName, None)\n        if si:\n            si.exitedState()\n\n    def _setGridSize(self):\n        self._gridSize = self['gridSize']\n        self.setGridSize(self._gridSize)\n\n    def setGridSize(self, size):\n        for key in self.stateInspectorDict:\n            self.stateInspectorDict[key].setGridSize(size)\n\n    def popupGridDialog(self):\n        spacing = askstring('ClassicFSM Grid Spacing', 'Grid Spacing:')\n        if spacing:\n            self.setGridSize(spacing)\n            self._gridSize = spacing",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1102
+  }
+}

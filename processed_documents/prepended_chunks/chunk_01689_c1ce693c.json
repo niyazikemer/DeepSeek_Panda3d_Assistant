@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a larger Python script related to cluster management in a graphics or rendering system. Specifically, it appears within a class that handles communication with multiple servers. The lines shown are responsible for initializing server connections, setting up message handling, and waiting for server responses. This code ensures that the client can communicate effectively with each server in the cluster setup, preparing for distributed rendering or processing tasks.\n\nContext:  \nThis chunk is part of a method within a class that manages communication between a client and multiple servers in a cluster setup. It initializes server connections, sets up message handling queues, and waits for confirmation from all servers before proceeding. This code ensures proper initialization for distributed operations across the cluster.\n\nserverConfig.serverDaemonPort,\n                                   serverCommand)\n        print('Begin waitForServers')\n        if not self.daemon.waitForServers(len(configList)):\n            print('Cluster Client, no response from servers')\n        print('End waitForServers')\n        self.qcm=QueuedConnectionManager()\n        self.serverList = []\n        self.serverQueues = []\n        self.msgHandler = ClusterMsgHandler(ClusterClient.MGR_NUM, self.notify)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1689
+  }
+}

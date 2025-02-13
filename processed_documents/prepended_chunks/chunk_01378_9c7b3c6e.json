@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `initialiseoptions` method, which initializes a widget's configuration by iterating through its option information and calling initialization functions for each option. This ensures the widget is properly configured with default or specified values upon creation.\n\nContext: The method is responsible for initializing all options of a GUI widget when it is created, ensuring that the widget starts with the correct properties based on its defined defaults or user-provided keyword arguments.\n\ndef initialiseoptions(self, myClass):\n        \"\"\"\n        Call all initialisation functions to initialize widget\n        options to default of keyword value\n        \"\"\"\n        # This is to make sure this method class is only called by\n        # the most specific class in the class hierarchy\n        if self.__class__ is myClass:\n            # Call the configuration callback function for every option.\n            FUNCTION = DGG._OPT_FUNCTION\n            self.fInit = 1\n            for info in self._optionInfo.values():\n                func = info[FUNCTION]\n                if func is not None and func is not DGG.INITOPT:\n                    func()\n            self.fInit = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1378
+  }
+}

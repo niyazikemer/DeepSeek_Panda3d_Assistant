@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines two new subclasses of the main `Inspector` class: `SequenceInspector` and `SliceInspector`, which provide specialized inspection functionality for sequence objects (like lists or tuples) and slice objects respectively. These inspectors are registered in a global map via `initializeInspectorMap()`, allowing them to be automatically used when inspecting objects of compatible types. This extends the system's ability to handle different data structures by adding specific handling for sequences and slices, complementing the existing Inspector implementation which handles general attributes, NodePaths, and FSMs.\n\nThe code is situated after defining the main `Inspector` class but before initializing the global inspector mapping, ensuring these new inspectors are available during inspection operations.\n\nclass SequenceInspector(Inspector):\n    def initializePartsList(self):\n        Inspector.initializePartsList(self)\n        for each in range(len(self.object)):\n            self._partsList.append(each)\n\n    def partNumber(self, partNumber):\n        self.lastPartNumber = partNumber\n        if partNumber == 0:\n            return self.object\n        index = self.privatePartNumber(partNumber)\n        if isinstance(index, int):\n            return self.object[index]\n        else:\n            return getattr(self.object, index)\n\n\nclass SliceInspector(Inspector):\n    def namedParts(self):\n        return ['start', 'stop', 'step']\n\n\n### Initialization\ninitializeInspectorMap()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1024
+  }
+}

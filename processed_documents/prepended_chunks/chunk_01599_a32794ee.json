@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the initialization of the `DirectScrolledList` class, explaining how it handles scrollable lists and dynamically creates GUI elements from strings.\n\nclass DirectScrolledList(DirectFrame):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"DirectScrolledList\")\n\n    def __init__(self, parent = None, **kw):\n        assert self.notify.debugStateCall(self)\n        self.index = 0\n        self.__forceHeight = None\n\n        \"\"\" If one were to want a scrolledList that makes and adds its items\n           as needed, simply pass in an items list of strings (type 'str')\n           and when that item is needed, itemMakeFunction will be called\n           with the text, the index, and itemMakeExtraArgs.  If itemMakeFunction\n           is not specified, it will create a DirectFrame with the text.\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1599
+  }
+}

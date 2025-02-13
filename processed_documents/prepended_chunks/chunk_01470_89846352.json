@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces deprecated methods `setX`, `setY` and their newer counterparts `setTextX`, `setTextY` along with the primary method `setTextPos` for setting the position of onscreen text in 2D screen space. These methods are part of the OnscreenText class which handles various properties of displayed text including positioning, scaling, alignment, and styling.\n\ntext = property(getText, setText)\n\n    def setTextX(self, x):\n        \"\"\"\n        .. versionadded:: 1.10.8\n        \"\"\"\n        self.setTextPos(x, self.__pos[1])\n\n    def setX(self, x):\n        \"\"\"\n        .. deprecated:: 1.11.0\n           Use `.setTextX()` method instead.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"Use `.setTextX()` method instead.\", DeprecationWarning, stacklevel=2)\n        self.setTextPos(x, self.__pos[1])\n\n    def setTextY(self, y):\n        \"\"\"\n        .. versionadded:: 1.10.8\n        \"\"\"\n        self.setTextPos(self.__pos[0], y)\n\n    def setY(self, y):\n        \"\"\"\n        .. deprecated:: 1.11.0\n           Use `.setTextY()` method instead.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"Use `.setTextY()` method instead.\", DeprecationWarning, stacklevel=2)\n        self.setTextPos(self.__pos[0], y)\n\n    def setTextPos(self, x, y=None):\n        \"\"\"\n        Position the onscreen text in 2d screen space",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1470
+  }
+}

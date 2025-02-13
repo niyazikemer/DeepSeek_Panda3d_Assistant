@@ -1,0 +1,9 @@
+{
+  "content": "The chunk creates essential Android manifest configuration elements, including feature declarations and application settings (label, debug mode, icon), within an APK building context for mobile app distribution.\n\nuses_feature = ET.SubElement(manifest, 'uses-feature')\n        uses_feature.set('android:name', 'android.hardware.gamepad')\n        uses_feature.set('android:required', 'false')\n\n        application = ET.SubElement(manifest, 'application')\n        application.set('android:label', name)\n        if category == 'game':\n            application.set('android:isGame', 'true')\n        if category:\n            application.set('android:appCategory', category)\n        application.set('android:debuggable', ('false', 'true')[self.android_debuggable])\n        application.set('android:extractNativeLibs', 'true')\n        application.set('android:hardwareAccelerated', 'true')\n\n        app_icon = self.icon_objects.get('*', self.icon_objects.get(self.macos_main_app))\n        if app_icon:\n            application.set('android:icon', '@mipmap/ic_launcher')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1965
+  }
+}

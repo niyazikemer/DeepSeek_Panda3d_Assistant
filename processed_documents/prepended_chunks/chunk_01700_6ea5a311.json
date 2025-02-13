@@ -1,0 +1,9 @@
+{
+  "content": "The chunk belongs to a class managing control mappings in a distributed system, likely part of `ClusterClient` or `DummyClusterClient`. These methods handle adjusting server controls by setting offsets and removing mappings based on specified conditions, essential for efficient management in a cluster environment.\n\ndef setControlMappingOffset(self, objectName, offset):\n        if objectName in self.controlMappings:\n            self.controlOffsets[objectName] = offset\n\n    def removeControlMapping(self, name, serverList = None):\n        if name in self.controlMappings:\n            if serverList is None:\n                self.controlMappings.pop(name)\n                self.controlPriorities.pop(name)\n            else:\n                oldList = self.controlMappings[key][1]\n                newList = []\n                for server in oldList:\n                    if server not in serverList:\n                        newList.append(server)\n                self.controlMappings[key][1] = newList\n                if len(newList) == 0:\n                    self.controlMappings.pop(name)\n                    self.controlPriorities.pop(name)\n        self.redoSortedPriorities()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1700
+  }
+}

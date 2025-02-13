@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within the `handleCommandString` method of a class, which processes command strings received from a client. The code handles different types of network packets (`CLUSTER_...`) by executing corresponding operations such as updating camera properties, object movements, time data, or managing named object movement queues.\n\nbase.graphicsEngine.flipFrame()\n        elif type == CLUSTER_TIME_DATA:\n            self.notify.debug('time data')\n            self.handleTimeData(dgi)\n        elif type == CLUSTER_NAMED_OBJECT_MOVEMENT:\n            self.messageQueue.append(self.msgHandler.parseNamedMovementDatagram(dgi))\n            #self.handleNamedMovement(dgi)\n        elif type == CLUSTER_NAMED_MOVEMENT_DONE:\n            #print \"got done\",self.messageQueue\n            #if (len(self.messageQueue) > 0):\n            #    print self.messageQueue[0]\n            #    print dir(self.messageQueue)\n            self.handleMessageQueue()\n        else:\n            self.notify.warning(\"Received unknown packet type:\" % type)\n        return type",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1763
+  }
+}

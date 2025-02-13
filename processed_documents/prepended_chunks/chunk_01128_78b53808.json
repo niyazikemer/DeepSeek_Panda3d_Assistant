@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a method `createInterface` within a class that sets up a graphical user interface (GUI). The specific functionality involves modifying a file menu by inserting \"Load Curve\" and \"Save Curve\" commands before the existing \"Quit\" option. This is part of setting up an application's menu system to handle curve data operations, likely related to 3D visualization or editing based on the surrounding code context which includes camera setup and display management.\n\ndef createInterface(self):\n        interior = self.interior()\n        # FILE MENU\n        # Get a handle on the file menu so commands can be inserted\n        # before quit item\n        fileMenu = self.menuBar.component('File-menu')\n        fileMenu.insert_command(\n            fileMenu.index('Quit'),\n            label = 'Load Curve',\n            command = self.loadCurveFromFile)\n        fileMenu.insert_command(\n            fileMenu.index('Quit'),\n            label = 'Save Curve',\n            command = self.saveCurveToFile)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1128
+  }
+}

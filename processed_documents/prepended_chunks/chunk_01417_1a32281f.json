@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains methods for managing the state and size of a DirectGuiBase-derived class. These include `setState` which handles setting the active state based on input, `resetFrameSize` which resets the frame size, and `setFrameSize` which sets the bounds of the GUI element. This is part of a larger class that manages various aspects of GUI elements in a Panda3D application, including initialization, event handling, and cleanup.\n\n```python\n\"\"\"\nThis chunk includes methods for managing the state and size of a DirectGuiBase-derived class. The `setState` method sets the active state based on input, while `resetFrameSize` and `setFrameSize` handle adjusting the frame's dimensions. These functions are essential for dynamically controlling the appearance and behavior of GUI elements in a Panda3D application.\n\"\"\"\n```\n\ndef editStop(self, event):\n        taskMgr.remove('guiEditTask')\n\n    def setState(self):\n        if isinstance(self['state'], int):\n            self.guiItem.setActive(self['state'])\n        elif self['state'] == DGG.NORMAL or self['state'] == 'normal':\n            self.guiItem.setActive(1)\n        else:\n            self.guiItem.setActive(0)\n\n    def resetFrameSize(self):\n        if not self.fInit:\n            self.setFrameSize(fClearFrame = 1)\n\n    def setFrameSize(self, fClearFrame = 0):\n        # Use ready state to determine frame Type\n        frameType = self.getFrameType()\n        if self['frameSize']:\n            # Use user specified bounds\n            self.bounds = self['frameSize']\n            #print \"%s bounds = %s\" % (self.getName(), self.bounds)\n            bw = (0, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1417
+  }
+}

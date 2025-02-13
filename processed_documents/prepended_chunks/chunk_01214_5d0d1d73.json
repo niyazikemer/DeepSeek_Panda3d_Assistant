@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python class method for loading 3D curves (Nurbs) from files (Egg/Bam formats) into a 3D modeling/animation application, utilizing Panda3D framework. The method handles file selection, resetting previous data, and loading the selected curve file using base.loader.loadModel().\n\ndef loadCurveFromFile(self):\n        # Use first directory in model path\n        mPath = getModelPath()\n        if mPath.getNumDirectories() > 0:\n            if repr(mPath.getDirectory(0)) == '.':\n                path = '.'\n            else:\n                path = mPath.getDirectory(0).toOsSpecific()\n        else:\n            path = '.'\n        if not os.path.isdir(path):\n            print('MopathRecorder Info: Empty Model Path!')\n            print('Using current directory')\n            path = '.'\n        mopathFilename = askopenfilename(\n            defaultextension = '.egg',\n            filetypes = (('Egg Files', '*.egg'),\n                         ('Bam Files', '*.bam'),\n                         ('All files', '*')),\n            initialdir = path,\n            title = 'Load Nurbs Curve',\n            parent = self.parent)\n        if mopathFilename and mopathFilename != 'None':\n            self.reset()\n            nodePath = base.loader.loadModel(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1214
+  }
+}

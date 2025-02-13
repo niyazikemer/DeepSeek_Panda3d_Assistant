@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `parse_cfg` function within the `build_apps` command. It parses lines from a configuration file, handling comments and empty lines, extracting variables and their values, and modifying specific variables like `model-cache-dir` based on the platform (excluding Android). This setup customizes build settings for the application.\n\n**Answer:**\n\nThe chunk is situated in the `parse_cfg` method of the `build_apps` command, where it processes configuration lines to customize build settings, particularly adjusting the model cache directory.\n\nif ln.startswith('#') or not ln:\n                    continue\n\n                words = ln.split(None, 1)\n                if not words:\n                    continue\n                var = words[0]\n                value = words[1] if len(words) > 1 else ''\n\n                # Strip comment after value.\n                c = value.find(' #')\n                if c > 0:\n                    value = value[:c].rstrip()\n\n                if var == 'model-cache-dir' and value:\n                    if platform.startswith('android'):\n                        # Ignore on Android, where the cache dir is fixed.\n                        continue\n                    value = value.replace('/panda3d', '/{}'.format(self.distribution.get_name()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1972
+  }
+}

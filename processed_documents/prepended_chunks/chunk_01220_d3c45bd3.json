@@ -1,0 +1,9 @@
+{
+  "content": "The `createButton` function is a method within a class responsible for creating user interface components, specifically Tkinter buttons with associated balloon help tooltips. The method manages button placement, command binding, and widget registration in a dictionary for later reference. It complements other similar methods in the same class that create and manage various UI elements like combo boxes, option menus, and other controls.\n\ndef createButton(self, parent, category, text, balloonHelp, command,\n                     side = 'top', expand = 0, fill = tk.X):\n        widget = tk.Button(parent, text = text)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(side = side, fill = fill, expand = expand)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1220
+  }
+}

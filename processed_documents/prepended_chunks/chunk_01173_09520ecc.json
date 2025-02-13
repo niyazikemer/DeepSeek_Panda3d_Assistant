@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method within a class responsible for handling the start/stop functionality of a recording feature in a 3D animation or simulation environment. This method manages task scheduling, visual elements (like curve drawers), and data collection (e.g., keyframe sampling) to enable real-time recording and manipulation of animated objects.\n\ndef toggleRecord(self):\n        if self.getVariable('Recording', 'Record').get():\n            # Kill old tasks\n            taskMgr.remove(self.name + '-recordTask')\n            taskMgr.remove(self.name + '-curveEditTask')\n            # Remove old curve\n            self.nurbsCurveDrawer.hide()\n            # Reset curve fitters\n            self.curveFitter.reset()\n            # Update sampling mode button if necessary\n            if self.samplingMode == 'Continuous':\n                self.disableKeyframeButton()\n            # Create a new point set to hold raw data\n            self.createNewPointSet()\n            # Clear out old trace, get ready to draw new\n            self.initTrace()\n            # Keyframe mode?\n            if self.samplingMode == 'Keyframe':\n                # Record first point\n                self.lastPos.assign(Point3(\n                    self.nodePath.getPos(self.nodePathParent)))\n                # Init delta time\n                self.deltaTime = 0.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1173
+  }
+}

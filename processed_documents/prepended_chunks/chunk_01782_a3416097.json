@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `DirectTracker` class that inherits from `TrackerNode` and `DirectObject`. The class is designed to manage VRPN tracker devices, with functionality for enabling/disabling device tracking, attaching/detaching nodes in a scene graph, and providing basic information about the tracker instance. This chunk fits within a larger document containing various classes (e.g., `DirectButtonDevice`, `DirectAnalog`, `DirectJoystick`) that implement device interfaces for VRPN-supported hardware, each managing specific types of input devices and their integration into a virtual reality or simulation environment.\n\nclass DirectTracker(TrackerNode, DirectObject):\n    trackerCount = 0\n\n    def __init__(self, vrpnClient, device):\n        # Keep track of number of trackers created\n        DirectTracker.trackerCount += 1\n        # Create a new tracker node for the given device\n        TrackerNode.__init__(self, vrpnClient, device)\n        # Create a unique name for this tracker object\n        self.name = 'DirectTracker-' + repr(DirectTracker.trackerCount)\n\n        # Attach node to data graph\n        try:\n            self._base = base\n        except NameError:\n            self._base = simbase\n        self.nodePath = self._base.dataRoot.attachNewNode(self)\n\n    def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)\n\n    def disable(self):\n        self.nodePath.reparentTo(self._base.dataUnused)\n\n    def getName(self):\n        return self.name\n\n    def getNodePath(self):\n        return self.nodePath\n\n    def __repr__(self):\n        return self.name",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1782
+  }
+}

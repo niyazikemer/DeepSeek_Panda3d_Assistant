@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a larger codebase for an animation system, where the `updateWidgets` method updates various UI elements (sliders, text fields) based on the maximum time value (`maxT`) from a curve collection. This method ensures that playback controls and refine/extend parameters are properly adjusted to reflect the current state of the animation curves.\n\ndef updateWidgets(self):\n        if not self.curveCollection:\n            return\n        self.fAdjustingValues = 1\n        # Widgets depending on max T\n        maxT = self.curveCollection.getMaxT()\n        maxT_text = '%0.2f' % maxT\n        # Playback controls\n        self.getWidget('Playback', 'Time').configure(max = maxT_text)\n        self.getVariable('Resample', 'Path Duration').set(maxT_text)\n        # Refine widgets\n        widget = self.getWidget('Refine Page', 'Refine From')\n        widget.configure(max = maxT)\n        widget.set(0.0)\n        widget = self.getWidget('Refine Page', 'Control Start')\n        widget.configure(max = maxT)\n        widget.set(0.0)\n        widget = self.getWidget('Refine Page', 'Control Stop')\n        widget.configure(max = maxT)\n        widget.set(float(maxT))\n        widget = self.getWidget('Refine Page', 'Refine To')\n        widget.configure(max = maxT)\n        widget.set(float(maxT))\n        # Extend widgets",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1185
+  }
+}

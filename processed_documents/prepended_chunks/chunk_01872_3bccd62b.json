@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a class designed to parse or manipulate Portable Executable (PE) files. Specifically, this chunk is situated within a function responsible for parsing binary data from the PE file structure into a hierarchical dictionary format. This function handles both wide-character string values and binary blobs, as well as nested sub-entries, enabling it to accurately represent complex resource directories and their associated data within the PE file.\n\n# Padding bytes to align value to 32-bit boundary.\n        offset = _padded(offset, 4)\n\n        if value_length > 0:\n            # It contains a value.\n            if type:\n                # It's a wchar array value.\n                value = \"\"\n                c, = unpack('<H', data[offset:offset+2])\n                offset += 2\n                while c:\n                    value += chr(c)\n                    c, = unpack('<H', data[offset:offset+2])\n                    offset += 2\n            else:\n                # A binary value.\n                value = bytes(data[offset:offset+value_length])\n                offset += value_length\n            dict[key] = value\n        else:\n            # It contains sub-entries.\n            if key not in dict:\n                dict[key] = {}\n            subdict = dict[key]\n            while offset < end:\n                offset += self._unpack_info(subdict, data, offset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1872
+  }
+}

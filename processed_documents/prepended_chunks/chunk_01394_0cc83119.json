@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a DirectGuiWidget class implementation that includes methods for creating GUI elements. The specific chunk shows a KeyError being raised for unknown options and defines a createcomponent() method to create child components with validation for underscores in names, handling of construction keywords, and support for both positional and keyword arguments.\n\nThis chunk provides the mechanism for dynamically adding sub-components to a DirectGuiWidget, allowing complex UI layouts while maintaining consistency in component naming and initialization.\n\n# Option not found\n        raise KeyError('Unknown option \"' + option + \\\n                '\" for ' + self.__class__.__name__)\n\n    # Allow index style refererences\n    __getitem__ = cget\n\n    def createcomponent(self, componentName, componentAliases, componentGroup,\n                        widgetClass, *widgetArgs, **kw):\n        \"\"\"\n        Create a component (during construction or later) for this widget.\n        \"\"\"\n        # Check for invalid component name\n        if '_' in componentName:\n            raise ValueError('Component name \"%s\" must not contain \"_\"' % componentName)\n\n        # Get construction keywords\n        if hasattr(self, '_constructorKeywords'):\n            keywords = self._constructorKeywords\n        else:\n            keywords = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1394
+  }
+}

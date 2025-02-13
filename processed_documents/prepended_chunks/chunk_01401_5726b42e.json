@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `component` method within the `DirectGuiWidget` class, which manages how child widgets or subcomponents are accessed by name. The code handles component alias resolution and recursive subcomponent access to allow developers to easily reference nested GUI elements using a dot-separated string syntax (e.g., \"entryField_entry\").\n\n# Expand component alias\n        # Example entry which is an alias for entryField_entry\n        if component in self.__componentAliases:\n            # component = entryField, subComponent = entry\n            component, subComponent = self.__componentAliases[component]\n            if subComponent is not None:\n                if remainingComponents is None:\n                    # remainingComponents = entry\n                    remainingComponents = subComponent\n                else:\n                    remainingComponents = subComponent + '_' \\\n                            + remainingComponents\n        # Get the component from __componentInfo dictionary\n        widget = self.__componentInfo[component][0]\n        if remainingComponents is None:\n            # Not looking for subcomponent\n            return widget\n        else:\n            # Recursive call on subcomponent\n            return widget.component(remainingComponents)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1401
+  }
+}

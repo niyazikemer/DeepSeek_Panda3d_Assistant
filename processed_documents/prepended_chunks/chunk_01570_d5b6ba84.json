@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `DirectSlider` class definition, which implements a slider widget for user interaction in a graphical interface. The code snippet focuses on the class constructor (`__init__`) where various configurable options are defined, including range, value, scroll size, page size, and orientation. These options determine the appearance and behavior of the slider within the application's user interface.\n\nclass DirectSlider(DirectFrame):\n    \"\"\"\n    DirectSlider -- a widget which represents a slider that the\n    user can pull left and right to represent a continuous value.\n    \"\"\"\n\n    def __init__(self, parent = None, **kw):\n        optiondefs = (\n            # Define type of DirectGuiWidget\n            ('pgFunc',         PGSliderBar,        None),\n            ('state',          DGG.NORMAL,         None),\n            ('frameColor',     (0.6, 0.6, 0.6, 1), None),\n\n            ('range',          (0, 1),             self.setRange),\n            ('value',          0,                  self.__setValue),\n            ('scrollSize',     0.01,               self.setScrollSize),\n            ('pageSize',       0.1,                self.setPageSize),\n            ('orientation',    DGG.HORIZONTAL,     self.setOrientation),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_90",
+    "parent": "processed_documents/context_documents/1d02830b_DirectSlider.json",
+    "chunk_number": 1570
+  }
+}

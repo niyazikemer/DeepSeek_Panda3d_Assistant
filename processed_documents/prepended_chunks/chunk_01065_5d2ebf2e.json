@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `Placer` class's `nodePathMenuCallback` method, which handles user interaction with a node path selection menu. The chunk specifically deals with error handling when evaluating a selected node name to determine the corresponding `NodePath`. If an exception occurs during evaluation (indicating a bogus or invalid node name), the code clears the erroneous entry from the listbox and updates the active node path to `None`, ensuring proper state management within the application's interface.\n\nnodePath = None\n                except Exception:\n                    # Bogus eval\n                    nodePath = None\n                    # Clear bogus entry from listbox\n                    listbox = self.nodePathMenu.component('scrolledlist')\n                    listbox.setlist(self.nodePathNames)\n            else:\n                if name == 'widget':\n                    # Record relationship between selected nodes and widget\n                    ShowBaseGlobal.direct.selected.getWrtAll()\n        # Update active node path\n        self.setActiveNodePath(nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1065
+  }
+}

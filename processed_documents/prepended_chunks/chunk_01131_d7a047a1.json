@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a larger Python script that sets up a graphical user interface (GUI) for interacting with 3D objects in a scene. The code creates a button and a combo box for selecting node paths, which are references to specific nodes in the 3D scene graph. The context involves setting up UI elements using Tkinter and Pmw libraries to allow users to select and interact with active motion path (mopath) nodes in a 3D application.\n\n# Record button\n        mainFrame = tk.Frame(interior, relief = tk.SUNKEN, borderwidth = 2)\n        frame = tk.Frame(mainFrame)\n        # Active node path\n        # Button to select active node path\n        widget = self.createButton(frame, 'Recording', 'Node Path:',\n                                   'Select Active Mopath Node Path',\n                                   lambda s = self: base.direct.select(s.nodePath),\n                                   side = tk.LEFT, expand = 0)\n        widget['relief'] = tk.FLAT\n        self.nodePathMenu = Pmw.ComboBox(\n            frame, entry_width = 20,\n            selectioncommand = self.selectNodePathNamed,\n            scrolledlist_items = self.nodePathNames)\n        self.nodePathMenu.selectitem('camera')\n        self.nodePathMenuEntry = (\n            self.nodePathMenu.component('entryfield_entry'))\n        self.nodePathMenuBG = (\n            self.nodePathMenuEntry.configure('background')[3])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1131
+  }
+}

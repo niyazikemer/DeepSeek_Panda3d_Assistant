@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is the initial implementation of the `DirectEntryScroll` class constructor in the provided document. It initializes the class with an entry widget, sets up default options such as page function (`pgFunc`), relief, and clip size, and creates a canvas for rendering content. The context situates this code within the overall document that describes a scrollable text entry widget implementation.\n\nclass DirectEntryScroll(DirectFrame):\n    def __init__(self, entry, parent = None, **kw):\n        optiondefs = (\n            ('pgFunc',         PGVirtualFrame,      None),\n            ('relief', None, None),\n            ('clipSize',     (-1, 1, -1, 1),        self.setClipSize),\n        )\n\n        self.defineoptions(kw, optiondefs)\n        DirectFrame.__init__(self, parent, **kw)\n        self.canvas = None\n        self.visXMin = 0.0\n        self.visXMax = 0.0\n        self.clipXMin = 0.0\n        self.clipXMax = 0.0\n        self.initialiseoptions(DirectEntryScroll)\n\n        # don't set a scale on the entry\n        # instead make it the correct size, use something like:\n           # text_scale = 0.035,\n           # frameSize = (-0.006, 3.2, -0.015, 0.036),\n        # if you need to scale the entry scale it's parent instead\n\n        self.canvas = NodePath(self.guiItem.getCanvasNode())\n        self.canvas.setPos(0,0,0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_87",
+    "parent": "processed_documents/context_documents/2b07ca75_DirectEntryScroll.json",
+    "chunk_number": 1527
+  }
+}

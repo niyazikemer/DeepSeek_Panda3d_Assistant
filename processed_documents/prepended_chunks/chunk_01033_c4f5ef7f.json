@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements core navigation functionality in the Inspector class, specifically handling object exploration through a list-based interface. The `dive` method enables navigating into an object's attributes by retrieving an inspector for a selected part and pushing it onto the inspection stack, while the `update` method refreshes the display to show the new context after diving deeper or popping back up, ensuring the correct item is highlighted and visible in the listbox.\n\ndef dive(self):\n        inspector = self.inspectorForSelectedPart()\n        if inspector is None:\n            return\n        self.inspectors.append(inspector)\n        self.update()\n\n    def update(self):\n        self.setTitle()\n        self.fillList()\n        # What is active part in this inspector\n        partNumber = self.topInspector().getLastPartNumber()\n        self.listWidget.select_clear(0)\n        self.listWidget.activate(partNumber)\n        self.listWidget.select_set(partNumber)\n        self.listSelectionChanged(None)\n        # Make sure selected item is visible\n        self.listWidget.see(partNumber)\n        # Make sure left side of listbox visible\n        self.listWidget.xview_moveto(0.0)\n        # Grab focus in listbox\n        self.listWidget.component('listbox').focus_set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1033
+  }
+}

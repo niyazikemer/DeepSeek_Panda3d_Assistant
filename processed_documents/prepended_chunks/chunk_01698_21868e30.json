@@ -1,0 +1,9 @@
+{
+  "content": "These methods are part of a class designed to manage object mappings within a cluster client environment. The `addNamedObjectMapping` and `removeObjectMapping` functions handle the registration and removal of named objects, respectively. Meanwhile, `addControlMapping` is used to establish control relationships between objects across specified servers, allowing for synchronization with optional offsets and priorities. These methods facilitate distributed object management and synchronization in a cluster setup.\n\n**Context:**\n\nThese methods manage object mappings for synchronization in a distributed cluster client setup, handling registration, removal, and control of objects across multiple server instances.\n\ndef addNamedObjectMapping(self, object, name, hasColor = True):\n        if name not in self.objectMappings:\n            self.objectMappings[name] = object\n            self.objectHasColor[name] = hasColor\n        else:\n            self.notify.debug('attempt to add duplicate named object: '+name)\n\n    def removeObjectMapping(self,name):\n        if name in self.objectMappings:\n            self.objectMappings.pop(name)\n\n    def addControlMapping(self, objectName, controlledName, serverList = None,\n                          offset = None, priority = 0):\n        if objectName not in self.controlMappings:\n            if serverList is None:\n                serverList = range(len(self.serverList))\n            if offset is None:\n                offset = Vec3(0,0,0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1698
+  }
+}

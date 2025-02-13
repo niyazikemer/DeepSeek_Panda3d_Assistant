@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk contains key methods for configuring informational message handling, logging, and output printing within the Notify class, enabling developers to control debug message visibility and manage logging behavior.\n\ndef setInfo(self, enable: bool) -> None:\n        \"\"\"\n        Enable/Disable informational message  printing\n        \"\"\"\n        self.__info = enable\n\n    # log funcs\n    def __log(self, logEntry: str) -> None:\n        \"\"\"\n        Determine whether to send informational message to the logger\n        \"\"\"\n        if self.__logging:\n            self.__logger.log(logEntry)\n\n    def getLogging(self) -> bool:\n        \"\"\"\n        Return 1 if logging enabled, 0 otherwise\n        \"\"\"\n        return self.__logging\n\n    def setLogging(self, enable: bool) -> None:\n        \"\"\"\n        Set the logging flag to int (1=on, 0=off)\n        \"\"\"\n        self.__logging = enable\n\n    def __print(self, string: str) -> None:\n        \"\"\"\n        Prints the string to output followed by a newline.\n        \"\"\"\n        if self.streamWriter:\n            self.streamWriter.write(string + '\\n')\n        else:\n            sys.stderr.write(string + '\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1681
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `printParams` method in the ParticleEffect class, which writes the specific configuration settings for different particle system emitters to a file. The chunk specifically handles writing parameters for Sphere Surface Emitter, Sphere Volume Emitter, and Tangent Ring Emitter types, capturing their radius (and radius spread for Tangent Ring). This section follows similar parameter-writing blocks for other emitter types like BoxEmitter, ConeEmitter, etc., maintaining the structure of documenting each emitter's configuration.\n\nfile.write('# Sphere Surface parameters\\n')\n            file.write(targ + '.emitter.setRadius(%.4f)\\n' % self.emitter.getRadius())\n        elif self.emitterType == \"SphereVolumeEmitter\":\n            file.write('# Sphere Volume parameters\\n')\n            file.write(targ + '.emitter.setRadius(%.4f)\\n' % self.emitter.getRadius())\n        elif self.emitterType == \"TangentRingEmitter\":\n            file.write('# Tangent Ring parameters\\n')\n            file.write(targ + '.emitter.setRadius(%.4f)\\n' % self.emitter.getRadius())\n            file.write(targ + '.emitter.setRadiusSpread(%.4f)\\n' % self.emitter.getRadiusSpread())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1297
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `setFrameColor` method within the DirectGui class is responsible for setting the color of a GUI element's frame across different states (e.g., active, inactive). It handles both single color values and lists of colors, ensuring each state has an appropriate color applied by iterating through the provided colors or using the last color for all states if fewer colors are provided than states. The method updates the style accordingly to reflect these changes in appearance.\n\ndef setFrameColor(self):\n        # this might be a single color or a list of colors\n        colors = self['frameColor']\n        if isinstance(colors[0], (int, float)):\n            colors = (colors,)\n        for i in range(self['numStates']):\n            if i >= len(colors):\n                color = colors[-1]\n            else:\n                color = colors[i]\n            self.frameStyle[i].setColor(color[0], color[1], color[2], color[3])\n        self.updateFrameStyle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1425
+  }
+}

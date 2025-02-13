@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method in the `Placer` class of a Direct GUI toolkit. It creates a dial component for adjusting the X-axis scale of a NodePath object. The dial includes specific parameters like text labels, default values, callback functions, and visual styling.\n\n# Create the dials\n        self.scaleX = self.createcomponent('scaleX', (), None,\n                                           Floater.Floater, (scaleInterior,),\n                                           text = 'X Scale',\n                                           relief = tk.FLAT,\n                                           min = 0.0001, value = 1.0,\n                                           resetValue = 1.0,\n                                           label_foreground = 'Red')\n        self.scaleX['commandData'] = ['sx']\n        self.scaleX['callbackData'] = ['sx']\n        self.scaleX['preCallback'] = self.xformStart\n        self.scaleX['postCallback'] = self.xformStop\n        self.scaleX.pack(expand=1, fill='both')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1058
+  }
+}

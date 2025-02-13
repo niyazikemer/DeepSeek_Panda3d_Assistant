@@ -1,0 +1,9 @@
+{
+  "content": "The `removeAndDestroyItem` method in the DirectScrolledList class handles the removal of a specified item from the list's internal items list. It ensures that any associated selection state (via `currentSelected`) is properly cleared if the removed item was currently selected. The method also checks if the item has a `destroy` method and calls it to clean up resources, then removes the item from the visible display by reparenting it to hidden. This method is essential for maintaining the integrity of the list when items are dynamically added or removed during runtime.\n\ndef removeAndDestroyItem(self, item, refresh = 1):\n        \"\"\"\n        Remove and destroy this item from the panel.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        if item in self[\"items\"]:\n            if hasattr(self, \"currentSelected\") and self.currentSelected is item:\n                del self.currentSelected\n            if hasattr(item, 'destroy') and hasattr(item.destroy, '__call__'):\n                item.destroy()\n            self[\"items\"].remove(item)\n            if not isinstance(item, str):\n                item.reparentTo(ShowBaseGlobal.hidden)\n            self.refresh()\n            return 1\n        else:\n            return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1620
+  }
+}

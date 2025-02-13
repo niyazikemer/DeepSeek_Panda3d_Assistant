@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines two methods, `manipulateObjectStartHook` and `manipulateObjectCleanupHook`, which manage selection state for manipulable objects such as playback and tangent markers within a 3D application framework. These hooks handle setting and clearing the ID of the currently manipulated object, ensuring proper cleanup during interactions in the scene.\n\ndef manipulateObjectStartHook(self):\n        self.manipulandumId = None\n        if base.direct.selected.last:\n            if base.direct.selected.last.id() == self.playbackMarker.id():\n                self.manipulandumId = self.playbackMarker.id()\n            elif base.direct.selected.last.id() == self.tangentMarker.id():\n                self.manipulandumId = self.tangentMarker.id()\n\n    def manipulateObjectCleanupHook(self, nodePathList = []):\n        # Clear flag\n        self.manipulandumId = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1164
+  }
+}

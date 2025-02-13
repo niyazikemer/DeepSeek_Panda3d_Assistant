@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements logic to handle node movement relative to a specified heading direction while maintaining position constraints. It ensures proper handling of rotation and positioning operations when using a heading reference point, particularly useful for in-place rotations. This is situated within the code that manages node path transformations and positioning.\n\n# if we are using a heading nodepath, we want\n        # to drive in the direction we are facing,\n        # however, we don't want the z component to change\n        if self.useHeadingNP and self.headingNP is not None:\n            oldZ = pos.getZ()\n            pos = self.nodePath.getRelativeVector(self.headingNP, pos)\n            pos.setZ(oldZ)\n            # if we are using a heading NP we might want to rotate\n            # in place around that NP\n            if self.rotateInPlace:\n                parent = self.nodePath.getParent()\n                self.floatingNP.reparentTo(parent)\n                self.floatingNP.setPos(self.headingNP,0,0,0)\n                self.floatingNP.setHpr(0,0,0)\n                self.nodePath.wrtReparentTo(self.floatingNP)\n                self.floatingNP.setHpr(hpr)\n                self.nodePath.wrtReparentTo(parent)\n                hpr = Vec3(0,0,0)\n\n        self.nodePath.setPosHpr(self.nodePath, pos, hpr)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1802
+  }
+}

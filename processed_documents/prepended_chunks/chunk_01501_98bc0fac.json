@@ -1,0 +1,9 @@
+{
+  "content": "This chunk initializes the superclass and sets up a TextNode component for handling text within a DirectGUI element, ensuring proper font rendering and layout configuration.\n\n# Initialize superclasses\n        DirectFrame.__init__(self, parent)\n\n        if self['entryFont'] is None:\n            font = DGG.getDefaultFont()\n        else:\n            font = self['entryFont']\n\n        # Create Text Node Component\n        self.onscreenText = self.createcomponent(\n            'text', (), None,\n            OnscreenText,\n            (), parent = ShowBaseGlobal.hidden,\n            # Pass in empty text to avoid extra work, since its really\n            # The PGEntry which will use the TextNode to generate geometry\n            text = '',\n            align = TextNode.ALeft,\n            font = font,\n            scale = 1,\n            # Don't get rid of the text node\n            mayChange = 1)\n\n        # We can get rid of the node path since we're just using the\n        # onscreenText as an easy way to access a text node as a\n        # component\n        self.onscreenText.removeNode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1501
+  }
+}

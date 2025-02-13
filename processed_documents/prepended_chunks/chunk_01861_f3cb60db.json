@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `Section` class that models individual sections within a PE file. This class is used to read and write section headers, track modifications, provide string representation, and enable comparison of sections based on their virtual addresses. The methods within this class facilitate accurate handling and modification of each section's properties during operations such as resource addition or structure adjustments in the larger document.\n\nclass Section(object):\n    _header = Struct('<8sIIIIIIHHI')\n\n    modified = True\n\n    def read_header(self, fp):\n        name, vsize, vaddr, size, scnptr, relptr, lnnoptr, nreloc, nlnno, flags = \\\n            self._header.unpack(fp.read(40))\n\n        self.name = name.rstrip(b'\\x00')\n        self.vaddr = vaddr # Base virtual address to map to.\n        self.vsize = vsize\n        self.offset = scnptr # Offset of the section in the file.\n        self.size = size\n        self.flags = flags\n\n        self.modified = False\n\n    def write_header(self, fp):\n        fp.write(self._header.pack(self.name, self.vsize, self.vaddr,\n                                   self.size, self.offset, 0, 0, 0, 0,\n                                   self.flags))\n\n    def __repr__(self):\n        return \"<section '%s' memory %x-%x>\" % (self.name, self.vaddr, self.vaddr + self.vsize)\n\n    def __gt__(self, other):\n        return self.vaddr > other.vaddr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1861
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods: `destroy()` and `commandFunc()`. These are part of the `DirectSlider` class, which manages slider interactions. The `destroy()` method handles resource cleanup by destroying the thumb component and calling the parent's destroy method. The `commandFunc()` updates the stored value and executes any assigned command function with provided arguments. Both methods are placed towards the end of the class definition after configuration methods, ensuring proper setup before handling cleanup and user-defined actions.\n\n**Context:**\nThe chunk is situated in the `DirectSlider` class implementation, specifically at the end where lifecycle management (`destroy()`) and event handling (`commandFunc()`) occur.\n\ndef destroy(self):\n        if hasattr(self, 'thumb'):\n            self.thumb.destroy() # ow!\n            del self.thumb\n        DirectFrame.destroy(self)\n\n    def commandFunc(self):\n        # Store the updated value in self['value']\n        self._optionInfo['value'][DGG._OPT_VALUE] = self.guiItem.getValue()\n\n        if self['command']:\n            self['command'](*self['extraArgs'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_90",
+    "parent": "processed_documents/context_documents/1d02830b_DirectSlider.json",
+    "chunk_number": 1577
+  }
+}

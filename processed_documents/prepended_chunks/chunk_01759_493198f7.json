@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk introduces two methods for managing tasks related to reading datagrams from clients. The `startReaderPollTask` method initializes either a synchronous or asynchronous reader poll task based on the `clusterSyncFlag`, while the `_readerPollTask` method handles non-blocking reads of available datagrams and delegates their processing via `handleDatagram`. This chunk is situated within a larger document that implements server-side functionality for handling client connections, synchronization, and real-time updates in a distributed system. The code appears to be part of a task management subsystem responsible for efficiently processing incoming client data in either synchronous or asynchronous modes.\n\ndef startReaderPollTask(self):\n        \"\"\" Task to handle datagrams from client \"\"\"\n        # Run this task just after the listener poll task\n        if clusterSyncFlag:\n            # Sync version\n            taskMgr.add(self._syncReaderPollTask, \"serverReaderPollTask\", -39)\n        else:\n            # Asynchronous version\n            taskMgr.add(self._readerPollTask, \"serverReaderPollTask\", -39)\n\n    def _readerPollTask(self, state):\n        \"\"\" Non blocking task to read all available datagrams \"\"\"\n        while 1:\n            (datagram, dgi, type) = self.msgHandler.nonBlockingRead(self.qcr)\n            # Queue is empty, done for now\n            if type is CLUSTER_NONE:\n                break\n            else:\n                # Got a datagram, handle it\n                self.handleDatagram(dgi, type)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1759
+  }
+}

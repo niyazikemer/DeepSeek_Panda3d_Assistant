@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an `updateDisplay` method within a class, likely `AnimPanel`, which manages the display and interaction with animations for one or more actor objects. The purpose of this chunk is to retrieve animation properties (fps, duration, max frame) from an active actor's animation and update the UI elements accordingly. It handles both frame-based and time-based unit displays, ensuring the interface reflects the current state of the active animation being viewed or edited.\n\ndef updateDisplay(self):\n        actor = self['actor']\n        active = self['active']\n        self.fps = actor.getFrameRate(active)\n        if self.fps is None:\n            # there was probably a problem loading the\n            # active animation, set default anim properties\n            print(\"unable to get animation fps, zeroing out animation info\")\n            self.fps = 24\n            self.duration = 0\n            self.maxFrame = 0\n            self.maxSeconds = 0\n        else:\n            self.duration = actor.getDuration(active)\n            self.maxFrame = actor.getNumFrames(active) - 1\n            self.maxSeconds = self.offset + self.duration\n        # switch between showing frame counts and seconds\n        if self.unitsVar.get() == FRAMES:\n            # these are approximate due to discrete frame size\n            fromFrame = 0\n            toFrame = self.maxFrame\n            self.minLabel['text'] = fromFrame\n            self.maxLabel['text'] = toFrame",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 1002
+  }
+}

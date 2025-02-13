@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines the core initialization and file handling functionality of the `PEFile` class. It includes methods for opening a PE file in binary mode (`open`), closing the file pointer (`close`), and reading and validating the initial structure of a PE executable file from an opened file object (`read`). These functions handle setting up the file pointer, verifying the PE signature, and extracting initial header information required to parse and manipulate the PE file.\n\nclass PEFile(object):\n\n    imports = ()\n\n    def open(self, fn, mode='r'):\n        if 'b' not in mode:\n            mode += 'b'\n        self.fp = open(fn, mode)\n        self.read(self.fp)\n\n    def close(self):\n        self.fp.close()\n\n    def read(self, fp):\n        \"\"\" Reads a PE file from the given file object, which must be opened\n        in binary mode. \"\"\"\n\n        # Read position of header.\n        fp.seek(0x3c)\n        offset, = unpack('<I', fp.read(4))\n\n        fp.seek(offset)\n        if fp.read(4) != b'PE\\0\\0':\n            raise ValueError(\"Invalid PE file.\")\n\n        # Read the COFF header.\n        self.machine, nscns, timdat, symptr, nsyms, opthdr, flags = \\\n            unpack('<HHIIIHH', fp.read(20))\n\n        if nscns == 0:\n            raise ValueError(\"No sections found.\")\n\n        if not opthdr:\n            raise ValueError(\"No opthdr found.\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1882
+  }
+}

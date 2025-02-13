@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods: `__scrollByTask` and `__incButtonDown`, which are part of a Python class implementing a scrolled list UI component. These methods handle the scrolling functionality when the increment button is pressed, enabling smooth continuous scrolling while the button is held down.\n\n**Succinct Context:**\n\nThe code chunk implements the scrolling behavior for a DirectScrolledList widget, specifically handling tasks related to incremental scrolling and button interactions to enable smooth user navigation through list items.\n\ndef __scrollByTask(self, task):\n        assert self.notify.debugStateCall(self)\n        if (task.time - task.prevTime) < task.delayTime:\n            return Task.cont\n        else:\n            ret = self.scrollBy(task.delta)\n            task.prevTime = task.time\n            if ret:\n                return Task.cont\n            else:\n                return Task.done\n\n    def __incButtonDown(self, event):\n        assert self.notify.debugStateCall(self)\n        task = Task(self.__scrollByTask)\n        task.setDelay(1.0 / self.__scrollSpeed)\n        task.prevTime = 0.0\n        task.delta = 1\n        taskName = self.taskName(\"scroll\")\n        #print \"incButtonDown: adding \", taskName\n        taskMgr.add(task, taskName)\n        self.scrollBy(task.delta)\n        messenger.send('wakeup')\n        if self.__incButtonCallback:\n            self.__incButtonCallback()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1616
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk validates configuration parameters when targeting specific platforms, particularly Android, ensuring correct application ID format and minimum SDK version to build compatible packages.\n\ntmp = self.default_file_handlers.copy()\n        tmp.update(self.file_handlers)\n        self.file_handlers = tmp\n\n        tmp = PACKAGE_DATA_DIRS.copy()\n        tmp.update(self.package_data_dirs)\n        self.package_data_dirs = tmp\n\n        if 'android' in self.platforms:\n            assert self.application_id, \\\n                'Must have a valid application_id when targeting Android!'\n\n            parts = self.application_id.split('.')\n            assert len(parts) >= 2, \\\n                'application_id must contain at least one \\'.\\' separator!'\n\n            for part in parts:\n                assert part.isidentifier(), \\\n                    'Each part of application_id must be a valid identifier!'\n\n        # Default to all supported ABIs (for the given Android version).\n        if self.android_max_sdk_version and self.android_max_sdk_version < 21:\n            assert self.android_max_sdk_version >= 19, \\\n                'Panda3D requires at least Android API level 19!'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1946
+  }
+}

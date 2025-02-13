@@ -1,0 +1,9 @@
+{
+  "content": "This chunk implements the creation and packing of scale control widgets within the Placer class interface, specifically configuring a group for scale mode selection with options including uniform and individual axis scaling.\n\n# Create and pack the Scale Controls\n        # The available scaling modes\n        self.scalingMode = tk.StringVar()\n        self.scalingMode.set('Scale Uniform')\n        # The scaling widgets\n        scaleGroup = Pmw.Group(interior,\n                               tag_text = 'Scale Uniform',\n                               tag_pyclass = tk.Menubutton,\n                               tag_font=('MSSansSerif', 14),\n                               tag_activebackground = '#909090',\n                               ring_relief = tk.RIDGE)\n        self.scaleMenubutton = scaleGroup.component('tag')\n        self.bind(self.scaleMenubutton, 'Scale menu operations')\n        self.scaleMenubutton['textvariable'] = self.scalingMode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1056
+  }
+}

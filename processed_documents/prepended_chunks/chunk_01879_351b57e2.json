@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class that parses and manipulates Portable Executable (PE) files, specifically handling resource tables. The chunk processes named resources within the PE's resource directory by iterating over entries, unpacking names, and creating subtables or data entries as needed. It updates size counters for string and description buffers to maintain proper file structure during parsing. This code is crucial for correctly interpreting and managing the PE file's resources when reading or modifying them.\n\n# Subtables/entries specified by string name.\n        self._name_leaves = []\n        for i in range(nnames):\n            name_p, data = unpack('<II', mem[start:start+8])\n            if name_p & 0x80000000:\n                name = _unpack_wstring(mem, addr + (name_p & 0x7fffffff))\n            else:\n                # Not sure what to do with this; I don't have a file with this.\n                name = str(name_p)\n\n            if data & 0x80000000:\n                entry = ResourceTable(self._ident + (name,))\n                entry.unpack_from(mem, addr, data & 0x7fffffff)\n            else:\n                entry = self._unpack_data_entry(mem, addr + data, ident=self._ident+(name,))\n                self._descs_size += 16\n            self._name_leaves.append((name, entry))\n            self._strings_size += _padded(len(name) * 2 + 2, 4)\n            start += 8",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1879
+  }
+}

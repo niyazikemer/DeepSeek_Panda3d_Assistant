@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `add_section` method in a class that manipulates Portable Executable (PE) files. This method is responsible for creating or modifying sections within a PE file, specifically the resource section `.rsrc`. The code initializes offsets and prepares data structures to store headers and resources before iterating over tables to pack their headers into the buffer.\n\n# Now write the actual data.\n        tbl_offs = 0\n        str_offs = table_size\n        desc_offs = str_offs + string_size\n        data_offs = desc_offs + desc_size\n        data = bytearray(data_offs)\n        data_addr = _padded(len(self.vmem), self.section_alignment) + data_offs\n\n        for table in tables:\n            table.pack_header(data, tbl_offs)\n\n            tbl_offs += 16",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1896
+  }
+}

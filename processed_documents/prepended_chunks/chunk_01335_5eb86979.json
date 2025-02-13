@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is located within the `__init__` method of the `DirectScrolledFrame` class, which is used to initialize the scrollable frame. The code creates vertical and horizontal scroll bars, sets their properties such as size and orientation, attaches them to the GUI element, initializes the canvas for content display, and prepares the component by calling initialization functions.\n\nself.verticalScroll = self.createcomponent(\n            \"verticalScroll\", (), None,\n            DirectScrollBar, (self,),\n            borderWidth = self['borderWidth'],\n            frameSize = (-w / 2.0, w / 2.0, -1, 1),\n            orientation = DGG.VERTICAL)\n\n        self.horizontalScroll = self.createcomponent(\n            \"horizontalScroll\", (), None,\n            DirectScrollBar, (self,),\n            borderWidth = self['borderWidth'],\n            frameSize = (-1, 1, -w / 2.0, w / 2.0),\n            orientation = DGG.HORIZONTAL)\n\n        self.guiItem.setVerticalSlider(self.verticalScroll.guiItem)\n        self.guiItem.setHorizontalSlider(self.horizontalScroll.guiItem)\n\n        self.canvas = NodePath(self.guiItem.getCanvasNode())\n\n        # Call option initialization functions\n        self.initialiseoptions(DirectScrolledFrame)\n\n    def setScrollBarWidth(self):\n        if self.fInit:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_74",
+    "parent": "processed_documents/context_documents/680bc0fa_DirectScrolledFrame.json",
+    "chunk_number": 1335
+  }
+}

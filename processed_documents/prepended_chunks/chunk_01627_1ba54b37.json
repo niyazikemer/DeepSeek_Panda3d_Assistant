@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a script that generates pandadoc.hpp, a C++-like header file used by Doxygen to document Python bindings for the Panda3D library. The code initializes required functions for handling sequences and mappings in the documentation generation process, ensuring compatibility with different versions or setups where these helper functions might not be available.\n\n\"\"\" This script generates a pandadoc.hpp file representing the Python\nwrappers that can be parsed by doxygen to generate the Python documentation.\nYou need to run this before invoking Doxyfile.python.\n\nIt requires a valid makepanda installation with interrogatedb .in\nfiles in the lib/pandac/input directory. \"\"\"\n\nfrom __future__ import print_function\n\n__all__ = []\n\nimport os\nimport panda3d\nimport pandac\nfrom panda3d.interrogatedb import *\n\n\nif 'interrogate_element_is_sequence' not in globals():\n    def interrogate_element_is_sequence(element): # pylint: disable=function-redefined\n        return False\n\nif 'interrogate_element_is_mapping' not in globals():\n    def interrogate_element_is_mapping(element): # pylint: disable=function-redefined\n        return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1627
+  }
+}

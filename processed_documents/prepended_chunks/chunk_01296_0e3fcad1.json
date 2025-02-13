@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code is part of a method in a Python class that manages particle effects. Specifically, it handles writing configuration data for different types of emitters, such as setting bounds for a 'RectangleEmitter' or parameters like radius and spread for a 'RingEmitter'. This section appears within an `elif` chain that checks the type of emitter (`self.emitterType`) and writes corresponding setup instructions into a file. The code is used to serialize emitter configurations, capturing properties specific to each emitter type for later use or documentation.\n\npoint = self.emitter.getMinBound()\n            file.write((targ + '.emitter.setMinBound(Point2(%.4f, %.4f))\\n' % (point[0], point[1])))\n            point = self.emitter.getMaxBound()\n            file.write((targ + '.emitter.setMaxBound(Point2(%.4f, %.4f))\\n' % (point[0], point[1])))\n        elif self.emitterType == \"RingEmitter\":\n            file.write('# Ring parameters\\n')\n            file.write(targ + '.emitter.setRadius(%.4f)\\n' % self.emitter.getRadius())\n            file.write(targ + '.emitter.setRadiusSpread(%.4f)\\n' % self.emitter.getRadiusSpread())\n            if eType == \"ETCUSTOM\":\n                file.write(targ + '.emitter.setAngle(%.4f)\\n' % self.emitter.getAngle())\n        elif self.emitterType == \"SphereSurfaceEmitter\":\n            file.write('# Sphere Surface parameters\\n')\n            file.write(targ + '.emitter.setRadius(%.4f)\\n' % self.emitter.getRadius())\n        elif self.emitterType == \"SphereVolumeEmitter\":",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1296
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `xformStop` method is part of a 3D object manipulation system for cleaning up after transformations. It signals completion of manipulation by notifying listeners, updates the UI to reflect new states, and restarts follow tasks if required.\n\ndef xformStop(self, data):\n        # Throw event to signal manipulation done\n        # Send nodepath as a list\n        messenger.send('DIRECT_manipulateObjectCleanup', [[self['nodePath']]])\n        # Update placer to reflect new state\n        self.updatePlacer()\n        # If moving widget restart follow task\n        if self.nodePathMenu.get() == 'widget':\n            # Restart followSelectedNodePath task\n            ShowBaseGlobal.direct.manipulationControl.spawnFollowSelectedNodePathTask()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1076
+  }
+}

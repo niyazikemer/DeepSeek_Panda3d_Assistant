@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method in the `ClusterClient` or `ClusterClientSync` class that initializes server connections, configures camera settings, and starts essential tasks for cluster operations. The code sends camera frustum configuration data to each server, adds servers to a list, creates queues for server communication, and initiates synchronization of time, camera movement, and selected object tracking tasks.\n\n```python\n\"\"\"\nInitialize server connections and start essential tasks for cluster operations.\nThis includes sending camera configuration data, setting up server queues,\nand starting tasks for time synchronization, camera movement, and selected\nobject tracking.\n\"\"\"\nself.notify.debug('send cam frustum')\nserver.sendCamFrustum(serverConfig.focalLength,\n                      serverConfig.filmSize,\n                      serverConfig.filmOffset)\nself.serverList.append(server)\nself.serverQueues.append([])\nself.notify.debug('pre startTimeTask')\nself.startSynchronizeTimeTask()\nself.notify.debug('pre startMoveCam')\nself.startMoveCamTask()\nself.notify.debug('post startMoveCam')\nself.startMoveSelectedTask()\n```\n\nself.notify.debug('send cam frustum')\n                    server.sendCamFrustum(serverConfig.focalLength,\n                                          serverConfig.filmSize,\n                                          serverConfig.filmOffset)\n                self.serverList.append(server)\n                self.serverQueues.append([])\n        self.notify.debug('pre startTimeTask')\n        self.startSynchronizeTimeTask()\n        self.notify.debug('pre startMoveCam')\n        self.startMoveCamTask()\n        self.notify.debug('post startMoveCam')\n        self.startMoveSelectedTask()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1692
+  }
+}

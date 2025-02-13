@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python script that manages configuration options for building applications with Panda3D, specifically handling plugin configurations based on PRC (Panda Runtime Configuration) data. The context involves checking and adjusting values related to audio libraries and auxiliary displays to ensure compatibility and fallback behavior when certain plugins are missing or unavailable.\n\nThe chunk handles two specific variables:\n1. `audio-library-name`: If the referenced FMOD audio plugin is missing but OpenAL is available, it logs a warning and switches to OpenAL.\n2. `aux-display`: Silently skips configuration lines for aux displays if the specified plugin isn't present.\n\nThis logic ensures that the build process handles missing plugins gracefully by providing fallbacks where possible and avoiding errors from references to non-existent plugins.\n\nif var == 'audio-library-name':\n                    # We have the default set to p3fmod_audio on macOS in 1.10,\n                    # but this can be unexpected as other platforms use OpenAL\n                    # by default.  Switch it up if FMOD is not included.\n                    if value not in self.plugins and value == 'p3fmod_audio' and 'p3openal_audio' in self.plugins:\n                        self.warn(\"Missing audio plugin p3fmod_audio referenced in PRC data, replacing with p3openal_audio\")\n                        value = 'p3openal_audio'\n\n                if var == 'aux-display':\n                    # Silently remove aux-display lines for missing plugins.\n                    if value not in self.plugins:\n                        continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1973
+  }
+}

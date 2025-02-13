@@ -1,0 +1,9 @@
+{
+  "content": "The `setRelief` method in this DirectGUI component controls the visual depth effect (relief style) of a GUI element, such as raised or sunken borders, across multiple states by converting input types and applying appropriate frame styles.\n\ndef setRelief(self, fSetStyle = 1):\n        relief = self['relief']\n        # Convert None, and string arguments\n        if relief is None:\n            relief = PGFrameStyle.TNone\n        elif isinstance(relief, str):\n            # Convert string to frame style int\n            relief = DGG.FrameStyleDict[relief]\n        # Set style\n        if relief == DGG.RAISED:\n            for i in range(self['numStates']):\n                if i in self['invertedFrames']:\n                    self.frameStyle[1].setType(DGG.SUNKEN)\n                else:\n                    self.frameStyle[i].setType(DGG.RAISED)\n        elif relief == DGG.SUNKEN:\n            for i in range(self['numStates']):\n                if i in self['invertedFrames']:\n                    self.frameStyle[1].setType(DGG.RAISED)\n                else:\n                    self.frameStyle[i].setType(DGG.SUNKEN)\n        else:\n            for i in range(self['numStates']):\n                self.frameStyle[i].setType(relief)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1423
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains several methods for controlling the visual properties and behavior of a NURBS curve visualization system within a graphical user interface. These methods allow users to adjust the number of segments, ticks, tick scale, path color, and toggle the visibility of hulls, traces, and markers associated with the curve renderer. The functions are part of a larger class that manages rendering settings and interactions in a 3D graphics environment, enabling dynamic adjustments to the visual representation of curves during playback or recording sessions.\n\ndef setHullVis(self):\n        self.nurbsCurveDrawer.setShowHull(\n            self.getVariable('Style', 'Hull').get())\n\n    def setTraceVis(self):\n        if self.getVariable('Style', 'Trace').get():\n            self.trace.show()\n        else:\n            self.trace.hide()\n\n    def setMarkerVis(self):\n        if self.getVariable('Style', 'Marker').get():\n            self.playbackMarker.reparentTo(self.recorderNodePath)\n        else:\n            self.playbackMarker.reparentTo(ShowBaseGlobal.hidden)\n\n    def setNumSegs(self, value):\n        self.numSegs = int(value)\n        self.nurbsCurveDrawer.setNumSegs(self.numSegs)\n\n    def setNumTicks(self, value):\n        self.nurbsCurveDrawer.setNumTicks(float(value))\n\n    def setTickScale(self, value):\n        self.nurbsCurveDrawer.setTickScale(float(value))\n\n    def setPathColor(self, color):\n        self.nurbsCurveDrawer.setColor(\n            color[0]/255.0, color[1]/255.0, color[2]/255.0)\n        self.nurbsCurveDrawer.draw()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1169
+  }
+}

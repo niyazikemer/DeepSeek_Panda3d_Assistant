@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of methods within the `Placer` class responsible for updating UI widgets related to 3D object transformations (position, heading-pitch-roll (HPR), and scale) and resetting these properties to default values. These functions ensure that user interface elements accurately reflect the current state of the placed object and provide tools to reset specific transformation attributes.\n\ndef updatePosWidgets(self, pos):\n        self.posX.set(pos[0])\n        self.posY.set(pos[1])\n        self.posZ.set(pos[2])\n\n    def updateHprWidgets(self, hpr):\n        self.hprH.set(hpr[0])\n        self.hprP.set(hpr[1])\n        self.hprR.set(hpr[2])\n\n    def updateScaleWidgets(self, scale):\n        self.scaleX.set(scale[0])\n        self.scaleY.set(scale[1])\n        self.scaleZ.set(scale[2])\n\n    def zeroAll(self):\n        self.xformStart(None)\n        self.updatePosWidgets(ZERO_VEC)\n        self.updateHprWidgets(ZERO_VEC)\n        self.updateScaleWidgets(UNIT_VEC)\n        self.xformStop(None)\n\n    def zeroPos(self):\n        self.xformStart(None)\n        self.updatePosWidgets(ZERO_VEC)\n        self.xformStop(None)\n\n    def zeroHpr(self):\n        self.xformStart(None)\n        self.updateHprWidgets(ZERO_VEC)\n        self.xformStop(None)\n\n    def unitScale(self):\n        self.xformStart(None)\n        self.updateScaleWidgets(UNIT_VEC)\n        self.xformStop(None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1080
+  }
+}

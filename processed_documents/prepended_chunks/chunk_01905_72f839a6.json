@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a function responsible for creating a compressed tarball (e.g., .tar.gz) of a build directory during the distribution packaging process, specifically adjusting timestamps if required. This is essential for maintaining consistent metadata in the generated archive files when building software distributions.\n\nContext: The code handles the creation of a compressed tarball (tar.gz) from a build directory and adjusts the timestamp within the gzipped file to ensure consistency, which is crucial for proper distribution package handling.\n\nif max_mtime is not None and tarinfo.mtime >= max_mtime:\n            tarinfo.mtime = max_mtime\n\n        return tarinfo\n\n    filename = '{}.tar.{}'.format(basename, tar_compression)\n    with tarfile.open(filename, 'w|{}'.format(tar_compression)) as tf:\n        tf.add(build_dir, base_dir, filter=tarfilter)\n\n    if tar_compression == 'gz' and max_mtime is not None:\n        # Python provides no elegant way to overwrite the gzip timestamp.\n        with open(filename, 'r+b') as fp:\n            fp.seek(4)\n            fp.write(struct.pack(\"<L\", max_mtime))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1905
+  }
+}

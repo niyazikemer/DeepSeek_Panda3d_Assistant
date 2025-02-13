@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code is part of a function responsible for setting up cluster client configurations in a graphics application. This specific section checks if a server name is defined in the configuration file (Configrc). If it's not found, it logs warnings and skips further processing for that server. Otherwise, it retrieves the daemon port and message port numbers from the configuration, then creates a ClusterConfigItem with these parameters to establish connections to the specified servers. This code ensures that each display client is correctly configured or reports issues if necessary settings are missing.\n\nif serverName == '':\n                base.notify.warning(\n                    '%s undefined in Configrc: expected by %s display client.'%\n                    (serverConfigName, clusterConfig))\n                base.notify.warning('%s will not be used.' % serverConfigName)\n            else:\n                # Daemon port\n                serverDaemonPortConfigName = (\n                    'cluster-server-daemon-port-%s' % displayName)\n                serverDaemonPort = base.config.GetInt(\n                    serverDaemonPortConfigName,\n                    CLUSTER_DAEMON_PORT)\n                # TCP Server port\n                serverMsgPortConfigName = (\n                    'cluster-server-msg-port-%s' % displayName)\n                serverMsgPort = base.config.GetInt(serverMsgPortConfigName,\n                                                   CLUSTER_SERVER_PORT)\n                cci = ClusterConfigItem(\n                    serverConfigName,\n                    serverName,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1720
+  }
+}

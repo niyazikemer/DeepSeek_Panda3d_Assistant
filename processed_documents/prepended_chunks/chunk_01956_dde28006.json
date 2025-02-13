@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an error-handling block within the `run` method of a custom command class (likely `bdist_apps`) in a Python script, specifically checking for compatibility issues related to platform targets when using newer versions of Python. The code checks if the current platform target is outdated or unsupported under the specified Python version and provides guidance on updating it to a supported target.\n\nelif platform.startswith('manylinux1_') and sys.version_info >= (3, 10):\n                new_platform = platform.replace('manylinux1_', 'manylinux2014_')\n                self.announce('This error likely occurs because {} is not a supported target as of Python 3.10.\\nChange the target platform to {} instead.'.format(platform, new_platform), distutils.log.ERROR)\n            elif platform.startswith('macosx_10_6_') and sys.version_info >= (3, 8):\n                if sys.version_info >= (3, 13):\n                    new_platform = platform.replace('macosx_10_6_', 'macosx_10_13_')\n                else:\n                    new_platform = platform.replace('macosx_10_6_', 'macosx_10_9_')\n                self.announce('This error likely occurs because {} is not a supported target as of Python 3.8.\\nChange the target platform to {} instead.'.format(platform, new_platform), distutils.log.ERROR)\n            raise",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1956
+  }
+}

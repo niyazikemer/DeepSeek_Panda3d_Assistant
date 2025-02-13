@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a class for managing particle effects, specifically handling the removal of forces from particles, removing all particles, retrieving lists or dictionaries of particles and force groups, and beginning to save configuration data. The code focuses on cleaning up resources and preparing configuration files.\n\n# Remove all forces from the particles\n        for fg in list(self.forceGroupDict.values()):\n            for f in fg:\n                particles.removeForce(f)\n\n    def removeAllParticles(self):\n        for p in list(self.particlesDict.values()):\n            self.removeParticles(p)\n\n    def getParticlesList(self):\n        return list(self.particlesDict.values())\n\n    def getParticlesNamed(self, name):\n        return self.particlesDict.get(name, None)\n\n    def getParticlesDict(self):\n        return self.particlesDict\n\n    def getForceGroupList(self):\n        return list(self.forceGroupDict.values())\n\n    def getForceGroupNamed(self, name):\n        return self.forceGroupDict.get(name, None)\n\n    def getForceGroupDict(self):\n        return self.forceGroupDict\n\n    def saveConfig(self, filename):\n        filename = Filename(filename)\n        with open(filename.toOsSpecific(), 'w') as f:\n            # Add a blank line\n            f.write('\\n')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1240
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `OkDialog` class is a specific implementation of the `DirectDialog` base class, designed to create a dialog window with a single \"OK\" button. It inherits functionality from `DirectFrame` and customizes it by defining default button text and values for an OK response.\n\nclass OkDialog(DirectDialog):\n    def __init__(self, parent = None, **kw):\n        # Inherits from DirectFrame\n        optiondefs = (\n            # Define type of DirectGuiWidget\n            ('buttonTextList',  ['OK'],       DGG.INITOPT),\n            ('buttonValueList', [DGG.DIALOG_OK],          DGG.INITOPT),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n        DirectDialog.__init__(self, parent)\n        self.initialiseoptions(OkDialog)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1564
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a custom setuptools command (`bdist_apps`) used to create installers for Panda3D applications. It handles gathering and managing distribution wheels (`.whl` files) required for packaging the application. The code prepares a cache directory, checks pip compatibility, sets up platform-specific wheel directories, and ensures no conflicting `.zip` files are present.\n\n**Context:**  \nThe code is part of a method that iterates over target platforms to build installers. For each platform, it sets up a wheel cache, ensuring all necessary Python wheels are available and properly tagged for the specific Python version and platform architecture being used. This step occurs before creating actual installers to ensure dependencies are correctly gathered and prepared.\n\nimport pip\n\n        self.announce('Gathering wheels for platform: {}'.format(platform), distutils.log.INFO)\n\n        whlcache = os.path.join(self.build_base, '__whl_cache__')\n\n        pip_version = int(pip.__version__.split('.', 1)[0])\n        if pip_version < 9:\n            raise RuntimeError(\"pip 9.0 or greater is required, but found {}\".format(pip.__version__))\n\n        abi_tag = 'cp%d%d' % (sys.version_info[:2])\n        if sys.version_info < (3, 8):\n            abi_tag += 'm'\n\n        whldir = os.path.join(whlcache, '_'.join((platform, abi_tag)))\n        if not os.path.isdir(whldir):\n            os.makedirs(whldir)\n\n        # Remove any .zip files. These are built from a VCS and block for an\n        # interactive prompt on subsequent downloads.\n        if os.path.exists(whldir):\n            for whl in os.listdir(whldir):\n                if whl.endswith('.zip'):\n                    os.remove(os.path.join(whldir, whl))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1953
+  }
+}

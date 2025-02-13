@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `DirectScrolledList` class implementation, specifically defining event-handling methods for button interactions. The code manages tasks for smooth scrolling when decrement buttons are pressed (`__decButtonDown`) and stops scrolling tasks when any button is released (`__buttonUp`). These methods handle user input events to control scrolling behavior in a GUI component, integrating with Panda3D's task management system and supporting callback functionality.\n\ndef __decButtonDown(self, event):\n        assert self.notify.debugStateCall(self)\n        task = Task(self.__scrollByTask)\n        task.setDelay(1.0 / self.__scrollSpeed)\n        task.prevTime = 0.0\n        task.delta = -1\n        taskName = self.taskName(\"scroll\")\n        #print \"decButtonDown: adding \", taskName\n        taskMgr.add(task, taskName)\n        self.scrollBy(task.delta)\n        messenger.send('wakeup')\n        if self.__decButtonCallback:\n            self.__decButtonCallback()\n\n    def __buttonUp(self, event):\n        assert self.notify.debugStateCall(self)\n        taskName = self.taskName(\"scroll\")\n        #print \"buttonUp: removing \", taskName\n        taskMgr.remove(taskName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1617
+  }
+}

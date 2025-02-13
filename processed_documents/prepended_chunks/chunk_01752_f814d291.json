@@ -1,0 +1,9 @@
+{
+  "content": "This code initializes a cluster server setup by configuring network connections, message handling, and server tasks. It sets up listener and reader poll tasks for cluster communication, checks if swap synchronization is enabled, configures the global clock in slave mode for synchronization with the client, and initializes a daemon for background operations.\n\nself.qcl.addConnection(self.tcpRendezvous)\n        self.msgHandler = ClusterMsgHandler(ClusterServer.MSG_NUM, self.notify)\n        # Start cluster tasks\n        self.startListenerPollTask()\n        self.startReaderPollTask()\n        # If synchronized server, start swap coordinator too\n        try:\n            clusterSyncFlag\n        except NameError:\n            clusterSyncFlag = 0\n        if clusterSyncFlag:\n            self.startSwapCoordinator()\n            base.graphicsEngine.setAutoFlip(0)\n        # Set global clock mode to slave mode\n        ClockObject.getGlobalClock().setMode(ClockObject.MSlave)\n        # Send verification of startup to client\n        self.daemon = DirectD()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1752
+  }
+}

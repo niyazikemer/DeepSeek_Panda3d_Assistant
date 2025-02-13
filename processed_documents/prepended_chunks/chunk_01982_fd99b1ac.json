@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code in question is part of a larger Python script used for building installers or packages, specifically utilizing Panda3D's tools. This particular section is responsible for setting up logging configurations and generating the final executable file through a freezer process. It handles parameters such as log filenames, whether to use strftime formatting, and constructs the target path where the built application will be placed. The context involves freezing the application into a standalone executable with specified runtime settings.\n\n**Context:**\nThis code is part of the `run` method within the `bdist_egg2` command class. It manages the setup of logging parameters and uses a freezer to generate a standalone executable, crucial for creating installable packages or applications.\n\nuse_strftime = self.log_filename_strftime\n            if not self.log_filename or '%' not in self.log_filename:\n                use_strftime = False\n\n            target_path = os.path.join(binary_dir, target_name)\n            freezer.generateRuntimeFromStub(target_path, stub_file, use_console, {\n                'prc_data': prcexport if self.embed_prc_data else None,\n                'default_prc_dir': self.default_prc_dir,\n                'prc_dir_envvars': None,\n                'prc_path_envvars': None,\n                'prc_patterns': None,\n                'prc_encrypted_patterns': None,\n                'prc_encryption_key': None,\n                'prc_executable_patterns': None,\n                'prc_executable_args_envvar': None,\n                'main_dir': None,\n                'log_filename': self.expand_path(self.log_filename, platform),\n            }, self.log_append, use_strftime)\n            stub_file.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1982
+  }
+}

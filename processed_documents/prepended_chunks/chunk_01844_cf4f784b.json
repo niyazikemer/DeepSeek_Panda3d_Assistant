@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet defines three key methods within the `DistributedLargeBlobSender` class: `announceGenerate()`, `setChunk()`, and `setFilename()`. These methods are integral to managing the transmission of large data blobs across a distributed system. \n\n- `announceGenerate()` initializes the blob sender, checks if it is intended for the local avatar, and sets up in-memory storage if disk usage is disabled.\n- `setChunk()` handles the incremental addition of data chunks when not using disk-based storage.\n- `setFilename()` manages file-based transfer by reading from a specified filename, ensuring efficient handling of large blobs when disk storage is enabled.\n\nTogether, these methods enable the class to flexibly manage both in-memory and disk-based transmission of large data chunks.\n\ndef announceGenerate(self):\n        DistributedLargeBlobSender.notify.debug('announceGenerate')\n        DistributedObject.DistributedObject.announceGenerate(self)\n\n        if self.targetAvId != base.localAvatar.doId:\n            # it's not for us\n            return\n\n        if not self.useDisk:\n            self.blob = ''\n\n    def setChunk(self, chunk):\n        DistributedLargeBlobSender.notify.debug('setChunk')\n        assert not self.useDisk\n        if len(chunk) > 0:\n            self.blob += chunk\n        else:\n            self.privOnBlobComplete()\n\n    def setFilename(self, filename):\n        DistributedLargeBlobSender.notify.debug('setFilename: %s' % filename)\n        assert self.useDisk",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_124",
+    "parent": "processed_documents/context_documents/ffdd858f_DistributedLargeBlobSender.json",
+    "chunk_number": 1844
+  }
+}

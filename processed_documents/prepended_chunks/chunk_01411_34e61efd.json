@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears in the initialization section of a class derived from DirectGuiBase, where the object is being set up with its parent node, initial position, orientation, scale, color, and name. It also initializes state node paths, frame styles, and bounding box coordinates for GUI element positioning and styling.\n\nself.assign(parent.attachNewNode(self.guiItem, self['sortOrder']))\n        # Update pose to initial values\n        if self['pos']:\n            self.setPos(self['pos'])\n        if self['hpr']:\n            self.setHpr(self['hpr'])\n        if self['scale']:\n            self.setScale(self['scale'])\n        if self['color']:\n            self.setColor(self['color'])\n        # Initialize names\n        # Putting the class name in helps with debugging.\n        self.setName(\"%s-%s\" % (self.__class__.__name__, self.guiId))\n        # Create\n        self.stateNodePath = []\n        for i in range(self['numStates']):\n            self.stateNodePath.append(NodePath(self.guiItem.getStateDef(i)))\n        # Initialize frame style\n        self.frameStyle = []\n        for i in range(self['numStates']):\n            self.frameStyle.append(PGFrameStyle())\n        # For holding bounds info\n        self.ll = Point3(0)\n        self.ur = Point3(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1411
+  }
+}

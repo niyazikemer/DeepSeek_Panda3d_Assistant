@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains two methods, `poll()` and `sendCamOffset()`, which are part of a class managing network communication in a distributed system. The `poll()` method reads available datagrams non-blocking, while `sendCamOffset()` sends camera position updates. These methods belong to the `ClusterClient` or related classes that handle connections to multiple servers, enabling synchronized operations across clients and servers.\n\ndef poll(self):\n        \"\"\" Non blocking task to read all available datagrams \"\"\"\n        dataGrams = []\n        while 1:\n            (datagram, dgi, type) = self.msgHandler.nonBlockingRead(self.qcr)\n            # Queue is empty, done for now\n            if type is CLUSTER_NONE:\n                break\n            else:\n                # Got a datagram, add it to the list\n                dataGrams.append([dgi, type, datagram])\n\n        return dataGrams\n\n    def sendCamOffset(self, xyz, hpr):\n        ClusterClient.notify.debug(\"send cam offset...\")\n        ClusterClient.notify.debug((\"packet %d xyz, hpr=%f %f %f %f %f %f\" %\n             (self.msgHandler.packetNumber, xyz[0], xyz[1], xyz[2],\n             hpr[0], hpr[1], hpr[2])))\n        datagram = self.msgHandler.makeCamOffsetDatagram(xyz, hpr)\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1711
+  }
+}

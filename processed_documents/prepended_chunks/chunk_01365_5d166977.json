@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes the process of handling constructor keywords in the `DirectGuiWidget` class, specifically how keywords are used or marked as used, and how an error is raised if any unused keywords remain. It is situated within the context of initializing a GUI component and ensuring that all provided keywords are properly accounted for.\n\n```python\n\"\"\"Handling of constructor keywords in DirectGuiWidget:\n\nThe chunk describes the process by which keyword arguments passed during the creation of a `DirectGuiWidget` component are managed. If a keyword (or its alias) is used, it is removed from `self._constructorKeywords`. Group keywords are marked as used but not deleted to potentially apply to other components. An error is raised if any unused constructor keywords remain after initialization.\n\nThis ensures that all provided keywords are properly accounted for during component creation.\n\"\"\"\n```\n\nIf a keyword (or substituted alias keyword) is used during creation of the\n    component, it is deleted from self._constructorKeywords.  If a group\n    keyword applies to the component, that keyword is marked as used, but is\n    not deleted from self._constructorKeywords, in case it applies to another\n    component.  If any constructor keywords remain at the end of component\n    construction (and initialisation), an error is raised.\n\n5)  :func:`~DirectGuiBase.initialiseoptions` is called.  This method calls any\n    option handlers to respond to any keyword/default values, then checks to\n    see if any keywords are left unused.  If so, an error is raised.\n\"\"\"\n\nfrom __future__ import annotations\n\n__all__ = ['DirectGuiBase', 'DirectGuiWidget']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1365
+  }
+}

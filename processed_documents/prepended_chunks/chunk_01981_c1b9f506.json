@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within an installer function that builds executables for Windows platforms. It handles adding icons to the executable stubs on Windows and sets up logging parameters based on user configuration.\n\n**Context:** The code manages icon embedding in Windows executables and configures logging for build processes, fitting into platform-specific build steps for Windows installers.\n\n# Do we need an icon?  On Windows, we need to add this to the stub\n            # before we add the blob.\n            if 'win' in platform:\n                temp_file = tempfile.NamedTemporaryFile(suffix='-icon.exe', delete=False)\n                temp_file.write(stub_file.read())\n                stub_file.close()\n                temp_file.close()\n                self.update_pe_resources(appname, temp_file.name)\n                stub_file = open(temp_file.name, 'rb')\n            else:\n                temp_file = None\n\n            use_strftime = self.log_filename_strftime\n            if not self.log_filename or '%' not in self.log_filename:\n                use_strftime = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1981
+  }
+}

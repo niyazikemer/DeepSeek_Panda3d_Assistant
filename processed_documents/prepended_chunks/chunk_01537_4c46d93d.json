@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in a class for initializing a scrollbar widget. It dynamically adjusts the size of increment/decrement buttons relative to the main scrollbar based on its current orientation (horizontal or vertical), ensuring proper proportioning and visual alignment. The buttons are then connected to the GUI components, enabling user interaction with the scrollbar.\n\n**Context:** This code initializes the scrollbar's button sizing and connections during setup, adjusting for orientation and linking buttons to enhance user experience.\n\nif self.decButton['frameSize'] is None and \\\n           self.decButton.bounds == [0.0, 0.0, 0.0, 0.0]:\n            f = self['frameSize']\n            if self['orientation'] == DGG.HORIZONTAL:\n                self.decButton['frameSize'] = (f[0]*0.05, f[1]*0.05, f[2], f[3])\n            else:\n                self.decButton['frameSize'] = (f[0], f[1], f[2]*0.05, f[3]*0.05)\n\n        if self.incButton['frameSize'] is None and \\\n           self.incButton.bounds == [0.0, 0.0, 0.0, 0.0]:\n            f = self['frameSize']\n            if self['orientation'] == DGG.HORIZONTAL:\n                self.incButton['frameSize'] = (f[0]*0.05, f[1]*0.05, f[2], f[3])\n            else:\n                self.incButton['frameSize'] = (f[0], f[1], f[2]*0.05, f[3]*0.05)\n\n        self._lastOrientation = self['orientation']\n\n        self.guiItem.setThumbButton(self.thumb.guiItem)\n        self.guiItem.setLeftButton(self.decButton.guiItem)\n        self.guiItem.setRightButton(self.incButton.guiItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_88",
+    "parent": "processed_documents/context_documents/c8becc07_DirectScrollBar.json",
+    "chunk_number": 1537
+  }
+}

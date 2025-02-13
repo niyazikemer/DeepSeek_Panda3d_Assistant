@@ -1,0 +1,9 @@
+{
+  "content": "The chunk pertains to setting up color interpolation functions within a particle system's renderer. Specifically, it configures sinusoidal or step wave color transitions by defining start and end times, colors, widths, and modes, then writes these configurations to a file as part of the particle system setup.\n\n**Context:** The code is part of a method that handles the rendering parameters of a particle system, specifically managing how colors interpolate over time for visual effects.\n\nw_b = fun.getWidthB()\n                        file.write(targ+'.renderer.getColorInterpolationManager().addStepwave('+repr(t_b)+','+repr(t_e)+','+ \\\n                                   'Vec4('+repr(c_a[0])+','+repr(c_a[1])+','+repr(c_a[2])+','+repr(c_a[3])+'),' + \\\n                                   'Vec4('+repr(c_b[0])+','+repr(c_b[1])+','+repr(c_b[2])+','+repr(c_b[3])+'),' + \\\n                                   repr(w_a)+','+repr(w_b)+','+repr(mod)+')\\n')\n                    elif typ == 'ColorInterpolationFunctionSinusoid':\n                        c_a = fun.getColorA()\n                        c_b = fun.getColorB()\n                        per = fun.getPeriod()\n                        file.write(targ+'.renderer.getColorInterpolationManager().addSinusoid('+repr(t_b)+','+repr(t_e)+','+ \\\n                                   'Vec4('+repr(c_a[0])+','+repr(c_a[1])+','+repr(c_a[2])+','+repr(c_a[3])+'),' + \\",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1280
+  }
+}

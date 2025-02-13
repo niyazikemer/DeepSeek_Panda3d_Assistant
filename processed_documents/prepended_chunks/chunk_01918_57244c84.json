@@ -1,0 +1,9 @@
+{
+  "content": "The document outlines steps for building an Android application package (APK), including manifest creation and resource packaging using `aapt`. The specific code chunk pertains to **signing the APK** with a certificate if provided, handling password prompts for encrypted private keys, and verifying the signing process.\n\n# Finally, generate the manifest file / signature, if a signing certificate\n    # has been specified.\n    if command.signing_certificate:\n        password = command.signing_passphrase or ''\n\n        if not password and 'ENCRYPTED' in open(command.signing_private_key).read():\n            # It appears to be encrypted, and we don't have a passphrase, so we\n            # must request it on the command-line.\n            from getpass import getpass\n            password = getpass('Enter pass phrase for private key: ')\n\n        if not bundle.add_jar_signature(\n                p3d.Filename.from_os_specific(command.signing_certificate),\n                p3d.Filename.from_os_specific(command.signing_private_key),\n                password):\n            command.announce(\n                f'\\tFailed to sign {bundle_fn}.', distutils.log.ERROR)\n\n    bundle.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1918
+  }
+}

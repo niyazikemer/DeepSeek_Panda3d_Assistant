@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an Analog class within a VRPN (Virtual Reality Peripheral Network) client module, responsible for normalizing raw analog input values from VRPN devices into a specified range by scaling, centering, and accounting for deadbands.\n\ndef normalize(self, rawValue, minVal = -1, maxVal = 1, sf = 1.0):\n        aMax = self.analogMax\n        aMin = self.analogMin\n        center = self.analogCenter\n        deadband = self.analogDeadband\n\n        # Zero out values in deadband\n        if abs(rawValue - center) <= deadband:\n            return 0.0\n        # Clamp value between aMin and aMax and scale around center\n        if rawValue >= center:\n            # Convert positive values to range 0 to 1\n            val = min(rawValue * sf, aMax)\n            percentVal = ((val - (center + deadband))/\n                          float(aMax - (center + deadband)))\n        else:\n            # Convert negative values to range -1 to 0\n            val = max(rawValue * sf, aMin)\n            percentVal = -((val - (center - deadband))/\n                           float(aMin - (center - deadband)))\n        # Normalize values to given minVal and maxVal range\n        return ((maxVal - minVal) * ((percentVal + 1)/2.0)) + minVal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1780
+  }
+}

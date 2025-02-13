@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a class responsible for managing 3D point sets and curves. The `cropCurve` method is used to modify an existing curve by cropping it between specified start (`cropFrom`) and end (`cropTo`) times, creating a new point set that only includes points within the specified time range. It's part of a larger system for working with animation or motion data in a 3D graphics context.\n\ndef cropCurve(self):\n        if self.pointSet is None:\n            print('Empty Point Set')\n            return\n        # Keep handle on old points\n        oldPoints = self.pointSet\n        # Create new point set\n        self.createNewPointSet()\n        # Copy over points between from/to\n        # Reset curve fitters\n        self.curveFitter.reset()\n        # Add start point\n        pos = Point3(0)\n        hpr = Point3(0)\n        self.curveCollection.evaluate(self.cropFrom, pos, hpr)\n        self.curveFitter.addXyzHpr(0.0, pos, hpr)\n        # Get points within bounds\n        for time, pos, hpr in oldPoints:\n            # Is it within the time?\n            if time > self.cropFrom and time < self.cropTo:\n                # Add it to the curve fitters\n                t = time - self.cropFrom\n                self.curveFitter.addXyzHpr(t, pos, hpr)\n                # And the point set\n                self.pointSet.append([t, pos, hpr])\n        # Add last point\n        pos = Vec3(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1212
+  }
+}

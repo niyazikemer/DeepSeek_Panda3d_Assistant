@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `DirectScrolledList` class implementation in a document about creating a scrollable list interface using Python. It includes essential methods for refreshing the list display (`refresh()`), retrieving the current selection's index (`getSelectedIndex()`), fetching the text content of the selected item (`getSelectedText()`), and setting up callback functions for incrementing/decrementing actions (`setIncButtonCallback()` and `setDecButtonCallback()`) to enable smooth scrolling and interaction. These methods are integral to managing user interactions and maintaining the correct state of the scrollable list interface.\n\ndef refresh(self):\n        \"\"\"\n        Update the list - useful when adding or deleting items\n        or changing properties that would affect the scrolling\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        self.recordMaxHeight()\n        #print \"refresh called\"\n        self.scrollTo(self.index)\n\n    def getSelectedIndex(self):\n        assert self.notify.debugStateCall(self)\n        return self.index\n\n    def getSelectedText(self):\n        assert self.notify.debugStateCall(self)\n        if isinstance(self['items'][self.index], str):\n            return self['items'][self.index]\n        else:\n            return self['items'][self.index]['text']\n\n    def setIncButtonCallback(self):\n        assert self.notify.debugStateCall(self)\n        self.__incButtonCallback = self[\"incButtonCallback\"]\n\n    def setDecButtonCallback(self):\n        assert self.notify.debugStateCall(self)\n        self.__decButtonCallback = self[\"decButtonCallback\"]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1623
+  }
+}

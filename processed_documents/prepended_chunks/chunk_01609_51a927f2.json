@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is situated within a method in the `DirectScrolledList` class, which manages the states of increment (`incButton`) and decrement (`decButton`) navigation buttons. This logic determines whether these buttons should be enabled or disabled based on the current position within the scrolling list (e.g., disabling the \"Increment\" button when at the end of the list). The context involves ensuring that users cannot scroll beyond the top or bottom of the list by appropriately managing button states.\n\n#print \"at list end, \", len(self[\"items\"]),\"  \", self[\"numItemsVisible\"]\n                self.incButton['state'] = DGG.DISABLED\n                self.decButton['state'] = DGG.NORMAL\n                ret = 0\n            else:\n                # deal with an edge condition - make sure any tasks are removed from the disabled arrows.\n                if self.incButton['state'] == DGG.DISABLED or self.decButton['state'] == DGG.DISABLED:\n                    #print \"leaving list start/end, \", len(self[\"items\"]),\"  \", self[\"numItemsVisible\"]\n                    self.__buttonUp(0)\n                self.incButton['state'] = DGG.NORMAL\n                self.decButton['state'] = DGG.NORMAL\n                ret = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1609
+  }
+}

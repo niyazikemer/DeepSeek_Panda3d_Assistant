@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk adds keyboard navigation bindings to a listbox widget within an Inspector class. These bindings allow users to interact with the listbox using the left and right arrow keys to navigate between different levels of inspection (pop back up or dive deeper) and the Return key to trigger either action based on context. This improves usability by enabling keyboard shortcuts for common operations.\n\nThe chunk should be situated in the `createWidgets` method, likely after initializing the listbox and setting up other event bindings, as it configures additional user interactions for the listbox widget.\n\nSuccinct Context:\nThis code adds keyboard navigation to the listbox in the Inspector class, allowing users to pop back or dive into attributes using arrow keys and Return. It enhances usability by enabling keyboard shortcuts.\n\nlistbox.bind('<KeyRelease-Left>', lambda e, s = self: s.pop())\n        listbox.bind('<KeyRelease-Right>', lambda e, s = self: s.dive())\n        listbox.bind('<Return>',  self.popOrDive)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1027
+  }
+}

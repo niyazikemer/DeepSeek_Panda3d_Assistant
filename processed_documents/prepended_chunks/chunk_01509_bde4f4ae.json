@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements auto-capitalization logic in an Entry widget, handling non-word characters (like spaces or punctuation) to trigger word boundaries, ensuring proper capitalization of the next letter while respecting specified prefixes.\n\n# we are between words\n                wordSoFar = ''\n                wasNonWordChar = True\n            else:\n                capitalize = False\n                if wasNonWordChar:\n                    # first letter of a word, capitalize it unconditionally;\n                    capitalize = True\n                elif character == character.upper() and \\\n                     len(self.autoCapitalizeAllowPrefixes) > 0 and \\\n                     wordSoFar in self.autoCapitalizeAllowPrefixes:\n                    # first letter after one of the prefixes, allow it to be capitalized\n                    capitalize = True\n                elif len(self.autoCapitalizeForcePrefixes) > 0 and \\\n                     wordSoFar in self.autoCapitalizeForcePrefixes:\n                    # first letter after one of the force prefixes, force it to be capitalized\n                    capitalize = True\n                if capitalize:\n                    # allow this letter to remain capitalized",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1509
+  }
+}

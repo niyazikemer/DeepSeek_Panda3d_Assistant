@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a `DataResource` class used for managing resource entries within the context of PE file manipulation, specifically handling various resource types such as icons, bitmaps, dialogs, string tables, etc. The class provides functionality to store resource data, manage code pages/encodings, and retrieve decoded text from the binary resource data. This class is part of a broader framework for parsing, modifying, and working with PE (Portable Executable) files programmatically.\n\nclass DataResource(object):\n    \"\"\" A resource entry in the resource table. \"\"\"\n\n    # Resource types.\n    cursor = 1\n    bitmap = 2\n    icon = 3\n    menu = 4\n    dialog = 5\n    string = 6\n    font_directory = 7\n    font = 8\n    accelerator = 9\n    rcdata = 10\n    message_table = 11\n    cursor_group = 12\n    icon_group = 14\n    version = 16\n    dlg_include = 17\n    plug_play = 19\n    vxd = 20\n    animated_cursor = 21\n    animated_icon = 22\n    html = 23\n    manifest = 24\n\n    def __init__(self):\n        self._ident = ()\n        self.data = None\n        self.code_page = 0\n\n    @property\n    def encoding(self):\n        if self.code_page == 0:\n            return 'ascii'\n        else:\n            return 'cp%d' % (self.code_page)\n\n    def get_data(self):\n        return self.data\n\n    def get_text(self, errors='strict'):\n        return self.data.decode(self.encoding, errors)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1863
+  }
+}

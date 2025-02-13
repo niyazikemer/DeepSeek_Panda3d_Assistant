@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `DistributedLargeBlobSenderAI` class, which handles sending large data chunks through a distributed computing (DC) system. The initializer (`__init__`) sets up the object with parameters such as `air`, `zoneId`, `targetAvId`, and `data`, enabling it to communicate with a specific avatar. It configures the mode based on whether disk storage is used and initializes the object within the specified zone, preparing for data transmission or file operations.\n\n```plaintext\nThe chunk introduces the `DistributedLargeBlobSenderAI` class, responsible for transmitting large data chunks through a DC system. The initializer sets essential parameters like `air`, `zoneId`, and `targetAvId`, establishes the mode (including disk usage if enabled), and initializes the object within the specified zone.\n```\n\nclass DistributedLargeBlobSenderAI(DistributedObjectAI.DistributedObjectAI):\n    \"\"\"DistributedLargeBlobSenderAI: for sending large chunks of data through\n    the DC system to a specific avatar\"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory('DistributedLargeBlobSenderAI')\n\n    def __init__(self, air, zoneId, targetAvId, data, useDisk=0):\n        DistributedObjectAI.DistributedObjectAI.__init__(self, air)\n        self.targetAvId = targetAvId\n\n        self.mode = 0\n        if useDisk:\n            self.mode |= LargeBlobSenderConsts.USE_DISK\n\n        self.generateWithRequired(zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_126",
+    "parent": "processed_documents/context_documents/6b9e3599_DistributedLargeBlobSenderAI.json",
+    "chunk_number": 1849
+  }
+}

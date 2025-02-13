@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a function or method within the `bdist_apps` command in a setuptools script. It handles writing data to a .bam file using Panda3D's BamWriter, which is used for serializing 3D scenes and objects into a binary format optimized for efficient loading at runtime. This process occurs during the application build phase when preparing assets for distribution across different platforms.\n\nContext: The code writes node data to a BAM file using Panda3D libraries during the application building process.\n\nstream = p3d.OFileStream()\n    if not dst_fn.open_write(stream):\n        raise IOError('Failed to open .bam file for writing: %s' % (dstpath))\n\n    # We pass it the source filename here so that texture files are made\n    # relative to the original pathname and don't point from the destination\n    # back into the source directory.\n    dout = p3d.DatagramOutputFile()\n    if not dout.open(stream, src_fn) or not dout.write_header(\"pbj\\0\\n\\r\"):\n        raise IOError('Failed to write to .bam file: %s' % (dstpath))\n\n    writer = p3d.BamWriter(dout)\n    writer.root_node = node\n    writer.init()\n    if _build_cmd.bam_embed_textures:\n        writer.set_file_texture_mode(p3d.BamEnums.BTM_rawdata)\n    else:\n        writer.set_file_texture_mode(p3d.BamEnums.BTM_relative)\n    writer.write_object(node)\n    writer.flush()\n    writer = None\n    dout.close()\n    dout = None\n    stream.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1922
+  }
+}

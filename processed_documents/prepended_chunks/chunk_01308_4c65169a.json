@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method (`print_params`) in a Python class, which exports force parameters to a file. The chunk specifically handles writing properties for `LinearSinkForce` and `LinearSourceForce` subclasses of `AngularForce`, determining their falloff type and force center coordinates.\n\nif falloffType == LinearDistanceForce.FTONEOVERR:\n                        ftype = 'FTONEOVERR'\n                    elif falloffType == LinearDistanceForce.FTONEOVERRSQUARED:\n                        ftype = 'FTONEOVERRSQUARED'\n                    elif falloffType == LinearDistanceForce.FTONEOVERRCUBED:\n                        ftype = 'FTONEOVERRCUBED'\n                    forceCenter = f.getForceCenter()\n                    if isinstance(f, LinearSinkForce):\n                        file.write(fname + ' = LinearSinkForce(Point3(%.4f, %.4f, %.4f), LinearDistanceForce.%s, %.4f, %.4f, %d)\\n' % (forceCenter[0], forceCenter[1], forceCenter[2], ftype, radius, amplitude, massDependent))\n                    elif isinstance(f, LinearSourceForce):\n                        file.write(fname + ' = LinearSourceForce(Point3(%.4f, %.4f, %.4f), LinearDistanceForce.%s, %.4f, %.4f, %d)\\n' % (forceCenter[0], forceCenter[1], forceCenter[2], ftype, radius, amplitude, massDependent))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_72",
+    "parent": "processed_documents/context_documents/c074401f_ForceGroup.json",
+    "chunk_number": 1308
+  }
+}

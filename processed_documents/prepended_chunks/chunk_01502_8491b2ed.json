@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes essential components and event bindings for the `DirectEntry` class.\n\n# We can get rid of the node path since we're just using the\n        # onscreenText as an easy way to access a text node as a\n        # component\n        self.onscreenText.removeNode()\n\n        # Bind command function\n        self.bind(DGG.ACCEPT, self.commandFunc)\n        self.bind(DGG.ACCEPTFAILED, self.failedCommandFunc)\n\n        self.accept(self.guiItem.getFocusInEvent(), self.focusInCommandFunc)\n        self.accept(self.guiItem.getFocusOutEvent(), self.focusOutCommandFunc)\n\n        # listen for auto-capitalize events on a separate object to prevent\n        # clashing with other parts of the system\n        self._autoCapListener = DirectObject()\n\n        # Call option initialization functions\n        self.initialiseoptions(DirectEntry)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1502
+  }
+}

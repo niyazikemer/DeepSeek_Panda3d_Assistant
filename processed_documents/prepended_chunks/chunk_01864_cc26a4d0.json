@@ -1,0 +1,9 @@
+{
+  "content": "The `IconGroupResource` class is a component of a system designed to manipulate and modify executable (.exe) files, particularly focusing on managing icon resources. It provides functionality to add and retrieve icon data, which is then integrated into the executable file's resource structure for proper display and recognition when the application runs. This class is used in conjunction with other parts of the codebase to handle resource directory modifications, ensuring that icons are correctly embedded and accessible within the executable format.\n\nclass IconGroupResource(object):\n    code_page = 0\n    type = 14\n    _entry = Struct('<BBBxHHIH')\n    Icon = namedtuple('Icon', ('width', 'height', 'planes', 'bpp', 'size', 'id'))\n\n    def __init__(self):\n        self.icons = []\n\n    def add_icon(self, *args, **kwargs):\n        self.icons.append(self.Icon(*args, **kwargs))\n\n    def get_data(self):\n        data = bytearray(pack('<HHH', 0, 1, len(self.icons)))\n\n        for width, height, planes, bpp, size, id in self.icons:\n            colors = 1 << (planes * bpp)\n            if colors >= 256:\n                colors = 0\n            if width >= 256:\n                width = 0\n            if height >= 256:\n                height = 0\n            data += self._entry.pack(width, height, colors, planes, bpp, size, id)\n        return data",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1864
+  }
+}

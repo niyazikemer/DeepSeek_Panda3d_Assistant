@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides configuration and property management functionality for the `OnscreenImage` class, enabling users to set and retrieve properties using dictionary-like syntax or keyword arguments.\n\nif transform and not self.isEmpty():\n            self.setTransform(transform)\n\n    def getImage(self):\n        return self\n\n    def configure(self, option=None, **kw):\n        for option, value in kw.items():\n            # Use option string to access setter function\n            try:\n                setter = getattr(self, 'set' + option[0].upper() + option[1:])\n                if (setter == self.setPos or\n                    setter == self.setHpr or\n                    setter == self.setScale) and \\\n                   isinstance(value, (tuple, list)):\n                    setter(*value)\n                else:\n                    setter(value)\n            except AttributeError:\n                print('OnscreenImage.configure: invalid option: %s' % option)\n\n    # Allow index style references\n    def __setitem__(self, key, value):\n        self.configure(*(), **{key: value})",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_75",
+    "parent": "processed_documents/context_documents/c320ed49_OnscreenImage.json",
+    "chunk_number": 1346
+  }
+}

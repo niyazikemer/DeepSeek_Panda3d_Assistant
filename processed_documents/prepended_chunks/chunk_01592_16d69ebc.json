@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains several methods of the `DirectWaitBar` class: `destroy()`, `setRange()`, `setValue()`, `getPercent()`, and `updateBarStyle()`. These functions handle core operations for managing the progress bar, including updating its range and value, retrieving completion percentage, updating visual style, and cleaning up resources. The context is within a Panda3D DirectGui widget implementation focused on creating interactive progress bars.\n\ndef destroy(self):\n        self.barStyle = None\n        DirectFrame.destroy(self)\n\n    def setRange(self):\n        \"\"\"Updates the bar range which you can set using bar['range'].\n        This is the value at which the WaitBar indicates 100%.\"\"\"\n        self.guiItem.setRange(self['range'])\n\n    def setValue(self):\n        \"\"\"Updates the bar value which you can set using bar['value'].\n        The value should range between 0 and bar['range'].\"\"\"\n        self.guiItem.setValue(self['value'])\n\n    def getPercent(self):\n        \"\"\"Returns the percentage complete.\"\"\"\n        return self.guiItem.getPercent()\n\n    def updateBarStyle(self):\n        if not self.fInit:\n            self.guiItem.setBarStyle(self.barStyle)\n\n    def setBarRelief(self):\n        \"\"\"Updates the bar relief, which you can set using bar['barRelief'].\"\"\"\n        self.barStyle.setType(self['barRelief'])\n        self.updateBarStyle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_92",
+    "parent": "processed_documents/context_documents/e1fb356e_DirectWaitBar.json",
+    "chunk_number": 1592
+  }
+}

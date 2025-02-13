@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a function `create_aab` that initializes the creation of an Android App Bundle (AAB). It sets up the output path, imports necessary modules, and parses the `AndroidManifest.xml` into a protobuf format required for AAB structure. This step is crucial as it lays the groundwork for subsequent processes like adding dex files, native libraries, and assets to form the complete bundle.\n\n**Succinct Context:**\n\nThe function initializes AAB creation by setting output paths and converting the Android manifest from XML to protobuf format, a necessary step for constructing the app bundle.\n\ndef create_aab(command, basename, build_dir):\n    \"\"\"Create an Android App Bundle.  This is a newer format that replaces\n    Android's .apk format for uploads to the Play Store.  Unlike .apk files, it\n    does not rely on a proprietary signing scheme or an undocumented binary XML\n    format (protobuf is used instead), so it is easier to create without\n    requiring external tools.  If desired, it is possible to install bundletool\n    and use it to convert an .aab into an .apk.\n    \"\"\"\n\n    from ._android import AndroidManifest, AbiAlias, BundleConfig, NativeLibraries, ResourceTable\n\n    bundle_fn = p3d.Filename.from_os_specific(command.dist_dir) / (basename + '.aab')\n    build_dir_fn = p3d.Filename.from_os_specific(build_dir)\n\n    # Convert the AndroidManifest.xml file to a protobuf-encoded version of it.\n    axml = AndroidManifest()\n    with open(os.path.join(build_dir, 'AndroidManifest.xml'), 'rb') as fh:\n        axml.parse_xml(fh.read())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1913
+  }
+}

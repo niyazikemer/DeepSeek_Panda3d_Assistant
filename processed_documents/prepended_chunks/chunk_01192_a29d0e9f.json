@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines methods `addNodePath()`, `addNodePathToDict()`, and `setLoopPlayback()` which handle adding node paths to dictionaries for UI management. These are situated within a class that manages camera setup and display regions using Panda3D, with additional UI elements created via Pmw.\n\ndef addNodePath(self, nodePath):\n        self.addNodePathToDict(nodePath, self.nodePathNames,\n                               self.nodePathMenu, self.nodePathDict)\n\n    def addNodePathToDict(self, nodePath, names, menu, dict):\n        if not nodePath:\n            return\n        # Get node path's name\n        name = nodePath.getName()\n        if name in ['mopathRecorderTempCS', 'widget', 'camera', 'marker']:\n            dictName = name\n        else:\n            # Generate a unique name for the dict\n            dictName = name + '-' + repr(nodePath.id())\n        if dictName not in dict:\n            # Update combo box to include new item\n            names.append(dictName)\n            listbox = menu.component('scrolledlist')\n            listbox.setlist(names)\n            # Add new item to dictionary\n            dict[dictName] = nodePath\n        menu.selectitem(dictName)\n\n    def setLoopPlayback(self):\n        self.loopPlayback = self.getVariable('Playback', 'Loop').get()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1192
+  }
+}

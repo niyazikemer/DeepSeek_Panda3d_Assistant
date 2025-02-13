@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods for setting and getting the position of onscreen text (`setTextPos`, `getTextPos`) along with a deprecated method `setPos` and a property `text_pos`. These methods handle positioning the text in 2D screen space, part of an OnscreenText class that manages various visual properties like alignment, scaling, and rotation.\n\ndef setTextPos(self, x, y=None):\n        \"\"\"\n        Position the onscreen text in 2d screen space\n\n        .. versionadded:: 1.10.8\n        \"\"\"\n        if y is None:\n            self.__pos = tuple(x)\n        else:\n            self.__pos = (x, y)\n        self.updateTransformMat()\n\n    def getTextPos(self):\n        \"\"\"\n        .. versionadded:: 1.10.8\n        \"\"\"\n        return self.__pos\n\n    text_pos = property(getTextPos, setTextPos)\n\n    def setPos(self, x, y):\n        \"\"\"setPos(self, float, float)\n        Position the onscreen text in 2d screen space\n\n        .. deprecated:: 1.11.0\n           Use `.setTextPos()` method or `.text_pos` property instead.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"Use `.setTextPos()` method or `.text_pos` property instead.\", DeprecationWarning, stacklevel=2)\n        self.__pos = (x, y)\n        self.updateTransformMat()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_82",
+    "parent": "processed_documents/context_documents/de45d2f7_OnscreenText.json",
+    "chunk_number": 1471
+  }
+}

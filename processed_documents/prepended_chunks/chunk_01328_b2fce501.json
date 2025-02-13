@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a Python class that manages the display and positioning of a popup menu in a graphical user interface. The specific functionality of the chunk involves adjusting the position of the popup menu to ensure it stays within visible screen boundaries and displaying a full-screen cancel frame to handle user interaction outside the menu area. This code is crucial for maintaining proper visual placement and user experience when interacting with the popup menu.\n\n**Context:** Code snippet from a method responsible for positioning and managing a popup menu's visibility, ensuring it remains on-screen and handling user interactions via a cancel frame.\n\nif maxX > 1.0:\n            # Need to move menu to the left\n            self.popupMenu.setX(ShowBaseGlobal.render2d, pos[0] + (1.0 - maxX))\n        # How about up and down?\n        minZ = pos[2] + fb[2] * scale[2]\n        maxZ = pos[2] + fb[3] * scale[2]\n        if minZ < -1.0:\n            # Menu too low, move it up\n            self.popupMenu.setZ(ShowBaseGlobal.render2d, pos[2] + (-1.0 - minZ))\n        elif maxZ > 1.0:\n            # Menu too high, move it down\n            self.popupMenu.setZ(ShowBaseGlobal.render2d, pos[2] + (1.0 - maxZ))\n        # Also display cancel frame to catch clicks outside of the popup\n        self.cancelFrame.show()\n        # Position and scale cancel frame to fill entire window\n        self.cancelFrame.setPos(ShowBaseGlobal.render2d, 0, 0, 0)\n        self.cancelFrame.setScale(ShowBaseGlobal.render2d, 1, 1, 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1328
+  }
+}

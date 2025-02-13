@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function that searches for additional library directories within wheels (Python packages) during the build process. It extends the standard wheel directory search with custom paths specified in `PACKAGE_\\Lib_DIRS`, allowing platform-specific or package-specific customizations. This ensures all necessary libraries and resources are included when building Panda3D applications.\n\n**Context:** The code enhances the search for library directories by incorporating per-package customizations, improving dependency resolution during application packaging.\n\n# Also look for more specific per-package cases, defined in\n                    # PACKAGE_LIB_DIRS at the top of this file.\n                    extra_dirs = PACKAGE_LIB_DIRS.get(whl_name, [])\n                    for extra_dir, search_in in extra_dirs:\n                        if not search_in:\n                            search_path.append(os.path.join(whl, extra_dir.replace('/', os.path.sep)))\n                        else:\n                            for whl2 in wheelpaths:\n                                if os.path.basename(whl2).startswith(search_in + '-'):\n                                    search_path.append(os.path.join(whl2, extra_dir.replace('/', os.path.sep)))\n\n            return search_path",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1977
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk processes server configurations from Configrc, initializes connection details including ports, sets up camera parameters, and decides whether to create a synchronized or standard cluster client based on configuration flags.\n\nCLUSTER_SERVER_PORT)\n                cci = ClusterConfigItem(\n                    serverConfigName,\n                    serverName,\n                    serverDaemonPort,\n                    serverMsgPort)\n                # Init cam offset\n                cci.setCamOffset(pos, hpr)\n                # Init frustum if specified\n                if fl and fs and fo:\n                    cci.setCamFrustum(fl, fs, fo)\n                displayConfigs.append(cci)\n    # Create Cluster Managers (opening connections to servers)\n    # Are the servers going to be synced?\n    if base.clusterSyncFlag:\n        base.notify.warning('autoflip')\n        base.graphicsEngine.setAutoFlip(0)\n        base.notify.warning('ClusterClientSync')\n        return ClusterClientSync(displayConfigs, base.clusterSyncFlag)\n    else:\n        return ClusterClient(displayConfigs, base.clusterSyncFlag)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1721
+  }
+}

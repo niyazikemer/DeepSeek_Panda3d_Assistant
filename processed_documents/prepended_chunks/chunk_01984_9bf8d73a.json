@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a method that handles the build process for cross-platform application distribution using Panda3D, specifically focusing on managing runtime creation, dependency warnings, and extension module handling.\n\nfor appname, scriptname in self.console_apps.items():\n            create_runtime(platform, appname, scriptname, True)\n\n        # Warn if tkinter is used but hasn't been added to requirements.txt\n        if not has_tkinter_wheel and '_tkinter' in freezer_modules:\n            self.warn(\"Detected use of tkinter, but tkinter is not specified in requirements.txt!\")\n\n        # Copy extension modules\n        whl_modules = {}\n        if use_wheels:\n            # Get the module libs\n            for i in p3dwhl.namelist():\n                if not i.startswith('deploy_libs/'):\n                    continue\n\n                if not any(i.endswith(suffix) for suffix in ext_suffixes):\n                    continue\n\n                if has_tkinter_wheel and i.startswith('deploy_libs/_tkinter.'):\n                    # Ignore this one, we have a separate tkinter package\n                    # nowadays that contains all the dependencies.\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1984
+  }
+}

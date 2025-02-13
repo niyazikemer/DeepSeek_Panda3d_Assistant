@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines several methods within a class that manages particle effects. These methods (`loadConfig`, `accelerate`, `clearToInitial`, and `softStop`) handle loading particle configurations, accelerating particles over time, resetting particles to their initial state, and stopping particle emission gracefully.\n\ndef loadConfig(self, filename):\n        fn = Filename(filename)\n        vfs = VirtualFileSystem.getGlobalPtr()\n        try:\n            if not vfs.resolveFilename(fn, getModelPath().value) and not fn.isRegularFile():\n                raise FileNotFoundError(\"could not find particle file: %s\" % (filename))\n\n            data = vfs.readFile(fn, True)\n            data = data.replace(b'\\r', b'')\n            exec(data)\n        except Exception:\n            self.notify.warning('loadConfig: failed to load particle file: '+ repr(filename))\n            raise\n\n    def accelerate(self,time,stepCount = 1,stepTime=0.0):\n        for particles in self.getParticlesList():\n            particles.accelerate(time,stepCount,stepTime)\n\n    def clearToInitial(self):\n        for particles in self.getParticlesList():\n            particles.clearToInitial()\n\n    def softStop(self):\n        for particles in self.getParticlesList():\n            particles.softStop()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1243
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `removeAllItems` method is part of the `DirectScrolledList` class, which provides functionality for creating and managing a scrollable list interface. This specific method handles the removal of all items from the scroll list panel, including any associated GUI elements (e.g., buttons or frames), ensuring proper cleanup by removing nodes for non-string items. It also refreshes the display after clearing the list to maintain UI consistency. The method is particularly useful for resetting or reinitializing a scroll list before adding new items or updating content.\n\ndef removeAllItems(self, refresh=1):\n        \"\"\"\n        Remove this item from the panel\n        Warning 2006_10_19 tested only in the trolley metagame\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        retval = 0\n        #print \"remove item called\", item\n        #print \"items list\", self['items']\n        while len(self[\"items\"]) > 0:\n            item = self['items'][0]\n            #print \"removing item\", item\n            if hasattr(self, \"currentSelected\") and self.currentSelected is item:\n                del self.currentSelected\n            self[\"items\"].remove(item)\n            if not isinstance(item, str):\n                #RAU possible leak here, let's try to do the right thing\n                #item.reparentTo(ShowBaseGlobal.hidden)\n                item.removeNode()\n            retval = 1\n\n        if refresh:\n            self.refresh()\n\n        return retval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_93",
+    "parent": "processed_documents/context_documents/803d185d_DirectScrolledList.json",
+    "chunk_number": 1621
+  }
+}

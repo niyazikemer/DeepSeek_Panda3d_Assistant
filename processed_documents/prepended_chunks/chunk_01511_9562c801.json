@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods related to managing text input in a graphical user interface (GUI) entry widget, specifically handling focus events and text retrieval.\n\ndef focusOutCommandFunc(self):\n        if self['focusOutCommand']:\n            self['focusOutCommand'](*self['focusOutExtraArgs'])\n        if self['autoCapitalize']:\n            self.ignore(self.guiItem.getTypeEvent())\n            self.ignore(self.guiItem.getEraseEvent())\n\n    def set(self, text):\n        \"\"\" Changes the text currently showing in the typable region;\n        does not change the current cursor position.  Also see\n        enterText(). \"\"\"\n\n        assert not isinstance(text, bytes)\n        self.unicodeText = True\n        self.guiItem.setWtext(text)\n\n    def get(self, plain = False):\n        \"\"\" Returns the text currently showing in the typable region.\n        If plain is True, the returned text will not include any\n        formatting characters like nested color-change codes. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_84",
+    "parent": "processed_documents/context_documents/e062fb0b_DirectEntry.json",
+    "chunk_number": 1511
+  }
+}

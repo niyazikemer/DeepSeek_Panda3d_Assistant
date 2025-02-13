@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method that adds sections to a Portable Executable (PE) file. The specific lines are responsible for correctly formatting and packing section names into the string table, ensuring proper alignment and structure within the PE file format. This ensures compatibility with systems that parse and execute these files.\n\n# Pack the name into the string table.\n                pack_into('<H', data, str_offs, len(name))\n                str_offs += 2\n                for c in name:\n                    pack_into('<H', data, str_offs, ord(c))\n                    str_offs += 2\n                str_offs = _padded(str_offs, 4)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1898
+  }
+}

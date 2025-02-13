@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method within the `DirectDialog` class that dynamically creates buttons based on the provided button text, geometry, image, and value lists. This section initializes each button with its respective properties, ensuring flexibility across different dialog configurations such as `OkCancelDialog`, `YesNoDialog`, etc.\n\nThe context is situated within the `_initialize_buttons()` method of the `DirectDialog` class, which handles the creation and configuration of buttons for various types of dialogs.\n\n# Determine number of buttons\n        self.numButtons = max(len(self['buttonTextList']),\n                              len(self['buttonGeomList']),\n                              len(self['buttonImageList']),\n                              len(self['buttonValueList']))\n        # Create buttons\n        self.buttonList = []\n        index = 0\n        for i in range(self.numButtons):\n            name = 'Button' + repr(i)\n            try:\n                text = self['buttonTextList'][i]\n            except IndexError:\n                text = None\n            try:\n                geom = self['buttonGeomList'][i]\n            except IndexError:\n                geom = None\n            try:\n                image = self['buttonImageList'][i]\n            except IndexError:\n                image = None\n            try:\n                value = self['buttonValueList'][i]\n            except IndexError:\n                value = i\n                self['buttonValueList'].append(i)\n            try:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1554
+  }
+}

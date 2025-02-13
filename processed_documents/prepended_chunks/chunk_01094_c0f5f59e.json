@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the setup for the \"States\" menu in a graphical user interface, adding submenus to adjust font sizes and marker sizes. It is part of a State Inspector class or application responsible for visualizing and interacting with finite state machines (FSMs). The code implements functionality to customize the appearance of state labels and markers in the inspector tool.\n\n# States Menu\n        menuBar.addmenu('States', 'State Inspector Operations')\n        menuBar.addcascademenu('States', 'Font Size',\n                                     'Set state label size', tearoff = 1)\n        for size in (8, 10, 12, 14, 18, 24):\n            menuBar.addmenuitem('Font Size', 'command',\n                'Set font to: ' + repr(size) + ' Pts', label = repr(size) + ' Pts',\n                command = lambda s = self, sz = size: s.setFontSize(sz))\n        menuBar.addcascademenu('States', 'Marker Size',\n                                     'Set state marker size', tearoff = 1)\n        for size in ('Small', 'Medium', 'Large'):\n            sizeDict = {'Small': '0.25i', 'Medium': '0.375i', 'Large': '0.5i'}\n            menuBar.addmenuitem('Marker Size', 'command',\n                size + ' markers', label = size + ' Markers',\n                command = lambda s = self, sz = size, d = sizeDict:\n                    s.setMarkerSize(d[sz]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1094
+  }
+}

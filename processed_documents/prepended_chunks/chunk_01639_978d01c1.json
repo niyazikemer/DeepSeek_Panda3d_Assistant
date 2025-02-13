@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `processModule` function within a script that generates Doxygen documentation for Panda3D. The function iterates over global types, checks if they belong to the current module (e.g., \"core\"), and processes them for documentation generation.\n\ndef processModule(handle, package):\n    print(\"Processing module %s\" % (package))\n    print(\"namespace %s {\" % package, file=handle)\n\n    if package != \"core\":\n        print(\"using namespace core;\", file=handle)\n\n    for i_type in range(interrogate_number_of_global_types()):\n        type = interrogate_get_global_type(i_type)\n\n        if interrogate_type_has_module_name(type):\n            module_name = interrogate_type_module_name(type)\n            if \"panda3d.\" + package == module_name:\n                processType(handle, type)\n        else:\n            typename = interrogate_type_name(type)\n            print(\"Type %s has no module name\" % typename)\n\n    for i_func in range(interrogate_number_of_global_functions()):\n        func = interrogate_get_global_function(i_func)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1639
+  }
+}

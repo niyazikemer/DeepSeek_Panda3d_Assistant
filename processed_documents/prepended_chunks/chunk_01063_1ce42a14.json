@@ -1,0 +1,9 @@
+{
+  "content": "The `setScalingMode` method is part of the `Placer` class and determines how scaling operations are applied to nodes based on their current scale values. It sets the scaling mode to 'Scale Free' if any two dimensions have different scales, ensuring accurate transformations. This function typically follows other scaling-related methods in the class.\n\n**Context:**  \nThe method is situated within the `Placer` class's functionality for handling node transformations, specifically managing how scaling operations are applied based on current scale values.\n\ndef setScalingMode(self):\n        if self['nodePath']:\n            scale = self['nodePath'].getScale()\n            if scale[0] != scale[1] or \\\n               scale[0] != scale[2] or \\\n               scale[1] != scale[2]:\n                self.scalingMode.set('Scale Free')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1063
+  }
+}

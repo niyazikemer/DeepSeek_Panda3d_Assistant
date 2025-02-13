@@ -1,0 +1,9 @@
+{
+  "content": "These methods handle force and particle management in a particle effects system. They provide functionality to remove specific forces from all particles, remove all associated forces, add new particles with existing force associations, and properly remove particles while handling edge cases.\n\n```python\n\"\"\"\nParticle Effect Management Methods:\n- `removeForce`: Removes a specified force from all particle systems.\n- `removeAllForces`: Clears all force groups and their associated forces.\n- `addParticles`: Adds new particles and associates them with existing forces.\n- `removeParticles`: Safely removes particle systems, handling None cases.\n\"\"\"\n```\n\ndef removeForce(self, force):\n        for p in list(self.particlesDict.values()):\n            p.removeForce(force)\n\n    def removeAllForces(self):\n        for fg in list(self.forceGroupDict.values()):\n            self.removeForceGroup(fg)\n\n    def addParticles(self, particles):\n        particles.nodePath.reparentTo(self)\n        self.particlesDict[particles.getName()] = particles\n\n        # Associate all forces in all force groups with the particles\n        for fg in list(self.forceGroupDict.values()):\n            for force in fg:\n                particles.addForce(force)\n\n    def removeParticles(self, particles):\n        if particles is None:\n            self.notify.warning('removeParticles() - particles is None!')\n            return\n        particles.nodePath.detachNode()\n        self.particlesDict.pop(particles.getName(), None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1239
+  }
+}

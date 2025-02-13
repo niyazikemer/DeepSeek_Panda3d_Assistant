@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method within the `DirectGuiBase` class that processes option definitions and handles keyword arguments. The code iterates through predefined option configurations (`optionDefs`), checks if an option name contains underscores (which might indicate special handling), retrieves default values, and uses keyword arguments to override these defaults when provided. This section is critical for initializing the instance's configuration based on user-provided options or falling back to predefined defaults.\n\nfor name, default, function in optionDefs:\n            if '_' not in name:\n                default = optionkeywords.get(name, default)\n                # The option will already exist if it has been defined\n                # in a derived class.  In this case, do not override the\n                # default value of the option or the callback function\n                # if it is not None.\n                if not optionInfo_has_key(name):\n                    if keywords_has_key(name):\n                        # Overridden by keyword, use keyword value\n                        value = keywords[name][0]\n                        optionInfo[name] = [default, value, function]\n                        # Delete it from self._constructorKeywords\n                        del keywords[name]\n                    else:\n                        # Use optionDefs value\n                        value = default\n                        if isinstance(value, list):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1376
+  }
+}

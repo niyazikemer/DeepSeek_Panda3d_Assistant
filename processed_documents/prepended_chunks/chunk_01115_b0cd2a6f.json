@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines event handler methods within a class that manages state transitions, visual indicators for state entry/exit, and inspection of sub-state machines in an FSM visualization tool.\n\ndef transitionTo(self):\n        self.fsm.request(self.getName())\n\n    def inspectSubMachine(self):\n        print('inspect ' + self.tag + ' subMachine')\n        for childFSM in self.state.getChildren():\n            FSMInspector(childFSM)\n\n    def enteredState(self):\n        self._canvas.itemconfigure(self.marker, fill = 'Red')\n\n    def exitedState(self):\n        self._canvas.itemconfigure(self.marker, fill = 'CornflowerBlue')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1115
+  }
+}

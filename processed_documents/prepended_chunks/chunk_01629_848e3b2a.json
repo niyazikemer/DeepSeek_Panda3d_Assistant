@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two helper functions, `comment()` and `block_ comment()`, which process docstrings into properly formatted Doxygen-style comments for inclusion in the generated pandadoc.hpp header file. These functions ensure proper handling of empty lines, escaping of special characters when necessary, and correct formatting to meet Doxygen's requirements. They are integral to converting Python docstrings into usable C++ documentation.\n\nThis chunk is part of a script that automates generating Doxygen documentation for the Panda3D C++ extension modules by processing their Python bindings' docstrings. The functions ensure that the generated comments are correctly formatted and escaped, enhancing the quality and readability of the resulting API documentation.\n\ndef comment(code):\n    if not code:\n        return \"\"\n\n    comment = ''\n\n    empty_line = False\n    for line in code.splitlines(False):\n        line = line.strip('\\t\\n /')\n        if line:\n            if empty_line:\n                # New paragraph.\n                comment += '\\n\\n'\n                empty_line = False\n            elif comment:\n                comment += '\\n'\n            comment += '/// ' + line\n        else:\n            empty_line = True\n\n    if comment:\n        return comment\n    else:\n        return ''\n\n\ndef block_comment(code):\n    code = code.strip()\n\n    if not code.startswith('///<') and '@verbatim' not in code:\n        code = code.replace('<', '\\\\<').replace('>', '\\\\>')\n\n    if not code or code[0] != '/':\n        # Not really a comment; get rid of it.\n        return \"\"\n\n    return code",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_95",
+    "parent": "processed_documents/context_documents/94f279c8_extract_docs.json",
+    "chunk_number": 1629
+  }
+}

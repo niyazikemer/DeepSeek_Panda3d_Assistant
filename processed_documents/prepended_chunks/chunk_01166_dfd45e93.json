@@ -1,0 +1,9 @@
+{
+  "content": "The `createNewPointSet` method creates and registers a new point set within the application's structure, updates a combo box UI element to include this new point set, selects it in the interface, and increments a counter for subsequent point set creation. This functionality is part of a larger system managing motion paths or animation points with camera visualization capabilities.\n\ndef createNewPointSet(self):\n        self.pointSetName = self.name + '-ps-' + repr(self.pointSetCount)\n        # Update dictionary and record pointer to new point set\n        self.pointSet = self.pointSetDict[self.pointSetName] = []\n        # Update combo box\n        comboBox = self.getWidget('Mopath', 'History')\n        scrolledList = comboBox.component('scrolledlist')\n        listbox = scrolledList.component('listbox')\n        names = list(listbox.get(0,'end'))\n        names.append(self.pointSetName)\n        scrolledList.setlist(names)\n        comboBox.selectitem(self.pointSetName)\n        # Update count\n        self.pointSetCount += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1166
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `handleDatagram` method of a class that processes different types of incoming datagrams. This method acts as a dispatcher, routing specific datagram types (e.g., camera movements, commands) to their respective handler methods, enabling real-time updates and communication handling within the application.\n\ndef handleDatagram(self, dgi, type):\n        \"\"\" Process a datagram depending upon type flag \"\"\"\n        if type == CLUSTER_NONE:\n            pass\n        elif type == CLUSTER_EXIT:\n            print('GOT EXIT')\n            import sys\n            sys.exit()\n        elif type == CLUSTER_CAM_OFFSET:\n            self.handleCamOffset(dgi)\n        elif type == CLUSTER_CAM_FRUSTUM:\n            self.handleCamFrustum(dgi)\n        elif type == CLUSTER_CAM_MOVEMENT:\n            self.handleCamMovement(dgi)\n        elif type == CLUSTER_SELECTED_MOVEMENT:\n            self.handleSelectedMovement(dgi)\n        elif type == CLUSTER_COMMAND_STRING:\n            self.handleCommandString(dgi)\n        elif type == CLUSTER_SWAP_READY:\n            pass\n        elif type == CLUSTER_SWAP_NOW:\n            self.notify.debug('swapping')\n            base.graphicsEngine.flipFrame()\n        elif type == CLUSTER_TIME_DATA:\n            self.notify.debug('time data')\n            self.handleTimeData(dgi)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1762
+  }
+}

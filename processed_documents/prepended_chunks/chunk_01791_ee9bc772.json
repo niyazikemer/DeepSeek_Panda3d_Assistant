@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the initialization method (`__init__`) of the `DirectJoybox` class, which sets up essential components such as device management, analog controls, and button handling. It initializes default settings for controlling a node path (defaulting to the camera) and prepares data structures for tracking input states, laying the foundation for joystick-based navigation in a 3D environment.\n\ndef __init__(self, device = 'CerealBox', nodePath = None, headingNP = None):\n        from direct.showbase.ShowBaseGlobal import base\n        if nodePath is None:\n            nodePath = base.direct.camera\n        if headingNP is None:\n            headingNP = base.direct.camera\n        # See if device manager has been initialized\n        if base.direct.deviceManager is None:\n            base.direct.deviceManager = DirectDeviceManager()\n        # Set name\n        DirectJoybox.joyboxCount += 1\n        self.name = 'Joybox-' + repr(DirectJoybox.joyboxCount)\n        # Get buttons and analogs\n        self.device = device\n        self.analogs = base.direct.deviceManager.createAnalogs(self.device)\n        self.buttons = base.direct.deviceManager.createButtons(self.device)\n        self.aList = [0, 0, 0, 0, 0, 0, 0, 0]\n        self.bList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\n        # For joybox fly mode\n        # Default is joe mode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1791
+  }
+}

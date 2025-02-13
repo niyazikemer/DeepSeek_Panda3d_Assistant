@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a Python class that implements DirectGUI components, specifically handling option retrieval and error management for unknown options. The code enables users to set properties like frame['text'] = 'Joe' in function intervals where assignment isn't possible. The chunk raises a KeyError with an informative message when an unrecognized option is encountered, and it allows index-style references via the __getitem__ method tied to the cget method.\n\n# Expand option string to write on error\n                    option = component + '_' + componentOption\n\n                if component in self.__componentInfo:\n                    # Call cget on the component.\n                    componentCget = self.__componentInfo[component][3]\n                    return componentCget(componentOption)\n                else:\n                    # If this is a group name, call cget for one of\n                    # the components in the group.\n                    for info in self.__componentInfo.values():\n                        if info[4] == component:\n                            componentCget = info[3]\n                            return componentCget(componentOption)\n\n        # Option not found\n        raise KeyError('Unknown option \"' + option + \\\n                '\" for ' + self.__class__.__name__)\n\n    # Allow index style refererences\n    __getitem__ = cget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1393
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `setDconfigLevel` method in the `DirectNotify` class. This method checks for specific dconfig variables to determine the appropriate notify severity level for a given category and sets it accordingly. The code handles fetching configuration values, checking for overrides, and setting a default level if no configuration is found.\n\n# We use ConfigVariableString instead of base.config, in case\n        # we're running before ShowBase has finished initializing\n        from panda3d.core import ConfigVariableString\n\n        dconfigParam = (\"notify-level-\" + categoryName)\n        cvar = ConfigVariableString(dconfigParam, \"\")\n        level = cvar.getValue()\n\n        if not level:\n            # see if there's an override of the default config level\n            cvar2 = ConfigVariableString('default-directnotify-level', 'info')\n            level = cvar2.getValue()\n        if not level:\n            level = 'error'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_99",
+    "parent": "processed_documents/context_documents/455d71b3_DirectNotify.json",
+    "chunk_number": 1654
+  }
+}

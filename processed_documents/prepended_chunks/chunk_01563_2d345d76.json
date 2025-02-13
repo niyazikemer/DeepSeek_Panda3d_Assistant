@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `DirectDialog` class with methods for managing dialog boxes, including showing/hiding, handling button clicks, setting messages, cleaning up resources, and destroying instances.\n\ndef show(self):\n        if self['fadeScreen']:\n            base.transitions.fadeScreen(self['fadeScreen'])\n            self.setBin('gui-popup', 0)\n        NodePath.show(self)\n\n    def hide(self):\n        if self['fadeScreen']:\n            base.transitions.noTransitions()\n        NodePath.hide(self)\n\n    def buttonCommand(self, value, event = None):\n        if self['command']:\n            self['command'](value, *self['extraArgs'])\n\n    def setMessage(self, message):\n        self['text'] = message\n        self.configureDialog()\n\n    def cleanup(self):\n        # Remove this panel out of the AllDialogs list\n        uniqueName = self['dialogName']\n        if uniqueName in DirectDialog.AllDialogs:\n            del DirectDialog.AllDialogs[uniqueName]\n        self.destroy()\n\n    def destroy(self):\n        if self['fadeScreen']:\n            base.transitions.noTransitions()\n        for button in self.buttonList:\n            button.destroy()\n        DirectFrame.destroy(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1563
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `OnscreenImage` class implementation in a Panda3D module, specifically handling color setting during initialization and image loading via the `setImage` method.\n\n# Set color\n        if color:\n            # Set color, if specified\n            self.setColor(color[0], color[1], color[2], color[3])\n\n    def setImage(self, image,\n                 parent = NodePath(),\n                 transform = None,\n                 sort = 0):\n        # Get the original parent, transform, and sort, if any, so we can\n        # preserve them across this call.\n        if not self.isEmpty():\n            parent = self.getParent()\n            if transform is None:\n                # If we're replacing a previous image, we throw away\n                # the new image's transform in favor of the original\n                # image's transform.\n                transform = self.getTransform()\n            sort = self.getSort()\n\n        self.removeNode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_75",
+    "parent": "processed_documents/context_documents/c320ed49_OnscreenImage.json",
+    "chunk_number": 1343
+  }
+}

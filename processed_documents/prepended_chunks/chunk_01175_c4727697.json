@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method in a Panda3D application that manages the state transitions for recording or playing back animation data. The code handles setting up initial conditions for playback by reparenting a node path to a playback node, aligning it at the origin with zero rotation, and starting playback from a specified record start time. It also adds a new task to manage recording or playback processes. In contrast, the else clause deals with stopping an existing task when in continuous sampling mode, particularly when refining or extending recordings, by removing tasks and reparenting nodes back to their original positions. This chunk is integral to managing the animation system's state transitions between recording and playback modes.\n\n# Parent record node path to temp\n                    self.nodePath.reparentTo(self.playbackNodePath)\n                    # Align with temp\n                    self.nodePath.setPosHpr(0, 0, 0, 0, 0, 0)\n                    # Set playback start to self.recordStart\n                    self.playbackGoTo(self.recordStart)\n                    # start flying nodePath along path\n                    self.startPlayback()\n                # Start new task\n                t = taskMgr.add(\n                    self.recordTask, self.name + '-recordTask')\n                t.startTime = ClockObject.getGlobalClock().getFrameTime()\n        else:\n            if self.samplingMode == 'Continuous':\n                # Kill old task\n                taskMgr.remove(self.name + '-recordTask')\n                if self.recordingType.get() == 'Refine' or \\\n                   self.recordingType.get() == 'Extend':\n                    # Reparent node path back to parent",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1175
+  }
+}

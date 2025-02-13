@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines two methods for a cluster client to send camera movements (`sendMoveCam`) and selected object transformations (`sendMoveSelected`) over a network connection. These methods are part of a distributed rendering system, where commands are sent to remote servers to synchronize scene changes across multiple nodes or clients. The code handles debug logging and constructs specific network messages (datagrams) for these operations.\n\nThe context is within a `ClusterClient` class that manages connections to cluster servers, sends commands, and synchronizes state across the distributed rendering system.\n\ndef sendMoveCam(self, xyz, hpr):\n        ClusterClient.notify.debug(\"send cam move...\")\n        ClusterClient.notify.debug((\"packet %d xyz, hpr=%f %f %f %f %f %f\" %\n             (self.msgHandler.packetNumber, xyz[0], xyz[1], xyz[2],\n             hpr[0], hpr[1], hpr[2])))\n        datagram = self.msgHandler.makeCamMovementDatagram(xyz, hpr)\n        self.cw.send(datagram, self.tcpConn)\n\n    def sendMoveSelected(self, xyz, hpr, scale):\n        ClusterClient.notify.debug(\"send move selected...\")\n        ClusterClient.notify.debug(\n            \"packet %d xyz, hpr=%f %f %f %f %f %f %f %f %f\" %\n            (self.msgHandler.packetNumber,\n             xyz[0], xyz[1], xyz[2],\n             hpr[0], hpr[1], hpr[2],\n             scale[0], scale[1], scale[2]))\n        datagram = self.msgHandler.makeSelectedMovementDatagram(xyz, hpr, scale)\n        self.cw.send(datagram, self.tcpConn)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1714
+  }
+}

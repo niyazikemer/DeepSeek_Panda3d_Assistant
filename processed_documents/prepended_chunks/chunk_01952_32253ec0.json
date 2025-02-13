@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python script that handles platform-specific application packaging for Panda3D projects. The context involves building application assets, generating manifests, and downloading required wheels for deployment across different platforms such as Android and macOS.\n\nif icon.getLargestSize() >= 192:\n                        icon.writeSize(192, os.path.join(res_dir, 'mipmap-xxxhdpi-v4', basename))\n\n                self.build_assets(platform, data_dir)\n\n                # Generate an AndroidManifest.xml\n                self.generate_android_manifest(os.path.join(build_dir, 'AndroidManifest.xml'))\n            else:\n                self.build_binaries(platform, build_dir, build_dir)\n                self.build_assets(platform, build_dir)\n\n            # Bundle into an .app on macOS\n            if self.macos_main_app and 'macosx' in platform:\n                self.bundle_macos_app(build_dir)\n\n    def download_wheels(self, platform):\n        \"\"\" Downloads wheels for the given platform using pip. This includes panda3d\n        wheels. These are special wheels that are expected to contain a deploy_libs\n        directory containing the Python runtime libraries, which will be added\n        to sys.path.\"\"\"\n\n        import pip",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1952
+  }
+}

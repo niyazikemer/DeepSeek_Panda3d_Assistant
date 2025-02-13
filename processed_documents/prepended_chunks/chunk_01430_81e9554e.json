@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines utility methods in a DirectGUI component class:\n\n- `printConfig()`: Prints configuration details including position, scale and child elements\n- `copyOptions()`: Copies styling properties from another GUI element instance\n- `taskName()`/`uniqueName()`: Generate unique identifiers by appending the object ID to a base string\n\nThe methods provide essential functionality for debugging, customization and task management in the GUI component hierarchy.\n\ndef printConfig(self, indent = 0):\n        space = ' ' * indent\n        print('%s%s - %s' % (space, self.guiId, self.__class__.__name__))\n        print('%sPos:   %s' % (space, tuple(self.getPos())))\n        print('%sScale: %s' % (space, tuple(self.getScale())))\n        # Print out children info\n        for child in self.getChildren():\n            messenger.send(DGG.PRINT + child.getName(), [indent + 2])\n\n    def copyOptions(self, other):\n        \"\"\"\n        Copy other's options into our self so we look and feel like other\n        \"\"\"\n        for key, value in other._optionInfo.items():\n            self[key] = value[1]\n\n    def taskName(self, idString):\n        return idString + \"-\" + str(self.guiId)\n\n    def uniqueName(self, idString):\n        return idString + \"-\" + str(self.guiId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1430
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python class implementation for managing 3D object movement and rotation using node paths and coordinate systems. The `orbitNode` method facilitates the orbiting of an object around a reference point by manipulating temporary node paths and coordinate systems.\n\ndef orbitNode(self, h, p, r):\n        # Position the temp node path at the ref CS\n        self.tempCS.setPos(self.refCS, 0, 0, 0)\n        # Orient the temp node path to align with the orbiting node path\n        self.tempCS.setHpr(self.nodePath, 0, 0, 0)\n        # Record the position of the orbiter wrt the helper\n        pos = self.nodePath.getPos(self.tempCS)\n        # Turn the temp node path\n        self.tempCS.setHpr(self.tempCS, h, p, r)\n        # Position the orbiter \"back\" to its position wrt the helper\n        self.nodePath.setPos(self.tempCS, pos)\n        # Restore the original hpr of the orbiter\n        self.nodePath.setHpr(self.tempCS, 0, 0, 0)\n\n    # We need to override the DirectAnalog normalizeChannel to\n    # correct the ranges of the two twist axes of the joybox.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1815
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces methods for managing control mappings of objects within a scene. These include setting offsets for object controls, removing existing mappings, starting tasks to handle control updates, and the task itself that moves objects based on their defined control settings. This functionality allows for dynamic adjustments and prioritization of object manipulation in response to user inputs or automated scripts.\n\nContext: The chunk defines methods for managing how objects are controlled within a 3D scene, including setting offsets, removing mappings, and handling periodic updates via tasks.\n\ndef setControlMappingOffset(self, objectName, offset):\n        if objectName in self.controlMappings:\n            self.controlOffsets[objectName] = offset\n\n    def removeControlMapping(self, name):\n        if name in self.controlMappings:\n            self.controlMappings.pop(name)\n            self.controlPriorities.pop(name)\n        self.redoSortedPriorities()\n\n    def startControlObjectTask(self):\n        self.notify.debug(\"moving control objects\")\n        taskMgr.add(self.controlObjectTask,\"controlObjectTask\",50)\n\n    def controlObjectTask(self, task):\n        #print \"running control object task\"\n        for pair in self.sortedControlPriorities:\n            object = pair[1]\n            name   = self.controlMappings[object]\n            if object in self.objectMappings:\n                self.moveObject(self.objectMappings[object],name,self.controlOffsets[object],\n                                self.objectHasColor[object])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1757
+  }
+}

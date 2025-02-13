@@ -1,0 +1,9 @@
+{
+  "content": "The `add_version_info` method within a Python class is responsible for adding version information resources to an executable (PE) file. This involves constructing and assigning a `VersionInfoResource` object with specified file and product versions, string information in a given language and codepage, and variable information such as translation details. The resource is then stored in the appropriate location within the class's internal structure (`self.resources[16][1][lang]`) for subsequent processing when modifications are written back to the executable file.\n\nreturn section\n\n    def add_version_info(self, file_ver, product_ver, data, lang=1033, codepage=1200):\n        \"\"\" Adds a version info resource to the file. \"\"\"\n\n        if \"FileVersion\" not in data:\n            data[\"FileVersion\"] = '.'.join(file_ver)\n        if \"ProductVersion\" not in data:\n            data[\"ProductVersion\"] = '.'.join(product_ver)\n\n        assert len(file_ver) == 4\n        assert len(product_ver) == 4\n\n        res = VersionInfoResource()\n        res.file_version = file_ver\n        res.product_version = product_ver\n        res.string_info = {\n            \"%04x%04x\" % (lang, codepage): data\n        }\n        res.var_info = {\n            \"Translation\": bytearray(pack(\"<HH\", lang, codepage))\n        }\n\n        self.resources[16][1][lang] = res",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1894
+  }
+}

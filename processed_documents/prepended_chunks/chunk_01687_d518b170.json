@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the initialization method of a cluster client class (likely `ClusterClient` or `ClusterClientSync`) that manages connections to distributed rendering servers in a 3D graphics application framework (possibly Panda3D). The class handles setting up communication with server daemons using ports and hostnames, enabling synchronization for multi-machine rendering setups.\n\ndef __init__(self, configList, clusterSyncFlag):\n        # Set name so cluster __call__ function can be used in Intervals\n        self.__name__ = 'cluster'\n        # First start up servers using direct daemon\n        # What is the name of the client machine?\n        clusterClientDaemonHost = base.config.GetString(\n            'cluster-client-daemon', 'None')\n        if clusterClientDaemonHost == 'None':\n            clusterClientDaemonHost = os.popen('uname -n').read()\n            clusterClientDaemonHost = clusterClientDaemonHost.replace('\\n', '')\n        # What daemon port are we using to communicate between client/servers\n        clusterClientDaemonPort = base.config.GetInt(\n            'cluster-client-daemon-port', CLUSTER_DAEMON_PORT)\n        # Create a daemon\n        self.daemon = DirectD()\n        # Start listening for the response\n        self.daemon.listenTo(clusterClientDaemonPort)\n        # Contact server daemons and start up remote server application",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1687
+  }
+}

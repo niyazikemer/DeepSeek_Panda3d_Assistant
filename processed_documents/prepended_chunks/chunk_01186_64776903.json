@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a function that updates various UI widgets to reflect changes in the maximum time (`maxT`) value for a curve. It adjusts sliders or input fields on different pages (Refine Page, Extend Page, Crop Page) to ensure their values are within the valid range defined by `maxT`. Additionally, it updates a widget based on the number of samples in the curve.\n\n**Context:** Adjusting UI widgets to reflect current curve properties.\n\nwidget.set(float(maxT))\n        widget = self.getWidget('Refine Page', 'Refine To')\n        widget.configure(max = maxT)\n        widget.set(float(maxT))\n        # Extend widgets\n        widget = self.getWidget('Extend Page', 'Extend From')\n        widget.configure(max = maxT)\n        widget.set(float(0.0))\n        widget = self.getWidget('Extend Page', 'Control Start')\n        widget.configure(max = maxT)\n        widget.set(float(0.0))\n        # Crop widgets\n        widget = self.getWidget('Crop Page', 'Crop From')\n        widget.configure(max = maxT)\n        widget.set(float(0.0))\n        widget = self.getWidget('Crop Page', 'Crop To')\n        widget.configure(max = maxT)\n        widget.set(float(maxT))\n        self.maxT = float(maxT)\n        # Widgets depending on number of samples\n        numSamples = self.curveFitter.getNumSamples()\n        widget = self.getWidget('Resample', 'Points Between Samples')\n        widget.configure(max=numSamples)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1186
+  }
+}

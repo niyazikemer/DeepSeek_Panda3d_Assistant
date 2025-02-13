@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python script's `create_android_apk` function, which constructs an Android APK bundle. The specific section adds native libraries (`.so` files) from platform-specific directories and compresses assets from the project's asset directory into the bundle, ensuring all necessary resources are included for proper APK functionality.\n\n# Add libraries, compressed.\n    for abi in os.listdir(os.path.join(build_dir, 'lib')):\n        abi_dir = os.path.join(build_dir, 'lib', abi)\n\n        for lib in os.listdir(abi_dir):\n            if lib.startswith('lib') and lib.endswith('.so'):\n                bundle.add_subfile(f'base/lib/{abi}/{lib}', build_dir_fn / 'lib' / abi / lib, 9)\n\n    # Add assets, compressed.\n    assets_dir = os.path.join(build_dir, 'assets')\n    for dirpath, dirnames, filenames in os.walk(assets_dir):\n        rel_dirpath = os.path.relpath(dirpath, build_dir).replace('\\\\', '/')\n        dirnames.sort()\n        filenames.sort()\n\n        for name in filenames:\n            fn = p3d.Filename.from_os_specific(dirpath) / name\n            if fn.is_regular_file():\n                bundle.add_subfile(f'base/{rel_dirpath}/{name}', fn, 9)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_131",
+    "parent": "processed_documents/context_documents/ab4cb8db_installers.json",
+    "chunk_number": 1917
+  }
+}

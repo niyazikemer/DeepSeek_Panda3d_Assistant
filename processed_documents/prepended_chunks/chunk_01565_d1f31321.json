@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `OkCancelDialog` class, which is a subclass of `DirectDialog`. This class extends the functionality to create a dialog box with two buttons: 'OK' and 'Cancel'. The `buttonTextList` and `buttonValueList` define the text and corresponding values for these buttons. The implementation merges keyword options with default settings and initializes the dialog with specified button configurations, serving as an example of a standard confirm/cancel dialog within the document.\n\nclass OkCancelDialog(DirectDialog):\n    def __init__(self, parent = None, **kw):\n        # Inherits from DirectFrame\n        optiondefs = (\n            # Define type of DirectGuiWidget\n            ('buttonTextList',  ['OK','Cancel'],       DGG.INITOPT),\n            ('buttonValueList', [DGG.DIALOG_OK, DGG.DIALOG_CANCEL], DGG.INITOPT),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n        DirectDialog.__init__(self, parent)\n        self.initialiseoptions(OkCancelDialog)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1565
+  }
+}

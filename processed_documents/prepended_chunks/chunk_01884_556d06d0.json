@@ -1,0 +1,9 @@
+{
+  "content": "The chunk reads the RVA tables from the PE file, extracts export, import, and resource RVAs, and processes section headers. This occurs after initializing variables and reading the main PE header but before modifying sections or adding new resources.\n\nself.rva_offset = fp.tell()\n        numrvas, = unpack('<I', fp.read(4))\n\n        self.exp_rva = RVASize(0, 0)\n        self.imp_rva = RVASize(0, 0)\n        self.res_rva = RVASize(0, 0)\n\n        # Locate the relevant tables in memory.\n        if numrvas >= 1:\n            self.exp_rva = RVASize(*unpack('<II', fp.read(8)))\n        if numrvas >= 2:\n            self.imp_rva = RVASize(*unpack('<II', fp.read(8)))\n        if numrvas >= 3:\n            self.res_rva = RVASize(*unpack('<II', fp.read(8)))\n\n        # Skip the rest of the tables.\n        if numrvas >= 4:\n            fp.seek((numrvas - 3) * 8, 1)\n\n        # Loop through the sections to find the ones containing our tables.\n        self.sections = []\n        for i in range(nscns):\n            section = Section()\n            section.read_header(fp)\n            self.sections.append(section)\n\n        self.sections.sort()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1884
+  }
+}

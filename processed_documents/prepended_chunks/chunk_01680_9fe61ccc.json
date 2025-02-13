@@ -1,0 +1,9 @@
+{
+  "content": "This chunk belongs to a larger document outlining the `Notifier` class, which provides mechanisms for controlling and emitting debug messages in Python applications. The chunk defines methods related to informational notifications, including enabling/disabling info messages, checking their status, and logging/printing info strings with timestamps as needed.\n\ndef getDebug(self) -> bool:\n        \"\"\"\n        Return whether the printing of debug messages is on or off\n        \"\"\"\n        return self.__debug\n\n    # info funcs\n    def info(self, infoString: object) -> int:\n        \"\"\"\n        Print the given informational string, if info flag is on\n        \"\"\"\n        if self.__info:\n            message = str(infoString)\n            if Notifier.showTime:\n                string = f'{self.getTime()}{self.__name}: {message}'\n            else:\n                string = f':{self.__name}: {message}'\n            self.__log(string)\n            self.__print(string)\n        return 1 # to allow assert myNotify.info(\"blah\")\n\n    def getInfo(self) -> bool:\n        \"\"\"\n        Return whether the printing of info messages is on or off\n        \"\"\"\n        return self.__info\n\n    def setInfo(self, enable: bool) -> None:\n        \"\"\"\n        Enable/Disable informational message  printing\n        \"\"\"\n        self.__info = enable",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1680
+  }
+}

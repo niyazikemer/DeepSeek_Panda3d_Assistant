@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method responsible for adding icon resources to a Portable Executable (PE) file. Specifically, it creates a `DataResource` object to store icon data, adds it to the resource structure under the appropriate type and language, and then uses `add_ico` to handle the specifics of integrating the icon into the PE file's resources.\n\nres = DataResource()\n            res.data = buf.getvalue()\n            self.resources[3][id][1033] = res\n            group.add_icon(size, size, 1, bpp, datasize, id)\n            id += 1\n\n    def add_section(self, name, flags, data):\n        \"\"\" Adds a new section with the given name, flags and data.  The\n        virtual address space is automatically resized to fit the new data.\n\n        Returns the newly created Section object. \"\"\"\n\n        if isinstance(name, str):\n            name = name.encode('ascii')\n\n        section = Section()\n        section.name = name\n        section.flags = flags\n\n        # Put it at the end of all the other sections.\n        section.offset = 0\n        for s in self.sections:\n            section.offset = max(section.offset, s.offset + s.size)\n\n        # Align the offset.\n        section.offset = _padded(section.offset, self.file_alignment)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1892
+  }
+}

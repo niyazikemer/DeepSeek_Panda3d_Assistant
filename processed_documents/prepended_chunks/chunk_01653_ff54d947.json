@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk contains two key methods of the `DirectNotify` class: `newCategory()` for creating or retrieving a notifier category and setting its config level, and `setDconfigLevel()` which checks dconfig variables to determine notification severity levels. These methods manage the creation and configuration of logging categories in the DirectNotify system.\n\ndef newCategory(self, categoryName: str, logger: Logger.Logger | None = None) -> Notifier.Notifier:\n        \"\"\"newCategory(self, string)\n        Make a new notify category named categoryName. Return new category\n        if no such category exists, else return existing category\n        \"\"\"\n        if categoryName not in self.__categories:\n            self.__categories[categoryName] = Notifier.Notifier(categoryName, logger)\n            self.setDconfigLevel(categoryName)\n        notifier = self.getCategory(categoryName)\n        assert notifier is not None\n        return notifier\n\n    def setDconfigLevel(self, categoryName: str) -> None:\n        \"\"\"\n        Check to see if this category has a dconfig variable\n        to set the notify severity and then set that level. You cannot\n        set these until config is set.\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_99",
+    "parent": "processed_documents/context_documents/455d71b3_DirectNotify.json",
+    "chunk_number": 1653
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes methods for setting border properties and cleaning up resources in a DirectGui class. The `setBorderWidth` method manages the width of borders across different states, while `setBorderUvWidth` handles UV coordinates for border textures. The `destroy` method ensures proper resource cleanup by removing GUI elements from internal registries during development. These methods contribute to maintaining consistent visual appearance and efficient memory management in the GUI component.\n\ndef setBorderWidth(self):\n        width = self['borderWidth']\n        for i in range(self['numStates']):\n            self.frameStyle[i].setWidth(width[0], width[1])\n        self.updateFrameStyle()\n\n    def setBorderUvWidth(self):\n        uvWidth = self['borderUvWidth']\n        for i in range(self['numStates']):\n            self.frameStyle[i].setUvWidth(uvWidth[0], uvWidth[1])\n        self.updateFrameStyle()\n\n    def destroy(self):\n        if hasattr(self, \"frameStyle\"):\n            if ShowBaseGlobal.__dev__:\n                if hasattr(ShowBase, 'guiItems'):\n                    ShowBase.guiItems.pop(self.guiId, None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1427
+  }
+}

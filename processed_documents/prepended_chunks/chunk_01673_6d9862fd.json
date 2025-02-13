@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a comprehensive logging system implementation for a Python application, introducing the `Notifier` class which handles error reporting and debugging. The class includes configuration options like `serverDelta`, integration with a stream writer for output handling, and time stamping based on user-defined settings. The constructor initializes the notifier with a name and optional logger, setting up the basic logging infrastructure used throughout the application.\n\nclass Notifier:\n    serverDelta = 0\n\n    # If this object is set to something, it is used to print output\n    # messages instead of writing them to the console.  This is\n    # particularly useful for integrating the Python notify system\n    # with the C++ notify system.\n    streamWriter: StreamWriter | None = None\n    if ConfigVariableBool('notify-integrate', True):\n        streamWriter = StreamWriter(Notify.out(), False)\n\n    showTime = ConfigVariableBool('notify-timestamp', False)\n\n    def __init__(self, name: str, logger: Logger | None = None) -> None:\n        \"\"\"\n        Parameters:\n            name (str): a string name given to this Notifier instance.\n            logger (Logger, optional): an optional Logger object for\n                piping output to.  If none is specified, the global\n                :data:`~.LoggerGlobal.defaultLogger` is used.\n        \"\"\"\n        self.__name = name",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_104",
+    "parent": "processed_documents/context_documents/07b67880_Notifier.json",
+    "chunk_number": 1673
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an implementation that modifies system streams for Android logging and alters module import behavior. It appears in the context of configuring runtime environment settings and stream handling, ensuring compatibility with mobile platforms like Android during application execution.\n\nThis code likely belongs near other platform-specific or environmental setup configurations within the overall document, such as where logging or file system operations are managed.\n\ndef writable(self):\n        return True\n\nif sys.version_info < (3, 13):\n    sys.stdout = AndroidLogStream(4, 'python.stdout')\n    sys.stderr = AndroidLogStream(5, 'python.stderr')\n\n\n# Alter FrozenImporter to give a __file__ property to frozen modules.\n_find_spec = FrozenImporter.find_spec",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1930
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains methods for resetting a NodePath object's position, rotation (HPR), and scale to initial values, as well as handling undo operations within a 3D modeling or scene graph manipulation context. These functions are part of a larger Placer class that manages the positioning and transformation of objects in a Panda3D-based application. The reset methods restore the node's properties to their original state, while the pushUndo method adds the current node state to an undo stack for later reversal.\n\ndef resetAll(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setPosHprScale(\n                self.initPos, self.initHpr, self.initScale)\n            self.xformStop(None)\n\n    def resetPos(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setPos(self.initPos)\n            self.xformStop(None)\n\n    def resetHpr(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setHpr(self.initHpr)\n            self.xformStop(None)\n\n    def resetScale(self):\n        if self['nodePath']:\n            self.xformStart(None)\n            self['nodePath'].setScale(self.initScale)\n            self.xformStop(None)\n\n    def pushUndo(self, fResetRedo = 1):\n        ShowBaseGlobal.direct.pushUndo([self['nodePath']])\n\n    def undoHook(self, nodePathList = []):\n        # Reflect new changes\n        self.updatePlacer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1082
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a custom widget implementation for a DirectCheckBox class within the DirectGUI module. It defines the initialization and command handling functionality for creating a checkbox component that responds to user input by toggling its state (checked/unchecked) and executing callback functions with additional arguments as specified.\n\n# Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n\n        DirectButton.__init__(self,parent)\n\n        self.initialiseoptions(DirectCheckBox)\n\n    def commandFunc(self, event):\n        self['isChecked'] = not self['isChecked']\n\n        if self['isChecked']:\n            self['image'] = self['checkedImage']\n        else:\n            self['image'] = self['uncheckedImage']\n\n        self.setImage()\n\n        if self['command']:\n            # Pass any extra args to command\n            self['command'](*[self['isChecked']] + self['extraArgs'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_77",
+    "parent": "processed_documents/context_documents/76060653_DirectCheckBox.json",
+    "chunk_number": 1360
+  }
+}

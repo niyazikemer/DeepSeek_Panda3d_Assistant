@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a Python class designed to handle motion paths (mopath) for animations. The `__init__` method initializes various properties such as name, fluidity, points for calculations, face-forward settings, time scaling, up vector configuration, and resets the state. It also handles loading data from NodePath or file. This code is part of a larger class that manages motion paths, including playing animations, handling visualization with LineSegs, and managing animation tasks through taskMgr.\n\ndef __init__(self, name = None, fluid = 1, objectToLoad = None, upVectorNodePath = None, reverseUpVector = False):\n        if name is None:\n            name = f'mopath{self.nameIndex}'\n            self.nameIndex = self.nameIndex + 1\n        self.name = name\n        self.fluid = fluid\n        self.tPoint = Point3(0)\n        self.posPoint = Point3(0)\n        self.hprPoint = Point3(0)\n        self.tangentVec = Vec3(0)\n        self.fFaceForward = 0\n        self.faceForwardDelta = None\n        self.faceForwardNode = None\n        self.timeScale = 1\n        self.upVectorNodePath = upVectorNodePath\n        self.reverseUpVector = reverseUpVector\n        self.reset()\n        if isinstance(objectToLoad, NodePath):\n            self.loadNodePath(objectToLoad)\n        elif isinstance(objectToLoad, str):\n            self.loadFile(objectToLoad)\n        elif objectToLoad is not None:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1830
+  }
+}

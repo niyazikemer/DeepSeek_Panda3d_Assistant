@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is a method within a larger class that manages user interface elements and camera windows. The `setRefineStop` method adjusts various UI controls related to refining start/stop times and playback based on input value, ensuring consistency between different parameters.\n\ndef setRefineStop(self, value):\n        self.recordStop = value\n        # Someone else is adjusting values, let them take care of it\n        if self.fAdjustingValues:\n            return\n        self.fAdjustingValues = 1\n        if self.recordStop < self.recordStart:\n            self.getWidget('Refine Page', 'Refine From').set(\n                self.recordStop)\n        if self.recordStop < self.controlStart:\n            self.getWidget('Refine Page', 'Control Start').set(\n                self.recordStop)\n        if self.recordStop < self.controlStop:\n            self.getWidget('Refine Page', 'Control Stop').set(\n                self.recordStop)\n        # Move playback node path to specified time\n        self.getWidget('Playback', 'Time').set(value)\n        self.fAdjustingValues = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1208
+  }
+}

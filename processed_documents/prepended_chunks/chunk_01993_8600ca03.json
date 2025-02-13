@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code is situated within the `bdist_apps` command class, specifically in a method responsible for building application data files. The code handles file copying operations, including making certain files executable based on specified flags (`PKG_DATA_MAKE_Executable`), and ensures that dependencies are properly copied alongside source files when necessary. This functionality is crucial for constructing platform-specific builds within the application distribution process.\n\nif 'PKG_DATA_MAKE_EXECUTABLE' in flags:\n                                search_path = get_search_path_for(source_path)\n                                self.copy_with_dependencies(source_path, target_path, search_path)\n                                mode = os.stat(target_path).st_mode\n                                mode |= stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH\n                                os.chmod(target_path, mode)\n                            else:\n                                self.copy(source_path, target_path)\n\n    def build_assets(self, platform, data_dir):\n        \"\"\" Builds the data files for the given platform. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1993
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two additional network communication methods for handling camera parameters: one to parse camera offset data and another to create a datagram for camera frustum settings (focal length, film size, and offset). These are placed among other network message creation and parsing functions in a class managing cluster system node communication.\n\ndef parseCamOffsetDatagram(self, dgi):\n        x=dgi.getFloat32()\n        y=dgi.getFloat32()\n        z=dgi.getFloat32()\n        h=dgi.getFloat32()\n        p=dgi.getFloat32()\n        r=dgi.getFloat32()\n        self.notify.debug('new offset=%f %f %f  %f %f %f' % (x, y, z, h, p, r))\n        return (x, y, z, h, p, r)\n\n    def makeCamFrustumDatagram(self, focalLength, filmSize, filmOffset):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_CAM_FRUSTUM)\n        datagram.addFloat32(focalLength)\n        datagram.addFloat32(filmSize[0])\n        datagram.addFloat32(filmSize[1])\n        datagram.addFloat32(filmOffset[0])\n        datagram.addFloat32(filmOffset[1])\n        return datagram",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1739
+  }
+}

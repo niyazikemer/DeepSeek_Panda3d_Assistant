@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the initialization section of a `DirectFrame`-based popup menu button widget. It initializes key variables such as `self.popupMenu`, sets up default indices for selected and highlighted items, creates a full-screen click-cancel detection frame (`self.cancelFrame`), binds mouse events to show/hide the popup menu, and establishes event handling for user interaction with the widget.\n\n# This is created when you set the menu's items\n        self.popupMenu = None\n        self.selectedIndex = None\n        self.highlightedIndex = None\n        if 'item_text_scale' in kw:\n            self._prevItemTextScale = kw['item_text_scale']\n        else:\n            self._prevItemTextScale = (1,1)\n        # A big screen encompassing frame to catch the cancel clicks\n        self.cancelFrame = self.createcomponent(\n            'cancelframe', (), None,\n            DirectFrame, (self,),\n            frameSize = (-1, 1, -1, 1),\n            relief = None,\n            state = 'normal')\n        # Make sure this is on top of all the other widgets\n        self.cancelFrame.setBin('gui-popup', 0)\n        self.cancelFrame.node().setBounds(OmniBoundingVolume())\n        self.cancelFrame.bind(DGG.B1PRESS, self.hidePopupMenu)\n        # Default action on press is to show popup menu\n        self.bind(DGG.B1PRESS, self.showPopupMenu)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_73",
+    "parent": "processed_documents/context_documents/57082ee2_DirectOptionMenu.json",
+    "chunk_number": 1317
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `DirectDials` class, which handles dial input from VRPN devices. It inherits from `DialNode` and `DirectObject`, manages dial states, provides methods for accessing dial values, and attaches to Panda3D's data graph for integration with 3D applications.\n\nclass DirectDials(DialNode, DirectObject):\n    dialCount = 0\n    def __init__(self, vrpnClient, device):\n        # Keep track of number of dials created\n        DirectDials.dialCount += 1\n        # Create a new dial node for the given device\n        DialNode.__init__(self, vrpnClient, device)\n        # Create a unique name for this dial object\n        self.name = 'DirectDials-' + repr(DirectDials.dialCount)\n\n        # Attach node to data graph\n        try:\n            self._base = base\n        except NameError:\n            self._base = simbase\n        self.nodePath = self._base.dataRoot.attachNewNode(self)\n\n    def __getitem__(self, index):\n        \"\"\"\n        if (index < 0) or (index >= self.getNumDials()):\n            raise IndexError\n        \"\"\"\n        return self.readDial(index)\n\n    def __len__(self):\n        return self.getNumDials()\n\n    def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1783
+  }
+}

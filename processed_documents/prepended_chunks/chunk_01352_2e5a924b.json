@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `DirectFrame` class implementation in a Python document, focusing on initializing superclasses, processing options, and recreating components based on different states (e.g., active/inactive). The code initializes the widget's core functionality, sets up state-specific component configurations, and manages component recreation using helper methods like `__reinitComponent`. This section is crucial for understanding how the widget handles dynamic state changes and component management.\n\n# Initialize superclasses\n        DirectGuiWidget.__init__(self, parent)\n\n        # Call option initialization functions\n        self.initialiseoptions(DirectFrame)\n\n    def __reinitComponent(self, name, component_class, states, **kwargs):\n        \"\"\"Recreates the given component using the given keyword args.\"\"\"\n        assert name in (\"geom\", \"image\", \"text\")\n\n        # constants should be local to or default arguments of constructors\n        for c in range(self['numStates']):\n            component_name = name + str(c)\n\n            try:\n                state = states[c]\n            except IndexError:\n                state = states[-1]\n\n            if self.hascomponent(component_name):\n                if state is None:\n                    self.destroycomponent(component_name)\n                else:\n                    self[component_name + \"_\" + name] = state\n            else:\n                if state is None:\n                    return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_76",
+    "parent": "processed_documents/context_documents/85a9ae3c_DirectFrame.json",
+    "chunk_number": 1352
+  }
+}

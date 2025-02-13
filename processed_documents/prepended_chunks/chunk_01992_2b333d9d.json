@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a file-copying process during the build phase, iterating over filenames to determine which files should be copied from a source directory (within a wheel) into a target build directory based on specific patterns or criteria. This ensures that only relevant files are included when preparing installers for different platforms.\n\nContext: The code is used to copy specific files matching certain patterns from a wheel's source directory into the target build directory during the application installation process, ensuring only required files are included for each platform.\n\nfor wf in filenames:\n                        if wf.endswith('/'):\n                            # Skip directories.\n                            continue\n\n                        if wf.lower().startswith(source_dir.lower() + '/'):\n                            if not srcglob.matches(wf.lower()):\n                                continue\n\n                            wf = wf.replace('/', os.sep)\n                            relpath = wf[len(source_dir) + 1:]\n                            source_path = os.path.join(whl, wf)\n                            target_path = os.path.join(target_dir, relpath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1992
+  }
+}

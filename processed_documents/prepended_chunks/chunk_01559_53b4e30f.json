@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `DirectDialog` class initialization process, specifically handling the sizing and padding of buttons. It determines the size of each button either through predefined values or by calculating the bounds of the buttons' graphical elements to ensure proper layout within the dialog box.\n\nif self.numButtons != 0:\n            bpad = self['button_pad']\n            # Get button size\n            if self['buttonSize']:\n                # Either use given size\n                buttonSize = self['buttonSize']\n                bl = buttonSize[0]\n                br = buttonSize[1]\n                bb = buttonSize[2]\n                bt = buttonSize[3]\n            else:\n                # Or get bounds of union of buttons\n                bl = br = bb = bt = 0\n                for button in self.buttonList:\n                    bounds = button.stateNodePath[0].getTightBounds()\n                    if bounds is None:\n                        bl = 0\n                        br = 0\n                        bb = 0\n                        bt = 0\n                    else:\n                        bl = min(bl, bounds[0][0])\n                        br = max(br, bounds[1][0])\n                        bb = min(bb, bounds[0][2])\n                        bt = max(bt, bounds[1][2])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_89",
+    "parent": "processed_documents/context_documents/58abced0_DirectDialog.json",
+    "chunk_number": 1559
+  }
+}

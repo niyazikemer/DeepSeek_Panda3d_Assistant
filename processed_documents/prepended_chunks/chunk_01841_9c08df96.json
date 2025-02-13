@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a Python module named `LargeBlobSenderConsts` that defines constants (`USE_DISK`, `ChunkSize`, `FilePattern`) and a function (`getLargeBlobPath()`) for retrieving configuration settings related to large blob storage paths, likely used in level editing within a game development context.\n\n\"\"\"LargeBlobSenderConsts module\"\"\"\n\nUSE_DISK  = 0x01\n\nChunkSize = 100\n\nFilePattern = 'largeBlob.%s'\n\ndef getLargeBlobPath():\n    from panda3d.core import ConfigVariableString, ConfigFlags\n\n    # this folder needs to be accessible by everyone that is going to level edit\n    # an area as a group\n    return ConfigVariableString('large-blob-path', 'i:\\\\toontown_in_game_editor_temp', 'DConfig', ConfigFlags.F_dconfig).value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_123",
+    "parent": "processed_documents/context_documents/98f7b233_LargeBlobSenderConsts.json",
+    "chunk_number": 1841
+  }
+}

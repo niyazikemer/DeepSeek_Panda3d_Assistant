@@ -1,0 +1,9 @@
+{
+  "content": "The `createStateInspectors` method initializes and positions state inspectors within a visual layout to represent states in a finite state machine (FSM), arranging them in a grid if no specific position is provided.\n\ndef createStateInspectors(self):\n        fsm = self.fsm\n        self.states = fsm.getStates()\n        # Number of rows/cols needed to fit inspectors in a grid\n        dim = int(math.ceil(math.sqrt(len(self.states))))\n        # Separation between nodes\n        spacing = 2.5 * self._canvas.canvasx('0.375i')\n        count = 0\n        for state in self.states:\n            si = self.addState(state)\n            if state.getInspectorPos():\n                si.setPos(state.getInspectorPos()[0],\n                          state.getInspectorPos()[1])\n            else:\n                row = int(math.floor(count / dim))\n                col = count % dim\n                si.setPos(col * spacing, row * spacing +\n                          0.5 * (0, spacing)[col % 2])\n            # Add hooks\n            self.accept(self.name + '_' + si.getName() + '_entered',\n                        si.enteredState)\n            self.accept(self.name + '_' + si.getName() + '_exited',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1100
+  }
+}

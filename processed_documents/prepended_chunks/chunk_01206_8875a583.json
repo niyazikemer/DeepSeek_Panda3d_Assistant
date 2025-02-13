@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet adjusts playback controls within a graphical application, specifically updating \"Control Stop\" and \"Refine To\" values on the 'Refine Page' and setting playback time on the 'Playback' page if certain conditions are met (e.g., when `controlStart` exceeds other stop points).\n\nif self.controlStart > self.controlStop:\n            self.getWidget('Refine Page', 'Control Stop').set(\n                self.controlStart)\n        if self.controlStart > self.recordStop:\n            self.getWidget('Refine Page', 'Refine To').set(\n                self.controlStart)\n        # Move playback node path to specified time\n        self.getWidget('Playback', 'Time').set(value)\n        self.fAdjustingValues = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1206
+  }
+}

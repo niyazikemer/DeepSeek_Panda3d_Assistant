@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis method exports configuration parameters of a particle system,\nincluding factory settings, emitter details, renderer configurations\nand force effects, into an output file. It captures essential properties\nsuch as particle lifespan, emission rates, rendering styles and alpha blending modes.\n\"\"\"\n\nfile.write('# Renderer parameters\\n')\n        alphaMode = self.renderer.getAlphaMode()\n        aMode = \"PRALPHANONE\"\n        if alphaMode == BaseParticleRenderer.PRALPHANONE:\n            aMode = \"PRALPHANONE\"\n        elif alphaMode == BaseParticleRenderer.PRALPHAOUT:\n            aMode = \"PRALPHAOUT\"\n        elif alphaMode == BaseParticleRenderer.PRALPHAIN:\n            aMode = \"PRALPHAIN\"\n        elif alphaMode == BaseParticleRenderer.PRALPHAINOUT:\n            aMode = \"PRALPHAINOUT\"\n        elif alphaMode == BaseParticleRenderer.PRALPHAUSER:\n            aMode = \"PRALPHAUSER\"\n        file.write(targ + '.renderer.setAlphaMode(BaseParticleRenderer.' + aMode + ')\\n')\n        file.write(targ + '.renderer.setUserAlpha(%.2f)\\n' % \\\n                                        self.renderer.getUserAlpha())\n        if self.rendererType == \"PointParticleRenderer\":\n            file.write('# Point parameters\\n')\n            file.write(targ + '.renderer.setPointSize(%.2f)\\n' % \\",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1271
+  }
+}

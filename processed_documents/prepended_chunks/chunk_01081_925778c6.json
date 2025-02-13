@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe following code defines methods for managing scale resets and updates within the Placer class. The `unitScale` method sets the scale of the node path to a unit vector (1,1,1) and updates the UI scale widgets accordingly. The `updateResetValues` method captures the current position, HPR (heading, pitch, roll), and scale values from the node path and stores them as reset values for each corresponding UI widget.\n\"\"\"\n\ndef unitScale(self):\n        self.xformStart(None)\n        self.updateScaleWidgets(UNIT_VEC)\n        self.xformStop(None)\n\n    def updateResetValues(self, nodePath):\n        self.initPos.assign(nodePath.getPos())\n        self.posX['resetValue'] = self.initPos[0]\n        self.posY['resetValue'] = self.initPos[1]\n        self.posZ['resetValue'] = self.initPos[2]\n        self.initHpr.assign(nodePath.getHpr())\n        self.hprH['resetValue'] = self.initHpr[0]\n        self.hprP['resetValue'] = self.initHpr[1]\n        self.hprR['resetValue'] = self.initHpr[2]\n        self.initScale.assign(nodePath.getScale())\n        self.scaleX['resetValue'] = self.initScale[0]\n        self.scaleY['resetValue'] = self.initScale[1]\n        self.scaleZ['resetValue'] = self.initScale[2]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_63",
+    "parent": "processed_documents/context_documents/8bdf8d0c_Placer.json",
+    "chunk_number": 1081
+  }
+}

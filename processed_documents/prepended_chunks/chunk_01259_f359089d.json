@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of a Python class named `ParticleSystem`, which manages various aspects of particle effects such as enabling, configuring factories, emitters, renderers, forces, and other parameters. The specific methods in the chunk (`isEnabled`, `getNode`, and `setFactory`) handle enabling status, retrieving node information, and setting up different types of particle factories with default settings. These methods are foundational for initializing and configuring the core components of the particle system.\n\n**Context:**\nThe code is from a document detailing a `ParticleSystem` class, focusing on enabling functionality, node management, and factory configuration for particle effects.\n\ndef isEnabled(self):\n        return self.fEnabled\n\n    def getNode(self):\n        return self.node\n\n    def setFactory(self, type):\n        if self.factoryType == type:\n            return None\n        if self.factory:\n            self.factory = None\n        self.factoryType = type\n        if type == \"PointParticleFactory\":\n            self.factory = PointParticleFactory()\n        elif type == \"ZSpinParticleFactory\":\n            self.factory = ZSpinParticleFactory()\n        #elif type == \"OrientedParticleFactory\":\n        #    self.factory = OrientedParticleFactory()\n        else:\n            print(\"unknown factory type: %s\" % type)\n            return None\n        self.factory.setLifespanBase(0.5)\n        ParticleSystem.setFactory(self, self.factory)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_69",
+    "parent": "processed_documents/context_documents/b3935c67_Particles.json",
+    "chunk_number": 1259
+  }
+}

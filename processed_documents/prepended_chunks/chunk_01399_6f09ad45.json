@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class that creates and manages GUI components within a megawidget framework. The method `createComponent` dynamically constructs widget instances based on provided arguments and stores metadata for configuration and retrieval. It handles argument processing, widget instantiation, and component registration, enabling flexible customization of composite GUI elements.\n\nThe associated `component` method allows users to access and configure these widgets directly by name, facilitating interactive management of the megawidget's constituent parts.\n\n# Return None if no widget class is specified\n        if widgetClass is None:\n            return None\n        # Get arguments for widget constructor\n        if len(widgetArgs) == 1 and isinstance(widgetArgs[0], tuple):\n            # Arguments to the constructor can be specified as either\n            # multiple trailing arguments to createcomponent() or as a\n            # single tuple argument.\n            widgetArgs = widgetArgs[0]\n        # Create the widget\n        widget = widgetClass(*widgetArgs, **kw)\n        componentClass = widget.__class__.__name__\n        self.__componentInfo[componentName] = (widget, widget.configure,\n                componentClass, widget.cget, componentGroup)\n        return widget\n\n    def component(self, name):\n        # Return a component widget of the megawidget given the\n        # component's name\n        # This allows the user of a megawidget to access and configure\n        # widget components directly.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1399
+  }
+}

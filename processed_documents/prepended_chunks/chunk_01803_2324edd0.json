@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains several methods (`joeMode()`, `basicMode()`, `fpsMode()`, `tankMode()`, and `nullMode()`) that define different control schemes for a node's movement or rotation. These modes are used to set up specific mappings between joybox axes and node transformations (position, orientation), allowing for varying types of user interaction or control in a 3D environment. The methods utilize the `setMode()` function to activate corresponding flying behaviors (`joyboxFly()`, `tankFly()`, etc.), which manipulate node attributes such as position, heading, pitch, and roll based on joybox input.\n\nself.nodePath.setPosHpr(self.nodePath, pos, hpr)\n\n    def joeMode(self):\n        self.mapping = [R_LEFT_RIGHT, R_FWD_BACK, L_FWD_BACK,\n                        R_TWIST, L_TWIST, NULL_AXIS]\n        self.modifier = [1, 1, 1, -1, -1, 0]\n        self.setMode(self.joyboxFly, 'Joe Mode')\n\n    def basicMode(self):\n        self.mapping = [NULL_AXIS, R_FWD_BACK, NULL_AXIS,\n                        R_LEFT_RIGHT, NULL_AXIS, NULL_AXIS]\n        self.modifier = [0, 1, 0, -1, 0, 0]\n        self.setMode(self.joyboxFly, 'Basic Mode')\n\n    def fpsMode(self):\n        self.mapping = [L_LEFT_RIGHT,R_FWD_BACK,L_FWD_BACK,\n                        R_LEFT_RIGHT, NULL_AXIS, NULL_AXIS]\n        self.modifier = [1, 1, 1, -1, 0, 0]\n        self.setMode(self.joyboxFly, 'FPS Mode')\n\n    def tankMode(self):\n        self.setMode(self.tankFly, 'Tank Mode')\n\n    def nullMode(self):\n        self.setMode(self.nullFly, 'Null Mode')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1803
+  }
+}

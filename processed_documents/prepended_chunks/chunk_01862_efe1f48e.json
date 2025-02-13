@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines special methods for a section class: `__repr__`, `__gt__`, and `__lt__`. The `__repr__` method provides a string representation of the section object, showing its name and address range. The comparison methods allow sections to be ordered based on their virtual addresses (`vaddr`). These methods enhance debugging and maintain correct ordering of sections within the PE file structure managed by the Exe class.\n\n**Context:**  \nThese special methods are part of the `section` class definition within an executable manipulation framework, aiding in representation and ordering of sections.\n\ndef __repr__(self):\n        return \"<section '%s' memory %x-%x>\" % (self.name, self.vaddr, self.vaddr + self.vsize)\n\n    def __gt__(self, other):\n        return self.vaddr > other.vaddr\n\n    def __lt__(self, other):\n        return self.vaddr < other.vaddr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1862
+  }
+}

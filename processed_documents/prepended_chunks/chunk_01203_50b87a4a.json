@@ -1,0 +1,9 @@
+{
+  "content": "This chunk adjusts playback controls based on recorded animation times, ensuring consistency between refine and playback parameters. It modifies widget values for \"Control Stop\" and \"Refine To\" if the record start time exceeds their current values, then updates the playback time to the specified value before disabling value adjustment mode.\n\nContext: This code is part of an animation or timeline control system, likely within a larger application framework managing recorded data playback.\n\nif self.recordStart > self.controlStop:\n            self.getWidget('Refine Page', 'Control Stop').set(\n                self.recordStart)\n        if self.recordStart > self.recordStop:\n            self.getWidget('Refine Page', 'Refine To').set(self.recordStart)\n        # Move playback node path to specified time\n        self.getWidget('Playback', 'Time').set(value)\n        self.fAdjustingValues = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1203
+  }
+}

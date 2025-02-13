@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the code for adjusting the positioning of an indicator component based on its placement relative to the main component in a toggle button or switch implementation. Specifically, this section handles the calculation of new positions for cases where the indicator is placed 'left', 'right', 'above', or 'below' the main component.\n\nif self['boxPlacement'] == 'left':            #left\n                newpos[0] += bbounds[0]-lbounds[0] + self['boxBorder'] + ibw[0]\n                dropValue = (bbounds[3]-bbounds[2]-lbounds[3]+lbounds[2])/2 + self['boxBorder']\n                newpos[2] += (bbounds[3]-lbounds[3] + self['boxBorder'] -\n                              dropValue)\n            elif self['boxPlacement'] == 'right':            #right\n                newpos[0] += bbounds[1]-lbounds[1] - self['boxBorder'] - ibw[0]\n                dropValue = (bbounds[3]-bbounds[2]-lbounds[3]+lbounds[2])/2 + self['boxBorder']\n                newpos[2] += (bbounds[3]-lbounds[3] + self['boxBorder']\n                              - dropValue)\n            elif self['boxPlacement'] == 'above':            #above\n                newpos[2] += bbounds[3]-lbounds[3] - self['boxBorder'] - ibw[1]\n            else:                                      #below",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_83",
+    "parent": "processed_documents/context_documents/a97813f6_DirectCheckButton.json",
+    "chunk_number": 1492
+  }
+}

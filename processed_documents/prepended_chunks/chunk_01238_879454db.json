@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains core methods for managing particle effects including force groups and individual forces. The `isEnabled()` method checks if the effect is active, while `addForceGroup()`, `addForce()`, `removeForceGroup()`, and `removeForce()` handle adding or removing forces from all particles in the system. These methods are essential for controlling how physical effects influence particle movement in the simulation.\n\ndef isEnabled(self):\n        \"\"\"\n        Note: this may be misleading if enable(), disable() not used\n        \"\"\"\n        return self.fEnabled\n\n    def addForceGroup(self, forceGroup):\n        forceGroup.nodePath.reparentTo(self)\n        forceGroup.particleEffect = self\n        self.forceGroupDict[forceGroup.name] = forceGroup\n\n        # Associate the force group with all particles\n        for force in forceGroup:\n            self.addForce(force)\n\n    def addForce(self, force):\n        for p in list(self.particlesDict.values()):\n            p.addForce(force)\n\n    def removeForceGroup(self, forceGroup):\n        # Remove forces from all particles\n        for force in forceGroup:\n            self.removeForce(force)\n\n        forceGroup.nodePath.removeNode()\n        forceGroup.particleEffect = None\n        self.forceGroupDict.pop(forceGroup.getName(), None)\n\n    def removeForce(self, force):\n        for p in list(self.particlesDict.values()):\n            p.removeForce(force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_67",
+    "parent": "processed_documents/context_documents/4ffed8d5_ParticleEffect.json",
+    "chunk_number": 1238
+  }
+}

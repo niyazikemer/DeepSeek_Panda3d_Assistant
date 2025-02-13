@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a function responsible for creating application runtimes in a Python setup script. It handles dependency copying, module freezing, and creates both GUI and console application runtimes using the Panda3D framework. The code is situated within the `bdist_apps` command, which manages building distributable packages for various platforms.\n\nif temp_file:\n                os.unlink(temp_file.name)\n\n            # Copy the dependencies.\n            search_path = [binary_dir]\n            if use_wheels:\n                search_path.append(os.path.join(p3dwhlfn, 'panda3d'))\n                search_path.append(os.path.join(p3dwhlfn, 'deploy_libs'))\n            self.copy_dependencies(target_path, binary_dir, search_path, stub_name)\n\n            freezer_extras.update(freezer.extras)\n            freezer_modules.update(freezer.getAllModuleNames())\n            for suffix in freezer.mf.suffixes:\n                if suffix[2] == 3: # imp.C_EXTENSION:\n                    ext_suffixes.add(suffix[0])\n\n        for appname, scriptname in self.gui_apps.items():\n            create_runtime(platform, appname, scriptname, False)\n\n        for appname, scriptname in self.console_apps.items():\n            create_runtime(platform, appname, scriptname, True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1983
+  }
+}

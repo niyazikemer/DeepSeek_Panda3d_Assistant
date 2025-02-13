@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines several specialized `Inspector` subclasses (ModuleInspector, ClassInspector, InstanceInspector, etc.) that override the `namedParts()` and `title()` methods to provide specific handling of different Python object types such as modules, classes, instances, functions, code objects, and complex numbers. These inspectors allow the tool to display detailed information about the structure and attributes of these objects when inspected.\n\nclass ModuleInspector(Inspector):\n    def namedParts(self):\n        return ['__dict__']\n\n\nclass ClassInspector(Inspector):\n    def namedParts(self):\n        return ['__bases__'] + list(self.object.__dict__.keys())\n\n    def title(self):\n        return self.object.__name__ + ' Class'\n\n\nclass InstanceInspector(Inspector):\n    def title(self):\n        return self.object.__class__.__name__\n\n    def namedParts(self):\n        return ['__class__'] + dir(self.object)\n\n###\n\n\nclass FunctionInspector(Inspector):\n    def title(self):\n        return self.object.__name__ + \"()\"\n\n\nclass InstanceMethodInspector(Inspector):\n    def title(self):\n        return str(self.object.__self__.__class__) + \".\" + self.object.__name__ + \"()\"\n\n\nclass CodeInspector(Inspector):\n    def title(self):\n        return str(self.object)\n\n###\n\n\nclass ComplexInspector(Inspector):\n    def namedParts(self):\n        return ['real', 'imag']\n\n###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_62",
+    "parent": "processed_documents/context_documents/5e6b5c95_Inspector.json",
+    "chunk_number": 1022
+  }
+}

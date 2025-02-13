@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk contains two methods related to node path handling: `getChildIds` recursively collects IDs of all child nodes under a given `nodePath`, while `deselectedNodePathHook` handles deselection events by hiding specific playback markers when certain nodes are deselected. These methods are part of a larger class managing UI components and scene navigation, particularly involving camera setup and node selection management in a 3D rendering context.\n\ndef getChildIds(self, nodePath):\n        ids = [nodePath.id()]\n        kids = nodePath.getChildren()\n        for kid in kids:\n            ids += self.getChildIds(kid)\n        return ids\n\n    def deselectedNodePathHook(self, nodePath):\n        \"\"\"\n        Hook called upon deselection of a node path used to select playback\n        marker if subnode selected\n        \"\"\"\n        if nodePath.id() == self.playbackMarker.id() or \\\n           nodePath.id() == self.tangentMarker.id():\n            self.tangentGroup.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1160
+  }
+}

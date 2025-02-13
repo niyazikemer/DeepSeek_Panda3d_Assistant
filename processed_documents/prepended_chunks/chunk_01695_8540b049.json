@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of three methods (`startMoveCamTask`, `controlObjectTask`, and `sendNamedMovementDone`) that manage camera/object movement and synchronization across multiple servers in the ClusterClient class. These methods handle task scheduling for moving objects, applying transformations based on control mappings, and sending completion signals to relevant servers.\n\ndef startMoveCamTask(self):\n        self.notify.debug('adding move cam')\n        taskMgr.add(self.moveCameraTask, \"moveCamTask\", 49)\n\n    def controlObjectTask(self, task):\n        for pair in self.sortedControlMappings:\n            object     = pair[1]\n            name       = self.controlMappings[object][0]\n            serverList = self.controlMappings[object][1]\n            if object in self.objectMappings:\n                self.moveObject(self.objectMappings[object],name,serverList,\n                                self.controlOffsets[object], self.objectHasColor[object])\n        self.sendNamedMovementDone()\n        return Task.cont\n\n    def sendNamedMovementDone(self, serverList = None):\n        if serverList is None:\n            serverList = range(len(self.serverList))\n\n        for server in serverList:\n            self.serverList[server].sendNamedMovementDone()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1695
+  }
+}

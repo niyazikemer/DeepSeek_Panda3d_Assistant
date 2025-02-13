@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sits within the initialization method of a Python class, defining default options for a graphical user interface component resembling a checkbox. It sets up properties like indicator state, placement, and appearance before creating the visual elements.\n\nself.colors = None\n        optiondefs = (\n            ('indicatorValue', 0, self.setIndicatorValue),\n            # boxBorder defines the space created around the check box\n            ('boxBorder', 0, None),\n            # boxPlacement maps left, above, right, below\n            ('boxPlacement', 'left', None),\n            ('boxImage', None, None),\n            ('boxImageScale', 1, None),\n            ('boxImageColor', None, None),\n            ('boxRelief', 'sunken', None),\n        )\n        # Merge keyword options with default options\n        self.defineoptions(kw, optiondefs)\n        # Initialize superclasses\n        DirectButton.__init__(self, parent)\n        self.indicator = self.createcomponent(\"indicator\", (), None,\n                                              DirectLabel, (self,),\n                                              numStates = 2,\n                                              image = self['boxImage'],",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_83",
+    "parent": "processed_documents/context_documents/a97813f6_DirectCheckButton.json",
+    "chunk_number": 1483
+  }
+}

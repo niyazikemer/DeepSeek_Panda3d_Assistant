@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the initialization and setup of a scroll frame in the DirectEntryScroll class. It includes initializing the canvas, handling the optional entry parameter, binding cursor movement events, and defining the setEntry method to safely add an entry element with assertions to prevent multiple entries.\n\nself.canvas = NodePath(self.guiItem.getCanvasNode())\n        self.canvas.setPos(0,0,0)\n\n        self.entry = None\n        if entry is not None:\n            self.entry = entry\n            self.entry.reparentTo(self.canvas)\n            self.entry.bind(DGG.CURSORMOVE, self.cursorMove)\n\n        self.canvas.node().setBounds(OmniBoundingVolume())\n        self.canvas.node().setFinal(1)\n        self.resetCanvas()\n\n    def setEntry(self, entry):\n        \"\"\"\n        Sets a DirectEntry element for this scroll frame. A DirectEntryScroll\n        can only hold one entry at a time, so make sure to not call this\n        function twice or call clearEntry before to make sure no entry\n        is already set.\n        \"\"\"\n        assert self.entry is None, \"An entry was already set for this DirectEntryScroll element\"\n        self.entry = entry\n        self.entry.reparentTo(self.canvas)\n\n        self.entry.bind(DGG.CURSORMOVE, self.cursorMove)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_87",
+    "parent": "processed_documents/context_documents/2b07ca75_DirectEntryScroll.json",
+    "chunk_number": 1528
+  }
+}

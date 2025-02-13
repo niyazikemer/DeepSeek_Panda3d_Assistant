@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `ButtonNode` class in a Python VRPN client library. It implements essential methods for handling button devices: determining the number of buttons (`__len__`), enabling/disabling device interaction, retrieving the device name and node path, and generating a string representation of button states. This facilitates integration with hardware button inputs via the VRPN network.\n\ndef __len__(self):\n        return self.getNumButtons()\n\n    def enable(self):\n        self.nodePath.reparentTo(self._base.dataRoot)\n\n    def disable(self):\n        self.nodePath.reparentTo(self._base.dataUnused)\n\n    def getName(self):\n        return self.name\n\n    def getNodePath(self):\n        return self.nodePath\n\n    def __repr__(self):\n        string = self.name + ': '\n        for val in self:\n            string = string + '%d' % val + ' '\n        return string",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1776
+  }
+}

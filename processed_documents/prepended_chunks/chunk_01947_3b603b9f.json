@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within the `bdist_apps` command's logic for handling Android builds, specifically validating and setting default Android ABIs (Application Binary Interfaces) based on user input or predefined defaults to ensure compatibility and correctness before proceeding with the build process.\n\nif self.android_abis:\n                for abi in self.android_abis:\n                    assert abi not in ('mips64', 'x86_64', 'arm64-v8a'), \\\n                        f'{abi} was not a valid Android ABI before Android 21!'\n            else:\n                self.android_abis = ['armeabi-v7a', 'x86']\n\n        elif not self.android_abis:\n            self.android_abis = ['arm64-v8a', 'armeabi-v7a', 'x86_64', 'x86']\n\n        supported_abis = 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'\n        unsupported_abis = set(self.android_abis) - set(supported_abis)\n        if unsupported_abis:\n            raise ValueError(f'Unrecognized value(s) for android_abis: {\", \".join(unsupported_abis)}\\n'\n                             f'Valid ABIs are: {\", \".join(supported_abis)}')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1947
+  }
+}

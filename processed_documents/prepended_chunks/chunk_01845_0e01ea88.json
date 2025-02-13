@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of methods from the `DistributedLargeBlobSender` class that handle file operations for large data transfers (via disk) and notify when the blob transfer is complete. The chunk includes:\n\n- `setFilename()`: Reads a binary file from a specified path, handles cleanup, and triggers completion.\n- `isComplete()`: Checks if the blob transfer is finished.\n- `setDoneEvent()`: Sets an event to trigger upon completion of the blob transfer.\n- `privOnBlobComplete()`: Marks the blob as complete and sends a notification event with the transferred blob data.\n\ndef setFilename(self, filename):\n        DistributedLargeBlobSender.notify.debug('setFilename: %s' % filename)\n        assert self.useDisk\n\n        import os\n        origDir = os.getcwd()\n        bPath = LargeBlobSenderConsts.getLargeBlobPath()\n        try:\n            os.chdir(bPath)\n        except OSError:\n            DistributedLargeBlobSender.notify.error(\n                'could not access %s' % bPath)\n        f = open(filename, 'rb')\n        self.blob = f.read()\n        f.close()\n        os.unlink(filename)\n        os.chdir(origDir)\n\n        self.privOnBlobComplete()\n\n    def isComplete(self):\n        \"\"\" returns non-zero if we've got the full blob \"\"\"\n        return self.complete\n\n    def setDoneEvent(self, event):\n        self.doneEvent = event\n\n    def privOnBlobComplete(self):\n        assert not self.isComplete()\n        self.complete = 1\n        # announce that we've got it?\n        if self.doneEvent is not None:\n            messenger.send(self.doneEvent, [self.blob])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_124",
+    "parent": "processed_documents/context_documents/ffdd858f_DistributedLargeBlobSender.json",
+    "chunk_number": 1845
+  }
+}

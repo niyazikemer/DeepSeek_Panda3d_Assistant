@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Python class that handles the sizing and positioning of a toggle button or similar UI component. The code calculates the required width and height of an indicator element, including its border, then adjusts the overall bounds of the component to ensure it can accommodate the indicator properly. If the current background area (as defined by `self.bounds`) is smaller than needed for the indicator, the code enlarges the bounds accordingly based on the specified placement (`left`, `below`, or `right`). This adjustment ensures that the indicator fits within its container and maintains proper alignment relative to the parent component's frame.\n\nibw = self.indicator['borderWidth']\n            indicatorWidth = (self.indicator.getWidth() + (2*ibw[0]))\n            indicatorHeight = (self.indicator.getHeight() + (2*ibw[1]))\n            diff = (indicatorHeight + (2*self['boxBorder']) -\n                    (self.bounds[3] - self.bounds[2]))\n            # If background is smaller then indicator, enlarge background\n            if diff > 0:\n                if self['boxPlacement'] == 'left':            #left\n                    self.bounds[0] += -(indicatorWidth + (2*self['boxBorder']))\n                    self.bounds[3] += diff/2\n                    self.bounds[2] -= diff/2\n                elif self['boxPlacement'] == 'below':          #below\n                    self.bounds[2] += -(indicatorHeight+(2*self['boxBorder']))\n                elif self['boxPlacement'] == 'right':          #right\n                    self.bounds[1] += indicatorWidth + (2*self['boxBorder'])\n                    self.bounds[3] += diff/2",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_83",
+    "parent": "processed_documents/context_documents/a97813f6_DirectCheckButton.json",
+    "chunk_number": 1488
+  }
+}

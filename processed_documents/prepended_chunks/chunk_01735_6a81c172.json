@@ -1,0 +1,9 @@
+{
+  "content": "Constants defining port numbers and a command string used for setting up network communication in a cluster rendering system, including configuration for daemon ports (8001) and server ports (1970), along with a startup command template for initializing server processes.\n\n#Port number for cluster rendering\n# DAEMON PORT IS PORT USED FOR STARTUP MESSAGE EXCHANGE\n# CAN BE OVERRIDEN WITH cluster-daemon-client-port for client\n# and cluster-daemon-server-port for server\nCLUSTER_DAEMON_PORT = 8001\n# THIS IS THE TCP PORT USED FOR EXCHANGE OF DATA ONCE STARTUP IS COMPLETE\nCLUSTER_SERVER_PORT = 1970\n\n# Precede command string with ! to tell server to execute command string\n# Note, this startup string obviates the need to set any cluster related\n# config variables in the client Configrc files\nSERVER_STARTUP_STRING = (\n    '!bash ppython -c ' +\n    '\"import builtins; ' +\n    'builtins.clusterMode = \\'server\\';' +\n    'builtins.clusterServerPort = %s;' +\n    'builtins.clusterSyncFlag = %d;' +\n    'builtins.clusterDaemonClient = \\'%s\\';' +\n    'builtins.clusterDaemonPort = %d;'\n    'from direct.directbase.DirectStart import *; run()\"')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1735
+  }
+}

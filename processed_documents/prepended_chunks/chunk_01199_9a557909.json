@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to a class responsible for recording and manipulating motion paths (mopaths) in a 3D graphics or animation system. The methods `setNumSamples`, `sampleCurve`, and `makeEven` are used to control how points along a curve are sampled and processed, ensuring accurate representation of motion. \n\n- `setNumSamples` sets the number of samples used when sampling the curve.\n- `sampleCurve` collects points from the defined curve using the specified number of samples and computes new curves based on these samples.\n- `makeEven` adjusts the curve to distribute points evenly, enhancing the accuracy of the motion representation.\n\nThese functions are essential for accurately defining and manipulating motion paths in the system.\n\ndef setNumSamples(self, numSamples):\n        self.numSamples = int(numSamples)\n\n    def sampleCurve(self, fCompute = 1):\n        if self.curveCollection is None:\n            print('MopathRecorder.sampleCurve: Must define curve first')\n            return\n        # Reset curve fitters\n        self.curveFitter.reset()\n        # Sample curve using specified number of samples\n        self.curveFitter.sample(self.curveCollection, self.numSamples)\n        if fCompute:\n            # Now recompute curves\n            self.computeCurves()\n        # Get point set from the curve fitter\n        self.extractPointSetFromCurveFitter()\n\n    def makeEven(self):\n        # Note: segments_per_unit = 2 seems to give a good fit\n        self.curveCollection.makeEven(self.maxT, 2)\n        # Get point set from curve\n        self.extractPointSetFromCurveCollection()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1199
+  }
+}

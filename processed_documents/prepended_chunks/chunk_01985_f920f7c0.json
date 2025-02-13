@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a method responsible for processing module dependencies during the construction of application installers. Specifically, it handles mapping module names to their respective paths and ensures that any necessary built-in modules with shared objects are included in the freezing process unless they're already specified in `freezer_extras`. This step is crucial for ensuring all required components are correctly bundled into the final installer package.\n\nbase = os.path.basename(i)\n                module, _, ext = base.partition('.')\n                whl_modules[module] = i\n\n        # Make sure to copy any builtins that have shared objects in the\n        # deploy libs, assuming they are not already in freezer_extras.\n        for mod, source_path in freezer_extras:\n            freezer_modules.discard(mod)\n\n        for mod in freezer_modules:\n            if mod in whl_modules:\n                freezer_extras.add((mod, None))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 1985
+  }
+}

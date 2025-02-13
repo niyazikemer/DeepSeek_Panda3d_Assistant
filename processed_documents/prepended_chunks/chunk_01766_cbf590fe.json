@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods within a class handling 3D scene manipulations: `handleCamMovement` updates the camera's position and orientation, while `handleSelectedMovement` adjusts the position, rotation, and scale of a selected object. These methods process data received from a client to modify the 3D environment accordingly.\n\n**Context:**  \nThe chunk defines two methods for updating camera and object positions in a 3D scene based on client input within a class managing 3D scene interactions.\n\nself.messageQueue = []\n\n    def handleCamMovement(self, dgi):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (x, y, z, h, p, r) = self.msgHandler.parseCamMovementDatagram(dgi)\n        self.cameraJig.setPosHpr(render, x, y, z, h, p, r)\n        self.fPosReceived = 1\n\n    def handleSelectedMovement(self, dgi):\n        \"\"\" Update cameraJig position to reflect latest position \"\"\"\n        (x, y, z, h, p, r, sx, sy, sz) = self.msgHandler.parseSelectedMovementDatagram(\n            dgi)\n        if getattr(builtins, 'last', None):\n            builtins.last.setPosHprScale(x, y, z, h, p, r, sx, sy, sz)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_109",
+    "parent": "processed_documents/context_documents/dcc9d8a7_ClusterServer.json",
+    "chunk_number": 1766
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `DirectFastrak` class, which initializes and manages Fastrak tracker devices in a 3D environment. It includes device initialization, position tracking setup, and update task management within the Panda3D framework.\n\nclass DirectFastrak(DirectObject):\n    fastrakCount = 0\n    notify = DirectNotifyGlobal.directNotify.newCategory('DirectFastrak')\n\n    def __init__(self, device = 'Tracker0', nodePath = None):\n        # See if device manager has been initialized\n        if base.direct.deviceManager is None:\n            base.direct.deviceManager = DirectDeviceManager()\n\n        # Set name\n        self.name = 'Fastrak-' + repr(DirectFastrak.fastrakCount)\n        self.deviceNo = DirectFastrak.fastrakCount\n        DirectFastrak.fastrakCount += 1\n\n        # Get analogs\n        self.device = device\n        self.tracker = None\n        self.trackerPos = None\n\n        # Spawn update task\n        self.updateFunc = self.fastrakUpdate\n        self.enable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_110",
+    "parent": "processed_documents/context_documents/f1774c70_DirectFastrak.json",
+    "chunk_number": 1769
+  }
+}

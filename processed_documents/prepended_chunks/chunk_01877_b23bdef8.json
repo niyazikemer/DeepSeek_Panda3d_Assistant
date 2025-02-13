@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines methods for the `ResourceTable` class in a Python module designed to manipulate Portable Executable (PE) files. The methods include:\n\n- `items()`: Returns all entries in the resource table.\n- `count_resources()`: Counts all resources, including nested resources within subtables.\n- `get_ nested_tables()`: Yields child and nested resource tables for recursive processing.\n\nThese methods are used to manage and manipulate PE file resources, enabling operations like counting resources or recursively enumerating nested tables.\n\ndef items(self):\n        return self._name_leaves + self._id_leaves\n\n    def count_resources(self):\n        \"\"\"Counts all of the resources.\"\"\"\n        count = 0\n        for key, leaf in self._name_leaves + self._id_leaves:\n            if isinstance(leaf, ResourceTable):\n                count += leaf.count_resources()\n            else:\n                count += 1\n        return count\n\n    def get_nested_tables(self):\n        \"\"\"Returns all tables in this table and subtables.\"\"\"\n        # First we yield child tables, then nested tables.  This is the\n        # order in which pack_into assumes the tables will be written.\n        for key, leaf in self._name_leaves + self._id_leaves:\n            if isinstance(leaf, ResourceTable):\n                yield leaf\n\n        for key, leaf in self._name_leaves + self._id_leaves:\n            if isinstance(leaf, ResourceTable):\n                for table in leaf.get_nested_tables():\n                    yield table",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1877
+  }
+}

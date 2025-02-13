@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines two methods within a class: `toggleBalloon()` controls the visibility of a tooltip (balloon) based on a variable, and `onDestroy()` handles cleanup by disabling state change event listeners when the ClassicFSM Panel is closed. These methods are part of a larger class managing FSM visualization and interaction in a GUI application.\n\ndef toggleBalloon(self):\n        if self.toggleBalloonVar.get():\n            self.balloon.configure(state = 'balloon')\n        else:\n            self.balloon.configure(state = 'none')\n\n    def onDestroy(self, event):\n        \"\"\" Called on ClassicFSM Panel shutdown \"\"\"\n        self.fsm.inspecting = 0\n        for si in self.stateInspectorDict.values():\n            self.ignore(self.name + '_' + si.getName() + '_entered')\n            self.ignore(self.name + '_' + si.getName() + '_exited')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1106
+  }
+}

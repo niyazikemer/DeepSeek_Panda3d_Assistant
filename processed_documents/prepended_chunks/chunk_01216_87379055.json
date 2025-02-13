@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements a method `saveCurveToFile` that enables saving Nurbs curves as `.egg` or `.bam` files within a UI system.\n\ndef saveCurveToFile(self):\n        # Use first directory in model path\n        mPath = getModelPath()\n        if mPath.getNumDirectories() > 0:\n            if repr(mPath.getDirectory(0)) == '.':\n                path = '.'\n            else:\n                path = mPath.getDirectory(0).toOsSpecific()\n        else:\n            path = '.'\n        if not os.path.isdir(path):\n            print('MopathRecorder Info: Empty Model Path!')\n            print('Using current directory')\n            path = '.'\n        mopathFilename = asksaveasfilename(\n            defaultextension = '.egg',\n            filetypes = (('Egg Files', '*.egg'),\n                         ('Bam Files', '*.bam'),\n                         ('All files', '*')),\n            initialdir = path,\n            title = 'Save Nurbs Curve as',\n            parent = self.parent)\n        if mopathFilename:\n            self.curveCollection.writeEgg(Filename(mopathFilename))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1216
+  }
+}

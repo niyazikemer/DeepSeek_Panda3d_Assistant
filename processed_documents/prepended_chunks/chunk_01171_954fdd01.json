@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of methods for color manipulation, input hook management, and application reset functionality within a 3D modeling or animation tool. These methods should be situated in the main body of the class, following initialization but before UI component creation functions like `createComboBox` and `makeCameraWindow`. This placement allows them to interact with necessary variables and widgets correctly while maintaining logical grouping for state management and core functionalities.\n\ndef setHullColor(self, color):\n        self.nurbsCurveDrawer.setHullColor(\n            color[0]/255.0, color[1]/255.0, color[2]/255.0)\n\n    def setStartStopHook(self, event = None):\n        # Clear out old hook\n        self.ignore(self.startStopHook)\n        # Record new one\n        hook = self.getVariable('Recording', 'Record Hook').get()\n        self.startStopHook = hook\n        # Add new one\n        self.accept(self.startStopHook, self.toggleRecordVar)\n\n    def setKeyframeHook(self, event = None):\n        # Clear out old hook\n        self.ignore(self.keyframeHook)\n        # Record new one\n        hook = self.getVariable('Recording', 'Keyframe Hook').get()\n        self.keyframeHook = hook\n        # Add new one\n        self.accept(self.keyframeHook, self.addKeyframe)\n\n    def reset(self):\n        self.pointSet = []\n        self.hasPoints = 0\n        self.curveCollection = None\n        self.curveFitter.reset()\n        self.nurbsCurveDrawer.hide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1171
+  }
+}

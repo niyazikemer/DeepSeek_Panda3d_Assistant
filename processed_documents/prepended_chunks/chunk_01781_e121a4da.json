@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Python module designed to interface with various Virtual Reality Peripheral Network (VRPN) devices, such as trackers, buttons, and analog sensors. The `normalizeChannel` method within the `DirectAnalog` class normalizes values from specific channels to a given range, handling invalid channel indices gracefully by returning 0.0. Additionally, methods like `getName`, `getNodePath`, and `__repr__` facilitate easy access to device information and formatted data representation, essential for applications interacting with VRPN analog devices.\n\n```plaintext\nThe chunk is part of the DirectAnalog class in a Python module that interfaces with VRPN devices. It provides normalization of analog input values, retrieval of device names and node paths, and string representation of channel data.\n```\n\ndef normalizeChannel(self, chan, minVal = -1, maxVal = 1, sf = 1.0):\n        try:\n            return self.normalize(self[chan], minVal, maxVal, sf)\n        except IndexError:\n            return 0.0\n\n    def getName(self):\n        return self.name\n\n    def getNodePath(self):\n        return self.nodePath\n\n    def __repr__(self):\n        string = self.name + ': '\n        for val in self:\n            string = string + '%.3f' % val + ' '\n        return string",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_112",
+    "parent": "processed_documents/context_documents/37437624_DirectDeviceManager.json",
+    "chunk_number": 1781
+  }
+}

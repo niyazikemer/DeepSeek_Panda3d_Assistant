@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a class that handles icons in Portable Executable (PE) files. The `unpack_From` method parses raw byte data representing icons, extracting properties like dimensions, color depth, and size, then constructs icon objects for each entry. This functionality is integral to resource management within PE files, specifically for handling graphical resources such as icons stored in the .rsrc section of an executable.\n\nContext: The `unpack_From` method is used to parse binary data into structured icon information during the extraction of icons from a PE file's resource group.\n\ndef unpack_from(self, data, offs=0):\n        type, count = unpack('<HH', data[offs+2:offs+6])\n        offs += 6\n        for i in range(count):\n            width, height, colors, planes, bpp, size, id = \\\n                self._entry.unpack(data[offs:offs+14])\n            if width == 0:\n                width = 256\n            if height == 0:\n                height = 256\n            self.icons.append(self.Icon(width, height, planes, bpp, size, id))\n            offs += 14",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1865
+  }
+}

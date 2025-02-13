@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines methods for creating datagrams related to cluster operations such as swap commands (swap now/ready) and exit signals in a distributed computing or networking context.\n\n\"\"\"\nThe following functions implement core cluster communication primitives for coordinating buffer swaps and session termination between distributed nodes:\n\n- parseCommandStringDatagram: Parses command string data from network packets\n- makeSwapNowDatagram: Creates datagram signaling immediate buffer swap request \n- makeSwapReadyDatagram: Creates datagram indicating readiness for buffer swap\n- makeExitDatagram: Creates exit signal datagram to terminate connections\n\"\"\"\n\nThese methods handle critical cluster synchronization and termination operations by constructing appropriately formatted network messages (datagrams).\n\ndef parseCommandStringDatagram(self, dgi):\n        command = dgi.getString()\n        return command\n\n    def makeSwapNowDatagram(self):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_SWAP_NOW)\n        return datagram\n\n    def makeSwapReadyDatagram(self):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_SWAP_READY)\n        return datagram\n\n    def makeExitDatagram(self):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_EXIT)\n        return datagram",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1746
+  }
+}

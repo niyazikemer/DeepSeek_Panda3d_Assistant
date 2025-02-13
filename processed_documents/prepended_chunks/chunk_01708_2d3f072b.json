@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two methods, `startSwapCoordinatorTask` and `swapCoordinator`, which are part of a class managing a swap coordination task. This task is responsible for synchronizing swap operations across multiple server connections in a distributed rendering environment, ensuring that frames are flipped consistently across all clients and servers.\n\nContext: The code is part of the `ClusterClientSync` class within a system designed for distributed rendering. It handles frame synchronization by coordinating swap operations between client processes and their connected servers to ensure consistent rendering across all nodes.\n\ndef startSwapCoordinatorTask(self):\n        taskMgr.add(self.swapCoordinator, \"clientSwapCoordinator\", 51)\n\n    def swapCoordinator(self, task):\n        self.ready = 1\n        if self.waitForSwap:\n            self.waitForSwap=0\n            self.notify.debug(\n                \"START get swaps----------------------------------\")\n            for server in self.serverList:\n                server.getSwapReady()\n            self.notify.debug(\n                \"----------------START swap now--------------------\")\n            for server in self.serverList:\n                server.sendSwapNow()\n            self.notify.debug(\n                \"------------------------------START swap----------\")\n            base.graphicsEngine.flipFrame()\n            self.notify.debug(\n                \"------------------------------------------END swap\")\n\n        #print \"syncing\"\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_105",
+    "parent": "processed_documents/context_documents/99faa2ac_ClusterClient.json",
+    "chunk_number": 1708
+  }
+}

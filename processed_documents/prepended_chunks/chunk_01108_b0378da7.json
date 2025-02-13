@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents the initialization phase where a graphical element (oval) and associated text are created to visually represent a state in a finite state machine inspector tool. The oval is drawn using a calculated radius based on the 'radius' parameter, tagged for future reference, and positioned at the origin. A centered text label displays the state's name. If the state contains child states (indicating a sub-machine), an additional smaller rectangle is added to denote this structure visually on the canvas.\n\n# Draw the oval\n        self.x = 0\n        self.y = 0\n        half = self._canvas.winfo_fpixels(self['radius'])\n        self.marker = self._canvas.create_oval((self.x - half),\n                                               (self.y - half),\n                                               (self.x + half),\n                                               (self.y + half),\n                                              fill = 'CornflowerBlue',\n                                              tags = (self.tag,'markers'))\n        self.text = self._canvas.create_text(0, 0, text = state.getName(),\n                                           justify = tk.CENTER,\n                                           tags = (self.tag,'labels'))\n        # Is this state contain a sub machine?\n        if state.hasChildren():\n            # reduce half by sqrt of 2.0\n            half = half * 0.707106\n            self.rect = self._canvas.create_rectangle((- half), (- half),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1108
+  }
+}

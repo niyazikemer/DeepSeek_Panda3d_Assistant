@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains event handler methods for a graphical user interface element, specifically managing mouse interactions (entering, clicking, dragging) and contextual menu operations. These methods allow users to visually interact with state elements in a finite state machine diagram, enabling actions such as moving states and requesting state transitions.\n\ndef mouseLeave(self, event):\n        self._canvas.itemconfig(self.marker, width = 1)\n\n    def mouseDown(self, event):\n        self._canvas.lift(self.tag)\n        self.startx, self.starty = self.center()\n        self.lastx = self._canvas.canvasx(event.x)\n        self.lasty = self._canvas.canvasy(event.y)\n\n    def mouseMotion(self, event):\n        dx = self._canvas.canvasx(event.x) - self.lastx\n        dy = self._canvas.canvasy(event.y) - self.lasty\n        newx, newy = map(operator.__add__, (self.startx, self.starty), (dx, dy))\n        self.setPos(newx, newy)\n\n    def mouseRelease(self, event):\n        self.scrolledCanvas.resizescrollregion()\n\n    def popupStateMenu(self, event):\n        self._popupMenu.post(event.widget.winfo_pointerx(),\n                             event.widget.winfo_pointery())\n\n    def transitionTo(self):\n        self.fsm.request(self.getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_64",
+    "parent": "processed_documents/context_documents/a5e824d6_FSMInspector.json",
+    "chunk_number": 1114
+  }
+}

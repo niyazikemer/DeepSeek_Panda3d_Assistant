@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a `guiScaleTask` method within the DirectGUI class, which handles dynamic scaling of the GUI element based on mouse movement during an interactive editing or resizing task. The method calculates the distance between the reference position and current mouse position in render2d coordinates to adjust the scale proportionally. This is part of the broader functionality for managing GUI element behavior, including positioning, sizing, and interaction handling.\n\ndef guiScaleTask(self, state):\n        mwn = base.mouseWatcherNode\n        if mwn.hasMouse():\n            vMouse2render2d = Point3(mwn.getMouse()[0], 0, mwn.getMouse()[1])\n            newEditVecLen = Vec3(state.refPos - vMouse2render2d).length()\n            self.setScale(state.initScale * (newEditVecLen/state.editVecLen))\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_78",
+    "parent": "processed_documents/context_documents/414a65d1_DirectGuiBase.json",
+    "chunk_number": 1415
+  }
+}

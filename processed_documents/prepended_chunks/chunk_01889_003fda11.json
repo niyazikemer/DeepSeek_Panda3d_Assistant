@@ -1,0 +1,9 @@
+{
+  "content": "The chunk fits within a larger document describing a Python class for handling Portable Executable (PE) file manipulation. The class includes methods for reading/writing PE headers, managing executable sections, tracking resource data, and manipulating the file's structure while maintaining proper offsets and RVA (Relative Virtual Address) mappings.\n\ndef get_address_section(self, addr):\n        \"\"\" Returns the section that this virtual address belongs to. \"\"\"\n\n        for section in self.sections:\n            if addr >= section.vaddr and addr < section.vaddr + section.size:\n                return section\n\n    def add_icon(self, icon, ordinal=2):\n        \"\"\" Adds an icon resource from the given Icon object.  Requires\n        calling add_resource_section() afterwards. \"\"\"\n\n        group = IconGroupResource()\n        self.resources[group.type][ordinal][1033] = group\n\n        images = sorted(icon.images.items(), key=lambda x:-x[0])\n        id = 1\n\n        # Write 8-bpp image headers for sizes under 256x256.\n        for size, image in images:\n            if size >= 256:\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_130",
+    "parent": "processed_documents/context_documents/8a037500_pefile.json",
+    "chunk_number": 1889
+  }
+}

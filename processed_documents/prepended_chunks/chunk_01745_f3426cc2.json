@@ -1,0 +1,9 @@
+{
+  "content": "This chunk consists of methods within a class that handle parsing movement data and command strings from network datagrams, specifically `parseSelectedMovementDatagram` for extracting position/scale values and `makeCommandStringDatagram`/`parseCommandStringDatagram` for sending/receiving command strings.\n\ndef parseSelectedMovementDatagram(self, dgi):\n        x=dgi.getFloat32()\n        y=dgi.getFloat32()\n        z=dgi.getFloat32()\n        h=dgi.getFloat32()\n        p=dgi.getFloat32()\n        r=dgi.getFloat32()\n        sx=dgi.getFloat32()\n        sy=dgi.getFloat32()\n        sz=dgi.getFloat32()\n        self.notify.debug('  new position=%f %f %f  %f %f %f %f %f %f' %\n                          (x, y, z, h, p, r, sx, sy, sz))\n        return (x, y, z, h, p, r, sx, sy, sz)\n\n    def makeCommandStringDatagram(self, commandString):\n        datagram = PyDatagram()\n        datagram.addUint32(self.packetNumber)\n        self.packetNumber = self.packetNumber + 1\n        datagram.addUint8(CLUSTER_COMMAND_STRING)\n        datagram.addString(commandString)\n        return datagram\n\n    def parseCommandStringDatagram(self, dgi):\n        command = dgi.getString()\n        return command",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_108",
+    "parent": "processed_documents/context_documents/44463235_ClusterMsgs.json",
+    "chunk_number": 1745
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of three methods (`stop()`, `__playTask()`, and `draw()`) from a Python class designed for managing and visualizing animated motion paths in 3D space, likely within a game or simulation framework using Panda3D. The `stop()` method halts the animation by removing tasks, while `__playTask()` handles updating node positions over time, including looping functionality. The `draw()` method creates a LineSegs visualization of the motion path.\n\ndef stop(self):\n        taskMgr.remove(self.name + '-play')\n\n    def __playTask(self, task):\n        time = ClockObject.getGlobalClock().getFrameTime()\n        dTime = time - task.lastTime\n        task.lastTime = time\n        if self.loop:\n            cTime = (task.currentTime + dTime) % self.getMaxT()\n        else:\n            cTime = task.currentTime + dTime\n        if self.loop == 0 and cTime > self.getMaxT():\n            self.stop()\n            messenger.send(self.name + '-done')\n            self.node = None\n            return task.done\n        self.goTo(self.node, cTime)\n        task.currentTime = cTime\n        return task.cont\n\n    def draw(self, subdiv = 1000):\n        \"\"\" Draws a quick and cheesy visualization of the Mopath using\n        LineSegs.  Returns the NodePath representing the drawing. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_121",
+    "parent": "processed_documents/context_documents/07d1ca48_Mopath.json",
+    "chunk_number": 1838
+  }
+}

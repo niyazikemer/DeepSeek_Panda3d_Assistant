@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an orbital camera control system implementation. It adjusts the node's Z and H (height) values, orients it using `orbitNode`, checks for proximity to the reference coordinate system (refCS), and scales the position to maintain orbital movement. This section manages the node's positional updates relative to its orbit path.\n\nself.nodePath.setZ(self.nodePath, z)\n        self.nodePath.setH(self.nodePath, h)\n        self.orbitNode(rx, ry, 0)\n        pos = self.nodePath.getPos(self.refCS)\n        if Vec3(pos).length() < 0.005:\n            pos.set(0, -0.01, 0)\n        # Now move on out\n        pos.assign(pos * (1 + r))\n        self.nodePath.setPos(self.refCS, pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_113",
+    "parent": "processed_documents/context_documents/60fa0dd8_DirectJoybox.json",
+    "chunk_number": 1814
+  }
+}

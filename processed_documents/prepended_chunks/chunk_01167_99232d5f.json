@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk implements methods for extracting point sets from curve fitters and collections in a Python class. These methods are used to process and sample data from curves to generate new point sets, which can then be utilized for animation or simulation purposes within the application.\n\ndef extractPointSetFromCurveFitter(self):\n        # Get new point set based on newly created curve\n        self.createNewPointSet()\n        for i in range(self.curveFitter.getNumSamples()):\n            time = self.curveFitter.getSampleT(i)\n            pos = Point3(self.curveFitter.getSampleXyz(i))\n            hpr = Point3(self.curveFitter.getSampleHpr(i))\n            self.pointSet.append([time, pos, hpr])\n\n    def extractPointSetFromCurveCollection(self):\n        # Use curve to compute new point set\n        # Record maxT\n        self.maxT = self.curveCollection.getMaxT()\n        # Determine num samples\n        # Limit point set to 1000 points and samples per second to 30\n        samplesPerSegment = min(30.0, 1000.0/self.curveCollection.getMaxT())\n        self.setNumSamples(self.maxT * samplesPerSegment)\n        # Sample the curve but don't create a new curve collection\n        self.sampleCurve(fCompute = 0)\n        # Update widgets based on new data\n        self.updateWidgets()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_65",
+    "parent": "processed_documents/context_documents/78026bc9_MopathRecorder.json",
+    "chunk_number": 1167
+  }
+}
