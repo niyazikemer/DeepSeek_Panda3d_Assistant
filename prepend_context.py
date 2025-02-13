@@ -75,7 +75,7 @@ class DocumentIndexer:
             # Use existing chunk number from metadata
             content_hash = hashlib.md5(chunk.page_content.encode()).hexdigest()[:8]
             chunk_num = chunk.metadata['chunk_number']
-            file_name = f"{content_hash}_chunk_{chunk_num}.json"
+            file_name = f"chunk_{chunk_num:05d}_{content_hash}.json"
             save_path = os.path.join(self.output_dir, file_name)
             
             with open(save_path, 'w') as f:
@@ -124,9 +124,16 @@ indexer = DocumentIndexer(
     chunk_size=1000,
     chunk_overlap=200
 )
-raw_chunks = indexer.load_json_docs('processed_documents/chunks')
-context_documents = indexer.load_json_docs('processed_documents/context_documents')
-# #print(raw_chunks[0])
+# raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_0')
 
-chunks_dir = indexer.process_and_save_chunks(raw_chunks, context_documents)
-indexer.create_index()
+context_documents = indexer.load_json_docs('processed_documents/context_documents')
+# # #print(raw_chunks[0])
+# indexer.process_and_save_chunks(raw_chunks, context_documents)
+#chunks_dir = indexer.process_and_save_chunks(raw_chunks, context_documents)
+#indexer.create_index()
+raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_1')
+indexer.process_and_save_chunks(raw_chunks, context_documents)
+# raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_2')
+# indexer.process_and_save_chunks(raw_chunks, context_documents)
+# raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_3')
+# indexer.process_and_save_chunks(raw_chunks, context_documents)
