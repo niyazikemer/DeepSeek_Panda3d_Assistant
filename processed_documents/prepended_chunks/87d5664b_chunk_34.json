@@ -1,0 +1,9 @@
+{
+  "content": "The `calcRadius` function computes the perturbed distance from the center of a trunk for a given 3-D point (x, y, z) by applying Perlin noise to create organic-looking woodgrain patterns. This function is used within the overall process of generating a 3-D texture that simulates wood grain running along the Z-axis direction.\n\ndef calcRadius(xn, yn, x, y, z, noiseAmp):\n    \"\"\" Calculates radius, the distance from the center of the trunk,\n    for the 3-d point (x, y, z).  The point is perturbed with noise to\n    make the woodgrain seem more organic. \"\"\"\n\n    xp = x + xn.noise(x, y, z) * noiseAmp\n    yp = y + yn.noise(x, y, z) * noiseAmp\n\n    return math.sqrt(xp * xp + yp * yp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_3",
+    "parent": "processed_documents/context_documents/d207d691_675b1c1c_woodgrain-example.json",
+    "chunk_number": 34
+  }
+}

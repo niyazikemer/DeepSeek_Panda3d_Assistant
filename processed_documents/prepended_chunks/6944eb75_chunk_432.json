@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a wxPython-based editor application, specifically configuring menu options under the \"Options\" menu to control grid visibility, size adjustment, and snap-to-grid functionality.\n\nmenuItem = self.menuEdit.Append(ID_UNDO, self.MENU_TEXTS[ID_UNDO][0])\n        self.Bind(wx.EVT_MENU, self.editor.actionMgr.undo, menuItem)\n\n        menuItem = self.menuEdit.Append(ID_REDO, self.MENU_TEXTS[ID_REDO][0])\n        self.Bind(wx.EVT_MENU, self.editor.actionMgr.redo, menuItem)\n\n        self.menuOptions = wx.Menu()\n        self.menuBar.Insert(2, self.menuOptions, \"&Options\")\n\n        self.showGridMenuItem = self.menuOptions.Append(ID_SHOW_GRID, self.MENU_TEXTS[ID_SHOW_GRID][0], kind = wx.ITEM_CHECK)\n        self.Bind(wx.EVT_MENU, self.toggleGrid, self.showGridMenuItem)\n\n        self.gridSizeMenuItem = self.menuOptions.Append(ID_GRID_SIZE, self.MENU_TEXTS[ID_GRID_SIZE][0])\n        self.Bind(wx.EVT_MENU, self.onGridSize, self.gridSizeMenuItem)\n\n        self.gridSnapMenuItem = self.menuOptions.Append(ID_GRID_SNAP, self.MENU_TEXTS[ID_GRID_SNAP][0], kind = wx.ITEM_CHECK)\n        self.Bind(wx.EVT_MENU, self.toggleGridSnap, self.gridSnapMenuItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 432
+  }
+}

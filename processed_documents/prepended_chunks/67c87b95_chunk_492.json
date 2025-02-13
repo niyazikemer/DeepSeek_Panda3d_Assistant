@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an Object Manager (OG) system responsible for handling 3D objects such as actors, nodes, and curves. Specifically, it's within a method that adds a new curve to the scene. The code interacts with a curve editor, setting its degree and updating the current rope representation. It creates a new curve object in the scene, updates its properties, manages control points by reparenting them under the new curve object, hides these control points, and cleans up temporary variables. This functionality is crucial for curve manipulation within a 3D scene editor, ensuring that curves are properly integrated into the scene hierarchy and UI elements are updated accordingly.\n\nself.editor.curveEditor.degree = degree\n        self.editor.curveEditor.ropeUpdate(curve)\n        #add new curve to the scene\n        curveObjNP = self.addNewCurve(curveControl, degree, uid, parent, fSelectObject, nodePath=self.editor.curveEditor.currentRope)\n        curveObj = self.findObjectByNodePath(curveObjNP)\n        self.editor.objectMgr.updateObjectPropValue(curveObj, 'Degree', degree, fSelectObject=False, fUndo=False)\n\n        for item in curveControl:\n            item[1].reparentTo(curveObjNP)\n            item[1].hide()\n\n        curveControl = []\n        curve = []\n        self.editor.curveEditor.currentRope = None\n\n        return curveObjNP\n\n    def addNewCurve(self, curveInfo, degree, uid=None, parent=None, fSelectObject=True, nodePath=None):\n        \"\"\" function to add new curve to the scene\"\"\"\n        if parent is None:\n            parent = self.editor.NPParent\n\n        if uid is None:\n            uid = self.genUniqueId()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 492
+  }
+}

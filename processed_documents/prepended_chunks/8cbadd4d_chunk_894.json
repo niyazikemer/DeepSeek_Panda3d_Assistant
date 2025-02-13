@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a method in a Python class responsible for creating graphical user interface (GUI) elements for editing various types of forces in a 3D environment. Specifically, this section creates input fields and widgets to adjust parameters like coefficient, length, and radius for a **linear cylinder vortex force** effect, allowing users to modify these properties interactively.\n\ndef setRadius(radius, f = force):\n            f.setRadius(radius)\n        frame = self.createForceFrame(forcePage, forceName, force)\n        self.createLinearForceWidgets(frame, pageName, forceName, force)\n        self.createFloater(frame, pageName, forceName + ' Coef',\n                           'Set linear cylinder vortex coefficient',\n                           command = setCoef,\n                           value = force.getCoef())\n        self.createFloater(frame, pageName, forceName + ' Length',\n                           'Set linear cylinder vortex length',\n                           command = setLength,\n                           value = force.getLength())\n        self.createFloater(frame, pageName, forceName + ' Radius',\n                           'Set linear cylinder vortex radius',\n                           command = setRadius,\n                           value = force.getRadius())\n        self.createForceActiveWidget(frame, pageName, forceName, force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 894
+  }
+}

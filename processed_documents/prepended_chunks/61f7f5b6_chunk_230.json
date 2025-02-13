@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `WxAppShell` class, which serves as a base GUI application framework using wxPython. The class initializes core application settings such as version, name, copyright information, frame dimensions, and default padding. The constructor (`__init__`) sets up these parameters, creates the main window/frame, and initializes the application interface before displaying it.\n\nclass WxAppShell(wx.Frame):\n    appversion      = '1.0'\n    appname         = 'Generic Application Frame'\n    copyright       = ('Copyright 2008 Walt Disney Internet Group.' +\n                       '\\nAll Rights Reserved.')\n    contactname     = 'Gyedo Jeon'\n    contactemail    = 'Gyedo.Jeon@disney.com'\n\n    frameWidth      = 450\n    frameHeight     = 320\n    padx            = 5\n    pady            = 5\n    usecommandarea  = 0\n    usestatusarea   = 0\n    balloonState    = 'none'\n    panelCount      = 0\n\n    def __init__(self, *args, **kw):\n        # Initialize the base class\n        if not kw.get(''):\n            kw['title'] = self.appname\n        if not kw.get('size'):\n            kw['size'] = wx.Size(self.frameWidth, self.frameHeight)\n        wx.Frame.__init__(self, None, -1, *args, **kw)\n\n        self._logWin = None\n        # Initialize the application\n        self.appInit()\n        self.__createInterface()\n        self.Show()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_18",
+    "parent": "processed_documents/context_documents/abbd053b_WxAppShell.json",
+    "chunk_number": 230
+  }
+}

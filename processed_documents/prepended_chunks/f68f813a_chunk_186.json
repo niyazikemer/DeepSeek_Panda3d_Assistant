@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `initializeDirectInteraction` method within the `Viewer` class. It configures mouse event handling when the direct interaction mode is enabled, ensuring that mouse events are correctly managed across different viewport types (perspective, front, left, top) by modifying their names with specific prefixes. This setup is crucial for enabling proper user interaction in a multi-view environment.\n\n# initializing direct\n        if self.fStartDirect:\n            base.startDirect(fWantTk = 0, fWantWx = 0)\n            direct = ShowBaseGlobal.direct\n\n            direct.disableMouseEvents()\n            newMouseEvents = [\"_le_per_%s\"%x for x in direct.mouseEvents] +\\\n                             [\"_le_fro_%s\"%x for x in direct.mouseEvents] +\\\n                             [\"_le_lef_%s\"%x for x in direct.mouseEvents] +\\\n                             [\"_le_top_%s\"%x for x in direct.mouseEvents]\n            direct.mouseEvents = newMouseEvents\n            direct.enableMouseEvents()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 186
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk sits within a method responsible for updating grid information in a 3D application. The method retrieves and sets various attributes such as specular colors and attenuation values based on different types of lights (e.g., PointLight, Spotlight). This specific section handles theSpotlight type by setting its specular color components and attenuation coefficients.\n\nself.pSpecularColor.set([specularColor[0],\n                                         specularColor[1],\n                                         specularColor[2],\n                                         specularColor[3]], 0)\n                att = l.getAttenuation()\n                self.pConstantAttenuation.set(att[0], 0)\n                self.pLinearAttenuation.set(att[1], 0)\n                self.pQuadraticAttenuation.set(att[2], 0)\n            elif isinstance(l, Spotlight):\n                specularColor = l.getSpecularColor() * 255.0\n                self.sSpecularColor.set([specularColor[0],\n                                         specularColor[1],\n                                         specularColor[2],\n                                         specularColor[3]], 0)\n                att = l.getAttenuation()\n                self.pConstantAttenuation.set(att[0], 0)\n                self.pLinearAttenuation.set(att[1], 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 972
+  }
+}

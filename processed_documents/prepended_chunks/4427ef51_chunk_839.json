@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines methods for configuring various rendering properties of a particle effect, such as transparency, colors, line thickness scaling, and specifying geometry nodes to use for particles.\n\ndef setRendererUserAlpha(self, alpha):\n        self.particles.renderer.setUserAlpha(alpha)\n\n    # Line #\n    def setRendererLineHeadColor(self, color):\n        self.particles.renderer.setHeadColor(\n            Vec4(color[0]/255.0, color[1]/255.0,\n                 color[2]/255.0, color[3]/255.0))\n\n    def setRendererLineTailColor(self, color):\n        self.particles.renderer.setTailColor(\n            Vec4(color[0]/255.0, color[1]/255.0,\n                 color[2]/255.0, color[3]/255.0))\n\n    def setRendererLineScaleFactor(self, sf):\n        self.particles.renderer.setLineScaleFactor(sf)\n    # Geom #\n\n    def setRendererGeomNode(self, event):\n        node = None\n        nodePath = base.loader.loadModel(self.rendererGeomNode.get())\n        if nodePath is not None:\n            node = nodePath.node()\n        if node is not None:\n            self.particles.geomReference = self.rendererGeomNode.get()\n            self.particles.renderer.setGeomNode(node)\n    # Point #",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 839
+  }
+}

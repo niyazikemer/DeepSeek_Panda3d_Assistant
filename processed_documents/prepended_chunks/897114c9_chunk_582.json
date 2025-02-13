@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `HideObj` method in the `LayerEditorUI` class. This method manages the visibility of objects associated with a specific layer by either hiding or showing them based on the boolean parameter `hide`. It retrieves the object IDs from the selected layer, updates their visibility using Panda3D's node path methods, and adjusts the font weight in the UI list to reflect the current hide/show state.\n\nkey = self.llist.GetItemData(index)\n        layerData = self.layersDataDict[key]\n        if len(layerData) == 0:\n            return\n        for i in range(len(layerData)):\n            obj = self.editor.objectMgr.findObjectById(layerData[i])\n            if hide:\n                obj[OG.OBJ_NP].hide()\n            else:\n                obj[OG.OBJ_NP].show()\n\n        font = wx.Font\n        font = self.llist.GetItemFont(index)\n        if hide:\n            font.SetWeight(wx.FONTWEIGHT_BOLD)\n        else:\n            font.SetWeight(wx.FONTWEIGHT_NORMAL)\n        self.llist.SetItemFont(index, font)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 582
+  }
+}

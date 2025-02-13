@@ -1,0 +1,9 @@
+{
+  "content": "The `onCreateCurve` method is situated within a class responsible for managing user interactions related to creating and editing curves. This includes handling menu events and ensuring that curve creation can only occur in specific viewports after exiting other modes such as edit mode.\n\ndef onCreateCurve(self, e):\n        \"\"\"Function to invoke curve creating, need to check previous mode\"\"\"\n        if self.editor.mode == self.editor.CREATE_CURVE_MODE:\n            self.createCurveMenuItem.Check(False)\n            self.editor.curveEditor.onBaseMode()\n        else:\n            if self.editor.mode == self.editor.EDIT_CURVE_MODE:\n                self.editor.curveEditor.onBaseMode()\n                self.editCurveMenuItem.Check(False)\n                self.createCurveMenuItem.Check(True)\n                self.onCreateCurve(None)\n            else:\n                self.currentView = self.getCurrentView()\n                if self.currentView is None:\n                    dlg = wx.MessageDialog(None, 'Please select a viewport first.Do not support curve creation under four viewports.', 'NOTICE', wx.OK)\n                    dlg.ShowModal()\n                    dlg.Destroy()\n                    self.createCurveMenuItem.Check(False)\n                else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 437
+  }
+}

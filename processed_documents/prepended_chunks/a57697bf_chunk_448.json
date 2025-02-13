@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements a `onKeyEvent` method in a Python class, processing keyboard input for an editor or similar application. The method translates key presses into specific commands or inputs based on the key pressed and any modifiers (like shift or control) that are active. This is part of a larger wxPython-based application likely involving text editing, curve manipulation, or 3D modeling given the surrounding code context.\n\ndef onKeyEvent(self, evt):\n        input = ''\n        if evt.GetKeyCode() in range(97, 123): # for keys from a to z\n            if evt.GetModifiers() == 4: # when shift is pressed while caps lock is on\n                input = 'shift-%s'%chr(evt.GetKeyCode())\n            else:\n                input = chr(evt.GetKeyCode())\n        elif evt.GetKeyCode() in range(65, 91):\n            if evt.GetModifiers() == 4: # when shift is pressed\n                input = 'shift-%s'%chr(evt.GetKeyCode() + 32)\n            else:\n                input = chr(evt.GetKeyCode() + 32)\n        elif evt.GetKeyCode() in range(1, 27): # for keys from a to z with control\n            input = 'control-%s'%chr(evt.GetKeyCode()+96)\n        elif evt.GetKeyCode() == wx.WXK_DELETE:\n            input = 'delete'\n        elif evt.GetKeyCode() == wx.WXK_ESCAPE:\n            input = 'escape'\n        else:\n            if evt.GetModifiers() == 4:\n                input = 'shift-%s'%chr(evt.GetKeyCode())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 448
+  }
+}

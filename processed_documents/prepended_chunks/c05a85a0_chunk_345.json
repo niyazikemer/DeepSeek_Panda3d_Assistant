@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a larger function responsible for creating property editing interfaces within an object editor application. It specifically handles two types of property inputs: dynamic dropdown menus (combos) where options depend on another property's value or the object's model, and time-based properties that allow users to input time values. The dynamic combo section ensures valid data by converting values to strings if necessary and defaults to the first option if the current value is invalid. The time-based property creates a specialized UI element for handling time inputs.\n\nif value is None:\n                    continue\n\n                if propDataType != OG.PROP_STR:\n                    for i in range(len(propRange)):\n                        propRange[i] = str(propRange[i])\n\n                    value = str(value)\n\n                if value not in propRange:\n                    value = propRange[0]\n                    self.editor.objectMgr.updateObjectPropValue(obj, key, value, fUndo=False)\n\n                propUI = ObjectPropUICombo(self.propsPane, key, value, propRange)\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_TIME:\n\n                if value is None:\n                    continue\n\n                propUI = ObjectPropUITime(self.propsPane, key, value)\n                sizer.Add(propUI)\n\n            else:\n                # unspported property type\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 345
+  }
+}

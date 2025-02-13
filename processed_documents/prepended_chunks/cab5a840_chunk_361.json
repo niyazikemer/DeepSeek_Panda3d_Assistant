@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines recursive functions for populating a tree view representation of a scene graph, specifically adding child nodes under a parent node in the UI. The code traverses and adds children recursively for each Panda3D NodePath object to maintain synchronization between the in-memory scene hierarchy and its visual representation in the UI.\n\n# recursing...\n            self.traversePandaObjects(newItem, child)\n            i = i + 1\n\n    def addPandaObjectChildren(self, parent):\n        # first, find Panda Object's NodePath of the item\n        itemId = self.tree.GetItemData(parent)\n        if itemId == \"render\":\n            return\n        obj = self.editor.objectMgr.findObjectById(itemId)\n        if obj is None:\n            return\n\n        objNodePath = obj[OG.OBJ_NP]\n        self.traversePandaObjects(parent, objNodePath)\n\n        item, cookie = self.tree.GetFirstChild(parent)\n        while item:\n            # recursing...\n            self.addPandaObjectChildren(item)\n            item, cookie = self.tree.GetNextChild(parent, cookie)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 361
+  }
+}

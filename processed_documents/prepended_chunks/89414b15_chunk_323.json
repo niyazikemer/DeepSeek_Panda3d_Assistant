@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two UI components within an object editor's property editing system: `ObjectPropUISpinner` for handling integer value properties with specified min/max constraints, and `ObjectPropUICheck` for managing boolean checkbox properties. These classes extend a base `ObjectPropUI` class to provide specific input controls tailored to different property types.\n\nclass ObjectPropUISpinner(ObjectPropUI):\n    \"\"\" UI for int value properties \"\"\"\n\n    def __init__(self, parent, label, value, minValue, maxValue):\n        ObjectPropUI.__init__(self, parent, label)\n        self.ui = wx.SpinCtrl(self.uiPane, -1, \"\", min=minValue, max=maxValue, initial=value)\n        self.eventType = wx.EVT_SPIN\n        self.Layout()\n\n\nclass ObjectPropUICheck(ObjectPropUI):\n    def __init__(self, parent, label, value):\n        ObjectPropUI.__init__(self, parent, label)\n        self.ui = wx.CheckBox(self.uiPane, -1, \"\", size=(50, 30))\n        self.setValue(value)\n        self.eventType = wx.EVT_CHECKBOX\n        self.Layout()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 323
+  }
+}

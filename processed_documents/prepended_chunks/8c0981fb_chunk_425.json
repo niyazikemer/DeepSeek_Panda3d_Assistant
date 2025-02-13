@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within a method that handles object placement in a 3D viewport. It performs collision detection using `iRay` to determine where the user has clicked or selected a position. If a valid hit point (`hitPt`) is found, it creates a temporary nodePath to accurately place and orient the new object relative to this point. Grid snapping is applied if enabled, ensuring precise placement, followed by adjusting the object's rotation and scale based on an existing `newobj`.\n\nif hitPt is None:\n            iRay.collideWithBitMask(BitMask32.bit(21))\n            iRay.ct.traverse(self.view.collPlane)\n            if iRay.getNumEntries() > 0:\n                entry = iRay.getEntry(0)\n                hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n\n        if hitPt:\n            # create a temp nodePath to get the position\n            np = NodePath('temp')\n            np.setPos(self.view.camera, hitPt)\n\n            if ShowBaseGlobal.direct.manipulationControl.fGridSnap:\n                snappedPos = self.view.grid.computeSnapPoint(np.getPos())\n                np.setPos(snappedPos)\n\n            # update temp nodePath's HPR and scale with newobj's\n            np.setHpr(newobj.getHpr())\n            np.setScale(newobj.getScale())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 425
+  }
+}

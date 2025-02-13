@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the initialization process of the `NotifyPanel` class, which creates a GUI control panel for managing notify categories and their severity levels in both DIRECT and PANDA systems. The specific code snippet sets up the severity controls within the severity frame by adding a label and initializing radio buttons for different severity levels (Fatal and Error), allowing users to interactively adjust the severity of selected notify categories.\n\n# Severity frame\n        Label(severityFrame, text = 'Severity:',\n              font=('MSSansSerif', 10, 'bold'),\n              justify = RIGHT, anchor = W).pack(fill = X, padx = 5)\n        self.severity = IntVar()\n        self.severity.set(0)\n        self.fatalSeverity = Radiobutton(severityFrame, text = 'Fatal',\n                                         justify = LEFT, anchor = W,\n                                         value = NSFatal,\n                                         variable = self.severity,\n                                         command = self.setActiveSeverity)\n        self.fatalSeverity.pack(fill = X)\n        self.errorSeverity = Radiobutton(severityFrame, text = 'Error',\n                                         justify = LEFT, anchor = W,\n                                         value = NSError,\n                                         variable = self.severity,\n                                         command = self.setActiveSeverity)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_58",
+    "parent": "processed_documents/context_documents/29bb8898_NotifyPanel.json",
+    "chunk_number": 913
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk implements a method to draw cubic B\u00e9zier curves and keyframe points on a canvas. The first part calculates and draws the curve using control points, while the second part renders the keyframes as circles for visualization in an animation graph editor.\n\npreX = x1\n                preY = y1\n                t = 0.001\n\n                while t <= 1.0:\n                    x = ax * t*t*t + bx * t*t + cx * t + dx\n                    y = ay * t*t*t + by * t*t + cy * t + dy\n\n                    curX = x\n                    curY = y\n\n                    dc.DrawLine(preX, preY, curX, curY)\n\n                    preX = curX\n                    preY = curY\n\n                    t += 0.001\n\n    def drawKeys(self, list, dc):\n        for i in range(len(list)):\n            pointX = list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0]\n            pointY = list[i][AG.KEYFRAME][AG.LOCAL_VALUE][1]\n\n            if list[i][AG.KEYFRAME][AG.SELECT] == 0:\n                dc.SetPen(wx.Pen(\"black\", 3))\n                dc.SetBrush(wx.Brush(\"black\"))\n                dc.DrawCircle(pointX, pointY, 2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 261
+  }
+}

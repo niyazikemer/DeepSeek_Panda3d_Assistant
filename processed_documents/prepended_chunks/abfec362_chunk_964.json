@@ -1,0 +1,9 @@
+{
+  "content": "The `selectLightNamed` method in the LightManager class allows users to select or create lights by name. It updates the interface to show controls relevant to the selected light type (Ambient, Directional, Point, or Spotlight). This method is situated within a section managing light operations and user interface interactions for selecting different light types.\n\n# Lights #\n    def selectLightNamed(self, name):\n        # See if light exists\n        self.activeLight = ShowBaseGlobal.direct.lights[name]\n        # If not...create new one\n        if self.activeLight is None:\n            self.activeLight = ShowBaseGlobal.direct.lights.create(name)\n        # Do we have a valid light at this point?\n        if self.activeLight:\n            light = self.activeLight.getLight()\n            if isinstance(light, AmbientLight):\n                self.lightNotebook.selectpage('Ambient')\n            elif isinstance(light, DirectionalLight):\n                self.lightNotebook.selectpage('Directional')\n            elif isinstance(light, PointLight):\n                self.lightNotebook.selectpage('Point')\n            elif isinstance(light, Spotlight):\n                self.lightNotebook.selectpage('Spot')\n        else:\n            # Restore valid data\n            listbox = self.lightMenu.component('scrolledlist')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 964
+  }
+}

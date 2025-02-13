@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a function responsible for calculating the \"inslope\" and \"outslope\" values for each element in an animation graph (AG) list. The inslope and outslope define the rate of change (slope) between consecutive frames for smooth value transitions, ensuring continuous and natural animations when interpolating between keyframes.\n\nif listLen >= 3:\n            list[0][AG.INSLOPE] = [float(list[1][AG.FRAME] - list[0][AG.FRAME]),(float(list[1][AG.VALUE]) - float(list[0][AG.VALUE]))]\n            list[0][AG.OUTSLOPE] = list[0][AG.INSLOPE]\n            for i in range(1, listLen-1):\n                list[i][AG.INSLOPE] = [float(list[i+1][AG.FRAME] - list[i-1][AG.FRAME]),(float(list[i+1][AG.VALUE]) - float(list[i-1][AG.VALUE]))]\n                list[i][AG.OUTSLOPE] = list[i][AG.INSLOPE]\n            list[listLen-1][AG.INSLOPE] = [float(list[listLen-1][AG.FRAME] - list[listLen-2][AG.FRAME]),(float(list[listLen-1][AG.VALUE]) - float(list[listLen-2][AG.VALUE]))]\n            list[listLen-1][AG.OUTSLOPE] = list[listLen-1][AG.INSLOPE]\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 379
+  }
+}

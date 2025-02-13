@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the `__init__` method of the `WxPandaWindow` class. This method initializes the window by ensuring an OpenGL pipe is available, opens the graphics window using Panda3D's `base.openWindow`, sets up event handling for resizing, painting, and idling, and configures input devices if they exist. This setup ensures proper integration between wxPython and Panda3D, enabling rendering and user interaction within a graphical interface.\n\nif pipe.getInterfaceName() != 'OpenGL':\n                raise Exception(\"Couldn't get an OpenGL pipe.\")\n\n            self.win = base.openWindow(callbackWindowDict = callbackWindowDict, pipe = pipe, gsg = gsg, type = 'onscreen')\n            self.hasCapture = False\n            self.inputDevice = None\n            if hasattr(self.win, 'getInputDevice'):\n                self.inputDevice = self.win.getInputDevice(0)\n\n            self.Bind(wx.EVT_SIZE, self.onSize)\n            self.Bind(wx.EVT_PAINT, self.onPaint)\n            self.Bind(wx.EVT_IDLE, self.onIdle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 208
+  }
+}

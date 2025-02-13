@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of an event handler in the animation editor's graph dialog that adjusts keyframe tangents and slopes based on specific conditions. It modifies the out-slope and tangent points when certain criteria are met, ensuring smooth transitions between keyframes.\n\n**Context:**\nThe code chunk handles adjusting out-slopes and tangents for keyframes within the animation editor's graph dialog. It checks if the current handler's condition is met and updates the relevant keyframe data to ensure proper interpolation in the animation.\n\nhandler = self.generateHandler(self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]])\n                    if handler[2][0][0] <= list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0]:\n                        self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.OUTSLOPE][0] = temp0\n                        self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.OUTSLOPE][1] = temp1\n                        return\n                    if handler[2][0][0] > list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0]:\n                        if self._OneTangent is False:\n                            list[i][AG.OUT_TANGENT][0] = handler[2][0]\n                            list[i][AG.OUT_SLOPE][0] = handler[4][0]\n                            list[i][AG.OUT_SLOPE][1] = handler[4][1]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 282
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method in a Python class responsible for creating or modifying a graphical user interface (GUI) for adjusting physical force parameters in a 3D simulation or game engine. The code specifically handles the creation of UI elements to control vector masks, amplitude, and mass-dependent properties of forces, using Tkinter frames and widgets. The context involves setting up interactive controls that allow users to modify how forces are applied in terms of direction (X, Y, Z axes), magnitude, and dependency on object mass.\n\ndef setVectorMasks(s=self, f=force, p=pageName, n=forceName):\n            xMask = s.getVariable(p, n+' Mask X').get()\n            yMask = s.getVariable(p, n+' Mask Y').get()\n            zMask = s.getVariable(p, n+' Mask Z').get()\n            f.setVectorMasks(xMask, yMask, zMask)\n        self.createFloater(frame, pageName, forceName + ' Amplitude',\n                           'Force amplitude multiplier',\n                           command = setAmplitude,\n                           value = force.getAmplitude())\n        cbf = tk.Frame(frame, relief = tk.FLAT)\n        self.createCheckbutton(cbf, pageName, forceName + ' Mass Dependent',\n                               ('On: force depends on mass; ' +\n                                'Off: force does not depend on mass'),\n                               toggleMassDependent,\n                               force.getMassDependent())\n        self.createCheckbutton(cbf, pageName, forceName + ' Mask X',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 887
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "```python\n\"\"\"\nThis chunk contains methods related to managing animations in an object editor. `removeAnimInfo` handles the removal of animation data associated with a specific UID by deleting relevant keyframe information and regenerating keyframes. `singleCurveAnimation` processes curve-based animations, computing heading-pitch-roll (HPR) values for smooth object movement along a defined path.\n\"\"\"\n```\n\ndef removeAnimInfo(self, uid):\n        for property in list(self.keyFramesInfo.keys()):\n            if property[AG.UID] == uid:\n                del self.keyFramesInfo[property]\n        self.generateKeyFrames()\n        if self.editor.mode == self.editor.ANIM_MODE:\n            self.editor.ui.animUI.OnPropKey()\n\n    def singleCurveAnimation(self, nodePath, curve, time):\n        rope = curve[OG.OBJ_NP]\n        self.points = rope.getPoints(time)\n        self.hprs = []\n        temp = render.attachNewNode(\"temp\")\n        temp.setHpr(0,0,0)\n        for i in range(len(self.points)-1):\n            temp.setPos(self.points[i])\n            temp.lookAt(self.points[i+1])\n            hpr = temp.getHpr()\n            ## self.hprs.append(hpr)\n            self.hprs.append(VBase3(hpr[0]+180,hpr[1],hpr[2]))\n        self.hprs.append(self.hprs[len(self.points)-2])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 380
+  }
+}

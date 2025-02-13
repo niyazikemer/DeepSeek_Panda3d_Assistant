@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `loadFromFile` method in the `LevelLoaderBase` class, which is designed to load Python modules containing level editor data for a game. The method dynamically imports these modules using the `imp` module, handling cases where file paths or names need adjustment (e.g., removing `.py` extensions). It returns True on successful loading or None if it fails. This functionality supports modular and dynamic loading of level configurations in games.\n\ndef loadFromFile(self, fileName, filePath=None):\n        if filePath is None:\n            filePath = self.defaultPath\n\n        if fileName.endswith('.py'):\n            fileName = fileName[:-3]\n        file, pathname, description = imp.find_module(fileName, [filePath])\n        try:\n            module = imp.load_module(fileName, file, pathname, description)\n            return True\n        except Exception:\n            print('failed to load %s'%fileName)\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_48",
+    "parent": "processed_documents/context_documents/779aa814_LevelLoaderBase.json",
+    "chunk_number": 627
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `__init__` method of the `NotifyPanel` class, which initializes a graphical user interface (GUI) to manage notification categories and severities. The section creates a top-level window with frames for displaying notification categories from both Panda3D's notify system and any provided `directNotify` instance, enabling users to interactively adjust severity levels.\n\nif tl is None:\n            tl = Toplevel()\n            tl.title('Notify Controls')\n            tl.geometry('300x400')\n        # Init active category\n        self.activeCategory = None\n        # Create widgets\n        mainFrame = Frame(tl)\n        # Paned widget for dividing two halves\n        framePane = Pmw.PanedWidget(mainFrame,\n                                    orient = HORIZONTAL)\n        categoryFrame = framePane.add('categories', size = 200)\n        severityFrame = framePane.add('severities', size = 50)\n        # Category frame\n        # Assemble PANDA categories\n        categories = self.getPandaCategoriesAsList()\n        self.__categories = {}\n        categoryNames = []\n        for category in categories:\n            name = category.getBasename()\n            self.__categories[name] = category\n            categoryNames.append(name)\n        # Assemble DIRECT categories\n        for name in directNotify.getCategories():",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_58",
+    "parent": "processed_documents/context_documents/29bb8898_NotifyPanel.json",
+    "chunk_number": 911
+  }
+}

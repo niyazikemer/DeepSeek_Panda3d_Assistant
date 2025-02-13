@@ -1,0 +1,9 @@
+{
+  "content": "The `createCurveKeyFrameAnimation` method in the provided Python class generates keyframe animations using curve-based interpolation. It iterates over scene nodes and their properties (e.g., X, Y, Z coordinates), setting up lerps to create smooth transitions between animation points for each property, enabling curve-driven animation control.\n\ndef createCurveKeyFrameAnimation(self, parallel, startFrame, endFrame):\n        #generate key frame animation for the property which is controled by animation curve\n        self.editor.objectMgr.findNodes(render)\n        for node in self.editor.objectMgr.Nodes:\n            for property in list(self.keyFramesInfo.keys()):\n                if property[AG.UID] == node[OG.OBJ_UID]:\n                    if property[AG.PROP_NAME] == 'X' or property[AG.PROP_NAME] == 'Y' or property[AG.PROP_NAME] == 'Z':\n                        mysequence = Sequence(name = node[OG.OBJ_UID])\n                        keyFramesInfo = self.keyFramesInfo[property]\n                        if len(keyFramesInfo) == 1:\n                            myLerp = LerpFunc(self.curveLerpFuncs[property[AG.PROP_NAME]][0],fromData=float(keyFramesInfo[0][AG.VALUE]),toData=float(keyFramesInfo[0][AG.VALUE]),duration = float(endFrame-startFrame)/float(24),blendType = 'noBlend',extraArgs = [node[OG.OBJ_NP]])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 386
+  }
+}

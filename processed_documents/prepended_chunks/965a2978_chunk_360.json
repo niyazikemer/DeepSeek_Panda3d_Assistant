@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within the `SceneGraphUI` class, specifically in a method responsible for updating or refreshing the tree view. The first loop deletes existing items from the tree to clear the current display, while the `traversePandaObjects` method recursively builds the tree by iterating through Panda3D node paths and adding corresponding tree nodes. This functionality is crucial for maintaining an accurate visual representation of the scene graph within the UI, ensuring that changes in the underlying node structure are reflected in the user interface.\n\nContext: The code chunk is part of a method (likely `onSceneGraphUpdate`) that updates the scene graph view by first clearing existing items and then rebuilding the tree from Panda3D node paths.\n\nfor item in itemList:\n            self.tree.Delete(item)\n\n    def traversePandaObjects(self, parent, objNodePath):\n        itemId = self.tree.GetItemData(parent)\n        i = 0\n        for child in objNodePath.getChildren():\n            if child.hasTag('OBJRoot'):\n                # since they are already shown in scene graph tree\n                continue\n            namestr = \"%s.%s\"%(child.node().getType(), child.node().getName())\n            newItem = self.tree.PrependItem(parent, namestr)\n            newItemId = \"%s.%s\"%(itemId, i)\n            self.tree.SetItemPyData(newItem, newItemId)\n\n            # recursing...\n            self.traversePandaObjects(newItem, child)\n            i = i + 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 360
+  }
+}

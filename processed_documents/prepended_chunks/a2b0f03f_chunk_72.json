@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a custom docstring processor within an application setup. It handles special tags like `@par`, `@verbatim`, and `@code` to format code blocks correctly in the generated documentation. The context involves modifying how documentation is processed, specifically dealing with code examples and verbatim sections.\n\nstrline = strline.lstrip(' \\t')\n\n        if strline.startswith('@'):\n            special = strline.split(' ', 1)[0][1:]\n            if special == 'par' and strline.endswith(':') and lines and '@code' in lines[0]:\n                newlines.append('   '*indent + strline[5:] + ':')\n                newlines.append('')\n                line = lines.pop(0)\n                offset = line.index('@code')\n                while lines:\n                    line = lines.pop(0)\n                    if '@endverbatim' in line or '@endcode' in line:\n                        break\n                    newlines.append('   ' + line[offset:])\n\n                newlines.append('')\n                continue\n            elif special == \"verbatim\" or special == \"code\":\n                if newlines and newlines[-1]:\n                    newlines.append('')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 72
+  }
+}

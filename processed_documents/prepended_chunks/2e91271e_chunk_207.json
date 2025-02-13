@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is initializing an OpenGL GraphicsPipe for a wxPython-based application, setting up callbacks, and configuring the wxGLCanvas for rendering in a WxPandaWindow class. It ensures the correct graphics pipe is selected and initializes necessary properties for window management.\n\n</context>\n\nThis code initializes the OpenGL context and sets up callback functions within a wxGLCanvas-derived class, ensuring proper integration with Panda3D's graphics system.\n\n</context>\n\nkw['attribList'] = attribList\n\n            base.startWx()\n            wxgl.GLCanvas.__init__(self, *args, **kw)\n            self.visible = False\n\n            # Can't share the GSG when a new wxgl.GLContext is created\n            # automatically.\n            gsg = None\n\n            callbackWindowDict = {\n                'Events': self.__eventsCallback,\n                'Properties': self.__propertiesCallback,\n                'Render': self.__renderCallback,\n            }\n\n            # Make sure we have an OpenGL GraphicsPipe.\n            if not base.pipe:\n                base.makeDefaultPipe()\n            pipe = base.pipe\n            if pipe.getInterfaceName() != 'OpenGL':\n                base.makeAllPipes()\n                for pipe in base.pipeList:\n                    if pipe.getInterfaceName() == 'OpenGL':\n                        break\n\n            if pipe.getInterfaceName() != 'OpenGL':\n                raise Exception(\"Couldn't get an OpenGL pipe.\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 207
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a 3D simulation environment where Ralph's movement, camera controls, and AI behavior are managed. The section includes logic for making the camera follow Ralph while maintaining horizontal orientation by tracking a virtual floater above his head. Additionally, it sets up an AI system to control Ralph's navigation using pathfinding with a predefined navigation mesh file (`models/navmesh.csv`).\n\n# The camera should look in ralph's direction,\n            # but it should also try to stay horizontal, so look at\n            # a floater which hovers above ralph's head.\n\n            self.floater.setPos(self.ralph.getPos())\n            self.floater.setZ(self.ralph.getZ() + 2.0)\n            base.camera.setZ(base.camera.getZ())\n            base.camera.lookAt(self.floater)\n\n        self.ralph.setP(0)\n        return Task.cont\n\n    def setAI(self):\n        # Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.accept(\"space\", self.setMove)\n        self.AIchar = AICharacter(\"ralph\", self.ralph, 60, 0.05, 25)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        self.AIbehaviors.initPathFind(\"models/navmesh.csv\")\n\n        # AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 20
+  }
+}

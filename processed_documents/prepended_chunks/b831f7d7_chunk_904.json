@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the initialization process for a `TaskManagerControls` class, which provides a GUI interface to manage tasks. The code sets up event hooks to handle task changes (`spawnTask` and `removeTask` events), binds keyboard navigation (Up/Down arrows) and right-click context menu functionality to a listbox widget, focuses on the listbox for user interaction, and updates the task list display with current tasks from the TaskManager.\n\n# Add hook to spawnTaskEvents\n        self.accept('TaskManager-spawnTask', self.spawnTaskHook)\n        self.accept('TaskManager-removeTask', self.removeTaskHook)\n        # Get listbox\n        listbox = self.taskListBox.component('listbox')\n        # Bind updates to arrow buttons\n        listbox.bind('<KeyRelease-Up>', self.setCurrentTask)\n        listbox.bind('<KeyRelease-Down>', self.setCurrentTask)\n        listbox.bind('<ButtonPress-3>', self.popupMenu)\n        # And grab focus (to allow keyboard navigation)\n        listbox.focus_set()\n        # Update listbox values\n        self.updateTaskListBox()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 904
+  }
+}

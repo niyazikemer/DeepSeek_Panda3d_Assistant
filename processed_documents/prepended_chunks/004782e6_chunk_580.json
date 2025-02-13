@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `addLayerData` method within a class responsible for managing layers in a UI component. This section handles adding an object to a specific layer while ensuring the object isn't already present in that layer or others, maintaining data integrity and preventing duplication.\n\n# Checking if the object was laready added to the layer\n        obj = self.editor.objectMgr.findObjectByNodePath(objNodePath)\n        if obj is not None:\n            i = self.llist.GetItemData(index)\n            layersData = self.layersDataDict[i]\n            for j in range(len(layersData)):\n                if layersData[j] == obj[OG.OBJ_UID]:\n                    wx.MessageBox(\"Selected object already is this layer\", self.editorTxt, wx.OK | wx.ICON_EXCLAMATION)\n                    return\n            # Looking for the object in the other layers\n            # If the object is found - delete it.\n            self.removeObj()\n\n            layersData.append(obj[OG.OBJ_UID])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 580
+  }
+}

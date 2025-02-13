@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the EditorWindow class initialization, specifically within a method that sets up the application's main menu bar. This code adds several menu options: \"Show Panda Objects\", \"Parent To Selected\", \"Hot Keys\", and a sub-menu for curve creation under the \"&CurveMode\" menu. These items are bound to corresponding event handlers (e.g., `onShowPandaObjects`, `onCreateCurve`) that manage user interactions related to object manipulation, parenting operations, accessing hot keys, and creating curves in the 3D modeling or game development environment.\n\n```plaintext\nThis chunk is part of the EditorWindow class's initialization method where the main menu bar is set up. It adds several menu options for managing objects, accessing hotkeys, and working with curves.\n```\n\nself.showPandaObjectsMenuItem = self.menuOptions.Append(ID_SHOW_PANDA_OBJECT, self.MENU_TEXTS[ID_SHOW_PANDA_OBJECT][0], kind = wx.ITEM_CHECK)\n        self.Bind(wx.EVT_MENU, self.onShowPandaObjects, self.showPandaObjectsMenuItem)\n\n        self.parentToSelectedMenuItem = self.menuOptions.Append(ID_PARENT_TO_SELECTED, self.MENU_TEXTS[ID_PARENT_TO_SELECTED][0], kind = wx.ITEM_CHECK)\n\n        self.hotKeysMenuItem = self.menuOptions.Append(ID_HOT_KEYS, self.MENU_TEXTS[ID_HOT_KEYS][0])\n        self.Bind(wx.EVT_MENU, self.onHotKeys, self.hotKeysMenuItem)\n\n        self.menuCurve = wx.Menu()\n        self.menuBar.Insert(3, self.menuCurve, \"&CurveMode\")\n\n        self.createCurveMenuItem = self.menuCurve.Append(ID_CREATE_CURVE, self.MENU_TEXTS[ID_CREATE_CURVE][0], kind = wx.ITEM_CHECK)\n        self.Bind(wx.EVT_MENU, self.onCreateCurve, self.createCurveMenuItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 433
+  }
+}

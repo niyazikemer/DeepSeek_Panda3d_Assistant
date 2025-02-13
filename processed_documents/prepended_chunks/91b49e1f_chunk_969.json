@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class responsible for managing lighting controls and system settings in a software application. It includes methods to handle the exponent value of active lights, toggle grid visibility, control XYZ and HPR snap settings, enable/disable device controls like joyboxes, and update information panels about the current environment, lights, or grid configuration.\n\ndef setExponent(self, value):\n        if self.activeLight:\n            self.activeLight.getLight().setExponent(value)\n\n    ## GRID CONTROLS ##\n    def toggleGrid(self):\n        if self.enableGrid.get():\n            ShowBaseGlobal.direct.grid.enable()\n        else:\n            ShowBaseGlobal.direct.grid.disable()\n\n    def toggleXyzSnap(self):\n        ShowBaseGlobal.direct.grid.setXyzSnap(self.xyzSnap.get())\n\n    def toggleHprSnap(self):\n        ShowBaseGlobal.direct.grid.setHprSnap(self.hprSnap.get())\n\n    ## DEVICE CONTROLS\n    def toggleJoybox(self):\n        if self.enableJoybox.get():\n            ShowBaseGlobal.direct.joybox.enable()\n        else:\n            ShowBaseGlobal.direct.joybox.disable()\n\n    ## UPDATE INFO ##\n    def updateInfo(self, page = 'Environment'):\n        if page == 'Environment':\n            self.updateEnvironmentInfo()\n        elif page == 'Lights':\n            self.updateLightInfo()\n        elif page == 'Grid':\n            self.updateGridInfo()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 969
+  }
+}

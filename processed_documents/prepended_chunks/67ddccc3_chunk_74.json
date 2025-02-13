@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a function that processes docstrings to handle special annotations like 'deprecated', converting them into formatted strings for better documentation display.\n\n<answer>\nThe chunk sits within an event handler function that processes docstrings during autodoc processing. It specifically handles deprecated tags, converting Doxygen-style deprecation notes into formatted text for improved documentation output.\n</answer>\n\nnewlines.append('')\n                continue\n            elif special == 'param':\n                #TODO\n                #if extra is not None:\n                #    _, name, desc = strline.split(' ', 2)\n                #    extra['param:' + name] = desc\n                continue\n            elif special == 'deprecated':\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                if ' ' in strline:\n                    _, value = strline.split(' ', 1)\n\n                    # I'd love to use the proper Sphinx deprecated tag, but it\n                    # requires a version number, whereas Doxygen doesn't.\n                    newlines.append('**Deprecated**: ' + convert_doxygen_format(value, name, domain))\n                else:\n                    newlines.append('**Deprecated**')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 74
+  }
+}

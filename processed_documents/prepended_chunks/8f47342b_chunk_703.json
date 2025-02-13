@@ -1,0 +1,9 @@
+{
+  "content": "The `loadFromFile` method within the `FileMgr` class is responsible for importing modules from a specified file. It handles both successful imports by updating the editor's status and managing errors during the loading process. This method strips the `.py` extension if present and utilizes the `imp` module to find and load the module, ensuring data is correctly reloaded into the application.\n\ndef loadFromFile(self, fileName):\n        dirname, moduleName = os.path.split(fileName)\n        if moduleName.endswith('.py'):\n            moduleName = moduleName[:-3]\n        file, pathname, description = imp.find_module(moduleName, [dirname])\n        try:\n            module = imp.load_module(moduleName, file, pathname, description)\n            self.editor.updateStatusReadout('Sucessfully opened file %s'%fileName)\n            self.editor.fNeedToSave = False\n        except Exception:\n            print('failed to load %s'%fileName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_52",
+    "parent": "processed_documents/context_documents/10b6518e_FileMgr.json",
+    "chunk_number": 703
+  }
+}

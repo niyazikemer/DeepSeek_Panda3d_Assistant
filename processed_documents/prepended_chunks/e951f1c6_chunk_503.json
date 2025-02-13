@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an `ObjectManager` class in a 3D scene editor application. It includes methods for removing objects from the scene (`removeObjectByNodePath`), finding objects by their unique identifier (`findObjectById`), and managing references to actors and nodes. The chunk also interacts with an animation manager and updates flags indicating whether changes need to be saved. This code is situated within a larger context of object lifecycle management, including adding, duplicating, and tracking scene elements.\n\nself.editor.fNeedToSave = True\n\n    def removeObjectByNodePath(self, nodePath):\n        uid = self.npIndex.get(nodePath)\n        if uid:\n            for i in range(0, len(self.Actor)):\n                if self.Actor[i][OG.OBJ_UID] == uid:\n                    del self.Actor[i]\n                    break\n            for i in range(0, len(self.Nodes)):\n                if self.Nodes[i][OG.OBJ_UID] == uid:\n                    del self.Nodes[i]\n                    break\n            self.editor.animMgr.removeAnimInfo(uid)\n\n            del self.objects[uid]\n            del self.npIndex[nodePath]\n\n        # remove children also\n        for child in nodePath.getChildren():\n            if child.hasTag('OBJRoot'):\n                self.removeObjectByNodePath(child)\n        self.editor.fNeedToSave = True\n\n    def findObjectById(self, uid):\n        return self.objects.get(uid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 503
+  }
+}

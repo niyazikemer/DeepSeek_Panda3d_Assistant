@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces a GUI element (menubutton/label) used to select or create effects in a physics simulation or game development context. It appears within a larger codebase managing force configurations (e.g., distance-based, radial forces), providing user interaction to manage and configure different simulation effects.\n\n## MENUBUTTON LABELS ##\n        # Menubutton/label to identify the current objects being configured\n        labelFrame = tk.Frame(interior)\n        # Current effect\n        self.effectsLabel = tk.Menubutton(labelFrame, width = 10,\n                                          relief = tk.RAISED,\n                                          borderwidth = 2,\n                                          font=('MSSansSerif', 12, 'bold'),\n                                          activebackground = '#909090')\n        self.effectsLabelMenu = tk.Menu(self.effectsLabel, tearoff = 0)\n        self.effectsLabel['menu'] = self.effectsLabelMenu\n        self.effectsLabel.pack(side = tk.LEFT, fill = 'x', expand = 1)\n        self.bind(self.effectsLabel,\n                  'Select effect to configure or create new effect')\n        self.effectsLabelMenu.add_command(label = 'Create New Effect',\n                                          command = self.createNewEffect)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 718
+  }
+}

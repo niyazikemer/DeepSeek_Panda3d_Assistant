@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of the initialization process in the `World` class within a Panda3D-based 3D application. It creates a `frowney` object by loading a model, positioning it at (-3, 3, 7), naming it \"Frowney\", and setting up collision detection for it using a sphere collision solid. The collision mask is set to `badMask`, controlling which objects it can collide with in the scene.\n\n# Make a frowney.\n        frowney = base.loader.loadModel('frowney')\n        frowney.reparentTo(base.render)\n        frowney.setPos(-3, 3, 7)\n        frowney.setName(\"Frowney\")\n        frowneyCollisionNP = self.makeCollisionNodePath(frowney, collSphere)\n        # Use the the Nodepath.setCollideMask() function to set the into mask.\n        # setCollideMask() sets the into mask of all child nodes to the given\n        # mask.\n        frowneyCollisionNP.setCollideMask(badMask)\n        # Note that we don't call setCollideMask() from frowney because this\n        # will turn the frowney mesh into a collision mesh which is unwanted.\n\n        # Note that we didn't set a from collide mask for previous objects\n        # since we're not adding them to the traverser as from objects.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_9",
+    "parent": "processed_documents/context_documents/b8eb20fa_40f997b9_bitmask-example.json",
+    "chunk_number": 165
+  }
+}

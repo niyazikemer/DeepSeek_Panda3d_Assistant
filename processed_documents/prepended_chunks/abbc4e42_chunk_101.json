@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears in the `World` class's `__init__` method of a Panda3D application. It sets up collision detection between two smiley models by:\n\n1. Accepting collision events ('into' and 'outof') for the first model (sColl) \n2. Loading another model, positioning it at (5, 25, 0)\n3. Creating and initializing its collision sphere (tColl)\n4. Adding it to the collision traverser\n5. Setting up event handlers for when collisions occur or end\n6. Printing debug information about the collision identifiers\n\nThe code demonstrates how to implement basic collision detection between two objects in a Panda3D scene, with visual feedback through color changes when collisions happen.\n\n# Accept the events sent by the collisions.\n        self.accept('into-' + sColl[1], self.collide3)\n        self.accept('outof-' + sColl[1], self.collide4)\n        print(sColl[1])\n\n        # Load another model.\n        t = base.loader.loadModel('smiley')\n        t.reparentTo(base.render)\n        t.setPos(5, 25, 0)\n\n        # Setup a collision solid for this model.\n        tColl = self.initCollisionSphere(t, True)\n\n        # Add this object to the traverser.\n        base.cTrav.addCollider(tColl[0], self.collHandEvent)\n\n        # Accept the events sent by the collisions.\n        self.accept('into-' + tColl[1], self.collide)\n        self.accept('outof-' + tColl[1], self.collide2)\n        print(tColl[1])\n\n        print(\"WERT\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_7",
+    "parent": "processed_documents/context_documents/91ec09dc_dd7a764d_event-example.json",
+    "chunk_number": 101
+  }
+}

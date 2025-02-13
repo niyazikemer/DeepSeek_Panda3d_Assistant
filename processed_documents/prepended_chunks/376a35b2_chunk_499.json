@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk fits within the `addNewObject` method of the ObjectEditor class. This method constructs new scene graph objects based on their definitions. The specific chunk handles the case where an object has a defined model (but is not an Actor), loading, flattening, and attaching the model to the node path. It situates between handling Actors and creating empty nodes for objects without models.\n\n**Context:**\nThis code constructs scene graph objects by loading models or creating nodes based on their definitions in the ObjectEditor class's `addNewObject` method.\n\nelif objDef.model is not None:\n                    # since this obj is simple model let's load the model\n                    if model is None:\n                        model = objDef.model\n                    try:\n                        newobjModel = base.loader.loadModel(model)\n                    except Exception:\n                        newobjModel = base.loader.loadModel(Filename.fromOsSpecific(model).getFullpath(), okMissing=True)\n                    if newobjModel:\n                        self.flatten(newobjModel, model, objDef, uid)\n                        newobj = PythonNodePath(newobjModel)\n                    else:\n                        newobj = None\n\n                else:\n                    newobj = hidden.attachNewNode(objDef.name)\n            else:\n                newobj = nodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 499
+  }
+}

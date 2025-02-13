@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `setAI` method in a class that sets up an AI world for a game or simulation. The method initializes an AI environment by creating an `AIWorld`, setting up keyboard input handlers, and initializing AI characters with randomized movement parameters. It also configures pathfinding behavior using a navmesh file.\n\ndef setAI(self):\n        # Creating AI World\n        self.AIworld = AIWorld(render)\n\n        #self.accept(\"enter\", self.setMove)\n        # Movement\n        self.accept(\"arrow_left\", self.setKey, [\"left\", 1])\n        self.accept(\"arrow_right\", self.setKey, [\"right\", 1])\n        self.accept(\"arrow_up\", self.setKey, [\"forward\", 1])\n        self.accept(\"arrow_left-up\", self.setKey, [\"left\", 0])\n        self.accept(\"arrow_right-up\", self.setKey, [\"right\", 0])\n        self.accept(\"arrow_up-up\", self.setKey, [\"forward\", 0])\n\n        self.AIchar = []\n        self.AIbehaviors = []\n        for i in range(4):\n            maxForce = 25 - (5 * random.random())\n            char = AICharacter(\"ralph\", self.ralph[i], 60, 0.05, maxForce)\n            self.AIchar.append(char)\n            self.AIworld.addAiChar(char)\n            self.AIbehaviors.append(char.getAiBehaviors())\n            self.AIbehaviors[i].initPathFind(\"models/navmesh.csv\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 29
+  }
+}

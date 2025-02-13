@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a custom `ColorPicker` class, which is a subclass of `CubeColourDialog`. This class is designed to allow users to select and modify color values, including an alpha channel for transparency. The dialog includes callbacks (`updateCB` and `exitCB`) to handle updates to the selected color and manage dialog closure. It integrates with the application's event handling system to update object properties when color selections are made or altered.\n\nclass ColorPicker(CubeColourDialog):\n    def __init__(self, parent, colourData=None, style=CCD_SHOW_ALPHA,\n                 alpha=255, updateCB=None, exitCB=None):\n        self.updateCB = updateCB\n        CubeColourDialog.__init__(self, parent, colourData, style)\n        self.okButton.Hide()\n        self.cancelButton.Hide()\n        self._colour.alpha = alpha\n        self.alphaSpin.SetValue(self._colour.alpha)\n        self.DrawAlpha()\n        if exitCB:\n            self.Bind(wx.EVT_CLOSE, exitCB)\n\n    def SetPanelColours(self):\n        self.oldColourPanel.RefreshColour(self._oldColour)\n        self.newColourPanel.RefreshColour(self._colour)\n        if self.updateCB:\n            self.updateCB(self._colour.r, self._colour.g, self._colour.b, self._colour.alpha)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 329
+  }
+}

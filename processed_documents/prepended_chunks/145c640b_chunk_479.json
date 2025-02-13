@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines three methods (`delete()`, `findItem()`, and `findChildren()`) within the `ObjectPaletteBase` class, which is a base class for managing object palettes in an application. These methods handle item deletion, searching, and finding child items within a tree structure of objects, and are used to manage object definitions and their relationships in a hierarchical data model.\n\ndef delete(self, name):\n        try:\n            deleteItems = {}\n            node = self.deleteStruct(name, deleteItems)\n            if node is not None:\n                deleteItems[name] = node\n            for key in list(deleteItems.keys()):\n                item = self.dataStruct.pop(key)\n        except Exception:\n            return\n\n    def findItem(self, name):\n        try:\n            item = self.data[name]\n        except Exception:\n            return None\n        return item\n\n    def findChildren(self, name):\n        result = []\n        for key in self.dataKeys:\n            if self.dataStruct[key] == name:\n                result.append(key)\n\n        return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_31",
+    "parent": "processed_documents/context_documents/b4cff924_ObjectPaletteBase.json",
+    "chunk_number": 479
+  }
+}

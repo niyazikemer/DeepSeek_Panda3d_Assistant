@@ -1,0 +1,9 @@
+{
+  "content": "The selected code is part of the `EditorUI` class's initialization process. It initializes several user interface components (object palette, property editor, scene graph, layer editor) and sets up a handler for right-click events in the viewport to display a context menu. This setup occurs during the creation of the main editor interface.\n\n```plaintext\n# Situated within the __init__ method of the EditorUI class.\n```\n\nThis code chunk is located within the `__init__` method of the `EditorUI` class, where various UI elements are initialized and event handling for right-clicking in the viewport is set up.\n\nself.rightBarDownPane.Layout()\n        self.Layout()\n\n        self.objectPaletteUI = ObjectPaletteUI(self.leftBarUpPane0, self.editor)\n        self.protoPaletteUI = ProtoPaletteUI(self.leftBarUpPane1, self.editor)\n        self.objectPropertyUI = ObjectPropertyUI(self.rightBarUpPane, self.editor)\n        self.sceneGraphUI = SceneGraphUI(self.leftBarDownPane0, self.editor)\n        self.layerEditorUI = LayerEditorUI(self.rightBarDownPane0, self.editor)\n\n        self.showGridMenuItem.Check(True)\n\n    def onRightDown(self, evt=None):\n        \"\"\"Invoked when the viewport is right-clicked.\"\"\"\n        if evt is None:\n            mpos = wx.GetMouseState()\n            mpos = self.ScreenToClient((mpos.x, mpos.y))\n        else:\n            mpos = evt.GetPosition()\n\n        ShowBaseGlobal.direct.fMouse3 = 0\n        self.PopupMenu(self.contextMenu, mpos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 445
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `createAngleDial` function creates an interactive angle adjustment dial widget with specified text and balloon help, binding it to a command if provided. This is part of a larger system for creating UI widgets to configure physics forces in a game or simulation application.\n\nContext: Part of a UI builder class that creates various force configuration widgets (linear, vector, torque, distance, etc.), `createAngleDial` provides angular control input capabilities for configuring directional forces.\n\ndef createAngleDial(self, parent, category, text, balloonHelp,\n                        command = None, **kw):\n        kw['text'] = text\n        kw['style'] = 'mini'\n        widget = Dial.AngleDial(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 785
+  }
+}

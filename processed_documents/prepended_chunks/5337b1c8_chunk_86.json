@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a function responsible for resolving cross-references in documentation. It specifically addresses how C++ references are handled by adjusting module prefixes and scoping operators, ensuring correct type resolution to improve documentation accuracy.\n\n```text\nContext: Handling C++ cross-references within a documentation generation system to ensure proper module prefix management and accurate type resolution.\n```\n\n# C++ references don't have a module prefix and use :: for scoping\n        if domain.name == 'cpp':\n            target = resolved[1]\n            if typ == 'obj':\n                # Another bug workaround\n                typ = resolved[0]\n            if typ in ('enum', 'class', 'struct', 'union') and resolved[0] == 'type':\n                # Squelch warning\n                typ = resolved[0]\n        else:\n            target = resolved[1]\n\n        return domain.resolve_xref(env, refdoc, app.builder, typ, target, node, contnode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 86
+  }
+}

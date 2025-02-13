@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `saveStatus` method within an action class. This method captures information about selected objects, their transformations, and parent-child relationships, facilitating undo/redo operations by preserving object states.\n\ndef saveStatus(self):\n        selectedNPs = base.direct.selected.getSelectedAsList()\n        def saveObjStatus(np, isRecursive=True):\n            obj = self.editor.objectMgr.findObjectByNodePath(np)\n            if obj:\n                uid = obj[OG.OBJ_UID]\n                if not isRecursive:\n                    self.selectedUIDs.append(uid)\n                objNP = obj[OG.OBJ_NP]\n                self.objInfos[uid] = obj\n                self.objTransforms[uid] = objNP.getMat()\n                parentNP = objNP.getParent()\n                if parentNP == render:\n                    self.hierarchy[uid] = None\n                else:\n                    parentObj = self.editor.objectMgr.findObjectByNodePath(parentNP)\n                    if parentObj:\n                        self.hierarchy[uid] = parentObj[OG.OBJ_UID]\n\n                for child in np.getChildren():\n                    if child.hasTag('OBJRoot'):\n                        saveObjStatus(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 603
+  }
+}

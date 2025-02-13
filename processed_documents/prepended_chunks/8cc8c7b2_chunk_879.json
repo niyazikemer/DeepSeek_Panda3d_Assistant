@@ -1,0 +1,9 @@
+{
+  "content": "This code defines several methods for adding different types of linear forces to a force group. The `addForce()` method creates a new force group if none exists, adds the specified force to the group, and creates a widget for it in the UI.\n\ndef addLinearFrictionForce(self):\n        self.addForce(LinearFrictionForce())\n\n    def addLinearJitterForce(self):\n        self.addForce(LinearJitterForce())\n\n    def addLinearNoiseForce(self):\n        self.addForce(LinearNoiseForce())\n\n    def addLinearSinkForce(self):\n        self.addForce(LinearSinkForce())\n\n    def addLinearSourceForce(self):\n        self.addForce(LinearSourceForce())\n\n    def addLinearCylinderVortexForce(self):\n        self.addForce(LinearCylinderVortexForce())\n\n    def addLinearUserDefinedForce(self):\n        self.addForce(LinearUserDefinedForce())\n\n    def addForce(self, f):\n        if self.forceGroup is None:\n            self.createNewForceGroup()\n        self.forceGroup.addForce(f)\n        self.addForceWidget(self.forceGroup, f)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 879
+  }
+}

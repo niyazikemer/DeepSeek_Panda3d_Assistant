@@ -1,0 +1,9 @@
+{
+  "content": "The functions `cleanUpManipulating` and `select` are part of a class managing object manipulation and selection actions. They utilize an action manager for undo/redo tracking, ensuring user interactions like transformations and selections can be reverted or redone.\n\ndef cleanUpManipulating(self, selectedNPs):\n        for np in selectedNPs:\n            obj = self.objectMgr.findObjectByNodePath(np)\n            if obj:\n                action = ActionTransformObj(self, obj[OG.OBJ_UID], Mat4(np.getMat()))\n                self.actionMgr.push(action)\n                action()\n\n    def select(self, nodePath, fMultiSelect=0, fSelectTag=1, fResetAncestry=1, fLEPane=0, fUndo=1):\n        if fUndo:\n            # Select tagged object if present\n            if fSelectTag:\n                for tag in base.direct.selected.tagList:\n                    if nodePath.hasNetTag(tag):\n                        nodePath = nodePath.findNetTag(tag)\n                        break\n            action = ActionSelectObj(self, nodePath, fMultiSelect)\n            self.actionMgr.push(action)\n            action()\n        else:\n            base.direct.selectCB(nodePath, fMultiSelect, fSelectTag, fResetAncestry, fLEPane, fUndo)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 408
+  }
+}

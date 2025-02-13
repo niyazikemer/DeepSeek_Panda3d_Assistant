@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods for managing event binding and widget state (`bindFunc`, `Disable`, `Enable`) in a custom floating-point slider class. These functions ensure proper synchronization between slider position, displayed value, and user input while maintaining state consistency across the control's components.\n\ndef bindFunc(self, updateCB):\n        self.updateCB = updateCB\n\n    def Disable(self):\n        # overriding wx.Slider.Disable()\n        wx.Slider.Disable(self)\n        if self.textValue is not None:\n            self.textValue.Disable()\n\n    def Enable(self):\n        # overriding wx.Slider.Enable()\n        wx.Slider.Enable(self)\n        self.Bind(wx.EVT_SLIDER, self.onChange)\n\n        if self.textValue is not None:\n            self.textValue.Enable()\n            self.textValue.Bind(wx.EVT_TEXT_ENTER, self.onEnter)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_14",
+    "parent": "processed_documents/context_documents/4f1c6a8b_WxSlider.json",
+    "chunk_number": 197
+  }
+}

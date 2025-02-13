@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains several key methods of the `AnimPanel` class that handle animation playback and control management:\n\n- `play()` manages animation updates for a list of actors\n- `stopActorControls()` terminates animation tasks\n- `getActorControlAt()`, `enableActorControlAt()` allow access and control of specific actor controls \n- `toggleAllControls()` enables/disables all actor controls\n\nThese methods provide core functionality for managing multiple animated actors within the panel interface.\n\ndef play(self, task):\n        if not self.playList:\n            return Task.done\n        fLoop = self.loopVar.get()\n        currT = ClockObject.getGlobalClock().getFrameTime()\n        deltaT = currT - self.lastT\n        self.lastT = currT\n        for actorControl in self.playList:\n            # scale time by play rate value\n            actorControl.play(deltaT * actorControl.playRate, fLoop)\n        return Task.cont\n\n    def stopActorControls(self):\n        taskMgr.remove(self.id + '_UpdateTask')\n\n    def getActorControlAt(self, index):\n        return self.actorControlList[index]\n\n    def enableActorControlAt(self, index):\n        self.getActorControlAt(index).enableControl()\n\n    def toggleAllControls(self):\n        if self.fToggleAll:\n            self.disableActorControls()\n        else:\n            self.enableActorControls()\n        self.fToggleAll = 1 - self.fToggleAll",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 991
+  }
+}

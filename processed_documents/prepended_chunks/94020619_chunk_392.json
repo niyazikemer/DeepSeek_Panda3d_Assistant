@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method `getPos` within an animation or object property management system to calculate the position value at a given x-coordinate by evaluating a cubic spline curve defined by two adjacent keyframes and their associated slopes. The function computes intermediate control points and the coefficients of the cubic equation representing the spline segment between the keyframes, enabling smooth interpolation of animation values over time.\n\ndef getPos(self, x, list, i):\n        #get the value from animation curve\n        x1 = float(list[i][AG.FRAME])\n        y1 = float(list[i][AG.VALUE])\n\n        x4 = float(list[i+1][AG.FRAME])\n        y4 = float(list[i+1][AG.VALUE])\n\n        t1x = list[i][AG.OUTSLOPE][0]\n        t1y = list[i][AG.OUTSLOPE][1]\n\n        t2x = list[i+1][AG.INSLOPE][0]\n        t2y = list[i+1][AG.INSLOPE][1]\n\n        x2 = x1 + (x4 - x1) / float(3)\n        scale1 = (x2 - x1) / t1x\n        y2 = y1 + t1y * scale1\n\n        x3 = x4 - (x4 - x1) / float(3)\n        scale2 = (x4 - x3) / t2x\n        y3 = y4 - t2y * scale2\n\n        ax = - float(1) * x1 + float(3) * x2 - float(3) * x3 + float(1) * x4\n        bx =   float(3) * x1 - float(6) * x2 + float(3) * x3 + float(0) * x4\n        cx = - float(3) * x1 + float(3) * x2 + float(0) * x3 + float(0) * x4\n        dx =   float(1) * x1 + float(0) * x2 - float(0) * x3 + float(0) * x4",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 392
+  }
+}

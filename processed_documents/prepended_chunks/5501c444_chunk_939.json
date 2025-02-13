@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a larger codebase that manages UI elements for lighting configuration in a 3D application, specifically using Tkinter widgets within Panda3D's Direct framework. It creates a main light switch control and a dropdown menu for selecting specific lights to configure.\n\n# Main light switch\n        mainSwitchFrame = tk.Frame(lightFrame)\n        tk.Label(mainSwitchFrame,\n                 text = 'Lighting:').pack(side = tk.LEFT, expand = 0)\n        self.enableLights = tk.BooleanVar()\n        self.enableLightsButton = tk.Checkbutton(\n            mainSwitchFrame,\n            text = 'Enabled/Disabled',\n            variable = self.enableLights,\n            command = self.toggleLights)\n        self.enableLightsButton.pack(side = tk.LEFT, fill = tk.X, expand = 0)\n        mainSwitchFrame.pack(fill = tk.X, expand = 0)\n\n        # Widget to select a light to configure\n        nameList = ShowBaseGlobal.direct.lights.getNameList()\n        lightMenuFrame = tk.Frame(lightFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 939
+  }
+}

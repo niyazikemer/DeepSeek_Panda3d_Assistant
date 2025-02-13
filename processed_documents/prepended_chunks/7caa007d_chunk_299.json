@@ -1,0 +1,9 @@
+{
+  "content": "The `MayaConverter` class is a dialog window in a wxPython application designed to convert Maya files. It initializes with parameters for parent window, editor, file path, callback function, object reference, animation flag, and conversion mode. The constructor sets up UI components including a main panel, sizers for layout, and a multiline text control for output display during the conversion process.\n\nclass MayaConverter(wx.Dialog):\n    def __init__(self, parent, editor, mayaFile, callBack=None, obj=None, isAnim=False, convertMode=FROM_MAYA_TO_EGG):\n        wx.Dialog.__init__(self, parent, id=wx.ID_ANY, title=\"Maya Converter\",\n                           pos=wx.DefaultPosition, size=(300, 200))\n\n        self.editor = editor\n        self.obj = obj\n        self.isAnim = isAnim\n        self.callBack = callBack\n        self.mayaFile = mayaFile\n\n        self.mainPanel = wx.Panel(self, -1)\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.mainPanel, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n\n        self.output = wx.TextCtrl(self.mainPanel, -1, style = wx.TE_MULTILINE, pos = (0, 0), size = (100, 400))\n        sizer2 = wx.BoxSizer(wx.VERTICAL)\n        sizer2.Add(self.output, 1, wx.EXPAND, 0)\n        self.mainPanel.SetSizer(sizer2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 299
+  }
+}

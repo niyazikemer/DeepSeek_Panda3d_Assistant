@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents the foundational code for a Level Editor application, including essential imports and setup instructions for GUI components, Panda3D functionalities, and custom modules like `CurveEditor`, `FileMgr`, and `MayaConverter`. This forms the core structure upon which specific level editor implementations can be built.\n\n\"\"\"\nBase class for Level Editor\n\nYou should write your own LevelEditor class inheriting this.\nRefer LevelEditor.py for example.\n\"\"\"\n\nimport os\nimport wx\n\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.directtools.DirectUtil import useDirectRenderStyle\nfrom direct.gui.OnscreenText import OnscreenText\nfrom panda3d.core import BitMask32, ClockObject, Mat4, NodePath, Point3, TextNode, Vec4\n\nfrom . import ObjectGlobals as OG\nfrom .CurveEditor import CurveEditor\nfrom .FileMgr import FileMgr\nfrom .ActionMgr import (\n    ActionDeleteObj,\n    ActionDeselectAll,\n    ActionMgr,\n    ActionSelectObj,\n    ActionTransformObj,\n)\nfrom .MayaConverter import FROM_BAM_TO_MAYA, MayaConverter",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 398
+  }
+}

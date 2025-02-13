@@ -1,0 +1,9 @@
+{
+  "content": "The `convert_doxygen_docstring` function is designed to process and convert Doxygen-style C++ block comments into a format compatible with Sphinx. This function handles various comment markers and structures commonly found in Doxygen documentation, transforming them into a form that can be effectively rendered by Sphinx. The goal is to enhance the integration of C++ documentation within a Python-focused project using Sphinx, allowing for seamless inclusion and display of Doxygen-style comments.\n\ndef convert_doxygen_docstring(lines, name, domain='py'):\n    \"\"\"Converts a doxygen-style C++ block comment to a Sphinx-style one.\n    The name argument is the fully qualified name of the current module, class\n    or function, and is used to resolve references.\"\"\"\n\n    lines = lines[:]\n    newlines = []\n    indent = 0\n    reading_desc = False\n\n    while lines:\n        line = lines.pop(0)\n        if line.startswith(\"////\"):\n            continue\n\n        line = line.rstrip()\n        if line.startswith('///<'):\n            strline = line[4:]\n        else:\n            strline = line\n\n        strline = strline.lstrip('/ \\t')\n\n        if strline == \"**\" or strline == \"*/\":\n            continue\n\n        if strline.startswith(\"** \"):\n            strline = strline[3:]\n        elif strline.startswith(\"* \"):\n            strline = strline[2:]\n        elif strline == \"*\":\n            strline = \"\"\n\n        strline = strline.lstrip(' \\t')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 137
+  }
+}

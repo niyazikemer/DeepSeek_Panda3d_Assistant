@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Python module or package's `setup` function, which integrates custom functionality into the Sphinx documentation tool. The setup configures event handlers for autodocumentation processing, handles missing references with priority, adds custom documenters, and modifies inheritance diagram generation to customize URL handling based on build variations. This code enhances the behavior of documentation generation by controlling what is documented, how it's processed, and ensuring proper linking in generated inheritance graphs.\n\ndef setup(app):\n    from sphinx.ext.inheritance_diagram import InheritanceGraph\n    InheritanceGraph.generate_dot = generate_dot\n\n    app.add_config_value('html_absolute_url_root', None, 'html')\n    app.connect('config-inited', on_config_inited)\n\n    app.connect('autodoc-skip-member', on_autodoc_skip_member)\n    app.connect('autodoc-process-docstring', on_autodoc_process_docstring)\n\n    app.connect('missing-reference', on_missing_reference, priority=901)\n\n    app.add_autodocumenter(ExcludeDocumenter)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 159
+  }
+}

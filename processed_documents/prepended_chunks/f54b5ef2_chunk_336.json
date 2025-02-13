@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a larger document that implements a graphical user interface (GUI) for managing object properties in a 3D application. Specifically, it creates controls for adjusting RGBA color values of an object's appearance on a 'Look' tab. The code checks if the object is movable and disables transform controls accordingly, then sets up four sliders (CR, CG, CB, CA) to control red, green, blue, and alpha channels, respectively. These sliders are bound to a callback function (`onColorSlider`) to handle user interactions in real-time.\n\nif not movable:\n            for transformProp in transformProps:\n                transformProp.ui.Disable()\n\n        self.lookPane = wx.Panel(self.nb, -1, name='Look')\n        self.nb.AddPage(self.lookPane, 'Look')\n\n        objNP = obj[OG.OBJ_NP]\n        objRGBA = obj[OG.OBJ_RGBA]\n        self.propCR = ObjectPropUISlider(self.lookPane, 'CR', objRGBA[0], 0, 1)\n        self.propCG = ObjectPropUISlider(self.lookPane, 'CG', objRGBA[1], 0, 1)\n        self.propCB = ObjectPropUISlider(self.lookPane, 'CB', objRGBA[2], 0, 1)\n        self.propCA = ObjectPropUISlider(self.lookPane, 'CA', objRGBA[3], 0, 1)\n        colorProps = [self.propCR, self.propCG, self.propCB, self.propCA]\n\n        for colorProp in colorProps:\n            colorProp.ui.bindFunc(self.onColorSlider)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 336
+  }
+}

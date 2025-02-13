@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the initialization method (`__init__`) of a custom widget class in Python, likely named `AnimPanel`. The class inherits from `Pmw.MegaWidget`, which suggests it's using the Pmw (Python MegaWidgets) library to create a sophisticated GUI component. \n\nThe chunk specifically sets up:\n- Inheritance and initialization of the superclass (`Pmw.MegaWidget`)\n- Configuration of the widget's interior\n- Initialization of key instance variables related to animation timing and state management (`fps`, `offset`, etc.)\n- Creation of core widget components (e.g., a labeled Menubutton)\n\nThis section establishes the fundamental structure and initial state for an animation panel used in a GUI application, likely for managing or previewing animations of 3D characters or scenes.\n\n# Initialize the superclass\n        Pmw.MegaWidget.__init__(self, parent)\n\n        # Handle to the toplevels hull\n        interior = self.interior()\n        interior.configure(relief = tk.RAISED, bd = 2)\n\n        # Instance variables\n        self.fps = 24\n        self.offset = 0.0\n        self.maxSeconds = 1.0\n        self.currT = 0.0\n        self.fScaleCommand = 0\n        self.fOneShot = 0\n\n        # Create component widgets\n        self._label = self.createcomponent(\n            'label', (), None,\n            tk.Menubutton, (interior,),\n            font=('MSSansSerif', 14, 'bold'),\n            relief = tk.RAISED, bd = 1,\n            activebackground = '#909090',\n            text = self['text'])\n        # Top level menu\n        labelMenu = tk.Menu(self._label, tearoff = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 995
+  }
+}

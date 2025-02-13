@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes a Pmw NoteBook widget to create a tabbed interface for various settings pages (Environment, Lights, Grid, Devices, Tasks, Memory) and defines the initial UI structure with frames and labels.\n\n# Create the notebook pages\n        notebook = Pmw.NoteBook(notebookFrame)\n        notebook.pack(fill = tk.BOTH, expand = 1)\n        self.createEnvPage(notebook.add('Environment'))\n        self.createLightsPage(notebook.add('Lights'))\n        self.createGridPage(notebook.add('Grid'))\n        self.createDevicePage(notebook.add('Devices'))\n        self.createTasksPage(notebook.add('Tasks'))\n        self.createMemPage(notebook.add('Memory'))\n\n        notebook.setnaturalsize()\n\n        framePane.pack(expand = 1, fill = tk.BOTH)\n        mainFrame.pack(fill = 'both', expand = 1)\n\n        # Put this here so it isn't called right away\n        notebook['raisecommand'] = self.updateInfo\n\n    def createEnvPage(self, envPage):\n        bkgrdFrame = tk.Frame(envPage, borderwidth = 2, relief = 'sunken')\n\n        tk.Label(bkgrdFrame, text = 'Background',\n                 font=('MSSansSerif', 14, 'bold')).pack(expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 930
+  }
+}

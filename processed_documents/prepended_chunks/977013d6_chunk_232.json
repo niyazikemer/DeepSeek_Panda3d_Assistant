@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines core initialization methods in the `WxAppShell` wxPython application framework, including menu bar creation, about dialog setup, and quit functionality.\n\ndef __createMenuBar(self):\n        self.menuBar = wx.MenuBar()\n        self.SetMenuBar(self.menuBar)\n\n    def __createAboutBox(self):\n        self.about = wx.MessageDialog(None,\n                                      self.appname + \"\\n\\n\" +\n                                      'Version %s'%self.appversion + \"\\n\\n\" +\n                                      self.copyright + \"\\n\\n\" +\n                                      'For more information, contact:\\n%s\\nEmail: %s' %\\\n                                      (self.contactname, self.contactemail),\n                                      \"About %s\"%self.appname, wx.OK | wx.ICON_INFORMATION)\n\n    def showAbout(self, event):\n        # Create the dialog to display about and contact information.\n        self.about.ShowModal()\n\n    def quit(self, event=None):\n        self.onDestroy(event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_18",
+    "parent": "processed_documents/context_documents/abbd053b_WxAppShell.json",
+    "chunk_number": 232
+  }
+}

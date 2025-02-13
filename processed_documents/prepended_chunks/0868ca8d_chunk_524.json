@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an object management system's save functionality, specifically handling the serialization of curve and general objects into a script for persistence. It constructs strings to recreate objects with their properties upon reloading, ensuring accurate reconstruction of the scene graph.\n\nself.saveData.append(\"\\nobjects['%s'] = objectMgr.addNewCurveFromFile(%s, %s, '%s', %s, False, None)\"%(uid, newobjCurveInfo, self.objDegree, uid, parentStr))\n                    else:\n                        self.saveData.append(\"\\nobjects['%s'] = objectMgr.addNewObject('%s', '%s', %s, %s, %s, False, None, %s)\"%(uid, objDef.name, uid, modelStr, parentStr, animStr, nameStr))\n\n                    self.saveData.append(\"if objects['%s']:\"%uid)\n                    self.saveData.append(\"    objects['%s'].setPos(%s)\"%(uid, np.getPos()))\n                    self.saveData.append(\"    objects['%s'].setHpr(%s)\"%(uid, np.getHpr()))\n                    self.saveData.append(\"    objects['%s'].setScale(%s)\"%(uid, np.getScale()))\n                    self.saveData.append(\"    objectMgr.updateObjectColor(%f, %f, %f, %f, objects['%s'])\"%(objRGBA[0], objRGBA[1], objRGBA[2], objRGBA[3], uid))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 524
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a class handling application user interface (UI) operations, specifically managing file loading, grid/menu updates, cursor control, and Maya model conversion processes.\n\nself.ui.updateGrids(gridSize, gridSpacing)\n            self.ui.updateMenu()\n        except:\n            pass\n        self.ui.SetCursor(wx.Cursor(wx.CURSOR_ARROW))\n\n    def convertMaya(self, modelname, callBack, obj=None, isAnim=False):\n        if obj and isAnim:\n            mayaConverter = MayaConverter(self.ui, self, modelname, callBack, obj, isAnim)\n        else:\n            reply = wx.MessageBox(\"Is it an animation file?\", \"Animation?\",\n                              wx.YES_NO | wx.ICON_QUESTION)\n            if reply == wx.YES:\n                mayaConverter = MayaConverter(self.ui, self, modelname, callBack, None, True)\n            else:\n                mayaConverter = MayaConverter(self.ui, self, modelname, callBack, None, False)\n        mayaConverter.Show()\n\n    def convertFromMaya(self, modelname, callBack):\n        mayaConverter = MayaConverter(self.ui, self, modelname, callBack, None, False)\n        mayaConverter.Show()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 416
+  }
+}

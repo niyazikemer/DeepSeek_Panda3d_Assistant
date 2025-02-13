@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method `setExistKey` used for updating the selection state of keyframes in an animation curve editor. It determines which keyframes (and their associated handles) should be selected or deselected based on positional data, enabling visual feedback during user interaction with the graph editor interface.\n\ndef setExistKey(self, list):\n        flag = False\n        for i in range(len(list)):\n            if list[i][AG.KEYFRAME][AG.SELECT] == 1:\n                inside = self.inside(self.pos, self.newPos, (list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0], list[i][AG.KEYFRAME][AG.LOCAL_VALUE][1]))\n                if inside is True:\n                    list[i][AG.KEYFRAME][AG.SELECT] = 0\n                if inside is False:\n                    find = False\n                    for j in range(3,5):\n                        inside = self.inside(self.pos, self.newPos, (list[i][j][AG.LOCAL_VALUE][0], list[i][j][AG.LOCAL_VALUE][1]))\n                        if inside is False:\n                            list[i][j][AG.SELECT] = 0\n                        if inside is True:\n                            list[i][j][AG.SELECT] = 1\n                            find = True\n                            flag = True\n                    if find is False:\n                        list[i][AG.KEYFRAME][AG.SELECT] == 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 271
+  }
+}

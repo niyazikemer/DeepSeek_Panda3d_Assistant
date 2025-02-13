@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines several `Action` classes that inherit from `ActionBase`, each handling specific operations like adding, transforming, updating properties, and deleting objects in an editor. The new `ActionDeleteObj` class fits into this structure by implementing functionality for deleting selected objects, including initialization of necessary attributes to manage deletions effectively.\n\nThis context places the `ActionDeleteObj` within a collection of related action classes that handle various object management tasks in an application, ensuring consistency and proper integration with existing functionality.\n\nclass ActionDeleteObj(ActionBase):\n    \"\"\" Action class for deleting object \"\"\"\n\n    def __init__(self, editor, *args, **kargs):\n        self.editor = editor\n        function = base.direct.removeAllSelected\n        ActionBase.__init__(self, function, *args, **kargs)\n        self.selectedUIDs = []\n        self.hierarchy = {}\n        self.objInfos = {}\n        self.objTransforms = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 602
+  }
+}

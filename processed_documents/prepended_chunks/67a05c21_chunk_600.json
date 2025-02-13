@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces an `ActionAddNewObj` class that handles adding new objects within an application. It fits into a document containing various `Action*` classes, each representing different operations like deleting, moving, or updating objects. This situates it as part of an action system for object management. \n\n**Context:**  \nThe `ActionAddNewObj` class is placed after the last existing action class in the document to maintain logical grouping and flow within the action management system.\n\nclass ActionAddNewObj(ActionBase):\n    \"\"\" Action class for adding new object \"\"\"\n\n    def __init__(self, editor, *args, **kargs):\n        self.editor = editor\n        function = self.editor.objectMgr.addNewObject\n        ActionBase.__init__(self, function, *args, **kargs)\n        self.uid = None\n\n    def postCall(self):\n        obj = self.editor.objectMgr.findObjectByNodePath(self.result)\n        if obj:\n            self.uid = obj[OG.OBJ_UID]\n\n    def redo(self):\n        if self.uid is None:\n            print(\"Can't redo this add\")\n        else:\n            self.result = self._do__call__(uid=self.uid)\n            return self.result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 600
+  }
+}

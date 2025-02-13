@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes functions for setting the orientation of a particle system using `setSystemHpr` and managing factory type selection through `selectFactoryType`. These functions are integral to configuring the overall behavior and appearance of the particle system within the application's graphical user interface. The `selectFactoryPage` method is intended for switching between different configuration pages related to particle factories, allowing users to adjust settings based on selected options.\n\nContext:\nThis code chunk pertains to the setup and orientation management of a particle system in a Panda3D-based application, specifically handling the factory selection and overall system orientation.\n\ndef setSystemHpr(self, pos):\n        self.particles.nodePath.setHpr(Vec3(pos[0], pos[1], pos[2]))\n\n    ## FACTORY PAGE ##\n    def selectFactoryType(self, type):\n        self.factoryNotebook.selectpage(type)\n        self.particles.setFactory(type)\n        self.updateFactoryWidgets()\n\n    def selectFactoryPage(self):\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 809
+  }
+}

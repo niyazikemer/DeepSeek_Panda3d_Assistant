@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a GraphEditorWindow class responsible for rendering and handling graph editing functionality. It is integrated into a larger application window that includes tree selection controls and zoom/tangent buttons to modify the graph's display properties. The main class initializes this window, handles events to update the graph based on user interactions (e.g., selecting different properties or changing zoom levels), and manages the overall graphical interface for editing animations or data visualizations.\n\nclass GraphEditorWindow(wx.Window):\n    \"\"\"\n    This is the main graph editor window.\n    \"\"\"\n\n    def __init__(self, parent, windowSize, property, xRange, yRange, curFrame, object):\n        wx.Window.__init__(self, parent, size = windowSize, style = wx.SUNKEN_BORDER)\n\n        self._mainDialog = wx.GetTopLevelParent(self)\n        self.w,self.h = self.GetClientSize()\n\n        self.zoom = 2.0\n        self._mouseIn = False\n        self._selectRec = False\n        self._selectHandler = False\n        self._OneTangent = True\n\n        self.object = object\n        self.curFrame = curFrame\n        self.property = property\n\n        self.zeroPos = (0.0, self.h / 2.0)\n        self.zero = 0\n        self.unitWidth = self.w / float(xRange)\n        self.unitHeight = self.h / float(yRange)\n\n        self.generateInfo()\n        self.InitBuffer()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 245
+  }
+}

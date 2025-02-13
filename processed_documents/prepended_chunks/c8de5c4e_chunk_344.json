@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of an object editor's property management system, specifically handling the creation and population of dynamic combo box UI elements based on object model or property dependencies.\n\nelif propType == OG.PROP_UI_COMBO_DYNAMIC:\n                if len(propDef) <= OG.PROP_DYNAMIC_KEY:\n                    continue\n\n                propDynamicKey = propDef[OG.PROP_DYNAMIC_KEY]\n                if propDynamicKey == OG.PROP_MODEL:\n                    dynamicRangeKey = obj[OG.OBJ_MODEL]\n                else:\n                    dynamicRangeKey = obj[OG.OBJ_PROP].get(propDynamicKey)\n\n                if dynamicRangeKey is None:\n                    self.editor.objectMgr.updateObjectPropValue(obj, key, propDef[OG.PROP_DEFAULT], fUndo=False)\n                    continue\n\n                propRange = propDef[OG.PROP_RANGE].get(dynamicRangeKey)\n\n                if propRange is None:\n                    self.editor.objectMgr.updateObjectPropValue(obj, key, propDef[OG.PROP_DEFAULT], fUndo=False)\n                    continue\n\n                if value is None:\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 344
+  }
+}

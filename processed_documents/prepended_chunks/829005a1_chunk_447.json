@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents a method within a wxPython GUI application responsible for handling key-up events. It processes specific keys like arrow keys and PageUp/PageDown, sending corresponding messages via a messenger system to manage user interactions across the application. This method is crucial for enabling navigation and input functionality in UI elements such as viewports or editors.\n\n**Answer:**  \nThe chunk defines an event handler method that processes key-up events in a wxPython GUI application, managing keyboard shortcuts for navigation and interaction across various UI components.\n\ndef onKeyUpEvent(self, evt):\n        if evt.GetKeyCode() == wx.WXK_ALT:\n            ShowBaseGlobal.direct.fAlt = 0\n        elif evt.GetKeyCode() == wx.WXK_CONTROL:\n            ShowBaseGlobal.direct.fControl = 0\n        elif evt.GetKeyCode() == wx.WXK_SHIFT:\n            ShowBaseGlobal.direct.fShift = 0\n        elif evt.GetKeyCode() == wx.WXK_UP:\n            messenger.send('arrow_up-up')\n        elif evt.GetKeyCode() == wx.WXK_DOWN:\n            messenger.send('arrow_down-up')\n        elif evt.GetKeyCode() == wx.WXK_LEFT:\n            messenger.send('arrow_left-up')\n        elif evt.GetKeyCode() == wx.WXK_RIGHT:\n            messenger.send('arrow_right-up')\n        elif evt.GetKeyCode() == wx.WXK_PAGEUP:\n            messenger.send('page_up-up')\n        elif evt.GetKeyCode() == wx.WXK_PAGEDOWN:\n            messenger.send('page_down-up')\n        else:\n            evt.Skip()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 447
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the initialization process within a class that implements an OpenGL-based window for integrating wxPython with Panda3D graphics. The specific section binds various mouse and keyboard events (left/middle/right clicks, motion, wheel, key press/release) to corresponding handler methods, enabling interaction with the 3D scene.\n\n```python\n\"\"\"Binds wxPython input events (mouse clicks, motion, wheel, and keyboard) \nto internal event handling methods for managing user interaction within the \nOpenGL graphics window.\"\"\"\n```\n\nif self.inputDevice:\n                self.Bind(wx.EVT_LEFT_DOWN, lambda event: self.__buttonDown(MouseButton.one()))\n                self.Bind(wx.EVT_LEFT_UP, lambda event: self.__buttonUp(MouseButton.one()))\n                self.Bind(wx.EVT_MIDDLE_DOWN, lambda event: self.__buttonDown(MouseButton.two()))\n                self.Bind(wx.EVT_MIDDLE_UP, lambda event: self.__buttonUp(MouseButton.two()))\n                self.Bind(wx.EVT_RIGHT_DOWN, lambda event: self.__buttonDown(MouseButton.three()))\n                self.Bind(wx.EVT_RIGHT_UP, lambda event: self.__buttonUp(MouseButton.three()))\n                self.Bind(wx.EVT_MOTION, self.__mouseMotion)\n                self.Bind(wx.EVT_MOUSEWHEEL, self.__mouseWheel)\n                self.Bind(wx.EVT_LEAVE_WINDOW, self.__mouseLeaveWindow)\n                self.Bind(wx.EVT_KEY_DOWN, self.__keyDown)\n                self.Bind(wx.EVT_KEY_UP, self.__keyUp)\n                self.Bind(wx.EVT_CHAR, self.__keystroke)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 209
+  }
+}

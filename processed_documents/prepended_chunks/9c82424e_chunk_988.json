@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sits within a class definition for an animation panel (`AnimPanel`) in a Python script that manages actor controls in a graphical user interface (GUI). The code handles packing UI elements related to actors, clearing existing actor controls, and setting up new controls based on selected actors. This is part of an animation or modeling tool where users can manipulate and animate 3D characters (actors) interactively through a panel-based interface.\n\n# Now pack the actor frame\n        self.actorFrame.pack(expand = 1, fill = tk.BOTH)\n\n    def clearActorControls(self):\n        if self.actorFrame:\n            self.actorFrame.forget()\n            self.actorFrame.destroy()\n            self.actorFrame = None\n\n    def setActors(self):\n        self.stopActorControls()\n        actors = self.session.getSelectedActors()\n        # make sure selected objects are actors, if not don't\n        # use?\n        aList = []\n        for currActor in actors:\n            aList.append(currActor)\n        self['actorList'] = aList\n\n        self.clearActorControls()\n        self.createActorControls()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 988
+  }
+}

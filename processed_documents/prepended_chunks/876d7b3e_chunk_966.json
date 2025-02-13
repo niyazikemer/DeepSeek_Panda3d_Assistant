@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines methods within a class responsible for managing and manipulating various types of lighting (ambient, directional, point, spot) in a 3D scene. The code includes functionality for creating lights, updating UI elements to reflect changes, selecting specific lights, and toggling all lights on or off. These functions are part of a larger system that provides direct control over scene lighting via a graphical interface.\n\ndef addAmbient(self):\n        return ShowBaseGlobal.direct.lights.create('ambient')\n\n    def addDirectional(self):\n        return ShowBaseGlobal.direct.lights.create('directional')\n\n    def addPoint(self):\n        return ShowBaseGlobal.direct.lights.create('point')\n\n    def addSpot(self):\n        return ShowBaseGlobal.direct.lights.create('spot')\n\n    def addLight(self, light):\n        # Make list reflect current list of lights\n        listbox = self.lightMenu.component('scrolledlist')\n        listbox.setlist(ShowBaseGlobal.direct.lights.getNameList())\n        # Select the newly added light\n        self.lightMenu.selectitem(light.getName())\n        # And show corresponding page\n        self.selectLightNamed(light.getName())\n\n    def toggleLights(self):\n        if self.enableLights.get():\n            ShowBaseGlobal.direct.lights.allOn()\n        else:\n            ShowBaseGlobal.direct.lights.allOff()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 966
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sets up event hooks for handling undo/redo operations, node selection, adding lights, and other Direct Session Panel actions, while also initializing the menu bar interface within a Tkinter-based GUI application.\n\n# Set up event hooks\n        self.actionEvents = [\n            ('DIRECT_undo', self.undoHook),\n            ('DIRECT_pushUndo', self.pushUndoHook),\n            ('DIRECT_undoListEmpty', self.undoListEmptyHook),\n            ('DIRECT_redo', self.redoHook),\n            ('DIRECT_pushRedo', self.pushRedoHook),\n            ('DIRECT_redoListEmpty', self.redoListEmptyHook),\n            ('DIRECT_selectedNodePath', self.selectedNodePathHook),\n            ('DIRECT_addLight', self.addLight),\n        ]\n        for event, method in self.actionEvents:\n            self.accept(event, method)\n\n    def createInterface(self):\n        # The interior of the toplevel panel\n        interior = self.interior()\n        # Add placer commands to menubar\n        self.menuBar.addmenu('DIRECT', 'Direct Session Panel Operations')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 923
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class that manages scene objects, specifically handling object creation and registration within the application's data structures. The `addNewObject` method initializes new scene objects with unique IDs, properties, models, and animations, while also integrating them into the UI and selection system for user interaction.\n\n# insert obj data to main repository\n        self.objects[uid] = [uid, newobj, objDef, None, None, properties, (1,1,1,1)]\n        self.npIndex[NodePath(newobj)] = uid\n\n        if self.editor:\n            if fSelectObject:\n                self.editor.select(newobj, fUndo=0)\n            self.editor.ui.sceneGraphUI.add(newobj, parent)\n            self.editor.fNeedToSave = True\n\n        return newobj\n\n    def addNewObject(self, typeName, uid = None, model = None, parent=None, anim = None, fSelectObject=True, nodePath=None, nameStr=None):\n        \"\"\" function to add new obj to the scene \"\"\"\n        if parent is None:\n            parent = self.editor.NPParent\n\n        if uid is None:\n            uid = self.genUniqueId()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 494
+  }
+}

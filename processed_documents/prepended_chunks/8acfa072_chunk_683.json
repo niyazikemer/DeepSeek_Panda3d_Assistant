@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of an animation editor's user interface class, handling the pre-play functionality. The `OnPrePlay` method manages toggling between pre-playing and stopping the animation, updating the UI button states, and controlling the timer to enable smooth animation preview within the application's timeline editing system.\n\ndef OnPrePlay(self, evt):\n        if self.prePlay is False and self.stop is True and self.play is False:\n            self.buttonPrePlay = wx.BitmapButton(self.mainPanel1, -1, self.bmpStop, size = (30,30), style = wx.BU_AUTODRAW)\n            self.DoLayout()\n            self.prePlay = True\n            self.stop = False\n            self.timer.Start(self.timeUnit)\n            evt.Skip()\n\n        elif self.prePlay is True and self.stop is False and self.play is False:\n            self.buttonPrePlay = wx.BitmapButton(self.mainPanel1, -1, self.bmpPrePlay, size = (30,30), style = wx.BU_AUTODRAW)\n            self.DoLayout()\n            self.prePlay = False\n            self.stop = True\n            self.timer.Stop()\n            evt.Skip()\n        else:\n            evt.Skip()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 683
+  }
+}

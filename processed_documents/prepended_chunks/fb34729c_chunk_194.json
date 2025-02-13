@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the initialization process in the `WxSlider` class constructor, responsible for setting up internal parameters, creating UI elements based on style flags (`wx.SL_HORIZONTAL`, `wx.SL_LABELS`, etc.), positioning controls, and initializing the slider's appearance and behavior.\n\nintMin = 0\n        intMax = 100\n        self.textValue = None\n        self.updateCB = None\n\n        if style & wx.SL_HORIZONTAL:\n            newStyle = wx.SL_HORIZONTAL\n            if style & wx.SL_LABELS:\n                wx.StaticText(parent, -1, \"%.2f\" % minValue, (pos[0], pos[1]))\n                strMaxValue = \"%.2f\" % maxValue\n                wx.StaticText(parent, -1, strMaxValue, (pos[0] + size[0] - len(strMaxValue) * 8, pos[1]))\n                strValue = \"%.2f\" % value\n                self.textValue = wx.TextCtrl(parent, -1, strValue,\n                                             (pos[0] + size[0] / 2 - textSize[0] / 2, pos[1]),\n                                             textSize, wx.TE_CENTER | wx.TE_PROCESS_ENTER)\n\n                self.textValue.Disable()\n                pos = (pos[0], pos[1] + 20)\n        else:\n            newStyle = wx.SL_VERTICAL\n            pos = (pos[0], pos[1] + 40)\n\n        if style & wx.SL_AUTOTICKS:\n            newStyle |= wx.SL_AUTOTICKS",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_14",
+    "parent": "processed_documents/context_documents/4f1c6a8b_WxSlider.json",
+    "chunk_number": 194
+  }
+}

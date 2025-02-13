@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method responsible for rendering numerical annotations on the y-axis in a graphical user interface component used for animating data curves. It handles the placement and drawing of negative number labels below zero, iterating through intervals based on the current zoom level.\n\nContext: Code for rendering negative y-axis labels in an animation curve graph editor interface.\n\nnegPos = self.zeroPos[1]+self.unitHeight*float(5)\n        negNum = self.zero - 5\n        while negPos <= self.h:\n            dc.DrawLine(0.0, negPos, self.w, negPos)\n            st = str(negNum)\n            self.drawYNumber(dc, st, negPos)\n            negPos += self.unitHeight*float(5)\n            negNum -= 5\n\n    def drawXNumber(self, dc, st, pos):\n        oldPen, oldBrush, oldMode = dc.GetPen(), dc.GetBrush(), dc.GetLogicalFunction()\n\n        dc.SetPen(wx.BLACK_PEN)\n        dc.SetBrush(wx.BLACK_BRUSH)\n        dc.DrawText(st, pos+1.0, self.h-self.th-0.5)\n\n        dc.SetPen(oldPen)\n        dc.SetBrush(oldBrush)\n        dc.SetLogicalFunction(oldMode)\n\n    def drawYNumber(self, dc, st, pos):\n        oldPen, oldBrush, oldMode = dc.GetPen(), dc.GetBrush(), dc.GetLogicalFunction()\n\n        dc.SetPen(wx.BLACK_PEN)\n        dc.SetBrush(wx.BLACK_BRUSH)\n        dc.DrawText(st, 5.0, pos-1.0)\n\n        dc.SetPen(oldPen)\n        dc.SetBrush(oldBrush)\n        dc.SetLogicalFunction(oldMode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 256
+  }
+}

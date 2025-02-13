@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger function called `updateStatusReadout` in a Python class, which handles updating a status display in a graphical user interface. This specific section constructs the text for the status readout by iterating through a list of status messages stored in `self.statusLines`, concatenating them into a single string with newline characters, and setting the color of the text based on the last message's specified color or defaulting to white if no color is provided. The code then applies this formatted text to the `statusReadout` display element. This section appears after adding new status messages and before handling any timeout-related tasks for older status lines.\n\n# update display of new status lines\n        self.statusReadout.reparentTo(base.aspect2d)\n        statusText = \"\"\n        lastColor = None\n        for currLine in self.statusLines:\n            statusText += currLine[1] + '\\n'\n            lastColor = currLine[2]\n        self.statusReadout.setText(statusText)\n        if lastColor:\n            self.statusReadout.textNode.setCardColor(\n                lastColor[0], lastColor[1], lastColor[2], lastColor[3])\n            self.statusReadout.textNode.setCardAsMargin(0.1, 0.1, 0.1, 0.1)\n        else:\n            self.statusReadout.textNode.setCardColor(1,1,1,1)\n            self.statusReadout.textNode.setCardAsMargin(0.1, 0.1, 0.1, 0.1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 419
+  }
+}

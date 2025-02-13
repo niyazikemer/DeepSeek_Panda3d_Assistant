@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents the initialization method of the `ProtoObjsUI` class within a wxPython-based UI for managing prototypical objects, setting up its core components including a list control, layout sizers, and a delete option in its popup menu.\n\nclass ProtoObjsUI(wx.Panel):\n    def __init__(self, parent, editor, protoObjs, supportedExts):\n        wx.Panel.__init__(self, parent)\n\n        self.editor = editor\n        self.protoObjs = protoObjs\n        self.supportedExts = supportedExts\n\n        self.llist = wx.ListCtrl(self, -1, style=wx.LC_REPORT)\n        self.llist.InsertColumn(0, \"Files\")\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.llist, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n        self.Layout()\n\n        parentSizer = wx.BoxSizer(wx.VERTICAL)\n        parentSizer.Add(self, 1, wx.EXPAND, 0)\n        parent.SetSizer(parentSizer)\n        parent.Layout()\n\n        self.opDelete = \"Delete\"\n        self.menuItems = list()\n        self.menuItems.append(self.opDelete)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_24",
+    "parent": "processed_documents/context_documents/4ea9b58a_ProtoObjsUI.json",
+    "chunk_number": 353
+  }
+}

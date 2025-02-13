@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `ViewportManager` class that manages multiple viewport instances by providing methods to initialize, update, and layout all viewports. This manager works with the `Viewport` class defined in the document, which handles different types of 3D views (left, front, top, perspective) with associated camera positions, grids, and collision planes. The manager's purpose is to coordinate operations across all viewport instances for efficient management of multiple views within a 3D application.\n\nclass ViewportManager:\n    \"\"\"Manages the global viewport stuff.\"\"\"\n    viewports: list[Viewport] = []\n    gsg = None\n\n    @staticmethod\n    def initializeAll(*args, **kwargs):\n        \"\"\"Calls initialize() on all the viewports.\"\"\"\n        for v in ViewportManager.viewports:\n            v.initialize(*args, **kwargs)\n\n    @staticmethod\n    def updateAll(*args, **kwargs):\n        \"\"\"Calls Update() on all the viewports.\"\"\"\n        for v in ViewportManager.viewports:\n            v.Update(*args, **kwargs)\n\n    @staticmethod\n    def layoutAll(*args, **kwargs):\n        \"\"\"Calls Layout() on all the viewports.\"\"\"\n        for v in ViewportManager.viewports:\n            v.Layout(*args, **kwargs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 218
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements core functionality for managing file operations in the ProtoObjsUI class, including removing selected items, adding files with specific extensions to a list, handling new item additions through the addNewItem method, and acquiring files while ensuring proper management of duplicate entries.\n\ndef remove(self):\n        index = self.llist.GetFirstSelected()\n        self.removeItem(index)\n\n    def add(self, filename):\n        name = os.path.basename(filename)\n        for ext in self.supportedExts:\n            if name.upper().endswith(ext.upper()):\n                try:\n                    index = self.llist.InsertStringItem(self.llist.GetItemCount(), name)\n                    self.protoObjs.data[name] = filename\n                    self.addObj(filename)\n                except Exception:\n                    pass\n                break\n\n    def addNewItem(self, result):\n        ProtoObjsUI.AquireFile(self, result[1])\n\n    def AquireFile(self, filename):\n        label = self.findLabel(filename)\n        if label:\n            self.removeItem(label)\n        filenameFull = Filename.fromOsSpecific(filename).getFullpath()\n        self.add(filenameFull)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_24",
+    "parent": "processed_documents/context_documents/4ea9b58a_ProtoObjsUI.json",
+    "chunk_number": 356
+  }
+}

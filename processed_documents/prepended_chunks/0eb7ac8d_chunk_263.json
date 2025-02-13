@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of a graphical user interface (GUI) application designed to edit animation graphs, likely within a larger software tool for animation or game development. The `GraphEditor` class manages user interactions such as zooming in/out and selecting tangents for keyframes. The specific code chunk is responsible for visually highlighting selected keyframes or tangent points by drawing cyan circles around them, with optional connecting lines between the keyframe and tangent when one-tangent mode is enabled.\n\nif list[i][AG.KEYFRAME][AG.SELECT] == 1:\n                dc.SetPen(wx.Pen(\"cyan\", 3))\n                dc.SetBrush(wx.Brush(\"cyan\"))\n                dc.DrawCircle(pointX, pointY, 2)\n\n    def drawHandler(self, list, dc):\n        for i in range(len(list)):\n            if list[i][AG.KEYFRAME][AG.SELECT] == 1:\n                X1 = list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0]\n                Y1 = list[i][AG.KEYFRAME][AG.LOCAL_VALUE][1]\n                if self._OneTangent is True:\n                    for j in range(3, 5):\n                        X = list[i][j][AG.LOCAL_VALUE][0]\n                        Y = list[i][j][AG.LOCAL_VALUE][1]\n                        if list[i][j][AG.SELECT] == 1:\n                            dc.SetPen(wx.Pen(\"cyan\", 3))\n                            dc.SetBrush(wx.Brush(\"cyan\"))\n                            dc.DrawCircle(X, Y, 2)\n\n                            dc.SetPen(wx.Pen(\"cyan\", 1))\n                            dc.DrawLine(X1, Y1, X, Y)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 263
+  }
+}

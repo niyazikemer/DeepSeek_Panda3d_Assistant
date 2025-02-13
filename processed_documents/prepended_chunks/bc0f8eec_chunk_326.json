@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements a custom wxPython panel (`ObjectPropUITime`) for displaying and editing time values (hours, minutes, AM/PM) as part of an object properties window. It is used in the \"Properties\" tab of the object property editor shown in the main document.\n\nclass ObjectPropUITime(wx.Panel):\n    def __init__(self, parent, label, value):\n        wx.Panel.__init__(self, parent)\n        self.parent = parent\n        self.labelPane = wx.Panel(self)\n        self.label = wx.StaticText(self.labelPane, label=label)\n        self.labelSizer = wx.BoxSizer(wx.HORIZONTAL)\n        self.labelSizer.Add(self.label)\n        self.labelPane.SetSizer(self.labelSizer)\n        self.uiPane = wx.Panel(self)\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.labelPane)\n        sizer.Add(self.uiPane, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n\n        hSizer = wx.BoxSizer(wx.HORIZONTAL)\n        self.uiAmPm = wx.Choice(self.uiPane, -1, choices=['AM', 'PM'])\n        self.uiHour = wx.Choice(self.uiPane, -1, choices=[str(x) for x in range(1, 13)])\n        self.uiMin = wx.Choice(self.uiPane, -1, choices=[str(x) for x in range(0, 60, 15)])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 326
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis code chunk is part of a larger system managing particle effects and rendering settings. It specifically handles configuration and display of renderer properties for point-based particles, including size, color blending, and other visual attributes. The context involves initializing or updating UI elements related to the PointParticleRenderer's parameters such as point size, start/end colors, and blend type.\n\"\"\"\n\nelif isinstance(renderer, PointParticleRenderer):\n            pointSize = renderer.getPointSize()\n            self.getWidget('Point Renderer', 'Point Size').set(pointSize)\n            startColor = renderer.getStartColor() * 255.0\n            self.getWidget('Point Renderer', 'Start Color').set(\n                [startColor[0], startColor[1], startColor[2], startColor[3]])\n            endColor = renderer.getEndColor() * 255.0\n            self.getWidget('Point Renderer', 'End Color').set(\n                [endColor[0], endColor[1], endColor[2], endColor[3]])\n            blendType = renderer.getBlendType()\n            if blendType == PointParticleRenderer.PPONECOLOR:\n                bType = \"PP_ONE_COLOR\"\n            elif blendType == PointParticleRenderer.PPBLENDLIFE:\n                bType = \"PP_BLEND_LIFE\"\n            elif blendType == PointParticleRenderer.PPBLENDVEL:\n                bType = \"PP_BLEND_VEL\"\n            self.getVariable('Point Renderer', 'Blend Type').set(bType)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 830
+  }
+}

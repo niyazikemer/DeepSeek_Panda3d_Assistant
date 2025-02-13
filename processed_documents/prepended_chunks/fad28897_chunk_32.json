@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class method in a Python script using Panda3D. The code manages AI behavior toggling, user input handling, and object movement in a 3D environment.\n\nj = 0\n        for i in range(4):\n            if self.done[i] is True:\n                j += 1\n\n        if j == 4:\n            self.toggle = not self.toggle\n            if self.toggle is True:\n                self.setMove(2)\n            else:\n                self.setMove(1)\n            for i in range(4):\n                self.done[i] = False\n\n        return Task.cont\n\n    def setKey(self, key, value):\n        self.keyMap[key] = value\n\n    def Mover(self, task):\n        startPos = self.Target.getPos()\n\n        if self.keyMap[\"left\"] != 0:\n            self.Target.setH(self.Target.getH() + turnspeed)\n        if self.keyMap[\"right\"] != 0:\n            self.Target.setH(self.Target.getH() - turnspeed)\n        if self.keyMap[\"forward\"] != 0:\n            forwardvector = self.Targetforward.getPos(render) - startPos\n            self.Target.setPos(startPos + forwardvector * speed)\n\n        return Task.cont\n\n\nw = World()\nbase.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 32
+  }
+}

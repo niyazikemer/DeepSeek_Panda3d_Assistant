@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk sets up a Tkinter UI component (controlsFrame) containing an Update button and a Dynamic Update checkbox. The Update button triggers manual refresh of the TaskManagerControls by calling updateTaskListBox(), while the Dynamic Update checkbox (controlled by taskMgrVerbose IntVar) enables automatic updates when changes occur in tasks. These controls allow users to manage how they view and interact with the real-time state of their tasks within the application's interface.\n\nself.taskMgrVerbose = tk.IntVar()\n        self.taskMgrVerbose.set(0)\n        self.update = tk.Button(\n            controlsFrame,\n            text = 'Update',\n            command = self.updateTaskListBox)\n        #self.update.pack(expand = 1, fill = tk.X, side = LEFT)\n        self.update.grid(row = 1, column = 0, sticky = tk.EW)\n        self.dynamicUpdate = tk.Checkbutton(\n            controlsFrame,\n            text = 'Dynamic Update',\n            variable = self.taskMgrVerbose,\n            command = self.toggleTaskMgrVerbose)\n        #self.dynamicUpdate.pack(expand = 1, fill = tk.X, side = LEFT)\n        self.dynamicUpdate.grid(row = 1, column = 1, sticky = tk.EW)\n        # Pack frames\n        controlsFrame.pack(fill = tk.X)\n        controlsFrame.grid_columnconfigure(0, weight = 1)\n        controlsFrame.grid_columnconfigure(1, weight = 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 903
+  }
+}

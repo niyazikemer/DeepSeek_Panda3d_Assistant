@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains code for handling collision detection in a 3D environment using Panda3D. It includes functionality to create collision nodes, attach them to objects, and dynamically switch between different collision masks based on user input (spacebar). The code is part of a larger script that demonstrates how to manage and visualize collisions between various objects in a 3D scene.\n\n# Set space to change the from collision mask of the collision ray.\n        base.accept(\"space\", self.switchCollisionMask)\n\n    def makeCollisionNodePath(self, nodepath, solid):\n        '''\n        Creates a collision node and attaches the collision solid to the\n        supplied NodePath. Returns the nodepath of the collision node.\n\n        '''\n        # Creates a collision node named after the name of the NodePath.\n        collNode = CollisionNode(\"%s c_node\" % nodepath.getName())\n        collNode.addSolid(solid)\n        collisionNodepath = nodepath.attachNewNode(collNode)\n        # Show the collision node, which makes the solids show up.\n        collisionNodepath.show()\n\n        return collisionNodepath\n\n    def switchCollisionMask(self):\n        if self.maskPos == len(self.maskList) - 1:\n            self.maskPos = 0\n        else:\n            self.maskPos += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_9",
+    "parent": "processed_documents/context_documents/b8eb20fa_40f997b9_bitmask-example.json",
+    "chunk_number": 168
+  }
+}

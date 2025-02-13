@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the initialization process in the `ObjectPaletteUI` class, which sets up a context menu for sorting items in an object palette tree control. It creates menu items, binds events to handle menu selections and tree item changes, and includes methods for populating the tree structure and managing user interactions with the UI components.\n\nself.menuItems = list()\n        self.menuItems.append(self.opSortAlpha)\n        self.menuItems.append(self.opSortOrig)\n\n        self.popupmenu = wx.Menu()\n        for item in self.menuItems:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n        self.Bind(wx.EVT_CONTEXT_MENU, self.onShowPopup)\n\n        self.tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.onSelected)\n\n    def populate(self):\n        self.tree.addTreeNodes(self.tree.GetRootItem(), self.palette.rootName, self.palette.dataStruct, self.palette.dataKeys)\n\n    def onSelected(self, event):\n        pass\n\n    def onShowPopup(self, event):\n        pos = event.GetPosition()\n        pos = self.ScreenToClient(pos)\n        self.PopupMenu(self.popupmenu, pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_33",
+    "parent": "processed_documents/context_documents/5984f907_ObjectPaletteUI.json",
+    "chunk_number": 485
+  }
+}

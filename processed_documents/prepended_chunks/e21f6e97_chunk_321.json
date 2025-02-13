@@ -1,0 +1,9 @@
+{
+  "content": "The `ObjectPropUIEntry` class is a component within a larger framework handling object properties UI elements, specifically designed to manage string value properties through text input fields. It inherits functionality from the base `ObjectPropUI` class and integrates with other property UI types (e.g., combo boxes, radio buttons) in the system.\n\nclass ObjectPropUIEntry(ObjectPropUI):\n    \"\"\" UI for string value properties \"\"\"\n\n    def __init__(self, parent, label):\n        ObjectPropUI.__init__(self, parent, label)\n        self.ui = wx.TextCtrl(self.uiPane, -1)\n        self.eventType = wx.EVT_TEXT_ENTER\n        self.Layout()\n\n    def setValue(self, value):\n        self.ui.SetValue(str(value))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 321
+  }
+}

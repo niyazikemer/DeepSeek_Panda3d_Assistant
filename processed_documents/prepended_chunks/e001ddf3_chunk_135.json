@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet is part of an autodocumentation process where each word in a docstring is evaluated and potentially replaced with a formatted reference. It ensures that method or function names are correctly linked, improving documentation navigation and searchability.\n\n**Context:**\n\nThe chunk is situated within the `on_autodoc_process_docstring` function, which processes docstrings to enhance references. The code checks each word against possible targets and replaces mentions of methods or functions with proper cross-references, aiding in better document navigation.\n\nif not result:\n            continue\n\n        typ, target = result\n\n        if word == target:\n            words[i] = ':{0}:{1}:`{2}`{3}'.format(domain, typ, target, suffix)\n        else:\n            if domain == 'py' and typ in ('meth', 'func'):\n                # Replace last part with mangled name if appropriate.\n                word = word.replace('::', '.')\n                oldpart = word.rsplit('.', 1)[-1]\n                newpart = target.rsplit('.', 1)[-1]\n                if oldpart.endswith('()'):\n                    newpart += '()'\n\n                if oldpart != newpart:\n                    if word == oldpart:\n                        word = newpart\n                    else:\n                        word = word.rsplit('.', 1)[0] + '.' + newpart",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 135
+  }
+}

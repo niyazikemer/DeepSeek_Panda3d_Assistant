@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of drawing-related methods for a graphical animation curve editor dialog. It handles rendering frame markers, X/Y curves, keyframes, and tangent controls using wxPython graphics contexts. The code manages visual elements like color coding (red for X curves, green for Y), zoom levels, and displaying the current animation frame position. These methods are part of an animation system that allows for curve manipulation through a graphical interface.\n\ndc.SetPen(oldPen)\n        dc.SetBrush(oldBrush)\n        dc.SetLogicalFunction(oldMode)\n\n    def DrawFrame(self, dc):\n        if self._mainDialog.editor.mode == self._mainDialog.editor.ANIM_MODE:\n            curFramePos = self.zeroPos[0]+self.curFrame*self.unitWidth\n            dc.SetPen(wx.Pen(\"red\"))\n            dc.SetBrush(wx.Brush(\"red\"))\n            dc.DrawLine(curFramePos, 0.0, curFramePos, self.h)\n        else:\n            pass\n\n    def drawX(self, dc):\n        dc.SetPen(wx.Pen(\"red\"))\n        dc.SetBrush(wx.Brush(\"red\"))\n        self.drawSingleCurve(self.X, dc)\n        self.drawKeys(self.X, dc)\n        self.drawHandler(self.X, dc)\n\n    def drawY(self, dc):\n        dc.SetPen(wx.Pen(\"green\"))\n        dc.SetBrush(wx.Brush(\"green\"))\n        self.drawSingleCurve(self.Y, dc)\n        self.drawKeys(self.Y, dc)\n        self.drawHandler(self.Y, dc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 257
+  }
+}

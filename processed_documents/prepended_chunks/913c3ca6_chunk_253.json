@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a graphical user interface (GUI) component for an animation or graph editor. It handles the drawing of numerical markers along the x-axis based on the current zoom level. The code draws grid lines at intervals corresponding to specific numerical values and labels them, ensuring that users can easily read values on the graph even as they zoom in or out. This functionality is essential for maintaining readability and providing accurate visual feedback while interacting with the graph editor.\n\nelif self.unitWidth >= 10 and self.unitWidth <= 25:\n            posPos = self.zeroPos[0]+self.unitWidth*2.0\n            posNum = self.zero + 2\n            while posPos <= self.w:\n                dc.DrawLine(posPos, 0.0, posPos, self.h)\n                st = str(posNum)\n                self.drawXNumber(dc, st, posPos)\n                posPos += self.unitWidth*2.0\n                posNum += 2\n\n            negPos = self.zeroPos[0]-self.unitWidth*2.0\n            negNum = self.zero - 2\n            while negPos >= 0.0:\n                dc.DrawLine(negPos, 0.0, negPos, self.h)\n                st = str(negNum)\n                self.drawXNumber(dc, st, negPos)\n                negPos -= self.unitWidth*2.0\n                posNum -= 2",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 253
+  }
+}

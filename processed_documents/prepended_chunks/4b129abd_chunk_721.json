@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method setting up a graphical user interface (GUI) component for managing particle effects, specifically creating a menu label to select or create particles within a software application. This chunk likely appears early in the document, possibly within a class initialization method, where core GUI elements are defined before configuring specific force parameters.\n\nfont=('MSSansSerif', 12, 'bold'),\n                                            activebackground = '#909090')\n        self.particlesLabelMenu = tk.Menu(self.particlesLabel, tearoff = 0)\n        self.particlesLabel['menu'] = self.particlesLabelMenu\n        self.particlesLabel.pack(side = tk.LEFT, fill = 'x', expand = 1)\n        self.bind(self.particlesLabel,\n                  ('Select particles object to configure ' +\n                   'or add new particles object to current effect'))\n        self.particlesLabelMenu.add_command(label = 'Create New Particles',\n                                            command = self.createNewParticles)\n        self.particlesEnableMenu = tk.Menu(self.particlesLabelMenu, tearoff = 0)\n        self.particlesLabelMenu.add_cascade(label = 'Enable/Disable',\n                                            menu = self.particlesEnableMenu)\n        self.particlesLabelMenu.add_separator()\n        # Current force",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 721
+  }
+}

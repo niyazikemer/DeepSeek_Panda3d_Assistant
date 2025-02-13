@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `ProtoPaletteUI` class, specifically within its `AquireFile` method. The purpose of this method is to process a given filename to add new items to the palette or update existing ones. It checks if an item with the same name already exists and deletes it if found. Then, it handles Maya files (`.mb` or `.ma`) by initiating a conversion process via `convertMaya`. For non-Maya files, it creates an `ObjectBase` instance with specified attributes, adds this data to both the prototype palette and the tree view, and scrolls the tree to highlight the newly added item.\n\nif self.editor.protoPalette.findItem(name):\n            item = self.tree.traverse(self.tree.root, name)\n            if item:\n                self.tree.DeleteItem(item)\n\n        modelname = Filename.fromOsSpecific(filename).getFullpath()\n        if modelname.endswith('.mb') or\\\n           modelname.endswith('.ma'):\n            self.editor.convertMaya(modelname, self.addNewItem)\n            return\n\n        itemData = ObjectBase(name=name, model=modelname, actor=True)\n        self.editor.protoPalette.add(itemData)\n\n        newItem = self.tree.AppendItem(self.editor.ui.protoPaletteUI.tree.root, name)\n        self.tree.SetItemPyData(newItem, itemData)\n        self.tree.ScrollTo(newItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 565
+  }
+}

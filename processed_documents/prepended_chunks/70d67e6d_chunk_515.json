@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk processes property updates for different UI element types in an object editor, determining values from events like slider movements, text entry, or spin controls to adjust object attributes.\n\npropDef = objDef.properties[propName]\n        if propDef is None:\n            return\n\n        propType = propDef[OG.PROP_TYPE]\n        propDataType = propDef[OG.PROP_DATATYPE]\n\n        if propType == OG.PROP_UI_SLIDE:\n            if len(propDef) <= OG.PROP_RANGE:\n                return\n\n            strVal = event.GetString()\n            if strVal == '':\n                min = float(propDef[OG.PROP_RANGE][OG.RANGE_MIN])\n                max = float(propDef[OG.PROP_RANGE][OG.RANGE_MAX])\n                intVal = event.GetInt()\n                if intVal is None:\n                    return\n                val = intVal / 100.0 * (max - min) + min\n            else:\n                val = strVal\n\n        elif propType == OG.PROP_UI_ENTRY:\n            val = event.GetString()\n\n        elif propType == OG.PROP_UI_SPIN:\n            val = event.GetInt()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 515
+  }
+}

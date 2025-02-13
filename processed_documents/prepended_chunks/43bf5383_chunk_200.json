@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `EmbeddedPandaWindow` class, which implements a Panda3D window directly embedded within a wxPython frame. This class is specifically designed for embedding graphics in wx applications and is primarily supported on Windows, with partial support on Linux but no support on macOS (Darwin). It serves as an alternative implementation to `OpenGLPandaWindow`, which is used on Linux and macOS.\n\nclass EmbeddedPandaWindow(wx.Window):\n    \"\"\" This class implements a Panda3D window that is directly\n    embedded within the frame.  It is fully supported on Windows,\n    partially supported on Linux, and not at all on OSX. \"\"\"\n\n    def __init__(self, *args, **kw):\n        gsg = None\n        if 'gsg' in kw:\n            gsg = kw['gsg']\n            del kw['gsg']\n\n        base.startWx()\n        wx.Window.__init__(self, *args, **kw)\n\n        wp = WindowProperties.getDefault()\n        if platform.system() != 'Darwin':\n            try:\n                wp.setParentWindow(self.GetHandle())\n            except OverflowError:\n                # Sheesh, a negative value from GetHandle().  This can\n                # only happen on 32-bit Windows.\n                wp.setParentWindow(self.GetHandle() & 0xffffffff)\n\n        self.win = base.openWindow(props = wp, gsg = gsg, type = 'onscreen',\n                                   unexposedDraw = False)\n        self.Bind(wx.EVT_SIZE, self.onSize)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 200
+  }
+}

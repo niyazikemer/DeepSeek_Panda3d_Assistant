@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a configuration document for setting up a Sphinx-based Python documentation system. It specifies options that control how autodoc generates API documentation, including which members are documented, the display of inheritance hierarchies, and custom sections in docstrings. The settings also include paths for interrogatedb and attributes for Graphviz-generated inheritance diagrams, all aimed at enhancing the structure and appearance of the final documentation output.\n\nautodoc_default_options = {\n    \"members\": None,\n    \"show-inheritance\": None,\n}\nautodoc_inherit_docstrings = False\nnapoleon_custom_sections = [\"Usage\", \"Features\"]\nautosummary_generate = True\n# Prevent prepending module name to all classes/functions\nadd_module_names = False\n\n# Map to camel-case for now.\nautodoc_interrogatedb_mangle_type_names = False\nautodoc_interrogatedb_mangle_function_names = True\n\n# Set the directory where the .in files should be located.\ntry:\n    import pandac\nexcept ImportError:\n    pandac = None\nif pandac:\n    interrogatedb_search_path = [\n        os.path.join(os.path.dirname(pandac.__file__), \"input\")]\n\n# Set some default graphviz attributes for the inheritance diagrams.\ninheritance_graph_attrs = {\n    \"rankdir\": \"BT\",\n    #\"splines\": \"ortho\",\n}\ninheritance_node_attrs = {\n    \"fontsize\": 11,\n    \"style\": '\"\"',\n}\ninheritance_edge_attrs = {\n    \"arrowsize\": 0.75,\n    \"style\": '\"\"',\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 120
+  }
+}

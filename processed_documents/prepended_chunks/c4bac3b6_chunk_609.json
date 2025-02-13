@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `undo` method in a class related to object deletion (likely within the `ActionDeleteObjectById` or similar), specifically handling the restoration of deleted objects by re-adding them with their previous properties and transformations. This functionality is situated within the overall document's context of implementing undo/redo operations for various editor actions, including object manipulation, property updates, selection/deselection, and hierarchical management.\n\nsaveObjStatus(self.uid, True)\n\n    def undo(self):\n        if len(self.hierarchy) == 0 or\\\n           len(self.objInfos) == 0:\n            print(\"Can't undo this deletion\")\n        else:\n            print(\"Undo: deleteObjectById\")\n            def restoreObject(uid, parentNP):\n                obj = self.objInfos[uid]\n                objDef = obj[OG.OBJ_DEF]\n                objModel = obj[OG.OBJ_MODEL]\n                objProp = obj[OG.OBJ_PROP]\n                objRGBA = obj[OG.OBJ_RGBA]\n                objNP = self.editor.objectMgr.addNewObject(objDef.name,\n                                                   uid,\n                                                   obj[OG.OBJ_MODEL],\n                                                   parentNP)\n                self.editor.objectMgr.updateObjectColor(objRGBA[0], objRGBA[1], objRGBA[2], objRGBA[3], objNP)\n                self.editor.objectMgr.updateObjectProperties(objNP, objProp)\n                objNP.setMat(self.objTransforms[uid])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 609
+  }
+}

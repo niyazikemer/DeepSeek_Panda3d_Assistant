@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a larger Tkinter-based GUI framework for creating and configuring physics simulation controls. Specifically, the code is related to setting up widgets for controlling interpolation segments in a graphical application, likely involving animation or rendering parameters such as segment timing and color interpolation. While not directly related to force field configurations shown in the main document, it appears to be part of a similar widget creation framework but focused on different simulation or visualization parameters.\n\nContext: Tkinter GUI framework - Interpolation Segment Controls\n\nf = tk.Frame(frame)\n        self.createSlider(f,\n                          'Sprite Renderer', segName + ' Begin',\n                          '',\n                          command = setSegBegin,\n                          value = seg.getTimeBegin())\n        self.createSlider(f,'Sprite Renderer', segName + ' End',\n                          '',\n                          command = setSegEnd,\n                          value = seg.getTimeEnd())\n        f.pack(fill = tk.X, expand = 0)\n        frame.pack(pady = 3, fill = tk.X, expand = 0)\n        return frame\n\n    def createConstantInterpolationSegmentWidget(self, parent, segName, segment):\n        fun = segment.getFunction()\n\n        def setSegColorA(color):\n            fun.setColorA(\n                Vec4(color[0]/255.0, color[1]/255.0,\n                     color[2]/255.0, color[3]/255.0))\n\n        frame = self.createInterpolationSegmentFrame(parent, segName, segment)\n        f = tk.Frame(frame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 862
+  }
+}

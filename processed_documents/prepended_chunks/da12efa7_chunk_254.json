@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a method responsible for drawing the X-axis coordinate system in a graph editor interface. This method, `DrawXCoord`, is designed to render grid lines and numerical labels along the X-axis based on the current zoom level (`unitWidth`) and other display parameters. The code ensures that the coordinate system remains readable by adjusting the spacing between grid lines as the user zooms in or out of the graph. This functionality is integral to maintaining a clear visual representation of data points within the editor, allowing users to accurately interpret and manipulate plotted information.\n\nelif self.unitWidth >= 2 and self.unitWidth <= 10:\n            posPos = self.zeroPos[0]+self.unitWidth*float(5)\n            posNum = self.zero + 5\n            while posPos <= self.w:\n                dc.DrawLine(posPos, 0.0, posPos, self.h)\n                st = str(posNum)\n                self.drawXNumber(dc, st, posPos)\n                posPos += self.unitWidth*float(5)\n                posNum += 5\n\n            negPos = self.zeroPos[0]-self.unitWidth*float(5)\n            negNum = self.zero - 5\n            while negPos >= 0.0:\n                dc.DrawLine(negPos, 0.0, negPos, self.h)\n                st = str(negNum)\n                self.drawXNumber(dc, st, negPos)\n                negPos -= self.unitWidth*float(5)\n                posNum -= 5\n\n    def DrawYCoord(self,dc):\n        dc.SetPen(wx.BLACK_PEN)\n        dc.SetBrush(wx.BLACK_BRUSH)\n        dc.SetFont(wx.Font(8, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 254
+  }
+}

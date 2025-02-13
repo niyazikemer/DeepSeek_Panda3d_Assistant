@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `saveToFile` method in the `FileMgr` class, responsible for writing object data and layer data to a specified file after initializing the file content. It writes the collected data from `objectMgr.getSaveData()` and `layerEditorUI.getSaveData()`, closes the file, updates the editor status, and handles I/O exceptions.\n\nsaveData = self.editor.objectMgr.getSaveData()\n            for data in saveData:\n                f.write(data)\n                f.write('\\n')\n            saveDataLayers = self.editor.ui.layerEditorUI.getSaveData()\n            for data in saveDataLayers:\n                f.write(data)\n                f.write('\\n')\n            f.close()\n            self.editor.updateStatusReadout('Sucessfully saved to %s'%fileName)\n            self.editor.fNeedToSave = False\n        except IOError:\n            print('failed to save %s'%fileName)\n            if f:\n                f.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_52",
+    "parent": "processed_documents/context_documents/10b6518e_FileMgr.json",
+    "chunk_number": 702
+  }
+}

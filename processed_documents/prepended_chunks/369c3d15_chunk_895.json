@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods to create widgets for configuring linear distance forces in a physics simulation interface.\n\ndef createLinearDistanceForceWidget(self, forcePage, pageName,\n                                        count, force, type):\n        def setFalloffType(type, f=force):\n            if type == 'FT_ONE_OVER_R':\n                #f.setFalloffType(LinearDistanceForce.FTONEOVERR)\n                f.setFalloffType(0)\n            if type == 'FT_ONE_OVER_R_SQUARED':\n                #f.setFalloffType(LinearDistanceForce.FTONEOVERRSQUARED)\n                f.setFalloffType(1)\n            if type == 'FT_ONE_OVER_R_CUBED':\n                #f.setFalloffType(LinearDistanceForce.FTONEOVERRCUBED)\n                f.setFalloffType(2)\n\n        def setForceCenter(vec, f = force):\n            f.setForceCenter(Point3(vec[0], vec[1], vec[2]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 895
+  }
+}

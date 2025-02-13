@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a larger class or module that configures and manages particle effects in a 3D animation/game engine. Specifically, it contains methods for setting up and controlling properties of a disc-shaped particle emitter, including radius, inner/outer angles and velocities, and enabling cubic lerping for smoother transitions between emission points. These functions are likely part of a particle system editor or configuration tool that allows developers to define how particles are emitted from a disc-shaped region in 3D space.\n\ndef setEmitterBoxPoint2(self, point):\n        self.particles.emitter.setMaxBound(Point3(point[0],\n                                                  point[1],\n                                                  point[2]))\n    # Disc #\n\n    def setEmitterDiscRadius(self, radius):\n        self.particles.emitter.setRadius(radius)\n\n    def setEmitterDiscInnerAngle(self, angle):\n        self.particles.emitter.setInnerAngle(angle)\n\n    def setEmitterDiscInnerVelocity(self, velocity):\n        self.particles.emitter.setInnerMagnitude(velocity)\n\n    def setEmitterDiscOuterAngle(self, angle):\n        self.particles.emitter.setOuterAngle(angle)\n\n    def setEmitterDiscOuterVelocity(self, velocity):\n        self.particles.emitter.setOuterMagnitude(velocity)\n\n    def toggleEmitterDiscCubicLerping(self):\n        self.particles.emitter.setCubicLerping(\n            self.getVariable('Disc Emitter', 'Cubic Lerping').get())\n    # Line #",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 821
+  }
+}

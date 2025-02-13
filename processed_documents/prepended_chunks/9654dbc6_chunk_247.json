@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to process animation keyframes for an object across different axes (X, Y, Z) by generating handlers and appending them to respective lists. This is situated within the initialization or setup phase of a graphical editor interface for managing animation curves in an animation system. The code processes existing keyframe data from the application's animation manager, preparing it for display or editing within the graph editor window.\n\nif self._mainDialog.editor.animMgr.keyFramesInfo != {}:\n            self.keyFramesInfo = self._mainDialog.editor.animMgr.keyFramesInfo\n            for key in self.keyFramesInfo:\n                if key == (self.object[OG.OBJ_UID], 'X'):\n                    for i in range(len(self.keyFramesInfo[key])):\n                        item = self.keyFramesInfo[key][i]\n                        handler = self.generateHandler(item)\n                        self.X.append([key, i, handler[0], handler[1], handler[2], handler[3], handler[4]])\n                if key == (self.object[OG.OBJ_UID], 'Y'):\n                    for i in range(len(self.keyFramesInfo[key])):\n                        item = self.keyFramesInfo[key][i]\n                        handler = self.generateHandler(item)\n                        self.Y.append([key, i, handler[0], handler[1], handler[2], handler[3], handler[4]])\n                if key == (self.object[OG.OBJ_UID], 'Z'):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 247
+  }
+}

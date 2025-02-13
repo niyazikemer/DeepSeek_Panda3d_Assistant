@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines initialization of a timer for periodic output updates and the `convertFromMaya` method which sets up conversion commands based on whether the file is an animation or not.\n\nself.timer = wx.Timer(self, -1)\n        self.Bind(wx.EVT_TIMER, self.onPoll, self.timer)\n        self.timer.Start(100)\n\n    def convertFromMaya(self):\n        if self.isAnim:\n            if self.obj:\n                command = 'maya2egg -uo ft -a chan %s -o %s.anim.egg'%(self.mayaFile, self.mayaFile)\n                self.process = Process(self, command, lambda p0=None: self.onProcessEnded(p0))\n            else:\n                command = 'maya2egg -uo ft -a model %s -o %s.model.egg'%(self.mayaFile, self.mayaFile)\n                self.process = Process(self, command, lambda p0=None: self.onModelProcessEnded(p0))\n        else:\n            command = 'maya2egg -uo ft %s -o %s.egg'%(self.mayaFile, self.mayaFile)\n            self.process = Process(self, command, lambda p0=None: self.onProcessEnded(p0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 301
+  }
+}

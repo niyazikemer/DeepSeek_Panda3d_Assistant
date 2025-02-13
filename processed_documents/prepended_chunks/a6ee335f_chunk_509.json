@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to object transformation operations in a 3D scene. It handles adjustments of an object's heading, pitch, roll, and scale factors, records the transformation using an action manager for potential undo/redo functionality, removes the old transform, applies the new one, and marks that changes need saving. This is integral to managing user interactions where objects are manipulated in the 3D scene, ensuring these transformations are tracked and can be reverted if needed.\n\nwhile r > 360:\n            r = r - 360.0\n\n        np.setH(h)\n        np.setP(p)\n        np.setR(r)\n\n        np.setSx(float(self.editor.ui.objectPropertyUI.propSX.getValue()))\n        np.setSy(float(self.editor.ui.objectPropertyUI.propSY.getValue()))\n        np.setSz(float(self.editor.ui.objectPropertyUI.propSZ.getValue()))\n\n        obj = self.findObjectByNodePath(self.currNodePath)\n        action = ActionTransformObj(self.editor, obj[OG.OBJ_UID], Mat4(np.getMat()))\n        self.editor.actionMgr.push(action)\n        np.remove()\n        action()\n        self.editor.fNeedToSave = True\n\n    def setObjectTransform(self, uid, xformMat):\n        obj = self.findObjectById(uid)\n        if obj:\n            obj[OG.OBJ_NP].setMat(xformMat)\n        self.editor.fNeedToSave = True\n\n    def updateObjectColor(self, r, g, b, a, np=None):\n        if np is None:\n            np = self.currNodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 509
+  }
+}

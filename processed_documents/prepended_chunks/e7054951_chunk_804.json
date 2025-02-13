@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `saveParticleEffectToFile` method in a particle effects management system, enabling users to save particle configurations to `.ptf` files by selecting directories, handling file dialogs, and persisting particle effect data. This functionality is crucial for preserving user-defined particle systems within the application.\n\ndef saveParticleEffectToFile(self):\n        # Find path to particle directory\n        pPath = getParticlePath()\n        if pPath.getNumDirectories() > 0:\n            if repr(pPath.getDirectory(0)) == '.':\n                path = '.'\n            else:\n                path = pPath.getDirectory(0).toOsSpecific()\n        else:\n            path = '.'\n        if not os.path.isdir(path):\n            print('ParticlePanel Warning: Invalid default DNA directory!')\n            print('Using current directory')\n            path = '.'\n        particleFilename = asksaveasfilename(\n            defaultextension = '.ptf',\n            filetypes = (('Particle Files', '*.ptf'), ('All files', '*')),\n            initialdir = path,\n            title = 'Save Particle Effect as',\n            parent = self.parent)\n        if particleFilename:\n            self.particleEffect.saveConfig(Filename(particleFilename))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 804
+  }
+}

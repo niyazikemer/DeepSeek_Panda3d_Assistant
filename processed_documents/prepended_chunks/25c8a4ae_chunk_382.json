@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an animation system within a 3D modeling or game development editor. The `createCurveAnimation` method sets up parallel sequences for node path animations using predefined curves, while `createActorAnimation` handles character animations by creating intervals from stored actor data. Both methods contribute to building complex scenes with multiple simultaneous animations.\n\nreturn self.parallel\n\n    def createCurveAnimation(self, parallel):\n        for key in self.curveAnimation:\n            curveInfo = self.curveAnimation[key]\n            nodePath = self.editor.objectMgr.findObjectById(curveInfo[AG.NODE])\n            curve = self.editor.objectMgr.findObjectById(curveInfo[AG.CURVE])\n            time = curveInfo[AG.TIME]\n            sequence = self.singleCurveAnimation(nodePath, curve, time)\n            parallel.append(sequence)\n\n    def createActorAnimation(self, parallel, startFrame, endFrame):\n        self.editor.objectMgr.findActors(render)\n        for actor in self.editor.objectMgr.Actor:\n            actorAnim = os.path.basename(actor[OG.OBJ_ANIM])\n            myInterval = ActorInterval(actor[OG.OBJ_NP], actorAnim, loop=1, duration = float(endFrame-startFrame+1)/float(24))\n            parallel.append(myInterval)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 382
+  }
+}

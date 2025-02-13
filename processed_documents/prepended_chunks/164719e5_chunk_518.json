@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears to be part of a function responsible for updating object properties, specifically handling keyword arguments for property updates and undo operations. It populates `kwargs` and `undoKwargs` based on different argument types (values, objects, etc.), ensuring proper handling for both the current operation and potential undo actions. This is situated within the broader context of managing object properties and maintaining undo/redo functionality in a 3D modeling or game development editor system.\n\n# populate keyword arguments\n                kwargs = {}\n                undoKwargs = {}\n                for key in funcArgs.keys():\n                    if funcArgs[key] == OG.ARG_VAL:\n                        kwargs[key] = val\n                        undoKwargs[key] = oldVal\n                    elif funcArgs[key] == OG.ARG_OBJ:\n                        undoKwargs[key] = obj\n                        objProp[propName] = val\n                        kwargs[key] = obj\n                    elif funcArgs[key] == OG.ARG_NOLOADING:\n                        kwargs[key] = fSelectObject\n                        undoKwargs[key] = fSelectObject\n                    else:\n                        kwargs[key] = funcArgs[key]\n                        undoKwargs[key] = funcArgs[key]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 518
+  }
+}

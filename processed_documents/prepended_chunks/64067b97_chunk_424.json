@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a section that handles collision detection logic for determining front-facing surfaces relative to the camera in a 3D viewport. It is part of a larger system that processes mouse interactions with a 3D scene, where precise hit detection is critical for accurate user input handling and rendering decisions.\n\nContext: \nThe code chunk implements collision entry filtering logic within a function that checks whether a surface hit by a ray is front-facing or back-facing relative to the camera. This is part of the system that processes mouse interactions in a 3D viewport, ensuring that only relevant surfaces are considered for hit detection and rendering decisions.\n\nfromNodePath = entry.getFromNodePath()\n                v = Vec3(entry.getSurfacePoint(fromNodePath))\n                n = entry.getSurfaceNormal(fromNodePath)\n                # Convert to camera space for backfacing test\n                p2cam = iRay.collisionNodePath.getParent().getMat(self.view.camera)\n                v = Vec3(p2cam.xformPoint(v))\n                n = p2cam.xformVec(n)\n                # Normalize and check angle between to vectors\n                v.normalize()\n                return v.dot(n) >= 0\n\n            iRay.sortEntries()\n            for entry in iRay.getEntries():\n                if isEntryBackfacing(iRay, entry):\n                    pass\n                else:\n                    hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n                    break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 424
+  }
+}

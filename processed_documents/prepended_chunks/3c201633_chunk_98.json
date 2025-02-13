@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Panda3D application initialization process where animations and camera movements are set up. It includes creating intervals for a panda actor's walking animation, setting up the camera rotation task, and starting the application loop to display the 3D scene with animated elements.\n\n# Create and play the sequence that coordinates the intervals.\n        self.pandaPace = Sequence(posInterval1, hprInterval1,\n                                  posInterval2, hprInterval2,\n                                  name=\"pandaPace\")\n        self.pandaPace.loop()\n\n    # Define a procedure to move the camera.\n    def spinCameraTask(self, task):\n        angleDegrees = task.time * 6.0\n        angleRadians = angleDegrees * (pi / 180.0)\n        self.camera.setPos(20 * sin(angleRadians), -20 * cos(angleRadians), 3)\n        self.camera.setHpr(angleDegrees, 0, 0)\n        return Task.cont\n\n\napp = MyApp()\napp.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_6",
+    "parent": "processed_documents/context_documents/c81b5aed_33e996bf_using-intervals-to-move-the-panda.json",
+    "chunk_number": 98
+  }
+}

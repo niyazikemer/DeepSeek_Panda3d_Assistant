@@ -1,0 +1,9 @@
+{
+  "content": "This document is a complete Python script that creates a simple 3D scene viewer using Panda3D. It loads an environment model, applies transformations (scale and position), and implements a rotating camera view using task management for continuous updates. The script demonstrates basic Panda3D setup, model loading, and camera movement mechanics.\n\nfrom math import pi, sin, cos\n\nfrom direct.showbase.ShowBase import ShowBase\nfrom direct.task import Task\n\n\nclass MyApp(ShowBase):\n    def __init__(self):\n        ShowBase.__init__(self)\n\n        # Load the environment model.\n        self.scene = self.loader.loadModel(\"models/environment\")\n        # Reparent the model to render.\n        self.scene.reparentTo(self.render)\n        # Apply scale and position transforms on the model.\n        self.scene.setScale(0.25, 0.25, 0.25)\n        self.scene.setPos(-8, 42, 0)\n\n        # Add the spinCameraTask procedure to the task manager.\n        self.taskMgr.add(self.spinCameraTask, \"SpinCameraTask\")\n\n    # Define a procedure to move the camera.\n    def spinCameraTask(self, task):\n        angleDegrees = task.time * 6.0\n        angleRadians = angleDegrees * (pi / 180.0)\n        self.camera.setPos(20 * sin(angleRadians), -20 * cos(angleRadians), 3)\n        self.camera.setHpr(angleDegrees, 0, 0)\n        return Task.cont\n\n\napp = MyApp()\napp.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_11",
+    "parent": "processed_documents/context_documents/a0c7babe_4907bb48_controlling-the-camera.json",
+    "chunk_number": 178
+  }
+}

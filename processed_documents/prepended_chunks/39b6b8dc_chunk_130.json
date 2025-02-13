@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk handles reference resolution for modules under the `panda3d` namespace. If a reference starts with `panda3d` but does not specify `core`, it redirects the reference to `panda3d.core`. This ensures consistent linking and lookup of core module references in the documentation.\n\n**Context:** When handling references within the documentation, if a reference is encountered that starts with `panda3d` but specifies a module other than `core`, this code will redirect the reference to point to the `core` module instead.\n\nif len(rel_parts) >= 2 and rel_parts[0] == 'panda3d' and rel_parts[1] != 'core':\n        # Look in panda3d.core instead, prefix the result with the module name.\n        rel_parts[1] = 'core'\n        return resolve_reference(ref, '.'.join(rel_parts), domain=domain)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 130
+  }
+}

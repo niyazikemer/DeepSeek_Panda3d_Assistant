@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods for handling object duplication and post-save data in an object editor or scene graph management system. The `getPostSaveData()` method allows adding additional data after main save operations, while the `duplicateObject()` method handles duplicating selected objects within the scene graph by preserving their properties and hierarchy.\n\ndef getPostSaveData(self):\n        \"\"\"\n        if there are additional data to be saved after main data\n        you can override this function to populate data\n        \"\"\"\n\n    def duplicateObject(self, nodePath, parent=None):\n        obj = self.findObjectByNodePath(nodePath)\n        if obj is None:\n            return None\n        objDef = obj[OG.OBJ_DEF]\n        objModel = obj[OG.OBJ_MODEL]\n        objAnim = obj[OG.OBJ_ANIM]\n        objRGBA = obj[OG.OBJ_RGBA]\n\n        if parent is None:\n            parentNP = nodePath.getParent()\n            parentObj = self.findObjectByNodePath(parentNP)\n            if parentObj is None:\n                parent = parentNP\n            else:\n                parent = parentObj[OG.OBJ_NP]\n\n        newObjNP = self.addNewObject(objDef.name, parent=parent, fSelectObject = False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 526
+  }
+}

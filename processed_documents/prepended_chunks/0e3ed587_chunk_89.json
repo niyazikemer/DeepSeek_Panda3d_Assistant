@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python script that extends Sphinx, a documentation generator. Specifically, this chunk defines configuration setup for handling URLs in inheritance diagrams and managing link suffixes. The function `on_config_inited` connects event handlers to modify URL references and ensures correct link formatting, crucial for accurate documentation links across different variations or builds.\n\n**Answer:**\n\nThis code is part of a Sphinx extension that configures URL handling and link generation, ensuring inheritance diagrams reference the correct variation and adjusting link suffixes for proper documentation output.\n\ndef on_config_inited(app, config):\n    if config.html_absolute_url_root:\n        app.connect('builder-inited', on_builder_inited)\n        app.connect('html-page-context', on_html_page_context)\n\n        # This normally runs before our hook, so it still picks up the old\n        # pathto, hence we need to register it again\n        from sphinx.builders.html import setup_js_tag_helper\n        app.connect('html-page-context', setup_js_tag_helper)\n\n    # Used in searchbox.html.\n    if config.html_link_suffix is not None:\n        config.html_context['link_suffix'] = config.html_link_suffix\n    elif config.html_file_suffix is not None:\n        config.html_context['link_suffix'] = config.html_file_suffix\n    else:\n        config.html_context['link_suffix'] = '.html'\n\n\n# This is an awful hack to get the inheritance graphs to incorporate the\n# current variation into the links properly, and, at the same time, not\n# generate the arrow connections inverted. :-/",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 89
+  }
+}

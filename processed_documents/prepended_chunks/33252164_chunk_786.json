@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines the `createSlider` method, which adds functionality to create slider widgets with specified parameters and binds them to balloon help. This sits within a class that manages UI widget creation for force settings, complementing methods like `createVector3Entry`, `createOptionMenu`, and others used for configuring interactive controls in a physics simulation or similar application.\n\ndef createSlider(self, parent, category, text, balloonHelp,\n                     command = None, min = 0.0, max = 1.0,\n                     resolution = 0.001, **kw):\n        kw['text'] = text\n        kw['min'] = min\n        kw['max'] = max\n        kw['resolution'] = resolution\n        widget = Slider.Slider(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)\n        self.widgetDict[category + '-' + text] = widget\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 786
+  }
+}

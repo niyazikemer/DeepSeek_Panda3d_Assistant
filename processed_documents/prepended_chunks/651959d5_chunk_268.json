@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of event handler methods (OnLeftDown, OnLeftUp, OnMiddleDown, OnMiddleUp) for capturing mouse input within a graph editor window. These methods check if the mouse coordinates are within window boundaries, capture mouse position data when buttons are pressed or released, and update the display accordingly to enable user interaction with graph elements such as selecting or adjusting points in the animation graph editor.\n\nThis code is part of a larger class that implements a graph editor window for animating properties in a 2D graphics application. The methods handle basic mouse input for selecting and manipulating graph data points used in animations, ensuring smooth and accurate updates to the visual representation of the animation curves being edited by the user.\n\nif point[1] >= 0.0 and point[1] <= float(self.h):\n            if point[0] >= 0.0 and point[0] <= float(self.w):\n                self._mouseIn = True\n\n        if self._mouseIn:\n            self.CaptureMouse()\n            self.pos = point\n\n    def OnLeftUp(self, evt):\n        if self.GetCapture():\n            self.ReleaseMouse()\n            self._mouseIn = False\n            self._selectRec = False\n            self.setSelection()\n            self.SetGraphEditorData(self.property, self.curFrame)\n\n    def OnMiddleDown(self, evt):\n        point = (evt.GetX(), evt.GetY())\n\n        if point[1] >= 0.0 and point[1] <= float(self.h):\n            if point[0] >= 0.0 and point[0] <= float(self.w):\n                self._mouseIn = True\n\n        if self._mouseIn:\n            self.CaptureMouse()\n            self.midPos = point\n\n    def OnMiddleUp(self, evt):\n        if self.GetCapture():\n            self.ReleaseMouse()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 268
+  }
+}

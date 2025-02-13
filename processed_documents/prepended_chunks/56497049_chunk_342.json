@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger function responsible for setting up property panels in an application, specifically handling the creation of UI elements based on different property types within the \"Properties\" tab. This section deals with creating spinners for numeric input, checkboxes for boolean values, and radio buttons for selecting from predefined options. Each UI element is dynamically added to the panel based on the defined properties and their respective data types, ensuring proper user interaction and data handling.\n\nif value is None:\n                    continue\n\n                propUI = ObjectPropUISpinner(self.propsPane, key, value, propRange[OG.RANGE_MIN], propRange[OG.RANGE_MAX])\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_CHECK:\n                if value is None:\n                    continue\n\n                propUI = ObjectPropUICheck(self.propsPane, key, value)\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_RADIO:\n                if len(propDef) <= OG.PROP_RANGE:\n                    continue\n                propRange = propDef[OG.PROP_RANGE]\n\n                if value is None:\n                    continue\n\n                if propDataType != OG.PROP_STR:\n                    for i in range(len(propRange)):\n                        propRange[i] = str(propRange[i])\n\n                    value = str(value)\n\n                propUI = ObjectPropUIRadio(self.propsPane, key, value, propRange)\n                sizer.Add(propUI)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 342
+  }
+}

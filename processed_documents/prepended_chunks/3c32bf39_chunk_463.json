@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `CurveAnimUI` class, which is a wxPython dialog used for curve animation in an application. The specific chunk initializes the UI components of this dialog, including labels, text inputs, and buttons for selecting node paths and curves, essential for creating animations by attaching curves to objects. This setup allows users to interactively manage object animations within the application's interface.\n\nclass CurveAnimUI(wx.Dialog):\n    \"\"\"\n    This is the Curve Animation Panel implementation.\n    \"\"\"\n\n    def __init__(self, parent, editor):\n        wx.Dialog.__init__(self, parent, id=wx.ID_ANY, title=\"Curve Animation\",\n                           pos=wx.DefaultPosition, size=(430, 140))\n\n        self.editor = editor\n        self.nodePath = None\n        self.curve = None\n\n        self.mainPanel = wx.Panel(self, -1)\n\n        self.chooseNode = wx.StaticText(self.mainPanel, -1, \"Choose NodePath:\")\n        self.chooseNodeTxt = wx.TextCtrl(self.mainPanel, -1, \"\")\n        self.chooseNodeButton = wx.Button(self.mainPanel, -1, \"Choose..\")\n\n        self.chooseCurve = wx.StaticText(self.mainPanel, -1, \"Choose attch Curve:\")\n        self.chooseCurveTxt = wx.TextCtrl(self.mainPanel, -1, \"\")\n        self.chooseCurveButton = wx.Button(self.mainPanel, -1, \"Choose..\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_30",
+    "parent": "processed_documents/context_documents/258ea79b_CurveAnimUI.json",
+    "chunk_number": 463
+  }
+}

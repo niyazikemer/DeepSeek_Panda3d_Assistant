@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a class method (possibly `__init__` or a similar initialization function) within an animation editing tool. The code sets up event bindings for various UI controls (`wx.EVT_SPINCTRL`, `wx.EVT_BUTTON`, etc.), initializes timing and animation properties, and prepares the interface for user interaction with keyframes and time controls. This chunk is essential for initializing the animation editor's functionality, including handling user inputs, setting up timers, and configuring initial states for the animation timeline and keyframe management system.\n\nself.Bind(wx.EVT_SPINCTRL, self.OnTimeStartSpin, self.timeStartSpin)\n        self.Bind(wx.EVT_SPINCTRL, self.OnTimeSliderStartSpin, self.timeSliderStartSpin)\n        self.Bind(wx.EVT_SPINCTRL, self.OnTimeSliderEndSpin, self.timeSliderEndSpin)\n        self.Bind(wx.EVT_SPINCTRL, self.OnTimeEndSpin, self.timeEndSpin)\n\n        self.Bind(wx.EVT_BUTTON, self.OnDeleteKey, self.buttonDeleteKey)\n\n        self.Bind(wx.EVT_CLOSE, self.OnExit)\n\n        self.OnPropKey()\n        self.OnAnimation(self.curFrame)\n\n        self.timeUnit = float(1)/float(24)*float(1000)\n        self.timer = wx.Timer(self)\n        self.Bind(wx.EVT_TIMER, self.OnTimer, self.timer)\n\n        self._initOver = True\n\n    def SetProperties(self):\n        self.curFrameSpin.SetValue(self.curFrame)\n        self.timeStartSpin.SetValue(self.startFrame)\n        self.timeSliderStartSpin.SetValue(self.sliderStartFrame)\n        self.timeSliderEndSpin.SetValue(self.sliderEndFrame)\n        self.timeEndSpin.SetValue(self.endFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 676
+  }
+}

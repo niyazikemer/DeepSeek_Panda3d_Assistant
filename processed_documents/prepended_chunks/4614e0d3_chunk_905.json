@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements a right-click context menu handler (`popupMenu`) and selection tracking (`setCurrentTask`) for a task management interface using Tkinter's Listbox widget.\n\ndef popupMenu(self, event):\n        \"\"\"\n        listbox = self.taskListBox.component('listbox')\n        index = listbox.nearest(event.y)\n        listbox.selection_clear(0)\n        listbox.activate(index)\n        self.taskListBox.select_set(index)\n        self.setCurrentTask()\n        \"\"\"\n        self._popupMenu.post(event.widget.winfo_pointerx(),\n                             event.widget.winfo_pointery())\n        return \"break\"\n\n    def setCurrentTask(self, event = None):\n        if len(self.taskListBox.curselection()) > 0: # [gjeon] to avoid crash when nothing is selected\n            index = int(self.taskListBox.curselection()[0])\n            self.currentTask = self.__taskDict[index]\n        else:\n            self.currentTask = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 905
+  }
+}

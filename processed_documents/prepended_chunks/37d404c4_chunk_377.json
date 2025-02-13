@@ -1,0 +1,9 @@
+{
+  "content": "These methods manage animation key frames in a 3D object editor. `reset()` initializes animation data structures, while `generateKeyFrames()` creates a consolidated list of unique animation frame numbers from property-specific key frame information.\n\ndef reset(self):\n        self.keyFramesInfo = {}\n        self.curveAnimation = {}\n\n    def generateKeyFrames(self):\n        #generate keyFrame list\n        self.keyFrames = []\n        for property in list(self.keyFramesInfo.keys()):\n            for frameInfo in self.keyFramesInfo[property]:\n                frame = frameInfo[AG.FRAME]\n                exist = False\n                for keyFrame in self.keyFrames:\n                    if frame == keyFrame:\n                        exist = True\n                        break\n                if not exist:\n                    self.keyFrames.append(frame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 377
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `ObjectCurve` class extends `ObjectBase` to define properties for curve objects, including a degree parameter with specific UI and data type configurations.\n\nclass ObjectCurve(ObjectBase):\n    def __init__(self, *args, **kw):\n        ObjectBase.__init__(self, *args, **kw)\n        self.properties['Degree'] = [\n            OG.PROP_UI_COMBO,   # UI type\n            OG.PROP_INT,        # data type\n            ('base.le.objectMgr.updateCurve', {'val': OG.ARG_VAL, 'obj': OG.ARG_OBJ}), # update function\n            3,                  # default value\n            [2, 3, 4],          # value range\n        ]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_31",
+    "parent": "processed_documents/context_documents/b4cff924_ObjectPaletteBase.json",
+    "chunk_number": 476
+  }
+}

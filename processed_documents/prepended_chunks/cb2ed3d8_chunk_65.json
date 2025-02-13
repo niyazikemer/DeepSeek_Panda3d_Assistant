@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a function `convert_doxygen_format` that processes lines of Doxygen-formatted documentation to convert them into a format compatible with Sphinx's reStructuredText syntax. The function handles replacements for HTML tags, backticks, and specific Doxygen commands (`@c`, `@p`) while resolving references using the fully qualified name of the module, class, or function being documented.\n\ndef convert_doxygen_format(line, name, domain='py'):\n    \"\"\"Converts a single line of Doxygen formatting to Sphinx.\n    The name argument is the fully qualified name of the current module, class\n    or function, and is used to resolve references.\"\"\"\n\n    line = line.replace('<b>', '**').replace('</b>', '**')\n\n    # Single backticks in doxygen map to doubles in Sphinx\n    line = line.replace('`', '``')\n\n    # But double backticks are literal backticks\n    line = line.replace('````', '\\\\`')\n\n    # @c and @p result in double backticks for the subsequent word\n    line = re.sub(at_c_at_p_pattern, r'``\\1``', line)\n\n    parent = name.rsplit('.', 1)[-1]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 65
+  }
+}

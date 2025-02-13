@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines `ObjectPaletteBase`, a base class providing infrastructure for managing object palettes. Its constructor initializes core data structures (`data`, `dataStruct`, `dataKeys`) and calls `populateSystemObjs()` to add essential hidden items like `ObjectCurve`. This class serves as the foundation for creating and managing hierarchical object palettes, with specific implementations required in subclasses through the abstract `populate()` method.\n\nclass ObjectPaletteBase:\n    \"\"\"\n    Base class for objectPalette\n\n    You should write your own ObjectPalette class inheriting this.\n    Refer ObjectPalette.py for example.\n    \"\"\"\n\n    def __init__(self):\n        self.rootName = '_root'\n        self.data = {}\n        self.dataStruct = {}\n        self.dataKeys = []\n        self.populateSystemObjs()\n        #self.populate()\n\n    def insertItem(self, item, parentName):\n        \"\"\"\n        You can insert item to obj palette tree.\n\n        'item' is the object to be inserted, it can be either a group or obj.\n        'parentName' is the name of parent under where this item will be inserted.\n        \"\"\"\n        if not isinstance(self.data, dict):\n            return None\n\n        if parentName is None:\n            parentName = self.rootName\n\n        self.dataStruct[item.name] = parentName\n        self.data[item.name] = item\n        self.dataKeys.append(item.name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_31",
+    "parent": "processed_documents/context_documents/b4cff924_ObjectPaletteBase.json",
+    "chunk_number": 477
+  }
+}

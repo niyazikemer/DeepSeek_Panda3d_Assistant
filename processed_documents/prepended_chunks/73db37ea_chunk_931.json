@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the setup for an environment configuration interface within a graphical application, likely a 3D modeling or scene graph editing tool. The code creates UI elements to control background color and display region settings, allowing users to modify visual aspects affecting how objects are rendered. These controls integrate with undo/redo functionality, enhancing user interaction by enabling changes to be easily reverted or repeated.\n\nContext: Part of an environment configuration section in a GUI application, providing controls for background color and display parameters within the environment setup interface.\n\ntk.Label(bkgrdFrame, text = 'Background',\n                 font=('MSSansSerif', 14, 'bold')).pack(expand = 0)\n\n        self.backgroundColor = VectorWidgets.ColorEntry(\n            bkgrdFrame, text = 'Background Color')\n        self.backgroundColor['command'] = self.setBackgroundColorVec\n        self.backgroundColor.pack(fill = tk.X, expand = 0)\n        self.bind(self.backgroundColor, 'Set background color')\n        bkgrdFrame.pack(fill = tk.BOTH, expand = 0)\n\n        drFrame = tk.Frame(envPage, borderwidth = 2, relief = 'sunken')\n        tk.Label(drFrame, text = 'Display Region',\n                 font=('MSSansSerif', 14, 'bold')).pack(expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 931
+  }
+}

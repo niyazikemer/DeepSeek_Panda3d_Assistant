@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `createComboBox` method within a larger document that implements a collection of UI widget creation methods (e.g., option menus, vector entries) using Tkinter and Pmw. The context is part of a class managing various user interface components with associated help text and command bindings, maintaining widgets in a dictionary for later access.\n\ndef createComboBox(self, parent, category, text, balloonHelp,\n                         items, command, history = 0):\n        widget = Pmw.ComboBox(parent,\n                              labelpos = tk.W,\n                              label_text = text,\n                              label_anchor = 'w',\n                              label_width = 12,\n                              entry_width = 16,\n                              history = history,\n                              scrolledlist_items = items)\n        # Don't allow user to edit entryfield\n        widget.configure(entryfield_entry_state = 'disabled')\n        # Select first item if it exists\n        if len(items) > 0:\n            widget.selectitem(items[0])\n        # Bind selection command\n        widget['selectioncommand'] = command\n        widget.pack(side = 'left', expand = 0)\n        # Bind help\n        self.bind(widget, balloonHelp)\n        # Record widget\n        self.widgetDict[category + '-' + text] = widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 790
+  }
+}

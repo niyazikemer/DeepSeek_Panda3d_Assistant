@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within a method of a `GraphEditor` class responsible for managing an animation curve editor in a graphical user interface (GUI) application. The specific lines handle updating tangent points when they are moved by a user. This occurs within an event handler, likely `OnMouseMove`, which processes mouse interactions affecting the tangent handles on the graph. The code updates the slope of the tangent based on movement values and normalizes it using the current zoom scale (`unitWidth` and `unitHeight`), ensuring that changes in the UI are reflected accurately in the underlying animation data stored in `keyFramesInfo`.\n\nself.SetGraphEditorData(self.property, self.curFrame)\n\n                if list[i][AG.OUT_TANGENT][AG.SELECT] == 1:\n                    newPointX = list[i][AG.OUT_TANGENT][AG.LOCAL_VALUE][0] + moveX\n                    newPointY = list[i][AG.OUT_TANGENT][AG.LOCAL_VALUE][1] + moveY\n\n                    newSlope = [newPointX  - list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0], list[i][AG.KEYFRAME][AG.LOCAL_VALUE][1] - newPointY]\n\n                    temp0 = self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.OUTSLOPE][0]\n                    temp1 = self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.OUTSLOPE][1]\n                    self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.OUTSLOPE][0] = newSlope[0]/self.unitWidth\n                    self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.OUTSLOPE][1] = newSlope[1]/self.unitHeight",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 281
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method responsible for updating the graphical user interface (GUI) elements that control and display various settings related to a grid system. Specifically, it sets the values of UI components based on the current state of the grid object, including properties like spacing, size, and snap angle. This ensures that users can accurately view and modify these grid parameters through the application's interface.\n\n# Set light specific info\n        if self.activeLight:\n            l = self.activeLight.getLight()\n            self.lightActive.set(render.hasLight(self.activeLight))\n            lightColor = l.getColor() * 255.0\n            self.lightColor.set([lightColor[0], lightColor[1],\n                                 lightColor[2], lightColor[3]], 0)\n            if isinstance(l, DirectionalLight):\n                specularColor = l.getSpecularColor() * 255.0\n                self.dSpecularColor.set([specularColor[0],\n                                         specularColor[1],\n                                         specularColor[2],\n                                         specularColor[3]], 0)\n            elif isinstance(l, PointLight):\n                specularColor = l.getSpecularColor() * 255.0\n                self.pSpecularColor.set([specularColor[0],\n                                         specularColor[1],\n                                         specularColor[2],",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 971
+  }
+}

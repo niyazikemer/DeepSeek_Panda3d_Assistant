@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk describes methods for calculating B\u00e9zier curve tangent points and initializing a drawing buffer within a graph editor window, facilitating efficient rendering of curves with user-selected tangent configurations.\n\nx2 = x1-float(self.unitWidth*self.zoom)*cosA\n        y2 = y1+float(self.unitWidth*self.zoom)*sinA\n\n        tanA = t2y / t2x\n        temp1 = 1.0 / (tanA ** 2 + 1)\n        if t2x < 0:\n            cosA = -math.sqrt(abs(temp1))\n        if t2x >= 0:\n            cosA = math.sqrt(abs(temp1))\n        temp2 = (tanA ** 2) * temp1\n        if t2y < 0:\n            sinA = -math.sqrt(abs(temp2))\n        if t2y >= 0:\n            sinA = math.sqrt(abs(temp2))\n\n        x3 = x1+float(self.unitWidth*self.zoom)*cosA\n        y3 = y1-float(self.unitWidth*self.zoom)*sinA\n\n        return [[(x1,y1),0],[(x2,y2),0],[(x3,y3),0],[t1x,t1y],[t2x,t2y]]\n\n    def InitBuffer(self):\n        self.buffer = wx.EmptyBitmap(self.w, self.h)\n        dc = wx.BufferedDC(wx.ClientDC(self), self.buffer)\n        self.DrawXCoord(dc)\n        self.DrawYCoord(dc)\n        self.DrawFrame(dc)\n        self.DrawCurve(dc)\n        self.DrawSelectRec(dc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 250
+  }
+}

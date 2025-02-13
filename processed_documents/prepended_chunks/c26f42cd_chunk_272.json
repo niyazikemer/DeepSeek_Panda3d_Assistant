@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Graph Editor Dialog implementation in a 3D modeling software application, specifically designed for animating properties such as X, Y, and Z coordinates. The `setNewKey` method updates keyframe selections based on mouse position relative to specified areas, while the `setSelection` method manages the selection logic across different properties (X, Y, Z) within the dialog interface.\n\nreturn flag\n\n    def setNewKey(self, list):\n        for i in range(len(list)):\n            inside = self.inside(self.pos, self.newPos, (list[i][2][0][0], list[i][2][0][1]))\n            if inside is True:\n                list[i][AG.KEYFRAME][AG.SELECT] = 1\n            if inside is False:\n                list[i][AG.KEYFRAME][AG.SELECT] = 0\n\n    def setSelection(self):\n        if self.property == self._mainDialog.namestr:\n            self.setSelectionBase(self.X)\n            self.setSelectionBase(self.Y)\n            self.setSelectionBase(self.Z)\n            return\n        if self.property == property[AG.X]:\n            self.setSelectionBase(self.X)\n            return\n        if self.property == property[AG.Y]:\n            self.setSelectionBase(self.Y)\n            return\n        if self.property == property[AG.Z]:\n            self.setSelectionBase(self.Z)\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 272
+  }
+}

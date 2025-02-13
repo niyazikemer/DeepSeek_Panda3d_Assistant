@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements lighting control functionality within a scene graph editor (SGE) interface. It includes methods for toggling lights globally (`toggleLights`), managing the state of an active light source (`toggleActiveLight`), and setting the color of an active light source (`setLightColor`). These functions are part of a larger class that handles various aspects of scene management, including undo/redo operations, grid manipulation, and node path hierarchy destruction. The lighting control methods integrate with `ShowBaseGlobal` to manage lights in a 3D scene, allowing for both global and specific light source adjustments.\n\ndef toggleLights(self):\n        if self.enableLights.get():\n            ShowBaseGlobal.direct.lights.allOn()\n        else:\n            ShowBaseGlobal.direct.lights.allOff()\n\n    def toggleActiveLight(self):\n        if self.activeLight:\n            if self.lightActive.get():\n                ShowBaseGlobal.direct.lights.setOn(self.activeLight)\n            else:\n                ShowBaseGlobal.direct.lights.setOff(self.activeLight)\n\n    def setLightColor(self, color):\n        if self.activeLight:\n            self.activeLight.getLight().setColor(Vec4(color[0]/255.0,\n                                                      color[1]/255.0,\n                                                      color[2]/255.0,\n                                                      color[3]/255.0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 967
+  }
+}

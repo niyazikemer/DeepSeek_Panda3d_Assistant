@@ -1,0 +1,9 @@
+{
+  "content": "The `onSize` and `onRightDown` methods belong to the `Viewport` class, which manages different types of viewport windows (orthographic and perspective) for 3D modeling or visualization. The `onSize` method handles window resizing events, updating the camera and rendering settings to maintain proper aspect ratios and render quality. The `onRightDown` method processes right-click events, determining mouse position and potentially triggering context-sensitive actions within the viewport.\n\ndef onSize(self, evt):\n        \"\"\"Invoked when the viewport is resized.\"\"\"\n        WxPandaWindow.onSize(self, evt)\n\n        if self.win is not None:\n            newWidth = self.ClientSize.GetWidth()\n            newHeight = self.ClientSize.GetHeight()\n\n            if hasattr(base, \"direct\") and base.direct:\n                for dr in base.direct.drList:\n                    if dr.camNode == self.camNode:\n                        dr.updateFilmSize(newWidth, newHeight)\n                        break\n\n    def onRightDown(self, evt = None):\n        \"\"\"Invoked when the viewport is right-clicked.\"\"\"\n        if evt is None:\n            mpos = wx.GetMouseState()\n            mpos = self.ScreenToClient((mpos.x, mpos.y))\n        else:\n            mpos = evt.GetPosition()\n        self.Update()\n        #self.PopupMenu(self.menu, mpos)\n        #self.menu.Destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 223
+  }
+}

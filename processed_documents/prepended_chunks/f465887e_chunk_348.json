@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `LevelEditor` class inheriting from `LevelEditorBase`, initializing game-specific components for a Panda3D level editor. It sets up object managers, animation managers, palettes, and UI elements, populates underlying data structures, and updates UI panels with populated palettes. The class is designed to be customized per game by rewriting `ObjectHandler` and `ObjectPalette`.\n\nclass LevelEditor(LevelEditorBase):\n    \"\"\" Class for Panda3D LevelEditor \"\"\"\n    def __init__(self):\n        LevelEditorBase.__init__(self)\n\n        # define your own config file similar to this\n        self.settingsFile = os.path.dirname(__file__) + '/LevelEditor.cfg'\n\n        # If you have your own ObjectPalette and ObjectHandler\n        # connect them in your own LevelEditor class\n        self.objectMgr = ObjectMgr(self)\n        self.animMgr = AnimMgr(self)\n        self.objectPalette = ObjectPalette()\n        self.objectHandler = ObjectHandler(self)\n        self.protoPalette = ProtoPalette()\n\n        # Populating uderlined data-structures\n        self.ui = LevelEditorUI(self)\n        self.ui.SetCursor(wx.Cursor(wx.CURSOR_WAIT))\n        self.objectPalette.populate()\n        self.protoPalette.populate()\n\n        # Updating UI-panels based on the above data\n        self.ui.objectPaletteUI.populate()\n        self.ui.protoPaletteUI.populate()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_23",
+    "parent": "processed_documents/context_documents/3cd00660_LevelEditor.json",
+    "chunk_number": 348
+  }
+}

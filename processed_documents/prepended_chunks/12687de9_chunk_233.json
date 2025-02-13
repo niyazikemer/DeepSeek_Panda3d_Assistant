@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a wxPython application framework (`WxAppShell`) with event handling for about dialog display and application exit, along with placeholder methods (`appInit`, `createInterface`, etc.) that are meant to be overridden by subclasses.\n\ndef showAbout(self, event):\n        # Create the dialog to display about and contact information.\n        self.about.ShowModal()\n\n    def quit(self, event=None):\n        self.onDestroy(event)\n\n        # to close Panda\n        from direct.showbase import ShowBaseGlobal\n        if hasattr(ShowBaseGlobal, 'base'):\n            ShowBaseGlobal.base.userExit()\n        else:\n            sys.exit()\n\n    ### USER METHODS ###\n    # To be overridden\n    def appInit(self):\n        # Called before interface is created (should be overridden).\n        pass\n\n    def createInterface(self):\n        # Override this method to create the interface for the app.\n        pass\n\n    def onDestroy(self, event):\n        # Override this method with actions to be performed on panel shutdown\n        pass\n\n    def createMenuBar(self):\n        # Creates default menus.\n        # Override if you don't want to use default menus\n        self.menuFile = wx.Menu()\n        self.menuBar.Append(self.menuFile, \"&File\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_18",
+    "parent": "processed_documents/context_documents/abbd053b_WxAppShell.json",
+    "chunk_number": 233
+  }
+}

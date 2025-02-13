@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is the `__init__` method of the `LayerEditorUI` class, which serves as a panel for managing layers in a 3D modeling or visualization application. The initialization sets up the UI components (including a list control for displaying layers) and initializes data structures to track layer information and object references. This context helps situate the code within a system that allows users to create, manage, hide/show objects across different layers, and save/load layer configurations.\n\nclass LayerEditorUI(wx.Panel):\n    def __init__(self, parent, editor):\n        wx.Panel.__init__(self, parent)\n\n        self.editor = editor\n        self.editorTxt = \"Layer Editor\"\n        self.saveData = []\n        self.layersDataDict = dict()\n        self.layersDataDictNextKey = 0\n        self.systemLayerKeys = []\n        self.llist = wx.ListCtrl(self, -1, style=wx.LC_REPORT | wx.LC_EDIT_LABELS | wx.LC_NO_HEADER)\n        self.llist.InsertColumn(0, \"Layers\")\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.llist, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n        self.Layout()\n\n        parentSizer = wx.BoxSizer(wx.VERTICAL)\n        parentSizer.Add(self, 1, wx.EXPAND, 0)\n        parent.SetSizer(parentSizer)\n        parent.Layout()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_40",
+    "parent": "processed_documents/context_documents/bf9b01c2_LayerEditorUI.json",
+    "chunk_number": 571
+  }
+}

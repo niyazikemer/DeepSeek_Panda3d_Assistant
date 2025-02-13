@@ -1,0 +1,9 @@
+{
+  "content": "This chunk adds functionality to set actors and load animations in the animation panel if a Direct session has been initialized. It modifies the menu bar by adding commands under the 'File' menu to interact with selected objects as actors or load animation files.\n\n# add actors and animations, only allowed if a direct\n        # session has been specified since these currently require\n        # interaction with selected objects\n        if self.session:\n            menuBar.addmenuitem('File', 'command',\n                                'Set currently selected group of objects as actors to animate.',\n                                label = 'Set Actors',\n                                command = self.setActors)\n            menuBar.addmenuitem('File', 'command',\n                                'Load animation file',\n                                label = 'Load Anim',\n                                command = self.loadAnim)\n\n        controlFrame.pack(fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 985
+  }
+}

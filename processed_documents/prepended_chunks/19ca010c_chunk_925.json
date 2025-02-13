@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the initialization setup within a class that manages a user interface for direct manipulation controls. The chunk adds specific menu items to a menu bar under the 'DIRECT' section, enabling users to toggle object handle visibility, switch between widget modes, and control widget placement on top of other elements. This functionality is situated within a graphical user interface (GUI) framework, likely part of an interactive 3D modeling or scene editing application.\n\nThe code is located in the __init__ method of the DirectManipulationInterface class, where UI components are initialized and configured.\n\nself.menuBar.addmenuitem('DIRECT', 'command',\n                                 'Toggle Object Handles Visability',\n                                 label = 'Toggle Widget Viz',\n                                 command = ShowBaseGlobal.direct.toggleWidgetVis)\n\n        self.menuBar.addmenuitem(\n            'DIRECT', 'command',\n            'Toggle Widget Move/COA Mode',\n            label = 'Toggle Widget Mode',\n            command = ShowBaseGlobal.direct.manipulationControl.toggleObjectHandlesMode)\n\n        self.directWidgetOnTop = tk.BooleanVar()\n        self.directWidgetOnTop.set(False)\n        self.menuBar.addmenuitem('DIRECT', 'checkbutton',\n                                 'DIRECT Widget On Top',\n                                 label = 'Widget On Top',\n                                 variable = self.directWidgetOnTop,\n                                 command = self.toggleWidgetOnTop)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 925
+  }
+}

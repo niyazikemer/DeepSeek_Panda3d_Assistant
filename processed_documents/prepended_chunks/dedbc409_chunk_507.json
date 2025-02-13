@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk appears to be part of a method responsible for updating the transformation properties (rotation and scaling) of a selected object in real-time. It ensures that rotation values (H, P, R) are kept within the range of 0-360 degrees by adjusting them as necessary before updating their respective UI elements. This functionality is likely situated within an `updateObjectTransform` method, which handles the synchronization between the object's transformation state and its representation in the user interface.\n\nContext: Updating Object Transform Properties (Rotation & Scaling)\n\nwhile h > 360:\n            h = h - 360.0\n\n        p = state.np.getP()\n        while p < 0:\n            p = p + 360.0\n\n        while p > 360:\n            p = p - 360.0\n\n        r = state.np.getR()\n        while r < 0:\n            r = r + 360.0\n\n        while r > 360:\n            r = r - 360.0\n\n        self.editor.ui.objectPropertyUI.propH.setValue(h)\n        self.editor.ui.objectPropertyUI.propP.setValue(p)\n        self.editor.ui.objectPropertyUI.propR.setValue(r)\n\n        self.editor.ui.objectPropertyUI.propSX.setValue(state.np.getSx())\n        self.editor.ui.objectPropertyUI.propSY.setValue(state.np.getSy())\n        self.editor.ui.objectPropertyUI.propSZ.setValue(state.np.getSz())\n\n        return Task.cont\n\n    def updateObjectTransform(self, event):\n        if self.currNodePath is None:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 507
+  }
+}

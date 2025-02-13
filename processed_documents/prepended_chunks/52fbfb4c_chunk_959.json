@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a method responsible for setting the Node Path in the JoyBox interface. It handles clearing a bogus entry from a listbox and setting the selected Node Path for the JoyBox, followed by pushing an undo operation to allow reverting this change.\n\n```python\n# Set Node Path for JoyBox\ndef setJoyBoxNodePath(self):\n    # Bogus eval\n    nodePath = None\n    # Clear bogus entry from listbox\n    listbox = self.jbNodePathMenu.component('scrolledlist')\n    listbox.setlist(self.jbNodePathNames)\n    # Did we finally get something?\n    if nodePath is not None:\n        # Yes, select it!\n        if nodePath == 'No Node Path':\n            ShowBaseGlobal.direct.joybox.setNodePath(None)\n        else:\n            ShowBaseGlobal.direct.joybox.setNodePath(nodePath)\n    # Push undo operation\n    self.pushUndo()\n```\n\n# Bogus eval\n                    nodePath = None\n                    # Clear bogus entry from listbox\n                    listbox = self.jbNodePathMenu.component('scrolledlist')\n                    listbox.setlist(self.jbNodePathNames)\n        # Did we finally get something?\n        if nodePath is not None:\n            # Yes, select it!\n            if nodePath == 'No Node Path':\n                ShowBaseGlobal.direct.joybox.setNodePath(None)\n            else:\n                ShowBaseGlobal.direct.joybox.setNodePath(nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 959
+  }
+}

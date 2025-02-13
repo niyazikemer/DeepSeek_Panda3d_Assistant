@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `CurveEditor` class, which handles the creation and editing of curves in a 3D environment. The specific method `createCurve()` initializes the process by checking if the editor is in create mode, capturing mouse positions to place control points, updating the visual rope representation, and setting up event handling for user input. This chunk is essential for initiating curve creation, integrating with other class methods like `createControler` and `ropeUpdate`, and managing state transitions upon completion of the curve creation process.\n\nclass CurveEditor(DirectObject):\n    \"\"\" CurveEditor will create and edit the curve \"\"\"\n\n    def __init__(self, editor):\n        self.editor = editor\n        self.i = 0\n        self.ropeNum = 0\n        self.curve = []\n        self.curveControl = []\n        self.currentRope = None\n        self.degree = 3\n\n    def createCurve(self):\n        if self.editor.mode == self.editor.CREATE_CURVE_MODE:\n            self.view = self.editor.ui.currentView\n\n            #Get the mouse position\n            x = base.direct.dr.mouseX\n            y = base.direct.dr.mouseY\n\n            if not self.editor.fMoveCamera and self.view is not None:\n                self.createControler(x,y)\n                if self.currentRope is not None:\n                    self.currentRope.detachNode()\n                self.ropeUpdate(self.curve)\n                self.accept(\"DIRECT-enter\", self.onBaseMode)\n\n            self.accept(\"DIRECT-enter\", self.onBaseMode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 547
+  }
+}

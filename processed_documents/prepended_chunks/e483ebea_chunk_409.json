@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a class that handles various functionalities such as file operations (opening, saving, loading), object management, user interface interactions, and status updates. The specific method `selectedNodePathHook` within the document manages the handling of selected node paths in the application's scene graph, including checking for unpickable nodes, deselecting them if necessary, updating old selections, selecting new objects, building context menus, and potentially entering curve editing mode when applicable.\n\ndef selectedNodePathHook(self, nodePath, fMultiSelect = 0, fSelectTag = 1, fLEPane = 0):\n        # handle unpickable nodepath\n        if nodePath.getName() in base.direct.iRay.unpickable:\n            base.direct.deselect(nodePath)\n            return\n\n        if fMultiSelect == 0 and fLEPane == 0:\n            oldSelectedNPs = base.direct.selected.getSelectedAsList()\n            for oldNP in oldSelectedNPs:\n                obj = self.objectMgr.findObjectByNodePath(oldNP)\n                if obj:\n                    self.ui.sceneGraphUI.deSelect(obj[OG.OBJ_UID])\n        self.objectMgr.selectObject(nodePath, fLEPane)\n        self.ui.buildContextMenu(nodePath)\n\n        if self.mode == self.EDIT_CURVE_MODE:\n            base.taskMgr.add(self.curveEditor.editCurve, \"modify\")\n            self.curveEditor.accept(\"DIRECT-enter\", self.curveEditor.onBaseMode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 409
+  }
+}

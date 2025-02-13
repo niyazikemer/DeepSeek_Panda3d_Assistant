@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods (`saveSettings` and `loadSettings`) within a class handling UI operations, specifically for managing configuration settings like grid properties and hotkey mappings.\n\ndef saveSettings(self):\n        if self.settingsFile is None:\n            return\n\n        try:\n            f = open(self.settingsFile, 'w')\n            f.write('gridSize\\n%f\\n'%self.ui.perspView.grid.gridSize)\n            f.write('gridSpacing\\n%f\\n'%self.ui.perspView.grid.gridSpacing)\n            f.write('hotKey\\n%s\\n'%base.direct.hotKeyMap)\n            f.close()\n        except:\n            pass\n\n    def loadSettings(self):\n        if self.settingsFile is None:\n            return\n\n        self.ui.SetCursor(wx.Cursor(wx.CURSOR_WAIT))\n        try:\n            f = open(self.settingsFile, 'r')\n            configLines = f.readlines()\n            f.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 413
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines `ActionBase`, an abstract base class serving as the foundation for various user action classes (e.g., updating object properties, selecting/deselecting objects) in a 3D environment. The `ActionBase` class implements core functionality including execution control via `_do__call__`, result handling, and hooks for state management through `saveStatus` and `postCall`. All specific action classes inherit from this base to implement application-specific undo/redo logic.\n\nclass ActionBase(Functor):\n    \"\"\" Base class for user actions \"\"\"\n\n    def __init__(self, function, *args, **kargs):\n        self.function = function\n        if function is None:\n            def nullFunc():\n                pass\n            function = nullFunc\n        Functor.__init__(self, function, *args, **kargs)\n        self.result = None\n\n    def _do__call__(self, *args, **kargs):\n        self.saveStatus()\n        self.result = Functor._do__call__(self, *args, **kargs)\n        self.postCall()\n        return self.result\n\n    # needed this line to override _do__call__\n    __call__ = _do__call__\n\n    def redo(self):\n        self.result = self._do__call__()\n        return self.result\n\n    def saveStatus(self):\n        # save object status for undo here\n        pass\n\n    def postCall(self):\n        # implement post process here\n        pass\n\n    def undo(self):\n        print(\"undo method is not defined for this action\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 599
+  }
+}

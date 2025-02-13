@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an `AnimPanel` class that facilitates animation control and management in a 3D application. The chunk specifically implements UI initialization methods (`clearActorControls`, `createActorControls`) and adds functionality to load animation files via a file dialog, enabling users to import Maya binary files for character animations.\n\nself.clearActorControls()\n        self.createActorControls()\n\n    def loadAnim(self):\n        # bring up file open box to allow selection of an\n        # animation file\n        animFilename = askopenfilename(\n            defaultextension = '.mb',\n            filetypes = (('Maya Models', '*.mb'),\n                         ('All files', '*')),\n            initialdir = '/i/beta',\n            title = 'Load Animation',\n            parent = self.component('hull')\n        )\n        if not animFilename or animFilename == 'None':\n            # no file selected, canceled\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 989
+  }
+}

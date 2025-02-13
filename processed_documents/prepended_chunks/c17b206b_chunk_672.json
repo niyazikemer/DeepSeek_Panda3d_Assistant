@@ -1,0 +1,9 @@
+{
+  "content": "This chunk initializes essential animation-related variables (frame numbers) and creates UI elements including panels, time sliders, spin controls, and icons/bitmaps for various animation operations within the animation editor interface. It is part of a class that manages animation keyframes, playback controls, and UI interactions in an application with graphical editing capabilities.\n\nself.curFrame = 1\n        self.startFrame = 1\n        self.sliderStartFrame = 1\n        self.endFrame = 24\n        self.sliderEndFrame = 24\n\n        self.mainPanel1 = wx.Panel(self, -1)\n\n        self.timeSlider = TimeSlider(self.mainPanel1, wx.Size(560, 35), self.sliderStartFrame, self.sliderEndFrame, self.curFrame)\n        self.curFrameSpin = wx.SpinCtrl(self.mainPanel1, -1, \"\",size = (70,25), min=self.startFrame, max=self.endFrame)\n\n        bmpFirstFrame = FirstFrame.GetBitmap()\n        bmpPreFrame = PreFrame.GetBitmap()\n        bmpPreKeyFrame = PreKeyFrame.GetBitmap()\n        self.bmpPrePlay = PrePlay.GetBitmap()\n        self.bmpPlay = Play.GetBitmap()\n        bmpNextKeyFrame = NextKeyFrame.GetBitmap()\n        bmpNextFrame = NextFrame.GetBitmap()\n        bmpLastFrame = LastFrame.GetBitmap()\n        bmpKey = Key.GetBitmap()\n        self.bmpStop = Stop.GetBitmap()\n        bmpDeleteKey = DeleteKey.GetBitmap()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 672
+  }
+}

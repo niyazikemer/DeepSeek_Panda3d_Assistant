@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes a UI component within a class constructor, setting up a tree widget with context menu handling, event bindings, layout configuration, drag-and-drop support, and data population from a palette structure.\n\nself.popupmenu = wx.Menu()\n        for item in self.menuItemsGen:\n            menuItem = self.popupmenu.Append(-1, item)\n            self.Bind(wx.EVT_MENU, self.onPopupItemSelected, menuItem)\n\n        self.Bind(wx.EVT_CONTEXT_MENU, self.onShowPopup)\n\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.tree, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n        self.Layout()\n\n        parentSizer = wx.BoxSizer(wx.VERTICAL)\n        parentSizer.Add(self, 1, wx.EXPAND, 0)\n        parent.SetSizer(parentSizer)\n        parent.Layout()\n\n        self.tree.Bind(wx.EVT_TREE_BEGIN_LABEL_EDIT, self.OnBeginLabelEdit)\n        self.tree.Bind(wx.EVT_TREE_END_LABEL_EDIT, self.OnEndLabelEdit)\n\n        self.SetDropTarget(UniversalDropTarget(self.editor))\n\n    def populate(self):\n        dataStructKeys = list(self.palette.dataStruct.keys())\n        self.tree.addTreeNodes(self.tree.GetRootItem(), self.palette.rootName, self.palette.dataStruct, dataStructKeys)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 559
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `removeObjectById` method within an object management class, responsible for deleting objects identified by their unique ID (uid) from the scene. It removes the object from internal data structures, deletes associated animations, and cleans up its node path in the 3D scene graph. This ensures efficient cleanup and maintains consistency across the application's data and visualization components.\n\ndef removeObjectById(self, uid):\n        obj = self.findObjectById(uid)\n        nodePath = obj[OG.OBJ_NP]\n\n        for i in range(0, len(self.Actor)):\n            if self.Actor[i] == obj:\n                del self.Actor[i]\n                break\n        for i in range(0, len(self.Nodes)):\n            if self.Nodes[i][OG.OBJ_UID] == uid:\n                del self.Nodes[i]\n                break\n        self.editor.animMgr.removeAnimInfo(obj[OG.OBJ_UID])\n\n        del self.objects[uid]\n        del self.npIndex[nodePath]\n\n        # remove children also\n        for child in nodePath.getChildren():\n            if child.hasTag('OBJRoot'):\n                self.removeObjectByNodePath(child)\n        nodePath.remove()\n\n        self.editor.fNeedToSave = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 502
+  }
+}

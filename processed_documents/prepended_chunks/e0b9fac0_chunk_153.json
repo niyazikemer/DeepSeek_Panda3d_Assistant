@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines a function `on_builder_inited` that modifies how relative URIs are generated in a Sphinx documentation build process. The function sets up a lambda to create absolute URLs by combining configuration values (`html_absolute_url_root`, `version`) with target URIs, ensuring consistent and correct URL linking across different versions of the project's documentation.\n\n```python\ndef on_builder_inited(app):\n    app.builder.get_relative_uri = \\\n        lambda from_, to, typ=None: \\\n            app.config.html_absolute_url_root + app.config.version + '/' + app.builder.get_target_uri(to, typ)\n```\n\ndef on_builder_inited(app):\n    app.builder.get_relative_uri = \\\n        lambda from_, to, typ=None: \\\n            app.config.html_absolute_url_root + app.config.version + '/' + app.builder.get_target_uri(to, typ)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 153
+  }
+}

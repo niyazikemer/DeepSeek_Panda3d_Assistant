@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger class that manages particle system settings, specifically dealing with renderer configuration. The `selectRendererType` method handles switching between different renderer types and updates the UI accordingly, while `updateRendererWidgets` synchronizes widget states with the current renderer's properties such as alpha mode and user-defined alpha values. This chunk sits within a section of the document that defines various pages or tabs in a particle system configuration GUI, complementing other sections like force management by providing visual rendering controls.\n\n## RENDERER PAGE ##\n    def selectRendererType(self, type):\n        self.rendererNotebook.selectpage(type)\n        self.particles.setRenderer(type)\n        self.updateRendererWidgets()\n\n    def updateRendererWidgets(self):\n        renderer = self.particles.renderer\n        alphaMode = renderer.getAlphaMode()\n        if alphaMode == BaseParticleRenderer.PRALPHANONE:\n            aMode = 'NO_ALPHA'\n        elif alphaMode == BaseParticleRenderer.PRALPHAOUT:\n            aMode = 'ALPHA_OUT'\n        elif alphaMode == BaseParticleRenderer.PRALPHAIN:\n            aMode = 'ALPHA_IN'\n        elif alphaMode == BaseParticleRenderer.PRALPHAINOUT:\n            aMode = 'ALPHA_IN_OUT'\n        elif alphaMode == BaseParticleRenderer.PRALPHAUSER:\n            aMode = 'ALPHA_USER'\n        self.getVariable('Renderer', 'Alpha Mode').set(aMode)\n        userAlpha = renderer.getUserAlpha()\n        self.getWidget('Renderer', 'User Alpha').set(userAlpha)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 825
+  }
+}

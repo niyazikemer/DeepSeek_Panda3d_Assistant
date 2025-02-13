@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `loadModels` method that loads 3D models (skydomes and a plane) into a Panda3D environment. It should be integrated as part of the World class's initialization to set up the visual environment before other game elements are initialized.\n\n```python\ndef loadEnvironment(self):\n    \"\"\"Load and setup the 3D environment including skydomes and ground plane.\"\"\"\n    self. environ1 = loader.loadModel(\"models/skydome\")\n    self.environ1.reparentTo(render)\n    self.environ1.setPos(0, 0, 0)\n    self.environ1.setScale(1)\n\n    self.environ2 = loader.loadModel(\"models/skydome\")\n    self.environ2.reparentTo(render)\n    self.environ2.setP(180)\n    self.environ2.setH(270)\n    self.environ2.setScale(1)\n\n    self.environ = loader.loadModel(\"models/plane_demo1\")\n    self.environ.reparentTo(render)\n    self.environ.setPos(0, 0, 0)\n```\n\ndef loadModels(self):\n\n        self.environ1 = loader.loadModel(\"models/skydome\")\n        self.environ1.reparentTo(render)\n        self.environ1.setPos(0, 0, 0)\n        self.environ1.setScale(1)\n\n        self.environ2 = loader.loadModel(\"models/skydome\")\n        self.environ2.reparentTo(render)\n        self.environ2.setP(180)\n        self.environ2.setH(270)\n        self.environ2.setScale(1)\n\n        self.environ = loader.loadModel(\"models/plane_demo1\")\n        self.environ.reparentTo(render)\n        self.environ.setPos(0, 0, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 25
+  }
+}

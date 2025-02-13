@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a method of a class responsible for creating a graphical user interface (GUI) using Tkinter. Specifically, it is part of a function that constructs a \"Grid\" page within a tabbed notebook interface. The chunk includes the creation of a label and checkbuttons to control grid-related settings such as enabling/disabling the grid and toggling XYZ snap functionality. This code contributes to the user interaction elements for managing grid operations in the application.\n\n# MRM: Add frustum controls\n\n        self.lightNotebook.setnaturalsize()\n        self.lightNotebook.pack(expand = 1, fill = tk.BOTH)\n\n        lightFrame.pack(expand = 1, fill = tk.BOTH)\n\n    def createGridPage(self, gridPage):\n        tk.Label(gridPage, text = 'Grid',\n              font=('MSSansSerif', 14, 'bold')).pack(expand = 0)\n        self.enableGrid = tk.BooleanVar()\n        self.enableGridButton = tk.Checkbutton(\n            gridPage,\n            text = 'Enabled/Disabled',\n            anchor = 'w', justify = tk.LEFT,\n            variable = self.enableGrid,\n            command = self.toggleGrid)\n        self.enableGridButton.pack(fill = tk.X, expand = 0)\n\n        self.xyzSnap = tk.BooleanVar()\n        self.xyzSnapButton = tk.Checkbutton(\n            gridPage,\n            text = 'XYZ Snap',\n            anchor = 'w', justify = tk.LEFT,\n            variable = self.xyzSnap,\n            command = self.toggleXyzSnap)\n        self.xyzSnapButton.pack(fill = tk.X, expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 947
+  }
+}

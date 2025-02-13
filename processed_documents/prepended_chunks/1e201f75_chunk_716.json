@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk sets up the File menu in a particle system editor tool. It adds menu items for loading and saving particle effect parameters, printing parameters, and quitting the application. This is part of a larger codebase that creates a GUI-based tool for editing and managing particle effects in a software application.\n\n## MENUBAR ENTRIES ##\n        # FILE MENU\n        # Get a handle on the file menu, and delete the Quit item that AppShell\n        # created so we can add it back after adding the other items.\n        self.menuBar.deletemenuitems('File', 0, 0)\n        self.menuBar.addmenuitem('File', 'command',\n                                 label='Load Params',\n                                 command=self.loadParticleEffectFromFile)\n        self.menuBar.addmenuitem('File', 'command',\n                                 label='Save Params',\n                                 command=self.saveParticleEffectToFile)\n        self.menuBar.addmenuitem('File', 'command',\n                                 label='Print Params',\n                                 command=lambda s=self:s.particles.printParams())\n        self.menuBar.addmenuitem('File', 'command', 'Quit this application',\n                                 label='Quit',\n                                 command=self.quit)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 716
+  }
+}

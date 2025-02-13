@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is an event handler function in a custom Sphinx extension that controls whether certain methods or members should be skipped during the auto-documentation process. The function ensures that constructors (`__init__`) are always included while excluding method aliases, preventing redundant documentation entries.\n\nContext: **Sphinx Extension for Controlling Auto-Documentation Behavior**\n\ndef on_autodoc_skip_member(app, what, name, obj, skip, options):\n    # Always document constructors.\n    if name == '__init__':\n        return False\n\n    # Don't document method aliases.  This also has the side-effect of\n    # excluding private members, which is OK.\n    if isinstance(obj, types.FunctionType) and obj.__name__ != name:\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 144
+  }
+}

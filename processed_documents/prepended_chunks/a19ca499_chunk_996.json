@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a graphical user interface (GUI) setup using Tkinter. It defines a menu system within an animation panel, allowing users to toggle between displaying time in frames or seconds and providing quick navigation options like jumping to the start or end of an animation.\n\n# Menu to select display mode\n        self.unitsVar = tk.IntVar()\n        self.unitsVar.set(FRAMES)\n        displayMenu = tk.Menu(labelMenu, tearoff = 0)\n        displayMenu.add_radiobutton(label = 'Frame count',\n                                    value = FRAMES,\n                                    variable = self.unitsVar,\n                                    command = self.updateDisplay)\n        displayMenu.add_radiobutton(label = 'Seconds',\n                                    value = SECONDS,\n                                    variable = self.unitsVar,\n                                    command = self.updateDisplay)\n        # Items for top level menu\n        labelMenu.add_cascade(label = 'Display Units', menu = displayMenu)\n        # labelMenu.add_command(label = 'Set Offset', command = self.setOffset)\n        labelMenu.add_command(label = 'Jump To Zero',\n                              command = self.resetToZero)\n        labelMenu.add_command(label = 'Jump To End Time',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 996
+  }
+}

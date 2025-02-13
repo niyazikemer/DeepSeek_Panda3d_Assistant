@@ -1,0 +1,9 @@
+{
+  "content": "The `TaskManagerPanel` class is a GUI application shell that creates a window for managing tasks using the `TaskManagerWidget`. The `TaskManagerControls` class within this context provides functionality for listing, removing, and monitoring tasks in an interactive environment. Together, these classes form a complete interface for task management within a graphical user interface.\n\nclass TaskManagerPanel(AppShell):\n    # Override class variables here\n    appname = 'TaskManager Panel'\n    frameWidth      = 300\n    frameHeight     = 400\n    usecommandarea = 0\n    usestatusarea  = 0\n\n    def __init__(self, taskMgr, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('title',       self.appname,       None),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        self.taskMgr = taskMgr\n\n        # Call superclass initialization function\n        AppShell.__init__(self, parent = parent)\n\n        self.initialiseoptions(TaskManagerPanel)\n\n    def createInterface(self):\n        # FILE MENU\n        # Get a handle on the file menu so commands can be inserted\n        # before quit item\n        self.taskMgrWidget = TaskManagerWidget(\n            self.interior(), self.taskMgr)\n\n    def onDestroy(self, event):\n        self.taskMgrWidget.onDestroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_57",
+    "parent": "processed_documents/context_documents/ec792566_TaskManagerPanel.json",
+    "chunk_number": 899
+  }
+}

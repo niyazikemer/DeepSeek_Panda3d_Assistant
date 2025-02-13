@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a LevelLoader class tailored for a specific game. It initializes essential components such as object palettes and handlers required for managing in-game objects within the level editor, including setting default asset paths.\n\n```plaintext\nThis code chunk defines a LevelLoader class that initializes game-specific components for a level editor, setting up object management systems with default paths and initializing necessary palettes and handlers.\n```\n\nclass LevelLoader(LevelLoaderBase):\n    def __init__(self):\n        LevelLoaderBase.__init__(self)\n\n    def initLoader(self):\n        self.defaultPath = os.path.dirname(__file__)\n\n        from direct.showbase import ShowBaseGlobal\n        base = ShowBaseGlobal.base\n        base.objectPalette = ObjectPalette()\n        base.protoPalette = ProtoPalette()\n        base.objectHandler = ObjectHandler(None)\n        base.objectMgr = ObjectMgr(None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_51",
+    "parent": "processed_documents/context_documents/a0e21ba6_LevelLoader.json",
+    "chunk_number": 698
+  }
+}

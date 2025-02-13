@@ -1,0 +1,9 @@
+{
+  "content": "The chunk processes special documentation tags like '@since' and '@li', converting them into appropriate reStructuredText directives (e.g., '.. versionadded::') and list items ('* '), respectively. It is part of a function that parses docstrings and converts Doxygen-style comments into Sphinx-compatible syntax, enhancing the generated API documentation.\n\nnewlines.append('')\n                continue\n            elif special == 'since':\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('.. versionadded:: ' + strline[7:])\n                newlines.append('')\n                continue\n            elif special == 'li':\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('* ' + convert_doxygen_format(strline[4:], name, domain))\n                newlines.append('')\n                continue\n            else:\n                print(\"Unhandled documentation tag: @\" + special)\n\n        if strline or len(newlines) > 0:\n            newlines.append('   '*indent + convert_doxygen_format(strline, name, domain))\n\n    return newlines",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 143
+  }
+}

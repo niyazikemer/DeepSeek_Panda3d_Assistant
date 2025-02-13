@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the base class `LevelEditorBase` for a Panda3D level editor application. It initializes core components such as mode management (BASE_MODE, CREATE_CURVE_MODE, etc.), object and file managers, and tracks state variables like `currentFile`, `fNeedToSave`, and operational modes. The class is designed to be extended by specific implementations of the level editor, providing foundational setup for handling various modes of operation within the editor interface.\n\nclass LevelEditorBase(DirectObject):\n    \"\"\" Base Class for Panda3D LevelEditor \"\"\"\n\n    def __init__(self):\n        #loadPrcFileData('startup', 'window-type none')\n        self.currentFile = None\n        self.fNeedToSave = False\n        self.actionEvents = []\n        #self.objectMgr = ObjectMgr(self)\n        self.curveEditor = CurveEditor(self)\n        self.fileMgr = FileMgr(self)\n        self.actionMgr = ActionMgr()\n\n        self.fMoveCamera = False\n\n        self.NPParent = base.render\n\n        # define your own config file in inherited class\n        self.settingsFile = None\n\n        # you can show/hide specific properties by using propertiesMask and this mode\n        self.BASE_MODE = BitMask32.bit(0)\n        self.CREATE_CURVE_MODE = BitMask32.bit(2)\n        self.EDIT_CURVE_MODE = BitMask32.bit(3)\n        self.ANIM_MODE = BitMask32.bit(4)\n        self.GRAPH_EDITOR = False\n\n        self.mode = self.BASE_MODE\n        self.preMode = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 399
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a complete Python script implementing a basic 3D graphics application using the Panda3D framework, demonstrating how to load and display a 3D model with specific transformations.\n\nfrom direct.showbase.ShowBase import ShowBase\n\n\nclass MyApp(ShowBase):\n\n    def __init__(self):\n        ShowBase.__init__(self)\n\n        # Load the environment model.\n        self.scene = self.loader.loadModel(\"models/environment\")\n        # Reparent the model to render.\n        self.scene.reparentTo(self.render)\n        # Apply scale and position transforms on the model.\n        self.scene.setScale(0.25, 0.25, 0.25)\n        self.scene.setPos(-8, 42, 0)\n\n\napp = MyApp()\napp.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_5",
+    "parent": "processed_documents/context_documents/1730253e_d4b309a6_loading-the-grassy-scenery.json",
+    "chunk_number": 94
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a function responsible for transforming specific LaTeX-like commands (`@verbatim`/`@endcode` and `@f[`/`@f]`) into equivalent Sphinx directives (`.. code-block:: guess` and `.. math::`) respectively. This facilitates proper formatting of code blocks and mathematical expressions in the generated documentation.\n\nThe context is that this code is used to enhance the autodocumentation process, ensuring that certain LaTeX-style commands are correctly interpreted and converted into appropriate reStructuredText directives for better rendering in Sphinx-generated documentation.\n\nnewlines.append('.. code-block:: guess')\n                newlines.append('')\n                offset = line.index('@' + special)\n                while lines:\n                    line = lines.pop(0)\n                    if '@endverbatim' in line or '@endcode' in line:\n                        break\n                    newlines.append('   ' + line[offset:])\n\n                newlines.append('')\n                continue\n            elif special == \"f[\":\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('.. math::')\n                newlines.append('')\n                offset = line.index('@' + special)\n                while lines:\n                    line = lines.pop(0)\n                    if '@f]' in line:\n                        break\n                    newlines.append('   ' + line[offset:])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 73
+  }
+}

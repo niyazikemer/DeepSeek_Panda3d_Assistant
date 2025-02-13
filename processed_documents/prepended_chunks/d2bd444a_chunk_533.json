@@ -1,0 +1,9 @@
+{
+  "content": "This code defines base classes for game-specific object templates, including property definitions such as radio buttons and combo boxes, within a larger system for creating and managing game objects.\n\nclass ObjectProp(ObjectBase):\n    def __init__(self, *args, **kw):\n        ObjectBase.__init__(self, *args, **kw)\n        self.properties['Abc'] =[OG.PROP_UI_RADIO, # UI type\n                                 OG.PROP_STR,      # data type\n                                 None,             # update function\n                                 'a',              # default value\n                                 ['a', 'b', 'c']]  # value range\n\n\nclass ObjectSmiley(ObjectProp):\n    def __init__(self, *args, **kw):\n        ObjectProp.__init__(self, *args, **kw)\n        self.properties['123'] = [OG.PROP_UI_COMBO,\n                                  OG.PROP_INT,\n                                  None,\n                                  1,\n                                  [1, 2, 3]]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_35",
+    "parent": "processed_documents/context_documents/3409f64f_ObjectPalette.json",
+    "chunk_number": 533
+  }
+}

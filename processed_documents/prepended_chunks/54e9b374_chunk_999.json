@@ -1,0 +1,9 @@
+{
+  "content": "This chunk creates a combo box within the animation panel's user interface that allows users to select and adjust the playback frame rate of animations. The combo box includes predefined common playback speeds (like slow motion, normal speed, and fast forward) as well as dynamically adds any custom play rates that are currently set on the active actor, ensuring they appear in sorted order for easy selection.\n\n# Combo box to select frame rate\n        playRateList = ['1/24.0', '0.1', '0.5', '1.0', '2.0', '5.0', '10.0']\n        playRate = '%0.1f' % self['actor'].getPlayRate(self['active'])\n        if playRate not in playRateList:\n            playRateList.append(playRate)\n            playRateList.sort(key=lambda s:eval(s))\n        playRateMenu = self.createcomponent(\n            'playRateMenu', (), None,\n            Pmw.ComboBox, (interior,),\n            labelpos = tk.W, label_text = 'Play Rate:',\n            entry_width = 4, selectioncommand = self.setPlayRate,\n            scrolledlist_items = playRateList)\n        playRateMenu.selectitem(playRate)\n        playRateMenu.pack(side = tk.LEFT, padx = 5, expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 999
+  }
+}

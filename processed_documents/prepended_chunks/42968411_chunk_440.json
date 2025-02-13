@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the code handling user interaction after selecting a curve object. It appears in the event handler for the `CREATE_CURVE` operation, specifically when the dialog (`dlg`) used to set up the curve degree has been dismissed. The code checks if an object is selected, verifies it's a curve, and prepares the editor to enter curve editing mode by setting relevant properties and updating status messages.\n\ndlg.ShowModal()\n                    dlg.Destroy()\n                    self.editCurveMenuItem.Check(False)\n                if ShowBaseGlobal.direct.selected.last is not None:\n                    ShowBaseGlobal.direct.manipulationControl.enableManipulation()\n                    self.createCurveMenuItem.Check(False)\n                    self.curveObj = self.editor.objectMgr.findObjectByNodePath(ShowBaseGlobal.direct.selected.last)\n                    if self.curveObj[OG.OBJ_DEF].name == '__Curve__':\n                        self.editor.mode = self.editor.EDIT_CURVE_MODE\n                        self.editor.updateStatusReadout('Please press ENTER to end the curve editing.')\n                        self.editor.curveEditor.currentRope = self.curveObj[OG.OBJ_NP]\n                        self.editor.curveEditor.curveControl = self.curveObj[OG.OBJ_PROP]['curveInfo']\n                        self.editor.curveEditor.degree = self.curveObj[OG.OBJ_PROP]['Degree']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 440
+  }
+}

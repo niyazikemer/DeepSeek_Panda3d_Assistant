@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a method `createLightsPage` within a larger class responsible for managing various UI elements and functionalities related to lighting controls. This method sets up a graphical user interface (GUI) component that includes a frame and a menubutton allowing users to add different types of lights (ambient, directional, point, or spotlight) to the scene by invoking corresponding methods (`addAmbient`, `addDirectional`, etc.). The context is part of a broader system for managing lighting configurations within an application, likely integrated with other UI elements such as grid controls and undo/redo functionality.\n\ndef createLightsPage(self, lightsPage):\n        # Lights #\n        lightFrame = tk.Frame(lightsPage, borderwidth = 2, relief = 'sunken')\n        self.lightsButton = tk.Menubutton(lightFrame, text = 'Lights',\n                                          font=('MSSansSerif', 14, 'bold'),\n                                          activebackground = '#909090')\n        lightsMenu = tk.Menu(self.lightsButton)\n        lightsMenu.add_command(label = 'Add Ambient Light',\n                            command = self.addAmbient)\n        lightsMenu.add_command(label = 'Add Directional Light',\n                            command = self.addDirectional)\n        lightsMenu.add_command(label = 'Add Point Light',\n                            command = self.addPoint)\n        lightsMenu.add_command(label = 'Add Spotlight',\n                            command = self.addSpot)\n\n        self.lightsButton.pack(expand = 0)\n        self.lightsButton['menu'] = lightsMenu",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 937
+  }
+}

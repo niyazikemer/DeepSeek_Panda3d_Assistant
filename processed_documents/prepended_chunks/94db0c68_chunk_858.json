@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of a larger method responsible for creating UI widgets related to color interpolation segments in a particle system renderer. The code checks if the renderer is an instance of either `SpriteParticleRendererExt` or `GeomParticleRenderer`, then creates a sinusoid interpolation segment widget accordingly, appending it to a list and packing the parent frame. This functionality is likely part of a particle effects editor or similar tool where users can manage color transitions over time in particle systems.\n\nif ren.__class__.__name__ == 'SpriteParticleRendererExt':\n            parent = self.rendererSpriteSegmentFrame\n            segName = repr(len(self.rendererSegmentWidgetList))+':Sinusoid'\n            self.rendererSegmentWidgetList.append(\n                self.createSinusoidInterpolationSegmentWidget(parent, segName, seg))\n        elif ren.__class__.__name__ == 'GeomParticleRenderer':\n            parent = self.rendererGeomSegmentFrame\n            segName = repr(len(self.rendererSegmentWidgetList))+':Sinusoid'\n            self.rendererSegmentWidgetList.append(\n                self.createSinusoidInterpolationSegmentWidget(parent, segName, seg))\n        parent.pack(fill=tk.BOTH, expand=1)\n\n    def createWidgetForExistingInterpolationSegment(self, id):\n        ren = self.particles.getRenderer()\n        cim = ren.getColorInterpolationManager()\n        seg = cim.getSegment(id)\n        assert seg",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 858
+  }
+}

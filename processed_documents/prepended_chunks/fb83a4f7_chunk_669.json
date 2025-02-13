@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the `OnMouseMove` or similar event-handling method of a UI component related to animating sliders. This method adjusts the visible frame range when the user drags the mouse enough units, updating the slider positions and refreshing the UI accordingly.\n\n```plaintext\nThe code chunk is part of an event handler (like OnMouseMove) that updates time slider ranges based on mouse movement in an animation editor.\n```\n\nif float(self.pos[0]-newPos[0]) >= self.unitWidth:\n                        if self.sliderStartFrame > self.startFrame:\n                            self.sliderStartFrame -=1\n                            self.sliderEndFrame -=1\n                            self.SetTimeRangeData(self.startFrame, self.endFrame, self.sliderStartFrame, self.sliderEndFrame)\n                            self.MainPanelUpdate()\n                            self.pos = newPos\n                            evt.Skip()\n                            self._mouseIn = False\n        evt.Skip()\n        self._mouseIn = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 669
+  }
+}

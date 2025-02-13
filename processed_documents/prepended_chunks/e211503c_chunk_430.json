@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `EditorShell` class initialization in a 3D modeling application. It sets up essential UI elements by initializing the editor interface, binding keyboard events for user input handling, and creating the main File menu with New, Open, and Save options. This setup is crucial for enabling basic file operations and user interactions within the application's interface.\n\nself.editor = editor\n        WxPandaShell.__init__(self, fStartDirect=True)\n        self.contextMenu = ViewportMenu()\n        self.bindKeyEvents(True)\n\n    def bindKeyEvents(self, toBind=True):\n        if toBind:\n            self.wxApp.Bind(wx.EVT_CHAR, self.onKeyEvent)\n            self.wxApp.Bind(wx.EVT_KEY_DOWN, self.onKeyDownEvent)\n            self.wxApp.Bind(wx.EVT_KEY_UP, self.onKeyUpEvent)\n        else:\n            self.wxApp.Unbind(wx.EVT_CHAR)\n            self.wxApp.Unbind(wx.EVT_KEY_DOWN)\n            self.wxApp.Unbind(wx.EVT_KEY_UP)\n\n    def createMenu(self):\n        menuItem = self.menuFile.Insert(0, ID_NEW, self.MENU_TEXTS[ID_NEW][0])\n        self.Bind(wx.EVT_MENU, self.onNew, menuItem)\n\n        menuItem = self.menuFile.Insert(1, ID_OPEN, self.MENU_TEXTS[ID_OPEN][0])\n        self.Bind(wx.EVT_MENU, self.onOpen, menuItem)\n\n        menuItem = self.menuFile.Insert(2, ID_SAVE, self.MENU_TEXTS[ID_SAVE][0])\n        self.Bind(wx.EVT_MENU, self.onSave, menuItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 430
+  }
+}

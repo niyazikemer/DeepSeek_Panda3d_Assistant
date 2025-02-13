@@ -1,0 +1,9 @@
+{
+  "content": "This chunk modifies how Python method references are processed in the documentation, ensuring consistent casing between the defined methods (using snake_case) and their usage in docstrings or comments (which may use camelCase). Specifically, it adjusts the displayed text when custom reference text is provided, replacing snake_case with camelCase to match standard Python conventions. This improves the accuracy of cross-references and enhances the readability of generated documentation by maintaining consistent naming throughout.\n\nThis code handles cases where developers might refer to methods using different casings in their comments or docstrings (e.g., `set_color` vs. `SetColor`) and ensures that these references are displayed correctly, linking to the appropriate method definitions regardless of the casing used in the text.\n\nelif domain.name == 'py' and len(contnode.children) and node.get('refexplicit'):\n            # Custom text was used.  Replace snake_case with camelCase in it.\n            # This allows doing something like:\n            # :meth:`model.set_color() <.NodePath.set_color>`\n            # ..and still have it translate to the correct casing.\n            oldpart = target.rsplit('.', 1)[-1]\n            newpart = resolved[1].rsplit('.', 1)[-1]\n            if oldpart != newpart:\n                text = contnode.children[0].astext()\n                text = text.replace('::', '.')\n                text = text.replace('.' + oldpart + '(', '.' + newpart + '(')\n                if text.startswith(oldpart + '('):\n                    text = newpart + text[len(oldpart):]\n                contnode.children[0] = nodes.Text(text)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 151
+  }
+}

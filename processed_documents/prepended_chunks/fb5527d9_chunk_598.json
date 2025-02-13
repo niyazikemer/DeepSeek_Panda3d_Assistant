@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk implements an `ActionMgr` class that manages undo and redo operations for various action classes defined in the document (e.g., `ActionBase`, `ActionCreateObject`, `ActionUpdateObjectProp`). The manager maintains lists of undoable actions, allows pushing new actions, resetting all actions, and performing undo/redo operations. It serves as a central controller for coordinating the undo and redo functionality across different types of user actions within an application or editor.\n\nclass ActionMgr:\n    def __init__(self):\n        self.undoList = []\n        self.redoList = []\n\n    def reset(self):\n        while len(self.undoList) > 0:\n            action = self.undoList.pop()\n            action.destroy()\n\n        while len(self.redoList) > 0:\n            action = self.redoList.pop()\n            action.destroy()\n\n    def push(self, action):\n        self.undoList.append(action)\n        if len(self.redoList) > 0:\n            self.redoList.pop()\n\n    def undo(self):\n        if len(self.undoList) < 1:\n            print('No more undo')\n        else:\n            action = self.undoList.pop()\n            self.redoList.append(action)\n            action.undo()\n\n    def redo(self):\n        if len(self.redoList) < 1:\n            print('No more redo')\n        else:\n            action = self.redoList.pop()\n            self.undoList.append(action)\n            action.redo()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 598
+  }
+}

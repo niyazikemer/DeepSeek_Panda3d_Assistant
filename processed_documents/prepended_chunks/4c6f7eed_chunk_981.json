@@ -1,0 +1,9 @@
+{
+  "content": "The chunk adds a section to an animation control panel's menu frame, adding three new toggle buttons for controlling global actor states and display preferences. This is situated in the initialization phase of the AnimPanel class where UI components are being constructed, specifically within the __init__ method after creating basic controls but before setting up per-actor controls.\n\n# Add some buttons to update all Actor Controls\n        self.fToggleAll = 1\n        b = self.createcomponent(\n            'toggleEnableButton', (), None,\n            tk.Button, (self.menuFrame,),\n            text = 'Toggle Enable',\n            command = self.toggleAllControls)\n        b.pack(side = tk.RIGHT, expand = 0)\n\n        b = self.createcomponent(\n            'showSecondsButton', (), None,\n            tk.Button, (self.menuFrame,),\n            text = 'Show Seconds',\n            command = self.displaySeconds)\n        b.pack(side = tk.RIGHT, expand = 0)\n\n        b = self.createcomponent(\n            'showFramesButton', (), None,\n            tk.Button, (self.menuFrame,),\n            text = 'Show Frames',\n            command = self.displayFrameCounts)\n        b.pack(side = tk.RIGHT, expand = 0)\n\n        self.actorFrame = None\n        self.createActorControls()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 981
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines methods for managing renderer settings in a particle effects system. Specifically, `toggleRendererSpriteAlphaDisable()` toggles alpha transparency for sprite renderers, while `setRendererColorBlendAttrib()` configures color blending modes (addition, subtraction) for particle rendering, controlling how particles interact with the scene's existing graphics buffer. These methods are part of a larger class that manages particle system properties including emitters, forces, and renderer settings.\n\ndef toggleRendererSpriteAlphaDisable(self):\n        self.particles.renderer.setAlphaDisable(\n            self.getVariable('Sprite Renderer', 'Alpha Disable').get())\n\n    def setRendererColorBlendAttrib(self, rendererName, blendMethodStr, incomingOperandStr, fbufferOperandStr):\n        self.particles.getRenderer().setColorBlendMode(getattr(ColorBlendAttrib, blendMethodStr),\n                                                       getattr(ColorBlendAttrib, incomingOperandStr),\n                                                       getattr(ColorBlendAttrib, fbufferOperandStr))\n\n        if blendMethodStr in ['MAdd','MSubtract','MInvSubtract']:\n            self.getWidget(rendererName,'Incoming Op.').pack(fill = tk.X)\n            self.getWidget(rendererName,'Fbuffer Op.').pack(fill = tk.X)\n        else:\n            self.getWidget(rendererName,'Incoming Op.').pack_forget()\n            self.getWidget(rendererName,'Fbuffer Op.').pack_forget()\n\n        self.updateRendererWidgets()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 849
+  }
+}

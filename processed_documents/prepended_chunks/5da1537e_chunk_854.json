@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears to be part of a larger class or module focused on particle system rendering and color interpolation management. The methods `setRendererGeomColorBlendFbufferOperand` and `addConstantInterpolationSegment` are related to configuring renderer settings for geometry color blending operations and managing constant interpolation segments within the particle system's visual effects. These functions likely contribute to controlling how particles are rendered, including their color transitions and blend modes over time.\n\ndef setRendererGeomColorBlendFbufferOperand(self, operand):\n        blendMethodStr = self.getVariable('Geom Renderer','Color Blend').get()\n        incomingOperandStr = self.getVariable('Geom Renderer','Incoming Op.').get()\n        fbufferOperandStr = operand\n        self.setRendererColorBlendAttrib('Geom Renderer', blendMethodStr, incomingOperandStr, fbufferOperandStr)\n\n    def addConstantInterpolationSegment(self, id = None):\n        ren = self.particles.getRenderer()\n        cim = ren.getColorInterpolationManager()\n        if id is None:\n            seg = cim.getSegment(cim.addConstant())\n        else:\n            seg = cim.getSegment(id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 854
+  }
+}

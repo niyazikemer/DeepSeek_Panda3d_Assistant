@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of event handler methods within a `GraphEditor` class, which manage user interactions for zooming in/out and toggling tangent types in a graph editor interface. These methods adjust the zoom level by scaling factors, update graphical units, refresh the display, and modify the graph's drawing mode based on user input.\n\ndef OnZoomIn(self, evt):\n        self.graphEditorWindow.zoom = self.graphEditorWindow.zoom/float(1.2)\n        self.graphEditorWindow.unitWidth = self.graphEditorWindow.unitWidth*float(1.2)\n        self.graphEditorWindow.unitHeight = self.graphEditorWindow.unitHeight*float(1.2)\n        self.graphEditorWindow.generateInfo()\n        self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)\n\n    def OnZoomOut(self, evt):\n        self.graphEditorWindow.zoom = self.graphEditorWindow.zoom*float(1.2)\n        self.graphEditorWindow.unitWidth = self.graphEditorWindow.unitWidth/float(1.2)\n        self.graphEditorWindow.unitHeight = self.graphEditorWindow.unitHeight/float(1.2)\n        self.graphEditorWindow.generateInfo()\n        self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)\n\n    def OnOneTangent(self, evt):\n        self.graphEditorWindow._OneTangent = True\n        self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 291
+  }
+}

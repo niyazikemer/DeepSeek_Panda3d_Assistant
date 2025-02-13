@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains code for controlling the camera perspective (toggle between first-person and third-person views), handling keyboard inputs for character movement, and initializing AI behavior in a Panda3D-based game or simulation. The code is part of a larger World class that manages gameplay mechanics, including collision detection, pathfinding, and character animation.\n\n#Uncomment this line to show a visual representation of the\n        #collisions occuring\n        #self.cTrav.showCollisions(render)\n\n        self.setAI()\n\n    def activateCam(self):\n        self.switchCam = not self.switchCam\n        if self.switchCam is True:\n            base.cam.setPosHpr(0, 0, 0, 0, 0, 0)\n            base.cam.reparentTo(self.ralph)\n            base.cam.setY(base.cam.getY() + 30)\n            base.cam.setZ(base.cam.getZ() + 10)\n            base.cam.setHpr(180, -15, 0)\n        else:\n            base.cam.reparentTo(render)\n            base.cam.setPosHpr(17.79, -87.64, 90.16, 38.66, 325.36, 0)\n            #base.camera.setPos(self.ralph.getX(),self.ralph.getY()+10,2)\n\n    # Records the state of the arrow keys\n    def setKey(self, key, value):\n        self.keyMap[key] = value\n\n    # Accepts arrow keys to move either the player or the menu cursor,\n    # Also deals with grid checking and collision detection\n    def move(self):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 14
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a module-level docstring and initial setup code for implementing a Panda3D window embedded within a wx.Frame application. It provides an overview of the module's purpose, initializes necessary imports, and defines the primary class to be exported.\n\n\"\"\" This module implements a Panda3D window that can be embedded\nwithin a wx.Frame.  The window itself is either an embedded window,\nwhich is a wx.Window with the Panda window attached to it, or it is a\nwxgl.GLCanvas, with Panda directed to draw into it, depending on the\nplatform.  In either case, you may simply embed this window into a\nwx.Frame of your choosing, using sizers or whatever you like. \"\"\"\n\nimport wx\nimport platform\n\ntry:\n    import wx.glcanvas as wxgl\nexcept ImportError:\n    wxgl = None\n\nfrom panda3d.core import (\n    CallbackGraphicsWindow,\n    ConfigVariableBool,\n    FrameBufferProperties,\n    KeyboardButton,\n    MouseButton,\n    WindowProperties,\n)\n\n__all__ = ['WxPandaWindow']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 199
+  }
+}

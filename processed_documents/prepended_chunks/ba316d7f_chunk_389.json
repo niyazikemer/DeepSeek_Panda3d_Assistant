@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an animation system within a 3D editor's module. It handles the creation of animations using keyframe-based interpolation for properties such as position, rotation, scaling, and color. The specific code processes consecutive keyframes to generate linear interpolations (lerps) between property values, calculates the duration based on frame differences, and appends these lerps to an animation sequence for smooth transitions.\n\n```python\n\"\"\"\nThis chunk is part of an animation system that creates smooth transitions \nbetween keyframes for object properties like position, rotation, or color. \nIt processes consecutive keyframe pairs to generate lerps with calculated \ndurations, which are then appended to the animation sequence.\n\"\"\"\n```\n\nfor key in range(0,len(keyFramesInfo)-1):\n                                self.keyFrameInfoForSingleLerp = keyFramesInfo\n                                self.keyInfoForSingleLerp = key\n                                myLerp = LerpFunc(self.curveLerpFuncs[property[AG.PROP_NAME]][0],fromData=float(keyFramesInfo[key][AG.VALUE]),toData=float(keyFramesInfo[key+1][AG.VALUE]),duration = float(keyFramesInfo[key+1][AG.FRAME]-keyFramesInfo[key][AG.FRAME])/float(24),blendType = 'noBlend',extraArgs = [node[OG.OBJ_NP]])\n                                mysequence.append(myLerp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 389
+  }
+}

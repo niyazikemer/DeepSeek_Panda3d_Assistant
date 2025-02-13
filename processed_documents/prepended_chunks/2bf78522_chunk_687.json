@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is situated within a class handling time-related adjustments and keyframe deletion in an animation editor. The methods manage user inputs to modify the start and end frames, ensuring consistent updates across UI elements through `OnTime()`, while also enabling the removal of keyframes based on the current frame.\n\ndef OnTimeSliderStartSpin(self, evt):\n        self.sliderStartFrame = evt.GetInt()\n        self.timeEndSpin.SetRange(self.sliderStartFrame, 10000)\n        self.OnTime()\n\n    def OnTimeSliderEndSpin(self, evt):\n        self.sliderEndFrame = evt.GetInt()\n        self.timeStartSpin.SetRange(0, self.sliderEndFrame)\n        self.OnTime()\n\n    def OnTimeEndSpin(self, evt):\n        self.endFrame = evt.GetInt()\n        self.timeSliderEndSpin.SetRange(self.sliderStartFrame, self.endFrame)\n        if self.endFrame <= self.sliderEndFrame:\n            self.sliderEndFrame = self.endFrame\n            self.timeSliderEndSpin.SetValue(self.sliderEndFrame)\n            self.OnTime()\n        else:\n            self.OnTime()\n\n    def OnDeleteKey(self, evt):\n        for i in range(0,len(self.keys)):\n            if self.curFrame == self.keys[i]:\n                del self.keys[i]\n                break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 687
+  }
+}

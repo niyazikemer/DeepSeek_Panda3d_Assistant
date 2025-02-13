@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a larger 3D scene setup in a Python script using Panda3D. It describes the initialization of a \"smiley\" object within a `World` class, including loading the model, positioning it at coordinates (-3, 3, 3), attaching a collision node, and setting up collision masks for interaction detection. The code is situated within the `__init__` method of the `World` class, which sets up various objects (smiley, floor, pointer) with collision detection capabilities, camera positioning, and user interface text elements.\n\n# Make a smiley.\n        smiley = base.loader.loadModel('smiley')\n        smiley.reparentTo(base.render)\n        smiley.setPos(-3, 3, 3)\n        smiley.setName(\"Smiley\")\n        smileyCollisionNP = self.makeCollisionNodePath(smiley, collSphere)\n        # Like with the floor plane we need to set the into mask.\n        # Here we shortcut getting the actual collision node.\n        smileyCollisionNP.node().setIntoCollideMask(goodMask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_9",
+    "parent": "processed_documents/context_documents/b8eb20fa_40f997b9_bitmask-example.json",
+    "chunk_number": 164
+  }
+}

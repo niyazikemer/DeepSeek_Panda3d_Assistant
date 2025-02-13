@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Tkinter-based GUI initialization where a master frame, paned widget, and Scene Graph Explorer (SGE) component are being set up. The code creates a mainFrame with a horizontal PanedWidget containing two sections: an SGE component on the left for scene graph exploration, and a notebook frame on the right for additional controls or information. This setup is used to organize and display different parts of the application's interface.\n\nContext:\nThe chunk initializes the main UI layout structure, creating a divided workspace with the Scene Graph Explorer as its primary component on the left side, while reserving space on the right for further controls or informational panels organized via a notebook interface.\n\n# The master frame for the dials\n        mainFrame = tk.Frame(interior)\n\n        # Paned widget for dividing two halves\n        framePane = Pmw.PanedWidget(mainFrame, orient = tk.HORIZONTAL)\n        sgeFrame = framePane.add('left', min = 250)\n        notebookFrame = framePane.add('right', min = 300)\n\n        # Scene Graph Explorer\n        self.SGE = SceneGraphExplorer.SceneGraphExplorer(\n            sgeFrame, nodePath = ShowBaseGlobal.base.render,\n            scrolledCanvas_hull_width = 250,\n            scrolledCanvas_hull_height = 300)\n        self.SGE.pack(fill = tk.BOTH, expand = 1)\n        sgeFrame.pack(side = tk.LEFT, fill = 'both', expand = 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 929
+  }
+}

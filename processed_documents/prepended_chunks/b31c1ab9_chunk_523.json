@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of an object-oriented design system focused on managing 3D models or scenes, specifically within a method responsible for creating and configuring new objects in the scene graph. The code handles two key aspects:\n\n1. **Named Objects**: It checks if an object has a custom name (`objDef.named`), preparing a string representation of that name for storage. If not named, it defaults to `None`.\n\n2. **Curve Handling**: Special-case handling for objects of type `'__Curve__'`, which involves extracting and transforming curve-related data (control points) into a format suitable for file-saving.\n\nThis chunk is part of a larger method that appears to be responsible for initializing new scene graph nodes or actors, based on predefined object definitions.\n\nif objDef.named:\n                        nameStr = \"'%s'\"%np.getName()\n                    else:\n                        nameStr = \"None\"\n\n                    if objDef.name == '__Curve__':\n                        #transfer the curve information from control nodes into simple positions for file save\n                        objCurveInfo = obj[OG.OBJ_PROP]['curveInfo']\n                        self.objDegree = obj[OG.OBJ_PROP]['Degree']\n                        newobjCurveInfo = []\n                        for item in objCurveInfo:\n                            newobjCurveInfo.append((item[0], item[1].getPos()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 523
+  }
+}

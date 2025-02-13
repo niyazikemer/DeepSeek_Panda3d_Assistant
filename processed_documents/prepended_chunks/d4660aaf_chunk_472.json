@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an animation management system in a Python application. The method `OnSaveAnim` ensures that each object can only have one associated curve for animation purposes, preventing duplicates and maintaining data integrity. It successfully adds new animations to the system's global list when no conflicts are found.\n\n**Context:**\nThe code manages saving animations by checking for existing entries to avoid duplication, ensuring smooth operation of an animation system in a Python application.\n\nif not hasKey and self.editor.animMgr.curveAnimation != {}:\n                self.editor.animMgr.curveAnimation[(self.nodePath[OG.OBJ_UID], self.curve[OG.OBJ_UID])] = \\\n                    (self.nodePath[OG.OBJ_UID], self.curve[OG.OBJ_UID], self.time)\n                self.editor.updateStatusReadout('Sucessfully saved to global animation list')\n\n    def OnExit(self, evt):\n        self.Destroy()\n        self.editor.ui.curveAnimMenuItem.Check(False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_30",
+    "parent": "processed_documents/context_documents/258ea79b_CurveAnimUI.json",
+    "chunk_number": 472
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a method `DrawYCoord` within a wxPython-based graph editor class. The method handles drawing Y-axis coordinates with grid lines and numeric labels every 5 units, using device context (dc) operations for rendering. It is part of the visual representation system in the GraphEditor class, responsible for plotting data points on a coordinate plane.\n\ndef DrawYCoord(self,dc):\n        dc.SetPen(wx.BLACK_PEN)\n        dc.SetBrush(wx.BLACK_BRUSH)\n        dc.SetFont(wx.Font(8, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))\n\n        dc.DrawLine(0.0, self.zeroPos[1], self.w, self.zeroPos[1])\n        st = str(self.zero)\n        dc.DrawText(st, 5.0, self.zeroPos[1]-1.0)\n\n        dc.SetPen(wx.Pen(wx.Colour(150, 150, 150)))\n        dc.SetBrush(wx.Brush(wx.Colour(150, 150, 150)))\n        dc.SetLogicalFunction(wx.AND)\n\n        posPos = self.zeroPos[1]-self.unitHeight*float(5)\n        posNum = self.zero + 5\n        while posPos >= 0.0:\n            dc.DrawLine(0.0, posPos, self.w, posPos)\n            st = str(posNum)\n            self.drawYNumber(dc, st, posPos)\n            posPos -= self.unitHeight*float(5)\n            posNum += 5",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 255
+  }
+}

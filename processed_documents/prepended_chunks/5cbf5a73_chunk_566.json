@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of a class that manages a tree-based interface for organizing and displaying objects in an application. The code handles the addition of new items to both the data structure (`self.palette`) and the visual tree (`self.tree`). It processes results from file imports or conversions, creates `ObjectBase` instances with appropriate properties (like model paths and animations), and ensures these items are properly displayed and highlighted in the UI.\n\nThe code is specifically used for importing and displaying 3D models, likely in a Maya-based pipeline, where files like `.mb` or `.ma` are converted and added to a palette UI for further use.\n\nnewItem = self.tree.AppendItem(self.editor.ui.protoPaletteUI.tree.root, name)\n        self.tree.SetItemPyData(newItem, itemData)\n        self.tree.ScrollTo(newItem)\n\n    def addNewItem(self, result):\n        if len(result) == 2:\n            itemData = ObjectBase(name=result[0], model=result[1], actor=False)\n        elif len(result) == 3:\n            itemData = ObjectBase(name=result[0], model=result[1], anims=[result[2]], actor=True)\n        else:\n            return\n        self.palette.add(itemData)\n        newItem = self.tree.AppendItem(self.tree.root, itemData.name)\n        self.tree.SetItemPyData(newItem, itemData)\n        self.tree.ScrollTo(newItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 566
+  }
+}

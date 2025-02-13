@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes a visual pointer and sets up input handling for controlling character movement in a 3D environment using Panda3D.\n\nself.pointer = loader.loadModel(\"models/arrow\")\n        self.pointer.setColor(1, 0, 0)\n        self.pointer.setPos(60, -60, 0)\n        self.pointer.setScale(3)\n        self.pointer.reparentTo(render)\n\n    def setAI(self):\n        # Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.accept(\"enter\", self.setMove)\n        self.accept(\"1\", self.addBlock)\n        self.accept(\"2\", self.addBigBlock)\n        self.accept(\"space\", self.addStaticObstacle)\n\n        # Movement\n        self.accept(\"arrow_left\", self.setKey, [\"left\", 1])\n        self.accept(\"arrow_right\", self.setKey, [\"right\", 1])\n        self.accept(\"arrow_up\", self.setKey, [\"up\", 1])\n        self.accept(\"arrow_down\", self.setKey, [\"down\", 1])\n        self.accept(\"arrow_left-up\", self.setKey, [\"left\", 0])\n        self.accept(\"arrow_right-up\", self.setKey, [\"right\", 0])\n        self.accept(\"arrow_up-up\", self.setKey, [\"up\", 0])\n        self.accept(\"arrow_down-up\", self.setKey, [\"down\", 0])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_10",
+    "parent": "processed_documents/context_documents/db6dae55_1bbd6cf1_static-obstacles.json",
+    "chunk_number": 174
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the initialization method (`__init__`) for a `AnimControlUI` class, which is part of an animation control system. This setup initializes UI elements and sets up initial states for handling animations within the application.\n\n**Succinct Context:**\nThis code initializes an Animation Control UI dialog, setting up essential components like panels, initializing flags for play/pause/stop functionality, and defining keyframe parameters to manage animations in the application.\n\nclass AnimControlUI(wx.Dialog):\n    \"\"\"\n    This is the Animation Control main class implementation.\n    \"\"\"\n    def __init__(self, parent, editor):\n        wx.Dialog.__init__(self, parent, id=wx.ID_ANY, title=\"Animation Controller\",\n                           pos=wx.DefaultPosition, size=(920, 110))\n\n        self.editor = editor\n        self._initOver = False\n\n        self.parallel = []\n        if self.editor.animMgr.keyFramesInfo != []:\n            self.editor.animMgr.generateKeyFrames()\n        self.keys = self.editor.animMgr.keyFrames\n        self.editor.objectMgr.findActors(render)\n        self.editor.objectMgr.findNodes(render)\n\n        self.prePlay = False\n        self.play = False\n        self.stop = True\n\n        self.curFrame = 1\n        self.startFrame = 1\n        self.sliderStartFrame = 1\n        self.endFrame = 24\n        self.sliderEndFrame = 24\n\n        self.mainPanel1 = wx.Panel(self, -1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 671
+  }
+}

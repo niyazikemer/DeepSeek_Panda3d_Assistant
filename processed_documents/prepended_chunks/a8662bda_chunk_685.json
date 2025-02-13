@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines three event handler methods (`OnNextKeyFrame`, `OnNextFrame`, `OnLastFrame`) in an animation editor's UI class. These methods manage navigation within an animation timeline by adjusting the current frame to move to the next keyframe, incrementing frames, or jumping to the last frame based on user interaction.\n\ndef OnNextKeyFrame(self, evt):\n        self.sortKey()\n        if self.curFrame < self.keys[0] or self.curFrame >= self.keys[len(self.keys)-1]:\n            self.curFrame = self.keys[0]\n        else:\n            for i in range(0, len(self.keys)-1):\n                if self.curFrame >= self.keys[i] and self.curFrame < self.keys[i+1]:\n                    self.curFrame = self.keys[i+1]\n                    break\n        self.OnControl()\n\n    def OnNextFrame(self, evt):\n        if self.curFrame+1 <= self.endFrame:\n            self.curFrame += 1\n            self.OnControl()\n        else:\n            evt.Skip()\n\n    def OnLastFrame(self, evt):\n        self.curFrame = self.sliderEndFrame\n        self.OnControl()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 685
+  }
+}

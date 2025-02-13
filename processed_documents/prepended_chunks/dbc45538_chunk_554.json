@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet defines the process of creating and positioning a control point (controller) within the CurveEditor module. The chunk handles the transformation logic that positions each newly created controller in 3D space relative to the camera's cursor position, including grid snapping if enabled, before appending the new controller's position data to the curve's control list.\n\n# update temp nodePath's HPR and scale with newobj's\n                np.setHpr(self.controler.getHpr())\n                np.setScale(self.controler.getScale())\n\n                # transform newobj to cursor position\n                self.controler.setMat(Mat4(np.getMat()))\n                np.remove()\n            iRay.collisionNodePath.removeNode()\n            del iRay\n\n            self.curve.append((None, self.controler.getPos()))\n            self.curveControl.append((self.i-1, self.controler))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 554
+  }
+}

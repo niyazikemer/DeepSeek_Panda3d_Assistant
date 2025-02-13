@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains three methods (`OnPreFrame`, `sortKey`, and `OnPreKeyFrame`) that manage animation frames and keyframes within an animation editor UI. These methods handle moving between frames, sorting keyframes, and navigating to previous keyframes, ensuring smooth animation playback and editing.\n\ndef OnPreFrame(self, evt):\n        if self.curFrame-1 >= self.startFrame:\n            self.curFrame -= 1\n            self.OnControl()\n        else:\n            evt.Skip()\n\n    def sortKey(self):\n        for i in range(0, len(self.keys)-1):\n            for j in range(i+1, len(self.keys)):\n                if self.keys[i]>self.keys[j]:\n                    temp = self.keys[i]\n                    self.keys[i] = self.keys[j]\n                    self.keys[j] = temp\n\n    def OnPreKeyFrame(self, evt):\n        self.sortKey()\n        if self.curFrame <= self.keys[0] or self.curFrame > self.keys[len(self.keys)-1]:\n            self.curFrame = self.keys[len(self.keys)-1]\n        else:\n            for i in range(1, len(self.keys)):\n                if self.curFrame <= self.keys[i] and self.curFrame > self.keys[i-1]:\n                    self.curFrame = self.keys[i-1]\n                    break\n        self.OnControl()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 681
+  }
+}

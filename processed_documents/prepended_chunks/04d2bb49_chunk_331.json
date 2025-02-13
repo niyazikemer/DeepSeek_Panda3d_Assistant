@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of three methods: `colorPickerExitCB`, `colorPickerUpdateCB`, and `onColorSlider`. These methods handle user interactions with color-related UI elements in a wxPython application. Specifically:\n\n1. **`colorPickerExitCB`** manages the destruction of a color picker dialog and stores its last position.\n2. **`colorPickerUpdateCB`** converts RGB(A) values from the color picker to normalized floats (0-1 range) and updates object properties with these values, triggering an update in the object's color via `updateObjectColor`.\n3. **`onColorSlider`** reads slider values for RGBA components and converts them into float values.\n\nThese methods are part of a larger application that manages object properties through UI elements like sliders and a color picker. They handle user input for adjusting colors and ensure these changes propagate to the underlying object being edited.\n\ndef colorPickerExitCB(self, evt=None):\n        self.lastColorPickerPos = self.colorPicker.GetPosition()\n        self.colorPicker.Destroy()\n        self.colorPicker = None\n\n    def colorPickerUpdateCB(self, rr, gg, bb, aa):\n        r = rr / 255.0\n        g = gg / 255.0\n        b = bb / 255.0\n        a = aa / 255.0\n        self.propCR.setValue(r)\n        self.propCG.setValue(g)\n        self.propCB.setValue(b)\n        self.propCA.setValue(a)\n\n        self.editor.objectMgr.updateObjectColor(r, g, b, a)\n\n    def onColorSlider(self, evt):\n        r = float(self.editor.ui.objectPropertyUI.propCR.getValue())\n        g = float(self.editor.ui.objectPropertyUI.propCG.getValue())\n        b = float(self.editor.ui.objectPropertyUI.propCB.getValue())\n        a = float(self.editor.ui.objectPropertyUI.propCA.getValue())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 331
+  }
+}

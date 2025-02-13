@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk appears to be part of a larger function or class method responsible for configuring UI widgets related to various particle renderers, specifically handling the configuration of widgets for a `SparkleParticleRenderer` object. It retrieves and sets properties such as color, radius, and scaling parameters for the renderer in the corresponding UI elements under the \"Sparkle Renderer\" category. This is consistent with the pattern seen elsewhere in the document where similar setup logic is applied to other types of particle renderers (e.g., Point Renderer, Line Renderer).\n\nelif isinstance(renderer, SparkleParticleRenderer):\n            centerColor = renderer.getCenterColor() * 255.0\n            self.getWidget('Sparkle Renderer', 'Center Color').set(\n                [centerColor[0], centerColor[1],\n                 centerColor[2], centerColor[3]])\n            edgeColor = renderer.getEdgeColor() * 255.0\n            self.getWidget('Sparkle Renderer', 'Edge Color').set(\n                [edgeColor[0], edgeColor[1], edgeColor[2], edgeColor[3]])\n            birthRadius = renderer.getBirthRadius()\n            self.getWidget('Sparkle Renderer', 'Birth Radius').set(birthRadius)\n            deathRadius = renderer.getDeathRadius()\n            self.getWidget('Sparkle Renderer', 'Death Radius').set(deathRadius)\n            lifeScale = renderer.getLifeScale()\n            lScale = \"SP_NO_SCALE\"\n            if lifeScale == SparkleParticleRenderer.SPSCALE:\n                lScale = \"SP_SCALE\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 832
+  }
+}

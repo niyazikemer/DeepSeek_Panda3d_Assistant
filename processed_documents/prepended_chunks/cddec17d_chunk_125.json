@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function responsible for resolving relative references within documentation. It attempts different combinations of the relative path (`relpath`) and the reference path (`refpath`) to accurately locate and process the referenced object during autodocumentation. This ensures that references are correctly resolved, whether they're absolute or relative, by iterating through possible valid paths.\n\n**Context:** The code chunk is part of a function that handles resolving relative references in autodoc-generated documentation. It tries various combinations of `relpath` and `refpath` to accurately locate the referenced object.\n\nif not modname:\n        return None\n\n    refpath = ref.replace('::', '.').split('.')\n\n    # Say `rel` is \"panda3d.core.NodePath.node\",\n    # and `ref` is \"PandaNode.final\", then we will try these in this order:\n    # - panda3d.core::NodePath.node.PandaNode.final\n    # - panda3d.core::NodePath.PandaNode.final\n    # - panda3d.core::PandaNode.final\n\n    for i in range(len(relpath), -1, -1):\n        search = relpath[:i] + refpath\n\n        if len(refpath) == 1 and i > 0 and refpath[0] == relpath[i - 1]:\n            # If we are looking for a name equal to the parent scope, we are\n            # probably referencing a class name from within that very class.\n            # We don't want to find the constructor, so skip this.\n            continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 125
+  }
+}

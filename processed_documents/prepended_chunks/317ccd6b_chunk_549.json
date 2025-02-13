@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class responsible for managing interactive curve editing in a 3D modeling or CAD-like application, specifically handling controller deletion and updating the visual representation (rope) of the curve. The `onControlerDelete` method updates the curve data structure, adjusts controller indices, and refreshes the rope after a controller is removed, while `ropeUpdate` ensures the rope visually represents the current curve state. Together, these functions enable dynamic interaction with 3D objects within the application's workflow.\n\ndef onControlerDelete(self):\n        if self.editor.mode == self.editor.EDIT_CURVE_MODE:\n            self.curve.remove(self.curve[self.point[0]])\n            #reset the controller list\n            for item in self.curveControl:\n                if item[0] > self.point[0]:\n                    newname = 'controler%d' % (item[0]-1)\n                    item[1].setName(newname)\n                    self.curveControl[item[0]] = (item[0]-1, item[1])\n            self.curveControl.remove(self.point)\n            self.currentRope.setup(self.degree,self.curve)\n\n    def ropeUpdate(self, curve):\n        self.currentRope = Rope()\n        self.currentRope.setup(self.degree, curve)\n        self.currentRope.reparentTo(render)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 549
+  }
+}

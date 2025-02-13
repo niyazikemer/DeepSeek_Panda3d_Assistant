@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a function that processes and converts documentation strings from a specific format (likely Doxygen-style) into reStructuredText for use with Sphinx documentation. The chunk specifically handles special cases like 'see', 'warning', and 'since' to generate appropriate documentation sections, such as notes or version information blocks.\n\nif special == 'see':\n                    newlines.append('See {}.'.format(', '.join(values)))\n                else:\n                    newlines.append('See also {}.'.format(', '.join(values)))\n                newlines.append('')\n                continue\n            elif special in ('note', 'warning'):\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('.. %s:: ' % (special))\n                newlines.append('')\n                newlines.append('   ' + convert_doxygen_format(strline[2 + len(special):], name, domain))\n                while lines and lines[0].strip(' *\\t/'):\n                    line = lines.pop(0).lstrip(' *\\t')\n                    newlines.append('   ' + convert_doxygen_format(line, name, domain))\n\n                newlines.append('')\n                continue\n            elif special == 'since':\n                if newlines and newlines[-1]:\n                    newlines.append('')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 76
+  }
+}

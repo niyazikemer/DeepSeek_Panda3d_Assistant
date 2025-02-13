@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a class defining a 3D viewport with methods to initialize camera lenses, handle window resizing, close the viewport, and manage zooming functionality through mouse wheel and page events in a Python application. The code primarily deals with camera setup and viewport management, including adjustments for orthographic projection types (top, front, left).\n\nself.camLens = self.camNode.getLens()\n\n        if self.name in ['top', 'front', 'left']:\n            x = self.ClientSize.GetWidth() * 0.1\n            y = self.ClientSize.GetHeight() * 0.1\n            self.camLens.setFilmSize(x, y)\n\n        self.Bind(wx.EVT_SIZE, self.onSize)\n\n##     self.accept(\"wheel_down\", self.zoomOut)\n##     self.accept(\"wheel_up\", self.zoomIn)\n##     self.accept(\"page_down\", self.zoomOut)\n##     self.accept(\"page_down-repeat\", self.zoomOut)\n##     self.accept(\"page_up\", self.zoomIn)\n##     self.accept(\"page_up-repeat\", self.zoomIn)\n        #self.accept(\"mouse3\", self.onRightDown)\n\n    def Close(self):\n        \"\"\"Closes the viewport.\"\"\"\n        if self.initialized:\n            wx.Window.Close(self)\n        #base.closeWindow(self.win)\n        ViewportManager.viewports.remove(self)\n\n    def onSize(self, evt):\n        \"\"\"Invoked when the viewport is resized.\"\"\"\n        WxPandaWindow.onSize(self, evt)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 222
+  }
+}

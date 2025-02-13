@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method in a class responsible for dynamically creating and managing UI widgets for different types of physical forces in a physics-based application. The code checks the specific class of a `force` object and creates corresponding UI elements (widgets) using methods like `createLinearFrictionForceWidget`, `createLinearCylinderVortexForceWidget`, etc., to configure parameters such as force center, radius, or falloff type. This is part of an initialization or setup process that configures a `forceGroupNotebook` interface for users to adjust these forces in a simulation or game-like environment.\n\nelif isinstance(force, LinearFrictionForce):\n            self.createLinearFrictionForceWidget(\n                forcePage, pageName, count, force)\n        elif isinstance(force, LinearCylinderVortexForce):\n            self.createLinearCylinderVortexForceWidget(\n                forcePage, pageName, count, force)\n        elif isinstance(force, LinearSinkForce):\n            self.createLinearDistanceForceWidget(\n                forcePage, pageName, count, force, 'Sink')\n        elif isinstance(force, LinearSourceForce):\n            self.createLinearDistanceForceWidget(\n                forcePage, pageName, count, force, 'Source')\n        elif isinstance(force, LinearUserDefinedForce):\n            # Nothing\n            pass\n        self.forceGroupNotebook.setnaturalsize()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 884
+  }
+}

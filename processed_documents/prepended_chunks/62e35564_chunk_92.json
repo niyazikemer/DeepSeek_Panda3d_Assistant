@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"This chunk is part of a method that generates DOT language code for rendering inheritance diagrams. It handles the creation of nodes with URLs, targets, tooltips, and connections between nodes based on class inheritance relationships. The method adjusts URLs to include the current variation and strips off fragment identifiers when generating SVG output.\"\"\"\n\nthis_node_attrs['URL'] = '\"%s\"' % url\n            this_node_attrs['target'] = '\"_top\"'\n        if tooltip:\n            this_node_attrs['tooltip'] = tooltip\n        res.append('  \"%s\" [%s];\\n' %\n                   (name, self._format_node_attrs(this_node_attrs)))\n\n        # Write the edges\n        for base_name in bases:\n            if base_name == 'DTOOL_SUPER_BASE':\n                continue\n            res.append('  \"%s\" -> \"%s\" [%s];\\n' %\n                       (name, base_name,\n                        self._format_node_attrs(e_attrs)))\n    res.append('}\\n')\n    return ''.join(res)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 92
+  }
+}

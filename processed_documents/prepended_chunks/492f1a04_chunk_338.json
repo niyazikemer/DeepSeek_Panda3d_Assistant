@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the overall document context of setting up UI controls for object properties in an application, specifically within the 'Look' tab of an object property editor. The chunk adds functionality for selecting a model and animation, with conditional logic to handle dynamic updates based on the selected model.\n\nif len(objDef.models) == 0:\n                modelList = ''\n            else:\n                modelList = objDef.models\n            propUI = ObjectPropUICombo(self.lookPane, 'model', defaultModel, modelList, obj, callBack=objDef.updateModelFunction)\n            sizer.Add(propUI)\n\n            propUI.bindFunc(self.editor.objectMgr.onEnterObjectPropUI,\n                            self.editor.objectMgr.onLeaveObjectPropUI,\n                            lambda p0=None, p1=obj: self.editor.objectMgr.updateObjectModelFromUI(p0, p1))\n\n        animList = objDef.animDict.get(obj[OG.OBJ_MODEL])\n        if len(objDef.anims) > 0 or animList:\n            if animList is None:\n                animList = objDef.anims\n\n            propUI = ObjectPropUICombo(self.lookPane, 'anim', obj[OG.OBJ_ANIM], animList)\n            sizer.Add(propUI)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 338
+  }
+}

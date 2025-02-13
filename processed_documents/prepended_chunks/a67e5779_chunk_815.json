@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk handles updating UI elements based on different emitter types: DiscEmitter, LineEmitter, and PointEmitter. It retrieves specific properties from the emitters (e.g., angles, endpoints, location) and sets these values in corresponding widgets within the application's interface.\n\nContext:\nThis code is part of a function that updates the application's GUI to reflect the current state of various particle emitters. The function reads properties from different emitter types and uses those values to update UI elements like sliders or input fields, allowing users to modify or view these settings dynamically.\n\nouterAngle = emitter.getOuterAngle()\n            self.getWidget('Disc Emitter', 'Outer Angle').set(outerAngle, 0)\n            outerMagnitude = emitter.getOuterMagnitude()\n            self.getWidget('Disc Emitter', 'Inner Velocity').set(\n                outerMagnitude, 0)\n            cubicLerping = emitter.getCubicLerping()\n            self.getVariable('Disc Emitter', 'Cubic Lerping').set(cubicLerping)\n        elif isinstance(emitter, LineEmitter):\n            min = emitter.getEndpoint1()\n            self.getWidget('Line Emitter', 'Min').set(\n                [min[0], min[1], min[2]], 0)\n            max = emitter.getEndpoint2()\n            self.getWidget('Line Emitter', 'Max').set(\n                [max[0], max[1], max[2]], 0)\n        elif isinstance(emitter, PointEmitter):\n            location = emitter.getLocation()\n            self.getWidget('Point Emitter', 'Position').set(\n                [location[0], location[1], location[2]], 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 815
+  }
+}

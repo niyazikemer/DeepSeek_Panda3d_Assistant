@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within a document describing methods for creating widgets related to particle effects and force vector rendering. Specifically, it pertains to constructing a widget for managing sprite animations, including setting up model paths and update functionality. The surrounding context suggests it is part of a larger application dealing with particle system rendering and animation configuration.\n\ntk.Button(f, text = 'Update',\n                  command = checkForTexture).pack(side=tk.LEFT)\n        self.variableDict['Sprite Renderer-'+animName+' Anim Texture'] = strVar\n        self.widgetDict['Sprite Renderer-'+animName+' Anim Texture'] = entry\n\n        return frame\n\n    def createSpriteAnimationNodeWidget(self, parent, anim, animName):\n        ren = self.particles.getRenderer()\n        frame = self.createSpriteAnimationFrame(parent, anim, animName)\n        f = tk.Frame(frame)\n        f.pack(fill=tk.X)\n\n        lf = tk.Frame(f)\n        lf.pack(fill=tk.X, expand=1)\n        tk.Label(lf, text = 'Model: ', font = ('MSSansSerif', 12), width=7).pack(side = tk.LEFT)\n        mStrVar = tk.StringVar()\n        entry = tk.Entry(lf, textvariable = mStrVar).pack(padx=3, pady=3, side=tk.LEFT, fill=tk.X, expand=1)\n        if frame.valid:\n            mStrVar.set(anim.getModelSource())\n        else:\n            mStrVar.set('Base model path: ' + repr(getModelPath().getValue()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 873
+  }
+}

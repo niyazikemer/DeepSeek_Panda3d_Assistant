@@ -1,0 +1,9 @@
+{
+  "content": "The `TimeRange` class is a custom wxPython window designed to display and manage animation timeline ranges within the application's user interface. It handles mouse interactions for adjusting start and end frames, slider positions, and visualizing frame ranges in the animation editor.\n\nclass TimeRange(wx.Window):\n    \"\"\"\n    This is the Time Range Panel.\n    \"\"\"\n    def __init__(self, parent, rangesize, startFrame, endFrame, sliderStartFrame, sliderEndFrame):\n        wx.Window.__init__(self, parent, size = rangesize, style = wx.SUNKEN_BORDER)\n\n        self._mainDialog = wx.GetTopLevelParent(self)\n\n        self._mouseIn = False\n\n        self.startFrame = startFrame\n        self.endFrame = endFrame\n        self.sliderStartFrame = sliderStartFrame\n        self.sliderEndFrame = sliderEndFrame\n        self.frameNum = self.endFrame-self.startFrame+1\n\n        self.InitBuffer()\n\n        self.Bind(wx.EVT_PAINT, self.OnPaint)\n        self.Bind(wx.EVT_SIZE, self.OnSize)\n        self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)\n        self.Bind(wx.EVT_LEFT_UP, self.OnLeftUp)\n        self.Bind(wx.EVT_MOTION, self.OnMotion)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 664
+  }
+}

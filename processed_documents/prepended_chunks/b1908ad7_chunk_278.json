@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a method of an animation curve editor dialog (GraphEditorDialog) where the application handles the manipulation of keyframe data to adjust slope values. The context involves modifying the slope of control points in an animation curve while ensuring that these modifications do not result in invalid or improper ordering relative to other keyframes, necessitating potential reverting of changes if constraints are violated.\n\ntemp0 = self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.INSLOPE][0]\n                    temp1 = self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.INSLOPE][1]\n                    self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.INSLOPE][0] = newSlope[0]/self.unitWidth\n                    self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.INSLOPE][1] = newSlope[1]/self.unitHeight\n                    handler = self.generateHandler(self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]])\n                    if handler[1][0][0] >= list[i][AG.KEYFRAME][AG.LOCAL_VALUE][0]:\n                        self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.INSLOPE][0] = temp0\n                        self._mainDialog.editor.animMgr.keyFramesInfo[list[i][AG.KEY]][list[i][AG.I]][AG.INSLOPE][1] = temp1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 278
+  }
+}

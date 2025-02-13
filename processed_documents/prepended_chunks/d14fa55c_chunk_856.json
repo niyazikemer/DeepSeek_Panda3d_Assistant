@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method responsible for dynamically adding interpolation segment widgets to a particle renderer's UI interface. It checks if the renderer is either a `SpriteParticleRendererExt` or `GeomParticleRenderer`, creates a new linear interpolation segment widget, appends it to the appropriate segment frame, and ensures the parent frame expands properly to display the new widget. This functionality enables users to manage color or property transitions in particle effects through an interactive UI interface.\n\nif ren.__class__.__name__ == 'SpriteParticleRendererExt':\n            parent = self.rendererSpriteSegmentFrame\n            segName = repr(len(self.rendererSegmentWidgetList))+':Linear'\n            self.rendererSegmentWidgetList.append(\n                self.createLinearInterpolationSegmentWidget(parent, segName, seg))\n        elif ren.__class__.__name__ == 'GeomParticleRenderer':\n            parent = self.rendererGeomSegmentFrame\n            segName = repr(len(self.rendererSegmentWidgetList))+':Linear'\n            self.rendererSegmentWidgetList.append(\n                self.createLinearInterpolationSegmentWidget(parent, segName, seg))\n        parent.pack(fill=tk.BOTH, expand=1)\n\n    def addStepwaveInterpolationSegment(self, id = None):\n        ren = self.particles.getRenderer()\n        cim = ren.getColorInterpolationManager()\n        if id is None:\n            seg = cim.getSegment(cim.addStepwave())\n        else:\n            seg = cim.getSegment(id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 856
+  }
+}

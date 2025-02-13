@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of a function responsible for generating inheritance diagrams in documentation, specifically handling URL references within the graph nodes. It processes class information to adjust URLs based on the current variation being built, ensuring that links point correctly across different documentation variations.\n\nfor name, fullname, bases, tooltip in sorted(self.class_info):\n        if name == 'DTOOL_SUPER_BASE':\n            continue\n\n        # Write the node\n        this_node_attrs = n_attrs.copy()\n        if fullname in urls:\n            url = urls[fullname]\n            # Fix the URL reference to contain the current variation.\n            # Also strip off the # reference at the end, since our classes\n            # are defined near the top of each file anyway.\n            if env and env.config.graphviz_output_format.lower() == 'svg' and \\\n               getattr(env.app.builder, 'current_variation', None):\n                url = '../' \\\n                    + env.app.builder.current_variation[0] \\\n                    + '/reference/' \\\n                    + os.path.basename(url).split('#', 1)[0]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 157
+  }
+}

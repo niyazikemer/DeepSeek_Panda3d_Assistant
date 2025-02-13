@@ -1,0 +1,9 @@
+{
+  "content": "The `compareItems` function is part of a class that manages a UI tree structure for displaying and organizing palette data. The method compares two tree items based on their text labels to determine their order during sorting operations. It supports two comparison modes: alphabetical ordering and original insertion order as defined by the keys in the palette's underlying data dictionary.\n\ndef compareItems(self, item1, item2):\n        data1 = self.tree.GetItemText(item1)\n        data2 = self.tree.GetItemText(item2)\n        if self.opSort == self.opSortAlpha:\n            return (data1 > data2) - (data1 < data2)\n        else:\n            items = list(self.palette.data.keys())\n            index1 = items.index(data1)\n            index2 = items.index(data2)\n            return (index1 > index2) - (index1 < index2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 567
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Sphinx extension or custom documenter that handles reference resolution during autodocumentation. Specifically, it processes module imports and references, adjusting prefixes and targets based on certain conditions like built-in types and module existence checks. This functionality is essential for accurately resolving cross-references in API documentation generation.\n\nmodule = '.'.join(parts[:2])\n        prefix = module + '.'\n        target = '.'.join(parts[2:])\n    else:\n        # Something like .core.NodePath, perhaps?\n        modpart = target.split('.', 1)[0]\n        if '.' in target and modpart in builtins_types and domain.name == 'py':\n            # It's actually the name of a built-in.\n            target = builtins_types[modpart] + '.' + target.split('.', 1)[1]\n            if target.startswith('panda3d.'):\n                parts = target.split('.', 2)\n                module = '.'.join(parts[:2])\n                prefix = module + '.'\n                target = '.'.join(parts[2:])\n            else:\n                refdoc = node.get('refdoc', env.docname)\n                return domain.resolve_xref(env, refdoc, app.builder, typ, target, node, contnode)\n        elif build_api_reference and idb.has_module('panda3d.' + modpart):\n            module = 'panda3d.' + modpart\n            prefix = modpart + '.'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 81
+  }
+}

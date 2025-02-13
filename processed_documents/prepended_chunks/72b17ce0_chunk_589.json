@@ -1,0 +1,9 @@
+{
+  "content": "These methods (`onChangeModifier`, `onChangeSpecialKey`, and `onApply`) are part of a dialog class (`EditHotKeyDialog`) used for editing hotkey configurations within an application's user interface. They handle user interactions related to modifying or creating hotkeys, including enabling/disabling UI elements based on user selections (like 'Shift', 'Control', or special keys) and processing the final hotkey string when applied.\n\ndef onChangeModifier(self, evt):\n        if evt.GetString() == 'None':\n            self.specialKeyCombo.Enable(True)\n        else:\n            self.specialKeyCombo.SetStringSelection('')\n            self.specialKeyCombo.Enable(False)\n            self.keyEntry.Enable(True)\n\n    def onChangeSpecialKey(self, evt):\n        if evt.GetString() != '':\n            self.keyEntry.SetValue('')\n            self.keyEntry.Enable(False)\n        else:\n            self.keyEntry.Enable(True)\n\n    def onApply(self, evt):\n        modifier = self.modifierRadio.GetStringSelection()\n        if modifier == 'Shift':\n            prefix = 'shift-'\n        elif modifier == 'Control':\n            prefix = 'control-'\n        else:\n            prefix = ''\n\n        specialKey = self.specialKeyCombo.GetStringSelection()\n        if specialKey == '':\n            newKeyStr= prefix + self.keyEntry.GetValue().lower()\n        else:\n            newKeyStr = specialKey",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_41",
+    "parent": "processed_documents/context_documents/64346f52_HotKeyUI.json",
+    "chunk_number": 589
+  }
+}

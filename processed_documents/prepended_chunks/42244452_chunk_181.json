@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a larger class definition for a WxAppShell-derived application shell. The chunk initializes Direct Tools based on configuration settings and creates the wxPython application instance, followed by initializing the application shell with specific dimensions. This setup occurs early in the object's lifecycle, before creating menus or setting up other GUI components.\n\nfDirect = (base.config.GetBool('want-directtools', 0) or\n                   (base.config.GetString(\"cluster-mode\", '') != ''))\n\n        self.fStartDirect = fStartDirect or fDirect\n\n        # Create the Wx app\n        self.wxApp = wx.App(redirect = False)\n        self.wxApp.SetAppName(self.appname)\n        WxAppShell.__init__(self, size=wx.Size(self.frameWidth, self.frameHeight))\n        self.initialize()\n\n    def createMenu(self):\n        self.menuView = wx.Menu()\n        self.menuBar.Insert(self.menuBar.GetMenuCount() - 1, self.menuView, \"&View\")\n\n        menuItem = self.menuView.AppendRadioItem(ID_FOUR_VIEW, self.MENU_TEXTS[ID_FOUR_VIEW][0])\n        self.Bind(wx.EVT_MENU, lambda p0=None, p1=-1:self.onViewChange(p0, p1), menuItem)\n\n        menuItem = self.menuView.AppendRadioItem(ID_TOP_VIEW, self.MENU_TEXTS[ID_TOP_VIEW][0])\n        self.Bind(wx.EVT_MENU, lambda p0=None, p1=0:self.onViewChange(p0, p1), menuItem)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_13",
+    "parent": "processed_documents/context_documents/b3c83735_WxPandaShell.json",
+    "chunk_number": 181
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `AnimPanel` class initializes an animation control panel for managing multiple actors in a 3D scene, setting up its graphical interface and handling actor references.\n\nclass AnimPanel(AppShell):\n    # Override class variables\n    appname = 'Anim Panel'\n    frameWidth  = 675\n    frameHeight = 250\n    usecommandarea = 0\n    usestatusarea  = 0\n    index = 0\n\n    def __init__(self, aList =  [], parent = None, session = None, **kw):\n        INITOPT = Pmw.INITOPT\n        if isinstance(aList, (list, tuple)):\n            kw['actorList'] = aList\n        else:\n            kw['actorList'] = [aList]\n        optiondefs = (\n            ('title',               self.appname,       None),\n            ('actorList',           [],                 None),\n            ('Actor_label_width',   12,                 None),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # direct session that spawned me, if any, used\n        # for certain interactions with the session such\n        # as being able to see selected objects/actors\n        self.session = session",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 977
+  }
+}

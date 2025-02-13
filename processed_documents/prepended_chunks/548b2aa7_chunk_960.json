@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `DirectEditNodePath` class, which manages editing operations for 3D scenes. The methods `addJBNodePath` and `addNodePathToDict` handle adding node paths to a dictionary and UI menu for selection, supporting dynamic updates when new nodes are added or modified in the scene.\n\ndef addJBNodePath(self, nodePath):\n        self.addNodePathToDict(nodePath, self.jbNodePathNames,\n                               self.jbNodePathMenu, self.jbNodePathDict)\n\n    def addNodePathToDict(self, nodePath, names, menu, dict):\n        if not nodePath:\n            return\n        # Get node path's name\n        name = nodePath.getName()\n        if name in ['parent', 'render', 'camera']:\n            dictName = name\n        else:\n            # Generate a unique name for the dict\n            dictName = name + '-' + repr(hash(nodePath))\n        if dictName not in dict:\n            # Update combo box to include new item\n            names.append(dictName)\n            listbox = menu.component('scrolledlist')\n            listbox.setlist(names)\n            # Add new item to dictionary\n            dict[dictName] = nodePath\n        menu.selectitem(dictName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 960
+  }
+}

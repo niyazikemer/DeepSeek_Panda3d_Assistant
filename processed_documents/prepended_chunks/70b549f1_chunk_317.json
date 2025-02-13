@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `ObjectPropUI` base class, which serves as the foundation for various object property user interface components in a wxPython-based application. This class creates a structured layout with label and UI panes, including a button to set keys for properties, and binds event handlers for interactivity. It is part of a larger system that manages object properties across different tabs (e.g., Transform, Look) within an object properties panel.\n\nclass ObjectPropUI(wx.Panel):\n    \"\"\"\n    Base class for ObjectPropUIs,\n    It consists of label area and ui area.\n    \"\"\"\n\n    def __init__(self, parent, label):\n        wx.Panel.__init__(self, parent)\n        self.parent = parent\n        self.labelPane = wx.Panel(self)\n        self.label = wx.StaticText(self.labelPane, label=label)\n        self.labelSizer = wx.BoxSizer(wx.HORIZONTAL)\n        self.labelSizer.Add(self.label)\n        bmpKey = Key.GetBitmap()\n        self.setKeyButton = wx.BitmapButton(self.labelPane, -1, bmpKey, size = (15,15),style = wx.BU_AUTODRAW)\n        self.labelSizer.Add(self.setKeyButton)\n        self.labelPane.SetSizer(self.labelSizer)\n        self.uiPane = wx.Panel(self)\n        sizer = wx.BoxSizer(wx.VERTICAL)\n        sizer.Add(self.labelPane)\n        sizer.Add(self.uiPane, 1, wx.EXPAND, 0)\n        self.SetSizer(sizer)\n\n        self.setKeyButton.Bind(wx.EVT_BUTTON, self.onKey)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 317
+  }
+}

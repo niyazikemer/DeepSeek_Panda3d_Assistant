@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of three methods: `handleMouse3`, `handleMouse3Up`, and `handleDelete`. These methods are event handlers responsible for managing user input interactions such as right-clicking (mouse button 3) and deleting selected objects. The `handleMouse3` method checks if the Alt key is pressed or a specific modifier is active, enabling camera movement when true. The `handleMouse3Up` method stops camera movement when the mouse button is released. The `handleDelete` method manages object deletion by gathering selected objects, executing a delete action, and updating the scene graph UI accordingly. These methods are part of an application that handles 3D object management, user interface interactions, and scene manipulation, fitting into a larger framework that includes object management, user actions, and status updates.\n\ndef handleMouse3(self, modifiers):\n        if base.direct.fAlt or modifiers == 4:\n            self.fMoveCamera = True\n            return\n\n        self.ui.onRightDown()\n\n    def handleMouse3Up(self):\n        self.fMoveCamera = False\n\n    def handleDelete(self):\n        oldSelectedNPs = base.direct.selected.getSelectedAsList()\n        oldUIDs = []\n        for oldNP in oldSelectedNPs:\n            obj = self.objectMgr.findObjectByNodePath(oldNP)\n            if obj:\n                oldUIDs.append(obj[OG.OBJ_UID])\n\n        action = ActionDeleteObj(self)\n        self.actionMgr.push(action)\n        action()\n\n        for uid in oldUIDs:\n            self.ui.sceneGraphUI.delete(uid)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 406
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements methods for configuring particle emitter properties in a particle effect system, including toggling cubic lerping for disc emitters and setting positions for line, point, and rectangle emitters.\n\ndef toggleEmitterDiscCubicLerping(self):\n        self.particles.emitter.setCubicLerping(\n            self.getVariable('Disc Emitter', 'Cubic Lerping').get())\n    # Line #\n\n    def setEmitterLinePoint1(self, point):\n        self.particles.emitter.setEndpoint1(Point3(point[0],\n                                                   point[1],\n                                                   point[2]))\n\n    def setEmitterLinePoint2(self, point):\n        self.particles.emitter.setEndpoint2(Point3(point[0],\n                                                   point[1],\n                                                   point[2]))\n    # Point #\n\n    def setEmitterPointPosition(self, pos):\n        self.particles.emitter.setLocation(Point3(pos[0], pos[1], pos[2]))\n    # Rectangle #\n\n    def setEmitterRectanglePoint1(self, point):\n        self.particles.emitter.setMinBound(Point2(point[0], point[1]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 822
+  }
+}

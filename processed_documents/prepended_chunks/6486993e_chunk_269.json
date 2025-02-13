@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an event handling mechanism for a graphical user interface (GUI) in an animation editor application. Specifically, it's situated within the `OnMotion` method or a related event handler that deals with mouse movement and dragging actions. The purpose of this code is to manage the selection rectangle (`_selectRec`) when the user drags the left mouse button across the graph display area. It ensures that any valid drag movements update the graph data, allowing for interactive selection or modification of elements within the defined window bounds.\n\n**Succinct Context:**\nThe code chunk is part of a GUI handler in an animation editor, managing mouse dragging events to update selections on the graph display.\n\nif self._mouseIn:\n            self.CaptureMouse()\n            self.midPos = point\n\n    def OnMiddleUp(self, evt):\n        if self.GetCapture():\n            self.ReleaseMouse()\n\n    def OnMotion(self, evt):\n        self._mouseIn = False\n        if evt.Dragging() and evt.LeftIsDown():\n            self.newPos = (evt.GetX(), evt.GetY())\n            if self.newPos[1] >= 0.0 and self.newPos[1] <= float(self.h):\n                if self.newPos[0] >= 0.0 and self.newPos[0] <= float(self.w):\n                    self._mouseIn = True\n\n            if self._mouseIn:\n                if self.newPos == self.pos:\n                    evt.Skip()\n                    self._mouseIn = False\n                else:\n                    self._selectRec = True\n                    self.SetGraphEditorData(self.property,  self.curFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 269
+  }
+}

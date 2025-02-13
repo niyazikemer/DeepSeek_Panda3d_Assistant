@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the initialization method `__init__` for the `World` class in a Panda3D application. It sets up initial parameters including camera position, window settings, and keyboard controls for Ralph navigation. The instructions display essential keys for controlling Ralph\u2019s movement and camera perspective, preparing the environment for pathfinding functionality later implemented in other methods.\n\nclass World(DirectObject):\n\n    def __init__(self):\n        self.switchState = True\n        self.switchCam = False\n        self.path_no = 1\n        self.keyMap = {\n            \"left\": 0,\n            \"right\": 0,\n            \"forward\": 0,\n            \"cam-left\": 0,\n            \"cam-right\": 0\n        }\n        base.win.setClearColor((0, 0, 0, 1))\n        base.cam.setPosHpr(17.79, -87.64, 90.16, 38.66, 325.36, 0)\n        # Post the instructions\n\n        addTitle(\"Pandai Tutorial: Roaming Ralph (Walking on Uneven Terrain) \"\n                 \"working with pathfinding\")\n        addInstructions(0.95, \"[ESC]: Quit\")\n        addInstructions(0.90, \"[Space - do Only once]: Start Pathfinding\")\n        addInstructions(0.85, \"[Enter]: Change camera view\")\n        addInstructions(0.80, \"[Up Arrow]: Run Ralph Forward\")\n        addInstructions(0.70, \"[A]: Rotate Camera Left\")\n        addInstructions(0.65, \"[S]: Rotate Camera Right\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 6
+  }
+}

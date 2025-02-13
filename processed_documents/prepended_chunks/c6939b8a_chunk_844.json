@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to a class managing particle system renderers, focusing on sprite animation controls. It includes methods for setting frame rates, enabling animations, and adding textures for animated frames within the particle renderer's context.\n\n```context\nThis code is part of a class that manages particle systems, specifically handling renderer settings related to sprite animations. The methods included control the animation frame rate, enable/disable animation, and manage texture addition for sprite animations.\n```\n\ndef setRendererSpriteAnimationFrameRate(self, rate):\n        self.particles.renderer.setAnimateFramesRate(rate)\n\n    def setRendererSpriteAnimationEnable(self):\n        self.particles.renderer.setAnimateFramesEnable(\n            self.getVariable('Sprite Renderer','Enable Animation').get())\n\n    def addRendererSpriteAnimationTexture(self):\n        ren = self.particles.getRenderer()\n        parent = self.rendererSpriteAnimationFrame\n\n        if ren.addTextureFromFile():\n            animId = len([x for x in self.rendererSpriteAnimationWidgetList if x and x.valid])\n            anim = ren.getAnim(animId)\n\n            frameNum = len([x for x in self.rendererSpriteAnimationWidgetList if x])\n\n            self.rendererSpriteAnimationWidgetList.append(\n                self.createSpriteAnimationTextureWidget(parent, anim, repr(frameNum)))\n        else:\n            animId = len([x for x in self.rendererSpriteAnimationWidgetList if x and x.valid])\n            anim = SpriteAnim.STTexture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 844
+  }
+}

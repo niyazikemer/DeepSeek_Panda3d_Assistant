@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is a Python function implementing process termination logic with signal handling. It appears to be part of a larger class that manages subprocesses, providing methods like `CloseInp` for closing input streams and `Kill` for sending termination signals with error handling.\n\nThis chunk implements the Kill method which:\n- Takes a kill signal parameter (default SIGKILL)\n- Closes process stdin on request\n- Uses wx.Process to send signals\n- Handles various kill statuses using an error dictionary\n- Returns success/failure status with details\n\nThe context suggests this is part of a broader process management class with related methods for input/output handling and process termination.\n\ndef CloseInp(self):\n        if self.process and self.process._stdin_:\n            self.process.CloseOutput()\n            self.process._stdin_ = None\n\n    def Kill(self, ks='SIGKILL'):\n        errors = {wx.KILL_BAD_SIGNAL: \"KILL_BAD_SIGNAL\",\n                  wx.KILL_ACCESS_DENIED: \"KILL_ACCESS_DENIED\",\n                  wx.KILL_ERROR: \"KILL_ERROR\"}\n        if self.process:\n            if ks == CLOSE_STDIN:\n                self.CloseInp()\n                return 1, None\n            elif wx.Process.Exists(self.process.pid):\n                signal = getattr(wx, ks)\n                r = wx.Process.Kill(self.process.pid, signal, flags=wx.KILL_CHILDREN)\n            else:\n                r = 65535\n                self.CloseInp()\n                return 1, None\n\n            if r not in (wx.KILL_OK, wx.KILL_NO_PROCESS, 65535):\n                return 0, (self.process.pid, signal, errors.get(r, \"UNKNOWN_KILL_ERROR %s\"%r))\n            else:\n                return 1, None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 297
+  }
+}

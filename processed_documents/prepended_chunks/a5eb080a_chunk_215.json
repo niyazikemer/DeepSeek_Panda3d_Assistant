@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how the `WxPandaWindow` class handles paint and idle events in its implementation, specifically managing window visibility and size changes during runtime.\n\nevent.Skip()\n\n        def onPaint(self, event):\n            \"\"\" This is called whenever we get the first paint event,\n            at which point we can conclude that the window has\n            actually been manifested onscreen.  (In X11, there appears\n            to be no way to know this otherwise.) \"\"\"\n            self.visible = True\n\n            # Important not to Skip this event, so the window\n            # subsystem believes we've drawn the window.\n            #event.Skip()\n\n        def onIdle(self, event):\n            if self.win:\n                size = None\n                properties = self.win.getProperties()\n                if properties.hasSize():\n                    size = (properties.getXSize(), properties.getYSize())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 215
+  }
+}

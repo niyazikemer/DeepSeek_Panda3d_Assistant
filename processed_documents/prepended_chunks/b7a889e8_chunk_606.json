@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an `undo` method within an `ActionDeselectAll` class, which manages the restoration of object hierarchies and reselection of previously selected objects after a deselection operation.\n\nwhile len(self.hierarchy) > 0:\n                for uid in self.hierarchy:\n                    if self.hierarchy[uid] is None:\n                        parentNP = None\n                        restoreObject(uid, parentNP)\n                        del self.hierarchy[uid]\n                    else:\n                        parentObj = self.editor.objectMgr.findObjectById(self.hierarchy[uid])\n                        if parentObj:\n                            parentNP = parentObj[OG.OBJ_NP]\n                            restoreObject(uid, parentNP)\n                            del self.hierarchy[uid]\n\n            base.direct.deselectAllCB()\n            for uid in self.selectedUIDs:\n                obj = self.editor.objectMgr.findObjectById(uid)\n                if obj:\n                    self.editor.select(obj[OG.OBJ_NP], fMultiSelect=1, fUndo=0)\n\n            self.selecteUIDs = []\n            self.hierarchy = {}\n            self.objInfos = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 606
+  }
+}

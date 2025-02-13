@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe `ProtoPaletteBase` class manages prototype data for an object palette, handling both data and its structure. It initializes by asserting a required directory path, adds items recursively from nested dictionaries (with a note on missing 'parent' definition), and populates data dynamically from external modules with error handling.\n\"\"\"\n\nclass ProtoPaletteBase(ObjectPaletteBase):\n    def __init__(self):\n        ObjectPaletteBase.__init__(self)\n        # self.dirname should be defined in inherited class\n        assert self.dirname\n\n    def addItems(self):\n        if type(protoData) == dict:\n            for key in list(protoData.keys()):\n                if type(protoData[key]) == dict:\n                    self.add(key, parent)\n                    self.addItems(protoData[key], key)\n                else:\n                    self.add(protoData[key], parent)\n\n    def populate(self):\n        moduleName = 'protoPaletteData'\n        try:\n            file, pathname, description = imp.find_module(moduleName, [self.dirname])\n            module = imp.load_module(moduleName, file, pathname, description)\n            self.data = module.protoData\n            self.dataStruct = module.protoDataStruct\n        except:\n            print(\"protoPaletteData doesn't exist\")\n            return\n\n        #self.addItems()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_46",
+    "parent": "processed_documents/context_documents/ec9d7679_ProtoPaletteBase.json",
+    "chunk_number": 621
+  }
+}

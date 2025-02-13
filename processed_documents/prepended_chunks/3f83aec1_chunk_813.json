@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains a function `updateEmitterWidgets()` that updates GUI widgets related to particle emitter settings in a particle effects management system, specifically handling amplitude, spread, offset force, radiate origin, and explicit launch vector parameters for emitters like BoxEmitter.\n\ndef updateEmitterWidgets(self):\n        emitter = self.particles.emitter\n        self.setEmissionType(self.particles.emitter.getEmissionType())\n        amp = emitter.getAmplitude()\n        self.getWidget('Emitter', 'Velocity Multiplier').set(amp)\n        spread = emitter.getAmplitudeSpread()\n        self.getWidget('Emitter', 'Velocity Multiplier Spread').set(spread)\n        vec = emitter.getOffsetForce()\n        self.getWidget('Emitter', 'Offset Velocity').set(\n            [vec[0], vec[1], vec[2]], 0)\n        vec = emitter.getRadiateOrigin()\n        self.getWidget('Emitter', 'Radiate Origin').set(\n            [vec[0], vec[1], vec[2]], 0)\n        vec = emitter.getExplicitLaunchVector()\n        self.getWidget('Emitter', 'Explicit Velocity').set(\n            [vec[0], vec[1], vec[2]], 0)\n        if isinstance(emitter, BoxEmitter):\n            min = emitter.getMinBound()\n            self.getWidget('Box Emitter', 'Min').set(\n                [min[0], min[1], min[2]], 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 813
+  }
+}

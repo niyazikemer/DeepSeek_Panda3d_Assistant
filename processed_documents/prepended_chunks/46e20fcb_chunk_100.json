@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes the `World` class by setting up a 3D scene with collision detection for two smiley models. The chunk focuses on initializing one of the models (reparented to the camera) and its collision handling setup, including creating a collision sphere, registering it with the traverser, and defining collision entry/exit events that trigger visual feedback through color changes.\n\nclass World(DirectObject):\n\n    def __init__(self):\n        # Initialize the traverser.\n        base.cTrav = CollisionTraverser()\n\n        # Initialize the handler.\n        self.collHandEvent = CollisionHandlerEvent()\n        self.collHandEvent.addInPattern('into-%in')\n        self.collHandEvent.addOutPattern('outof-%in')\n\n        # Make a variable to store the unique collision string count.\n        self.collCount = 0\n\n        # Load a model. Reparent it to the camera so we can move it.\n        s = base.loader.loadModel('smiley')\n        s.reparentTo(base.camera)\n        s.setPos(0, 25, 0)\n\n        # Setup a collision solid for this model.\n        sColl = self.initCollisionSphere(s, True)\n\n        # Add this object to the traverser.\n        base.cTrav.addCollider(sColl[0], self.collHandEvent)\n\n        # Accept the events sent by the collisions.\n        self.accept('into-' + sColl[1], self.collide3)\n        self.accept('outof-' + sColl[1], self.collide4)\n        print(sColl[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_7",
+    "parent": "processed_documents/context_documents/91ec09dc_dd7a764d_event-example.json",
+    "chunk_number": 100
+  }
+}

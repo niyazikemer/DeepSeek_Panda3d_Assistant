@@ -1,0 +1,9 @@
+{
+  "content": "The code is part of an `ActionBase` subclass implementation within an undo/redo mechanism for an object editor application. The `undo()` method handles reverting the addition of a new object by deleting it from the scene graph UI, deselecting it, and removing its node path.\n\ndef redo(self):\n        if self.uid is None:\n            print(\"Can't redo this add\")\n        else:\n            self.result = self._do__call__(uid=self.uid)\n            return self.result\n\n    def undo(self):\n        if self.result is None:\n            print(\"Can't undo this add\")\n        else:\n            print(\"Undo: addNewObject\")\n            if self.uid:\n                obj = self.editor.objectMgr.findObjectById(self.uid)\n            else:\n                obj = self.editor.objectMgr.findObjectByNodePath(self.result)\n            if obj:\n                self.uid = obj[OG.OBJ_UID]\n                self.editor.ui.sceneGraphUI.delete(self.uid)\n                base.direct.deselect(obj[OG.OBJ_NP])\n                base.direct.removeNodePath(obj[OG.OBJ_NP])\n                self.result = None\n            else:\n                print(\"Can't undo this add\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 601
+  }
+}

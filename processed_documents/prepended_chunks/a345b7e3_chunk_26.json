@@ -1,0 +1,9 @@
+{
+  "content": "This chunk initializes the 3D environment by loading a plane model and setting up a user-controlled target character. The target is positioned at (60, -60, 0), scaled to twice the size of the default characters, colored blue, and set to loop its running animation. A forward vector node is created for movement calculations.\n\nself.environ = loader.loadModel(\"models/plane_demo1\")\n        self.environ.reparentTo(render)\n        self.environ.setPos(0, 0, 0)\n\n        self.Target = Actor(\"models/ralph\",\n                            {\"run\": \"models/ralph-run\",\n                             \"walk\": \"models/ralph-walk\"})\n        self.Target.setColor(0, 0, 1)\n        self.Target.setPos(60, -60, 0)\n        self.Target.setScale(2)\n        self.Target.reparentTo(render)\n        self.Target.loop(\"run\")\n        self.Targetforward = NodePath(\"Targetforward\")\n        self.Targetforward.setPos(0, -1, 0)\n        self.Targetforward.reparentTo(self.Target)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 26
+  }
+}

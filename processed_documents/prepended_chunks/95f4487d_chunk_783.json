@@ -1,0 +1,9 @@
+{
+  "content": "The `createFloater` method is a utility function within a class responsible for constructing various graphical user interface (GUI) elements. This specific method facilitates the creation of float input fields, enabling users to define numerical values with customizable constraints such as minimum and maximum bounds, resolution, and number of decimal places. The method encapsulates functionality for setting up these input widgets with appropriate formatting and behavior, making it a versatile tool for building numeric input capabilities in applications built using this framework.\n\ndef createFloater(self, parent, category, text, balloonHelp,\n                      command = None, min = 0.0, max = None, resolution = None,\n                      numDigits = None, **kw):\n        kw['text'] = text\n        kw['min'] = min\n        if max is not None:\n            kw['max'] = max\n        kw['resolution'] = resolution\n        if numDigits is None:\n            # If this is apparently an integer setting, show no decimals.\n            if resolution is not None and int(resolution) == resolution and \\\n                (min is None or int(min) == min) and \\\n                (max is None or int(max) == max):\n                numDigits = 0\n            else:\n                numDigits = 3\n        kw['numDigits'] = numDigits\n        widget = Floater.Floater(parent, **kw)\n        # Do this after the widget so command isn't called on creation\n        widget['command'] = command\n        widget.pack(fill = tk.X)\n        self.bind(widget, balloonHelp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 783
+  }
+}

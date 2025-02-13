@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet defines a section of a configuration panel in a 3D application, specifically creating UI elements for adjusting the far plane distance and horizontal field of view (FOV). These controls are part of a larger system for managing camera or viewport settings.\n\nself.farPlane = Floater.Floater(\n            drFrame,\n            text = 'Far Plane',\n            min = 0.01)\n        self.farPlane['command'] = self.setFar\n        self.farPlane.pack(fill = tk.X, expand = 0)\n        self.bind(self.farPlane, 'Set far plane distance')\n\n        fovFrame = tk.Frame(drFrame)\n        fovFloaterFrame = tk.Frame(fovFrame)\n        self.hFov = Slider.Slider(\n            fovFloaterFrame,\n            text = 'Horizontal FOV',\n            min = 0.01, max = 170.0)\n        self.hFov['command'] = self.setHFov\n        self.hFov.pack(fill = tk.X, expand = 0)\n        self.bind(self.hFov, 'Set horizontal field of view')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 933
+  }
+}

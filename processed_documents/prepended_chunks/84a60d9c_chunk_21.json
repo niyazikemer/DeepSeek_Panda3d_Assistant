@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python script that implements an AI navigation system in a 3D environment. Specifically, it handles the initialization and updating of AI behavior, including pathfinding between two waypoints (self.pointer and self.pointer1) with obstacle avoidance, while managing the movement and animations of a character (self.ralph). The code includes methods for setting up static obstacles, initializing navigation paths from a CSV file, updating the AI world state, and dynamically switching between different waypoints when the current path is completed.\n\nself.AIbehaviors.initPathFind(\"models/navmesh.csv\")\n\n        # AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n    def setMove(self):\n        self.AIbehaviors.addStaticObstacle(self.box)\n        self.AIbehaviors.addStaticObstacle(self.box1)\n        self.AIbehaviors.pathFindTo(self.pointer)\n        self.ralph.loop(\"run\")\n\n    # To update the AIWorld\n    def AIUpdate(self, task):\n        self.AIworld.update()\n        self.move()\n\n        if self.path_no == 1 and self.AIbehaviors.behaviorStatus(\"pathfollow\") == \"done\":\n            self.path_no = 2\n            self.AIbehaviors.pathFindTo(self.pointer1, \"addPath\")\n            print(\"inside\")\n\n        if self.path_no == 2 and self.AIbehaviors.behaviorStatus(\"pathfollow\") == \"done\":\n            print(\"inside2\")\n            self.path_no = 1\n            self.AIbehaviors.pathFindTo(self.pointer, \"addPath\")\n\n        return Task.cont\n\n\nw = World()\nbase.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 21
+  }
+}

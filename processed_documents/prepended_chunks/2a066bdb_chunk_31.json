@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Method `setMove` within class `World` controls AI agent movements between target positions (`type == 2`) or alternate positions (`type == 1`). The provided code chunk handles the logic for moving agents to their respective positions when `type == 2`. It updates each agent's pathfinding behavior, checks completion status via `self.done`, and toggles movement modes when all agents complete their tasks. This functionality is critical for managing AI navigation and task switching in the simulation.\"\"\"\n\nself.firstTime = True\n\n        if type == 2:\n            for i in range(4):\n                if i == 0:\n                    self.AIbehaviors[i].pathFindTo(self.positions[0], \"addPath\")\n                if i == 1:\n                    self.AIbehaviors[i].pathFindTo(self.positions[1], \"addPath\")\n                if i == 2:\n                    self.AIbehaviors[i].pathFindTo(self.positions[2], \"addPath\")\n                if i == 3:\n                    self.AIbehaviors[i].pathFindTo(self.positions[3], \"addPath\")\n\n                self.ralph[i].loop(\"run\")\n\n    # To update the AIWorld\n    def AIUpdate(self, task):\n        self.AIworld.update()\n        for i in range(4):\n            status = self.AIbehaviors[i].behaviorStatus(\"pursue\")\n            if status == \"done\" or status == \"paused\":\n                self.done[i] = True\n\n        j = 0\n        for i in range(4):\n            if self.done[i] is True:\n                j += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_2",
+    "parent": "processed_documents/context_documents/1968aecc_2506a810_dynamic-obstacles.json",
+    "chunk_number": 31
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk provides methods for configuring the visual appearance of particles in a PointParticleRenderer. The functions allow setting the point size, start/end colors, and blend type (color blending based on particle life or velocity). These are renderer-specific controls that affect how individual particles appear and animate visually in the particle system.\n\nContext: Renderer Configuration Options\n\ndef setRendererPointSize(self, size):\n        self.particles.renderer.setPointSize(size)\n\n    def setRendererPointStartColor(self, color):\n        self.particles.renderer.setStartColor(\n            Vec4(color[0]/255.0, color[1]/255.0,\n                 color[2]/255.0, color[3]/255.0))\n\n    def setRendererPointEndColor(self, color):\n        self.particles.renderer.setEndColor(\n            Vec4(color[0]/255.0, color[1]/255.0,\n                 color[2]/255.0, color[3]/255.0))\n\n    def rendererPointSelectBlendType(self, blendType):\n        if blendType == \"PP_ONE_COLOR\":\n            bType = PointParticleRenderer.PPONECOLOR\n        elif blendType == \"PP_BLEND_LIFE\":\n            bType = PointParticleRenderer.PPBLENDLIFE\n        elif blendType == \"PP_BLEND_VEL\":\n            bType = PointParticleRenderer.PPBLENDVEL\n        self.particles.renderer.setBlendType(bType)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 840
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `createControler` method in a 3D object manipulation system. This method places a control point (represented as a sphere) at the user's cursor position by casting a ray from the camera through the screen coordinates (x, y). The code determines where this ray intersects the scene's collision plane, snaps the position to a grid if enabled, and adjusts the control point's orientation and scale accordingly.\n\niRay = SelectionRay(self.view.camera)\n            iRay.collider.setFromLens(self.view.camNode, x, y)\n            iRay.collideWithBitMask(BitMask32.bit(21))\n            iRay.ct.traverse(self.view.collPlane)\n            if iRay.getNumEntries() > 0:\n                entry = iRay.getEntry(0)\n                hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n\n            if hitPt:\n                # create a temp nodePath to get the position\n                np = NodePath('temp')\n                np.setPos(self.view.camera, hitPt)\n\n                if base.direct.manipulationControl.fGridSnap:\n                    snappedPos = self.view.grid.computeSnapPoint(np.getPos())\n                    np.setPos(snappedPos)\n\n                # update temp nodePath's HPR and scale with newobj's\n                np.setHpr(self.controler.getHpr())\n                np.setScale(self.controler.getScale())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 553
+  }
+}

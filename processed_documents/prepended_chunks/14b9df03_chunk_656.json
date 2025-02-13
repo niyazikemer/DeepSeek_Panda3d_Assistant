@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an animation editing interface in a software application, specifically managing the visualization of keyframes and timelines. The chunk handles the creation of markers on a time slider to display frame numbers and their corresponding positions, adapting to different scales based on the number of frames (e.g., using intervals of 10 or 50 frames). This functionality is crucial for enabling users to navigate and edit animations effectively by providing clear visual reference points.\n\nfor i in range(1,self.frameNum/10+1):\n                self.numbers.append(self.sliderStartFrame+i*10)\n\n            for i in range(int(self.frameNum/10)):\n                dc.DrawLine(self.points[i][0][0], self.points[i][0][1], self.points[i][1][0], self.points[i][1][1])\n\n            for i in range(self.frameNum/10):\n                st = str(self.numbers[i])\n                tw,th = dc.GetTextExtent(st)\n                dc.DrawText(st, self.points[i][0][0]+2, 0.5)\n\n        elif self.frameNum <= 1000:\n\n            self.points.append(((self.unitWidth*49.0,self.h),(self.unitWidth*49.0,self.h-15)))\n\n            for i in range(1,int(self.frameNum/50)):\n                temp = self.points[i-1][0][0]+50*self.unitWidth\n                self.points.append(((temp,self.h),(temp,self.h-15)))\n\n            for i in range(1,self.frameNum/50+1):\n                self.numbers.append(self.sliderStartFrame-1+i*50)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 656
+  }
+}

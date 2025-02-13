@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the forces menu setup within a larger application, including options to add specific linear forces (sink and source) via command functions. It sets up a scrolled frame and notebook to organize added forces' configurations in the main window.\n\n# DERIVED FROM LINEAR DISTANCE FORCE\n        # Parameters: setFalloffType, setForceCenter, setRadius\n        forceMenu.add_command(label = 'Add Linear Sink Force',\n                            command = self.addLinearSinkForce)\n        forceMenu.add_command(label = 'Add Linear Source Force',\n                            command = self.addLinearSourceForce)\n        \"\"\"\n        # Avoid for now\n        forceMenu.add_command(label = 'Add Linear User Defined Force',\n                            command = self.addLinearUserDefinedForce)\n        \"\"\"\n\n        self.addForceButton.pack(expand = 0)\n\n        # Scrolled frame to hold force widgets\n        self.sf = Pmw.ScrolledFrame(forcePage, horizflex = 'elastic')\n        self.sf.pack(fill = 'both', expand = 1)\n        self.forceFrame = self.sf.interior()\n        # Notebook to hold force widgets as the are added\n        self.forceGroupNotebook = Pmw.NoteBook(self.forceFrame, tabpos = None)\n        self.forceGroupNotebook.pack(fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 779
+  }
+}

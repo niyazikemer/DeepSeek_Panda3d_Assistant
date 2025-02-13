@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated in a class initialization method (__init__) or setup function, likely for a 3D graphics editor. It initializes key components including action event handling, status display, settings loading, and periodic updates.\n\n# Add all the action events\n        for event in self.actionEvents:\n            if len(event) == 3:\n                self.accept(event[0], event[1], event[2])\n            else:\n                self.accept(event[0], event[1])\n\n        # editor state text display such as edit mode\n        self.statusReadout = OnscreenText(\n            pos = (-1.2, 0.9), bg=Vec4(1,1,1,1),\n            scale = 0.05, align = TextNode.ALeft,\n            mayChange = 1, font = TextNode.getDefaultFont())\n        self.statusReadout.setText(\"\")\n        # Make sure readout is never lit or drawn in wireframe\n        useDirectRenderStyle(self.statusReadout)\n        self.statusReadout.reparentTo(hidden)\n        self.statusLines = []\n        base.taskMgr.doMethodLater(5, self.updateStatusReadoutTimeouts, 'updateStatus')\n\n        self.loadSettings()\n        self.reset()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 403
+  }
+}

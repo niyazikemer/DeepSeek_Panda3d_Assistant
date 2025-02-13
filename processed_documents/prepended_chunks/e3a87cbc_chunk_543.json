@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of several methods from the ObjectHandler class responsible for creating and updating game objects. These include updateDoubleSmiley for adjusting double smiley positions, updateSmiley for modifying single smiley geometry, and createPanda for initializing a panda actor model. The code is part of a level editor tool for a game development project, as indicated by the initial comments suggesting customization for specific games.\n\na.reparentTo(root)\n        b.reparentTo(root)\n        return root\n\n    def updateDoubleSmiley(self, val, obj):\n        objNP = obj[OG.OBJ_NP]\n        if objNP.find('left'):\n            objNP.find('left').setPos(-1 * val, 0, 0)\n            objNP.find('right').setPos(val, 0, 0)\n        else:\n            objNP.find('top').setPos(0, 0, 1 * val)\n            objNP.find('bottom').setPos(0, 0, -1 * val)\n\n    def updateSmiley(self, val, obj):\n        objNP = obj[OG.OBJ_NP]\n        if base.direct:\n            base.direct.deselectAllCB()\n        for child in objNP.findAllMatches(\"+GeomNode\"):\n            child.removeNode()\n\n        for i in range(val):\n            a = base.loader.loadModel(obj[OG.OBJ_MODEL])\n            b = a.find(\"+GeomNode\")\n            b.setPos(0, i*2, 0)\n            b.reparentTo(objNP)\n            a.removeNode()\n\n    def createPanda(self):\n        pandaActor = PandaActor()\n        return pandaActor",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_36",
+    "parent": "processed_documents/context_documents/7abd4bdb_ObjectHandler.json",
+    "chunk_number": 543
+  }
+}

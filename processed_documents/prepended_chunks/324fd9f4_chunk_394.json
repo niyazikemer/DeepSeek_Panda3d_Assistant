@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python class handling cubic and linear interpolations for animations, including methods like getPos (solving cubic equations), calculateT (using Newton-Raphson), lerpFuncX/Y/Z, and lerpCurveFuncX.\n\nif ax != 0:\n            a = ax\n            b = bx\n            c = cx\n            d = dx - float(x)\n            t = self.calculateT(a, b, c, d, x)\n            y = ay * t*t*t + by * t*t + cy * t + dy\n            return y\n\n    def calculateT(self, a, b, c, d, x):\n        #Newton EQUATION\n        t = float(1)\n        t2 = t\n        t -= (a*t*t*t+b*t*t+c*t+d)/(float(3)*a*t*t+float(2)*b*t+c)\n        if abs(t-t2) <= 0.000001:\n            return t\n        else:\n            while abs(t - t2) > 0.000001:\n                t2 = t\n                t -= (a*t*t*t+b*t*t+c*t+d)/(float(3)*a*t*t+float(2)*b*t+c)\n            return t\n\n    def lerpFuncX(self,pos,np):\n        np.setX(pos)\n\n    def lerpFuncY(self,pos,np):\n        np.setY(pos)\n\n    def lerpFuncZ(self,pos,np):\n        np.setZ(pos)\n\n    def lerpCurveFuncX(self,t,extraArgs):\n        np = extraArgs[0]\n        pos = self.getPos(t, extraArgs[1], extraArgs[2])\n        np.setX(pos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 394
+  }
+}

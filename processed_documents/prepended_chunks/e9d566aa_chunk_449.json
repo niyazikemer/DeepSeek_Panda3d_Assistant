@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a keyboard event handling mechanism within the level editor's UI. It processes key presses to trigger specific actions when hotkeys are used.\n\n```python\ndef onKeyPress(self, evt):\n    \"\"\"Handle key press events for UI elements.\"\"\"\n    if evt.GetEventType() == wx.EVT_KEY_DOWN.typeId:\n        # ... existing code ...\n        elif evt.GetKeyCode()  == wx.WXK_ESCAPE:\n            input  =  'escape'\n        else:\n            if evt.GetModifiers()  == 4:\n                input  =  'shift-%s'%chr(evt.GetKeyCode())\n            elif evt.GetModifiers()  == 2:\n                input  =  'control-%s'%chr(evt.GetKeyCode())\n            elif evt.GetKeyCode() < 256:\n                input  = chr(evt.GetKeyCode())\n        if input in ShowBaseGlobal.direct.hotKeyMap.keys():\n            keyDesc  = ShowBaseGlobal.direct.hotKeyMap[input]\n            messenger.send(keyDesc[1])\n    # ... existing code ...\n```\n\nelif evt.GetKeyCode() == wx.WXK_ESCAPE:\n            input = 'escape'\n        else:\n            if evt.GetModifiers() == 4:\n                input = 'shift-%s'%chr(evt.GetKeyCode())\n            elif evt.GetModifiers() == 2:\n                input = 'control-%s'%chr(evt.GetKeyCode())\n            elif evt.GetKeyCode() < 256:\n                input = chr(evt.GetKeyCode())\n        if input in ShowBaseGlobal.direct.hotKeyMap.keys():\n            keyDesc = ShowBaseGlobal.direct.hotKeyMap[input]\n            messenger.send(keyDesc[1])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 449
+  }
+}

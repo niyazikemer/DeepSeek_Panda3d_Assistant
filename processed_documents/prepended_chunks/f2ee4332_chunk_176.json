@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of three key methods within the `World` class: `addBigBlock`, `addStaticObstacle`, and `AIUpdate`. These methods handle obstacle creation, integration into AI pathfinding, and AI world updates respectively.\n\ndef addBigBlock(self):\n        self.pointer_move = True\n        self.box = loader.loadModel(\"models/box\")\n        self.box.setPos(0, -60, 0)\n        self.box.setScale(2)\n        self.box.setColor(1, 1, 0)\n        self.box.reparentTo(render)\n\n    def addStaticObstacle(self):\n        if self.box != 0:\n            self.AIbehaviors.addStaticObstacle(self.box)\n            self.box = 0\n            self.pointer_move = False\n\n    # To update the AIWorld\n    def AIUpdate(self, task):\n        self.AIworld.update()\n        #if self.AIbehaviors.behaviorStatus(\"pathfollow\") == \"done\":\n        #    self.ralph.stop(\"run\")\n        #    self.ralph.pose(\"walk\", 0)\n\n        return Task.cont\n\n    def setKey(self, key, value):\n        self.keyMap[key] = value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_10",
+    "parent": "processed_documents/context_documents/db6dae55_1bbd6cf1_static-obstacles.json",
+    "chunk_number": 176
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines a list of modules that should be excluded from automatic API documentation generation due to their improper handling of imports or reliance on built-in functions. These modules are specifically identified as problematic when imported directly because they lack proper `__name__ == __main__` checks, rely on built-ins in ways that cause issues during import, or perform actions unsuitable for automated API generation.\n\nThis configuration is part of the autodoc setup to prevent errors and ensure reliable documentation generation by excluding these modules from consideration.\n\n# Set a list of modules that do bad things when imported, and should not be\n# considered for API generation.\n# It's fine to keep this list here; it should never grow, because we should not\n# introduce new modules that don't have proper __name__ == __main__ checks or\n# rely on builtins.\nautosummary_mock_imports = [\n    'direct.directbase.DirectStart',\n    'direct.directbase.TestStart',\n    'direct.directbase.ThreeUpStart',\n    'direct.directdevices.DirectFastrak',\n    'direct.directdevices.DirectJoybox',\n    'direct.directdevices.DirectRadamec',\n    'direct.directscripts',\n    'direct.directtools.DirectSession',\n    'direct.directutil.DirectMySQLdb',\n    'direct.directutil.DirectMySQLdbConnection',\n    'direct.directutil.MemoryLeakHelpers',\n    'direct.dist.pfreeze',\n    'direct.filter.filterBloomI',\n    'direct.filter.filterBloomX',\n    'direct.filter.filterBloomY',\n    'direct.filter.filterBlurX',\n    'direct.filter.filterBlurY',\n    'direct.filter.filterCopy',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 118
+  }
+}

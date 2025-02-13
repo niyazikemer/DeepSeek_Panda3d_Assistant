@@ -1,0 +1,9 @@
+{
+  "content": "The given chunk is part of the initialization process for a viewport object within a 3D application framework. It sets up camera masking, mouse controls, and window controls necessary for interacting with the viewport.\n\nself.camNode.setCameraMask(LE_CAM_MASKS[self.name])\n\n        self.bt = base.setupMouse(self.win, True)\n        self.bt.node().setPrefix('_le_%s_'%self.name[:3])\n        mw = self.bt.getParent()\n        mk = mw.getParent()\n        winCtrl = WindowControls(\n                                self.win, mouseWatcher=mw,\n                                cam=self.camera,\n                                camNode = self.camNode,\n                                cam2d=None,\n                                mouseKeyboard =mk,\n                                grid = self.grid)\n        base.setupWindowControls(winCtrl)\n\n        self.initialized = True\n        if self.lens is not None:\n            self.cam.node().setLens(self.lens)\n        if self.camPos is not None:\n            self.camera.setPos(self.camPos)\n        if self.camLookAt is not None:\n            self.camera.lookAt(self.camLookAt)\n\n        self.camLens = self.camNode.getLens()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 221
+  }
+}

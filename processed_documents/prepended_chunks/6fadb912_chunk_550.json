@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains two key methods in a class related to an editor's rope/curve manipulation system: `ropeUpdate` and `onBaseMode`. The `ropeUpdate` method handles creating and setting up a visual rope object based on a given curve, while the `onBaseMode` method is responsible for switching the editor back to its base mode by hiding curve controls, resetting state, updating the scene if necessary, and cleaning up resources.\n\ndef ropeUpdate(self, curve):\n        self.currentRope = Rope()\n        self.currentRope.setup(self.degree, curve)\n        self.currentRope.reparentTo(render)\n\n    def onBaseMode(self):\n        self.editor.preMode = self.editor.mode\n        self.editor.mode = self.editor.BASE_MODE\n        self.editor.ui.editCurveMenuItem.Check(False)\n        self.editor.ui.createCurveMenuItem.Check(False)\n        self.i = 0\n        for item in self.curveControl:\n            item[1].hide()\n        if self.editor.preMode == self.editor.BASE_MODE:\n            pass\n        if self.editor.preMode == self.editor.CREATE_CURVE_MODE:\n            self.updateScene()\n        if self.editor.preMode == self.editor.EDIT_CURVE_MODE:\n            self.doneEdit()\n        self.curveControl = []\n        self.curve = []\n        self.currentRope = None\n        base.direct.manipulationControl.enableManipulation()\n        self.editor.ui.createCurveMenuItem.Check(False)\n        self.editor.ui.editCurveMenuItem.Check(False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_37",
+    "parent": "processed_documents/context_documents/3feda902_CurveEditor.json",
+    "chunk_number": 550
+  }
+}

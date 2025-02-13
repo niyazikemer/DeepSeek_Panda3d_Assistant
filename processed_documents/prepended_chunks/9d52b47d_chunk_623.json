@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a method `saveToFile()` within the `ProtoPaletteBase` class, which handles saving prototype data to a file named `protoPaletteData.py`. This method writes structured data into two dictionaries: `protoData` for object definitions and `protoDataStruct` for their hierarchical structure. The context is part of a prototyping palette system likely used in game development or UI/UX design to manage and persist prototype assets.\n\ndef saveToFile(self):\n        try:\n            f = open(self.dirname + '/protoPaletteData.py', 'w')\n            f.write(\"from direct.leveleditor.ObjectPaletteBase import *\\n\\n\")\n            f.write(\"protoData = {\\n\")\n            self.saveProtoData(f)\n            f.write(\"}\\n\")\n            f.write(\"protoDataStruct = {\\n\")\n            self.saveProtoDataStruct(f)\n            f.write(\"}\\n\")\n            f.close()\n        except:\n            pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_46",
+    "parent": "processed_documents/context_documents/ec9d7679_ProtoPaletteBase.json",
+    "chunk_number": 623
+  }
+}

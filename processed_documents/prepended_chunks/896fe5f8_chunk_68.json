@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an event handler that processes docstrings during Sphinx documentation generation. It attempts to resolve method or class references within docstrings by stripping backticks, matching patterns, and resolving plural forms when necessary.\n\nword = word.strip('`')\n\n        m = re.fullmatch(method_class_ref_pattern, word)\n        if not m:\n            continue\n\n        plural = False\n\n        result = resolve_reference(word.rstrip('()'), name, domain=domain)\n        if not result and word.endswith('s') and '::' not in word and word[:-1] != parent:\n            # Detect use of plural in references to classes.\n            result = resolve_reference(word[:-1], name, domain=domain)\n            plural = True\n\n        if not result:\n            continue\n\n        typ, target = result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 68
+  }
+}

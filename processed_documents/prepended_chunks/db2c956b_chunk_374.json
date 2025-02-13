@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines event handlers for managing tree operations:\n- `onExpandAllChildren`: Expands all children of the current tree item\n- `onDelete`: Handles deletion of objects by ID through action management \n- `onRename`: Implements renaming functionality with dialog prompt and UI updates\n\ndef onExpandAllChildren(self, evt=None):\n        if self.currItem:\n            self.tree.ExpandAllChildren(self.currItem)\n\n    def onDelete(self, evt=None):\n        if self.currObj is None:\n            return\n\n        uid = self.currObj[OG.OBJ_UID]\n        action = ActionDeleteObjById(self.editor, uid)\n        self.editor.actionMgr.push(action)\n        action()\n        self.delete(uid)\n\n    def onRename(self, evt=None):\n        if self.currObj is None:\n            return\n\n        self.editor.ui.bindKeyEvents(False)\n        dialog = wx.TextEntryDialog(None, '', 'Input new name', defaultValue=self.currObj[OG.OBJ_NP].getName())\n        if dialog.ShowModal() == wx.ID_OK:\n            newName = dialog.GetValue()\n        dialog.Destroy()\n        self.editor.ui.bindKeyEvents(True)\n        self.currObj[OG.OBJ_NP].setName(newName)\n        self.changeLabel(self.currObj[OG.OBJ_UID], newName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 374
+  }
+}

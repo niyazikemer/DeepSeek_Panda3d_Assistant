@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an `addObject` method in a Python class related to 3D scene graph management. The code handles creating unique IDs for objects, finding object definitions (objDef) from palettes or prototypes, and preparing to execute a creation function if defined. This functionality is essential for constructing new scene nodes or actors within the application's object-oriented architecture.\n\nif uid is None:\n            uid = self.genUniqueId()\n\n        if self.editor:\n            objDef = self.editor.objectPalette.findItem(typeName)\n            if objDef is None:\n                objDef = self.editor.protoPalette.findItem(typeName)\n        else: # when loaded outside of LE\n            objDef = base.objectPalette.findItem(typeName)\n            if objDef is None:\n                objDef = base.protoPalette.findItem(typeName)\n        newobj = None\n        if objDef and not isinstance(objDef, dict):\n            if not hasattr(objDef, 'createFunction'):\n                return newobj\n            if nodePath is None:\n                if objDef.createFunction:\n                    funcName = objDef.createFunction[OG.FUNC_NAME]\n                    funcArgs = copy.deepcopy(objDef.createFunction[OG.FUNC_ARGS])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 495
+  }
+}

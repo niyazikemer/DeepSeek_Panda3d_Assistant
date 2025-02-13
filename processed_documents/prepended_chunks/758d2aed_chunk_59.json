@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function responsible for resolving references within an `automodule` directive in the context of generating API documentation using Sphinx. It attempts to construct possible reference paths by combining the current module path (`relpath`) with parts of the target reference (`refpath`), iterating through different combinations to find the correct one. The code is particularly focused on handling nested scopes and avoiding unintended references (like constructors) when resolving names within a class or module hierarchy.\n\nif not modname:\n        return None\n\n    refpath = ref.replace('::', '.').split('.')\n\n    # Say `rel` is \"panda3d.core.NodePath.node\",\n    # and `ref` is \"PandaNode.final\", then we will try these in this order:\n    # - panda3d.core::NodePath.node.PandaNode.final\n    # - panda3d.core::NodePath.PandaNode.final\n    # - panda3d.core::PandaNode.final\n\n    for i in range(len(relpath), -1, -1):\n        search = relpath[:i] + refpath\n\n        if len(refpath) == 1 and i > 0 and refpath[0] == relpath[i - 1]:\n            # If we are looking for a name equal to the parent scope, we are\n            # probably referencing a class name from within that very class.\n            # We don't want to find the constructor, so skip this.\n            continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 59
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines the `Viewport` class, which represents a 3D viewport interface combining wxWidgets with Panda3D. The specific code chunk introduces the class constructor (`__init__`) and an `initialize` method responsible for setting up basic viewport components like camera positions, masks, and grid rendering. This section is central to initializing the viewport's core functionality, including camera setup and masking for proper 3D scene rendering.\n\nclass Viewport(WxPandaWindow, DirectObject):  # type: ignore[misc, valid-type]\n    \"\"\"Class representing a 3D Viewport.\"\"\"\n    CREATENEW  = CREATENEW\n    VPLEFT     = VPLEFT\n    VPFRONT    = VPFRONT\n    VPTOP      = VPTOP\n    VPPERSPECTIVE = VPPERSPECTIVE\n    def __init__(self, name, *args, **kwargs):\n        self.name = name\n        DirectObject.__init__(self)\n\n        kwargs['gsg'] = ViewportManager.gsg\n        WxPandaWindow.__init__(self, *args, **kwargs)\n\n        ViewportManager.viewports.append(self)\n        if ViewportManager.gsg is None:\n            ViewportManager.gsg = self.win.getGsg()\n\n        self.camera = None\n        self.lens = None\n        self.camPos = None\n        self.camLookAt = None\n        self.initialized = False\n        self.grid = None\n        self.collPlane = None\n\n    def initialize(self):\n        self.Update()\n        if self.win:\n            self.cam2d = base.makeCamera2d(self.win)\n            self.cam2d.node().setCameraMask(LE_CAM_MASKS[self.name])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 219
+  }
+}

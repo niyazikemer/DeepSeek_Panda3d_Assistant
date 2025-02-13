@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the event handling logic for renaming items in a tree view. Specifically, it manages the scenario where an item's name is being changed. The code checks if the new name already exists or if the user is attempting to rename the root node, which isn't allowed. If either condition is met, it displays an appropriate error message and cancels the rename operation. This ensures that duplicate names are prevented and critical structure modifications are avoided.\n\nevent.Veto()\n                wx.MessageBox(\"There is already an item labled '%s'\" % newLabel, self.editorTxt, wx.OK|wx.ICON_EXCLAMATION)\n        else:\n            event.Veto()\n            wx.MessageBox(\"'%s' renaming is not allowed\" % self.tree.rootName, self.editorTxt, wx.OK|wx.ICON_EXCLAMATION)\n        self.editor.ui.bindKeyEvents(True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_38",
+    "parent": "processed_documents/context_documents/83b58a6a_ProtoPaletteUI.json",
+    "chunk_number": 562
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class responsible for managing 3D objects within a scene editor. It specifically handles updating the UI and animations when an object's properties change. This includes modifying scene graph labels, handling save flags, checking for animations, and loading new animations if necessary. The methods are integral to ensuring that any changes to an object are reflected correctly in both the user interface and the runtime environment, particularly concerning animations and selection states.\n\n# update scene graph label\n            self.editor.ui.sceneGraphUI.changeLabel(obj[OG.OBJ_UID], newobj.getName())\n\n            self.editor.fNeedToSave = True\n            # update anim if necessary\n            animList = obj[OG.OBJ_DEF].animDict.get(model)\n            if animList:\n                self.updateObjectAnim(animList[0], obj, fSelectObject=fSelectObject)\n            else:\n                if fSelectObject:\n                    base.direct.select(newobj, fUndo=0)\n\n    def updateObjectAnim(self, anim, obj, fSelectObject=True):\n        \"\"\" replace object's anim \"\"\"\n        if obj[OG.OBJ_ANIM] != anim:\n            base.direct.deselectAllCB()\n            objNP = obj[OG.OBJ_NP]\n\n            # load new anim\n            animName = os.path.basename(anim)\n            newAnim = objNP.loadAnims({animName:anim})\n            objNP.loop(animName)\n            obj[OG.OBJ_ANIM] = anim\n            if fSelectObject:\n                base.direct.select(objNP, fUndo=0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 513
+  }
+}

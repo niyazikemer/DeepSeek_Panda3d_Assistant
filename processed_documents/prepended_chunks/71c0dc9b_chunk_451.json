@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents methods for handling file operations and editing actions in a graphical editor application. It is situated within the context of an `EditorFrame` or similar class, providing functionality for saving files, exporting to external formats, duplicating objects, and toggling object live states. These methods are essential components of the user interface's event handlers for common operations like saving, duplicating, and managing object properties.\n\ndef onSaveAs(self, evt):\n        dialog = wx.FileDialog(None, \"Choose a file\", os.getcwd(), \"\", \"*.py\", style = wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT)\n        result = True\n        if dialog.ShowModal() == wx.ID_OK:\n            self.editor.saveAs(dialog.GetPath())\n            self.editor.setTitleWithFilename(dialog.GetPath())\n        else:\n            result = False\n        dialog.Destroy()\n        return result\n\n    def onExportToMaya(self, evt):\n        dialog = wx.FileDialog(None, \"Choose a file\", os.getcwd(), \"\", \"*.mb\", style = wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT)\n        if dialog.ShowModal() == wx.ID_OK:\n            self.editor.exportToMaya(dialog.GetPath())\n        dialog.Destroy()\n\n    def onDuplicate(self, evt):\n        self.editor.objectMgr.duplicateSelected()\n\n    def onMakeLive(self, evt):\n        self.editor.objectMgr.makeSelectedLive()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 451
+  }
+}

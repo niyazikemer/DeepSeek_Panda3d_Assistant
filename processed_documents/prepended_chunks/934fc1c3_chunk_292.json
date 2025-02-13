@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of methods (`OnOneTangent`, `OnTwoTangents`, `curFrameChange`, `OnExit`) within a class responsible for managing interactions with a graph editor window. These methods handle toggling between tangent types (for curve adjustments), updating the current frame in animation mode, and closing/cleanup operations for the graph editor interface.\n\ndef OnOneTangent(self, evt):\n        self.graphEditorWindow._OneTangent = True\n        self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)\n\n    def OnTwoTangents(self, evt):\n        self.graphEditorWindow._OneTangent = False\n        self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)\n\n    def curFrameChange(self):\n        if self.editor.mode == self.editor.ANIM_MODE:\n            self.curFrame = self.editor.ui.animUI.curFrame\n            self.graphEditorWindow.SetGraphEditorData(self.str, self.curFrame)\n        else:\n            pass\n\n    def OnExit(self, evt):\n        self.Destroy()\n        self.editor.ui.graphEditorMenuItem.Check(False)\n        self.object = None\n        self.editor.GRAPH_EDITOR = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 292
+  }
+}

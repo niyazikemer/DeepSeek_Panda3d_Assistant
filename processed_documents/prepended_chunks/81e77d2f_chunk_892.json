@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python class responsible for creating and managing various types of force widgets in a graphical user interface (GUI) framework. The methods `createLinearFrictionForceWidget` and `createLinearCylinderVortexForceWidget` are specifically designed to handle the setup and configuration of widgets related to linear friction forces and vortex forces, respectively. These methods create frames, add input fields for parameters like coefficients or force centers, and integrate these into a cohesive GUI structure for user interaction. The code is part of a broader system for managing and visualizing different types of physical simulation forces through a customizable interface.\n\ndef createLinearFrictionForceWidget(self, forcePage, pageName,\n                                        count, force):\n        def setCoef(coef, f = force):\n            f.setCoef(coef)\n        forceName = 'Friction Force-' + repr(count)\n        frame = self.createForceFrame(forcePage, forceName, force)\n        self.createLinearForceWidgets(frame, pageName, forceName, force)\n        self.createFloater(frame, pageName, forceName + ' Coef',\n                           'Set linear friction force',\n                           command = setCoef, min = None,\n                           value = force.getCoef())\n        self.createForceActiveWidget(frame, pageName, forceName, force)\n\n    def createLinearCylinderVortexForceWidget(self, forcePage, pageName,\n                                              count, force):\n        forceName = 'Vortex Force-' + repr(count)\n\n        def setCoef(coef, f = force):\n            f.setCoef(coef)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 892
+  }
+}

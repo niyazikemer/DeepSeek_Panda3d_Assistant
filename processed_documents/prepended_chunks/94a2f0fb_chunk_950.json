@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk defines a method `createDevicePage` that constructs a user interface element for device configuration, specifically adding a Joybox control panel with an enable/disable option. This method is likely situated within a larger class responsible for managing UI components related to devices and their controls, such as enabling or disabling input devices like the Joybox.\n\ndef createDevicePage(self, devicePage):\n        tk.Label(devicePage, text = 'DEVICES',\n              font=('MSSansSerif', 14, 'bold')).pack(expand = 0)\n\n        if ShowBaseGlobal.direct.joybox is not None:\n            joyboxFrame = tk.Frame(devicePage, borderwidth = 2, relief = 'sunken')\n            tk.Label(joyboxFrame, text = 'Joybox',\n                     font=('MSSansSerif', 14, 'bold')).pack(expand = 0)\n            self.enableJoybox = tk.BooleanVar()\n            self.enableJoybox.set(True)\n            self.enableJoyboxButton = tk.Checkbutton(\n                joyboxFrame,\n                text = 'Enabled/Disabled',\n                anchor = 'w', justify = tk.LEFT,\n                variable = self.enableJoybox,\n                command = self.toggleJoybox)\n            self.enableJoyboxButton.pack(fill = tk.X, expand = 0)\n            joyboxFrame.pack(fill = tk.X, expand = 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 950
+  }
+}

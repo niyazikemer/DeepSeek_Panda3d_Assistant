@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains two methods (`OnAnimation` and `OnExit`) that handle animation updates and cleanup respectively within an animation editing UI component of a 3D application or game engine.\n\ndef OnAnimation(self, curFrame):\n        time = float(curFrame-1)/float(24)\n        self.parallel.setT(time)\n        if self.editor.GRAPH_EDITOR is True:\n            self.editor.ui.graphEditorUI.curFrameChange()\n\n    def OnExit(self, evt):\n        for actor in self.editor.objectMgr.Actor:\n            actorAnim = os.path.basename(actor[OG.OBJ_ANIM])\n            actor[OG.OBJ_NP].loop(actorAnim)\n        self.parallel = None\n        self.Destroy()\n        self.editor.ui.editAnimMenuItem.Check(False)\n        self.editor.mode = self.editor.BASE_MODE",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 689
+  }
+}

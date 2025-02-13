@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk appears to be part of a larger application or tool designed for editing animations, likely within a graphical user interface (UI) context. The code is responsible for drawing numerical markers on a timeline/slider component, where `self.frameNum` represents the total number of frames, `self.sliderStartFrame` is the starting frame of the visible range, and `self.unitWidth` defines the width per unit in the timeline. The methods `DrawLine` and `DrawNumber` are used to visually represent keyframe markers and their corresponding frame numbers on the UI, aiding users in navigation and editing animations.\n\nfor i in range(1,self.frameNum/1000+1):\n                self.numbers.append(self.sliderStartFrame-1+i*1000)\n\n            for i in range(int(self.frameNum/1000)):\n                dc.DrawLine(self.points[i][0][0], self.points[i][0][1], self.points[i][1][0], self.points[i][1][1])\n\n            for i in range(self.frameNum/1000):\n                st = str(self.numbers[i])\n                tw,th = dc.GetTextExtent(st)\n                dc.DrawText(st, self.points[i][0][0]+2, 0.5)\n\n        else:\n            pass\n\n\n    def DrawNumber(self, dc):\n        dc.SetPen(wx.BLACK_PEN)\n        dc.SetBrush(wx.BLACK_BRUSH)\n        dc.SetFont(wx.Font(10, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))\n\n        i = self.curFrame-self.sliderStartFrame\n        st = str(self.curFrame)\n        tw,th = dc.GetTextExtent(st)\n        dc.DrawText(st, float(self.unitWidth)*float(i)+2, self.h-th-0.5)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 659
+  }
+}

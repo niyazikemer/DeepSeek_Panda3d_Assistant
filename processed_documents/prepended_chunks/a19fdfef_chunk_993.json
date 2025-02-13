@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods for controlling animation playback (next/previous frame) across multiple actor instances simultaneously, setting a destruction callback, and handling cleanup during panel destruction in an AnimPanel class designed to manage animations for Panda3D actors.\n\ndef nextFrame(self):\n        for actorControl in self.actorControlList:\n            actorControl.nextFrame()\n\n    def previousFrame(self):\n        for actorControl in self.actorControlList:\n            actorControl.previousFrame()\n\n    def setDestroyCallBack(self, callBack):\n        self.destroyCallBack = callBack\n\n    def destroy(self):\n        # First clean up\n        taskMgr.remove(self.id + '_UpdateTask')\n        if self.destroyCallBack is not None:\n            self.destroyCallBack()\n            self.destroyCallBack = None\n        AppShell.destroy(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 993
+  }
+}

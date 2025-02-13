@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of an object manager class responsible for handling object properties and serialization in a 3D application. The `getSaveData` method initializes data collection, processes objects by traversing the scene graph (excluding curve objects), and handles pre- and post-save operations to prepare data for saving.\n\nif objDef.name == '__Curve__':\n                        pass\n                    else:\n                        self.saveData.append(\"    objectMgr.updateObjectProperties(objects['%s'], %s)\"%(uid,objProp))\n\n                self.traverse(child, uid)\n\n    def getSaveData(self):\n        self.saveData = []\n        self.getPreSaveData()\n        self.traverse(base.render)\n        self.getPostSaveData()\n        return self.saveData\n\n    def getPreSaveData(self):\n        \"\"\"\n        if there are additional data to be saved before main data\n        you can override this function to populate data\n        \"\"\"\n\n    def getPostSaveData(self):\n        \"\"\"\n        if there are additional data to be saved after main data\n        you can override this function to populate data\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 525
+  }
+}

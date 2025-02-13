@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a larger class that manages particle system renderers and their associated sprite animations. The methods `addRendererSpriteAnimationFromTexture` and `addRendererSpriteAnimationFromNode` handle adding new sprite animation frames to the renderer's texture or node-based animations, respectively. They manage UI widgets for these animations by creating new entries in `rendererSpriteAnimationWidgetList` based on the number of existing valid entries and their corresponding animation sources.\n\nframeNum = len([x for x in self.rendererSpriteAnimationWidgetList if x])\n\n            self.rendererSpriteAnimationWidgetList.append(\n                self.createSpriteAnimationTextureWidget(parent, anim, repr(frameNum)))\n        parent.pack(fill=tk.BOTH, expand=1)\n\n    def addRendererSpriteAnimationFromNode(self):\n        ren = self.particles.getRenderer()\n        parent = self.rendererSpriteAnimationFrame\n\n        if ren.addTextureFromNode():\n            animId = len([x for x in self.rendererSpriteAnimationWidgetList if x and x.valid])\n            anim = ren.getAnim(animId)\n\n            frameNum = len([x for x in self.rendererSpriteAnimationWidgetList if x])\n\n            self.rendererSpriteAnimationWidgetList.append(\n                self.createSpriteAnimationNodeWidget(parent, anim, repr(frameNum)))\n        else:\n            animId = len([x for x in self.rendererSpriteAnimationWidgetList if x and x.valid])\n            anim = SpriteAnim.STFromNode",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 845
+  }
+}

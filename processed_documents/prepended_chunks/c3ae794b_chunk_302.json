@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Maya file conversion utility, specifically handling the BAM to EGG format conversion followed by converting the EGG file back to Maya. It demonstrates the process management within the class, including the execution of commands and the handling of their outcomes through event-driven callbacks.\n\ndef convertToMaya(self):\n        bamFileName = self.mayaFile + \".bam\"\n        eggFileName = self.mayaFile + \".egg\"\n        command = 'bam2egg %s -o %s'%(bamFileName, eggFileName)\n        self.process = Process(self, command, lambda p0=None: self.onBam2EggEnded(p0))\n\n    def onEgg2MayaEnded(self, evt):\n        self.process.CloseInp()\n        for i in self.process.Poll():\n            self.output.AppendText(i)\n        self.process = None\n\n    def onBam2EggEnded(self, evt):\n        self.process.CloseInp()\n        for i in self.process.Poll():\n            self.output.AppendText(i)\n        eggFileName = self.mayaFile + \".egg\"\n        command = 'egg2maya -ui ft -uo ft %s -o %s'%(eggFileName, self.mayaFile)\n        self.process = Process(self, command, lambda p0=None: self.onEgg2MayaEnded(p0))\n\n    def onPoll(self, evt):\n        if self.process:\n            for i in self.process.Poll():\n                self.output.AppendText(i)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_20",
+    "parent": "processed_documents/context_documents/b640eb1d_MayaConverter.json",
+    "chunk_number": 302
+  }
+}

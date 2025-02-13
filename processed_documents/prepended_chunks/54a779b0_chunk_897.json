@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method responsible for creating UI widgets to configure parameters of a LinearDistanceForce, specifically handling falloff type, force center coordinates, and radius settings.\n\nvar.set('FT_ONE_OVER_R_SQUARED')\n        elif falloff == LinearDistanceForce.FTONEOVERRCUBED:\n            var.set('FT_ONE_OVER_R_CUBED')\n        vec = force.getForceCenter()\n        self.createVector3Entry(frame, pageName, forceName + ' Center',\n                                'Set center of force',\n                                command = setForceCenter,\n                                label_width = 16,\n                                value = [vec[0], vec[1], vec[2]])\n        self.createFloater(frame, pageName, forceName + ' Radius',\n                           'Set falloff radius',\n                           command = setRadius,\n                           min = 0.01,\n                           value = force.getRadius())\n        self.createForceActiveWidget(frame, pageName, forceName, force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 897
+  }
+}

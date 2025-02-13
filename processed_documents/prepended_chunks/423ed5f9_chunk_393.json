@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines cubic interpolation coefficients and solves for time `t` to compute interpolated values, ensuring smooth animations by handling linear, quadratic, and cubic cases within a property animation system.\n\nay = - float(1) * y1 + float(3) * y2 - float(3) * y3 + float(1) * y4\n        by =   float(3) * y1 - float(6) * y2 + float(3) * y3 + float(0) * y4\n        cy = - float(3) * y1 + float(3) * y2 + float(0) * y3 + float(0) * y4\n        dy =   float(1) * y1 + float(0) * y2 - float(0) * y3 + float(0) * y4\n\n        if ax == 0 and bx == 0 and cx == 0:\n            return 0\n\n        if ax == 0 and bx == 0 and cx != 0:\n            a = cx\n            b = dx-x\n            t = -b/a\n            y = ay * t*t*t + by * t*t + cy * t + dy\n            return y\n\n        if ax == 0 and bx!= 0:\n            a=bx\n            b=cx\n            c=dx-x\n            t=(-b+math.sqrt(b**2-4.0*a*c))/2*a\n            if t>=0 and t<=1:\n                y = ay * t*t*t + by * t*t + cy * t + dy\n                return y\n            else:\n                t=(-b-math.sqrt(b**2-4.0*a*c))/2*a\n                y = ay * t*t*t + by * t*t + cy * t + dy\n                return y",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 393
+  }
+}

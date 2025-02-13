@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is situated within a class responsible for managing scene operations in a 3D application, including handling object selection, curve editing, resetting the scene, and user interface interactions such as status updates. The specific code snippet focuses on entering edit modes, deselecting objects, and prompting to save before resetting the scene.\n\nif self.mode == self.EDIT_CURVE_MODE:\n            base.taskMgr.add(self.curveEditor.editCurve, \"modify\")\n            self.curveEditor.accept(\"DIRECT-enter\", self.curveEditor.onBaseMode)\n\n    def deselectAll(self, np=None):\n        if len(base.direct.selected.getSelectedAsList()) ==0:\n            return\n        action = ActionDeselectAll(self)\n        self.actionMgr.push(action)\n        action()\n\n    def deselectAllCB(self, dnp=None):\n        self.objectMgr.deselectAll()\n\n    def reset(self):\n        if self.fNeedToSave:\n            reply = wx.MessageBox(\"Do you want to save current scene?\", \"Save?\",\n                               wx.YES_NO | wx.ICON_QUESTION)\n            if reply == wx.YES:\n                if not self.ui.onSave():\n                    return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 410
+  }
+}

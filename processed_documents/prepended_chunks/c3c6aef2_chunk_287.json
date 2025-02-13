@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a wxPython-based user interface setup where `self.mainPanel2` contains a tree control (`self.tree`) and a `GraphEditorWindow`. The tree is initialized with nodes based on `property` data, while the `GraphEditorWindow` is created for graph editing. This code initializes UI components and lays them out within the application's main panel.\n\nself.mainPanel2 = wx.Panel(self, -1)\n\n        self.tree =  self.tree = wx.TreeCtrl(self.mainPanel2, id=-1, pos=wx.DefaultPosition,size=wx.Size(200, 450), style=wx.TR_MULTIPLE|wx.TR_DEFAULT_STYLE,validator=wx.DefaultValidator, name=\"treeCtrl\")\n        self.namestr = \"%s\"%(object[OG.OBJ_DEF].name)\n        self.root = self.tree.AddRoot(self.namestr)\n        self.AddTreeNodes(self.root, property)\n        self.tree.Expand(self.root)\n        self.tree.SelectItem(self.root,select=True)\n        self.str = self.tree.GetItemText(self.root)\n\n        self.graphEditorWindow =GraphEditorWindow(self.mainPanel2, wx.Size(500, 450), str(object[OG.OBJ_DEF].name), self.xRange, self.yRange, self.curFrame, self.object)\n\n        self.SetProperties()\n        self.DoLayout()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 287
+  }
+}

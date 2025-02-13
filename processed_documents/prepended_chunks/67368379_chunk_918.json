@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `NotifyPanel` class, which manages a graphical interface for adjusting notification categories and their severity levels. The three methods in the chunk handle: 1) converting nested Panda notify categories into a flat list for display, 2) updating the active category selection and its associated severity setting when a user interacts with the category list, and 3) applying a new severity level to the currently selected notify category. These methods ensure proper state management and interactivity within the notification control panel interface.\n\ndef getPandaCategoriesAsList(self):\n        pc = self.getPandaCategories()\n        pcList = []\n        self._getPandaCategoriesAsList(pc, pcList)\n        return pcList[1:]\n\n    def setActivePandaCategory(self, event = None):\n        categoryName = self.categoryList.getcurselection()[0]\n        self.activeCategory = self.__categories.get(categoryName, None)\n        if self.activeCategory:\n            self.severity.set(self.activeCategory.getSeverity())\n\n    def setActiveSeverity(self):\n        if self.activeCategory:\n            self.activeCategory.setSeverity(self.severity.get())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_58",
+    "parent": "processed_documents/context_documents/29bb8898_NotifyPanel.json",
+    "chunk_number": 918
+  }
+}

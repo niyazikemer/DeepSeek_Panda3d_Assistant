@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of a larger document discussing Python documentation processing using `sphinx.ext.autodoc` and related extensions. The chunk defines a function that processes docstrings during automated documentation generation, with special handling for Doxygen-style comments and specific fixes for certain modules to improve the quality of the generated documentation.\n\ndef on_autodoc_process_docstring(app, what, name, obj, options, lines):\n    # This is a temporary hack for a particularly nasty docstring in\n    # direct.fsm.FourState and direct.fsm.FourStateAI that was badly\n    # formatted.  It can be removed once a new version of Panda3D is\n    # released with the offending docstring fixed.\n\n    if (name == 'direct.fsm.FourState.FourState.__init__' or\n        name == 'direct.fsm.FourStateAI.FourStateAI.__init__') \\\n       and 'are used:' in lines:\n        lines[lines.index('are used:')] = 'are used::'\n\n    if lines:\n        line0 = lines[0].lstrip()\n        if line0.startswith('/**') or line0.startswith('// '):\n            domain = app.env.temp_data.get('default_domain')\n            domain = domain.name if domain else 'py'\n            lines[:] = convert_doxygen_docstring(lines, name, domain)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 79
+  }
+}

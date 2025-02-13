@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python class that sets up user interface elements for controlling different types of lights in a 3D application. Specifically, the chunk defines UI components for adjusting the specular color and constant attenuation of point lights within the application's graphical interface.\n\nContext: The code is situated within the `createWidgets` method of a class responsible for creating light control panels. It sets up controls for point light properties such as specular color and attenuation under the PointLight tab.\n\n# Point light controls\n        self.pSpecularColor = VectorWidgets.ColorEntry(\n            pointPage, text = 'Specular Color')\n        self.pSpecularColor['command'] = self.setSpecularColor\n        self.pSpecularColor.pack(fill = tk.X, expand = 0)\n        self.bind(self.pSpecularColor,\n                  'Set point light specular color')\n\n        self.pConstantAttenuation = Slider.Slider(\n            pointPage,\n            text = 'Constant Attenuation',\n            min = 0.0, max = 1.0, value = 1.0)\n        self.pConstantAttenuation['command'] = self.setConstantAttenuation\n        self.pConstantAttenuation.pack(fill = tk.X, expand = 0)\n        self.bind(self.pConstantAttenuation,\n                  'Set point light constant attenuation')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 942
+  }
+}

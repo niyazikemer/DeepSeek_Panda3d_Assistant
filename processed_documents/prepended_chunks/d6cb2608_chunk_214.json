@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `__renderCallback` method in the `WxPandaWindow` class, which handles rendering operations for a Panda3D graphics window integrated with wxPython. The code specifically manages the end of a frame flip by swapping buffers, requesting a refresh to handle visibility, and updating the visible state.\n\n# Don't upcall() in this case.\n                return\n\n            elif cbType == CallbackGraphicsWindow.RCTEndFlip:\n                self.SwapBuffers()\n\n                # Now that we've swapped, ask for a refresh, so we'll\n                # get another paint message if the window is still\n                # visible onscreen.\n                self.Refresh()\n                self.visible = False\n\n            data.upcall()\n\n        def onSize(self, event):\n            wp = WindowProperties()\n            wp.setSize(*self.GetClientSize())\n            self.win.requestProperties(wp)\n\n            # Apparently, sometimes on Linux we get the onSize event\n            # before the size has actually changed, and the size we\n            # report in GetClientSize() is the *previous* size.  To\n            # work around this unfortunate circumstance, we'll also\n            # ensure an idle event comes in later, and check the size\n            # again then.\n            wx.WakeUpIdle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 214
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears in the implementation of an `AnimPanel` class that creates control panels for animating actors in a graphical application. The code is part of a loop that processes each actor, sorts their animations, combines them with top-level animations, and then dynamically creates `ActorControl` components to manage animation playback. This section handles creating and packing these controls into the panel interface for user interaction.\n\nanims.sort()\n            anims = topAnims + anims\n            if len(anims) == 0:\n                # no animations set for this actor, don't\n                # display the control panel\n                continue\n#            currComponents = self.components()\n#            if 'actorControl%d' % index in currComponents:\n#                self.destroycomponent('actorControl%d' % index)\n#            ac = self.component('actorControl%d' % index)\n#            if ac is None:\n            ac = self.createcomponent(\n                'actorControl%d' % self.actorControlIndex, (), 'Actor',\n                ActorControl, (self.actorFrame,),\n                animPanel = self,\n                text = actor.getName(),\n                animList = anims,\n                actor = actor)\n            ac.pack(expand = 1, fill = tk.X)\n            self.actorControlList.append(ac)\n            self.actorControlIndex = self.actorControlIndex + 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_61",
+    "parent": "processed_documents/context_documents/c5cd6f61_AnimPanel.json",
+    "chunk_number": 987
+  }
+}

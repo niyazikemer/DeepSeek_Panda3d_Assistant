@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a 3D modeling or animation application that uses Panda3D for rendering. The constants (ID_*) likely map to menu items in a wxPython GUI, such as creating curves and managing grid settings. The code manipulates object transformations and actions, indicating it's involved in duplicating or transforming objects within the scene.\n\n**Context:**\nThis chunk pertains to 3D object manipulation within a Panda3D-based application, handling duplication and transformation actions tied to specific menu commands (e.g., ID_ DUPLICATE, ID_NEW).\n\n# update temp nodePath's HPR and scale with newobj's\n            np.setHpr(newobj.getHpr())\n            np.setScale(newobj.getScale())\n\n            # transform newobj to cursor position\n            obj = self.editor.objectMgr.findObjectByNodePath(newobj)\n            action2 = ActionTransformObj(self.editor, obj[OG.OBJ_UID], Mat4(np.getMat()))\n            self.editor.actionMgr.push(action2)\n            np.remove()\n            action2()\n        iRay.collisionNodePath.removeNode()\n        del iRay\n\n\nID_NEW = 101\nID_OPEN = 102\nID_SAVE = 103\nID_SAVE_AS = 104\nID_EXPORT_TO_MAYA = 105\n\nID_DUPLICATE = 201\nID_MAKE_LIVE = 202\nID_UNDO = 203\nID_REDO = 204\n\nID_SHOW_GRID = 301\nID_GRID_SIZE = 302\nID_GRID_SNAP = 303\nID_SHOW_PANDA_OBJECT = 304\nID_HOT_KEYS = 305\nID_PARENT_TO_SELECTED = 306\n\nID_CREATE_CURVE = 601\nID_EDIT_CURVE = 602\nID_CURVE_ANIM = 603\n\nID_ANIM = 701\nID_GRAPH = 702",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 426
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a function named `generateHandler` within a class related to a graph editor interface in an animation software. This function calculates positions for control handlers on the graph based on specified frames and values, taking into account zoom levels and trigonometric calculations for tangent slopes. It is used to generate coordinates for visualizing and manipulating animation data points with their associated tangents.\n\n**Context:**\nThis code is part of a method in the `GraphEditorWindow` class responsible for generating control handler positions on an animation graph. The function calculates the position based on frame, value, zoom level, and tangent slopes using trigonometric calculations to determine direction vectors.\n\ndef generateHandler(self, item):\n        #generate the position for the control handler\n        x1 = self.zeroPos[0] + float(item[AG.FRAME])*self.unitWidth\n        y1 = self.zeroPos[1] - float(item[AG.VALUE])*self.unitHeight\n\n        t1x = item[AG.INSLOPE][0]*self.unitWidth\n        t1y = item[AG.INSLOPE][1]*self.unitHeight\n\n        t2x = item[AG.OUTSLOPE][0]*self.unitWidth\n        t2y = item[AG.OUTSLOPE][1]*self.unitHeight\n\n        tanA = t1y / t1x\n        temp1 = 1.0 / (tanA ** 2 + 1)\n        if t1x < 0:\n            cosA = -math.sqrt(abs(temp1))\n        if t1x >= 0:\n            cosA = math.sqrt(abs(temp1))\n        temp2 = (tanA ** 2) * temp1\n        if t1y < 0:\n            sinA = -math.sqrt(abs(temp2))\n        if t1y >= 0:\n            sinA = math.sqrt(abs(temp2))\n\n        x2 = x1-float(self.unitWidth*self.zoom)*cosA\n        y2 = y1+float(self.unitWidth*self.zoom)*sinA",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 249
+  }
+}

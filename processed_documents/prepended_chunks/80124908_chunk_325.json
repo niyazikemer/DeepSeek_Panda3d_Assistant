@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk implements the `ObjectPropUICombo` class, which defines a combo box UI element used within object property editing panels in an application. The combo box allows users to select from a list of options and supports dynamic updates and callbacks for handling user selections. This UI component is part of a larger property management system that includes tabs for transforming, looking, and modifying object properties.\n\nclass ObjectPropUICombo(ObjectPropUI):\n    def __init__(self, parent, label, value, valueList, obj=None, callBack=None):\n        ObjectPropUI.__init__(self, parent, label)\n        self.ui = wx.Choice(self.uiPane, -1, choices=valueList)\n        if callBack is not None:\n            button = wx.Button(self.labelPane, -1, 'Update', size = (100, 18))\n            button.Bind(wx.EVT_BUTTON, lambda p0=None, p1=obj, p2=self: callBack(p0, p1, p2))\n            self.labelSizer.Add(button)\n        self.setValue(value)\n        self.eventType = wx.EVT_CHOICE\n        self.Layout()\n\n    def setValue(self, value):\n        self.ui.SetStringSelection(value)\n\n    def getValue(self):\n        return self.ui.GetStringSelection()\n\n    def setItems(self, valueList):\n        self.ui.SetItems(valueList)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 325
+  }
+}

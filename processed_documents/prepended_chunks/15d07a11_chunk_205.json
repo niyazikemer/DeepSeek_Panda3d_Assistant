@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is the `__init__` method of a class that sets up essential graphics properties for creating a window in a wxPython application integrated with Panda3D. The `gsg` parameter is used to handle low-level graphics state, while `fbprops` determines the framebuffer properties needed for rendering. This initialization occurs before platform-specific implementation details are handled.\n\ndef __init__(self, *args, **kw):\n            gsg = None\n            if 'gsg' in kw:\n                gsg = kw['gsg']\n                del kw['gsg']\n\n            fbprops = kw.get('fbprops', None)\n            if fbprops is None:\n                fbprops = FrameBufferProperties.getDefault()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 205
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `setSelectionBase` method is part of a class managing a graphical user interface for graph editing. It's responsible for determining whether an existing selection key exists or needs to be created based on a given list. This function likely integrates with event handling to manage selections in the tree view, ensuring proper updates to the displayed data in the graph window. \n\n```python\ndef setSelectionBase(self, list):\n    if self.setExistKey(list):\n        return\n    else:\n        self.setNewKey(list)\n```\n\nThis code is added within the class definition, near other selection-related methods like `OnSelChanged`, to manage how selections are handled when items in the tree view are selected or updated.\n\ndef setSelectionBase(self, list):\n        self.setExistKey(list)\n        if self.setExistKey(list) is True:\n            return\n        else:\n            self.setNewKey(list)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_19",
+    "parent": "processed_documents/context_documents/c77a2d73_GraphEditorUI.json",
+    "chunk_number": 273
+  }
+}

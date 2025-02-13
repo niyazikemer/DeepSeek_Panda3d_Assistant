@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code defines the `onApply` method within a dialog class (likely `GridSizeDialog`) that handles adjusting viewport grid size and spacing in an application. The method retrieves slider values for new grid dimensions, updates all viewports with these settings, and manages UI event bindings during processing to ensure smooth operation.\n\nokButton = wx.Button(self, -1, 'Apply', size=(70, 20))\n        okButton.Bind(wx.EVT_BUTTON, self.onApply)\n        vbox.Add(panel)\n        vbox.Add(okButton, 1, wx.ALIGN_CENTER | wx.TOP | wx.BOTTOM, 5)\n\n        self.SetSizer(vbox)\n        ShowBaseGlobal.base.le.ui.bindKeyEvents(False)\n\n    def onApply(self, evt):\n        newSize = self.gridSizeSlider.GetValue()\n        newSpacing = self.gridSpacingSlider.GetValue()\n        self.parent.updateGrids(newSize, newSpacing)\n        ShowBaseGlobal.base.le.ui.bindKeyEvents(True)\n        self.Destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 458
+  }
+}

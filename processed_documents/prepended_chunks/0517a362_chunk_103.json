@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a method `initCollisionSphere` within a class that sets up collision detection for 3D objects using Panda3D. The method creates a uniquely named collision sphere, attaches it to an object, and returns its node path and name for event handling, enabling accurate collision tracking in the scene.\n\n# Create a collision sphere and name it something understandable.\n        collSphereStr = 'CollisionHull{0}_{1}'.format(self.collCount, obj.name)\n        self.collCount += 1\n        cNode = CollisionNode(collSphereStr)\n        cNode.addSolid(CollisionSphere(center, radius))\n\n        cNodepath = obj.attachNewNode(cNode)\n        if show:\n            cNodepath.show()\n\n        # Return a tuple with the collision node and its corresponding string so\n        # that the bitmask can be set.\n        return (cNodepath, collSphereStr)\n\n\nbase = ShowBase()\n# Run the world. Move around with the mouse to create collisions.\nw = World()\nbase.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_7",
+    "parent": "processed_documents/context_documents/91ec09dc_dd7a764d_event-example.json",
+    "chunk_number": 103
+  }
+}

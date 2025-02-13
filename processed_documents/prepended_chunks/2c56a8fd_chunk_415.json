@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method that loads and applies custom hotkey configurations from a file. It handles overriding existing hotkeys with custom ones, updates UI elements like grids and menus, and resets the cursor after completing the process.\n\noverriddenKeys = []\n                    for key in base.direct.hotKeyMap.keys():\n                        desc = base.direct.hotKeyMap[key]\n                        if desc[1] in customHotKeyDict.keys():\n                            overriddenKeys.append(key)\n\n                    for key in overriddenKeys:\n                        del base.direct.hotKeyMap[key]\n\n                    base.direct.hotKeyMap.update(customHotKeyMap)\n\n            self.ui.updateGrids(gridSize, gridSpacing)\n            self.ui.updateMenu()\n        except:\n            pass\n        self.ui.SetCursor(wx.Cursor(wx.CURSOR_ARROW))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 415
+  }
+}

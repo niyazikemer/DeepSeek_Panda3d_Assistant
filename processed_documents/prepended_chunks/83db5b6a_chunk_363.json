@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method responsible for inserting nodes into a tree structure, ensuring each node has the correct parent based on the object hierarchy and expanding the root node if necessary. It constructs item names, sets unique identifiers, and adds children recursively when required.\n\n```text\nThis chunk implements functionality to create and insert new items into a tree view, determining their correct hierarchical placement within the scene graph.\n```\n\nif parentNP is None:\n            parentNP = obj[OG.OBJ_NP].getParent()\n        parentObj = self.editor.objectMgr.findObjectByNodePath(parentNP)\n\n        if parentObj is None:\n            parent = self.root\n        else:\n            parent = self.traverse(self.root, parentObj[OG.OBJ_UID])\n\n        name = NodePath(item).getName()\n        if not name:\n            name = ' '\n        namestr = \"%s_%s_%s\"%(obj[OG.OBJ_DEF].name, name, obj[OG.OBJ_UID])\n        newItem = self.tree.AppendItem(parent, namestr)\n        self.tree.SetItemPyData(newItem, obj[OG.OBJ_UID])\n\n        # adding children of PandaObj\n        if self.shouldShowPandaObjChildren:\n            self.addPandaObjectChildren(newItem)\n        self.tree.Expand(self.root)\n\n    def traverse(self, parent, itemId):\n        # prevent from traversing into self\n        if itemId == self.tree.GetItemData(parent):\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 363
+  }
+}

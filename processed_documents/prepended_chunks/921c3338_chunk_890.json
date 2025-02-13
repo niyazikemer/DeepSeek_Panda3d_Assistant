@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a method `createLinearVectorForceWidget` within a class, which creates a user interface element for defining and managing linear vector forces. The method sets up a Vector3Entry widget to allow users to input the direction and magnitude of the force and includes an option to enable/disable the force. This is part of a larger set of methods that create various types of force effects in a GUI framework, each tailored to different physics-based force applications.\n\ndef createLinearVectorForceWidget(self, forcePage, pageName,\n                                      count, force):\n        def setVec(vec, f = force):\n            f.setVector(vec[0], vec[1], vec[2])\n        forceName = 'Vector Force-' + repr(count)\n        frame = self.createForceFrame(forcePage, forceName, force)\n        self.createLinearForceWidgets(frame, pageName, forceName, force)\n        vec = force.getLocalVector()\n        self.createVector3Entry(frame, pageName, forceName,\n                                'Set force direction and magnitude',\n                                command = setVec,\n                                value = [vec[0], vec[1], vec[2]])\n        self.createForceActiveWidget(frame, pageName, forceName, force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 890
+  }
+}

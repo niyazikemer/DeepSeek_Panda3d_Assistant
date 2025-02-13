@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes the \"Look\" tab's animation dropdown and begins setting up the \"Properties\" tab, organizing user interface components within a wxPython application's tabbed interface.\n\npropUI = ObjectPropUICombo(self.lookPane, 'anim', obj[OG.OBJ_ANIM], animList)\n            sizer.Add(propUI)\n\n            propUI.bindFunc(self.editor.objectMgr.onEnterObjectPropUI,\n                            self.editor.objectMgr.onLeaveObjectPropUI,\n                            lambda p0=None, p1=obj: self.editor.objectMgr.updateObjectAnimFromUI(p0, p1))\n\n        self.lookPane.SetSizer(sizer)\n\n        self.propsPane = wx.Panel(self.nb, -1, name='Properties')\n        self.nb.AddPage(self.propsPane, 'Properties')\n        sizer = wx.BoxSizer(wx.VERTICAL)\n\n        propNames = objDef.orderedProperties[:]\n        for key in list(objDef.properties.keys()):\n            if key not in propNames:\n                propNames.append(key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 339
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `World` class constructor in a Python script that sets up a 3D environment with collision detection using Panda3D. The chunk describes the creation of a main collision ray that will be used to detect intersections with other objects in the scene. The ray's position and direction are defined, and its collision mask is set based on the current entry in `maskList`, allowing selective collision testing against different groups of objects. This setup enables dynamic switching of collision masks at runtime by pressing the spacebar, as described later in the code.\n\n# Note that we didn't set a from collide mask for previous objects\n        # since we're not adding them to the traverser as from objects.\n\n        # Make a collision ray that passes through all of the objects.\n        self.pointerNode = base.render.attachNewNode(\"Main Collider\")\n        self.pointerNode.setPos(-3, 3, 10)\n        # Create a ray collision solid that points downwards.\n        raySolid = CollisionRay(0, 0, 0, 0, 0, -1)\n        mainColNP = self.makeCollisionNodePath(self.pointerNode, raySolid)\n        self.mainColNode = mainColNP.node()\n        # Set a from collide mask for this ray so that we can selectively\n        # collide against the other objects.\n        self.mainColNode.setFromCollideMask(self.maskList[self.maskPos][1])\n        base.cTrav.addCollider(mainColNP, self.collHandler)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_9",
+    "parent": "processed_documents/context_documents/b8eb20fa_40f997b9_bitmask-example.json",
+    "chunk_number": 166
+  }
+}

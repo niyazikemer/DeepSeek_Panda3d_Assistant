@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger function that processes documentation strings (docstrings) to identify and modify method references, particularly focusing on excluding certain references when the page itself is about the referenced class. The code extracts and adjusts word endings for punctuation and parentheticals, checks if the word matches a specific pattern related to methods or classes, and determines whether it should be excluded based on context.\n\nThe code appears to be part of a system that automates documentation processing, likely within a Sphinx extension or similar tool, designed to improve docstring formatting and cross-references by handling method references appropriately.\n\nif word.endswith('.') or word.endswith(',') or word.endswith(';'):\n            # Punctuation.\n            suffix = word[-1]\n            word = word[:-1]\n        else:\n            suffix = ''\n\n        if word.endswith(')') and word.count(')') > word.count('('):\n            # It could be the last word in a parenthesized statement.\n            word = word[:-1]\n            suffix = ')' + suffix\n\n        # Don't replace the class name on the page of the class itself, unless\n        # it's already in backticks.\n        if word.rstrip('()') == parent:\n            continue\n\n        word = word.strip('`')\n\n        m = re.fullmatch(method_class_ref_pattern, word)\n        if not m:\n            continue\n\n        plural = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 133
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a larger document detailing a class that creates and manages various types of force frames within a graphical user interface (GUI) application. The `createForceFrame` method constructs a raised frame containing a label displaying the force's name and a button to remove the force, while `createLinearForceWidgets` adds widgets for configuring linear forces, such as setting their amplitude.\n\ndef createForceFrame(self, forcePage, forceName, force):\n        frame = tk.Frame(forcePage, relief = tk.RAISED, borderwidth = 2)\n        lFrame = tk.Frame(frame, relief = tk.FLAT)\n\n        def removeForce(s = self, f = force, fr = frame):\n            s.forceGroup.removeForce(f)\n            fr.pack_forget()\n        b = tk.Button(lFrame, text = 'X',\n                      command = removeForce)\n        b.pack(side = 'right', expand = 0)\n        tk.Label(lFrame, text = forceName,\n                 foreground = 'Blue',\n                 font=('MSSansSerif', 12, 'bold'),\n                 ).pack(expand = 1, fill = 'x')\n        lFrame.pack(fill = 'x', expand =1)\n        frame.pack(pady = 3, fill = 'x', expand =0)\n        return frame\n\n    def createLinearForceWidgets(self, frame, pageName, forceName, force):\n        def setAmplitude(amp, f = force):\n            f.setAmplitude(amp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 885
+  }
+}

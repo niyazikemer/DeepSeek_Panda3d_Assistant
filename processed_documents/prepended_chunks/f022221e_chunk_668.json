@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method that handles mouse events, likely within an event handler such as `OnMouseMove` or similar. The code adjusts the visible range of an animation timeline by moving the start and end frames (sliderStartFrame and sliderEndFrame) based on horizontal mouse movement. It updates the UI elements to reflect these changes using methods like `SetTimeRangeData` and `MainPanelUpdate`.\n\nif self._mouseIn:\n                if newPos[0] == self.pos[0]:\n                    evt.Skip()\n                    self._mouseIn = False\n                if newPos[0] > self.pos[0]:\n                    if float(newPos[0]-self.pos[0]) >= self.unitWidth:\n                        if self.sliderEndFrame < self.endFrame:\n                            self.sliderStartFrame += 1\n                            self.sliderEndFrame += 1\n                            self.SetTimeRangeData(self.startFrame, self.endFrame, self.sliderStartFrame, self.sliderEndFrame)\n                            self.MainPanelUpdate()\n                            self.pos = newPos\n                            evt.Skip()\n                            self._mouseIn = False\n                if newPos[0] < self.pos[0]:\n                    if float(self.pos[0]-newPos[0]) >= self.unitWidth:\n                        if self.sliderStartFrame > self.startFrame:\n                            self.sliderStartFrame -=1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 668
+  }
+}

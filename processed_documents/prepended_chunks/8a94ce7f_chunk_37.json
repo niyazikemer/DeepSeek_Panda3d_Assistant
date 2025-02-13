@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the core loop within `makeWoodgrain()` where 2D textures are generated for each Z-slice of a 3D wood grain texture map. The code calculates pixel colors based on distance from center (radius) and noise perturbation, then writes out the resulting slices as PNG files for use as a 3D texture resource.\n\n# But instead of reading the PNMImage, we fill it in with the\n        # ring pattern.\n        for yi in range(texSize):\n            y = float(yi) / float(texSize - 1) - 0.5\n            for xi in range(texSize):\n                x = float(xi) / float(texSize - 1) - 0.5\n\n                radius = calcRadius(xn, yn, x, y, z, noiseAmp)\n                chooseGrain(p, xi, yi, radius * ringScale)\n\n        # Now load the current slice into the texture.\n        tex.load(p, zi, 0)\n\n    return tex\n\n\n# Create a 3-D texture.\ntex = makeWoodgrain(texSize=256, texZSize=8, noiseScale=0.4, noiseZScale=0.8,\n                    noiseAmp=0.12, ringScale=40)\n\n# Write out the texture.  This will generate woodgrain_0.png,\n# woodgrain_1.png, and so on, in the current directory.\ntex.write(Filename('woodgrain-#.png'), 0, 0, True, False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_3",
+    "parent": "processed_documents/context_documents/d207d691_675b1c1c_woodgrain-example.json",
+    "chunk_number": 37
+  }
+}

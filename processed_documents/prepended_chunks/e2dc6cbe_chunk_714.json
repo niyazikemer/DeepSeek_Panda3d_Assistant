@@ -1,0 +1,9 @@
+{
+  "content": "This code initializes the `ParticlePanel` application, setting up key components such as widget dictionaries, effects tracking, and force group management. It ensures the UI reflects the current state of the particle effect by updating menus, labels, and creating notebook pages for each force group associated with the effect.\n\n# Initialize application specific info\n        AppShell.__init__(self)\n\n        # Initialize panel Pmw options\n        self.initialiseoptions(ParticlePanel)\n\n        # Update panel values to reflect particle effect's state\n        self.selectEffectNamed(next(iter(self.effectsDict)))\n        # Make sure labels/menus reflect current state\n        self.updateMenusAndLabels()\n        # Make sure there is a page for each forceGroup objects\n        for forceGroup in self.particleEffect.getForceGroupList():\n            self.addForceGroupNotebookPage(self.particleEffect, forceGroup)\n\n    def appInit(self):\n        # Create dictionaries to keep track of panel objects\n        self.widgetDict = {}\n        self.variableDict = {}\n        self.effectsDict = {}\n        self.effectsDict[self.particleEffect.getName()] = (\n            self.particleEffect)\n        self.forcePagesDict = {}\n\n    def createInterface(self):\n        # Handle to the toplevels hull\n        interior = self.interior()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 714
+  }
+}

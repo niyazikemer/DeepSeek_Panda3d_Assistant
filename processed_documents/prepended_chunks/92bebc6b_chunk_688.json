@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines methods within an animation editor's class responsible for handling keyframe management. The `OnDeleteKey` method deletes a keyframe at the current frame from both the local `keys` list and the animation manager's data structures, while also cleaning up empty entries in the keyframes information dictionary. It then triggers updates to the animation properties and playback via `OnPropKey` and `OnAnimation`. The `OnPropKey` method recreates the animation parallel structure and updates the time slider display with the current frame range.\n\ndef OnDeleteKey(self, evt):\n        for i in range(0,len(self.keys)):\n            if self.curFrame == self.keys[i]:\n                del self.keys[i]\n                break\n\n        for j in list(self.editor.animMgr.keyFramesInfo.keys()):\n            for k in range(0,len(self.editor.animMgr.keyFramesInfo[j])):\n                if self.curFrame == self.editor.animMgr.keyFramesInfo[j][k][0]:\n                    del self.editor.animMgr.keyFramesInfo[j][k]\n                    break\n\n        for l in list(self.editor.animMgr.keyFramesInfo.keys()):\n            if len(self.editor.animMgr.keyFramesInfo[l]) == 0:\n                del self.editor.animMgr.keyFramesInfo[l]\n\n        self.OnPropKey()\n        self.OnAnimation(self.curFrame)\n\n    def OnPropKey(self):\n        self.parallel = self.editor.animMgr.createParallel(self.startFrame, self.endFrame)\n        self.timeSlider.SetTimeSliderData(self.sliderStartFrame, self.sliderEndFrame, self.curFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 688
+  }
+}

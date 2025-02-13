@@ -1,0 +1,9 @@
+{
+  "content": "The given chunk consists of two methods: `updateMenu` and `createInterface`. These are part of a class that manages the graphical user interface (GUI) for an application, likely related to 3D modeling or game development due to references to viewports and curves. \n\n- **`updateMenu`:** Updates menu items with corresponding hotkeys retrieved from a dictionary mapping. This enhances usability by displaying shortcuts.\n- **`createInterface`:** Initializes the UI components, extending functionality from `WxPandaShell`, suggesting setup of windows, menus, and toolbars.\n\nThese methods contribute to creating a user-friendly interface by setting up menus and integrating keyboard shortcuts.\n\ndef updateMenu(self):\n        hotKeyDict = {}\n        for hotKey in ShowBaseGlobal.direct.hotKeyMap.keys():\n            desc = ShowBaseGlobal.direct.hotKeyMap[hotKey]\n            hotKeyDict[desc[1]] = hotKey\n\n        for id in self.MENU_TEXTS.keys():\n            desc = self.MENU_TEXTS[id]\n            if desc[1]:\n                menuItem = self.menuBar.FindItemById(id)\n                hotKey = hotKeyDict.get(desc[1])\n                if hotKey:\n                    menuItem.SetText(desc[0] + \"\\t%s\"%hotKey)\n\n    def createInterface(self):\n        WxPandaShell.createInterface(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 442
+  }
+}

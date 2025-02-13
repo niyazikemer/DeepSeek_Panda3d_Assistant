@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines the 'Undo' and 'Redo' buttons in a GUI application, setting up their initial states based on whether there are items in the undo or redo lists. The buttons are packed into the menu frame and bound to tooltips providing user feedback.\n\nself.undoButton = tk.Button(menuFrame, text = 'Undo',\n                                    command = ShowBaseGlobal.direct.undo)\n        if ShowBaseGlobal.direct.undoList:\n            self.undoButton['state'] = 'normal'\n        else:\n            self.undoButton['state'] = 'disabled'\n        self.undoButton.pack(side = tk.LEFT, expand = 0)\n        self.bind(self.undoButton, 'Undo last operation')\n\n        self.redoButton = tk.Button(menuFrame, text = 'Redo',\n                                    command = ShowBaseGlobal.direct.redo)\n        if ShowBaseGlobal.direct.redoList:\n            self.redoButton['state'] = 'normal'\n        else:\n            self.redoButton['state'] = 'disabled'\n        self.redoButton.pack(side = tk.LEFT, expand = 0)\n        self.bind(self.redoButton, 'Redo last operation')\n\n        # The master frame for the dials\n        mainFrame = tk.Frame(interior)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 928
+  }
+}

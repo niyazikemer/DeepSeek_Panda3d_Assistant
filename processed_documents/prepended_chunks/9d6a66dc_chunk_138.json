@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears within a function or method that processes and manipulates lines of text, likely as part of a larger document generation or formatting system. It handles special directives starting with `@` such as `@par`, `@verbatim`, and `@code`, adjusting the output accordingly to format code blocks properly in the generated documentation. This functionality is part of an autodoc processing system that enhances the conversion of raw docstrings into formatted documentation, particularly handling code examples and verbatim text blocks.\n\nThe context involves a tool or library (possibly Sphinx-related) that processes docstrings from source code to generate human-readable documentation. The chunk is responsible for detecting and formatting special tags within these docstrings to ensure code snippets are displayed correctly in the final output.\n\nstrline = strline.lstrip(' \\t')\n\n        if strline.startswith('@'):\n            special = strline.split(' ', 1)[0][1:]\n            if special == 'par' and strline.endswith(':') and lines and '@code' in lines[0]:\n                newlines.append('   '*indent + strline[5:] + ':')\n                newlines.append('')\n                line = lines.pop(0)\n                offset = line.index('@code')\n                while lines:\n                    line = lines.pop(0)\n                    if '@endverbatim' in line or '@endcode' in line:\n                        break\n                    newlines.append('   ' + line[offset:])\n\n                newlines.append('')\n                continue\n            elif special == \"verbatim\" or special == \"code\":\n                if newlines and newlines[-1]:\n                    newlines.append('')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 138
+  }
+}

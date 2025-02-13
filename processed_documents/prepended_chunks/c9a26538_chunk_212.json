@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `WxPandaWindow` class implementation within a Python script integrating Panda3D graphics engine with wxWidgets GUI framework. Specifically, these methods handle low-level mouse and keyboard event processing for the window interface.\n\ndef __mouseLeaveWindow(self, event):\n            self.inputDevice.setPointerOutOfWindow()\n\n        def __keyDown(self, event):\n            key = self.__getkey(event)\n            if key:\n                self.inputDevice.buttonDown(key)\n\n        def __keyUp(self, event):\n            key = self.__getkey(event)\n            if key:\n                self.inputDevice.buttonUp(key)\n\n        def __getkey(self, event):\n            code = event.GetKeyCode()\n            key = self.Keymap.get(code, None)\n            if key is not None:\n                return key\n\n            if code >= 0x41 and code <= 0x5a:\n                # wxWidgets returns uppercase letters, but Panda expects\n                # lowercase letters.\n                return KeyboardButton.asciiKey(code + 0x20)\n            if code >= 0x20 and code <= 0x80:\n                # Other ASCII keys are treated the same way in wx and Panda.\n                return KeyboardButton.asciiKey(code)\n\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_16",
+    "parent": "processed_documents/context_documents/e9443847_WxPandaWindow.json",
+    "chunk_number": 212
+  }
+}

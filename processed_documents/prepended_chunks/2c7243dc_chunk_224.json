@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a static `make()` method in the `Viewport` class that serves as a factory constructor. It creates and returns different types of viewports (orthographic or perspective) based on the input `vpType`, handling cases like VPLEFT, VPFRONT, VPTOP, and VPPERSPECTIVE. The method acts as a central entry point for viewport creation, delegating to specialized viewport creation methods (`makeLeft()`, `makeFront()`, etc.) while raising a `TypeError` on unrecognized types.\n\n@staticmethod\n    def make(parent, vpType = None):\n        \"\"\"Safe constructor that also takes CREATENEW, VPLEFT, VPTOP, etc.\"\"\"\n        if vpType is None or vpType == CREATENEW:\n            return Viewport(parent)\n        if isinstance(vpType, Viewport):\n            return vpType\n        if vpType == VPLEFT:\n            return Viewport.makeLeft(parent)\n        if vpType == VPFRONT:\n            return Viewport.makeFront(parent)\n        if vpType == VPTOP:\n            return Viewport.makeTop(parent)\n        if vpType == VPPERSPECTIVE:\n            return Viewport.makePerspective(parent)\n        raise TypeError(\"Unknown viewport type: %s\" % vpType)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_17",
+    "parent": "processed_documents/context_documents/a6d56406_ViewPort.json",
+    "chunk_number": 224
+  }
+}

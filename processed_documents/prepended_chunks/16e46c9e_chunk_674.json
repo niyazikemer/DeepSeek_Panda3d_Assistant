@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents a section from an animation editor's user interface implementation, specifically within a class method responsible for initializing the UI components. The chunk creates various controls (spinners, buttons) used to manipulate animation timing and keyframes, and binds events for handling user interactions. It is part of setting up a graphical user interface for managing animation properties and operations in an application focused on 3D model or scene animations.\n\nself.mainPanel2 = wx.Panel(self, -1)\n\n        self.timeStartSpin = wx.SpinCtrl(self.mainPanel2, -1, \"\",size = (70,25), min=0, max=self.sliderEndFrame)\n        self.timeSliderStartSpin = wx.SpinCtrl(self.mainPanel2, -1, \"\",size = (70,25), min=self.startFrame, max=self.sliderEndFrame)\n        self.timeRange = TimeRange(self.mainPanel2, wx.Size(450, 25), self.startFrame, self.endFrame, self.sliderStartFrame, self.sliderEndFrame)\n        self.timeSliderEndSpin = wx.SpinCtrl(self.mainPanel2, -1, \"\",size = (70,25), min=self.sliderStartFrame, max=self.endFrame)\n        self.timeEndSpin = wx.SpinCtrl(self.mainPanel2, -1, \"\",size = (70,25), min=self.sliderStartFrame, max=10000)\n        self.buttonDeleteKey = wx.BitmapButton(self.mainPanel2, -1, bmpDeleteKey, size = (30,30), style = wx.BU_AUTODRAW)\n\n        self.SetProperties()\n        self.DoLayout()\n\n        self.Bind(wx.EVT_SPINCTRL, self.OnCurrentTime, self.curFrameSpin)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 674
+  }
+}

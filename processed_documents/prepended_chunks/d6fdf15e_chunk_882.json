@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines a method `addForceGroupNotebookPage` within a class that manages particle effect interfaces, where it adds a new page to a notebook interface for each force group associated with a particle effect. This allows users to organize and manage different force groups applied to the particle effects in a tabbed interface, improving accessibility and management of complex particle systems.\n\ndef addForceGroupNotebookPage(self, particleEffect, forceGroup):\n        self.forcePageName = (particleEffect.getName() + '-' +\n                              forceGroup.getName())\n        self.forcePage = self.forceGroupNotebook.add(self.forcePageName)\n        self.forcePagesDict[self.forcePageName] = self.forcePage\n        for force in forceGroup:\n            self.addForceWidget(forceGroup, force)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 882
+  }
+}

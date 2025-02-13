@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of an animation editor system that handles keyframe interpolation. The specific chunk appears in the context of adding new keyframe data to a list, sorting these frames based on their numerical order, and generating slope information for smooth transitions between frames. This functionality supports animating object properties over time with proper timing and curve calculations.\n\nself.parent.editor.animMgr.keyFramesInfo[property].append([frame, value, [], []])\n                #sort keyFrameInfo list by the order of frame number\n                sortKeyList = self.parent.editor.animMgr.keyFramesInfo[property]\n                for i in range(0, len(sortKeyList)-1):\n                    for j in range(i+1, len(sortKeyList)):\n                        if sortKeyList[i][AG.FRAME]>sortKeyList[j][AG.FRAME]:\n                            temp = sortKeyList[i]\n                            sortKeyList[i] = sortKeyList[j]\n                            sortKeyList[j] = temp\n\n                self.parent.editor.animMgr.generateSlope(self.parent.editor.animMgr.keyFramesInfo[property])\n            else:\n                self.parent.editor.animMgr.keyFramesInfo[property] = [[frame, value, [], []]]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 319
+  }
+}

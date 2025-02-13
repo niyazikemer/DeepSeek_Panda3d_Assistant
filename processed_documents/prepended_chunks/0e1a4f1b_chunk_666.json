@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk appears in a Python class that implements a graphical animation editor. The shown code handles low-level graphical operations for drawing animation curves and ranges using wxPython's DC (Device Context) object. Specifically, the methods manage mouse interactions, drawing of timeline elements, and rendering of visual feedback within the animation editing interface.\n\ndc.SetPen(wx.Pen(self.GetBackgroundColour()))\n        dc.SetBrush(wx.Brush(self.GetBackgroundColour()))\n\n        self.unitWidth = (self.w-6.0)/float(self.frameNum)\n        self.rangePosX = 3.0+(float(self.sliderStartFrame-self.startFrame))*self.unitWidth\n        self.rangePosY = 2.0\n        self.rangeWidth = float(self.sliderEndFrame-self.sliderStartFrame+1)*self.unitWidth\n        self.rangeHeight = self.h-4.0\n        self.curRect = wx.Rect(self.rangePosX, self.rangePosY, self.rangeWidth, self.rangeHeight)\n\n        dc.DrawRoundedRectangleRect(self.curRect, radius = 2)\n\n    def OnSize(self, evt):\n        self.InitBuffer()\n\n    def OnLeftDown(self, evt):\n        point = (evt.GetX(), evt.GetY())\n        self.pos = 0\n\n        if point[1]>= self.rangePosY and point[1]<= self.rangePosY+self.rangeHeight:\n            if point[0]>= self.rangePosX and point[0]<= self.rangePosX+self.rangeWidth:\n                self._mouseIn = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_49",
+    "parent": "processed_documents/context_documents/9260a80b_AnimControlUI.json",
+    "chunk_number": 666
+  }
+}

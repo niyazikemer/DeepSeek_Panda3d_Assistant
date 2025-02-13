@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `selectJBNodePathNamed` method within a class responsible for managing node paths in a graphical application, likely using Panda3D. This method retrieves or evaluates a node path by name, integrates with the application's selection system via `ShowBaseGlobal`, and handles errors gracefully by removing invalid entries from a listbox. It complements other node management functions like undo/redo operations, aiding in user interaction and scene graph manipulation.\n\n**Context:** The method is part of a UI class that manages node path selections, using global state to retrieve or evaluate named nodes, ensuring valid paths are maintained with error handling.\n\ndef selectJBNodePathNamed(self, name):\n        if name == 'selected':\n            nodePath = ShowBaseGlobal.direct.selected.last\n            # Add Combo box entry for this selected object\n            self.addJBNodePath(nodePath)\n        else:\n            # See if node path has already been selected\n            nodePath = self.jbNodePathDict.get(name, None)\n            if nodePath is None:\n                # If not, see if listbox evals into a node path\n                try:\n                    nodePath = eval(name)\n                    if isinstance(nodePath, NodePath):\n                        self.addJBNodePath(nodePath)\n                    else:\n                        # Good eval but not a node path, give up\n                        nodePath = None\n                except Exception:\n                    # Bogus eval\n                    nodePath = None\n                    # Clear bogus entry from listbox\n                    listbox = self.jbNodePathMenu.component('scrolledlist')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 958
+  }
+}

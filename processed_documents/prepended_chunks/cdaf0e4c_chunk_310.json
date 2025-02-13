@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `PaletteTreeCtrl` class, which implements a custom wxPython TreeCtrl widget designed to manage hierarchical data, such as in a palette application. The chunk specifically shows the `ReParent` method, responsible for transferring items and their children from one parent node to another, ensuring the tree structure updates correctly when items are moved or dragged within the interface.\n\nnewItem = self.AppendItem(newParent, itemName)\n            self.SetItemPyData(newItem, itemData)\n\n            # if an item had children, we need to re-parent them as well\n            if self.ItemHasChildren(item):\n                # recursing...\n                self.ReParent(item, newItem, )\n\n            # continue iteration to the next child\n            item, cookie = self.GetNextChild(parent, cookie)\n\n    def ChangeHierarchy(self, itemName, x, y):\n        parent = self.GetRootItem()\n        item = self.traverse(parent, itemName)\n        if item is None:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 310
+  }
+}

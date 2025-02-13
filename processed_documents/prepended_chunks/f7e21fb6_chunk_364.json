@@ -1,0 +1,9 @@
+{
+  "content": "The `traverse` method is a recursive helper function used to search through the tree structure of the SceneGraphUI class. It starts from a given parent node and looks for an item with a specified ID, returning the found item or None if it doesn't exist. This method is essential for navigating and interacting with nodes in the scene graph, enabling operations like deletion, renaming, expansion, and collapsing of tree items.\n\ndef traverse(self, parent, itemId):\n        # prevent from traversing into self\n        if itemId == self.tree.GetItemData(parent):\n            return None\n\n        # main loop - serching for an item with an itemId\n        item, cookie = self.tree.GetFirstChild(parent)\n        while item:\n            # if the item was found - return it\n            if itemId == self.tree.GetItemData(item):\n                return item\n\n            # the tem was not found - checking if it has children\n            if self.tree.ItemHasChildren(item):\n                # item has children - delving into it\n                child = self.traverse(item, itemId)\n                if child is not None:\n                    return child\n\n            # continue iteration to the next child\n            item, cookie = self.tree.GetNextChild(parent, cookie)\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 364
+  }
+}

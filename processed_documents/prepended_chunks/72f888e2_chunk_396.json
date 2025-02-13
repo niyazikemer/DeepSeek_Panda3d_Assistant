@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines several `lerpFunc` methods within a larger class, likely part of an animation or property editor system. The methods handle setting scale values (X, Y, Z) and updating color properties (R, G, B) for objects managed by the editor's object manager. These functions are used to update object properties during animations or direct manipulation in the editor interface.\n\ndef lerpFuncSX(self,scale,np):\n        np.setSx(scale)\n\n    def lerpFuncSY(self,scale,np):\n        np.setSy(scale)\n\n    def lerpFuncSZ(self,scale,np):\n        np.setSz(scale)\n\n    def lerpFuncCR(self,R,np):\n        obj = self.editor.objectMgr.findObjectByNodePath(np)\n        r = obj[OG.OBJ_RGBA][0]\n        g = obj[OG.OBJ_RGBA][1]\n        b = obj[OG.OBJ_RGBA][2]\n        a = obj[OG.OBJ_RGBA][3]\n        self.colorUpdate(R,g,b,a,np)\n\n    def lerpFuncCG(self,G,np):\n        obj = self.editor.objectMgr.findObjectByNodePath(np)\n        r = obj[OG.OBJ_RGBA][0]\n        g = obj[OG.OBJ_RGBA][1]\n        b = obj[OG.OBJ_RGBA][2]\n        a = obj[OG.OBJ_RGBA][3]\n        self.colorUpdate(r,G,b,a,np)\n\n    def lerpFuncCB(self,B,np):\n        obj = self.editor.objectMgr.findObjectByNodePath(np)\n        r = obj[OG.OBJ_RGBA][0]\n        g = obj[OG.OBJ_RGBA][1]\n        b = obj[OG.OBJ_RGBA][2]\n        a = obj[OG.OBJ_RGBA][3]\n        self.colorUpdate(r,g,B,a,np)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_26",
+    "parent": "processed_documents/context_documents/c3433415_AnimMgrBase.json",
+    "chunk_number": 396
+  }
+}

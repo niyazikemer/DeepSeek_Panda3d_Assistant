@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class managing a wxPython tree widget for handling object hierarchies, including methods for deleting nodes, renaming objects, expanding/collapsing children, and context menu operations. The specific chunk focuses on updating the tree structure during drag-and-drop reorganization, preventing self-insertion and maintaining parent-child integrity.\n\n```context\nThe code manages a wxPython tree widget for object hierarchy with drag-and-drop functionality, ensuring proper node movement without self-referencing.\n```\n\nself.tree.Delete(oldParent)\n        if self.shouldShowPandaObjChildren:\n            self.removePandaObjectChildren(oldParent)\n            self.addPandaObjectChildren(oldParent)\n            self.removePandaObjectChildren(newParent)\n            self.addPandaObjectChildren(newParent)\n\n    def isChildOrGrandChild(self, parent, child):\n        childId = self.tree.GetItemData(child)\n        return self.traverse(parent, childId)\n\n    def changeHierarchy(self, data, x, y):\n        itemText = data.split('_')\n        itemId = itemText[-1] # uid is the last token\n        item = self.traverse(self.tree.GetRootItem(), itemId)\n        if item is None:\n            return\n\n        dragToItem, flags = self.tree.HitTest(wx.Point(x, y))\n        if dragToItem.IsOk():\n            # prevent draging into itself\n            if dragToItem == item:\n                return\n            if self.isChildOrGrandChild(item, dragToItem):\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 367
+  }
+}

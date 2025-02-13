@@ -1,0 +1,9 @@
+{
+  "content": "The `GridSizeUI` class is a dialog window within a larger UI framework for an editor or application. It allows users to adjust grid size and spacing parameters via sliders, serving as a configuration tool accessible from the application's properties panel.\n\nclass GridSizeUI(wx.Dialog):\n    def __init__(self, parent, id, title, gridSize, gridSpacing):\n        wx.Dialog.__init__(self, parent, id, title, size=(250, 240))\n\n        self.parent = parent\n        panel = wx.Panel(self, -1)\n        vbox = wx.BoxSizer(wx.VERTICAL)\n\n        wx.StaticBox(panel, -1, 'Grid Size', (5, 5), (235, 80))\n\n        self.gridSizeSlider = WxSlider(panel, -1, float(gridSize), 10.0, 100000.0,\n                           pos = (10, 25), size=(220, -1),\n                           style=wx.SL_HORIZONTAL | wx.SL_LABELS, textSize=(80,20))\n        self.gridSizeSlider.Enable()\n\n        wx.StaticBox(panel, -1, 'Grid Space', (5, 90), (235, 80))\n\n        self.gridSpacingSlider = WxSlider(panel, -1, float(gridSpacing), 0.01, 2000.0,\n                           pos = (10, 115), size=(220, -1),\n                           style=wx.SL_HORIZONTAL | wx.SL_LABELS)\n        self.gridSpacingSlider.Enable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 457
+  }
+}

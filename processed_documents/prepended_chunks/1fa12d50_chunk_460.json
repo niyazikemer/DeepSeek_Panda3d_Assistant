@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the `CurveDegreeUI` class, which is a dialog window used to allow users to select the degree of a curve in a curve editing tool or 3D modeling application. The dialog provides radio buttons to choose between degrees 2, 3, or 4, with default selection set to degree 3.\n\nclass CurveDegreeUI(wx.Dialog):\n    def __init__(self, parent, id, title):\n        wx.Dialog.__init__(self, parent, id, title, size=(150, 120))\n\n        self.parent = parent\n        panel = wx.Panel(self, -1)\n        degreeBox = wx.BoxSizer(wx.VERTICAL)\n\n        degreeList = ['2','3','4']\n\n        self.degree = wx.RadioBox(panel, -1, 'Curve Degree', (5, 5), wx.DefaultSize, degreeList, 3, wx.RA_SPECIFY_COLS)\n        self.degree.SetToolTipString(\"Select the degree of the curve.\")\n        self.degree.SetSelection(1)\n\n        okButton = wx.Button(self, -1, 'Apply', size=(70, 20))\n        okButton.Bind(wx.EVT_BUTTON, self.onApply)\n\n        degreeBox.Add(panel, 1, wx.ALIGN_CENTER | wx.TOP | wx.BOTTOM, 5)\n        degreeBox.Add(okButton, 0, wx.ALIGN_CENTER | wx.TOP | wx.BOTTOM, 5)\n        self.SetSizer(degreeBox)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 460
+  }
+}

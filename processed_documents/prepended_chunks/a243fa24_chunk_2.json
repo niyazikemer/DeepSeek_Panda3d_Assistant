@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines the `spinCameraTask` method within the `MyApp` class, which controls a rotating camera effect by updating its position and orientation based on time. The final lines initialize and run the application.\n\n# Define a procedure to move the camera.\n    def spinCameraTask(self, task):\n        angleDegrees = task.time * 6.0\n        angleRadians = angleDegrees * (pi / 180.0)\n        self.camera.setPos(20 * sin(angleRadians), -20 * cos(angleRadians), 3)\n        self.camera.setHpr(angleDegrees, 0, 0)\n        return Task.cont\n\n\napp = MyApp()\napp.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_0",
+    "parent": "processed_documents/context_documents/210ff496_7d218525_loading-and-animating-the-panda-model.json",
+    "chunk_number": 2
+  }
+}

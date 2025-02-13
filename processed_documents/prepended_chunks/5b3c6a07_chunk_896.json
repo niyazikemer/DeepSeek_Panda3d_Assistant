@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in a class responsible for creating and managing widgets related to different types of forces. Specifically, it configures UI elements for setting parameters of a LinearDistanceForce object, such as its falloff type and radius.\n\ndef setRadius(radius, f = force):\n            f.setRadius(radius)\n        forceName = type + ' Force-' + repr(count)\n        frame = self.createForceFrame(forcePage, forceName, force)\n        self.createLinearForceWidgets(frame, pageName, forceName, force)\n        var = self.createOptionMenu(\n            frame, pageName, forceName + ' Falloff',\n            'Set force falloff type',\n            ('FT_ONE_OVER_R',\n             'FT_ONE_OVER_R_SQUARED',\n             'FT_ONE_OVER_R_CUBED'),\n            command = setFalloffType)\n        self.getWidget(pageName, forceName + ' Falloff').configure(\n            label_width = 16)\n        falloff = force.getFalloffType()\n        if falloff == LinearDistanceForce.FTONEOVERR:\n            var.set('FT_ONE_OVER_R')\n        elif falloff == LinearDistanceForce.FTONEOVERRSQUARED:\n            var.set('FT_ONE_OVER_R_SQUARED')\n        elif falloff == LinearDistanceForce.FTONEOVERRCUBED:\n            var.set('FT_ONE_OVER_R_CUBED')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 896
+  }
+}

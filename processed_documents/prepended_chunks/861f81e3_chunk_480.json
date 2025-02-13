@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of three methods (`findChildren`, `rename`, and `populateSystemObjs`) within the `ObjectPaletteBase` class, which is designed to manage a hierarchical collection of objects and their properties. The class serves as a base for object palettes used in applications requiring structured object management.\n\ndef findChildren(self, name):\n        result = []\n        for key in self.dataKeys:\n            if self.dataStruct[key] == name:\n                result.append(key)\n\n        return result\n\n    def rename(self, oldName, newName):\n        #import pdb;set_trace()\n        if oldName == newName:\n            return False\n        if newName == \"\":\n            return False\n        try:\n            for key in list(self.dataStruct.keys()):\n                if self.dataStruct[key] == oldName:\n                    self.dataStruct[key] = newName\n\n            self.dataStruct[newName] = self.dataStruct.pop(oldName)\n            item = self.data.pop(oldName)\n            item.name = newName\n            self.data[newName] = item\n        except Exception:\n            return False\n        return True\n\n    def populateSystemObjs(self):\n        self.addHidden(ObjectCurve(name='__Curve__'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_31",
+    "parent": "processed_documents/context_documents/b4cff924_ObjectPaletteBase.json",
+    "chunk_number": 480
+  }
+}

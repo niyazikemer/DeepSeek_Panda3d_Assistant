@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a Python class responsible for creating UI widgets related to color interpolation segments. Specifically, it handles the creation of color picker interfaces for setting segment colors (color A and B) using Tkinter. The methods `setSegColorA` and `setSegColorB` convert RGB color values between normalized (0-1) and byte (0-255) representations to update the interpolation function's colors. This chunk is situated within a larger context of UI configuration for visual or rendering parameters, likely part of an application involving sprite rendering or similar graphical features.\n\nframe = self.createInterpolationSegmentFrame(parent, segName, segment)\n        f = tk.Frame(frame)\n\n        c = fun.getColorA()\n        c = [c[0]*255.0, c[1]*255.0, c[2]*255.0, c[3]*255.0]\n        self.createColorEntry(f,'Sprite Renderer', segName + ' Color A',\n                              '',\n                              command = setSegColorA,\n                              value = c)\n        f.pack(fill = tk.X)\n        return frame\n\n    def createLinearInterpolationSegmentWidget(self, parent, segName, segment):\n        fun = segment.getFunction()\n\n        def setSegColorA(color):\n            fun.setColorA(\n                Vec4(color[0]/255.0, color[1]/255.0,\n                     color[2]/255.0, color[3]/255.0))\n\n        def setSegColorB(color):\n            fun.setColorB(\n                Vec4(color[0]/255.0, color[1]/255.0,\n                     color[2]/255.0, color[3]/255.0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 863
+  }
+}

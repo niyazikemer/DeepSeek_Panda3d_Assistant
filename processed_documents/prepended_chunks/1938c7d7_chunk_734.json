@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk configures radio buttons for selecting different emitter modes (Explicit, Radiate, Custom) in a particle effect editor GUI, allowing users to specify how particles are emitted relative to their position and velocity.\n\n# Emitter modes\n        self.emissionType = tk.IntVar()\n        self.emissionType.set(BaseParticleEmitter.ETRADIATE)\n        emissionFrame = tk.Frame(emitterPage)\n        self.createRadiobutton(\n            emissionFrame, 'left',\n            'Emitter', 'Explicit Emission',\n            ('particles are all emitted in parallel, direction is based ' +\n             'on explicit velocity vector'),\n            self.emissionType, BaseParticleEmitter.ETEXPLICIT,\n            self.setEmissionType)\n        self.createRadiobutton(\n            emissionFrame, 'left',\n            'Emitter', 'Radiate Emission',\n            'particles are emitted away from a specific point',\n            self.emissionType, BaseParticleEmitter.ETRADIATE,\n            self.setEmissionType)\n        self.createRadiobutton(\n            emissionFrame, 'left',\n            'Emitter', 'Custom Emission',\n            ('particles are emitted with a velocity that ' +\n             'is determined by the particular emitter'),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 734
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function responsible for creating new 3D objects within a scene, specifically handling the instantiation of actors with models and animations. It uses keyword arguments from an Object Palette and sets up animations if specified. This fits into the system's workflow for adding new objects to the scene, particularly when dealing with animated characters or entities.\n\n**Context:** The code chunk is situated within the object creation process, where it handles both general objects using a palette function and actors requiring specific models and animations.\n\n# create new obj using function and keyword arguments defined in ObjectPalette\n                    newobj = func(**funcArgs)\n                elif objDef.actor:\n                    if model is None:\n                        model = objDef.model\n                    try:\n                        newobj = Actor(model)\n                    except Exception:\n                        newobj = Actor(Filename.fromOsSpecific(model).getFullpath())\n                    if hasattr(objDef, 'animDict') and objDef.animDict != {}:\n                        objDef.anims = objDef.animDict.get(model)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 498
+  }
+}

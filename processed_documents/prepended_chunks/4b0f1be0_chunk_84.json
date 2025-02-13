@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk should be placed within an event handler for processing docstrings or references, specifically addressing formatting of function calls and ensuring compatibility with the C++ domain in Sphinx. It ensures that text nodes are correctly structured to avoid rendering issues when generating documentation.\n\n```plaintext\nContext: Event handling for autodoc processing, ensuring proper formatting of function names and correct node structure for the C++ domain.\n```\n\nif oldtext.endswith(\"()\"):\n                text += \"()\"\n\n            contnode.children[0] = nodes.Text(text)\n\n        elif domain.name == 'cpp':\n            # Work around a bug in the C++ resolver, which expects this\n            # text node to be the child of an Element.  I picked a\n            # decoration element since it happens not to translate to\n            # anything (not sure what its purpose is).\n            if isinstance(contnode, nodes.Text):\n                contnode = nodes.decoration('', contnode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 84
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk provides helper methods within the `NotifyPanel` class responsible for recursively retrieving and flattening Panda3D's notification category hierarchy from the `panda3d.core.Notify` system. These methods enable the panel to display and manage notify categories, allowing users to adjust severity levels for different message filtering in their applications.\n\ndef _getPandaCategories(self, category):\n        categories = [category]\n        for i in range(category.getNumChildren()):\n            child = category.getChild(i)\n            categories.append(self._getPandaCategories(child))\n        return categories\n\n    def getPandaCategories(self):\n        from panda3d.core import Notify\n        topCategory = Notify.ptr().getTopCategory()\n        return self._getPandaCategories(topCategory)\n\n    def _getPandaCategoriesAsList(self, pc, catList):\n        for item in pc:\n            if isinstance(item, list):\n                self._getPandaCategoriesAsList(item, catList)\n            else:\n                catList.append(item)\n\n    def getPandaCategoriesAsList(self):\n        pc = self.getPandaCategories()\n        pcList = []\n        self._getPandaCategoriesAsList(pc, pcList)\n        return pcList[1:]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_58",
+    "parent": "processed_documents/context_documents/29bb8898_NotifyPanel.json",
+    "chunk_number": 917
+  }
+}

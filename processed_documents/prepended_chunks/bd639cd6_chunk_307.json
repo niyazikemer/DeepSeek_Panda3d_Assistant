@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods within the `PaletteTreeCtrl` class: `addTreeNodes` and `traverse`. These methods are essential for constructing and navigating the hierarchical structure of a tree control. The `addTreeNodes` method recursively builds the tree by appending child items to parent nodes based on specified data structures, while the `traverse` method is used to locate a specific node within the tree hierarchy during operations such as drag-and-drop reorganization.\n\n# continue iteration to the next child\n            item, cookie = self.GetNextChild(parent, cookie)\n\n    def addTreeNodes(self, parentItem, parentItemName, items, itemKeys):\n        roots = []\n        rootItems = []\n        for key in itemKeys:\n            if parentItemName == items[key]:\n                roots.append(key)\n        for root in roots:\n            newItem = self.AppendItem(parentItem, root)\n            self.SetItemData(newItem, root)\n            rootItems.append(newItem)\n            itemKeys.remove(root)\n        for rootItem in rootItems:\n            self.addTreeNodes(rootItem, self.GetItemText(rootItem), items, itemKeys)\n\n    def traverse(self, parent, itemText):\n        if itemText == self.GetItemText(parent):\n            return parent\n        item, cookie = self.GetFirstChild(parent)\n        while item:\n            # if the item was found - return it\n            if itemText == self.GetItemText(item):\n                return item",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_21",
+    "parent": "processed_documents/context_documents/31b25404_PaletteTreeCtrl.json",
+    "chunk_number": 307
+  }
+}

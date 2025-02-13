@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk handles reference resolution and text replacement during documentation generation for Python modules using autodoc, specifically modifying `contnode.children` to reflect resolved references with appropriate mangling based on domain (Python vs C++).\n\nresolved = target and resolve_reference(target, module, domain=domain.name)\n\n    if resolved and (resolved[0] == typ or typ == 'obj'):\n        refdoc = node.get('refdoc', env.docname)\n\n        # Try to match the original, but with the canonical mangling\n        # (depending on Python versus C++)\n        if len(contnode.children) and not node.get('refexplicit'):\n            oldtext = contnode.children[0].astext()\n\n            text = resolved[1]\n            if domain.name == 'cpp':\n                text = '::'.join(text.split('::')[-oldtext.replace('.', '::').count('.')-1:])\n            else:\n                text = '.'.join(text.split('.')[-oldtext.count('.')-1:])\n\n            if oldtext.endswith(\"()\"):\n                text += \"()\"\n\n            contnode.children[0] = nodes.Text(text)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 83
+  }
+}

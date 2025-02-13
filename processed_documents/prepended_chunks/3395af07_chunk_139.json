@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a function that processes specific comment tags (like `@verbatim`, `@endcode`, `@f[` , and `@f]`) within docstrings or comments. It converts these tagged blocks into reStructuredText directives (`.. code-block:: guess` and `.. math::`), ensuring proper formatting for verbatim code and mathematical content in the generated documentation. The context is within a function that handles line-by-line processing of such tags to enhance autodocumentation output.\n\nnewlines.append('.. code-block:: guess')\n                newlines.append('')\n                offset = line.index('@' + special)\n                while lines:\n                    line = lines.pop(0)\n                    if '@endverbatim' in line or '@endcode' in line:\n                        break\n                    newlines.append('   ' + line[offset:])\n\n                newlines.append('')\n                continue\n            elif special == \"f[\":\n                if newlines and newlines[-1]:\n                    newlines.append('')\n\n                newlines.append('.. math::')\n                newlines.append('')\n                offset = line.index('@' + special)\n                while lines:\n                    line = lines.pop(0)\n                    if '@f]' in line:\n                        break\n                    newlines.append('   ' + line[offset:])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 139
+  }
+}

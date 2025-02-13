@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a function that handles autodocumentation processing in a Sphinx extension, specifically responsible for determining the type information of classes or modules when generating documentation. It interacts with an Interrogate Database (IDB) to resolve type names and their respective domains (C++ or Python), ensuring accurate type representation during docstring processing.\n\nitype = idb.lookup_type(modname, search)\n        if itype:\n            # Grab the original type name.\n            if domain == 'cpp':\n                type_name = interrogate_type_scoped_name(itype)\n                if interrogate_type_is_typedef(itype):\n                    return ('type', type_name)\n                elif interrogate_type_is_enum(itype):\n                    return ('enum', type_name)\n                elif interrogate_type_is_struct(itype):\n                    return ('struct', type_name)\n                elif interrogate_type_is_class(itype):\n                    return ('class', type_name)\n                elif interrogate_type_is_union(itype):\n                    return ('union', type_name)\n            elif domain == 'py':\n                type_name = idb.get_type_name(itype, mangle=False, scoped=True)\n                prefix = interrogate_type_module_name(itype)\n                if prefix:\n                    prefix += '.'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_8",
+    "parent": "processed_documents/context_documents/5d34b79e_6676e524_conf.json",
+    "chunk_number": 128
+  }
+}

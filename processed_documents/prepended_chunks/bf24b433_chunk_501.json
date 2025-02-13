@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes functionality related to adding new objects to a scene, including setting their properties, updating object repositories, and handling selection and UI updates. It is part of an object management system responsible for creating, initializing, and maintaining references to objects in a 3D scene or similar environment.\n\nif newobj is None:\n                return None\n\n            newobj.reparentTo(parent)\n            newobj.setTag('OBJRoot', '1')\n\n            # populate obj data using default values\n            properties = {}\n            for key in objDef.properties.keys():\n                properties[key] = objDef.properties[key][OG.PROP_DEFAULT]\n\n            # insert obj data to main repository\n            self.objects[uid] = [uid, newobj, objDef, model, anim, properties, (1,1,1,1)]\n            self.npIndex[NodePath(newobj)] = uid\n\n            if self.editor:\n                if fSelectObject:\n                    self.editor.select(newobj, fUndo=0)\n                self.editor.ui.sceneGraphUI.add(newobj, parent)\n                self.editor.fNeedToSave = True\n        return newobj\n\n    def removeObjectById(self, uid):\n        obj = self.findObjectById(uid)\n        nodePath = obj[OG.OBJ_NP]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 501
+  }
+}

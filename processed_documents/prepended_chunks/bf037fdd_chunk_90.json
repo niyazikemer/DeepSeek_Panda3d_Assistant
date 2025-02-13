@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the `generate_dot` method for creating inheritance diagrams using Graphviz. It is part of a Sphinx documentation extension that processes class hierarchies to generate DOT language code for visualization.\n\ndef generate_dot(self, name, urls={}, env=None,\n                 graph_attrs={}, node_attrs={}, edge_attrs={}):\n    g_attrs = self.default_graph_attrs.copy()\n    n_attrs = self.default_node_attrs.copy()\n    e_attrs = self.default_edge_attrs.copy()\n    g_attrs.update(graph_attrs)\n    n_attrs.update(node_attrs)\n    e_attrs.update(edge_attrs)\n    if env:\n        g_attrs.update(env.config.inheritance_graph_attrs)\n        n_attrs.update(env.config.inheritance_node_attrs)\n        e_attrs.update(env.config.inheritance_edge_attrs)\n\n    res = []  # type: List[str]\n    res.append('strict digraph %s {\\n' % name)\n    res.append(self._format_graph_attrs(g_attrs))\n\n    for name, fullname, bases, tooltip in sorted(self.class_info):\n        if name == 'DTOOL_SUPER_BASE':\n            continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_4",
+    "parent": "processed_documents/context_documents/5d34b79e_f7df0e75_6676e524_conf.json",
+    "chunk_number": 90
+  }
+}

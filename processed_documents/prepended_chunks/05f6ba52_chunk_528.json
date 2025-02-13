@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk belongs to a class that manages objects in a scene graph or 3D modeling environment, handling the duplication of selected objects and their child nodes while maintaining object properties.\n\n# copy other properties\n        for key in obj[OG.OBJ_PROP]:\n            self.updateObjectPropValue(newObj, key, obj[OG.OBJ_PROP][key])\n        return newObjNP\n\n    def duplicateChild(self, nodePath, parent):\n        children = nodePath.findAllMatches('=OBJRoot')\n        for childNP in children:\n            newChildObjNP = self.duplicateObject(childNP, parent)\n            if newChildObjNP is not None:\n                self.duplicateChild(childNP, newChildObjNP)\n\n    def duplicateSelected(self):\n        selectedNPs = base.direct.selected.getSelectedAsList()\n        duplicatedNPs = []\n        for nodePath in selectedNPs:\n            newObjNP = self.duplicateObject(nodePath)\n            if newObjNP is not None:\n                self.duplicateChild(nodePath, newObjNP)\n                duplicatedNPs.append(newObjNP)\n\n        base.direct.deselectAllCB()\n        for newNodePath in duplicatedNPs:\n            base.direct.select(newNodePath, fMultiSelect = 1, fUndo=0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 528
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a larger class that handles various aspects of object management and user interface interactions. The specific methods in the chunk (`toggleWidget`, `handleMouse1`, `handleMouse1Up`, `handleMouse2`, `handleMouse2Up`, `handleMouse3`) are event handlers related to mouse actions, which control widget visibility and camera movement within the application's user interface.\n\ndef toggleWidget(self):\n        if self.objectMgr.currNodePath:\n            obj = self.objectMgr.findObjectByNodePath(self.objectMgr.currNodePath)\n            if obj and not obj[OG.OBJ_DEF].movable:\n                return\n        base.direct.toggleWidgetVis()\n\n    def handleMouse1(self, modifiers):\n        if base.direct.fAlt or modifiers == 4:\n            self.fMoveCamera = True\n            return\n        if self.mode == self.CREATE_CURVE_MODE:\n            self.curveEditor.createCurve()\n\n    def handleMouse1Up(self):\n        self.fMoveCamera = False\n\n    def handleMouse2(self, modifiers):\n        if base.direct.fAlt or modifiers == 4:\n            self.fMoveCamera = True\n            return\n\n    def handleMouse2Up(self):\n        self.fMoveCamera = False\n\n    def handleMouse3(self, modifiers):\n        if base.direct.fAlt or modifiers == 4:\n            self.fMoveCamera = True\n            return\n\n        self.ui.onRightDown()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_27",
+    "parent": "processed_documents/context_documents/bc538e49_LevelEditorBase.json",
+    "chunk_number": 405
+  }
+}

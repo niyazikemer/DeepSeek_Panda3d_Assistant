@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a class managing objects within a scene graph, specifically implementing methods to traverse the hierarchy and collect references. The `findActors` method identifies and appends Actor instances to `self.Actor`, while the `findNodes` method collects general node objects into `self.Nodes`. Both methods recursively process child nodes to build comprehensive lists of relevant objects in the scene graph.\n\nif obj:\n                    if isinstance(obj[OG.OBJ_NP],Actor):\n                        self.Actor.append(obj)\n\n                self.findActors(child)\n\n    def findNodes(self, parent):\n        for child in parent.getChildren():\n            if child.hasTag('OBJRoot') and not child.hasTag('Controller'):\n                obj = self.findObjectByNodePath(child)\n\n                if obj:\n                    self.Nodes.append(obj)\n\n                self.findActors(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_34",
+    "parent": "processed_documents/context_documents/a86148df_ObjectMgrBase.json",
+    "chunk_number": 531
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method setting up a user interface (UI) for managing lighting properties in a 3D application. It creates color entry widgets within specific frames to allow users to adjust the active light's color and the specular color of directional lights. The code uses `VectorWidgets` for input fields and binds commands to update light properties, contributing to a structured UI layout for configuring different types of lights.\n\n**Context:**  \nThe chunk sets up UI components (`ColorEntry`) for adjusting light colors and specular properties within specific frames (lightFrame and directionalPage), enabling users to customize lighting attributes in the application's interface.\n\n# Pack light menu\n        lightMenuFrame.pack(fill = tk.X, expand = 0, padx = 2)\n\n        self.lightColor = VectorWidgets.ColorEntry(\n            lightFrame, text = 'Light Color')\n        self.lightColor['command'] = self.setLightColor\n        self.lightColor.pack(fill = tk.X, expand = 0, padx = 4)\n        self.bind(self.lightColor, 'Set active light color')\n\n        # Directional light controls\n        self.dSpecularColor = VectorWidgets.ColorEntry(\n            directionalPage, text = 'Specular Color')\n        self.dSpecularColor['command'] = self.setSpecularColor\n        self.dSpecularColor.pack(fill = tk.X, expand = 0)\n        self.bind(self.dSpecularColor,\n                  'Set directional light specular color')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_60",
+    "parent": "processed_documents/context_documents/65f40986_DirectSessionPanel.json",
+    "chunk_number": 941
+  }
+}

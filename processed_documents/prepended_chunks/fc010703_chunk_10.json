@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the initialization phase where key event handlers and camera controls are set up for user interaction in a Panda3D application. It comes after model loading and before task setup, ensuring that movement and camera controls are ready when tasks begin.\n\n</context>\n\nThis code chunk initializes keyboard controls, sets up a floater node for camera targeting, and establishes initial game state variables, placed immediately after Ralph's creation to ensure all components are initialized before the game loop starts.\n\n</context>\n\nself.floater = NodePath(PandaNode(\"floater\"))\n        self.floater.reparentTo(render)\n\n        # Accept the control keys for movement and rotation\n\n        self.accept(\"escape\", sys.exit)\n        self.accept(\"enter\", self.activateCam)\n        self.accept(\"arrow_left\", self.setKey, [\"left\", 1])\n        self.accept(\"arrow_right\", self.setKey, [\"right\", 1])\n        self.accept(\"arrow_up\", self.setKey, [\"forward\", 1])\n        self.accept(\"a\", self.setKey, [\"cam-left\", 1])\n        self.accept(\"s\", self.setKey, [\"cam-right\", 1])\n        self.accept(\"arrow_left-up\", self.setKey, [\"left\", 0])\n        self.accept(\"arrow_right-up\", self.setKey, [\"right\", 0])\n        self.accept(\"arrow_up-up\", self.setKey, [\"forward\", 0])\n        self.accept(\"a-up\", self.setKey, [\"cam-left\", 0])\n        self.accept(\"s-up\", self.setKey, [\"cam-right\", 0])\n\n        #taskMgr.add(self.move,\"moveTask\")\n\n        # Game state variables\n        self.isMoving = False\n\n        # Set up the camera",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_1",
+    "parent": "processed_documents/context_documents/22fb6b37_e3690e85_uneven-terrain.json",
+    "chunk_number": 10
+  }
+}

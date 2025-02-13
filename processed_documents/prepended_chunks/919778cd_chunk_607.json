@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines an `ActionDeleteObjById` class within a document describing various undo/redo functionality classes for an object editor. The other classes include `ActionAddObject`, which adds objects and manages their state, `ActionUndoRedoBase`, which serves as a base class for managing undo/redo operations with states, and others that handle actions like updating properties or transforming objects. The document focuses on implementing undo/redo functionality by managing object state changes through specific action classes.\n\nclass ActionDeleteObjById(ActionBase):\n    \"\"\" Action class for deleting object \"\"\"\n\n    def __init__(self, editor, uid):\n        self.editor = editor\n        function = self.editor.objectMgr.removeObjectById\n        self.uid = uid\n        ActionBase.__init__(self, function, self.uid)\n        self.hierarchy = {}\n        self.objInfos = {}\n        self.objTransforms = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_43",
+    "parent": "processed_documents/context_documents/81e0c49e_ActionMgr.json",
+    "chunk_number": 607
+  }
+}

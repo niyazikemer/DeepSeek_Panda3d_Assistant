@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines methods for controlling Z-axis spin parameters of particles and handling emitter type selection in a particle effect system. These functions manage the rotational aspects of particles (such as final angle and angular velocity) and update the user interface based on the current emitter configuration, fitting into a class that manages both force and emitter settings to create dynamic visual effects.\n\ndef setFactoryZSpinFinalAngle(self, angle):\n        self.particles.factory.setFinalAngle(angle)\n\n    def setFactoryZSpinFinalAngleSpread(self, spread):\n        self.particles.factory.setFinalAngleSpread(spread)\n\n    def setFactoryZSpinAngularVelocity(self, vel):\n        self.particles.factory.setAngularVelocity(vel)\n\n    def setFactoryZSpinAngularVelocitySpread(self, spread):\n        self.particles.factory.setAngularVelocitySpread(spread)\n\n    ## EMITTER PAGE ##\n    def selectEmitterType(self, type):\n        self.emitterNotebook.selectpage(type)\n        self.particles.setEmitter(type)\n        self.updateEmitterWidgets()\n\n    def selectEmitterPage(self):\n        type = self.particles.emitter.__class__.__name__\n        self.emitterNotebook.selectpage(type)\n        self.getVariable('Emitter', 'Emitter Type').set(type)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 812
+  }
+}

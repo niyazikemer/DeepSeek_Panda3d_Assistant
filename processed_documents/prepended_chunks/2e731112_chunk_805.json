@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk contains commands for managing particle effects in a system, including toggling the global particle manager and enabling/disabling specific particle effects. The context is part of a larger class that manages particle systems, their factories, emitters, renderers, and forces.\n\n### PARTICLE EFFECTS COMMANDS ###\n    def toggleParticleMgr(self):\n        if self.particleMgrActive.get():\n            base.enableParticles()\n        else:\n            base.disableParticles()\n\n    ### PARTICLE SYSTEM COMMANDS ###\n    def updateInfo(self, page = 'System'):\n        self.updateMenusAndLabels()\n        if page == 'System':\n            self.updateSystemWidgets()\n        elif page == 'Factory':\n            self.selectFactoryPage()\n            self.updateFactoryWidgets()\n        elif page == 'Emitter':\n            self.selectEmitterPage()\n            self.updateEmitterWidgets()\n        elif page == 'Renderer':\n            self.selectRendererPage()\n            self.updateRendererWidgets()\n        elif page == 'Force':\n            self.updateForceWidgets()\n\n    def toggleParticleEffect(self):\n        if self.getVariable('Effect', 'Active').get():\n            self.particleEffect.enable()\n        else:\n            self.particleEffect.disable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_56",
+    "parent": "processed_documents/context_documents/44a6f4d1_ParticlePanel.json",
+    "chunk_number": 805
+  }
+}

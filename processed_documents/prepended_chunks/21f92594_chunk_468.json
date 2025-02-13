@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents the `OnChooseCurve` event handler method of a class-based UI component in a Python application, responsible for validating curve selections during the animation setup process.\n\ndef OnChooseCurve(self, evt):\n        if base.direct.selected.last is None or base.direct.selected.last.hasTag('Controller') or not base.direct.selected.last.hasTag('OBJRoot'):\n            dlg = wx.MessageDialog(None, 'Please select a curve.', 'NOTICE', wx.OK)\n            dlg.ShowModal()\n            dlg.Destroy()\n        else:\n            obj = self.editor.objectMgr.findObjectByNodePath(base.direct.selected.last)\n            if obj[OG.OBJ_DEF].name != '__Curve__':\n                dlg = wx.MessageDialog(None, 'Please select a curve, not an object.', 'NOTICE', wx.OK)\n                dlg.ShowModal()\n                dlg.Destroy()\n            elif obj[OG.OBJ_DEF].name == '__Curve__':\n                self.curve = obj\n                self.chooseCurveTxt.SetValue(str(self.curve[OG.OBJ_UID]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_30",
+    "parent": "processed_documents/context_documents/258ea79b_CurveAnimUI.json",
+    "chunk_number": 468
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a `CurveDegreeUI` class, which creates a dialog box allowing users to select the degree (2, 3, or 4) of a curve. The chunk specifically handles the layout setup by adding a panel and an \"Apply\" button to the dialog's sizer, and defines the `onApply()` method that updates the editor's curve degree based on the user's selection.\n\ndegreeBox.Add(panel, 1, wx.ALIGN_CENTER | wx.TOP | wx.BOTTOM, 5)\n        degreeBox.Add(okButton, 0, wx.ALIGN_CENTER | wx.TOP | wx.BOTTOM, 5)\n        self.SetSizer(degreeBox)\n\n    def onApply(self, evt):\n        if str(self.degree.GetSelection()) == '0':\n            self.parent.editor.curveEditor.degree = 2\n        if str(self.degree.GetSelection()) == '1':\n            self.parent.editor.curveEditor.degree = 3\n        if str(self.degree.GetSelection()) == '2':\n            self.parent.editor.curveEditor.degree = 4\n        self.Destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_29",
+    "parent": "processed_documents/context_documents/36d4e032_LevelEditorUIBase.json",
+    "chunk_number": 461
+  }
+}

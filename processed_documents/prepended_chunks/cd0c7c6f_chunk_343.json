@@ -1,0 +1,9 @@
+{
+  "content": "The code processes object properties to create user interface elements, specifically handling property type conversions and UI component generation. It focuses on ensuring values are correctly formatted as strings for radio buttons and combo boxes, including dynamic range dependency checks.\n\nvalue = str(value)\n\n                propUI = ObjectPropUIRadio(self.propsPane, key, value, propRange)\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_COMBO:\n                if len(propDef) <= OG.PROP_RANGE:\n                    continue\n                propRange = propDef[OG.PROP_RANGE]\n\n                if value is None:\n                    continue\n\n                if propDataType != OG.PROP_STR:\n                    for i in range(len(propRange)):\n                        propRange[i] = str(propRange[i])\n\n                    value = str(value)\n\n                propUI = ObjectPropUICombo(self.propsPane, key, value, propRange)\n                sizer.Add(propUI)\n\n            elif propType == OG.PROP_UI_COMBO_DYNAMIC:\n                if len(propDef) <= OG.PROP_DYNAMIC_KEY:\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_22",
+    "parent": "processed_documents/context_documents/2853beeb_ObjectPropertyUI.json",
+    "chunk_number": 343
+  }
+}

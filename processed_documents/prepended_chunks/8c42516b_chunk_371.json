@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of three methods related to tree item selection and dragging in a scene graph UI:\n\n- `deSelect()`: Deselects a specific item in the tree view\n- `onSelected()`: Handles item selection by updating object selection in 3D view using Direct's select function, with multi-select handling based on selection count\n- `onBeginDrag()`: Initiates drag operation for non-root items\n\nThese methods are essential for managing user interactions with the scene graph hierarchy.\n\ndef deSelect(self, itemId):\n        item =  self.traverse(self.root, itemId)\n        if item is not None:\n            self.tree.UnselectItem(item)\n\n    def onSelected(self, event):\n        item = event.GetItem()\n        if item:\n            itemId = self.tree.GetItemData(item)\n            if itemId:\n                obj = self.editor.objectMgr.findObjectById(itemId)\n                if obj:\n                    selections = self.tree.GetSelections()\n                    if len(selections) > 1:\n                        base.direct.select(obj[OG.OBJ_NP], fMultiSelect = 1, fLEPane = 0)\n                    else:\n                        base.direct.select(obj[OG.OBJ_NP], fMultiSelect = 0, fLEPane = 0)\n\n    def onBeginDrag(self, event):\n        item = event.GetItem()\n\n        if item != self.tree.GetRootItem(): # prevent dragging root item\n            text = self.tree.GetItemText(item)\n            print(\"Starting SceneGraphUI drag'n'drop with %s...\" % repr(text))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_25",
+    "parent": "processed_documents/context_documents/0e31b16d_SceneGraphUIBase.json",
+    "chunk_number": 371
+  }
+}
