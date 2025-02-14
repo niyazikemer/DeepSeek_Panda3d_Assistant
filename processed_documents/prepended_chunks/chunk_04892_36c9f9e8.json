@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet is part of a method within the `GraphicsWindow` or related management class that handles the creation of a new graphics output window in a Panda3D application. The chunk specifically manages the creation process by setting flags, handling optional parameters like callback windows, host, and gsg (graphics state guard), and creating the window using `GraphicsEngine.makeOutput()`. It also checks for unexposed draw properties to configure the window appropriately.\n\n</context>\n\nif callbackWindowDict:\n            flags = flags | GraphicsPipe.BFRequireCallbackWindow\n\n        if host:\n            assert host.isValid()\n            win = self.graphicsEngine.makeOutput(pipe, name, 0, fbprops,\n                                                 props, flags, host.getGsg(), host)\n        elif gsg:\n            win = self.graphicsEngine.makeOutput(pipe, name, 0, fbprops,\n                                                 props, flags, gsg)\n        else:\n            win = self.graphicsEngine.makeOutput(pipe, name, 0, fbprops,\n                                                 props, flags)\n\n        if win is None:\n            # Couldn't create a window!\n            return None\n\n        if unexposedDraw is not None and hasattr(win, 'setUnexposedDraw'):\n            win.setUnexposedDraw(unexposedDraw)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4892
+  }
+}

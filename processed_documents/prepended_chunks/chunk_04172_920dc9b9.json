@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains utility methods for controlling and configuring character movement in a 3D environment, specifically handling speed calculations, avatar setup, and collision bitmask management.\n\ndef getSpeeds(self):\n        #assert self.debugPrint(\"getSpeeds()\")\n        return (self.speed, self.rotationSpeed, self.slideSpeed)\n\n    def setAvatar(self, avatar):\n        self.avatar = avatar\n        if avatar is not None:\n            pass # setup the avatar\n\n    def setAirborneHeightFunc(self, getAirborneHeight):\n        self.getAirborneHeight = getAirborneHeight\n\n    def setWallBitMask(self, bitMask):\n        self.cSphereBitMask = bitMask\n\n    def setFloorBitMask(self, bitMask):\n        self.cRayBitMask = bitMask\n\n    def swapFloorBitMask(self, oldMask, newMask):\n        self.cRayBitMask = self.cRayBitMask &~ oldMask\n        self.cRayBitMask |= newMask\n\n        if self.cRayNodePath and not self.cRayNodePath.isEmpty():\n            self.cRayNodePath.node().setFromCollideMask(self.cRayBitMask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4172
+  }
+}

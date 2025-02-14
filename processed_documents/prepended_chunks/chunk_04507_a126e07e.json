@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk appears within a method responsible for recursively exploring object attributes and building an object reference map. The specific lines handle checking if an attribute has a length or is not a dead end, preventing cycles in the object graph by tracking how objects are reached from their parents. This logic ensures that the traversal does not infinitely loop while attempting to detect memory leaks or identify long-lived objects.\n\nparentObjRef, safeRepr(key)))\n                            continue\n                        hasLength = self._hasLength(attr)\n                        notDeadEnd = False\n                        # if we haven't picked the next ref, check if this one is a candidate\n                        if curObjRef is None:\n                            notDeadEnd = not self._isDeadEnd(attr, key)\n                        if hasLength or notDeadEnd:\n                            # prevent cycles in the references (i.e. base.loader.base)\n                            for goesThrough in parentObjRef.goesThroughGen(curObj[key]):\n                                # don't yield, container might lose this element\n                                pass\n                            if not goesThrough:\n                                if curObj is builtins.__dict__:\n                                    objRef = ObjectRef(Indirection(evalStr='%s' % key),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4507
+  }
+}

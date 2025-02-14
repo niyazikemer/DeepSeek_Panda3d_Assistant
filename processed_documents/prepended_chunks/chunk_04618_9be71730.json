@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains utility functions for handling angular calculations, specifically for reducing angles to a standard range of [-180, 180) degrees and fitting angles relative to each other. These functions are useful in applications involving rotational mathematics where consistent representation of angles is important.\n\ndef reduceAngle(deg):\n    \"\"\"\n    Reduces an angle (in degrees) to a value in [-180..180)\n    \"\"\"\n    return ((deg + 180.) % 360.) - 180.\n\n\ndef fitSrcAngle2Dest(src, dest):\n    \"\"\"\n    given a src and destination angle, returns an equivalent src angle\n    that is within [-180..180) of dest\n    examples:\n    fitSrcAngle2Dest(30, 60) == 30\n    fitSrcAngle2Dest(60, 30) == 60\n    fitSrcAngle2Dest(0, 180) == 0\n    fitSrcAngle2Dest(-1, 180) == 359\n    fitSrcAngle2Dest(-180, 180) == 180\n    \"\"\"\n    return dest + reduceAngle(src - dest)\n\n\ndef fitDestAngle2Src(src, dest):\n    \"\"\"\n    given a src and destination angle, returns an equivalent dest angle\n    that is within [-180..180) of src\n    examples:\n    fitDestAngle2Src(30, 60) == 60\n    fitDestAngle2Src(60, 30) == 30\n    fitDestAngle2Src(0, 180) == -180\n    fitDestAngle2Src(1, 180) == 180\n    \"\"\"\n    return src + (reduceAngle(dest - src))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4618
+  }
+}

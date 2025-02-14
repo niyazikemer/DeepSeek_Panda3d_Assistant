@@ -1,0 +1,9 @@
+{
+  "content": "The BulletinBoard class implements a global location for storing key-value pairs to prevent name collisions by avoiding direct use of showbase for global variables. The provided code includes the class definition, initialization, and methods for setting values with change notifications.\n\nclass BulletinBoard:\n    \"\"\"This class implements a global location for key/value pairs to be\n    stored. Intended to prevent coders from putting global variables directly\n    on showbase, so that potential name collisions can be more easily\n    detected.\"\"\"\n    notify = DirectNotifyGlobal.directNotify.newCategory('BulletinBoard')\n\n    def __init__(self):\n        self._dict = {}\n\n    def get(self, postName, default=None):\n        return self._dict.get(postName, default)\n\n    def has(self, postName):\n        return postName in self._dict\n\n    def getEvent(self, postName):\n        return 'bboard-%s' % postName\n\n    def getRemoveEvent(self, postName):\n        return 'bboard-remove-%s' % postName\n\n    def post(self, postName, value=None):\n        if postName in self._dict:\n            BulletinBoard.notify.warning('changing %s from %s to %s' % (\n                postName, self._dict[postName], value))\n        self.update(postName, value)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_266",
+    "parent": "processed_documents/context_documents/393ed3f2_BulletinBoard.json",
+    "chunk_number": 4736
+  }
+}

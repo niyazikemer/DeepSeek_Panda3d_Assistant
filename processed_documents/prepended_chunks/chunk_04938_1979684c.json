@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `_makeButtonThrowers` method in the `ShowBase` class. This method initializes input handling by creating button throwers for each mouse device, setting up modifier buttons (like shift, control, alt, meta) to capture various user inputs accurately. The code ensures that each pointer watcher node is properly configured with these modifiers and adds them to a list for tracking.\n\nmb = mw.node().getModifierButtons()\n            mb.addButton(KeyboardButton.shift())\n            mb.addButton(KeyboardButton.control())\n            mb.addButton(KeyboardButton.alt())\n            mb.addButton(KeyboardButton.meta())\n            mw.node().setModifierButtons(mb)\n            bt = mw.attachNewNode(ButtonThrower(\"buttons%s\" % (i)))\n            if i != 0:\n                bt.node().setPrefix('mousedev%s-' % (i))\n            mods = ModifierButtons()\n            mods.addButton(KeyboardButton.shift())\n            mods.addButton(KeyboardButton.control())\n            mods.addButton(KeyboardButton.alt())\n            mods.addButton(KeyboardButton.meta())\n            bt.node().setModifierButtons(mods)\n            buttonThrowers.append(bt)\n            if win.hasPointer(i):\n                pointerWatcherNodes.append(mw.node())\n\n        return buttonThrowers, pointerWatcherNodes",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4938
+  }
+}

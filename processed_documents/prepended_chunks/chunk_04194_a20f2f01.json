@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is from the `processEventPstats` method within the `EventManager` class in Panda3D. This method is responsible for handling event processing while enabling PStats (performance statistics) to track specific tasks. The code section specifically sends the event through the messenger system, dispatches it into C++ land using an EventHandler if available, and manages the start and stop of PStatCollectors for performance profiling purposes. This functionality helps in monitoring and optimizing event-related operations within the application.\n\nmessenger.send(eventName, paramList)\n\n            # Also send the event down into C++ land\n            handler = self.eventHandler\n            if handler:\n                cppPstatCollector.start()\n                handler.dispatchEvent(event)\n                cppPstatCollector.stop()\n\n            pstatCollector.stop()\n\n        else:\n            # An unnamed event from C++ is probably a bad thing\n            EventManager.notify.warning('unnamed event in processEvent')\n\n    def restart(self):\n        if self.eventQueue is None:\n            self.eventQueue = EventQueue.getGlobalEventQueue()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4194
+  }
+}

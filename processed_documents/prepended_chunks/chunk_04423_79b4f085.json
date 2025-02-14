@@ -1,0 +1,9 @@
+{
+  "content": "The `loadMusic` method is part of a class that provides functionality for loading various resources such as models, fonts, textures, sounds, and shaders. Specifically, this method handles the loading of sound files designated as \"music\" using the `base.musicManager` (an instance of `AudioManager`). It delegates the actual loading process to the `loadSound` method, which is responsible for handling sound file operations. If no music manager is available (`self.base.musicManager` is None), the method returns None. This method allows for group-level adjustments to music files independently from other sound effects.\n\ndef loadMusic(self, *args, **kw):\n        \"\"\"Loads one or more sound files, specifically designated as a\n        \"music\" file (that is, uses the musicManager to load the\n        sound).  There is no distinction between sound effect files\n        and music files other than the particular `AudioManager` used\n        to load the sound file, but this distinction allows the sound\n        effects and/or the music files to be adjusted as a group,\n        independently of the other group.\"\"\"\n        if self.base.musicManager:\n            return self.loadSound(self.base.musicManager, *args, **kw)\n        else:\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4423
+  }
+}

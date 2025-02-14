@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides essential context about the initialization and configuration of the `DistancePhasedNode` class, specifically detailing how phase parameters are defined and managed. It explains the role of the `phaseParamMap`, the optional `fromCollideNode`, and the event patterns used for collision detection, while also highlighting important considerations for developers using this class. This information is critical for understanding how to properly set up and use the class for managing dynamic phase transitions in a 3D environment.\n\n**Context:**\nThe chunk explains the initialization parameters (`phaseParamMap` and `fromCollideNode`) of the `DistancePhasedNode` class, detailing how phases are defined and managed, as well as the event handling setup.\n\nYou specify the distances and function names by the phaseParamMap\n    parameter to `__init__()`.  For example::\n\n        phaseParamMap = {'Alias': distance, ...}\n        ...\n        def loadPhaseAlias(self):\n            pass\n        def unloadPhaseAlias(self):\n            pass\n\n    If the 'fromCollideNode' is supplied, we will set up our own\n    traverser and only traverse below this node.  It will send out\n    events of the form '<enterPrefix>%in' and '<exitPrefix>%in' in\n    order to match the main collision traverser's patterns.  Note\n    that this will only be used after a reset or phase change in\n    order to fully transition to the correct phase in a single pass.\n    Most of the time, it will be reacting to events from the main\n    collision traverser.\n\n    IMPORTANT:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4572
+  }
+}

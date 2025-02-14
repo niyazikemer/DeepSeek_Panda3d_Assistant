@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an `Audio3DManager` class in Python, designed for managing spatial audio attributes in a 3D environment. The functions `getSoundsOnObject`, `attachListener`, `detachListener`, and `update` handle the attachment of sounds to objects, setting up the listener's position relative to these objects, and updating their positions and velocities to affect audio playback characteristics like Doppler effect and distance-based attenuation.\n\ndef getSoundsOnObject(self, object):\n        \"\"\"\n        returns a list of sounds attached to an object\n        \"\"\"\n        if object not in self.sound_dict:\n            return []\n        sound_list = []\n        sound_list.extend(self.sound_dict[object])\n        return sound_list\n\n\n    def attachListener(self, object):\n        \"\"\"\n        Sounds will be heard relative to this object. Should probably be the camera.\n        \"\"\"\n        self.listener_target = object\n        return 1\n\n\n    def detachListener(self):\n        \"\"\"\n        Sounds will be heard relative to the root, probably render.\n        \"\"\"\n        self.listener_target = None\n        return 1\n\n\n    def update(self, task=None):\n        \"\"\"\n        Updates position of sounds in the 3D audio system. Will be called automatically\n        in a task.\n        \"\"\"\n        # Update the positions of all sounds based on the objects\n        # to which they are attached",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4463
+  }
+}

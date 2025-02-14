@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of an iterator method used within the `getPathsToContainers` or `getPathsToContainersNamed` methods to traverse indirections, dereference dictionary keys, and evaluate object references. This facilitates finding paths to specific objects by their ID during leak checking.\n\nContext:  \nThis code is part of an iterator that traverses object references (indirections) to find a container matching a given object ID. It yields intermediate results as it evaluates the path to the target object, releasing indirections once processed.\n\n```python\n# This code is part of an iterator used in getPathsToContainers methods\nfor indirection in indirections:\n    # Try to dereference the current object and evaluate its string representation\n    curObj = indirection.dereferenceDictKey(curObj)\n    evalStr = ''\n    yield None  # Signal progress or intermediate result\n    o = self._getContainerByEval(evalStr, curObj=curObj)\n    if id(o) == objId:\n        break\n# Release all indirections after processing\nfor indirection in indirections:\n    yield None  # Signal completion of an iteration step\n    indirection.release()\n```\n\n# try to look up this key in the curObj dictionary\n                curObj = indirection.dereferenceDictKey(curObj)\n                evalStr = ''\n            yield None\n            o = self._getContainerByEval(evalStr, curObj=curObj)\n            if id(o) == objId:\n                break\n        for indirection in indirections:\n            yield None\n            indirection.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4481
+  }
+}

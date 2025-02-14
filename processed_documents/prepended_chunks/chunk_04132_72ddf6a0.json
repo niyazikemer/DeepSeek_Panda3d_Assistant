@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces two key functionalities: \n\n1. **Control Management**: Methods `get()` and `remove()` allow dynamic retrieval and removal of control systems from a dictionary. These are essential for managing different control schemes (e.g., WASD vs. directional pad) in real-time.\n\n2. **Debugging Tools**: `lockControls()` and `unlockControls()` enable temporary disabling of controls during testing, aiding in debugging without affecting production code.\n\nThese methods enhance the class's ability to handle diverse input configurations and facilitate easier testing by providing direct control over active control systems.\n\ndef get(self, name):\n        return self.controls.get(name)\n\n    def remove(self, name):\n        \"\"\"Remove a control instance from the list of available control\n        systems.\n\n        Args:\n            name: any key that was used to refer to the controls when they were\n                added (e.g. using the add(<controls>, <name>) call).\n\n        See also: :meth:`add()`.\n        \"\"\"\n        assert self.notify.debugCall(id(self))\n        oldControls = self.controls.pop(name,None)\n        if oldControls is not None:\n            assert self.notify.debug(\"Removing controls: %s\" % name)\n            oldControls.disableAvatarControls()\n            oldControls.setCollisionsActive(0)\n\n    if __debug__:\n        def lockControls(self):\n            self.ignoreUse=True\n\n        def unlockControls(self):\n            if hasattr(self, \"ignoreUse\"):\n                del self.ignoreUse",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4132
+  }
+}

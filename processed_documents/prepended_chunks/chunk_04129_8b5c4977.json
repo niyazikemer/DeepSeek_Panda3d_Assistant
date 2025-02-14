@@ -1,0 +1,9 @@
+{
+  "content": "The `ControlManager` class manages player controls and input states for movement in a 3D environment. It initializes configuration variables (`wantWASD`) and sets up event handlers for different control schemes (classic WASD strafing vs. turning) based on user preferences. The class handles enabling/disabling of controls, switching between strafing/turning modes, and integrates with the input state system to manage movement events.\n\nclass ControlManager:\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"ControlManager\")\n    wantWASD = ConfigVariableBool('want-WASD', False)\n\n    def __init__(self, enable=True, passMessagesThrough = False):\n        assert self.notify.debug(\"init control manager %s\" % (passMessagesThrough))\n        assert self.notify.debugCall(id(self))\n        self.passMessagesThrough = passMessagesThrough\n        self.inputStateTokens = []\n        # Used to switch between strafe and turn. We will reset to whatever was last set.\n        self.WASDTurnTokens = []\n        self.__WASDTurn = True\n        self.controls = {}\n        self.currentControls = None\n        self.currentControlsName = None\n        self.isEnabled = 0\n        if enable:\n            self.enable()\n        #self.monitorTask = taskMgr.add(self.monitor, \"ControlManager-%s\"%(id(self)), priority=-1)\n        self.forceAvJumpToken = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4129
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of the `ObjectPool` class within a document describing an utility for managing pools of Python objects. The specific chunk includes methods for printing referrers of objects (`printReferrers`) and determining the length of the object pool (`__len__`).\n\ndef printReferrers(self, numEach=3):\n        \"\"\"referrers of the first few of each type of object\"\"\"\n        for count in sorted(self._count2types, reverse=True):\n            types = makeList(self._count2types[count])\n            for typ in types:\n                print('\\n\\nTYPE: %s' % repr(typ))\n                for i in range(min(numEach, len(self._type2objs[typ]))):\n                    obj = self._type2objs[typ][i]\n                    print('\\nOBJ: %s\\n' % safeRepr(obj))\n                    referrers = gc.get_referrers(obj)\n                    print('%s REFERRERS:\\n' % len(referrers))\n                    if len(referrers) > 0:\n                        print(getNumberedTypedString(referrers, maxLen=80,\n                                                    numPrefix='REF'))\n                    else:\n                        print('<No Referrers>')\n\n    def __len__(self):\n        return len(self._objs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_276",
+    "parent": "processed_documents/context_documents/8fef47ef_ObjectPool.json",
+    "chunk_number": 4796
+  }
+}

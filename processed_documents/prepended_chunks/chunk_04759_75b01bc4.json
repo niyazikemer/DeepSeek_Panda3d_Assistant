@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a `Job` class responsible for creating `_MessageListenerTypeLeakDetector` instances to track potential memory leaks related to message listener types. It iterates over all registered messenger objects, creates detectors for each unique object type, and adds them to the detector registry.\n\nclass _MessageListenerTypeLeakDetectorCreator(Job):\n    def __init__(self, creator):\n        Job.__init__(self, uniqueName(typeName(self)))\n        self._creator = creator\n\n    def destroy(self):\n        self._creator = None\n        Job.destroy(self)\n\n    def finished(self):\n        Job.finished(self)\n\n    def run(self):\n        for obj in messenger._getObjects():\n            yield None\n            tName = typeName(obj)\n            if tName not in self._creator._typeName2detector:\n                self._creator._typeName2detector[tName] = (\n                    _MessageListenerTypeLeakDetector(tName))\n        yield Job.Done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4759
+  }
+}

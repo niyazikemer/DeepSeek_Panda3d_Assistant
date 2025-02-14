@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the `ShowBase` class, specifically as part of its methods for initializing and managing application windows. These methods handle creating the main application window, setting up associated camera nodes, mouse watchers, and render2D structures, and optionally starting a direct mode interface for user interaction.\n\n:returns: True on success, False on failure.\n        \"\"\"\n\n        startDirect = kw.get('startDirect', True)\n        if 'startDirect' in kw:\n            del kw['startDirect']\n\n        self.openMainWindow(*args, **kw)\n\n        if startDirect:\n            self.__doStartDirect()\n\n        return self.win is not None\n\n    def openMainWindow(self, *args, **kw):\n        \"\"\"\n        Creates the initial, main window for the application, and sets\n        up the mouse and render2d structures appropriately for it.  If\n        this method is called a second time, it will close the\n        previous main window and open a new one, preserving the lens\n        properties in base.camLens.\n\n        :returns: True on success, or False on failure (in which case base.win\n                  may be either None, or the previous, closed window).\n        \"\"\"\n        keepCamera = kw.get('keepCamera', False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4899
+  }
+}

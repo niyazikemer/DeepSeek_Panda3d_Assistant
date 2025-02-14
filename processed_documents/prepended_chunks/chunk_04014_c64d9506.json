@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code belongs to the `renderQuadInto` method in a class managing buffer operations. This method sets up a Camera, creates a CardMaker quad as a rendering target, configures lens parameters, and initializes a DisplayRegion for rendering into a specified buffer.\n\nif buffer is None:\n            return None\n\n        cm = CardMaker(\"filter-stage-quad\")\n        cm.setFrameFullscreenQuad()\n        quad = NodePath(cm.generate())\n        quad.setDepthTest(0)\n        quad.setDepthWrite(0)\n        quad.setColor(1, 0.5, 0.5, 1)\n\n        quadcamnode = Camera(\"filter-quad-cam\")\n        lens = OrthographicLens()\n        lens.setFilmSize(2, 2)\n        lens.setFilmOffset(0, 0)\n        lens.setNearFar(-1000, 1000)\n        quadcamnode.setLens(lens)\n        quadcam = quad.attachNewNode(quadcamnode)\n\n        dr = buffer.makeDisplayRegion((0, 1, 0, 1))\n        dr.disableClears()\n        dr.setCamera(quadcam)\n        dr.setActive(True)\n        dr.setScissorEnabled(False)\n\n        # This clear stage is important if the buffer is padded, so that\n        # any pixels accidentally sampled in the padded region won't\n        # be reading from unititialised memory.\n        buffer.setClearColor((0, 0, 0, 1))\n        buffer.setClearColorActive(True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4014
+  }
+}

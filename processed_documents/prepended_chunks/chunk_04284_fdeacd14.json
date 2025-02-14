@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the initialization logic for a `Transitions` class that manages visual transitions (fade, iris) and letterboxing effects in a graphics or game development context. The code sets up transparency, color fading, and scaling parameters for 3D models used in creating transition effects, leveraging Panda3D's interval system for smooth animations.\n\nclass Transitions:\n    # These may be reassigned before the fade or iris transitions are\n    # actually invoked to change the models that will be used.\n    IrisModelName = \"models/misc/iris\"\n    FadeModelName = \"models/misc/fade\"\n\n    def __init__(self, loader,\n                 model=None,\n                 scale=3.0,\n                 pos=Vec3(0, 0, 0)):\n        self.transitionIval = None\n        self.__transitionFuture = None\n        self.letterboxIval = None\n        self.__letterboxFuture = None\n        self.iris = None\n        self.fade = None\n        self.letterbox = None\n        self.fadeModel = model\n        self.imagePos = pos\n        if model:\n            self.alphaOff = Vec4(1, 1, 1, 0)\n            self.alphaOn = Vec4(1, 1, 1, 1)\n            model.setTransparency(1)\n            self.lerpFunc = LerpColorScaleInterval\n        else:\n            self.alphaOff = Vec4(0, 0, 0, 0)\n            self.alphaOn = Vec4(0, 0, 0, 1)\n            self.lerpFunc = LerpColorInterval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4284
+  }
+}

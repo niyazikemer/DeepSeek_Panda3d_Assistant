@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines methods for handling debug stack traces within a debugging utilities context. These methods include converting a stack trace to a string with specific formatting, and functions to print the stack trace in different formats (compact, reverse-compact, verbose) for aiding developers in debugging by providing detailed execution path information without causing program crashes.\n\ndef __str__(self):\n            r = \"Debug stack trace of %s (back %s frames):\\n\"%(\n                self.label, len(self.trace),)\n            for i in traceback.format_list(self.trace):\n                r+=i\n            r+=\"***** NOTE: This is not a crash. This is a debug stack trace. *****\"\n            return r\n\n    def printStack():\n        print(StackTrace(start=1).compact())\n        return True\n\n    def printReverseStack():\n        print(StackTrace(start=1).reverseCompact())\n        return True\n\n    def printVerboseStack():\n        print(StackTrace(start=1))\n        return True\n\n    #-----------------------------------------------------------------------------",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4606
+  }
+}

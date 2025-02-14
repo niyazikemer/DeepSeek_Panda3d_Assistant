@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in the `ShowBase` class that handles transitioning into Oobe (Out of Bounds) mode. It sets up camera positioning and adjusts button events to enable Oobe functionality, ensuring visualizations are correctly positioned under the camera node. This context helps improve search retrieval for code related to entering or managing Oobe mode within the application.\n\n**Context:**\nThe provided code is part of a method in the `ShowBase` class that manages transitioning into Oobe (Out of Bounds) mode. It handles camera positioning, button event routing, and ensures proper visualization setup when entering this mode.\n\ncam.reparentTo(self.oobeCameraTrackball)\n\n            # Temporarily disable button events by routing them\n            # through the oobe filters.\n            bt = self.buttonThrowers[0].node()\n            bt.setSpecificFlag(0)\n            bt.setButtonDownEvent('oobe-down')\n            bt.setButtonRepeatEvent('oobe-repeat')\n            bt.setButtonUpEvent('oobe-up')\n\n            # Don't change the camera lens--keep it with the original lens.\n            #if cam == self.cam:\n            #    self.camNode.setLens(self.oobeLens)\n\n            if self.oobeVis:\n                self.oobeVis.reparentTo(self.camera)\n            self.oobeMode = 1\n\n    def __oobeButton(self, suffix, button):\n        if button.startswith('mouse'):\n            # Eat mouse buttons.\n            return\n\n        # Transmit other buttons.\n        messenger.send(button + suffix)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4984
+  }
+}

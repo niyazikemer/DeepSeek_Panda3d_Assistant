@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk from the `AvatarControls` class includes initialization of collision detection components (rays and spheres) for floor, walls, and event handling, along with methods for setting tags on nodes and managing airborne height calculations. These methods configure the avatar's interaction with its 3D environment by detecting collisions and tracking vertical position relative to terrain or obstacles.\n\nassert not avatarNodePath.isEmpty()\n        self.avatarNodePath = avatarNodePath\n\n        self.cTrav = collisionTraverser\n\n        self.setupRay(self.floorBitmask, floorOffset, reach)\n        self.setupWallSphere(self.wallBitmask, avatarRadius)\n        self.setupEventSphere(self.wallBitmask, avatarRadius)\n        if self.wantFloorSphere:\n            self.setupFloorSphere(self.floorBitmask, avatarRadius)\n\n        self.setCollisionsActive(1)\n\n    def setTag(self, key, value):\n        self.cEventSphereNodePath.setTag(key, value)\n\n    def setAirborneHeightFunc(self, unused_parameter):\n        assert self.notify.debugStateCall(self)\n        self.getAirborneHeight = self.lifter.getAirborneHeight\n\n    def getAirborneHeight(self):\n        assert self.notify.debugStateCall(self)\n        self.lifter.getAirborneHeight()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4081
+  }
+}

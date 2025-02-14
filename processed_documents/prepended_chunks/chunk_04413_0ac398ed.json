@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `load3DTexture` function in the given document. This function handles the creation of a `SamplerState`, sets texture filtering parameters (`minfilter`, `magfilter`, and `anisotropicDegree`), loads a 3D texture using `TexturePool.load3dTexture`, and raises an error if the texture fails to load and `okMissing` is not set.\n\nsampler = SamplerState()\n        if minfilter is not None:\n            sampler.setMinfilter(minfilter)\n        if magfilter is not None:\n            sampler.setMagfilter(magfilter)\n        if anisotropicDegree is not None:\n            sampler.setAnisotropicDegree(anisotropicDegree)\n\n        texture = TexturePool.load3dTexture(texturePattern, readMipmaps, loaderOptions, sampler)\n        if not texture and not okMissing:\n            message = 'Could not load 3-D texture: %s' % (texturePattern)\n            raise IOError(message)\n\n        return texture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4413
+  }
+}

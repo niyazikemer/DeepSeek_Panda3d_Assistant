@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Panda3D framework, specifically focusing on collision traversal management, profiling setup, and exit error handling within the application's core functionality.\n\ndef popCTrav(self):\n        self.cTrav = self.cTravStack.pop()\n\n    def __setupProfile(self):\n        \"\"\" Sets up the Python profiler, if available, according to\n        some Panda config settings. \"\"\"\n\n        try:\n            profile = importlib.import_module('profile')\n            pstats = importlib.import_module('pstats')\n        except ImportError:\n            return\n\n        profile.Profile.bias = ConfigVariableDouble(\"profile-bias\", 0.0).value\n\n        def f8(x):\n            return (\"%\" + \"8.%df\" % ConfigVariableInt(\"profile-decimals\", 3)) % x\n        pstats.f8 = f8\n\n    # temp; see ToonBase.py\n    def getExitErrorCode(self):\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4876
+  }
+}

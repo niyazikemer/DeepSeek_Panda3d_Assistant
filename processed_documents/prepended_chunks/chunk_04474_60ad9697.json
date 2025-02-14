@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk handles storing a dictionary key either as an `evalStr` string representation or through a weak reference in the `ContainerLeakDetector` class, with fallbacks for cases where weak referencing fails.\n\n# eval/repr succeeded, store as an evalStr\n                self.evalStr = '[%s]' % keyRepr\n            else:\n                try:\n                    # store a weakref to the key\n                    self.dictKey = weakref.ref(dictKey)\n                    self._isWeakRef = True\n                except TypeError as e:\n                    ContainerLeakDetector.notify.debug('could not weakref dict key %s' % keyRepr)\n                    self.dictKey = dictKey\n                    self._isWeakRef = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4474
+  }
+}

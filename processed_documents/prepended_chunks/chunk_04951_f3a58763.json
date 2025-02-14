@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of an object-oriented Python document that implements methods for controlling audio functionality, specifically managing the enablement or disablement of background music within an application. The `enableMusic` method is designed to handle user-initiated requests to activate or deactivate the music manager based on whether the application currently has audio focus and maintains a state indicating the active status of music playback.\n\n# enableMusic/enableSoundEffects are meant to be called in response\n    # to a user request so sfxActive/musicActive represent how things\n    # *should* be, regardless of App/OS/HW state\n    def enableMusic(self, bEnableMusic):\n        \"\"\"\n        Enables or disables the music manager.\n        \"\"\"\n        # don't setActive(1) if no audiofocus\n        if self.AppHasAudioFocus and self.musicManagerIsValid:\n            self.musicManager.setActive(bEnableMusic)\n        self.musicActive = bEnableMusic\n        if bEnableMusic:\n            # This is useful when we want to play different music\n            # from what the manager has queued\n            messenger.send(\"MusicEnabled\")\n            self.notify.debug(\"Enabling music\")\n        else:\n            self.notify.debug(\"Disabling music\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4951
+  }
+}

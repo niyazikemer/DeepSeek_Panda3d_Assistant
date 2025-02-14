@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an `enable` method within a class handling input states for movement controls. It defines alternative input configurations for controlling character movement depending on whether WASD turning is enabled or not, using either Q/E keys for sliding (WASD mode) or arrow keys with mouse look for traditional navigation.\n\nist.append(inputState.watchWithModifiers(\"slideLeft\", \"q\", inputSource=inputState.QE))\n            ist.append(inputState.watchWithModifiers(\"slideRight\", \"e\", inputSource=inputState.QE))\n\n            self.setWASDTurn(self.__WASDTurn)\n        else:\n            ist.append(inputState.watchWithModifiers(\"turnLeft\", \"arrow_left\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watch(\"turnLeft\", \"mouse-look_left\", \"mouse-look_left-done\"))\n            ist.append(inputState.watch(\"turnLeft\", \"force-turnLeft\", \"force-turnLeft-stop\"))\n\n            ist.append(inputState.watchWithModifiers(\"turnRight\", \"arrow_right\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watch(\"turnRight\", \"mouse-look_right\", \"mouse-look_right-done\"))\n            ist.append(inputState.watch(\"turnRight\", \"force-turnRight\", \"force-turnRight-stop\"))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4140
+  }
+}

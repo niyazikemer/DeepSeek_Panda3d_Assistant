@@ -1,0 +1,9 @@
+{
+  "content": "The `ContainerLeakDetector` class is a low-priority Python object-graph walker designed to detect leaking containers. It performs random walks through Python objects to identify containers without maintaining a full set of visited objects, ensuring memory efficiency while eventually discovering all reachable containers. The class initializes essential components for detecting leaks, including jobs for finding containers (`_findContainersJob`), checking container sizes (`_checkContainersJob`), and pruning object references (`_pruneContainersJob`). This foundational setup enables the detector to schedule leak checks at increasing intervals and manage memory usage by periodically removing outdated object references.\n\nclass ContainerLeakDetector(Job):\n    \"\"\"\n    Low-priority Python object-graph walker that looks for leaking containers.\n    To reduce memory usage, this does a random walk of the Python objects to\n    discover containers rather than keep a set of all visited objects; it may\n    visit the same object many times but eventually it will discover every object.\n    Checks container sizes at ever-increasing intervals.\n    \"\"\"\n    notify = directNotify.newCategory(\"ContainerLeakDetector\")\n    # set of containers that should not be examined\n    PrivateIds: set[int] = set()\n\n    def __init__(self, name, firstCheckDelay = None):\n        Job.__init__(self, name)\n        self._serialNum = serialNum()\n\n        self._findContainersJob = None\n        self._checkContainersJob = None\n        self._pruneContainersJob = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4533
+  }
+}

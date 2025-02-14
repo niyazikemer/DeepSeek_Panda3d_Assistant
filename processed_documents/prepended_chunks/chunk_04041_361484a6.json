@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the initialization process for an AvatarControls class, setting up physics and collision detection components including ray casting for ground detection and sphere collisions for walls, while enabling interaction with the game world.\n\nassert not avatarNodePath.isEmpty()\n\n        self.cTrav = collisionTraverser\n        self.floorOffset = floorOffset = 7.0\n\n        self.avatarNodePath = self.setupPhysics(avatarNodePath)\n        if self.useHeightRay:\n            #self.setupRay(floorBitmask, avatarRadius)\n            self.setupRay(floorBitmask, 0.0)\n        self.setupSphere(wallBitmask|floorBitmask, avatarRadius)\n\n        self.setCollisionsActive(1)\n\n    def setAirborneHeightFunc(self, getAirborneHeight):\n        self.getAirborneHeight = getAirborneHeight",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4041
+  }
+}

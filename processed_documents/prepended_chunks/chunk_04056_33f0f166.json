@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a section of debugging output that displays information about the physics object's velocity and prior parent vectors. It is best situated within the `handleAvatarControls` task function, specifically near where the physics object's velocity is retrieved and manipulated. This placement ensures that the debug information is updated each frame and appears in the context of handling avatar movement controls.\n\n```python\n# within handleAvatarControls method:\nphysObject = self.actorNode.getPhysicsObject()\n\n# Add debugging output for physics object velocity and prior parent vectors\nonScreenDebug.add(\"physObject vel\", physObject.getVelocity().pPrintValues())\nonScreenDebug.add(\"physObject len\", \"% 10.4f\" % physObject.getVelocity().length())\nonScreenDebug.add(\"priorParent\", self.priorParent.getLocalVector().pPrintValues())\n\n# Continue with velocity calculations and movement controls\n```\n\nonScreenDebug.add(\"physObject vel\",\n                    physObject.getVelocity().pPrintValues())\n                onScreenDebug.add(\"physObject len\",\n                    \"% 10.4f\"%physObject.getVelocity().length())\n\n                #onScreenDebug.add(\"posDelta4\",\n                #    self.priorParentNp.getRelativeVector(\n                #        render,\n                #        self.avatarNodePath.getPosDelta(render)).pPrintValues())\n\n                onScreenDebug.add(\"priorParent\",\n                    self.priorParent.getLocalVector().pPrintValues())\n\n                #onScreenDebug.add(\"priorParent po\",\n                #    self.priorParent.getVector(physObject).pPrintValues())\n\n                #onScreenDebug.add(\"__posDelta\",\n                #    self.__oldPosDelta.pPrintValues())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4056
+  }
+}

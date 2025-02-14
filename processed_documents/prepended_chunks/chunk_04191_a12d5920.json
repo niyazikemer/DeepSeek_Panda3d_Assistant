@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of the `EventManager` class, specifically the `processEvent` method. This section handles sending processed events back to the C++ layer using the `eventHandler`, ensuring proper communication between Python and C++. It also includes a check for an unnamed event, logging a warning if detected.\n\n# Also send the event down into C++ land\n            handler = self.eventHandler\n            if handler:\n                handler.dispatchEvent(event)\n\n        else:\n            # An unnamed event from C++ is probably a bad thing\n            EventManager.notify.warning('unnamed event in processEvent')\n\n    def processEventPstats(self, event):\n        \"\"\"\n        Process a C++ event with pstats tracking\n        Duplicate any changes in processEvent\n        \"\"\"\n        # ********************************************************\n        # ******** Duplicate any changes in processEvent *********\n        # ********************************************************\n        # Get the event name\n        eventName = event.name\n        if eventName:\n            paramList = []\n            for eventParameter in event.parameters:\n                eventParameterData = self.parseEventParameter(eventParameter)\n                paramList.append(eventParameterData)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4191
+  }
+}

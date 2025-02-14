@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears in the `ControlManager` class, which manages different avatar control systems and input states. It handles enabling/disabling controls, switching between control types (e.g., WASD vs arrow key navigation), and managing task events for movement. The specific code chunk adds functionality to ensure compatibility with Toontown by watching arrow keys when disabling controls, and provides string representation and control addition methods.\n\nContext:  \nThe code chunk is part of the `disable` method implementation in a class that manages avatar controls, ensuring input states are properly reset while maintaining compatibility with Toontown's expected behavior.\n\nif self.passMessagesThrough: # for not breaking toontown\n            ist=self.inputStateTokens\n            ist.append(inputState.watchWithModifiers(\"forward\", \"arrow_up\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watchWithModifiers(\"reverse\", \"arrow_down\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watchWithModifiers(\"turnLeft\", \"arrow_left\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watchWithModifiers(\"turnRight\", \"arrow_right\", inputSource=inputState.ArrowKeys))\n\n    def __str__(self):\n        return 'ControlManager: using \\'%s\\'' % self.currentControlsName\n\n    def add(self, controls, name=\"basic\"):\n        \"\"\"Add a control instance to the list of available control systems.\n\n        Args:\n            controls: an avatar control system.\n            name (str): any key that you want to use to refer to the controls\n                later (e.g. using the use(<name>) call).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4130
+  }
+}

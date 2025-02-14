@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a larger document that implements an avatar control system in a 3D environment using Panda3D. The chunk specifically focuses on setting up the physics components required for the avatar, including creating an `ActorNode` for handling physical interactions, adding gravity forces, and reparenting nodes to manage the avatar's movement and collision detection within the virtual world. This setup is essential for enabling realistic physics-based interactions and controls for the avatar in the game or simulation environment.\n\nself.pusher.addCollider(self.cSphereNodePath, self.avatarNodePath)\n\n    def setupPhysics(self, avatarNodePath):\n        assert self.debugPrint(\"setupPhysics()\")\n        # Connect to Physics Manager:\n        self.actorNode=ActorNode(\"PW physicsActor\")\n        self.actorNode.getPhysicsObject().setOriented(1)\n        self.actorNode.getPhysical(0).setViscosity(0.1)\n        physicsActor=NodePath(self.actorNode)\n        avatarNodePath.reparentTo(physicsActor)\n        avatarNodePath.assign(physicsActor)\n        self.phys=PhysicsManager()\n\n        fn=ForceNode(\"gravity\")\n        fnp=NodePath(fn)\n        #fnp.reparentTo(physicsActor)\n        fnp.reparentTo(render)\n        gravity=LinearVectorForce(0.0, 0.0, self.__gravity)\n        fn.addForce(gravity)\n        self.phys.addLinearForce(gravity)\n        self.gravity = gravity",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4038
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `_TaskNamePatternLeakDetector` is a specialized leak detection class designed to monitor and count tasks in `taskMgr` based on specific name patterns, ensuring no unwanted accumulation of task types occurs.\n\nclass _TaskNamePatternLeakDetector(LeakDetector, TaskLeakDetectorBase):\n    # tracks the number of each individual task type\n    # e.g. are we leaking 'examine-<doId>' tasks\n    def __init__(self, taskNamePattern):\n        self._taskNamePattern = taskNamePattern\n        LeakDetector.__init__(self)\n\n    def __len__(self):\n        # count the number of tasks that match our task name pattern\n        numTasks = 0\n        for task in taskMgr.getTasks():\n            if self._getTaskNamePattern(task.name) == self._taskNamePattern:\n                numTasks += 1\n        for task in taskMgr.getDoLaters():\n            if self._getTaskNamePattern(task.name) == self._taskNamePattern:\n                numTasks += 1\n        return numTasks\n\n    def getLeakDetectorKey(self):\n        return '%s-%s' % (self._taskNamePattern, self.__class__.__name__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4749
+  }
+}

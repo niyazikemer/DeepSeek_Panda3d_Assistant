@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is situated within the `_excepthookDumpVars` function, which handles exception processing. The chunk is responsible for appending additional error information to a string `s`, logging it if enabled, and optionally uploading it. It then calls the original excepthook after processing all traceback frames. This occurs during the cleanup phase of exception handling after gathering stack data.\n\ntb = tb.tb_next\n\n    if foundRun:\n        s += '\\n'\n        if wantStackDumpLog:\n            notify.info(s)\n        if wantStackDumpUpload:\n            excStrs = traceback.format_exception(eType, eValue, origTb)\n            for excStr in excStrs:\n                s += excStr\n            timeMgr = None\n            try:\n                timeMgr = base.cr.timeManager\n            except Exception:\n                try:\n                    timeMgr = simbase.air.timeManager\n                except Exception:\n                    pass\n            if timeMgr:\n                timeMgr.setStackDump(s)\n\n    oldExcepthook(eType, eValue, origTb)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_273",
+    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
+    "chunk_number": 4777
+  }
+}

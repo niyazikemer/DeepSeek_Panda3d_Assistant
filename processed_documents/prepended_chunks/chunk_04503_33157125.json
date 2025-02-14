@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of an object reference manager designed to track and manage references to containers (like lists, dictionaries, etc.) in Python. The specific code handles the case where `curObj` is a `types.CellType` instance (introduced in Python 3.8), which represents a cell containing the contents of a closure or generator. The code checks if the cell's contents (`child`) have a length or are not a dead end, then creates an `ObjectRef` to track this child object and its relationships for further processing. This helps manage memory by efficiently tracking and pruning unused references in long-running applications.\n\n# types.CellType was added in Python 3.8\n                if type(curObj) is types.CellType:\n                    child = curObj.cell_contents\n                    hasLength = self._hasLength(child)\n                    notDeadEnd = not self._isDeadEnd(child)\n                    if hasLength or notDeadEnd:\n                        objRef = ObjectRef(Indirection(evalStr='.cell_contents'),\n                                           id(child), parentObjRef)\n                        yield None\n                        if hasLength:\n                            for i in self._addContainerGen(child, objRef):\n                                yield None\n                        if notDeadEnd:\n                            self._addDiscoveredStartRef(child, objRef)\n                            curObjRef = objRef\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4503
+  }
+}

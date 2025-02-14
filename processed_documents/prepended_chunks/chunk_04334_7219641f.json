@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function within the VFSImporter class responsible for writing temporary files during the import process, specifically when copying data from a virtual file to a temporary disk file. This operation facilitates integration with Panda3D's virtual file system by ensuring that modules can be loaded correctly from these temporary locations.\n\n```python\n\"\"\"\nThis code is part of a method in the VFSImporter class responsible for creating and writing temporary files. It handles the copying of data from a virtual file to a temporary disk file, which is necessary for integrating with Panda3D's virtual file system.\n\"\"\"\n```\n\nfilename = Filename.temporary('', self.filename.getBasenameWoExtension(),\n                                          '.' + self.filename.getExtension(),\n                                          type = Filename.TDso)\n            filename.setExtension(self.filename.getExtension())\n            filename.setBinary()\n            sin = vfile.openReadFile(True)\n            sout = OFileStream()\n            if not filename.openWrite(sout):\n                raise IOError\n            if not copyStream(sin, sout):\n                raise IOError\n            vfile.closeReadFile(sin)\n            del sout",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4334
+  }
+}

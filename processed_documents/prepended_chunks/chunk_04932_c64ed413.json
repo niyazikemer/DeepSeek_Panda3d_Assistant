@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within a method that initializes or reinitializes mouse controls for a window, specifically within a class responsible for managing graphics initialization and setup (likely `ShowBase`). The method handles the creation and management of `ButtonThrower` and related nodes to facilitate mouse interaction with the 3D scene. It also addresses multi-window support by properly removing existing mouse control structures before setting up new ones.\n\n:returns: The ButtonThrower NodePath created for this window.\n        \"\"\"\n        if not fMultiWin and self.buttonThrowers is not None:\n            for bt in self.buttonThrowers:\n                mw = bt.getParent()\n                mk = mw.getParent()\n                bt.removeNode()\n                mw.removeNode()\n                mk.removeNode()\n\n        bts, pws = self.setupMouseCB(win)\n\n        if fMultiWin:\n            return bts[0]\n\n        self.buttonThrowers = bts[:]\n        self.pointerWatcherNodes = pws[:]\n\n        self.mouseWatcher = self.buttonThrowers[0].getParent()\n        self.mouseWatcherNode = self.mouseWatcher.node()\n\n        if self.mouseInterface:\n            self.mouseInterface.reparentTo(self.mouseWatcher)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4932
+  }
+}

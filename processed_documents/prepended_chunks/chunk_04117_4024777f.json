@@ -1,0 +1,9 @@
+{
+  "content": "The `handleAvatarControls` method in the `TwoDWalker` class is responsible for managing the avatar's movement controls in a 2D scroller game environment, specifically handling jump mechanics and updating the avatar's airborne state based on ground detection.\n\ndef handleAvatarControls(self, task):\n        \"\"\"\n        Check on the arrow keys and update the avatar.\n        \"\"\"\n        # get the button states:\n        jump = inputState.isSet(\"forward\")\n        if self.lifter.isOnGround():\n            if self.isAirborne:\n                self.isAirborne = 0\n                assert self.debugPrint(\"isAirborne 0 due to isOnGround() true\")\n                impact = self.lifter.getImpactVelocity()\n                messenger.send(\"jumpLand\")\n            assert self.isAirborne == 0\n            self.priorParent = Vec3.zero()\n        else:\n            if self.isAirborne == 0:\n                assert self.debugPrint(\"isAirborne 1 due to isOnGround() false\")\n            self.isAirborne = 1\n\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_229",
+    "parent": "processed_documents/context_documents/1cd2beea_TwoDWalker.json",
+    "chunk_number": 4117
+  }
+}

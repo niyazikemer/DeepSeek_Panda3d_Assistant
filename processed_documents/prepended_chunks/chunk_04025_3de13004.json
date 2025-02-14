@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk represents the vertex shader component of a Cg-based shader program assigned to `BLUR_YPARAMS`. This vertex shader (`vshader`) transforms input vertex positions and texture coordinates, preparing them for fragment processing.\n\nBLUR_Y = \"\"\"\n//Cg\n//\n//Cg profile arbvp1 arbfp1\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float2 l_texcoord0 : TEXCOORD0,\n             uniform float4 texpad_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  l_texcoord0 = vtx_texcoord * texpad_src.xy * 2;\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_224",
+    "parent": "processed_documents/context_documents/bc312466_filterBlurY.json",
+    "chunk_number": 4025
+  }
+}

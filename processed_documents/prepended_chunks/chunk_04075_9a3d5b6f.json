@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `setupWallSphere` method which creates a collision sphere to detect wall collisions, attached to the avatar node path with specified radius and bitmask settings, ensuring proper interaction with walls while ignoring floor collisions.\n\nself.lifter.addCollider(self.cRayNodePath, self.avatarNodePath)\n\n    def setupWallSphere(self, bitmask, avatarRadius):\n        \"\"\"\n        Set up the collision sphere\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        # This is a sphere on the ground to detect collisions with\n        # walls, but not the floor.\n        self.avatarRadius = avatarRadius\n        cSphere = CollisionSphere(0.0, 0.0, avatarRadius, avatarRadius)\n        cSphereNode = CollisionNode('GW.cWallSphereNode')\n        cSphereNode.addSolid(cSphere)\n        cSphereNodePath = self.avatarNodePath.attachNewNode(cSphereNode)\n\n        cSphereNode.setFromCollideMask(bitmask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4075
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `setCollisionsActive` method in an AvatarControls class, which manages enabling or disabling collision detection for an avatar. This method updates the collision state, ensures proper collision handling by forcing a one-time collision pass, initializes the shadow traverser, and includes a hack to reset the avatar's pitch and roll angles when collisions are activated. The method is part of a larger system that handles avatar physics, controls, and collision detection in a 3D environment.\n\ndel self.pusher\n        # del self.pusherFloor\n        del self.event\n        del self.lifter\n\n        del self.getAirborneHeight\n\n    def setCollisionsActive(self, active = 1):\n        assert self.notify.debugStateCall(self)\n        if self.collisionsActive != active:\n            self.collisionsActive = active\n            # Each time we change the collision geometry, make one\n            # more pass to ensure we aren't standing in a wall.\n            self.oneTimeCollide()\n            # make sure we have a shadow traverser\n            base.initShadowTrav()\n            if active:\n                # Please let skyler or drose know if this is causing a problem\n                # This is a bit of a hack fix:\n                self.avatarNodePath.setP(0.0)\n                self.avatarNodePath.setR(0.0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4083
+  }
+}

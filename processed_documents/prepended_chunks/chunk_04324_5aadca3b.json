@@ -1,0 +1,9 @@
+{
+  "content": "The `VFSImporter` class is a core component of a Python module designed to integrate Panda's Virtual File System (VFS) into Python's import mechanism, enabling dynamic loading of Python source files from virtual file systems or mounted archives like .mf files.\n\nclass VFSImporter:\n    \"\"\" This class serves as a Python importer to support loading\n    Python .py and .pyc/.pyo files from Panda's Virtual File System,\n    which allows loading Python source files from mounted .mf files\n    (among other places). \"\"\"\n\n    def __init__(self, path):\n        if isinstance(path, Filename):\n            self.dir_path = Filename(path)\n        else:\n            self.dir_path = Filename.fromOsSpecific(path)\n\n    def find_module(self, fullname, path = None):\n        if path is None:\n            dir_path = self.dir_path\n        else:\n            dir_path = path\n        #print >>sys.stderr, \"find_module(%s), dir_path = %s\" % (fullname, dir_path)\n        basename = fullname.split('.')[-1]\n        path = Filename(dir_path, basename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4324
+  }
+}

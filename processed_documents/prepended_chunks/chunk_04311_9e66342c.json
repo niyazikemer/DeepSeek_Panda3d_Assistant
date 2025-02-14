@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a method in a class that handles UI transitions. Specifically, this chunk belongs to the `letterboxOff` method, which manages the animation of removing black bars from the screen. The parameters `t` and `blendType` control the duration and type of animation used to move the top bar up and the bottom bar down, effectively hiding them off-screen. The sequence includes stashing the letterbox UI elements after completion, finishing the letterbox animation, sending a 'letterboxOff' message via messenger, starting the interval, and returning an AsyncFuture for asynchronous handling.\n\nt,\n                                pos = Vec3(0, 0, 1),\n                                # startPos = Vec3(0, 0, 0.8),\n                                blendType=blendType\n                                ),\n            ),\n                Func(self.letterbox.stash),\n                Func(self.__finishLetterbox),\n                Func(messenger.send, 'letterboxOff'),\n                name = self.letterboxTaskName,\n            )\n            if finishIval:\n                self.letterboxIval.append(finishIval)\n            self.letterboxIval.start()\n            return self.__letterboxFuture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4311
+  }
+}

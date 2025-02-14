@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function or script that generates random numbers following a Gaussian (normal) distribution, specifically clamping the output to lie between `a` and `b`. The code uses statistical properties of the normal distribution (68-95-99.7 rule) to ensure generated values stay within 3 standard deviations of the mean, which covers 99.7% of cases. This is a utility function for generating random numbers with controlled variability in simulations or probabilistic algorithms.\n\n```python\ndef gaussClamped(a, b):\n    \"\"\"\n    Return a Gaussian random number clamped to [a,b] by rejecting out-of-range samples.\n    The standard deviation is set to (b-a)/6 to ensure that 99.7% of values lie within the range.\n    \"\"\"\n    while True:\n        r = gauss((a+b)*0.5, (b-a)/6.)\n        if a <= r <= b:\n            return r\n```\n\nThus, for a normal distribution, almost all values lie within 3 standard\n      deviations of the mean.\n    ------------------------------------------------------------------------\n\n    In calculating our standard deviation, we divide (b-a) by 6, since the\n    99.7% figure includes 3 standard deviations _on_either_side_ of the mean.\n    \"\"\"\n    while True:\n        r = gauss((a+b)*.5, (b-a)/6.)\n        if (r >= a) and (r <= b):\n            return r",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4650
+  }
+}

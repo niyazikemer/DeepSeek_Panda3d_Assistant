@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method in a class responsible for managing graphics pipes in a rendering system, likely related to Panda3D's GraphicsPipeSelection functionality. The method `makeAllPipes()` creates all known graphics pipes by iterating through pipe types and ensuring each is added to the system if not already present. This context situates the chunk within the overall document as part of a broader discussion on graphics pipeline management and configuration.\n\n**Context:**  \nThe code describes how the `makeAllPipes` method in a class creates all available graphics pipes, ensuring the default pipe exists and adding any additional known pipe types to the system.\n\n:rtype: panda3d.core.GraphicsPipe\n        \"\"\"\n\n        selection = GraphicsPipeSelection.getGlobalPtr()\n        return selection.makeModulePipe(moduleName)\n\n    def makeAllPipes(self):\n        \"\"\"\n        Creates all GraphicsPipes that the system knows about and fill up\n        `pipeList` with them.\n        \"\"\"\n        selection = GraphicsPipeSelection.getGlobalPtr()\n        selection.loadAuxModules()\n\n        # First, we should make sure the default pipe exists.\n        if self.pipe is None:\n            self.makeDefaultPipe()\n\n        # Now go through the list of known pipes, and make each one if\n        # we don't have one already.\n        numPipeTypes = selection.getNumPipeTypes()\n        for i in range(numPipeTypes):\n            pipeType = selection.getPipeType(i)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4882
+  }
+}

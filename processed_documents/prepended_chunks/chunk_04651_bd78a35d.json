@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two functions: `weightedRand` and `randUint31`. These functions are part of a collection of utility methods for handling random selections and generating random integers within specific constraints.\n\ndef weightedRand(valDict, rng=random.random):\n    \"\"\"\n    pass in a dictionary with a selection -> weight mapping.  E.g.::\n\n        {\"Choice 1\": 10,\n         \"Choice 2\": 30,\n         \"bear\":     100}\n\n    - Weights need not add up to any particular value.\n    - The actual selection will be returned.\n    \"\"\"\n    selections = list(valDict.keys())\n    weights = list(valDict.values())\n\n    totalWeight = 0\n    for weight in weights:\n        totalWeight += weight\n\n    # get a random value between 0 and the total of the weights\n    randomWeight = rng() * totalWeight\n\n    # find the index that corresponds with this weight\n    for i in range(len(weights)):\n        totalWeight -= weights[i]\n        if totalWeight <= randomWeight:\n            return selections[i]\n\n    assert True, \"Should never get here\"\n    return selections[-1]\n\n\ndef randUint31(rng=random.random):\n    \"\"\"returns a random integer in [0..2^31).\n    rng must return float in [0..1]\"\"\"\n    return int(rng() * 0x7FFFFFFF)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4651
+  }
+}

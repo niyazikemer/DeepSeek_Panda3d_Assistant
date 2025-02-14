@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is situated within a method responsible for setting up a new camera and its associated display region in a Panda3D application. The code initializes the camera's mask, sets up the camera node and lens if they are not already initialized, appends the camera to a list for later management, creates a display region (either stereo or mono based on configuration), configures the sorting order of the display region, and enables depth clearing if specified. This is part of a larger context where multiple cameras or windows might be managed, allowing for complex rendering setups including stereo displays.\n\nif mask is not None:\n            if isinstance(mask, int):\n                mask = BitMask32(mask)\n            camNode.setCameraMask(mask)\n\n        if self.cam is None:\n            self.cam = cam\n            self.camNode = camNode\n            self.camLens = lens\n\n        self.camList.append(cam)\n\n        # Now, make a DisplayRegion for the camera.\n        if stereo is not None:\n            if stereo:\n                dr = win.makeStereoDisplayRegion(*displayRegion)\n            else:\n                dr = win.makeMonoDisplayRegion(*displayRegion)\n        else:\n            dr = win.makeDisplayRegion(*displayRegion)\n\n        dr.setSort(sort)\n\n        # By default, we do not clear 3-d display regions (the entire\n        # window will be cleared, which is normally sufficient).  But\n        # we will if clearDepth is specified.\n        if clearDepth:\n            dr.setClearDepthActive(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4925
+  }
+}

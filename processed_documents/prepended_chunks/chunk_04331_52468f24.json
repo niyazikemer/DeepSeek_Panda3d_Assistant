@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a custom module importer system designed to handle Python imports through Panda's virtual file system. It includes methods for reading source code, handling compiled files, and importing binary extensions. This context is relevant for understanding how modules are loaded and executed within a virtualized filesystem environment, particularly when dealing with shared packages or dynamically adding directories to the import search path.\n\nThis code is situated within a larger framework that manages Python imports by integrating with Panda's VFS (Virtual File System), enabling support for importing modules from various file types including `.py`, `.pyc`, and binary extensions.\n\ndef get_code(self, fullname):\n        return self._read_code()\n\n    def get_source(self, fullname):\n        return self._read_source()\n\n    def get_filename(self, fullname):\n        return self.filename.toOsSpecific()\n\n    def _read_source(self):\n        \"\"\" Returns the Python source for this file, if it is\n        available, or None if it is not.  May raise IOError. \"\"\"\n\n        if self.desc[2] == imp.PY_COMPILED or \\\n           self.desc[2] == imp.C_EXTENSION:\n            return None\n\n        filename = Filename(self.filename)\n        filename.setExtension('py')\n        filename.setText()\n\n        # Use the tokenize module to detect the encoding.\n        import tokenize\n        fh = open(self.filename, 'rb')\n        encoding, lines = tokenize.detect_encoding(fh.readline)\n        return (b''.join(lines) + fh.read()).decode(encoding)\n\n    def _import_extension_module(self, fullname):\n        \"\"\" Loads the binary shared object as a Python module, and\n        returns it. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4331
+  }
+}

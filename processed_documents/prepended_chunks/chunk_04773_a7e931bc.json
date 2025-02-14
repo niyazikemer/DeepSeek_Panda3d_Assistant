@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an exception handler that constructs a detailed stack dump. It processes each frame of the traceback, gathering variables from built-ins, globals, and locals for debugging purposes when an exception occurs.\n\nelse:\n                tb = tb.tb_next\n                continue\n        s += '\\n  File \"%s\", line %s, in %s' % (\n            code.co_filename, frame.f_lineno, code.co_name)\n        stateStack = Stack()\n        # prime the stack with the variables we should visit from the frame's data structures\n        # grab all of the local, builtin and global variables that appear in the code's name list\n        name2obj = {}\n        for name, obj in frame.f_builtins.items():\n            if name in codeNames:\n                name2obj[name] = obj\n        for name, obj in frame.f_globals.items():\n            if name in codeNames:\n                name2obj[name] = obj\n        for name, obj in frame.f_locals.items():\n            if name in codeNames:\n                name2obj[name] = obj",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_273",
+    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
+    "chunk_number": 4773
+  }
+}

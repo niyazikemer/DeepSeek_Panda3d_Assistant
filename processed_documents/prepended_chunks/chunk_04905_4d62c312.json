@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of two methods within the `ShowBase` class: `setupWindowControls` and `setupRender`. These methods are utilized during the initialization phase of a 3D graphics application, particularly for setting up window controls and creating the primary scene graph. The `setupRender` method initializes the 3D rendering environment by creating the render node, while `setupWindowControls` configures input handling and camera settings for window management. Together, they are essential for initializing the graphical interface and rendering capabilities in a Panda3D application.\n\n# [gjeon] now you can add more winControls after creating a showbase instance\n    def setupWindowControls(self, winCtrl=None):\n        if winCtrl is None:\n            winCtrl = WindowControls(\n                self.win, mouseWatcher=self.mouseWatcher,\n                cam=self.camera, camNode = self.camNode, cam2d=self.camera2d,\n                mouseKeyboard = self.dataRoot.find(\"**/*\"))\n        self.winControls.append(winCtrl)\n\n    def setupRender(self) -> None:\n        \"\"\"\n        Creates the render scene graph, the primary scene graph for\n        rendering 3-d geometry.\n        \"\"\"\n        #: This is the root of the 3-D scene graph.\n        self.render = NodePath('render')\n        self.render.setAttrib(RescaleNormalAttrib.makeDefault())\n\n        self.render.setTwoSided(0)\n        self.backfaceCullingEnabled = True\n        self.textureEnabled = True\n        self.wireframeEnabled = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4905
+  }
+}

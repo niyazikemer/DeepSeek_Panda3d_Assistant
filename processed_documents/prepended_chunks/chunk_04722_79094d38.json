@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a leak detection mechanism in the `MessengerLeakDetector` class, which periodically checks objects registered with the `messenger` system. The code iterates through each object in the messenger's event registry and performs a breadth-first search (BFS) to determine if the object has any references outside of the messenger itself. If an object is only referenced by the messenger and no other part of the application, it is flagged as a potential memory leak. This process helps identify objects that may be preventing garbage collection unnecessarily.\n\nwhile True:\n            yield None\n            objects = list(messenger._Messenger__objectEvents.keys())\n            assert self.notify.debug('%s objects in the messenger' % len(objects))\n            for object in objects:\n                yield None\n                assert self.notify.debug('---> new object: %s' % itype(object))\n                # try to find a path to builtin that doesn't involve the messenger\n                # lists of objects for breadth-first search\n                # iterate through one list while populating other list\n                objList1 = []\n                objList2 = []\n                curObjList = objList1\n                nextObjList = objList2\n                visitedObjIds = set()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4722
+  }
+}

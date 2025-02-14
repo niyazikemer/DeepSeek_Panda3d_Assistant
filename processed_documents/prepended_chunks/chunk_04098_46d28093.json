@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of an AvatarControls system that manages 3D character movement using keyboard inputs. It calculates the direction of movement based on the current heading (rotation) of the avatar node. If airborne, it uses a fixed forward vector; if grounded, it computes movement relative to terrain normals. This section handles velocity calculations for character navigation in 3D environments, utilizing rotation matrices and cross products to determine movement vectors.\n\n# Take a step in the direction of our previous heading.\n            if distance or slideDistance or self.priorParent != Vec3.zero():\n                # rotMat is the rotation matrix corresponding to\n                # our previous heading.\n                rotMat=Mat3.rotateMatNormaxis(self.avatarNodePath.getH(), Vec3.up())\n                if self.isAirborne:\n                    forward = Vec3.forward()\n                else:\n                    contact = self.lifter.getContactNormal()\n                    forward = contact.cross(Vec3.right())\n                    # Consider commenting out this normalize.  If you do so\n                    # then going up and down slops is a touch slower and\n                    # steeper terrain can cut the movement in half.  Without\n                    # the normalize the movement is slowed by the cosine of\n                    # the slope (i.e. it is multiplied by the sign as a\n                    # side effect of the cross product above).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4098
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `renderQuadInto` method in the provided code chunk creates an offscreen buffer for intermediate rendering computations. It initializes the buffer with specified textures (depth, color, auxiliary) and optional framebuffer properties, scaling its size based on given parameters relative to the main window's dimensions. This setup facilitates rendering operations that can be further processed or composited, returning a fullscreen quad for subsequent use in the graphics pipeline.\n\nreturn quad\n\n    def renderQuadInto(self, name=\"filter-stage\", mul=1, div=1, align=1, depthtex=None, colortex=None, auxtex0=None, auxtex1=None, fbprops=None):\n\n        \"\"\" Creates an offscreen buffer for an intermediate\n        computation. Installs a quad into the buffer.  Returns\n        the fullscreen quad.  The size of the buffer is initially\n        equal to the size of the main window.  The parameters 'mul',\n        'div', and 'align' can be used to adjust that size. \"\"\"\n\n        texgroup = (depthtex, colortex, auxtex0, auxtex1)\n\n        winx, winy = self.getScaledSize(mul, div, align)\n\n        depthbits = int(depthtex is not None)\n\n        if fbprops is not None:\n            buffer = self.createBuffer(name, winx, winy, texgroup, depthbits, fbprops=fbprops)\n        else:\n            buffer = self.createBuffer(name, winx, winy, texgroup, depthbits)\n\n        if buffer is None:\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4013
+  }
+}

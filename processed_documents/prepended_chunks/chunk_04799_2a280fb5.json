@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains core class methods of the `CountedResource` class that manage resource counting and lifecycle through reference counting semantics, ensuring resources are acquired when first needed and released after all references are removed.\n\n@classmethod\n    def incrementCounter(cls):\n        try:\n            cls.RESOURCE_COUNTER += 1\n        except AttributeError:\n            cls.RESOURCE_COUNTER = 1\n\n        if cls.RESOURCE_COUNTER == 1:\n            cls.acquire()\n\n    @classmethod\n    def decrementCounter(cls):\n        try:\n            cls.RESOURCE_COUNTER_INIT_FAILED\n            del cls.RESOURCE_COUNTER_INIT_FAILED\n        except AttributeError:\n            cls.RESOURCE_COUNTER -= 1\n            if cls.RESOURCE_COUNTER < 1:\n                cls.release()\n\n    @classmethod\n    def getCount(cls):\n        return cls.RESOURCE_COUNTER\n\n    @classmethod\n    def acquire(cls):\n        pass\n\n    @classmethod\n    def release(cls):\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_277",
+    "parent": "processed_documents/context_documents/283aed1f_CountedResource.json",
+    "chunk_number": 4799
+  }
+}

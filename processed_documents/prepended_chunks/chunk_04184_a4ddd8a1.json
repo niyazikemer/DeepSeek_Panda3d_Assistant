@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class responsible for managing avatar controls in a game or simulation environment. It includes methods for enabling and disabling avatar movement controls, as well as flushing event handlers. The context involves task scheduling to handle avatar movement and input events, with debug logging functionality included for development purposes.\n\n```plaintext\nThe code chunk defines methods within the AvatarControls class that manage task scheduling for handling avatar controls, specifically enabling or disabling them by adding or removing tasks from the task manager. It also includes functionality to flush event handlers and provides debug logging capabilities.\n```\n\ntaskName = \"AvatarControls-%s\"%(id(self),)\n        # remove any old\n        taskMgr.remove(taskName)\n        # spawn the new task\n        taskMgr.add(self.handleAvatarControls, taskName)\n\n    def disableAvatarControls(self):\n        \"\"\"\n        Ignore the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"disableAvatarControls\")\n        taskName = \"AvatarControls-%s\"%(id(self),)\n        taskMgr.remove(taskName)\n\n    def flushEventHandlers(self):\n        if hasattr(self, 'cTrav'):\n            self.pusher.flush()\n        self.lifter.flush() # not currently defined or needed\n\n    if __debug__:\n        def debugPrint(self, message):\n            \"\"\"for debugging\"\"\"\n            return self.notify.debug(\n                    str(id(self))+' '+message)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4184
+  }
+}

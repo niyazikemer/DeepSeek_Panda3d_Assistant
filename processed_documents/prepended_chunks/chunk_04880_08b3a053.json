@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the `ShowBase` class, focusing on methods related to window management and graphics initialization. Specifically, it involves cleaning up Direct tools, resetting window-related attributes, and creating a default graphics pipe for rendering. These operations are crucial for setting up and managing the graphical interface in applications built using this framework.\n\n**Succinct Context:**\n\nThe code chunk is part of a class managing a 3D application's initialization and cleanup processes, including handling Direct tools, window management, and graphics pipeline setup within a Panda3D-style framework.\n\ntry:\n            self.direct.panel.destroy()  # type: ignore[attr-defined]\n        except Exception:\n            pass\n\n        self.win = None\n        self.winList.clear()\n        self.pipe = None\n\n    def makeDefaultPipe(self, printPipeTypes = None):\n        \"\"\"\n        Creates the default GraphicsPipe, which will be used to make\n        windows unless otherwise specified.\n        \"\"\"\n        assert self.pipe is None\n\n        if printPipeTypes is None:\n            # When the user didn't specify an explicit setting, take the value\n            # from the config variable. We could just omit the parameter, however\n            # this way we can keep backward compatibility.\n            printPipeTypes = ConfigVariableBool(\"print-pipe-types\", True).value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4880
+  }
+}

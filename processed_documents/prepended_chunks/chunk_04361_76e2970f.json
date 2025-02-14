@@ -1,0 +1,9 @@
+{
+  "content": "The `_examine` method is a core function within the `ContainerReport` class, which is designed to inspect and report on container objects (like lists, dictionaries, etc.) along with their nested contents. The purpose of this method is to determine whether an object should be further examined or not by checking if it's either a \"dead end\" type that cannot contain other objects or an internal/private object that shouldn't be processed. If the object passes these checks, it is enqueued for examination, allowing the class to recursively explore its contents and build detailed reports about container sizes and structures.\n\ndef _examine(self, obj):\n        # return False if it's an object that can't contain or lead to other objects\n        if type(obj) in deadEndTypes:\n            return False\n        # if it's an internal object, ignore it\n        if id(obj) in ContainerReport.PrivateIds:\n            return False\n        # this object might lead to more objects. put it on the queue\n        self._enqueueContainer(obj)\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4361
+  }
+}

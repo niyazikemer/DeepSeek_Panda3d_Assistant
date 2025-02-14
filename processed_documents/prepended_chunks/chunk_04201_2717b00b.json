@@ -1,0 +1,9 @@
+{
+  "content": "The `add` method is a critical component of the `JobManager` class, responsible for incorporating new jobs into the system. It assigns each job a priority level, stores it in specific dictionaries and lists for efficient access, initializes tracking variables such as timeslices and overflow time, and ensures proper scheduling by managing task additions and updating priority levels. This method is essential for maintaining the structure and functionality of the job management system within the class.\n\ndef add(self, job):\n        pri = job.getPriority()\n        jobId = job._getJobId()\n        # store the job in the main table\n        self._pri2jobId2job.setdefault(pri, {})\n        self._pri2jobId2job[pri][jobId] = job\n        # and also store a direct mapping from the job's ID to its priority\n        self._jobId2pri[jobId] = pri\n        # add the jobId onto the end of the list of jobIds for this priority\n        self._pri2jobIds.setdefault(pri, [])\n        self._pri2jobIds[pri].append(jobId)\n        # record the job's relative timeslice count\n        self._jobId2timeslices[jobId] = pri\n        # init the overflow time tracking\n        self._jobId2overflowTime[jobId] = 0.\n        # reset the jobId round-robin\n        self._jobIdGenerator = None\n        if len(self._jobId2pri) == 1:\n            taskMgr.add(self._process, JobManager.TaskName)\n            self._highestPriority = pri\n        elif pri > self._highestPriority:\n            self._highestPriority = pri",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4201
+  }
+}

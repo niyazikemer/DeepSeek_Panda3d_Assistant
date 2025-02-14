@@ -1,0 +1,9 @@
+{
+  "content": "The `_getReferents` method within the `GarbageReport` class is part of a system designed to detect and report on memory leaks and garbage cycles. This function retrieves objects referenced by each garbage object, checks if these references are themselves in the garbage list, and yields control periodically to support long-running operations. It's integral to mapping garbage object relationships for cycle detection.\n\ndef _getReferents(self, obj):\n        # referents (pointed to by garbage)\n        # returns two lists, first by index into gc.garbage, second by\n        # direct reference\n        yield None\n        byRef = gc.get_referents(obj)\n        yield None\n        # look to see if each referent is another garbage item\n        byNum = []\n        for i in range(len(byRef)):\n            if i % 20 == 0:\n                yield None\n            referent = byRef[i]\n            num = self._id2index.get(id(referent), None)\n            byNum.append(num)\n        yield byNum, byRef",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4273
+  }
+}

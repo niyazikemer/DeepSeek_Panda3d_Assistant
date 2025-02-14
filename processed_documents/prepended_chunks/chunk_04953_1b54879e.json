@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the implementation of the `disableAllAudio()` method within the `ShowBase` class, which is part of a larger document outlining various functions for managing application audio settings. This method is designed to disable all sound effects and music playback when the application loses audio focus, such as when it is switched out or minimized. The purpose is to provide a global override to temporarily stop audio output without altering the internal state of sound settings, ensuring that audio can be restored properly when the application regains focus. This functionality is grouped with other audio control methods like `enableAllAudio()` and `toggleAllAudio()`, which together allow for programmatic control over audio playback in response to application state changes.\n\n# enable/disableAllAudio allow a programmable global override-off\n    # for current audio settings.  they're meant to be called when app\n    # loses audio focus (switched out), so we can turn off sound without\n    # affecting internal sfxActive/musicActive sound settings, so things\n    # come back ok when the app is switched back to\n\n    def disableAllAudio(self):\n        \"\"\"\n        Disables all SFX and music managers, meant to be called when the app\n        loses audio focus.\n        \"\"\"\n        self.AppHasAudioFocus = 0\n        self.SetAllSfxEnables(0)\n        if self.musicManagerIsValid:\n            self.musicManager.setActive(0)\n        self.notify.debug(\"Disabling audio\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4953
+  }
+}

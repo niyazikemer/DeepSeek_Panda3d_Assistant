@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces the `ObjectTypeLeakDetector` class, which is designed to track and detect leaks of specific object types within an application. It complements other leak detection mechanisms in the document, such as task type and message listener leak detectors, by focusing on object-specific resource management. The detector tracks objects based on their type and generation, enabling accurate monitoring of object lifecycle and preventing memory leaks related to improperly managed objects.\n\nclass ObjectTypeLeakDetector(LeakDetector):\n    def __init__(self, otld, objType, generation):\n        self._otld = otld\n        self._objType = objType\n        self._generation = generation\n        LeakDetector.__init__(self)\n\n    def destroy(self):\n        self._otld = None\n        LeakDetector.destroy(self)\n\n    def getLeakDetectorKey(self):\n        return '%s-%s' % (self._objType, self.__class__.__name__)\n\n    def __len__(self):\n        num = self._otld._getNumObjsOfType(self._objType, self._generation)\n        self._generation = self._otld._getGeneration()\n        return num",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4743
+  }
+}

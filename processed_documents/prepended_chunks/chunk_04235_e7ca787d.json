@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines how rows and columns are calculated based on different layouts (hline, vline, hgrid, vgrid, cycle) in the `maintainReadout` method of the `BufferViewer` class.\n\n# Decide how many rows and columns to use for the layout.\n        if self.layout == \"hline\":\n            rows = 1\n            cols = ncards\n        elif self.layout == \"vline\":\n            rows = ncards\n            cols = 1\n        elif self.layout == \"hgrid\":\n            rows = int(math.sqrt(ncards))\n            cols = rows\n            if rows * cols < ncards:\n                cols += 1\n            if rows * cols < ncards:\n                rows += 1\n        elif self.layout == \"vgrid\":\n            rows = int(math.sqrt(ncards))\n            cols = rows\n            if rows * cols < ncards:\n                rows += 1\n            if rows * cols < ncards:\n                cols += 1\n        elif self.layout == \"cycle\":\n            rows = 1\n            cols = 1\n        else:\n            BufferViewer.notify.error('shouldnt ever get here in BufferViewer.maintainReadout')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4235
+  }
+}

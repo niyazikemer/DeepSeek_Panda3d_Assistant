@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk describes functionality within the document related to creating and configuring a cube map buffer for rendering purposes. It involves initializing a NodePath, setting up a camera lens, and creating a display region to convert the cube map into another format, likely for use in applications requiring spherical or equirectangular projections, such as virtual reality or 360-degree video rendering.\n\n# Now make the cube map buffer.\n        rig = NodePath(namePrefix)\n        buffer = toSphere.makeCubeMap(namePrefix, size, rig, cameraMask, 0)\n        if buffer is None:\n            self.graphicsEngine.removeWindow(toSphere)\n            raise Exception(\"Could not make cube map.\")\n\n        # Set the near and far planes from the default lens.\n        lens = rig.find('**/+Camera').node().getLens()\n        lens.setNearFar(sourceLens.getNear(), sourceLens.getFar())\n\n        # Set up the scene to convert the cube map.  It's just a\n        # simple scene, with only the FisheyeMaker object in it.\n        dr = toSphere.makeMonoDisplayRegion()\n        camNode = Camera('camNode')\n        lens = OrthographicLens()\n        lens.setFilmSize(2, 2)\n        lens.setNearFar(-1000, 1000)\n        camNode.setLens(lens)\n        root = NodePath('buffer')\n        cam = root.attachNewNode(camNode)\n        dr.setCamera(cam)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4996
+  }
+}

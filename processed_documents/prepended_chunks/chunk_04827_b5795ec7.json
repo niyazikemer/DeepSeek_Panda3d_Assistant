@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `GarbageReportScheduler` class, which schedules and runs garbage collection reports at configurable intervals. The chunk includes the initialization and task name retrieval methods of this class, while omitting the actual scheduling and report execution logic ( `_scheduleNextGarbageReport` and `_runGarbageReport` methods).\n\nclass GarbageReportScheduler:\n    \"\"\"Runs a garbage report every once in a while and logs the results.\"\"\"\n\n    def __init__(self, waitBetween=None, waitScale=None):\n        # waitBetween is in seconds\n        # waitScale is a multiplier for the waitBetween every time around\n        if waitBetween is None:\n            waitBetween = 30*60\n        if waitScale is None:\n            waitScale = 1.5\n        self._waitBetween = waitBetween\n        self._waitScale = waitScale\n        self._taskName = 'startScheduledGarbageReport-%s' % serialNum()\n        self._garbageReport = None\n        self._scheduleNextGarbageReport()\n\n    def getTaskName(self):\n        return self._taskName",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_281",
+    "parent": "processed_documents/context_documents/c9398f36_GarbageReportScheduler.json",
+    "chunk_number": 4827
+  }
+}

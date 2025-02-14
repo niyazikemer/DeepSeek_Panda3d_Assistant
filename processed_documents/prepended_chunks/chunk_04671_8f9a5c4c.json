@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a function used for generating human-readable representations of objects, likely for debugging or logging purposes. The specific chunk handles the case where the object being inspected is a dictionary. It checks if the dictionary exceeds a specified maximum length (`maxLen`), truncates it if necessary, and then recursively processes each key-value pair to build the string representation. This code uses `_visitedIds` to track objects that have already been processed to prevent infinite recursion in cases of cyclic references.\n\nThe function is designed to create concise representations of potentially complex or deeply nested data structures, making it easier to inspect and debug them. The chunk specifically focuses on handling dictionaries by iterating over their keys (and values) while managing the output length with an ellipsis (`...`) if truncation occurs.\n\nif maxLen is not None and len(obj) > maxLen:\n            o = list(obj.keys())[:maxLen]\n            ellips = '...'\n        else:\n            o = list(obj.keys())\n            ellips = ''\n        _visitedIds.add(id(obj))\n        for key in o:\n            value = obj[key]\n            s += '%s: %s, ' % (deeptype(key, maxLen, _visitedIds=_visitedIds),\n                               deeptype(value, maxLen, _visitedIds=_visitedIds))\n        _visitedIds.remove(id(obj))\n        s += ellips\n        s += '}'\n        return s\n    else:\n        return str(itype(obj))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4671
+  }
+}

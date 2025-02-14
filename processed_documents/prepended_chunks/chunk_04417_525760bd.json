@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a conditional block that configures `LoaderOptions` related to texture loading, specifically handling multi-view textures by setting appropriate flags and the number of views. This context is relevant in methods such as `loadTexture` or similar functions where texture loading options are defined based on input parameters like `multiview` and `numViews`.\n\nelse:\n            loaderOptions = LoaderOptions(loaderOptions)\n        if multiview is not None:\n            flags = loaderOptions.getTextureFlags()\n            if multiview:\n                flags |= LoaderOptions.TFMultiview\n            else:\n                flags &= ~LoaderOptions.TFMultiview\n            loaderOptions.setTextureFlags(flags)\n            loaderOptions.setTextureNumViews(numViews)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4417
+  }
+}

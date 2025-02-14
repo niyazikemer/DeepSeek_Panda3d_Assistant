@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of several methods from a Python class related to managing visual elements such as textures or cards. The `setLayout` method configures how elements are displayed, supporting different arrangements like vertical line (`'vline'`) or horizontal grid (`'hgrid'`). The `selectCard` and `advanceCard` methods are used for navigation when in `'cycle'` mode, allowing users to switch between individual cards by index. These methods ensure the visual display updates correctly based on user interactions.\n\nThe default value is 'hline'.\"\"\"\n        valid=[\"vline\", \"hline\", \"vgrid\", \"hgrid\", \"cycle\"]\n        if valid.count(lay) == 0:\n            BufferViewer.notify.error('invalid parameter to BufferViewer.setLayout')\n            BufferViewer.notify.error('valid parameters are: vline, hline, vgrid, hgrid, cycle')\n            return\n        self.layout = lay\n        self.dirty = 1\n\n    def selectCard(self, i):\n        \"\"\"Only useful when using setLayout('cycle').  Sets the index\n        that selects which card to display.  The index is taken modulo\n        the actual number of cards.\"\"\"\n        self.cardindex = i\n        self.dirty = 1\n\n    def advanceCard(self):\n        \"\"\"Only useful when using setLayout('cycle').  Increments the index\n        that selects which card to display.  The index is taken modulo\n        the actual number of cards.\"\"\"\n        self.cardindex += 1\n        self.dirty = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4223
+  }
+}

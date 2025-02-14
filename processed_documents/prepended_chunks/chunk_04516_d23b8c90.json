@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a job or task management system that monitors container growth and handles exceptions. It checks if a container has grown beyond expected limits and logs warnings with relevant details if growth is detected. If an exception occurs during this process, it logs a debug message to handle errors gracefully.\n\ntry:\n                                        for container in self._leakDetector.getContainerByIdGen(objId):\n                                            yield None\n                                    except Exception:\n                                        # TODO\n                                        self.notify.debug('caught exception in getContainerByIdGen (1)')\n                                    else:\n                                        self.notify.warning(\n                                            '%s (%s) grew %.2f%% in %.2f minutes (%s items at last measurement, current contents: %s)' % (\n                                            name, itype(container), percent, minutes, idx2id2len[self._index][objId],\n                                            fastRepr(container, maxLen=CheckContainers.ReprItems)))\n                                    yield None\n                                    \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4516
+  }
+}

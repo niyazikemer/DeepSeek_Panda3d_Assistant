@@ -1,0 +1,9 @@
+{
+  "content": "The `normalDistrib` function is part of a collection of utility functions designed for probabilistic and statistical operations. It generates random numbers within a specified range [a, b] using a Gaussian distribution, ensuring that results are confined within the given bounds through iterative resampling if necessary. This function complements other utilities in the document by providing a method to produce normally distributed values while leveraging Python's standard `random` module for underlying randomness generation.\n\ndef normalDistrib(a, b, gauss=random.gauss):\n    \"\"\"\n    NOTE: assumes a < b\n\n    Returns random number between a and b, using gaussian distribution, with\n    mean=avg(a, b), and a standard deviation that fits ~99.7% of the curve\n    between a and b.\n\n    For ease of use, outlying results are re-computed until result is in [a, b]\n    This should fit the remaining .3% of the curve that lies outside [a, b]\n    uniformly onto the curve inside [a, b]\n\n    ------------------------------------------------------------------------\n    The 68-95-99.7% Rule\n    ====================\n    All normal density curves satisfy the following property which is often\n      referred to as the Empirical Rule:\n    68% of the observations fall within 1 standard deviation of the mean.\n    95% of the observations fall within 2 standard deviations of the mean.\n    99.7% of the observations fall within 3 standard deviations of the mean.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4649
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a comprehensive docstring introducing the `PhasedObject` class, explaining its purpose to manage successive phases of loading and unloading resources in an ordered manner. It describes how objects can transition between defined phases, utilizing phase-specific functions (`loadPhase<#>` and `unloadPhase<#>`) and optional aliases for more descriptive naming. This context is situated at the beginning of the class definition within the document.\n\nclass PhasedObject:\n    \"\"\"\n    This class is governs the loading and unloading of successive\n    phases in an ordered and automatic manner.\n\n    An object can only have one phase at any given moment. At the\n    completion of setPhase() the current and all previous phases are\n    guaranteed to be loaded, while all later phases are guaranteed\n    to be unloaded.\n\n    In order to define a phase, simply define the functions:\n    loadPhase<#> and unloadPhase<#> where # corresponds to the number\n    of the phase to be defined and # >= 0.\n\n    You also have the ability to define alias for phases so that\n    your function definitions are more descriptive.  The way to do\n    this is to provide an aliasMap to __init__().  The aliasMap is\n    of the form {'alias':#, ...}. You can then call setPhase() with\n    this alias as well.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_278",
+    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
+    "chunk_number": 4802
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a method that handles input device management in a game or application framework. The code pertains to attaching an input device, setting up event generation, and managing references to attached devices. Specifically, it deals with creating nodes for input devices, configuring button throwers for generating events, logging debug information, and maintaining a registry of attached devices.\n\nidn = self.dataRoot.attachNewNode(InputDeviceNode(device, device.name))\n\n        # Setup the button thrower to generate events for the device.\n        if prefix is not None or not watch:\n            bt = idn.attachNewNode(ButtonThrower(device.name))\n            if prefix is not None:\n                bt.node().setPrefix(prefix + '-')\n            self.deviceButtonThrowers.append(bt)\n\n        assert self.notify.debug(\"Attached input device {0} with prefix {1}\".format(device, prefix))\n        self.__inputDeviceNodes[device] = idn\n\n        if watch:\n            idn.node().addChild(self.mouseWatcherNode)\n\n    def detachInputDevice(self, device):\n        \"\"\"\n        This should be called after attaching an input device using\n        attachInputDevice and the device is disconnected or you no longer wish\n        to keep polling this device for events.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4942
+  }
+}

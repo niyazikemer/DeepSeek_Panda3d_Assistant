@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a method or function related to taking screenshots in a graphics application, likely within the `ShowBase` class. The code handles screenshot functionality by determining filenames, handling texture sources, and saving images either synchronously or asynchronously. It integrates with Panda3D's event system through `messenger.send` to announce when a screenshot has been taken. This chunk is situated within a larger body of utility functions for managing application windows, cameras, and user interfaces.\n\nif defaultFilename:\n            filename = GraphicsOutput.makeScreenshotFilename(namePrefix)\n        else:\n            filename = Filename(namePrefix)\n\n        if isinstance(source, Texture):\n            if source.getZSize() > 1:\n                saved = source.write(filename, 0, 0, 1, 0)\n            else:\n                saved = source.write(filename)\n        elif blocking:\n            saved = source.saveScreenshot(filename, imageComment)\n        else:\n            request = source.saveAsyncScreenshot(filename, imageComment)\n            request.addDoneCallback(lambda fut, filename=filename: messenger.send('screenshot', [filename]))\n            return request\n\n        if saved:\n            # Announce to anybody that a screenshot has been taken\n            messenger.send('screenshot', [filename])\n            return filename\n\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4990
+  }
+}

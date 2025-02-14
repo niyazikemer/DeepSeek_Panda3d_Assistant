@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `GarbageReport` class's initialization process. It sets up debugging flags for garbage collection to capture all objects, collects and stores garbage data, and handles debug notifications. This setup is crucial for identifying memory leaks or garbage cycles in Python applications.\n\n```python\n\"\"\"\nThis chunk captures the initialization phase where garbage data is collected.\nIt enables full garbage collection debugging, gathers garbage information,\nand handles logging for leak detection purposes.\n\"\"\"\n```\n\nThe code is integral to the `GarbageReport` class's functionality, ensuring comprehensive garbage data capture and analysis.\n\n# do a SAVEALL pass so that we have all of the objects involved in legitimate garbage cycles\n        # without SAVEALL, gc.garbage only contains objects with __del__ methods\n        gc.set_debug(gc.DEBUG_SAVEALL)\n        if self._args.collect:\n            gc.collect()\n        self.garbage = gc.garbage[:]\n        del gc.garbage[:]\n        # only yield if there's more time-consuming work to do,\n        # if there's no garbage, give instant feedback\n        if len(self.garbage) > 0:\n            yield None\n        # don't repr the garbage list if we don't have to\n        if self.notify.getDebug():\n            self.notify.debug('self.garbage == %s' % fastRepr(self.garbage))\n        gc.set_debug(oldFlags)\n\n        self.numGarbage = len(self.garbage)\n        # only yield if there's more time-consuming work to do,\n        # if there's no garbage, give instant feedback\n        if self.numGarbage > 0:\n            yield None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4251
+  }
+}

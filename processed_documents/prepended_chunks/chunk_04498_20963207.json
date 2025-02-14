@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `_manageStartRefWorkingLists` method in the `StartRefWorkingListManager` class. It handles balancing the traversal efforts between two sets of start references (`base` and `discovered`) based on their relative sizes, using a flywheel mechanism to optimize load distribution during object search operations.\n\nexcept StopIteration:\n                        # do relative # of traversals on each set based on how many refs it contains\n                        baseLen = len(self._baseStartRefWorkingList.source)\n                        discLen = len(self._discoveredStartRefWorkingList.source)\n                        minLen = float(max(1, min(baseLen, discLen)))\n                        # this will cut down the traversals of the larger set by 2/3\n                        minLen *= 3.\n                        workingListSelector = flywheel([self._baseStartRefWorkingList, self._discoveredStartRefWorkingList],\n                                                       [baseLen/minLen, discLen/minLen])\n                        yield None\n                        continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4498
+  }
+}

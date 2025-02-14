@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class responsible for asynchronously loading various assets such as models, textures, and sounds. The methods `__asyncFlattenDone` and `__gotAsyncObject` handle post-processing after asynchronous operations, ensuring proper model replacement and result handling with callbacks, maintaining efficient asset management within the application.\n\nif callback:\n            if gotList:\n                callback(origModelList, *extraArgs)\n            else:\n                callback(*(origModelList + extraArgs))\n\n    def __gotAsyncObject(self, request):\n        \"\"\"A model or sound file or some such thing has just been\n        loaded asynchronously by the sub-thread.  Add it to the list\n        of loaded objects, and call the appropriate callback when it's\n        time.\"\"\"\n\n        if request not in self._requests:\n            return\n\n        cb, i = self._requests[request]\n        if cb.cancelled() or request.cancelled():\n            # Shouldn't be here.\n            del self._requests[request]\n            return\n\n        cb.requests.discard(request)\n        if not cb.requests:\n            del self._requests[request]\n\n        result = request.result()\n        if isinstance(result, PandaNode):\n            result = NodePath(result)\n\n        cb.gotObject(i, result)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4432
+  }
+}

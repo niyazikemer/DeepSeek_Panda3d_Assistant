@@ -1,0 +1,9 @@
+{
+  "content": "The `EventGroup` class in the provided document is designed to manage groups of events, ensuring that a specific \"done\" event is only triggered once all associated sub-events have been completed. The code chunk focuses on the initialization method (`__init__`) of this class, which sets up the group with a name, optional sub-events, and an optional done-event identifier. This setup allows for structured event handling where dependencies between events can be clearly defined and tracked.\n\nclass EventGroup(DirectObject.DirectObject):\n    \"\"\"This class allows you to group together multiple events and treat\n    them as a single event. The EventGroup will not send out its event until\n    all of its sub-events have occured.\"\"\"\n\n    _SerialNumGen = SerialNumGen()\n\n    def __init__(self, name, subEvents=None, doneEvent=None):\n        \"\"\"\n        Provide a meaningful name to aid debugging.\n\n        doneEvent is optional. If not provided, a unique done event will be\n        generated and is available as EventGroup.getDoneEvent().\n\n        Examples:\n\n        # waits for gotRed and gotBlue, then sends out 'gotColors'\n        EventGroup('getRedAndBlue', ('gotRed', 'gotBlue'), doneEvent='gotColors')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_253",
+    "parent": "processed_documents/context_documents/3322f876_EventGroup.json",
+    "chunk_number": 4441
+  }
+}

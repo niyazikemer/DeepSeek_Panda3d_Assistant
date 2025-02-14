@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method within the `ShowBase` class, which manages various display modes and rendering settings. The code sets up a NodePath with attributes overridden to achieve a specific rendering state that displays only the vertices of 3D objects as colored points, suitable for debugging or visualization purposes.\n\n# Set up a funny state to render only vertices.\n        override = 100000\n        t = NodePath('t')\n        t.setColor(1, 0, 1, 0.02, override)\n        t.setColorScale(1, 1, 1, 1, override)\n        t.setAttrib(ColorBlendAttrib.make(ColorBlendAttrib.MAdd, ColorBlendAttrib.OIncomingAlpha, ColorBlendAttrib.OOneMinusIncomingAlpha), override)\n        t.setAttrib(RenderModeAttrib.make(RenderModeAttrib.MPoint, 10), override)\n        t.setTwoSided(True, override)\n        t.setBin('fixed', 0, override)\n        t.setDepthTest(False, override)\n        t.setDepthWrite(False, override)\n        t.setLightOff(override)\n        t.setShaderOff(override)\n        t.setFogOff(override)\n        t.setAttrib(AntialiasAttrib.make(AntialiasAttrib.MNone), override)\n        t.setAttrib(RescaleNormalAttrib.make(RescaleNormalAttrib.MNone), override)\n        t.setTextureOff(override)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4975
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents an initialization or constructor method where critical variables such as delays for leak checks, pruning periods, and job references are set up. It also includes conditional checks for creating container and task leaks based on configuration settings.\n\nself._findContainersJob = None\n        self._checkContainersJob = None\n        self._pruneContainersJob = None\n\n        if firstCheckDelay is None:\n            firstCheckDelay = 60. * 15.\n        # divide by two, since the first check just takes length measurements and\n        # doesn't check for leaks\n        self._nextCheckDelay = firstCheckDelay/2.\n        self._checkDelayScale = config.GetFloat('leak-detector-check-delay-scale', 1.5)\n        self._pruneTaskPeriod = config.GetFloat('leak-detector-prune-period', 60. * 30.)\n\n        # main dict of id(container)->containerRef\n        self._id2ref = {}\n        # storage for results of check-container job\n        self._index2containerId2len = {}\n        self._index2delay = {}\n\n        if config.GetBool('leak-container', 0):\n            _createContainerLeak()\n        if config.GetBool('leak-tasks', 0):\n            _createTaskLeak()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4534
+  }
+}

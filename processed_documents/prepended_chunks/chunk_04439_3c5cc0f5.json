@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a deprecated function `GetString` which retrieves configuration variables as strings and assigns `GetFloat` to `GetDouble`, part of an older API now advising use of specific ConfigVariable classes.\n\ndef GetString(sym, default=\"\"):\n    if __debug__:\n        warnings.warn(\"This is deprecated. Use ConfigVariableString instead\", DeprecationWarning, stacklevel=2)\n    return ConfigVariableString(sym, default, \"DConfig\", ConfigFlags.F_dconfig).value\n\n\nGetFloat = GetDouble",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_252",
+    "parent": "processed_documents/context_documents/67256300_DConfig.json",
+    "chunk_number": 4439
+  }
+}

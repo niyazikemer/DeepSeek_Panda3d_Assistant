@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method that manages the initialization and cleanup of letterboxing effects in a graphical application using Panda3D. The lines set up the rendering order for the top and bottom black bars, ensuring they appear behind other rendered elements by setting their bin to 'sorted' with priority 0. They then re-parent the letterbox container to render2d to position it correctly within the scene hierarchy. Finally, they initialize the letterbox in its hidden state using `letterboxOff(0)`. The subsequent methods handle pausing animations, cancelling asynchronous operations, and cleaning up the letterbox elements when no longer needed.\n\n# masad: always place these at the bottom of render\n            self.letterboxTop.setBin('sorted',0)\n            self.letterboxBottom.setBin('sorted',0)\n            self.letterbox.reparentTo(ShowBaseGlobal.render2d, -1)\n            self.letterboxOff(0)\n\n    def noLetterbox(self):\n        \"\"\"\n        Removes any current letterbox tasks and parents the letterbox polygon away\n        \"\"\"\n        if self.letterboxIval:\n            self.letterboxIval.pause()\n            self.letterboxIval = None\n        if self.__letterboxFuture:\n            self.__letterboxFuture.cancel()\n            self.__letterboxFuture = None\n        if self.letterbox:\n            self.letterbox.stash()\n\n    def __finishLetterbox(self):\n        if self.__letterboxFuture:\n            self.__letterboxFuture.setResult(None)\n            self.__letterboxFuture = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4307
+  }
+}

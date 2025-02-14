@@ -1,0 +1,9 @@
+{
+  "content": "This code defines methods for the `BufferedDistancePhasedNode` class that handle string representation, resource management, and collision masking. The `__str__` method returns a readable object state, while `cleanup()` ensures proper removal of collision spheres and resets internal structures. The `setPhaseCollideMask` method allows customization of collision detection by setting specific masks on all spheres. These methods enhance the class's functionality for debugging, resource management, and interaction control in 3D environments.\n\ndef __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())\n\n    def cleanup(self):\n        \"\"\"\n        Disables all collisions.\n        Ignores all owned event listeners.\n        Unloads all unloaded phases.\n        \"\"\"\n        self.__disableCollisions(cleanup = True)\n        for sphere in self._colSpheres:\n            sphere.remove()\n        self._colSpheres = []\n        PhasedObject.cleanup(self)\n\n    def setPhaseCollideMask(self, mask):\n        \"\"\"\n        Sets the intoCollideMasks for our collision spheres.\n        \"\"\"\n        self.phaseCollideMask = mask\n        for sphere in self._colSpheres:\n            self.colSphere.node().setIntoCollideMask(self.phaseCollideMask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4577
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method in a class designed to manage the display of multiple graphical elements (referred to as \"cards\") on a screen. The code calculates default dimensions for these cards when specific sizes aren't provided by the user, ensuring proper layout and spacing within a grid structure defined by rows and columns.\n\nbordersize = 4.0\n\n        if float(self.sizex) == 0.0 and float(self.sizey) == 0.0:\n            sizey = int(0.4266666667 * self.win.getYSize())\n            sizex = (sizey * aspectx) // aspecty\n            v_sizey = (self.win.getYSize() - (rows - 1) - (rows * 2)) // rows\n            v_sizex = (v_sizey * aspectx) // aspecty\n            if (v_sizey < sizey) or (v_sizex < sizex):\n                sizey = v_sizey\n                sizex = v_sizex\n\n            adjustment = 2\n            h_sizex = float(self.win.getXSize() - adjustment) / float(cols)\n\n            h_sizex -= bordersize\n            if h_sizex < 1.0:\n                h_sizex = 1.0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4237
+  }
+}

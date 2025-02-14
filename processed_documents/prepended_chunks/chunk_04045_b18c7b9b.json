@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe chunk contains the `deleteCollisions` method of an avatar controls class. This method is responsible for deleting collision-related objects, removing associated node paths, and cleaning up references to prevent memory leaks when the avatar controls are being destroyed or reset.\n\"\"\"\n\n```python\ndef deleteCollisions(self):\n    \"\"\"Delete collision objects and clean up resources.\"\"\"\n    assert self.debugPrint(\"deleteCollisions()\") \n    del self.cTrav\n\n    if self.useHeightRay:\n        del self.cRayQueue\n        self.cRayNodePath.removeNode()\n        del self.cRayNodePath\n\n    del self.cSphere\n    self.cSphereNodePath.removeNode()\n    del self.cSphereNodePath\n\n    del self.pusher\n\n    del self.getAirborneHeight\n```\n\ndef deleteCollisions(self):\n        assert self.debugPrint(\"deleteCollisions()\")\n        del self.cTrav\n\n        if self.useHeightRay:\n            del self.cRayQueue\n            self.cRayNodePath.removeNode()\n            del self.cRayNodePath\n\n        del self.cSphere\n        self.cSphereNodePath.removeNode()\n        del self.cSphereNodePath\n\n        del self.pusher\n\n        del self.getAirborneHeight",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4045
+  }
+}

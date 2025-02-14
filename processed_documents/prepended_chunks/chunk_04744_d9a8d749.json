@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines `ObjectTypesLeakDetector`, a class that tracks and detects leaks related to Python object types across generations. It uses garbage collection to monitor object populations, distinguishing between different object types using `safeTypeName`. The detector manages a dictionary mapping object types to their respective counts and generations, enabling the detection of unintended object type accumulation over time.\n\nContext: This code complements the task and message-oriented leak detectors by providing a generic mechanism for tracking Python object leaks. It is part of a system designed to monitor memory usage and prevent resource leaks in applications that manage complex object lifecycles.\n\nclass ObjectTypesLeakDetector(LeakDetector):\n    # are we accumulating any particular Python object type?\n    def __init__(self):\n        LeakDetector.__init__(self)\n        self._type2ld = {}\n        self._type2count = {}\n        self._generation = 0\n        self._thisLdGen = 0\n\n    def destroy(self):\n        for ld in self._type2ld.values():\n            ld.destroy()\n        LeakDetector.destroy(self)\n\n    def _recalc(self):\n        objs = gc.get_objects()\n        self._type2count = {}\n        for obj in objs:\n            objType = safeTypeName(obj)\n            if objType not in self._type2ld:\n                self._type2ld[objType] = ObjectTypeLeakDetector(self, objType, self._generation)\n            self._type2count.setdefault(objType, 0)\n            self._type2count[objType] += 1\n        self._generation += 1\n\n    def _getGeneration(self):\n        return self._generation",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4744
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk configures a NodePath with specific attributes and sets up an orthographic camera for rendering into buffers, which is used in the `renderSceneInto` method to create a scene buffer.\n\ncs = NodePath(\"dummy\")\n        cs.setState(self.camstate)\n        # Do we really need to turn on the Shader Generator?\n        #cs.setShaderAuto()\n        if auxbits:\n            cs.setAttrib(AuxBitplaneAttrib.make(auxbits))\n        if clamping is False:\n            # Disables clamping in the shader generator.\n            cs.setAttrib(LightRampAttrib.make_identity())\n        self.camera.node().setInitialState(cs.getState())\n\n        quadcamnode = Camera(\"filter-quad-cam\")\n        lens = OrthographicLens()\n        lens.setFilmSize(2, 2)\n        lens.setFilmOffset(0, 0)\n        lens.setNearFar(-1000, 1000)\n        quadcamnode.setLens(lens)\n        quadcam = quad.attachNewNode(quadcamnode)\n\n        self.region.setCamera(quadcam)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4011
+  }
+}

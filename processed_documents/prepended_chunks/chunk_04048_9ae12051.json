@@ -1,0 +1,9 @@
+{
+  "content": "The chunk includes three new methods related to debugging and physics operations: `oneTimeCollide()`, `addBlastForce()`, and `displayDebugInfo()`. These methods would be situated within the existing class structure, likely placed near other physics and control-related functions. Specifically:\n\n- **`oneTimeCollide()`**: Would be added as a method for handling single collision passes, ensuring it is located with other collision management code.\n- **`addBlastForce()`**: Could be positioned where force or movement modifications are handled, though its implementation is currently empty.\n- **`displayDebugInfo()`**: Fits within the `if __debug__:` block alongside other debugging methods like `setupAvatarPhysicsIndicator()` and `debugPrint()`, as it adds debug information for display.\n\nThe placement ensures logical grouping of related functionality, enhancing code readability and maintainability.\n\ndef oneTimeCollide(self):\n        \"\"\"\n        Makes one quick collision pass for the avatar, for instance as\n        a one-time straighten-things-up operation after collisions\n        have been disabled.\n        \"\"\"\n        assert self.debugPrint(\"oneTimeCollide()\")\n        tempCTrav = CollisionTraverser(\"oneTimeCollide\")\n        if self.useHeightRay:\n            if self.useLifter:\n                tempCTrav.addCollider(self.cRayNodePath, self.lifter)\n            else:\n                tempCTrav.addCollider(self.cRayNodePath, self.cRayQueue)\n        tempCTrav.traverse(render)\n\n    def addBlastForce(self, vector):\n        pass\n\n    def displayDebugInfo(self):\n        \"\"\"\n        For debug use.\n        \"\"\"\n        onScreenDebug.add(\"w controls\", \"PhysicsWalker\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4048
+  }
+}

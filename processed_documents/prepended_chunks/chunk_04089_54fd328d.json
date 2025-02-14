@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines additional control mechanisms for an avatar in a physics-based environment, including functions to manage jumping mechanics with delays, apply external forces, and display debugging information. These features enhance the AvatarControls functionality by enabling controlled jumps with cooldown periods, incorporating dynamic forces, and providing visual feedback for developers during testing.\n\ndef setMayJump(self, task):\n        \"\"\"\n        This function's use is internal to this class (maybe I'll add\n        the __ someday).  Anyway, if you want to enable or disable\n        jumping in a general way see the ControlManager (don't use this).\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        self.mayJump = 1\n        return Task.done\n\n    def startJumpDelay(self, delay):\n        assert self.notify.debugStateCall(self)\n        if self.jumpDelayTask:\n            self.jumpDelayTask.remove()\n        self.mayJump = 0\n        self.jumpDelayTask=taskMgr.doMethodLater(\n            delay,\n            self.setMayJump,\n            \"jumpDelay-%s\"%id(self))\n\n    def addBlastForce(self, vector):\n        self.lifter.addVelocity(vector.length())\n\n    def displayDebugInfo(self):\n        \"\"\"\n        For debug use.\n        \"\"\"\n        onScreenDebug.add(\"w controls\", \"GravityWalker\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4089
+  }
+}

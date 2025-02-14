@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains utility functions including `r_pretty_print` for recursively printing tree structures with indentation, `isDefaultValue` to check if a value is default, and `appendStr` to modify an object's string representation. These tools are part of a collection of debugging, data manipulation, and memory management utilities in the document.\n\ndef r_pretty_print(tree, num):\n    num += 1\n    for name in tree.keys():\n        print(\"  \" * num, name)\n        r_pretty_print(tree[name], num)\n\n\ndef isDefaultValue(x):\n    return x == type(x)()\n\n\ndef appendStr(obj, st):\n    \"\"\"adds a string onto the __str__ output of an instance\"\"\"\n    def appendedStr(oldStr, st, self):\n        return oldStr() + st\n    oldStr = getattr(obj, '__str__', None)\n    if oldStr is None:\n        def stringer(s):\n            return s\n        oldStr = Functor(stringer, str(obj))\n        stringer = None\n    obj.__str__ = types.MethodType(Functor(appendedStr, oldStr, st), obj)\n    appendedStr = None\n    return obj",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4666
+  }
+}

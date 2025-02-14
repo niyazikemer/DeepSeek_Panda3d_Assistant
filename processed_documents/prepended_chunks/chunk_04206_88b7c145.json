@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is a section of code from the `JobManager` class, specifically within the `_runJobsLoop` method. This chunk handles the cleanup and notification process when a job completes execution or needs to be removed. It removes the job from the active list, marks it as finished, sends a completion event through the messenger system, and stops debugging profiling if enabled. The code is situated within the logic that processes jobs in priority order, ensuring proper resource management and timely notifications upon job termination.\n\nself.remove(job)\n                job._setFinished()\n                messenger.send(job.getFinishedEvent())\n                # job is done.\n                break\n        if __debug__:\n            job._pstats.stop()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4206
+  }
+}

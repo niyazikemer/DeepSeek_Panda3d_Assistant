@@ -1,0 +1,9 @@
+{
+  "content": "The `StdoutCapture` class is a utility tool within a collection of profiling, debugging, and development support functions. It allows developers to temporarily redirect standard output (stdout) into a string buffer for inspection or logging purposes during program execution. This class is particularly useful for capturing console output in testing environments or when debugging without altering the actual stdout stream.\n\nclass StdoutCapture:\n    # redirects stdout to a string\n    def __init__(self):\n        self._oldStdout = sys.stdout\n        sys.stdout = self\n        self._string = ''\n\n    def destroy(self):\n        sys.stdout = self._oldStdout\n        del self._oldStdout\n\n    def getString(self):\n        return self._string\n\n    # internal\n    def write(self, string):\n        self._string = ''.join([self._string, string])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4621
+  }
+}

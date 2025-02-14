@@ -1,0 +1,9 @@
+{
+  "content": "The `disable` method is part of a Python class designed for managing 3D audio attributes in a game or application. It handles the cleanup process by removing an update task that tracks sound positions relative to listener attributes, detaching any currently attached sounds, and resetting the system state.\n\ndef disable(self):\n        \"\"\"\n        Detaches any existing sounds and removes the update task\n        \"\"\"\n        taskMgr.remove(\"Audio3DManager-updateTask\")\n        self.detachListener()\n        for object in list(self.sound_dict.keys()):\n            for sound in self.sound_dict[object]:\n                self.detachSound(sound)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4466
+  }
+}

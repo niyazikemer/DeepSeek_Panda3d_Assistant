@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk manages tracking of the avatar's positional changes and updates the prior parent vector within the main control loop. It sits in the `handleAvatarControls` method, ensuring accurate physics calculations by updating relative to the render node each frame.\n\nif self.needToDeltaPos:\n            self.setPriorParentVector()\n            self.needToDeltaPos = 0\n        #self.__oldPosDelta = render.getRelativeVector(\n        #    self.avatarNodePath,\n        #    self.avatarNodePath.getPosDelta(render))\n        #self.__oldPosDelta = self.avatarNodePath.getRelativeVector(\n        #    render,\n        #    self.avatarNodePath.getPosDelta(render))\n        self.__oldPosDelta = self.avatarNodePath.getPosDelta(render)\n        self.__oldDt = dt\n        #posDelta = self.avatarNodePath.getPosDelta(render)\n        #if posDelta==Vec3.zero():\n        #    self.priorParent.setVector(self.__oldPosDelta)\n        #else:\n        #    self.priorParent.setVector(Vec3.zero())\n        #    # We must copy the vector to preserve it:\n        #    self.__oldPosDelta=Vec3(posDelta)\n        if __debug__:\n            if self.wantDebugIndicator:\n                onScreenDebug.add(\"posDelta1\",",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4053
+  }
+}

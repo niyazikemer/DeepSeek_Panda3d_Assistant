@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of necessary imports, a helper class `MessengerLeakObject` for simulating messenger leaks, and a function `_leakMessengerObject()` that creates an instance of the helper class. This setup is foundational for detecting objects referenced solely by the messenger system, which would otherwise be garbage collected.\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.showbase.PythonUtil import itype, fastRepr\nfrom direct.showbase.Job import Job\nfrom direct.showbase.JobManagerGlobal import jobMgr\nfrom direct.showbase.MessengerGlobal import messenger\nimport gc\nimport builtins\n\n\nclass MessengerLeakObject(DirectObject):\n    def __init__(self):\n        self.accept('leakEvent', self._handleEvent)\n\n    def _handleEvent(self):\n        pass\n\n\ndef _leakMessengerObject():\n    leakObject = MessengerLeakObject()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4719
+  }
+}

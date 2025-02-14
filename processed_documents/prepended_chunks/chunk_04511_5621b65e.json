@@ -1,0 +1,9 @@
+{
+  "content": "The `CheckContainers` class is a sub-job of `ContainerLeakDetector`, designed to check container sizes and identify potential memory leaks. It operates as part of a system for detecting unusual growth patterns in containers over time, using indices to track changes.\n\nclass CheckContainers(Job):\n    \"\"\"\n    Job to check container sizes and find potential leaks; sub-job of ContainerLeakDetector\n    \"\"\"\n    ReprItems = 5\n\n    def __init__(self, name, leakDetector, index):\n        Job.__init__(self, name)\n        self._leakDetector = leakDetector\n        self.notify = self._leakDetector.notify\n        self._index = index\n        ContainerLeakDetector.addPrivateObj(self.__dict__)\n\n    def destroy(self):\n        ContainerLeakDetector.removePrivateObj(self.__dict__)\n        Job.destroy(self)\n\n    def getPriority(self):\n        return Job.Priorities.Normal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4511
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `displayDebugInfo` method is a helper function within the `AvatarControls` class that adds debug information about the avatar's physics state to an on-screen debugging display. It provides details such as airborne height, falling status, contact normal vector, jump readiness, impact velocity, and other related metrics. This method is used for diagnostic purposes during development to monitor the avatar's interaction with the environment and its physical properties.\n\ndef displayDebugInfo(self):\n        \"\"\"\n        For debug use.\n        \"\"\"\n        onScreenDebug.add(\"w controls\", \"GravityWalker\")\n\n        onScreenDebug.add(\"w airborneHeight\", self.lifter.getAirborneHeight())\n        onScreenDebug.add(\"w falling\", self.falling)\n        onScreenDebug.add(\"w isOnGround\", self.lifter.isOnGround())\n        #onScreenDebug.add(\"w gravity\", self.lifter.getGravity())\n        #onScreenDebug.add(\"w jumpForce\", self.avatarControlJumpForce)\n        onScreenDebug.add(\"w contact normal\", self.lifter.getContactNormal().pPrintValues())\n        onScreenDebug.add(\"w mayJump\", self.mayJump)\n        onScreenDebug.add(\"w impact\", self.lifter.getImpactVelocity())\n        onScreenDebug.add(\"w velocity\", self.lifter.getVelocity())\n        onScreenDebug.add(\"w isAirborne\", self.isAirborne)\n        onScreenDebug.add(\"w hasContact\", self.lifter.hasContact())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4090
+  }
+}

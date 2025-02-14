@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines a `reset()` method within the context of a class dealing with collision detection and phase management. The method unloads all loaded phases, cleans up existing collision spheres, and reinitializes them based on specified parameters. This allows the object to return to its initial state as if it had just been created, facilitating reuse or reconfiguration without restarting the application.\n\ndef reset(self):\n        \"\"\"\n        Unloads all loaded phases and puts the phase node\n        in the startup state is if it had just been initialized.\n        \"\"\"\n        self.cleanup()\n        self.__oneTimeCollide()\n        for name, dist in self.phaseParamList:\n            cSphere = CollisionSphere(0.0, 0.0, 0.0, dist)\n            cSphere.setTangible(0)\n            cName = 'PhaseNode%s-%d' % (name, self.__id)\n            cSphereNode = CollisionNode(cName)\n            cSphereNode.setIntoCollideMask(self.phaseCollideMask)\n            cSphereNode.setFromCollideMask(BitMask32.allOff())\n            cSphereNode.addSolid(cSphere)\n            cSphereNodePath = self.attachNewNode(cSphereNode)\n            cSphereNodePath.stash()\n            # cSphereNodePath.show() # For debugging\n            self._colSpheres.append(cSphereNodePath)\n        if self.fromCollideNode:\n            self.cTrav = CollisionTraverser()\n            cHandler = CollisionHandlerEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4578
+  }
+}

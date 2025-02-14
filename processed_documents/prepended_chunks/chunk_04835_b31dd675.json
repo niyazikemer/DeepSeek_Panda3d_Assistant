@@ -1,0 +1,9 @@
+{
+  "content": "The code defines a function `avatarShadow()` that turns off an existing drop shadow on the avatar by stashing it, while setting up a new node structure to handle shadows from a different light source positioned above the avatar. This is part of a larger system for creating and managing dynamic shadows in 3D scenes.\n\ndef avatarShadow():\n    # Turn off the existing drop shadow.\n    # stash it so that when the game hides and shows it, it will still be gone\n    base.localAvatar.dropShadow.stash()\n\n    # Set up a new node to hold the \"light\": this is an abitrary point\n    # somewhere above the avatar, looking down, as if from the sun.\n    objectPath = base.localAvatar.getGeomNode()\n    shadowCamera = objectPath.attachNewNode('shadowCamera')\n    lightPath = shadowCamera.attachNewNode('lightPath')\n\n    # We can change this position at will to change the angle of the\n    # sun.\n    lightPath.setPos(5, 0, 7)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_282",
+    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
+    "chunk_number": 4835
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `analyzeTextureSet` method in the BufferViewer class is a private utility designed to gather all relevant textures from various sources (including lists of objects, individual textures, graphics outputs, and entire engines) into a set. This facilitates efficient management and rendering of these textures as cards within the application's graphical interface. The method serves as an essential preprocessing step, ensuring all necessary textures are collected before being used by other class functionalities to display content on screen.\n\ndef analyzeTextureSet(self, x, set):\n        \"\"\"Access: private.  Converts a list of GraphicsObject,\n        GraphicsEngine, and Texture into a table of Textures.\"\"\"\n\n        if isinstance(x, list):\n            for elt in x:\n                self.analyzeTextureSet(elt, set)\n        elif isinstance(x, Texture):\n            set[x] = 1\n        elif isinstance(x, GraphicsOutput):\n            for itex in range(x.countTextures()):\n                tex = x.getTexture(itex)\n                set[tex] = 1\n        elif isinstance(x, GraphicsEngine):\n            for iwin in range(x.getNumWindows()):\n                win = x.getWindow(iwin)\n                self.analyzeTextureSet(win, set)\n        elif x == \"all\":\n            self.analyzeTextureSet(self.engine, set)\n        else:\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4226
+  }
+}

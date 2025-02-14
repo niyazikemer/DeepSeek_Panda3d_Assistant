@@ -1,0 +1,9 @@
+{
+  "content": "This code defines a `SwimWalker` class inheriting from `NonPhysicsWalker`, implementing swimming controls. The `_calcSpeeds` method calculates movement speeds based on input states, including handling auto-run functionality and determining forward/reverse/rotational speeds for swimming mechanics.\n\nclass SwimWalker(NonPhysicsWalker.NonPhysicsWalker):\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"SwimWalker\")\n\n    def _calcSpeeds(self):\n        # get the button states:\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\") or inputState.isSet(\"slideLeft\")\n        turnRight = inputState.isSet(\"turnRight\") or inputState.isSet(\"slideRight\")\n\n        # Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0\n\n        # Determine what the speeds are based on the buttons:\n        self.speed=(forward and self.avatarControlForwardSpeed or\n                    reverse and -self.avatarControlReverseSpeed)\n        self.slideSpeed=0.\n        self.rotationSpeed=(\n            (turnLeft and self.avatarControlRotateSpeed) or\n            (turnRight and -self.avatarControlRotateSpeed))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_233",
+    "parent": "processed_documents/context_documents/67515933_SwimWalker.json",
+    "chunk_number": 4163
+  }
+}

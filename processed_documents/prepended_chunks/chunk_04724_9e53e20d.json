@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `run` method in the `MessengerLeakDetector` class. It implements a breadth-first search (BFS) algorithm to trace reference paths from each object registered with the messenger to determine if there exists any path to built-in components that doesn't involve the messenger itself. This is used to identify objects that are only referenced by the messenger and would otherwise be garbage collected.\n\n# breadth-first search, go until you run out of new objects or you find __builtin__\n                while len(nextObjList) > 0:\n                    if foundBuiltin:\n                        break\n                    # swap the lists, prepare for the next pass\n                    curObjList = nextObjList\n                    nextObjList = []\n                    assert self.notify.debug('next search iteration, num objects: %s' % len(curObjList))\n                    for curObj in curObjList:\n                        if foundBuiltin:\n                            break\n                        yield None\n                        referrers = gc.get_referrers(curObj)\n                        assert self.notify.debug('curObj: %s @ %s, %s referrers, repr=%s' % (\n                            itype(curObj), hex(id(curObj)), len(referrers), fastRepr(curObj, maxLen=2)))\n                        for referrer in referrers:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4724
+  }
+}

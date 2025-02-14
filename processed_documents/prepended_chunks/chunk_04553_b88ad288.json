@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents the core logic of dynamically reloading a class definition during runtime in a Python application, specifically handling class rebinding, function replacement, and cleanup operations to maintain application state without requiring restarts.\n\n# Try to find the original class with this class name\n    res = findClass(className)\n\n    if not res:\n        print('Warning: Finder could not find class')\n        # Remove the temp file we made\n        file.close()\n        os.remove(filename)\n        return\n\n    # Store the original real class\n    realClass, realNameSpace = res\n\n    # Now execute that class def in this namespace\n    exec(compile(open(filename).read(), filename, 'exec'), realNameSpace)\n\n    # That execfile should have created a new class obj in that namespace\n    tmpClass = realNameSpace[className]\n\n    # Copy the functions that we just redefined into the real class\n    copyFuncs(tmpClass, realClass)\n\n    # Now make sure the original class is in that namespace,\n    # not our temp one from the execfile. This will help us preserve\n    # class variables and other state on the original class.\n    realNameSpace[className] = realClass\n\n    # Remove the temp file we made\n    file.close()\n    os.remove(filename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4553
+  }
+}

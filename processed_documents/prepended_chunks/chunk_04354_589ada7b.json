@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class called `ContainerReport`, which tracks and reports on various container types (like dictionaries, lists, tuples) used in an application. The specific code handles dictionary objects by iterating over their keys, accessing each value, checking if it has been visited already, and then examining the value further for potential containment of other objects. This is part of a broader mechanism to build detailed reports about how different containers are structured and referenced within the program.\n\nThe context: This chunk is crucial for generating comprehensive reports on container usage, helping developers understand memory consumption and object relationships in their applications.\n\nif isinstance(parentObj, dict):\n                key = None\n                attr = None\n                keys = list(parentObj.keys())\n                try:\n                    keys.sort()\n                except TypeError as e:\n                    self.notify.warning('non-sortable dict keys: %s: %s' % (self._id2pathStr[id(parentObj)], repr(e)))\n                for key in keys:\n                    try:\n                        attr = parentObj[key]\n                    except KeyError as e:\n                        self.notify.warning('could not index into %s with key %s' % (self._id2pathStr[id(parentObj)],\n                                                                                     key))\n                    if id(attr) not in self._visitedIds:\n                        self._visitedIds.add(id(attr))\n                        if self._examine(attr):\n                            assert self._queue.back() is attr\n                            if parentObj is __builtins__:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4354
+  }
+}

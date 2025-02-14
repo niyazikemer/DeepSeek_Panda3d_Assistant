@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `closeWindow` method in the `ShowBase` class, which manages window and camera cleanup operations. It handles removing a camera node (`cam`) from various lists and references if certain conditions are met (e.g., the camera is not used by other display regions and should be removed). The code ensures proper cleanup of camera resources when closing a window or cleaning up unused cameras.\n\n```python\n\"\"\"\nManages camera resource cleanup during window closure. If a camera node \nis no longer referenced by any DisplayRegions, it is removed from internal \nlists and references are cleared to facilitate proper cleanup.\n\"\"\"\n```\n\ncam = NodePath(dr.getCamera())\n\n            dr.setCamera(NodePath())\n\n            if not cam.isEmpty() and \\\n               cam.node().getNumDisplayRegions() == 0 and \\\n               not keepCamera:\n                # If the camera is used by no other DisplayRegions,\n                # remove it.\n                if self.camList.count(cam) != 0:\n                    self.camList.remove(cam)\n\n                # Don't throw away self.camera; we want to\n                # preserve it for reopening the window.\n                if cam == self.cam:\n                    self.cam = None\n                if cam == self.cam2d:\n                    self.cam2d = None\n                if cam == self.cam2dp:\n                    self.cam2dp = None\n                cam.removeNode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4896
+  }
+}

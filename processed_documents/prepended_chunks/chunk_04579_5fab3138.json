@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sets up the collision detection system in the DistancePhasedNode class. It appends a new collision sphere node to a list and initializes a CollisionTraverser with an event handler if a fromCollideNode is provided, enabling enter/exit events for distance-based phase transitions.\n\nself._colSpheres.append(cSphereNodePath)\n        if self.fromCollideNode:\n            self.cTrav = CollisionTraverser()\n            cHandler = CollisionHandlerEvent()\n            cHandler.addInPattern(self.enterPrefix + '%in')\n            cHandler.addOutPattern(self.exitPrefix + '%in')\n            self.cTrav.addCollider(self.fromCollideNode,cHandler)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4579
+  }
+}

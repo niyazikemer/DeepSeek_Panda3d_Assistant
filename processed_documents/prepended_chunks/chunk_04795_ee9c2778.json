@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods, `typeFreqStr` and `printObjsByType`, within the `ObjectPool` class. These methods are responsible for generating a string representation of object type frequencies and printing detailed information about objects grouped by their types. The `typeFreqStr` method creates a formatted string that lists each object type along with its frequency, while `printObjsByType` prints out a structured overview of the objects in the pool, including their types and instances, for easy inspection and analysis.\n\nContext: Methods for generating reports on object type frequencies and detailed object listings within the ObjectPool class.\n\ndef typeFreqStr(self):\n        s  =   'Object Pool: Type Frequencies'\n        s += '\\n============================='\n        for count in sorted(self._count2types, reverse=True):\n            types = makeList(self._count2types[count])\n            for typ in types:\n                s += '\\n%s\\t%s' % (count, typ)\n        return s\n\n    def printObjsByType(self):\n        print('Object Pool: Objects By Type')\n        print('\\n============================')\n        # print types with the smallest number of instances first, in case\n        # there's a large group that waits a long time before printing\n        #counts.reverse()\n        for count in sorted(self._count2types):\n            types = makeList(self._count2types[count])\n            for typ in types:\n                print('TYPE: %s, %s objects' % (repr(typ), len(self._type2objs[typ])))\n                print(getNumberedTypedSortedString(self._type2objs[typ]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_276",
+    "parent": "processed_documents/context_documents/8fef47ef_ObjectPool.json",
+    "chunk_number": 4795
+  }
+}

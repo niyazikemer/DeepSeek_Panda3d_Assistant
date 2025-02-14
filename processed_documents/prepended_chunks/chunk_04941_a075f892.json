@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to properly attach an input device (e.g., a joystick or gamepad) to Panda3D's event system. It explains that enabling the `watch` argument allows the device to interact with the default MouseWatcher, enabling user interface control and event generation. The code ensures each device is uniquely attached by preventing multiple attachments of the same device.\n\nThe watch argument can be set to True (as of Panda3D 1.10.3) to set up\n        the default MouseWatcher to receive inputs from this device, allowing\n        it to be polled via mouseWatcherNode and control user interfaces.\n        Setting this to True will also make it generate unprefixed events,\n        regardless of the specified prefix.\n\n        If you call this, you should consider calling detachInputDevice when\n        you are done with the device or when it is disconnected.\n        \"\"\"\n\n        # Protect against the same device being attached multiple times.\n        assert device not in self.__inputDeviceNodes\n\n        idn = self.dataRoot.attachNewNode(InputDeviceNode(device, device.name))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4941
+  }
+}

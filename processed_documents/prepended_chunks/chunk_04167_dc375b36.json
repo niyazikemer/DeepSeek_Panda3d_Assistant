@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `ObserverWalker` class implementation in `ObserverWalker.py`, specifically within the `initializeCollisions()` method, which sets up collision handling for an avatar's movement, including creating a collision sphere and managing wall collisions via a pusher.\n\ncSphereNode.setFromCollideMask(self.cSphereBitMask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())\n\n        # set up wall collision mechanism\n        self.pusher = CollisionHandlerPusher()\n        self.pusher.setInPattern(\"enter%in\")\n        self.pusher.setOutPattern(\"exit%in\")\n\n        self.pusher.addCollider(self.cSphereNodePath, avatarNodePath)\n\n        # activate the collider with the traverser and pusher\n        self.setCollisionsActive(1)\n\n        class Foo:\n            def hasContact(self):\n                return 1\n\n        self.lifter = Foo()\n\n    def deleteCollisions(self):\n        del self.cTrav\n\n        del self.cSphere\n        self.cSphereNodePath.removeNode()\n        del self.cSphereNodePath\n\n        del self.pusher",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_235",
+    "parent": "processed_documents/context_documents/0ce09327_ObserverWalker.json",
+    "chunk_number": 4167
+  }
+}

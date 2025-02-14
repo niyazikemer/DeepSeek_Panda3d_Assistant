@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `fshader` function in a shader program, responsible for fragment processing after vertex transformations are applied by `vshader`. It combines nine texture samples (with varying weights) from texture coordinates computed in `vshader`, then applies intensity scaling to produce the final output color.\n\nvoid fshader(float4 l_texcoord0 : TEXCOORD0,\n             float4 l_texcoord1 : TEXCOORD1,\n             float4 l_texcoord2 : TEXCOORD2,\n             uniform sampler2D k_src : TEXUNIT0,\n             uniform float4 k_intensity,\n             out float4 o_color : COLOR) {\n  float4 color = float4(0,0,0,0);\n  color  =  50 * tex2D(k_src, l_texcoord0.wx);\n  color += 100 * tex2D(k_src, l_texcoord0.wy);\n  color += 150 * tex2D(k_src, l_texcoord0.wz);\n  color += 200 * tex2D(k_src, l_texcoord1.wx);\n  color += 200 * tex2D(k_src, l_texcoord1.wy);\n  color += 200 * tex2D(k_src, l_texcoord1.wz);\n  color += 150 * tex2D(k_src, l_texcoord2.wx);\n  color += 100 * tex2D(k_src, l_texcoord2.wy);\n  color +=  50 * tex2D(k_src, l_texcoord2.wz);\n  o_color = color / 1200.0;\n  o_color = o_color * k_intensity;\n}\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_220",
+    "parent": "processed_documents/context_documents/0a3b8899_filterBloomY.json",
+    "chunk_number": 4000
+  }
+}

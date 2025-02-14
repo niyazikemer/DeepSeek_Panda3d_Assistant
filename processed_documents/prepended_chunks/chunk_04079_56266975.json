@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains methods related to collision detection and physics settings in an avatar control system. The methods allow setting and modifying wall and floor bitmasks (used for determining collision interactions with different types of objects), as well as adjusting gravity values that influence movement physics. These functions are critical for defining how avatars interact with their virtual environment, including detecting collisions with walls and floors, and controlling the gravitational forces affecting their motion.\n\ndef setWallBitMask(self, bitMask):\n        self.wallBitmask = bitMask\n\n    def setFloorBitMask(self, bitMask):\n        self.floorBitmask = bitMask\n\n    def swapFloorBitMask(self, oldMask, newMask):\n        self.floorBitmask = self.floorBitmask &~ oldMask\n        self.floorBitmask |= newMask\n\n        if self.cRayNodePath and not self.cRayNodePath.isEmpty():\n            self.cRayNodePath.node().setFromCollideMask(self.floorBitmask)\n\n    def setGravity(self, gravity):\n        self.__gravity = gravity\n        self.lifter.setGravity(self.__gravity)\n\n    def getGravity(self, gravity):\n        return self.__gravity",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4079
+  }
+}

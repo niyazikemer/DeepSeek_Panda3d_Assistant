@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements functionality related to managing window controls and mouse interaction within the ShowBase class, which encapsulates methods for creating and managing windows, cameras, mouse watchers, and other display-related elements in a graphical application framework. The setFrameRateMeter method specifically handles enabling or disabling a frame rate meter overlay in the main window, providing visual feedback on rendering performance.\n\ndef __sleepCycleTask(self, task):\n        Thread.sleep(self.clientSleep)\n        #time.sleep(self.clientSleep)\n        return Task.cont\n\n    def setFrameRateMeter(self, flag: bool) -> None:\n        \"\"\"\n        Turns on or off (according to flag) a standard frame rate\n        meter in the upper-right corner of the main window.\n        \"\"\"\n        if flag:\n            if not self.frameRateMeter:\n                self.frameRateMeter = FrameRateMeter('frameRateMeter')\n                self.frameRateMeter.setupWindow(self.win)\n        else:\n            if self.frameRateMeter:\n                self.frameRateMeter.clearWindow()\n                self.frameRateMeter = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4903
+  }
+}

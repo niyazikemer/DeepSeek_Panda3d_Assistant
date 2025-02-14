@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a task function responsible for managing avatar physics and movement within a game or simulation. It determines whether to let the physics engine handle movement (when airborne) or manually adjust the position when grounded. The code calculates the necessary distances for moving and rotating based on input parameters, ensuring smooth transitions between states.\n\nmoveToGround = Vec3.zero()\n        if not self.useHeightRay or self.isAirborne:\n            # ...the airborne check is a hack to stop sliding.\n            self.phys.doPhysics(dt)\n            if __debug__:\n                onScreenDebug.add(\"phys\", \"on\")\n        else:\n            physObject.setVelocity(Vec3.zero())\n            #if airborneHeight>0.001 and contact==Vec3.zero():\n            #    moveToGround = Vec3(0.0, 0.0, -airborneHeight)\n            #moveToGround = Vec3(0.0, 0.0, -airborneHeight)\n            moveToGround = Vec3(0.0, 0.0, -self.determineHeight())\n            if __debug__:\n                onScreenDebug.add(\"phys\", \"off\")\n        # Check to see if we're moving at all:\n        if self.__speed or self.__slideSpeed or self.__rotationSpeed or moveToGround!=Vec3.zero():\n            distance = dt * self.__speed\n            slideDistance = dt * self.__slideSpeed\n            rotation = dt * self.__rotationSpeed",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4061
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines an animation sequence for the iris transition effect within a class handling visual effects like irises and letterboxes. Specifically, it calculates the scale for the iris effect based on the screen's aspect ratio, creates a transition interval to animate the iris from a small scale (0.01) to the calculated size over `t` seconds, and then detaches the iris node after the animation completes. This chunk is part of the `irisOn` method, which manages turning on the iris effect with specified parameters such as duration (`t`) and blend type for smooth transitions.\n\nscale = 0.18 * max(base.a2dRight, base.a2dTop)\n        transitionIval = Sequence(Func(self.iris.reparentTo, ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX),\n                                  LerpScaleInterval(self.iris, t,\n                                                    scale = scale,\n                                                    startScale = 0.01,\n                                                    blendType=blendType),\n                                 Func(self.iris.detachNode),\n                                 Func(self.__finishTransition),\n                                 name = self.irisTaskName,\n                                 )\n        if finishIval:\n            transitionIval.append(finishIval)\n        return transitionIval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4297
+  }
+}

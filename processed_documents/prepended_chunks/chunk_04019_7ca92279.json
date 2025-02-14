@@ -1,0 +1,9 @@
+{
+  "content": "The `cleanup` method is part of a class responsible for managing and rendering graphics buffers, handling operations like scene and quad rendering. This method specifically restores the system to its original state by clearing render textures, removing windows, resetting buffer and size lists, restoring clears for the window and region, resetting camera states, and adjusting sorting order for proper rendering sequence. It plays a crucial role in resource management and ensuring correct system state after operations.\n\ndef cleanup(self):\n        \"\"\" Restore everything to its original state, deleting any\n        new buffers in the process. \"\"\"\n\n        for buffer in self.buffers:\n            buffer.clearRenderTextures()\n            self.engine.removeWindow(buffer)\n        self.buffers = []\n        self.sizes = []\n        self.setClears(self.win, self.wclears)\n        self.setClears(self.region, self.rclears)\n        self.camstate = self.caminit\n        self.camera.node().setInitialState(self.caminit)\n        self.region.setCamera(self.camera)\n        if hasattr(self.region, 'clearCullResult'):\n            self.region.clearCullResult()\n        self.nextsort = self.win.getSort() - 9\n        self.basex = 0\n        self.basey = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4019
+  }
+}

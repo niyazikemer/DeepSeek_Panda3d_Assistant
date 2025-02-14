@@ -1,0 +1,9 @@
+{
+  "content": "The `FPTObjsNamed` class is part of a leak detection framework, designed to search for named objects or patterns within container structures. The provided code chunk is situated within its `run()` method, which acts as a generator iterating over container IDs. It attempts to retrieve and print the names of containers matching a specified pattern, aiding in debugging or monitoring by highlighting specific container paths. This functionality helps identify potential leaks by tracking object references through named instances.\n\n**Context:**\nThe code chunk is part of the `run()` method within the `FPTObjsNamed` class, which searches for objects with specific names within containers to aid in leak detection and debugging.\n\ndef run(self):\n        ids = self._leakDetector.getContainerIds()\n        try:\n            for id in ids:\n                yield None\n                try:\n                    for container in self._leakDetector.getContainerByIdGen(id):\n                        yield None\n                except Exception:\n                    pass\n                else:\n                    name = self._leakDetector._id2ref[id].getFinalIndirectionStr()\n                    if self._on.lower() in name.lower():\n                        try:\n                            for ptc in self._leakDetector.getContainerNameByIdGen(id):\n                                yield None\n                        except Exception:\n                            pass\n                        else:\n                            print('GPTCN(' + self._on + '):' + self.getJobName() + ': ' + ptc)\n        except Exception as e:\n            print('FPTObjsNamed job caught exception: %s' % e)\n            if __dev__:\n                raise",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4527
+  }
+}

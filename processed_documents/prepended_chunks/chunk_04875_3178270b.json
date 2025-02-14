@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class initialization process that sets up various rendering utilities, starts necessary services like the task manager, and provides functionality for managing collision traversers through a stack-based approach. The code initializes a BufferViewer utility for offscreen buffer visualization, handles the start condition for Direct based on configuration settings, checks texture memory usage, performs final task initialization, restarts the application, and includes methods for pushing and popping collision traverser instances to manage them efficiently in a stack structure.\n\n#: Utility for viewing offscreen buffers, see :mod:`.BufferViewer`.\n        self.bufferViewer = BufferViewer(self.win, self.render2dp if self.wantRender2dp else self.render2d)\n\n        if self.windowType != 'none':\n            if fStartDirect: # [gjeon] if this is False let them start direct manually\n                self.__doStartDirect()\n\n            if ConfigVariableBool('show-tex-mem', False):\n                if not self.texmem or self.texmem.cleanedUp:\n                    self.toggleTexMem()\n\n        taskMgr.finalInit()\n\n        # Start IGLOOP\n        self.restart()\n\n    # add a collision traverser via pushCTrav and remove it via popCTrav\n    # that way the owner of the new cTrav doesn't need to hold onto the\n    # previous one in order to put it back\n    def pushCTrav(self, cTrav):\n        self.cTravStack.push(self.cTrav)\n        self.cTrav = cTrav\n\n    def popCTrav(self):\n        self.cTrav = self.cTravStack.pop()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4875
+  }
+}

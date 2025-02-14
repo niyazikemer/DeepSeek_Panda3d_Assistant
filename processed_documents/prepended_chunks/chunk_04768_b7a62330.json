@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes initialization and setup functions for an exception handling system that tracks and dumps variables at the point of exception. It contains imports, module-wide variables, a custom exception initializer, and a reentrancy counter used to prevent recursive issues when exceptions are triggered. This code is essential for setting up the variable dumping functionality described in the overall document.\n\n__all__ = [\"install\"]\n\nfrom panda3d.core import ConfigVariableBool\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.showbase.PythonUtil import fastRepr, Stack\nimport sys\nimport traceback\n\nnotify = directNotify.newCategory(\"ExceptionVarDump\")\n\nreentry = 0\n\n\ndef _varDump__init__(self, *args, **kArgs):\n    global reentry\n    if reentry > 0:\n        return\n    reentry += 1\n    # frame zero is this frame\n    f = 1\n    self._savedExcString = None\n    self._savedStackFrames = []\n    while True:\n        try:\n            frame = sys._getframe(f)\n        except ValueError as e:\n            break\n        else:\n            f += 1\n            self._savedStackFrames.append(frame)\n    self._moved__init__(*args, **kArgs)\n    reentry -= 1\n\n\nsReentry = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_273",
+    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
+    "chunk_number": 4768
+  }
+}

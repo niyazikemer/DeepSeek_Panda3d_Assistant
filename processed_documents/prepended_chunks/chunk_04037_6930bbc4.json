@@ -1,0 +1,9 @@
+{
+  "content": "The `setupSphere` method initializes a collision sphere for the avatar, setting its radius, position relative to the avatar's node path, and defining how it interacts with other objects through bitmasks. This is essential for detecting collisions between the avatar and the environment, enabling accurate physical interactions within the 3D space managed by the physics engine.\n\ndef setupSphere(self, bitmask, avatarRadius):\n        \"\"\"\n        Set up the collision sphere\n        \"\"\"\n        # This is a sphere on the ground to detect barrier collisions\n        self.avatarRadius = avatarRadius\n        centerHeight = avatarRadius\n        if self.useHeightRay:\n            centerHeight *= 2.0\n        self.cSphere = CollisionSphere(0.0, 0.0, centerHeight, avatarRadius)\n        cSphereNode = CollisionNode('PW.cSphereNode')\n        cSphereNode.addSolid(self.cSphere)\n        self.cSphereNodePath = self.avatarNodePath.attachNewNode(cSphereNode)\n        self.cSphereBitMask = bitmask\n\n        cSphereNode.setFromCollideMask(self.cSphereBitMask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())\n\n        # set up collision mechanism\n        self.pusher = PhysicsCollisionHandler()\n        self.pusher.setInPattern(\"enter%in\")\n        self.pusher.setOutPattern(\"exit%in\")\n\n        self.pusher.addCollider(self.cSphereNodePath, self.avatarNodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4037
+  }
+}

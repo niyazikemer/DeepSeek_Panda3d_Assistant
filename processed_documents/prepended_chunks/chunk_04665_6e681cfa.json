@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk contains utility functions for converting and displaying tree structures, as well as a function to check if a value is of its type's default instance. The `convertTree` and `r_convertTree` functions recursively transform an input tree structure by replacing keys with corresponding object references from an ID list. The `pretty_print` and `r_pretty_print` functions provide a hierarchical text representation of the tree for display purposes, while `isDefaultValue` checks whether a given value is the default instance of its type.\n\n```context\nUtility functions for converting and displaying hierarchical data structures, including recursive conversion of object trees based on ID mappings and pretty-printing functionality for visualizing tree hierarchies in plain text.\n```\n\ndef convertTree(objTree, idList):\n    newTree = {}\n    for key in list(objTree.keys()):\n        obj = (idList[key],)\n        newTree[obj] = {}\n        r_convertTree(objTree[key], newTree[obj], idList)\n    return newTree\n\n\ndef r_convertTree(oldTree, newTree, idList):\n    for key in list(oldTree.keys()):\n        obj = idList.get(key)\n        if not obj:\n            continue\n        obj = str(obj)[:100]\n\n        newTree[obj] = {}\n        r_convertTree(oldTree[key], newTree[obj], idList)\n\n\ndef pretty_print(tree):\n    for name in tree.keys():\n        print(name)\n        r_pretty_print(tree[name], 0)\n\n\ndef r_pretty_print(tree, num):\n    num += 1\n    for name in tree.keys():\n        print(\"  \" * num, name)\n        r_pretty_print(tree[name], num)\n\n\ndef isDefaultValue(x):\n    return x == type(x)()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4665
+  }
+}

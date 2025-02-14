@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an event handling mechanism for an avatar's jumping mechanics in a game or simulation environment. The code checks if the avatar is airborne and whether it has landed, triggering corresponding events such as \"jumpHardLand\" or \"jumpLand\". If the avatar initiates a jump, it sends a \"jumpStart\" message.\n\n**Context:**  \nThis code chunk is situated within an event handling method (likely `handleAvatarControls`) that manages the avatar's state transitions related to jumping. It uses physics data to detect landings and starts jumps, sending appropriate messages for animation or sound effects.\n\n**Answer:**\nThe code chunk is part of an event handling method managing the avatar's jumping mechanics, detecting landings and initiating jumps by checking velocity and contact forces.\n\n# ...the avatar is very close to the ground (close enough to be\n            # considered on the ground).\n            if self.isAirborne and physObject.getVelocity().getZ() <= 0.0:\n                # ...the avatar has landed.\n                contactLength = contact.length()\n                if contactLength>self.__hardLandingForce:\n                    #print \"jumpHardLand\"\n                    messenger.send(\"jumpHardLand\")\n                else:\n                    #print \"jumpLand\"\n                    messenger.send(\"jumpLand\")\n                self.priorParent.setVector(Vec3.zero())\n                self.isAirborne = 0\n            elif jump:\n                #print \"jump\"\n                #self.__jumpButton = 0\n                messenger.send(\"jumpStart\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4059
+  }
+}

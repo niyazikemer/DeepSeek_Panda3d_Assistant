@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of several methods (`getNumCycles`, `getDesc2numDict`, `getGarbage`, and `getReport`) from a Python class designed for garbage detection and leak analysis. These methods are used to retrieve information about detected garbage cycles, including their counts, descriptions, and detailed reports. The system performs garbage collection, identifies memory leaks, and provides structured output for debugging purposes.\n\ndef getNumCycles(self):\n        # if the job hasn't run yet, we don't have a numCycles yet\n        return self.numCycles\n\n    def getDesc2numDict(self):\n        # dict of python-syntax leak -> number of that type of leak\n        desc2num = {}\n        for cycleBySyntax in self.cyclesBySyntax:\n            desc2num.setdefault(cycleBySyntax, 0)\n            desc2num[cycleBySyntax] += 1\n        return desc2num\n\n    def getGarbage(self):\n        return self.garbage\n\n    def getReport(self):\n        if not hasattr(self, '_reportStr'):\n            self._reportStr = ''\n            for str in self._report:\n                self._reportStr += '\\n' + str\n        return self._reportStr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4271
+  }
+}

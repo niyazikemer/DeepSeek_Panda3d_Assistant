@@ -1,0 +1,9 @@
+{
+  "content": "The function `_getNormalizedCycle` is part of a system designed to detect and report memory leaks by analyzing cycles within Python's garbage collector output. It normalizes the representation of cycles, ensuring consistent identification of duplicates despite varying starting points, which aids in accurately determining unique garbage cycles for leak detection.\n\ndef _getNormalizedCycle(self, cycle):\n        # returns a representation of a cycle (list of indices) that will be\n        # reliably derived from a unique cycle regardless of ordering\n        # this lets us detect duplicate cycles that appear different because of\n        # which element appears first\n        if len(cycle) == 0:\n            return cycle\n        min = 1<<30\n        minIndex = None\n        for i in range(len(cycle)):\n            elem = cycle[i]\n            if elem < min:\n                min = elem\n                minIndex = i\n        return cycle[minIndex:] + cycle[:minIndex]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4274
+  }
+}

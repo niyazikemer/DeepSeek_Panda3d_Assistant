@@ -1,0 +1,9 @@
+{
+  "content": "The provided document is a Cg shader code snippet that defines vertex and fragment shaders. The `vshader` function handles vertex transformation by applying a model-projection matrix and adjusting texture coordinates using padding parameters. The `fshader` function performs texture sampling to produce pixel colors for rendering.\n\nCOPY = \"\"\"\n//Cg\n\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float2 l_texcoord : TEXCOORD0,\n             uniform float4 texpad_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  l_texcoord = vtx_texcoord * texpad_src.xy * 2;\n}\n\nvoid fshader(float2 l_texcoord : TEXCOORD0,\n             uniform sampler2D k_src : TEXUNIT0,\n             out float4 o_color : COLOR)\n{\n  o_color = tex2D(k_src, l_texcoord);\n}\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_223",
+    "parent": "processed_documents/context_documents/46102900_filterCopy.json",
+    "chunk_number": 4024
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk belongs to the `_checkForLeaks` method within a Python module designed to detect leaks in object containers (e.g., lists, dictionaries). The code handles exceptions during leak checking, logs warnings, triggers notifications via `messenger.send()`, and optionally starts pdb debugging if enabled.\n\nfastRepr(container, maxLen=CheckContainers.ReprItems)))\n                                        self.notify.warning(msg)\n                                        yield None\n                                        messenger.send(self._leakDetector.getLeakEvent(), [container, name])\n                                        if config.GetBool('pdb-on-leak-detect', 0):\n                                            import pdb;pdb.set_trace()\n                                            pass\n        except Exception as e:\n            print('CheckContainers job caught exception: %s' % e)\n            if __dev__:\n                raise\n        yield Job.Done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4521
+  }
+}

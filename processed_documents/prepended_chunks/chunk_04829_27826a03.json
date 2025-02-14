@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `_runGarbageReport` method within the `GarbageReportScheduler` class. This method creates and runs a garbage report, specifying parameters such as name, threading, callback for scheduling the next report, automatic destruction after completion, and priority (three times normal). The report execution is asynchronous, returning when done.\n\ndef _runGarbageReport(self, task):\n        # run a garbage report and schedule the next one after this one finishes\n        # give this job 3 times as many timeslices as normal-priority jobs\n        self._garbageReport = GarbageReport('ScheduledGarbageReport', threaded=True,\n                                            doneCallback=self._scheduleNextGarbageReport,\n                                            autoDestroy=True,\n                                            priority=GarbageReport.Priorities.Normal * 3)\n        return task.done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_281",
+    "parent": "processed_documents/context_documents/c9398f36_GarbageReportScheduler.json",
+    "chunk_number": 4829
+  }
+}

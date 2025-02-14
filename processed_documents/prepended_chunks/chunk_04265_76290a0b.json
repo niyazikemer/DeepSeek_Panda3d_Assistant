@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a garbage collection and logging mechanism in a Python-based game engine. It is responsible for generating detailed reports about objects that are not being properly deallocated (garbage) and detecting cyclic references between these objects (garbage cycles). The code logs the types, details, and relationships of these garbage items to help identify potential memory leaks. This functionality is crucial for debugging purposes, especially in long-running applications where memory management is critical.\n\nThe specific chunk shown generates sections in a report that describe the types of garbage items detected and lists any cyclic dependencies between them. This information is used by developers to track down objects that are preventing proper cleanup and contributing to memory bloat.\n\n# also log the types of the objects\n            s.append('===== Garbage Item Types %s=====' % abbrev)\n            for i in range(numGarbage):\n                yield None\n                idx = garbageIndices[i]\n                objStr = str(deeptype(self.garbage[idx]))\n                maxLen = 5000\n                if len(objStr) > maxLen:\n                    snip = '<SNIP>'\n                    objStr = '%s%s' % (objStr[:(maxLen-len(snip))], snip)\n                s.append(format % (idx, itype(self.garbage[idx]), objStr))\n\n            if self._args.findCycles:\n                s.append('===== Garbage Cycles (Garbage Item Numbers) =====')\n                ac = AlphabetCounter()\n                for i in range(self.numCycles):\n                    yield None\n                    s.append('%s:%s' % (ac.next(), self.cycles[i]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4265
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods from the `ObjectPool` class in Python: `getObjsOfType`, `printObjsOfType`, and `diff`. These methods are part of an object management utility. `getObjsOfType` retrieves objects of a specific type, while `printObjsOfType` prints them. The `diff` method compares two `ObjectPool` instances to identify lost or gained objects, crucial for tracking changes between pools.\n\ndef getObjsOfType(self, type):\n        return self._type2objs.get(type, [])\n\n    def printObjsOfType(self, type):\n        for obj in self._type2objs.get(type, []):\n            print(repr(obj))\n\n    def diff(self, other):\n        \"\"\"print difference between this pool and 'other' pool\"\"\"\n        thisId2obj = {}\n        otherId2obj = {}\n        for obj in self._objs:\n            thisId2obj[id(obj)] = obj\n        for obj in other._objs:\n            otherId2obj[id(obj)] = obj\n        thisIds = set(thisId2obj.keys())\n        otherIds = set(otherId2obj.keys())\n        lostIds = thisIds.difference(otherIds)\n        gainedIds = otherIds.difference(thisIds)\n        del thisIds\n        del otherIds\n        lostObjs = []\n        for i in lostIds:\n            lostObjs.append(thisId2obj[i])\n        gainedObjs = []\n        for i in gainedIds:\n            gainedObjs.append(otherId2obj[i])\n        return Diff(self.__class__(lostObjs), self.__class__(gainedObjs))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_276",
+    "parent": "processed_documents/context_documents/8fef47ef_ObjectPool.json",
+    "chunk_number": 4794
+  }
+}

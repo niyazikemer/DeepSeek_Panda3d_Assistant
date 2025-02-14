@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk introduces `HierarchyException` for managing hierarchy-related errors and `formatTimeCompact` for formatting durations in a concise manner. Both are part of a comprehensive suite of utilities designed to handle various functionalities including error management, data representation, and time calculations within the document's broader scope of utility functions.\n\nclass HierarchyException(Exception):\n    JOSWILSO = 0\n\n    def __init__(self, owner, description):\n        self.owner = owner\n        self.desc = description\n\n    def __str__(self):\n        return '(%s): %s' % (self.owner, self.desc)\n\n    def __repr__(self):\n        return 'HierarchyException(%s)' % (self.owner, )\n\n\ndef formatTimeCompact(seconds):\n    # returns string in format '1d3h22m43s'\n    result = ''\n    a = int(seconds)\n    seconds = a % 60\n    a //= 60\n    if a > 0:\n        minutes = a % 60\n        a //= 60\n        if a > 0:\n            hours = a % 24\n            a //= 24\n            if a > 0:\n                days = a\n                result += '%sd' % days\n            result += '%sh' % hours\n        result += '%sm' % minutes\n    result += '%ss' % seconds\n    return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4709
+  }
+}

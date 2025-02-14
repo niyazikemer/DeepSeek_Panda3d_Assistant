@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a function responsible for handling avatar controls in a 3D environment. It calculates and applies movement velocity vectors based on input directions (forward and slide) while considering collision detection and physics. The chunk normalizes direction vectors to handle slopes, transforms velocities using rotation matrices, updates the avatar's position with fluid motion, handles rotation adjustments, resets velocity when not moving, and triggers events for movement or jumps.\n\n# the slope (i.e. it is multiplied by the sign as a\n                    # side effect of the cross product above).\n                    forward.normalize()\n                self.vel=Vec3(forward * distance)\n                if slideDistance:\n                    if self.isAirborne:\n                        right = Vec3.right()\n                    else:\n                        right = forward.cross(contact)\n                        # See note above for forward.normalize()\n                        right.normalize()\n                    self.vel=Vec3(self.vel + (right * slideDistance))\n                self.vel=Vec3(rotMat.xform(self.vel))\n                step=self.vel + (self.priorParent * dt)\n                self.avatarNodePath.setFluidPos(Point3(\n                        self.avatarNodePath.getPos()+step))\n            self.avatarNodePath.setH(self.avatarNodePath.getH()+rotation)\n        else:\n            self.vel.set(0.0, 0.0, 0.0)\n        if self.moving or jump:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4099
+  }
+}

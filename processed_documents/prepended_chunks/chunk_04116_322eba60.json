@@ -1,0 +1,9 @@
+{
+  "content": "The `TwoDWalker` class is a subclass of `GravityWalker` designed for controlling avatars in a 2D scroller game environment, such as the Toon Blitz minigame. The class is still under development and currently handles jumping mechanics, with plans to eventually control all 2D movements.\n\nclass TwoDWalker(GravityWalker):\n    \"\"\"\n    The TwoDWalker is primarily for a 2D Scroller game environment. Eg - Toon Blitz minigame.\n    TODO: This class is still work in progress.\n    Currently Toon Blitz is using this only for jumping.\n    Moving the Toon left to right is handled by toontown/src/minigame/TwoDDrive.py.\n    I eventually want this class to control all the 2 D movements, possibly with a\n    customizable input list.\n    \"\"\"\n    notify = directNotify.newCategory(\"TwoDWalker\")\n    wantDebugIndicator = ConfigVariableBool('want-avatar-physics-indicator', False)\n    wantFloorSphere = ConfigVariableBool('want-floor-sphere', False)\n    earlyEventSphere = ConfigVariableBool('early-event-sphere', False)\n\n    # special methods\n    def __init__(self, gravity = -32.1740, standableGround=0.707,\n            hardLandingForce=16.0):\n        assert self.notify.debugStateCall(self)\n        self.notify.debug('Constructing TwoDWalker')\n        GravityWalker.__init__(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_229",
+    "parent": "processed_documents/context_documents/1cd2beea_TwoDWalker.json",
+    "chunk_number": 4116
+  }
+}

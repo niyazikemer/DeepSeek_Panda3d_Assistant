@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a subclass of `SerialNumGen` called `SerialMaskedGen`, which generates serial numbers but applies a bitmask to the output. It also includes a global instance `_serialGen` and a helper function `serialNum()` that provides sequential unique integers, useful for generating unique identifiers or managing sequences within an application.\n\nclass SerialMaskedGen(SerialNumGen):\n    def __init__(self, mask, start=None):\n        self._mask = mask\n        SerialNumGen.__init__(self, start)\n\n    def next(self):\n        v = SerialNumGen.next(self)\n        return v & self._mask\n\n    __next__ = next\n\n\n_serialGen = SerialNumGen()\n\n\ndef serialNum():\n    return _serialGen.next()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4654
+  }
+}

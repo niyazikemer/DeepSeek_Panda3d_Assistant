@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `create_buffer` method in a class designed to manage render buffers. The method creates a new graphics buffer with specified properties and attaches necessary textures (depth, color, aux0, aux1) using `addRenderTexture`. It then sets the buffer's sort order for rendering purposes. This ensures proper setup and management of the buffer within the graphics pipeline.\n\n**Context:** Within the `create_buffer` method, after attaching all required render textures, the code adds an auxiliary texture (auxtex1) if present, sets the buffer's sort order, disables clears, increments the sort counter, and returns the configured buffer.\n\nif auxtex1:\n            buffer.addRenderTexture(auxtex1, GraphicsOutput.RTMBindOrCopy, GraphicsOutput.RTPAuxRgba1)\n        buffer.setSort(self.nextsort)\n        buffer.disableClears()\n        self.nextsort += 1\n        return buffer",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4017
+  }
+}

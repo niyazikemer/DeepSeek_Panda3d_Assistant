@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods (`doDeltaPos` and `setPriorParentVector`) that are part of a larger class handling avatar physics and movement controls in a 3D environment. These methods manage position updates and velocity calculations based on previous positional changes, ensuring smooth and realistic motion for the avatar within the system.\n\ndef doDeltaPos(self):\n        assert self.debugPrint(\"doDeltaPos()\")\n        self.needToDeltaPos = 1\n\n    def setPriorParentVector(self):\n        assert self.debugPrint(\"doDeltaPos()\")\n\n        print(\"self.__oldDt %s self.__oldPosDelta %s\" % (self.__oldDt, self.__oldPosDelta))\n        if __debug__:\n            onScreenDebug.add(\"__oldDt\", \"% 10.4f\"%self.__oldDt)\n            onScreenDebug.add(\"self.__oldPosDelta\",\n                              self.__oldPosDelta.pPrintValues())\n\n        velocity = self.__oldPosDelta*(1/self.__oldDt)*4.0 # *4.0 is a hack\n        assert self.debugPrint(\"  __oldPosDelta=%s\"%(self.__oldPosDelta,))\n        assert self.debugPrint(\"  velocity=%s\"%(velocity,))\n        self.priorParent.setVector(Vec3(velocity))\n        if __debug__:\n            if self.wantDebugIndicator:\n                onScreenDebug.add(\"velocity\", velocity.pPrintValues())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4064
+  }
+}

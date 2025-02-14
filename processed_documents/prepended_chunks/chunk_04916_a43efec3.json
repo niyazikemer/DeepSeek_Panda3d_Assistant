@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sets up a 2D display region in a Panda3D-based application, creating an `aspect2dp` node that scales the X-axis by the inverse of the window's aspect ratio. This ensures proper scaling for UI elements and overlays while maintaining consistent Z-coordinates from -1 to 1. The setup is designed to prevent stretching or distortion when rendering 2D content in a 3D environment.\n\nself.render2dp.setMaterialOff(1)\n        self.render2dp.setTwoSided(1)\n\n        #: The normal 2-d DisplayRegion has an aspect ratio that\n        #: matches the window, but its coordinate system is square.\n        #: This means anything we parent to render2dp gets stretched.\n        #: For things where that makes a difference, we set up\n        #: aspect2dp, which scales things back to the right aspect\n        #: ratio along the X axis (Z is still from -1 to 1)\n        self.aspect2dp = self.render2dp.attachNewNode(PGTop(\"aspect2dp\"))\n        self.aspect2dp.node().setStartSort(16384)\n\n        aspectRatio = self.getAspectRatio()\n        self.aspect2dp.setScale(1.0 / aspectRatio, 1.0, 1.0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4916
+  }
+}

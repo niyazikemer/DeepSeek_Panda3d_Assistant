@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a utility function designed to inspect the call stack and retrieve information about a specific frame, such as filename, line number, and function name. It uses `inspect.stack()` to gather this data and handles exceptions gracefully by returning `(None, None, None)` if an error occurs during the inspection process. This functionality is commonly used for debugging purposes or to track execution flow within applications.\n\n**Context:** The code is part of a utility function for call stack inspection, aiding in debugging by extracting frame details like filename, line number, and function name.\n\ntry:\n            stack = None\n            frame = None\n            try:\n                stack = inspect.stack()\n                # add one to skip the frame associated with this function\n                frame = stack[depth+1]\n                filename = frame[1]\n                if baseFileName:\n                    filename = os.path.basename(filename)\n                lineNum = frame[2]\n                funcName = frame[3]\n                result = (filename, lineNum, funcName)\n            finally:\n                del stack\n                del frame\n        except Exception:\n            result = (None, None, None)\n\n        return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4643
+  }
+}

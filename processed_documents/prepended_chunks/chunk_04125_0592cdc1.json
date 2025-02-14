@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how the BattleWalker class calculates an avatar's movement direction by creating a rotation matrix from their heading angle. This allows the avatar to move in the correct spatial direction relative to their orientation, either using a standard forward vector when airborne or computing a custom forward vector based on terrain contact normal when grounded.\n\n# Take a step in the direction of our previous heading.\n            if distance or slideDistance or self.priorParent != Vec3.zero():\n                # rotMat is the rotation matrix corresponding to\n                # our previous heading.\n                rotMat=Mat3.rotateMatNormaxis(self.avatarNodePath.getH(), Vec3.up())\n                if self.isAirborne:\n                    forward = Vec3.forward()\n                else:\n                    contact = self.lifter.getContactNormal()\n                    forward = contact.cross(Vec3.right())\n                    # Consider commenting out this normalize.  If you do so\n                    # then going up and down slops is a touch slower and\n                    # steeper terrain can cut the movement in half.  Without\n                    # the normalize the movement is slowed by the cosine of\n                    # the slope (i.e. it is multiplied by the sign as a\n                    # side effect of the cross product above).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_230",
+    "parent": "processed_documents/context_documents/df5d144c_BattleWalker.json",
+    "chunk_number": 4125
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to a method within a class responsible for managing graphics-related functionalities in a Panda3D-based application. The code handles the cleanup of texture memory resources and sets up a display region to visualize vertex density on screen, aiding in debugging or optimizing rendering performance.\n\nif self.texmem and not self.texmem.cleanedUp:\n            self.texmem.cleanup()\n            self.texmem = None\n            return\n\n        # Use importlib to prevent this import from being picked up\n        # by modulefinder when packaging an application.\n        TMW = importlib.import_module('direct.showutil.TexMemWatcher')\n        self.texmem = TMW.TexMemWatcher()\n\n    def toggleShowVertices(self):\n        \"\"\" Toggles a mode that visualizes vertex density per screen\n        area. \"\"\"\n\n        if self.showVertices:\n            # Clean up the old mode.\n            self.showVertices.node().setActive(0)\n            dr = self.showVertices.node().getDisplayRegion(0)\n            self.win.removeDisplayRegion(dr)\n            self.showVertices.removeNode()\n            self.showVertices = None\n            return\n\n        dr = self.win.makeDisplayRegion()\n        dr.setSort(1000)\n        cam = Camera('showVertices')\n        cam.setLens(self.camLens)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4974
+  }
+}

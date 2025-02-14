@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `handleAvatarControls` method in an avatar physics and movement control system. It handles updating the avatar's orientation (heading, pitch, roll) after movement calculations, synchronizing the transform with the physics object, sending an \"avatarMoving\" event, and clearing contact vectors for collision detection. The code is responsible for maintaining the visual representation of the avatar's position and rotation in sync with its physics-based movement calculations.\n\n# update hpr:\n            o=physObject.getOrientation()\n            r=LRotationf()\n            r.setHpr(Vec3(rotation, 0.0, 0.0))\n            physObject.setOrientation(o*r)\n\n            # sync the change:\n            self.actorNode.updateTransform()\n\n            assert self.avatarNodePath.getQuat().isSameDirection(physObject.getOrientation())\n            assert self.avatarNodePath.getPos().almostEqual(physObject.getPosition(), 0.0001)\n            #assert self.avatarNodePath.getH()==debugTempH-rotation\n            messenger.send(\"avatarMoving\")\n        else:\n            self.__vel.set(0.0, 0.0, 0.0)\n        # Clear the contact vector so we can tell if we contact something next frame:\n        self.actorNode.setContactVector(Vec3.zero())\n        return Task.cont\n\n    def doDeltaPos(self):\n        assert self.debugPrint(\"doDeltaPos()\")\n        self.needToDeltaPos = 1\n\n    def setPriorParentVector(self):\n        assert self.debugPrint(\"doDeltaPos()\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4063
+  }
+}

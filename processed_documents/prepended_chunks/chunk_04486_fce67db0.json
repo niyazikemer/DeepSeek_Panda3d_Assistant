@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of a generator method called `getContainerByEvalStr` within the `ContainerFinder` class. The purpose of this method is to find and yield container objects (like lists, dictionaries, etc.) based on an evaluation string that specifies the path to the object in memory. \n\nThe specific lines shown are:\n1. Modifying the evaluation string by removing any trailing '.__dict__' suffix.\n2. Yielding the result of attempting to retrieve the container object using the modified evaluation string.\n\nThis functionality is used to accurately locate and track containers over time, which helps in identifying potential leaks or unexpected references to objects in memory.\n\nif getInstance:\n            lenDict = len('.__dict__')\n            if evalStr[-lenDict:] == '.__dict__':\n                evalStr = evalStr[:-lenDict]\n\n        # TODO: check that this is still the object we originally pointed to\n        yield self._getContainerByEval(evalStr, curObj=curObj)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4486
+  }
+}

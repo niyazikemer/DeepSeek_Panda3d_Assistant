@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines profiling-related utilities, including a decorator `profileDecorator` for wrapping functions to profile them conditionally based on configuration settings, along with structures for intercepting file operations related to profiling data.\n\ndef profileDecorator(f):\n            def _profiled(*args, **kArgs):\n                name = '(%s) %s from %s' % (category, f.__name__, f.__module__)\n\n                if category is None or ConfigVariableBool('want-profile-%s' % category, False).value:\n                    return profileFunc(Functor(f, *args, **kArgs), name, terse)\n                else:\n                    return f(*args, **kArgs)\n            _profiled.__doc__ = f.__doc__\n            return _profiled\n        return profileDecorator\n\n    # intercept profile-related file operations to avoid disk access\n    movedOpenFuncs: list[Callable] = []\n    movedDumpFuncs: list[Callable] = []\n    movedLoadFuncs: list[Callable] = []\n    profileFilenames = set()\n    profileFilenameList = Stack()\n    profileFilename2file = {}\n    profileFilename2marshalData = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4626
+  }
+}

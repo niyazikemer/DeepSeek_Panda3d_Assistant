@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods, `deleteCollisions` and `setCollisionsActive`, which are part of the `ObserverWalker` class responsible for managing collision detection in an avatar's movement system. The `deleteCollisions` method cleans up all collision-related resources by deleting collision spheres, nodes, and handlers, ensuring proper cleanup to prevent memory leaks or interference with other systems. The `setCollisionsActive` method controls whether collisions are enabled or disabled, updating the state and adjusting the collision handling accordingly. When collisions are disabled, it triggers a one-time collision check to ensure the avatar isn't embedded in a wall, maintaining consistent spatial relationships.\n\ndef deleteCollisions(self):\n        del self.cTrav\n\n        del self.cSphere\n        self.cSphereNodePath.removeNode()\n        del self.cSphereNodePath\n\n        del self.pusher\n\n    def setCollisionsActive(self, active = 1):\n        assert self.debugPrint(\"setCollisionsActive(active%s)\"%(active,))\n        if self.collisionsActive != active:\n            self.collisionsActive = active\n            if active:\n                self.cTrav.addCollider(self.cSphereNodePath, self.pusher)\n            else:\n                self.cTrav.removeCollider(self.cSphereNodePath)\n\n                # Now that we have disabled collisions, make one more pass\n                # right now to ensure we aren't standing in a wall.\n                self.oneTimeCollide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_235",
+    "parent": "processed_documents/context_documents/0ce09327_ObserverWalker.json",
+    "chunk_number": 4168
+  }
+}

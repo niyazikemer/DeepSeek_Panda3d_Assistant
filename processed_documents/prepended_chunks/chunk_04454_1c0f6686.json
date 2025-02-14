@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides methods for controlling key parameters of 3D spatialized audio in the Audio3DManager class, including setting and getting the distance factor that scales audio distance units (defaulting to meters) and adjusting the Doppler factor that controls the presence of the Doppler effect (with a default value of 1.0). These methods are essential for managing how sound is positioned and perceived in a three-dimensional space within the audio system, allowing developers to fine-tune both the spatial scaling and the auditory effects related to motion in the environment.\n\ndef setDistanceFactor(self, factor):\n        \"\"\"\n        Control the scale that sets the distance units for 3D spacialized audio.\n        Default is 1.0 which is adjust in panda to be meters.\n        When you change this, don't forget that this effects the scale of setSoundMinDistance\n        \"\"\"\n        self.audio_manager.audio3dSetDistanceFactor(factor)\n\n    def getDistanceFactor(self):\n        \"\"\"\n        Control the scale that sets the distance units for 3D spacialized audio.\n        Default is 1.0 which is adjust in panda to be meters.\n        \"\"\"\n        return self.audio_manager.audio3dGetDistanceFactor()\n\n    def setDopplerFactor(self, factor):\n        \"\"\"\n        Control the presence of the Doppler effect. Default is 1.0\n        Exaggerated Doppler, use >1.0\n        Diminshed Doppler, use <1.0\n        \"\"\"\n        self.audio_manager.audio3dSetDopplerFactor(factor)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4454
+  }
+}

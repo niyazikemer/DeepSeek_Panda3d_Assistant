@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk demonstrates a test scenario for shadow effects in a 3D environment using Panda3D. It loads specific models (a bar model from Pirates of the Caribbean assets and a smiley face), applies lighting (ambient and directional) to create visual effects, and sets up an animation sequence to move the light source. The code is designed to test how shadows cast by the loaded objects change as the light moves through the scene.\n\n##def testShadow():\n##    a = piratesAvatarShadow()\n##\n##from direct.showbase.ShadowDemo import *\n##from direct.interval.IntervalGlobal import *\n##b = loader.loadModel('/i/beta/PotC/Maya/Pirates/scenes/models/sets/buildings/spanish_buildings/TavernIntExt/tavern_ext/bar.egg')\n##bs = arbitraryShadow(b)\n##s = loader.loadModel('smiley')\n##s.reparentTo(bs.lightPath)\n##b.reparentTo((base.localAvatar))\n##a = AmbientLight('cloudAmbientHi')\n##a.setColor(Vec4(0.9, 0.9, 0.9, 1.000))\n##aNP = s.attachNewNode(a)\n##b.setLight(aNP)\n##d = DirectionalLight(\"chernabogDirectionalLight\")\n##d.setDirection(Vec3(0, 1, 0))\n##d.setColor(Vec4(1))\n###d.setColor(Vec4(0.9, 0.7, 0.7, 1.000))\n##dNP = s.attachNewNode(d)\n##b.setLight(dNP)\n##\n##ival = Sequence(LerpPosInterval(bs.lightPath, 0.0, Vec3(-200, 0, 50)),\n##                LerpPosInterval(bs.lightPath, 10.0, Vec3(-200, 0, 200)),\n##                LerpPosInterval(bs.lightPath, 10.0, Vec3(200, 0, 200)),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_282",
+    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
+    "chunk_number": 4840
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method in a Python class designed for detecting and analyzing memory leaks, specifically focusing on garbage collection. The class utilizes the `gc` module to inspect and report on garbage objects and cycles within the application. This particular section initializes key data structures such as mappings between object IDs and their indices, referrers, and cycles, which are essential for efficiently processing and reporting on garbage data.\n\nself._id2garbageInfo = {}\n\n        self.cycles = []\n        self.cyclesBySyntax = []\n        self.uniqueCycleSets = set()\n        self.cycleIds = set()\n\n        # make the id->index table to speed up the next steps\n        for i in range(self.numGarbage):\n            self._id2index[id(self.garbage[i])] = i\n            if i % 20 == 0:\n                yield None\n\n        # grab the referrers (pointing to garbage)\n        if self._args.fullReport and (self.numGarbage != 0):\n            if self._args.verbose:\n                self.notify.info('getting referrers...')\n            for i in range(self.numGarbage):\n                yield None\n                for result in self._getReferrers(self.garbage[i]):\n                    yield None\n                byNum, byRef = result\n                self.referrersByNumber[i] = byNum\n                self.referrersByReference[i] = byRef",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4253
+  }
+}

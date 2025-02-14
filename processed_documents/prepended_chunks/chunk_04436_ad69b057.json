@@ -1,0 +1,9 @@
+{
+  "content": "The `__init__` method initializes the `BulletinBoardWatcher` instance by setting up event listeners for specified bulletins. It configures the watcher to monitor posts and their removals, ensuring that all required events are tracked before triggering the callback.\n\n```plaintext\nThis is the initialization method of the BulletinBoardWatcher class, responsible for setting up the watcher with specific post and remove names, establishing event listeners, and starting the process to check if all monitored bulletins meet the specified conditions.\n```\n\ndef __init__(self, name, postNames, callback, removeNames=None):\n        self.notify.debug('__init__: %s, %s, %s' % (name, postNames, callback))\n        if removeNames is None:\n            removeNames = []\n        self.name = name\n        self.postNames = makeList(postNames)\n        self.removeNames = makeList(removeNames)\n        self.callback = callback\n        self.waitingOn = set()\n        for name in self.postNames:\n            if not bboard.has(name):\n                eventName = bboard.getEvent(name)\n                self.waitingOn.add(eventName)\n                self.acceptOnce(eventName, Functor(self._handleEvent, eventName))\n        for name in self.removeNames:\n            if bboard.has(name):\n                eventName = bboard.getRemoveEvent(name)\n                self.waitingOn.add(eventName)\n                self.acceptOnce(eventName, Functor(self._handleEvent, eventName))\n        self._checkDone()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_251",
+    "parent": "processed_documents/context_documents/bb056ef2_BulletinBoardWatcher.json",
+    "chunk_number": 4436
+  }
+}

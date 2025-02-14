@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines two core methods of the `InputState` class: `isSet()` and `getEventName()`. \n\n- `isSet()` determines if an input state is active by checking forced states and optionally verifying against a specific input source. \n- `getEventName()` generates unique event names for tracking input states.\n\nThese methods are essential components of the InputState system, which manages and monitors user inputs in a structured manner.\n\ndef isSet(self, name, inputSource=None):\n        \"\"\"\n        returns True/False\n        \"\"\"\n        #assert self.debugPrint(\"isSet(name=%s)\"%(name))\n        if name in self._forcingOn:\n            return True\n        elif name in self._forcingOff:\n            return False\n        if inputSource:\n            s = self._state.get(name)\n            if s:\n                return inputSource in s\n            else:\n                return False\n        else:\n            return name in self._state\n\n    def getEventName(self, name):\n        return \"InputState-%s\" % (name,)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4151
+  }
+}

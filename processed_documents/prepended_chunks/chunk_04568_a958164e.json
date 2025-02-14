@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `detectLeaks` method in the `DirectObject` class, which checks for potential memory leaks by verifying if any events are still being accepted or tasks are running after an instance has been destroyed. The code determines whether to crash or log a warning based on a configuration setting, and then raises an error or warning message indicating that the destroyed object is still listening to certain events or running specific tasks.\n\ncrash = getattr(getRepository(), '_crashOnProactiveLeakDetect', False)\n            func = (self.notify.error if crash else self.notify.warning)\n            func('destroyed %s instance is still %s%s' % (self.__class__.__name__, estr, tstr))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_260",
+    "parent": "processed_documents/context_documents/52e8ea2a_DirectObject.json",
+    "chunk_number": 4568
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `_adjustCollisions` method of the `BufferedDistancePhasedNode` class, which dynamically modifies the radii of collision spheres based on the current phase and associated buffer distances. This adjustment ensures smooth phase transitions by enlarging or reducing sphere sizes beyond static thresholds to prevent flickering.\n\ndef __adjustCollisions(self, phase):\n        for x,sphere in enumerate(self._colSpheres[:phase+1]):\n            sphere.node().modifySolid(0).setRadius(self.bufferParamList[x][1][1])\n            sphere.node().markInternalBoundsStale()\n\n        for x,sphere in enumerate(self._colSpheres[phase+1:]):\n            sphere.node().modifySolid(0).setRadius(self.bufferParamList[x+phase+1][1][0])\n            sphere.node().markInternalBoundsStale()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4589
+  }
+}

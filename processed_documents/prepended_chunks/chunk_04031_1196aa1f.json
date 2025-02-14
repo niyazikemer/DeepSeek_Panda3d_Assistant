@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `PhysicsWalker` class, which is a core component of an avatar physics and control system. It initializes parameters for gravity, standable ground detection, and hard landing forces. The class uses DirectNotify for logging and includes support for debugging indicators. This context provides foundational physics behavior for avatar movement.\n\nclass PhysicsWalker(DirectObject.DirectObject):\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"PhysicsWalker\")\n    wantDebugIndicator = ConfigVariableBool('want-avatar-physics-indicator', False)\n\n    useLifter = 0\n    useHeightRay = 0\n\n    # special methods\n    def __init__(self, gravity = -32.1740, standableGround=0.707,\n            hardLandingForce=16.0):\n        assert self.debugPrint(\n            \"PhysicsWalker(gravity=%s, standableGround=%s)\"%(\n            gravity, standableGround))\n        DirectObject.DirectObject.__init__(self)\n        self.__gravity=gravity\n        self.__standableGround=standableGround\n        self.__hardLandingForce=hardLandingForce",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4031
+  }
+}

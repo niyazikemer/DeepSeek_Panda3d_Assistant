@@ -1,0 +1,9 @@
+{
+  "content": "The `newEvent()` method generates a unique event name by combining the EventGroup's name, a serial number, and another specified part of the name. This ensures events are unique without repeating information already present in the group's name. The `_subEventComplete()` method checks if a sub-event has been completed; if not, it adds it to the set of completed events. When all required sub-events are completed (i.e., when `self._completedEvents` equals `self._subEvents`), it triggers `_signalComplete()`, which marks the group as completed, sends out its done event via the messenger system, and destroys itself by calling `self.destroy()`.\n\ndef newEvent(self, name):\n        \"\"\" Pass in an event name and it will be unique-ified for you and added\n        to this EventGroup. TIP: there's no need to repeat information in this event\n        name that is already in the name of the EventGroup object.\n        Returns the new event name. \"\"\"\n        return self.addEvent('%s-SubEvent-%s-%s' % (\n            self._name, EventGroup._SerialNumGen.next(), name))\n\n    def _subEventComplete(self, subEventName, *args, **kwArgs):\n        if subEventName in self._completedEvents:\n            self.notify.warning('_subEventComplete: \\'%s\\' already received' %\n                                subEventName)\n        else:\n            self._completedEvents.add(subEventName)\n            if self._completedEvents == self._subEvents:\n                self._signalComplete()\n\n    def _signalComplete(self):\n        self._completed = True\n        messenger.send(self._doneEvent)\n        self.destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_253",
+    "parent": "processed_documents/context_documents/3322f876_EventGroup.json",
+    "chunk_number": 4445
+  }
+}

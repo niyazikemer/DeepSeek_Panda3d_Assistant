@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines a method `_import_extension_module` within the `VFSImporter` class. This method is responsible for importing binary shared object files (Python extension modules) from a virtual file system. It uses `vfs.getFile` to retrieve the module's file, reads its contents into memory, and then loads it as an extension module using `ctypes.CDLL`. The function handles cases where the file cannot be found by raising an `ImportError`. This functionality is crucial for enabling Python to load modules from a custom virtual file system, supporting scenarios like embedded applications or games where files are packaged in non-standard formats.\n\ndef _import_extension_module(self, fullname):\n        \"\"\" Loads the binary shared object as a Python module, and\n        returns it. \"\"\"\n\n        vfile = vfs.getFile(self.filename, False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4332
+  }
+}

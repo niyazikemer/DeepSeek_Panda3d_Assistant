@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `GarbageReport` class in a Python script designed to detect and report garbage cycles. The loop processes each garbage object, constructs its string representation safely or using `fastRepr`, truncates long strings, and formats them into a readable list for reporting purposes.\n\nfor i in range(numGarbage):\n                yield None\n                idx = garbageIndices[i]\n                if self._args.safeMode:\n                    # in safe mode, don't try to repr any of the objects\n                    objStr = repr(itype(self.garbage[idx]))\n                else:\n                    objStr = fastRepr(self.garbage[idx])\n                maxLen = 5000\n                if len(objStr) > maxLen:\n                    snip = '<SNIP>'\n                    objStr = '%s%s' % (objStr[:(maxLen-len(snip))], snip)\n                s.append(format % (idx, itype(self.garbage[idx]), objStr))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4264
+  }
+}

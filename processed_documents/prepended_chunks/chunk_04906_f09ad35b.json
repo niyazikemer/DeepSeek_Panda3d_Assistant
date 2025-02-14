@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a class (likely `ShowBase` or similar) in a Python file related to Panda3D, focusing on setting up rendering properties and scene graphs for both 3D and 2D elements. The chunk initializes basic rendering settings such as backface culling, textures, wireframe mode, and sets up the 2D render graph with specific overrides (e.g., turning off depth test) for GUI elements or superimposed 2D objects over 3D geometry.\n\nself.render.setTwoSided(0)\n        self.backfaceCullingEnabled = True\n        self.textureEnabled = True\n        self.wireframeEnabled = False\n\n    def setupRender2d(self) -> None:\n        \"\"\"\n        Creates the render2d scene graph, the primary scene graph for\n        2-d objects and gui elements that are superimposed over the\n        3-d geometry in the window.\n        \"\"\"\n        # We've already created render2d and aspect2d in ShowBaseGlobal,\n        # for the benefit of creating DirectGui elements before ShowBase.\n        from . import ShowBaseGlobal\n\n        #: This is the root of the 2-D scene graph.\n        self.render2d = ShowBaseGlobal.render2d\n\n        # Set up some overrides to turn off certain properties which\n        # we probably won't need for 2-d objects.\n\n        # It's probably important to turn off the depth test, since\n        # many 2-d objects will be drawn over each other without\n        # regard to depth position.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4906
+  }
+}

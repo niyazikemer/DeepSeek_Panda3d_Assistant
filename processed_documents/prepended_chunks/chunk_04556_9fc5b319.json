@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a function replacement mechanism that copies method definitions from one class to another while ensuring compatibility with external systems like message queues (messenger), task managers (taskMgr), state machines (FSM), and distributed objects. The code iterates over methods in `fromClass`, identifies functions, checks for existing implementations in `toClass`, and handles nested function references by matching filenames, which is critical for maintaining correct behavior across the application's subsystems during dynamic class modification.\n\n# Copy the functions from fromClass into toClass dictionary\n    for funcName, newFunc in fromClass.__dict__.items():\n        # Filter out for functions\n        if isinstance(newFunc, types.FunctionType):\n            # See if we already have a function with this name\n            oldFunc = toClass.__dict__.get(funcName)\n            if oldFunc:\n                # This code is nifty, but with nested functions, give an error:\n                #   SystemError: cellobject.c:22: bad argument to internal function\n                # Give the new function code the same filename as the old function\n                # Perhaps there is a cleaner way to do this? This was my best idea.\n                #newCode = types.CodeType(newFunc.func_code.co_argcount,\n                #                         newFunc.func_code.co_nlocals,\n                #                         newFunc.func_code.co_stacksize,\n                #                         newFunc.func_code.co_flags,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4556
+  }
+}

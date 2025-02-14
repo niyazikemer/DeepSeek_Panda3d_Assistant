@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines essential methods for the `DistancePhasedNode` class: a reset method, a destructor, and string representation methods. These additions enhance object lifecycle management and debugging capabilities by allowing object reinitialization, proper cleanup via __del__, and human-readable object state descriptions through __repr__ and __str__.\n\nself.reset()\n\n    def __del__(self):\n        self.__deallocateId(self.__id)\n\n    def __repr__(self):\n        outStr = 'DistancePhasedObject('\n        outStr += repr(self.getName())\n        for param, value in zip(('phaseParamMap', 'autoCleanup', 'enterPrefix', 'exitPrefix', 'phaseCollideMask', 'fromCollideNode'),\n                                ({}, True, 'enter', 'exit', BitMask32.allOn(), None)):\n            pv = getattr(self, param)\n            if pv != value:\n                outStr += ', %s = %r' % (param, pv)\n        outStr += ')'\n        return outStr\n\n    def __str__(self):\n        return '%s in phase \\'%s\\'' % (NodePath.__str__(self), self.getPhase())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4576
+  }
+}

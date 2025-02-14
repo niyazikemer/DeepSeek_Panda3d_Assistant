@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nA collection of utility functions for string manipulation and data analysis:\n\n- `typeName(o)`: Returns the class name of an object if possible; otherwise returns type name.\n- `safeTypeName(o)`: Safely retrieves type name with fallbacks for exceptions.\n- `histogramDict(l)`: Creates a frequency count dictionary from list elements.\n- `unescapeHtmlString(s)`: Converts HTML entities to characters and handles '+' replacement.\n\"\"\"\n\ndef typeName(o):\n    if hasattr(o, '__class__'):\n        return o.__class__.__name__\n    else:\n        return o.__name__\n\n\ndef safeTypeName(o):\n    try:\n        return typeName(o)\n    except Exception:\n        pass\n    try:\n        return type(o)\n    except Exception:\n        pass\n    return '<failed safeTypeName()>'\n\n\ndef histogramDict(l):\n    d = {}\n    for e in l:\n        d.setdefault(e, 0)\n        d[e] += 1\n    return d\n\n\ndef unescapeHtmlString(s):\n    # converts %## to corresponding character\n    # replaces '+' with ' '\n    result = ''\n    i = 0\n    while i < len(s):\n        char = s[i]\n        if char == '+':\n            char = ' '\n        elif char == '%':\n            if i < (len(s)-2):\n                num = int(s[i+1:i+3], 16)\n                char = chr(num)\n                i += 2\n        i += 1\n        result += char\n    return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4713
+  }
+}

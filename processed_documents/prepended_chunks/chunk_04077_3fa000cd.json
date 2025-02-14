@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `setupEventSphere` method within a class that manages avatar controls and physics. This method sets up a spherical collision detection zone around the avatar, using Panda3D's collision system. The sphere is slightly larger than the avatar's radius to ensure comprehensive event triggering when the avatar interacts with environmental objects or regions marked by specific collision masks.\n\ndef setupEventSphere(self, bitmask, avatarRadius):\n        \"\"\"\n        Set up the collision sphere\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        # This is a sphere a little larger than the wall sphere to\n        # trigger events.\n        self.avatarRadius = avatarRadius\n        cSphere = CollisionSphere(0.0, 0.0, avatarRadius-0.1, avatarRadius*1.04)\n        # Mark it intangible just to emphasize its non-physical purpose.\n        cSphere.setTangible(0)\n        cSphereNode = CollisionNode('GW.cEventSphereNode')\n        cSphereNode.addSolid(cSphere)\n        cSphereNodePath = self.avatarNodePath.attachNewNode(cSphereNode)\n\n        cSphereNode.setFromCollideMask(bitmask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())\n\n        # set up collision mechanism\n        self.event = CollisionHandlerEvent()\n        self.event.addInPattern(\"enter%in\")\n        self.event.addOutPattern(\"exit%in\")\n        self.cEventSphereNodePath = cSphereNodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4077
+  }
+}

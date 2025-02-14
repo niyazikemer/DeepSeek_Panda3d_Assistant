@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `watch()` method in an input state management class, which sets up event handlers for tracking user inputs such as keyboard or mouse events. The code defines how event subscriptions work by creating a token to accept specific events (`eventOn` and `eventOff`), storing the input source information, initializing watching data structures, and returning the token for later use in managing event subscriptions.\n\n```text\nContext: Code from the watch() method handling event subscriptions for tracking user inputs, setting up event handlers, and managing tokens for future ignore/force operations.\n```\n\ntoken.accept(eventOn, self.set, [name, True, inputSource])\n        token.accept(eventOff, self.set, [name, False, inputSource])\n        self._token2inputSource[token] = inputSource\n        self._watching.setdefault(inputSource, {})\n        self._watching[inputSource][token] = (name, eventOn, eventOff)\n        return token",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4156
+  }
+}

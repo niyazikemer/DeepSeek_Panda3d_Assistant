@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a decorator function `_decoratorFunc` used to wrap functions/methods with profiling and exception logging capabilities when `__debug__` is enabled. It initializes an exception notification category using the DirectNotifyGlobal system, allowing runtime exceptions to be logged without halting program execution.\n\ndef _decoratorFunc(f, append=append):\n            global exceptionLoggedNotify\n            if exceptionLoggedNotify is None:\n                from direct.directnotify.DirectNotifyGlobal import directNotify\n                exceptionLoggedNotify = directNotify.newCategory(\"ExceptionLogged\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4695
+  }
+}

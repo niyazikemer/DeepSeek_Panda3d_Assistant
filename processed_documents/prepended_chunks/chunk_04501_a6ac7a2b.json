@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a generator that iterates over containers using `getContainerByIdGen`, handles exceptions by logging and removing invalid references. It's situated in a method managing container iteration for leak detection, likely within the `_checkForLeaks` or a helper method like `_processContainers`.\n\n```python\ndef _processContainers(self):\n    # Iterate through each container reference to check for leaks\n    startId = ...  # Initial ID value\n    while True:\n        try:\n            for containerRef in self._leakDetector.getContainerByIdGen(startId):\n                yield None\n        except Exception:\n            # Handle invalid references by removing them\n            self.notify.debug('invalid startRef, stored as id %s' % startId)\n            self._leakDetector.removeContainerById(startId)\n            continue\n        curObjRef = containerRef\n```\n\ncurObjRef = None\n                        try:\n                            for containerRef in self._leakDetector.getContainerByIdGen(startId):\n                                yield None\n                        except Exception:\n                            # ref is invalid\n                            self.notify.debug('invalid startRef, stored as id %s' % startId)\n                            self._leakDetector.removeContainerById(startId)\n                            continue\n                        curObjRef = containerRef",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4501
+  }
+}

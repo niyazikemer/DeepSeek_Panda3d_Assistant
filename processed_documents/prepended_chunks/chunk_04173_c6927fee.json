@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes collision detection for an avatar by setting up a collision sphere to detect barriers and a collision ray for ground interaction. It configures these nodes with specific collision masks and attaches them to the avatar's node path.\n\n**Context:**  \nThis section of code is part of the `NonPlayerAvatar` class, which manages avatar controls including movement and collision detection. The `initializeCollisions` method sets up the necessary collision solids (sphere and ray) for detecting barriers and ground interactions, crucial for realistic movement physics within the game or simulation environment.\n\nif self.cRayNodePath and not self.cRayNodePath.isEmpty():\n            self.cRayNodePath.node().setFromCollideMask(self.cRayBitMask)\n\n    def initializeCollisions(self, collisionTraverser, avatarNodePath,\n            avatarRadius = 1.4, floorOffset = 1.0, reach = 1.0):\n        \"\"\"\n        Set up the avatar for collisions\n        \"\"\"\n        assert not avatarNodePath.isEmpty()\n\n        self.cTrav = collisionTraverser\n        self.avatarNodePath = avatarNodePath\n\n        # Set up the collision sphere\n        # This is a sphere on the ground to detect barrier collisions\n        self.cSphere = CollisionSphere(0.0, 0.0, 0.0, avatarRadius)\n        cSphereNode = CollisionNode('NPW.cSphereNode')\n        cSphereNode.addSolid(self.cSphere)\n        self.cSphereNodePath = avatarNodePath.attachNewNode(cSphereNode)\n\n        cSphereNode.setFromCollideMask(self.cSphereBitMask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4173
+  }
+}

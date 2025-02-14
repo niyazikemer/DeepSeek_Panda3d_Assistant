@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a Python utility function that safely generates string representations of objects, including handling exceptions and truncating long strings based on specified limits. The function adjusts maximum length calculations using a `strFactor` multiplier and includes error handling to return informative messages when object representation fails. This code is situated within a larger document containing various utility functions for debugging, profiling, exception handling, and string manipulation in Python.\n\nreturn s\n        elif type(obj) is str:\n            if maxLen is not None:\n                maxLen *= strFactor\n            if maxLen is not None and len(obj) > maxLen:\n                return safeRepr(obj[:maxLen])\n            else:\n                return safeRepr(obj)\n        else:\n            r = safeRepr(obj)\n            maxLen *= strFactor\n            if len(r) > maxLen:\n                r = r[:maxLen]\n            return r\n    except Exception:\n        return '<** FAILED REPR OF %s **>' % obj.__class__.__name__",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4664
+  }
+}

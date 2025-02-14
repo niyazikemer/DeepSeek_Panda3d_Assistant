@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines methods `_leak` and `destroy` within a class responsible for detecting memory leaks related to message listeners and task management. The `_leak` method creates new `DirectObject` instances that listen for leak-related messages, while `destroy` cleans up these resources by removing tasks, ignoring messages, and deleting detectors to prevent memory leaks.\n\ndef _leak(self, task):\n        self._leakers.append(DirectObject())\n        self._leakers[-1].accept('leak-msg', self._leak)\n        return task.cont\n\n    def destroy(self):\n        if hasattr(self, '_leakTaskName'):\n            taskMgr.remove(self._leakTaskName)\n            for leaker in self._leakers:\n                leaker.ignoreAll()\n            self._leakers = None\n        if self._createJob:\n            self._createJob.destroy()\n        self._createJob = None\n        for msgName, detector in self._msgName2detector.items():\n            detector.destroy()\n        del self._msgName2detector\n        LeakDetector.destroy(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4756
+  }
+}

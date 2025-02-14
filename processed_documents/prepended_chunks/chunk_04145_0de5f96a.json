@@ -1,0 +1,9 @@
+{
+  "content": "The `setWASDTurn` method in the provided code chunk is part of a class that manages keyboard controls for movement or camera\u89c6\u89d2, likely in a game or similar application. This method specifically handles switching between two modes: one where WASD keys control turning (left/right) and another where they control sliding (sideways movement). The context involves managing input states to update the relevant movement controls based on the current mode.\n\ndef setWASDTurn(self, turn):\n        self.__WASDTurn = turn\n\n        if not self.isEnabled:\n            return\n\n        turnLeftWASDSet = inputState.isSet(\"turnLeft\", inputSource=inputState.WASD)\n        turnRightWASDSet = inputState.isSet(\"turnRight\", inputSource=inputState.WASD)\n        slideLeftWASDSet = inputState.isSet(\"slideLeft\", inputSource=inputState.WASD)\n        slideRightWASDSet = inputState.isSet(\"slideRight\", inputSource=inputState.WASD)\n\n        for token in self.WASDTurnTokens:\n            token.release()\n\n        if turn:\n            self.WASDTurnTokens = (\n                inputState.watchWithModifiers(\"turnLeft\", \"a\", inputSource=inputState.WASD),\n                inputState.watchWithModifiers(\"turnRight\", \"d\", inputSource=inputState.WASD),\n            )\n\n            inputState.set(\"turnLeft\", slideLeftWASDSet, inputSource=inputState.WASD)\n            inputState.set(\"turnRight\", slideRightWASDSet, inputSource=inputState.WASD)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4145
+  }
+}

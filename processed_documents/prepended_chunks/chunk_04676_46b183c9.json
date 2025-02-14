@@ -1,0 +1,9 @@
+{
+  "content": "The `DelayedCall` class is a utility for scheduling asynchronous function execution after a specified delay, fitting within a document that provides various task management and utility classes.\n\nclass DelayedCall:\n    \"\"\" calls a func after a specified delay \"\"\"\n\n    def __init__(self, func, name=None, delay=None):\n        if name is None:\n            name = 'anonymous'\n        if delay is None:\n            delay = .01\n        self._func = func\n        self._taskName = 'DelayedCallback-%s' % name\n        self._delay = delay\n        self._finished = False\n        self._addDoLater()\n\n    def destroy(self):\n        self._finished = True\n        self._removeDoLater()\n\n    def finish(self):\n        if not self._finished:\n            self._doCallback(None)\n        self.destroy()\n\n    def _addDoLater(self):\n        taskMgr.doMethodLater(self._delay, self._doCallback, self._taskName)\n\n    def _removeDoLater(self):\n        taskMgr.remove(self._taskName)\n\n    def _doCallback(self, task):\n        self._finished = True\n        func = self._func\n        del self._func\n        func()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4676
+  }
+}

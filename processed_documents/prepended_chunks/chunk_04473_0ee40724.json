@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of the `ContainerBase` class in the `DirectContainer` module. It initializes an object that can either take an evaluation string (`evalStr`) or a dictionary key (`dictKey`). The initialization handles setting up attributes such as `evalStr`, `_isWeakRef`, and `_refCount`, and ensures safe handling of weak references when possible, to manage object references efficiently within the container.\n\ndef __init__(self, evalStr=None, dictKey=NoDictKey):\n        # if this is a dictionary lookup, pass dictKey instead of evalStr\n        self.evalStr = evalStr\n        self.dictKey = NoDictKey\n        # is the dictKey a weak reference?\n        self._isWeakRef = False\n        self._refCount = 0\n        if dictKey is not NoDictKey:\n            # if we can repr/eval the key, store it as an evalStr\n            keyRepr = safeRepr(dictKey)\n            useEval = False\n            try:\n                keyEval = eval(keyRepr)\n                useEval = True\n            except Exception:\n                pass\n            if useEval:\n                # check to make sure the eval succeeded\n                if hash(keyEval) != hash(dictKey):\n                    useEval = False\n            if useEval:\n                # eval/repr succeeded, store as an evalStr\n                self.evalStr = '[%s]' % keyRepr\n            else:\n                try:\n                    # store a weakref to the key",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4473
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method `loadModel` within a class, likely part of an asset loader utility. The method handles loading 3D models from files or URLs, supports both single and multiple model paths, manages caching options, and provides asynchronous loading capabilities with callbacks. It is situated among other resource-loading methods like textures, fonts, sounds, etc., and includes detailed docstrings explaining its functionality and parameters.\n\nThe code chunk is part of a larger class responsible for managing various types of asset loading in a software application. The method `loadModel` specifically deals with 3D model assets, providing flexibility in how models are loaded and cached.\n\nif loaders:\n            registry = LoaderFileTypeRegistry.getGlobalPtr()\n\n            for entry_point in loaders:\n                registry.register_deferred_type(entry_point)\n\n            cls._loadedPythonFileTypes = True\n\n    # model loading funcs\n    def loadModel(self, modelPath, loaderOptions = None, noCache = None,\n                  allowInstance = False, okMissing = None,\n                  callback = None, extraArgs = [], priority = None,\n                  blocking = None):\n        \"\"\"\n        Attempts to load a model or models from one or more relative\n        pathnames.  If the input modelPath is a string (a single model\n        pathname), the return value will be a NodePath to the model\n        loaded if the load was successful, or None otherwise.  If the\n        input modelPath is a list of pathnames, the return value will\n        be a list of `.NodePath` objects and/or Nones.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4372
+  }
+}

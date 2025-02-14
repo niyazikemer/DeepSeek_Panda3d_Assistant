@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes the process of closing windows and initializing the main window within a graphical application framework, detailing event notifications for window closure and methods for creating default windows based on configuration settings.\n\nmessenger.send('close_window', [win, mainWindow])\n        if mainWindow:\n            messenger.send('close_main_window')\n\n        if not self.winList:\n            # Give the window(s) a chance to actually close before we\n            # continue.\n            self.graphicsEngine.renderFrame()\n\n    def openDefaultWindow(self, *args, **kw):\n        \"\"\"\n        Creates the main window for the first time, without being too\n        particular about the kind of graphics API that is chosen.\n        The suggested window type from the load-display config variable is\n        tried first; if that fails, the first window type that can be\n        successfully opened at all is accepted.\n\n        This is intended to be called only once, at application startup.\n        It is normally called automatically unless window-type is configured\n        to 'none'.\n\n        :returns: True on success, False on failure.\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4898
+  }
+}

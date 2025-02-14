@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods in the DirectObject class for managing tasks, including removing specific or all tasks, tracking task IDs, and detecting resource leaks to ensure proper cleanup.\n\ndef removeTask(self, taskOrName):\n        if isinstance(taskOrName, str):\n            # we must use a copy, since task.remove will modify self._taskList\n            if hasattr(self, '_taskList'):\n                taskListValues = list(self._taskList.values())\n                for task in taskListValues:\n                    if task.name == taskOrName:\n                        task.remove()\n        else:\n            taskOrName.remove()\n\n    def removeAllTasks(self):\n        if hasattr(self, '_taskList'):\n            for task in list(self._taskList.values()):\n                task.remove()\n\n    def _addTask(self, task):\n        self._taskList[task.id] = task\n\n    def _clearTask(self, task):\n        del self._taskList[task.id]\n\n    def detectLeaks(self):\n        if not __dev__:\n            return\n\n        # call this after the DirectObject instance has been destroyed\n        # if it's leaking, will notify user",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_260",
+    "parent": "processed_documents/context_documents/52e8ea2a_DirectObject.json",
+    "chunk_number": 4566
+  }
+}

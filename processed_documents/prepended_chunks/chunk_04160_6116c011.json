@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of the `InputState` class, which manages input states by allowing components to force specific states or handle user inputs. The highlighted chunk occurs within the `force` method, specifically handling error logging when a component attempts to force an input state to OFF while it's already being forced ON by another source. This ensures conflicts are detected and logged, maintaining robust state management.\n\n\"%s is trying to force '%s' to OFF, but '%s' is already being forced ON by %s\" %\n                    (inputSource, name, name, self._forcingOn[name])\n                )\n            self._forcingOff.setdefault(name, set())\n            self._forcingOff[name].add(inputSource)\n        return token",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4160
+  }
+}

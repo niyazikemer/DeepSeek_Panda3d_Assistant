@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains wrapper functions for interacting with the messenger system (event management) and methods for adding and managing tasks, ensuring proper ownership tracking and cleanup.\n\ndef getAllAccepting(self):\n        return messenger.getAllAccepting(self)\n\n    def isIgnoring(self, event):\n        return messenger.isIgnoring(event, self)\n\n    #This function must be used if you want a managed task\n    def addTask(self, *args, **kwargs):\n        if not hasattr(self, \"_taskList\"):\n            self._taskList = {}\n        kwargs['owner'] = self\n        task = taskMgr.add(*args, **kwargs)\n        return task\n\n    def doMethodLater(self, *args, **kwargs):\n        if not hasattr(self, \"_taskList\"):\n            self._taskList = {}\n        kwargs['owner'] = self\n        task = taskMgr.doMethodLater(*args, **kwargs)\n        return task",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_260",
+    "parent": "processed_documents/context_documents/52e8ea2a_DirectObject.json",
+    "chunk_number": 4565
+  }
+}

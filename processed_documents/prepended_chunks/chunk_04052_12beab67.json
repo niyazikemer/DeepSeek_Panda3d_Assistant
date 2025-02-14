@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated in a section of the `handleAvatarControls` method where user inputs (keyboard events) are processed to determine the avatar's movement speed, slide speed, and rotation speed. This includes handling auto-run functionality, calculating forward/reverse speeds based on input states (`forward`, `reverse`, `slideLeft`, etc.), and determining the elapsed time (`dt`) for updating the avatar's position or physics in real-time.\n\n# Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0\n\n        # Determine what the speeds are based on the buttons:\n        self.__speed=(forward and self.avatarControlForwardSpeed or\n                reverse and -self.avatarControlReverseSpeed)\n        avatarSlideSpeed=self.avatarControlForwardSpeed*0.5\n        #self.__slideSpeed=slide and (\n        #        (turnLeft and -avatarSlideSpeed) or\n        #        (turnRight and avatarSlideSpeed))\n        self.__slideSpeed=(\n                (slideLeft and -avatarSlideSpeed) or\n                (slideRight and avatarSlideSpeed))\n        self.__rotationSpeed=not slide and (\n                (turnLeft and self.avatarControlRotateSpeed) or\n                (turnRight and -self.avatarControlRotateSpeed))\n\n        # How far did we move based on the amount of time elapsed?\n        dt=ClockObject.getGlobalClock().getDt()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4052
+  }
+}

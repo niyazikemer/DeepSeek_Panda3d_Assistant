@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within the `_examineContainers` method of the `ContainerReport` class. This method is responsible for recursively examining and reporting on various types of containers (like dictionaries, lists, tuples, etc.) to identify potential memory usage issues or unexpected container sizes. The specific chunk in question handles iterable objects that are not instances of `io.TextIOWrapper`, attempting to iterate over them to process their elements as potential containers.\n\nif not isinstance(parentObj, io.TextIOWrapper):\n                try:\n                    itr = iter(parentObj)\n                except Exception:\n                    pass\n                else:\n                    try:\n                        index = 0\n                        while 1:\n                            try:\n                                attr = next(itr)\n                            except Exception:\n                                # some custom classes don't do well when iterated\n                                attr = None\n                                break\n                            if id(attr) not in self._visitedIds:\n                                self._visitedIds.add(id(attr))\n                                if self._examine(attr):\n                                    assert self._queue.back() is attr\n                                    self._id2pathStr[id(attr)] = self._id2pathStr[id(parentObj)] + '[%s]' % index\n                            index += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4357
+  }
+}

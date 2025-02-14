@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes critical runtime tasks in the `ShowBase` class, including garbage collection of states, main rendering loop (`igLoop`), audio processing, and event management restart, ensuring proper application initialization and runtime functionality.\n\nif ConfigVariableBool('garbage-collect-states').value:\n            self.taskMgr.add(self.__garbageCollectStates, 'garbageCollectStates', sort = 46)\n        # give the igLoop task a reasonably \"late\" sort,\n        # so that it will get run after most tasks\n        self.cluster = cluster\n        if not clusterSync or cluster is None:\n            self.taskMgr.add(self.__igLoop, 'igLoop', sort = 50)\n        else:\n            self.taskMgr.add(self.__igLoopSync, 'igLoop', sort = 50)\n        # the audioLoop updates the positions of 3D sounds.\n        # as such, it needs to run after the cull traversal in the igLoop.\n        self.taskMgr.add(self.__audioLoop, 'audioLoop', sort = 60)\n        self.eventMgr.restart()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4964
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a larger Python class that manages avatar controls in a game engine. The methods within this class handle player movement, collision detection, and physics interactions. This specific code deals with enabling or disabling collision detection for the avatar, managing collider nodes, and ensuring proper handling of physical interactions such as pushing against objects or falling.\n\ndel self.pusher\n\n        del self.getAirborneHeight\n\n    def setCollisionsActive(self, active = 1):\n        assert self.debugPrint(\"collisionsActive(active=%s)\"%(active,))\n        if self.collisionsActive != active:\n            self.collisionsActive = active\n            if active:\n                self.cTrav.addCollider(self.cSphereNodePath, self.pusher)\n                if self.useHeightRay:\n                    if self.useLifter:\n                        self.cTrav.addCollider(self.cRayNodePath, self.lifter)\n                    else:\n                        self.cTrav.addCollider(self.cRayNodePath, self.cRayQueue)\n            else:\n                self.cTrav.removeCollider(self.cSphereNodePath)\n                if self.useHeightRay:\n                    self.cTrav.removeCollider(self.cRayNodePath)\n                # Now that we have disabled collisions, make one more pass\n                # right now to ensure we aren't standing in a wall.\n                self.oneTimeCollide()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4046
+  }
+}

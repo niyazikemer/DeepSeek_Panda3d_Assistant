@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to the `JobManager` class's functionality for managing job execution. Specifically, it handles the suspension of a job when its allocated timeslice is exceeded. This occurs during job processing, where if a job runs past its allotted time (based on `endT`), the overflow time is calculated and stored in `_jobId2overflowTime`. The purpose is to manage task scheduling efficiently by ensuring that any additional time used beyond the timeslice is accounted for in subsequent iterations of job processing. This helps prevent resource exhaustion or delays caused by long-running jobs hogging system resources beyond their allocated time.\n\njob.suspend()\n                    overflowTime = clock.getRealTime() - endT\n                    if overflowTime > self.getTimeslice():\n                        self._jobId2overflowTime[jobId] += overflowTime\n                    if __debug__:\n                        job._pstats.stop()\n                    break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4212
+  }
+}

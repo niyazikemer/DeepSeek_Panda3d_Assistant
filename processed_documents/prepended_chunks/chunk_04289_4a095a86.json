@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines the `getFadeOutIval` method within a class responsible for managing visual transitions in a graphical application. The method creates a fade-out animation sequence that smoothly transitions an element's visibility from fully opaque to transparent, then hides it. This function is part of a larger set of utilities designed to control fade-in and fade-out effects, ensuring smooth visual transitions during scene changes or element hiding.\n\ndef getFadeOutIval(self, t=0.5, finishIval=None, blendType='noBlend'):\n        \"\"\"\n        Create a sequence that lerps the color out, then\n        parents the fade to hidden\n        \"\"\"\n        self.noTransitions()\n        self.loadFade()\n\n        transitionIval = Sequence(Func(self.fade.reparentTo, ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX),\n                                  Func(self.fade.showThrough),  # in case aspect2d is hidden for some reason\n                                  self.lerpFunc(self.fade, t,\n                                                self.alphaOn,\n                                                # self.alphaOff,\n                                                blendType=blendType\n                                                ),\n                                  name = self.fadeTaskName,\n                                  )\n        if finishIval:\n            transitionIval.append(finishIval)\n        return transitionIval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4289
+  }
+}

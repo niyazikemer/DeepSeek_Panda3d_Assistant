@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a section that sets up collision detection for an avatar in a 3D environment. The code adds colliders to handle wall and floor interactions, ensuring the avatar doesn't fall through walls or off ledges by managing the order of collision traversals.\n\n```plaintext\nSetting up collision detection for avatar movement by adding wall and floor colliders, with special handling to prevent falling through walls using shadow traversal.\n```\n\nself.cTrav.addCollider(self.cWallSphereNodePath, self.pusher)\n                if self.wantFloorSphere:\n                    self.cTrav.addCollider(self.cFloorSphereNodePath, self.pusherFloor)\n                # Add the lifter to the shadow traverser, which runs after\n                # our traverser. This prevents the \"fall through wall and\n                # off ledge\" bug. The problem was that we couldn't control\n                # which collided first, the wall pusher or the lifter, if\n                # they're in the same collision traverser. If the lifter\n                # collided first, we'd start falling before getting pushed\n                # back behind the wall.\n                base.shadowTrav.addCollider(self.cRayNodePath, self.lifter)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4084
+  }
+}

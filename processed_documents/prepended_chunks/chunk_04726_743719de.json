@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `run` method in `MessengerLeakDetector`, which performs a breadth-first search to check if objects referenced only by the messenger can be garbage collected. It evaluates each object's referrers, marking them as visited or detecting leaks based on their reference paths.\n\nif refId in builtinIds:\n                                # not a leak, there is a path to builtin that does not involve the messenger\n                                #assert self.notify.debug('object has another path to __builtin__, it\\'s not a messenger leak')\n                                foundBuiltin = True\n                                break\n                            else:\n                                visitedObjIds.add(refId)\n                                nextObjList.append(referrer)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4726
+  }
+}

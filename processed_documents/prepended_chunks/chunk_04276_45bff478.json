@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method named `_findCycles` within the `GarbageReport` class, which is designed to detect cycles among garbage objects in Python using the `gc` module. The specific portion manages the traversal of object references by popping items from a stack (`stateStack`) and iterating through each referent. When a reference loops back to the starting point (`rootId`), it identifies a cycle and normalizes it for reporting. This contributes to detecting memory leaks by identifying objects that prevent garbage collection due to cyclic dependencies.\n\nbreak\n            candidateCycle, curId, numDelInstances, resumeIndex = stateStack.pop()\n            if self.notify.getDebug():\n                if self._args.delOnly:\n                    print('restart: %s root=%s cur=%s numDelInstances=%s resume=%s' % (\n                        candidateCycle, rootId, curId, numDelInstances, resumeIndex))\n                else:\n                    print('restart: %s root=%s cur=%s resume=%s' % (\n                        candidateCycle, rootId, curId, resumeIndex))\n            for index in range(resumeIndex, len(self.referentsByNumber[curId])):\n                yield None\n                refId = self.referentsByNumber[curId][index]\n                if self.notify.getDebug():\n                    print('       : %s -> %s' % (curId, refId))\n                if refId == rootId:\n                    # we found a cycle! mark it down and move on to the next refId\n                    normCandidateCycle = self._getNormalizedCycle(candidateCycle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4276
+  }
+}

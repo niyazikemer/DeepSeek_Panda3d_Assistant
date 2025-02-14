@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python class that manages rendering contexts, buffers, and window events for graphics output. The chunk contains utility functions related to setting clears, checking fullscreen status, and calculating scaled sizes, which support the primary functionalities of the class such as buffer management and scene rendering.\n\ndef setClears(self, region, clears):\n        for i in range(GraphicsOutput.RTPCOUNT):\n            (active, value) = clears[i]\n            region.setClearActive(i, active)\n            region.setClearValue(i, value)\n\n    def setStackedClears(self, region, clears0, clears1):\n        clears = []\n        for i in range(GraphicsOutput.RTPCOUNT):\n            (active, value) = clears0[i]\n            if not active:\n                (active, value) = clears1[i]\n            region.setClearActive(i, active)\n            region.setClearValue(i, value)\n        return clears\n\n    def isFullscreen(self):\n        return ((self.region.getLeft()   == 0.0) and\n                (self.region.getRight()  == 1.0) and\n                (self.region.getBottom() == 0.0) and\n                (self.region.getTop()    == 1.0))\n\n    def getScaledSize(self, mul, div, align):\n        \"\"\" Calculate the size of the desired window. Not public. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4005
+  }
+}

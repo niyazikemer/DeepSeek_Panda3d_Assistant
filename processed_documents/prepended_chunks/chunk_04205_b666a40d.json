@@ -1,0 +1,9 @@
+{
+  "content": "The `finish` method in the `JobManager` class is designed to execute a given job immediately until completion. This method handles cases where the job might not properly yield a termination signal by treating it as completed and ensures that all necessary clean-up operations are performed, such as removing the job from active tracking within the manager.\n\ndef finish(self, job):\n        # run this job, right now, until it finishes\n        assert self.notify.debugCall()\n        jobId = job._getJobId()\n        # look up the job's priority\n        pri = self._jobId2pri[jobId]\n        # grab the job\n        job = self._pri2jobId2job[pri][jobId]\n        gen = job._getGenerator()\n        if __debug__:\n            job._pstats.start()\n        job.resume()\n        while True:\n            try:\n                result = next(gen)\n            except StopIteration:\n                # Job didn't yield Job.Done, it ran off the end and returned\n                # treat it as if it returned Job.Done\n                self.notify.warning('job %s never yielded Job.Done' % job)\n                result = Job.Done\n            if result is Job.Done:\n                job.suspend()\n                self.remove(job)\n                job._setFinished()\n                messenger.send(job.getFinishedEvent())\n                # job is done.\n                break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4205
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `taskTimeLeft()` method in the `TaskThreaded` class, which determines if there is remaining execution time within the allocated timeslice for task callbacks to run without blocking the main thread. This method is used by both `TaskThreaded` and `TaskThread` classes to manage task scheduling and prevent overstepping processing limits, ensuring smooth application performance.\n\ndef taskTimeLeft(self):\n        \"\"\"returns True if there is time left for the current task callback\n        to run without going over the allotted timeslice\"\"\"\n        if self._taskStartTime is None:\n            # we must not be in a task callback, we must be running in non-threaded\n            # mode\n            return True\n        return (ClockObject.getGlobalClock().getRealTime() - self._taskStartTime) < self.__timeslice",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_245",
+    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
+    "chunk_number": 4318
+  }
+}

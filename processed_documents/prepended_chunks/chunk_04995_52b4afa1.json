@@ -1,0 +1,9 @@
+{
+  "content": "This chunk belongs to a method in the `ShowBase` class responsible for rendering operations, likely within functions like `saveCubeMap` or `saveSphereMap`. The code is used to set up parameters and create an off-screen buffer for converting cube maps to sphere maps.\n\n:returns: The filename if successful, or None if there is a problem.\n        \"\"\"\n        if source is None:\n            source = self.win\n\n        if camera is None:\n            if hasattr(source, \"getCamera\"):\n                camera = source.getCamera()\n            if camera is None:\n                camera = self.camera\n\n        if sourceLens is None:\n            sourceLens = self.camLens\n\n        if hasattr(source, \"getWindow\"):\n            source = source.getWindow()\n\n        # First, make an offscreen buffer to convert the cube map to a\n        # sphere map.  We make it first so we can guarantee the\n        # rendering order for the cube map.\n        toSphere = source.makeTextureBuffer(namePrefix, size, size,\n                                            Texture(), 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4995
+  }
+}

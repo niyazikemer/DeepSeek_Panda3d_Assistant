@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Python class that implements methods for managing indentation levels and appending formatted lines to an output buffer, likely used for pretty-printing or logging purposes within a larger utility framework.\n\ndef exitFunction(self):\n        self.indent -= 1\n        return self.indent\n\n    def appendFunctionCall(self, line):\n        self.lines.append(' '*(self.indent*2) + line)\n        return line\n\n    def appendLine(self, line):\n        self.lines.append(' '*(self.indent*2) + '<< ' + line + ' >>')\n        return line\n\n    def flush(self):\n        outStr = str(self)\n        self.indent = 0\n        self.lines = []\n        return outStr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4707
+  }
+}

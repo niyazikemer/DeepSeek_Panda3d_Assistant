@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a breadth-first search (BFS) mechanism within the `MessengerLeakDetector` class, which checks for potential memory leaks caused by objects referencing the messenger without other paths to built-in objects. This section iterates over each object's referrers, ensuring no loops or self-references, and verifies if any referrer connects back to a built-in ID. If such a connection is found, it indicates that the object isn't exclusively referenced by the messenger, thus not leaking.\n\nitype(curObj), hex(id(curObj)), len(referrers), fastRepr(curObj, maxLen=2)))\n                        for referrer in referrers:\n                            #assert self.notify.debug('referrer: %s' % itype(curObj))\n                            yield None\n                            refId = id(referrer)\n                            # don't go in a loop\n                            if refId in visitedObjIds:\n                                #assert self.notify.debug('already visited')\n                                continue\n                            # don't self-reference\n                            if referrer is curObjList or referrer is nextObjList:\n                                continue\n                            if refId in builtinIds:\n                                # not a leak, there is a path to builtin that does not involve the messenger",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_264",
+    "parent": "processed_documents/context_documents/f7240720_MessengerLeakDetector.json",
+    "chunk_number": 4725
+  }
+}

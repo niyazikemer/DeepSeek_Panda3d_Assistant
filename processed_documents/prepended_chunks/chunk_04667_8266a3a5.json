@@ -1,0 +1,9 @@
+{
+  "content": "The ScratchPad class is a utility class designed for temporary or dynamic data storage, allowing attributes to be added and accessed flexibly using keyword arguments and dictionary syntax. It provides methods to initialize with attributes, add more attributes later, destroy all stored attributes, and check for attribute existence. This class serves as a flexible tool within the document's collection of utility classes, supporting scenarios requiring dynamic or temporary data management.\n\nclass ScratchPad:\n    \"\"\"empty class to stick values onto\"\"\"\n\n    def __init__(self, **kArgs):\n        for key, value in kArgs.items():\n            setattr(self, key, value)\n        self._keys = set(kArgs.keys())\n\n    def add(self, **kArgs):\n        for key, value in kArgs.items():\n            setattr(self, key, value)\n        self._keys.update(list(kArgs.keys()))\n\n    def destroy(self):\n        for key in self._keys:\n            delattr(self, key)\n\n    # allow dict [] syntax\n    def __getitem__(self, itemName):\n        return getattr(self, itemName)\n\n    def get(self, itemName, default=None):\n        return getattr(self, itemName, default)\n    # allow 'in'\n\n    def __contains__(self, itemName):\n        return itemName in self._keys",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4667
+  }
+}

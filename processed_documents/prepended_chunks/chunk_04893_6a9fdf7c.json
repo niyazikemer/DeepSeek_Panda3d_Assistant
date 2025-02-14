@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk sets up callback functions and input devices for a graphics window. It ensures proper event handling (e.g., events, properties, rendering) by assigning specified callback functions to the window and creating required input devices based on user specifications.\n\nif unexposedDraw is not None and hasattr(win, 'setUnexposedDraw'):\n            win.setUnexposedDraw(unexposedDraw)\n\n        if callbackWindowDict:\n            # If we asked for (and received) a CallbackGraphicsWindow,\n            # we now have to assign the callbacks, before we start\n            # trying to do anything with the window.\n            for callbackName in ['Events', 'Properties', 'Render']:\n                func = callbackWindowDict.get(callbackName, None)\n                if not func:\n                    continue\n\n                setCallbackName = 'set%sCallback' % (callbackName)\n                setCallback = getattr(win, setCallbackName)\n                setCallback(PythonCallbackObject(func))\n\n            # We also need to set up the mouse/keyboard objects.\n            for inputName in callbackWindowDict.get('inputDevices', ['mouse']):\n                win.createInputDevice(inputName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4893
+  }
+}

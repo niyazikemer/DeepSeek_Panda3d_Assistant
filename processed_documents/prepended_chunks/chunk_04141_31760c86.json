@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an initialization method that sets up input handling for character movement and jumping. The code configures jump controls based on whether WASD or alternative controls are enabled and initializes avatar controls if available.\n\n# Jump controls\n        if self.wantWASD:\n            ist.append(inputState.watchWithModifiers(\"jump\", \"space\"))\n        else:\n            ist.append(inputState.watch(\"jump\", \"control\", \"control-up\"))\n\n        if self.currentControls:\n            self.currentControls.enableAvatarControls()\n\n    def disable(self):\n        assert self.notify.debugCall(id(self))\n        self.isEnabled = 0\n\n        for token in self.inputStateTokens:\n            token.release()\n        self.inputStateTokens = []\n\n        for token in self.WASDTurnTokens:\n            token.release()\n        self.WASDTurnTokens = []\n\n        if self.currentControls:\n            self.currentControls.disableAvatarControls()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4141
+  }
+}

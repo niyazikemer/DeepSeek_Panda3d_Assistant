@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces the `Audio3DManager` class, specifically its initialization method `__init__` and the `loadSfx` method. This class is designed to manage 3D audio attributes for sound effects (SFX) in a game or interactive application. The `__init__` method sets up essential parameters such as an audio manager reference, listener target, root node for spatial calculations, and initializes data structures for tracking sounds and their velocities. It also schedules an update task to handle real-time audio positioning updates. The `loadSfx` method facilitates loading sound effects with 3D positioning enabled, ensuring they can be spatially managed by the system.\n\nclass Audio3DManager:\n\n    def __init__(self, audio_manager, listener_target = None, root = None,\n                 taskPriority = 51):\n        self.audio_manager = audio_manager\n        self.listener_target = listener_target\n\n        if root is None:\n            self.root = base.render\n        else:\n            self.root = root\n\n        self.sound_dict = {}\n        self.vel_dict = {}\n        self.listener_vel = VBase3(0, 0, 0)\n\n        taskMgr.add(self.update, \"Audio3DManager-updateTask\", taskPriority)\n\n    def loadSfx(self, name):\n        \"\"\"\n        Use Audio3DManager.loadSfx to load a sound with 3D positioning enabled\n        \"\"\"\n        sound = None\n        if name:\n            sound = self.audio_manager.getSound(name, 1)\n        return sound",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4453
+  }
+}

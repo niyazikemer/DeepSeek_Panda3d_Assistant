@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines three methods (`isEnabled()`, `enable()`, and `toggleEnable()`) within a class that manages buffer viewer functionality. These methods control whether the buffer viewer is enabled or disabled, allowing users to toggle its visibility or activity during runtime for debugging or displaying graphics buffers.\n\ndef isEnabled(self):\n        \"\"\"Returns true if the buffer viewer is currently enabled.\"\"\"\n        return self.enabled\n\n    def enable(self, x):\n        \"\"\"Turn the buffer viewer on or off.  The initial state of the\n        buffer viewer depends on the Config variable 'show-buffers'.\"\"\"\n        if x != 0 and x != 1:\n            BufferViewer.notify.error('invalid parameter to BufferViewer.enable')\n            return\n        self.enabled = x\n        self.dirty = 1\n        if (x and self.task == 0):\n            self.task = taskMgr.add(self.maintainReadout, \"buffer-viewer-maintain-readout\",\n                                    priority=1)\n\n    def toggleEnable(self):\n        \"\"\"Toggle the buffer viewer on or off.  The initial state of the\n        enable flag depends on the Config variable 'show-buffers'.\"\"\"\n        self.enable(1-self.enabled)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4219
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk appears to be part of a function that constructs a formatted string representation of a dictionary or similar structure, likely for debugging purposes. It appends the name of a variable followed by its value, truncated if too long, and handles undefined cases by appending \"undefined\". The context suggests it's used in logging or inspection utilities within the codebase.\n\ncomma=1\n            r+=name\n            r+='='\n            if name in dict:\n                v=safeRepr(dict[name])\n                if len(v)>2000:\n                    # r+=\"<too big for debug>\"\n                    r += (v[:2000] + \"...\")\n                else:\n                    r+=v\n            else:\n                r+=\"*** undefined ***\"\n        return r+')'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4608
+  }
+}

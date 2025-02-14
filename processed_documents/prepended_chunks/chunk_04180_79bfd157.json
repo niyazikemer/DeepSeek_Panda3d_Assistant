@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a method named `handleAvatarControls` within a class that manages avatar controls. This method processes input to update the avatar's position, handles collision detection using `lifter`, and adjusts speeds during debugging. It plays a central role in controlling the avatar's movement based on user inputs and ensures proper handling of physics interactions.\n\ndef handleAvatarControls(self, task):\n        \"\"\"\n        Check on the arrow keys and update the avatar.\n        \"\"\"\n        if not self.lifter.hasContact():\n            # hack fix for falling through the floor:\n            messenger.send(\"walkerIsOutOfWorld\", [self.avatarNodePath])\n\n        self._calcSpeeds()\n\n        if __debug__:\n            debugRunning = inputState.isSet(\"debugRunning\")\n            if debugRunning:\n                self.speed*=4.0\n                self.slideSpeed*=4.0\n                self.rotationSpeed*=1.25",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4180
+  }
+}

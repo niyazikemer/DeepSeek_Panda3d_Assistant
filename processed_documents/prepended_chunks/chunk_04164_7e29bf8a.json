@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a Python class `GhostWalker` inheriting from `NonPhysicsWalker`, providing avatar movement control without physics-based interactions. The code creates collision nodes, handles keyboard/mouse input for movement, sends messages for sound/animation events, and implements sliding instead of jumping via the `slideName` attribute set to \"jump\".\n\n\"\"\"\nGhostWalker.py is for avatars.\n\nA walker control such as this one provides:\n\n- creation of the collision nodes\n- handling the keyboard and mouse input for avatar movement\n- moving the avatar\n\nit does not:\n\n- play sounds\n- play animations\n\nalthough it does send messages that allow a listener to play sounds or\nanimations based on walker events.\n\"\"\"\n\nfrom direct.directnotify import DirectNotifyGlobal\nfrom . import NonPhysicsWalker\n\nclass GhostWalker(NonPhysicsWalker.NonPhysicsWalker):\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"GhostWalker\")\n\n    # Ghosts slide instead of jump:\n    slideName = \"jump\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_234",
+    "parent": "processed_documents/context_documents/98dcd07c_GhostWalker.json",
+    "chunk_number": 4164
+  }
+}

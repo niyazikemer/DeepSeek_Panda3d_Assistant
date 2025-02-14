@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains additional methods for a movement control class, enabling functionality to retrieve current speeds, check airborne status, set tags across all controls, delete collision data, and toggle collision detection on or off. These additions enhance the control system's ability to manage movement states and interactions with the environment effectively.\n\n#self.monitorTask.remove()\n\n    def getSpeeds(self):\n        if self.currentControls:\n            return self.currentControls.getSpeeds()\n        return None\n\n    def getIsAirborne(self):\n        if self.currentControls:\n            return self.currentControls.getIsAirborne()\n        return False\n\n    def setTag(self, key, value):\n        assert self.notify.debugCall(id(self))\n        for controls in self.controls.values():\n            controls.setTag(key, value)\n\n    def deleteCollisions(self):\n        assert self.notify.debugCall(id(self))\n        for controls in self.controls.values():\n            controls.deleteCollisions()\n\n    def collisionsOn(self):\n        assert self.notify.debugCall(id(self))\n        if self.currentControls:\n            self.currentControls.setCollisionsActive(1)\n\n    def collisionsOff(self):\n        assert self.notify.debugCall(id(self))\n        if self.currentControls:\n            self.currentControls.setCollisionsActive(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4136
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains the definition of the `BattleWalker` class which extends `GravityWalker`. It initializes additional speed attributes (`slideSpeed`, `advanceSpeed`) and overrides the `getSpeeds()` method to include these speeds. The `handleAvatarControls()` method begins by reading input states (e.g., run, forward, reverse) and checks for auto-run mode to modify movement inputs. This chunk sets up basic movement controls for an avatar in a game-like environment.\n\nclass BattleWalker(GravityWalker.GravityWalker):\n    def __init__(self):\n        GravityWalker.GravityWalker.__init__(self)\n        self.slideSpeed = 0\n        self.advanceSpeed = 0\n\n    def getSpeeds(self):\n        return (self.speed, self.rotationSpeed, self.slideSpeed, self.advanceSpeed)\n\n    def handleAvatarControls(self, task):\n        \"\"\"\n        Check on the arrow keys and update the avatar.\n        \"\"\"\n        # get the button states:\n        run = inputState.isSet(\"run\")\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\")\n        turnRight = inputState.isSet(\"turnRight\")\n        slideLeft = inputState.isSet(\"slideLeft\")\n        slideRight = inputState.isSet(\"slideRight\")\n        jump = inputState.isSet(\"jump\")\n\n        # Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_230",
+    "parent": "processed_documents/context_documents/df5d144c_BattleWalker.json",
+    "chunk_number": 4120
+  }
+}

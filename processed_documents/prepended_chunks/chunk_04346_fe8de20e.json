@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `VFSSharedImporter` class, which handles importing modules from multiple directories in a virtual file system (VFS). This specific code sets up module paths and tracks loaded directories to manage shared packages efficiently across different search paths.\n\n# If at least one of them loaded successfully, return the\n        # union of loaded modules.\n        mod.__path__ = path\n        mod.__package__ = fullname\n\n        # Also set this special symbol, which records that this is a\n        # shared package, and also lists the paths we have already\n        # loaded.\n        mod._vfs_shared_path = vfs_shared_path + [l.dir_path for l in self.loaders]\n\n        return mod\n\n\n_registered = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4346
+  }
+}

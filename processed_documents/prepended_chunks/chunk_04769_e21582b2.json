@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines `_varDump__print(exc)`, which formats and logs exception details by constructing a string from stack frames' locals and uses `notify` for logging. This function works alongside other parts of the variable dumping mechanism to provide detailed debug info on exceptions.\n\ndef _varDump__print(exc):\n    global sReentry\n    global notify\n    if sReentry > 0:\n        return\n    sReentry += 1\n    if not exc._savedExcString:\n        s = ''\n        foundRun = False\n        for frame in reversed(exc._savedStackFrames):\n            filename = frame.f_code.co_filename\n            codename = frame.f_code.co_name\n            if not foundRun and codename != 'run':\n                # don't print stack frames before run(),\n                # they contain builtins and are huge\n                continue\n            foundRun = True\n            s += '\\nlocals for %s:%s\\n' % (filename, codename)\n            locals = frame.f_locals\n            for var in locals:\n                obj = locals[var]\n                rep = fastRepr(obj)\n                s += '::%s = %s\\n' % (var, rep)\n        exc._savedExcString = s\n        exc._savedStackFrames = None\n    notify.info(exc._savedExcString)\n    sReentry -= 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_273",
+    "parent": "processed_documents/context_documents/6ee4a724_ExceptionVarDump.json",
+    "chunk_number": 4769
+  }
+}

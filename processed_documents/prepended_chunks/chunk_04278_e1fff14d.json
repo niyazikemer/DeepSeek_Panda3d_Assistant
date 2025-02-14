@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `_processCycles` method within the `GarbageReport` class, which detects cycles in garbage objects. It handles cases where a reference ID either completes a cycle or doesn't, updating counters and using a state stack to traverse referents for cycle detection.\n\nuniqueCycleSets.add(normCandidateCycleTuple)\n                elif refId in candidateCycle:\n                    pass\n                elif refId is not None:\n                    # check if this object is one of the garbage instances (has __del__)\n                    objId = id(self.garbage[refId])\n                    numDelInstances += int(objId in self.garbageInstanceIds)\n                    # this refId does not complete a cycle. Mark down\n                    # where we are in this list of referents, then\n                    # start looking through the referents of the new refId\n                    stateStack.push((list(candidateCycle), curId, numDelInstances, index+1))\n                    stateStack.push((list(candidateCycle) + [refId], refId, numDelInstances, 0))\n                    break\n        yield cycles",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4278
+  }
+}

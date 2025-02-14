@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a `Loader` class in Python, which manages the asynchronous loading of various resources such as 3D models, fonts, textures, and sounds. The specific chunk shown pertains to the implementation details of the `loadSound` method, which handles asynchronous sound file loading using `AudioLoadRequest`, and the `unloadSfx` method, which unloads a previously loaded sound effect from memory by name. These methods are part of a larger resource management system designed for efficient handling of multimedia assets in an application.\n\ncb = Loader._Callback(self, len(soundList), gotList, callback, extraArgs)\n            for i, soundPath in enumerate(soundList):\n                request = AudioLoadRequest(manager, soundPath, positional)\n                request.setDoneEvent(self.hook)\n                self.loader.loadAsync(request)\n                cb.requests.add(request)\n                cb.requestList.append(request)\n                self._requests[request] = (cb, i)\n            return cb\n\n    def unloadSfx(self, sfx):\n        if sfx:\n            if self.base.sfxManagerList:\n                self.base.sfxManagerList[0].uncacheSound(sfx.getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4426
+  }
+}

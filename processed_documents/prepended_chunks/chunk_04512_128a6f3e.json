@@ -1,0 +1,9 @@
+{
+  "content": "The `run()` method within this code chunk is part of a memory leak detection system that periodically checks the state of various Python objects or containers. The purpose of this specific method is to record the current length (number of elements) of each registered container at specified intervals, while also handling exceptions for containers that may have been deleted or no longer exist. This process helps in identifying potential memory leaks by tracking changes in container sizes over time.\n\ndef run(self):\n        try:\n            self._leakDetector._index2containerId2len[self._index] = {}\n            ids = self._leakDetector.getContainerIds()\n            # record the current len of each container\n            for objId in ids:\n                yield None\n                try:\n                    for result in self._leakDetector.getContainerByIdGen(objId):\n                        yield None\n                    container = result\n                except Exception as e:\n                    # this container no longer exists\n                    if self.notify.getDebug():\n                        for contName in self._leakDetector.getContainerNameByIdGen(objId):\n                            yield None\n                        self.notify.debug(\n                            '%s no longer exists; caught exception in getContainerById (%s)' % (\n                            contName, e))\n                    self._leakDetector.removeContainerById(objId)\n                    continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4512
+  }
+}

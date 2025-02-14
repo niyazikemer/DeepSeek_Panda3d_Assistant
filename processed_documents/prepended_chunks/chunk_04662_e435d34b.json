@@ -1,0 +1,9 @@
+{
+  "content": "The function `fastRepr` is part of a suite of utility functions designed for safely representing objects. It efficiently handles large iterable types by truncating them to prevent excessive output and avoids infinite recursion by tracking visited object IDs. This makes it particularly useful for debugging with large or deeply nested data structures, ensuring manageable and performant output.\n\ndef fastRepr(obj, maxLen=200, strFactor=10, _visitedIds=None):\n    \"\"\" caps the length of iterable types, so very large objects will print faster.\n    also prevents infinite recursion \"\"\"\n    try:\n        if _visitedIds is None:\n            _visitedIds = set()\n        if id(obj) in _visitedIds:\n            return '<ALREADY-VISITED %s>' % itype(obj)\n        if type(obj) in (tuple, list):\n            s = ''\n            s += {tuple: '(',\n                  list:  '[',}[type(obj)]\n            if maxLen is not None and len(obj) > maxLen:\n                o = obj[:maxLen]\n                ellips = '...'\n            else:\n                o = obj\n                ellips = ''\n            _visitedIds.add(id(obj))\n            for item in o:\n                s += fastRepr(item, maxLen, _visitedIds=_visitedIds)\n                s += ', '\n            _visitedIds.remove(id(obj))\n            s += ellips\n            s += {tuple: ')',\n                  list:  ']',}[type(obj)]\n            return s",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4662
+  }
+}

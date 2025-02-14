@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk sets up a `pixel2d` root node for pixel-based rendering relative to the window and defines the `setupRender2dp()` method for creating a secondary 2D scene graph, both of which are essential components of the rendering system in the `ShowBase` class.\n\n#: This special root, pixel2d, uses units in pixels that are relative\n        #: to the window. The upperleft corner of the window is (0, 0),\n        #: the lowerleft corner is (xsize, -ysize), in this coordinate system.\n        self.pixel2d = self.render2d.attachNewNode(PGTop(\"pixel2d\"))\n        self.pixel2d.setPos(-1, 0, 1)\n        xsize, ysize = self.getSize()\n        if xsize > 0 and ysize > 0:\n            self.pixel2d.setScale(2.0 / xsize, 1.0, 2.0 / ysize)\n\n    def setupRender2dp(self) -> None:\n        \"\"\"\n        Creates a render2d scene graph, the secondary scene graph for\n        2-d objects and gui elements that are superimposed over the\n        2-d and 3-d geometry in the window.\n        \"\"\"\n        self.render2dp = NodePath('render2dp')\n\n        # Set up some overrides to turn off certain properties which\n        # we probably won't need for 2-d objects.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4914
+  }
+}

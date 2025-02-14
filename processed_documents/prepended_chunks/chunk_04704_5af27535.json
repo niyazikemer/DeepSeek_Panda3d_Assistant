@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a profiling decorator that measures and stores execution statistics of functions. It initializes a statistics storage structure if not present, runs the function with profiling enabled, captures performance metrics using `cProfile`, processes the results, sorts them by cumulative time, and appends them to a named collection in the stats dictionary for later analysis. This is part of a broader set of utilities aimed at detailed performance measurement and debugging.\n\nContext: The code chunk is within a profiling decorator that wraps function calls to measure their execution statistics using `cProfile`, storing these metrics for subsequent analysis and debugging purposes under a specified name in the base object's stats collection.\n\n#detailed profile, stored in base.stats under (\n                    if not hasattr(base, \"stats\"):\n                        base.stats = {}\n                    if not base.stats.get(name):\n                        base.stats[name] = []\n\n                    prof.runctx('f(*args, **kArgs)', {'f':f,'args':args,'kArgs':kArgs},None,\"t.prof\")\n                    s=pstats.Stats(\"t.prof\")\n                    #p=hotshot.Profile(\"t.prof\")\n                    #p.runctx('f(*args, **kArgs)', {'f':f,'args':args,'kArgs':kArgs},None)\n                    #s = hotshot.stats.load(\"t.prof\")\n                    s.strip_dirs()\n                    s.sort_stats(\"cumulative\")\n                    base.stats[name].append(s)\n\n            _profiled.__doc__ = f.__doc__\n            return _profiled\n        return profileDecorator",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4704
+  }
+}

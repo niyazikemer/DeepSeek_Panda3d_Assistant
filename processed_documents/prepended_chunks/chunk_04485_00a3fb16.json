@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is situated within a generator function that navigates through an object structure by following references (indirections). The code checks if the current object (`curObj`) is `None` and raises an exception if so, then dereferences a dictionary key from the current object. After processing each indirection in a loop, it releases them to free resources.\n\nContext: The code is part of a method within the `ContainerSearcher` class that resolves object references while searching for specific container types or names, ensuring proper error handling and resource management during traversal.\n\nif curObj is None:\n                    raise FailedEval(evalStr)\n                # try to look up this key in the curObj dictionary\n                curObj = indirection.dereferenceDictKey(curObj)\n                evalStr = ''\n        for indirection in indirections:\n            yield None\n            indirection.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4485
+  }
+}

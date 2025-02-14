@@ -1,0 +1,9 @@
+{
+  "content": "This chunk belongs to the `TaskThread` class, which is designed to manage tasks across frames efficiently. The methods `_init()`, `_destroy()`, and `timeLeft()` are essential for initializing resources, cleaning up when done, and checking if there's remaining time within a specified timeslice during task execution. These functions help ensure that CPU-intensive operations don't block the main thread by distributing work over multiple frames.\n\n# call this to find out if you've gone over your timeslice\n    def timeLeft(self):\n        return self.parent.taskTimeLeft()\n\n    def _init(self, parent):\n        self.parent = parent\n        self._finished = False\n    def _destroy(self):\n        del self.parent\n        del self._finished",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_245",
+    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
+    "chunk_number": 4320
+  }
+}

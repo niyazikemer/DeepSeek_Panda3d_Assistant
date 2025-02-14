@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `_reprCycle()` method in the `GarbageReport` class. This method is responsible for generating string representations of detected garbage cycles to aid in debugging. The variables `startIndex` and `endIndex` are adjusted based on whether the first object in the cycle is a dictionary and if the last object has an `__dict__` attribute, ensuring accurate representation of the cycle structure when reporting garbage leaks.\n\n**Context:** Adjusting indices for accurate cycle representation in garbage detection.\n\n# state variables for our loop below\n                    numToSkip = 0\n                    objAlreadyRepresented = False\n\n                    # if cycle starts off with an instance dict, start with the instance instead\n                    startIndex = 0\n                    # + 1 to include a reference back to the first object\n                    endIndex = numObjs + 1\n                    if type(objs[0]) is dict and hasattr(objs[-1], '__dict__'):\n                        startIndex -= 1\n                        endIndex -= 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4257
+  }
+}

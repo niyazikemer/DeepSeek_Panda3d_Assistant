@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a method related to opening or managing graphical windows within a Python application, likely using a library such as Panda3D for rendering. The code checks if a window (`self.win`) already exists and either handles it appropriately or proceeds to open a new window. It interacts with the graphics engine to ensure proper window management and validation. This functionality is encapsulated in a class that manages basic windowing, graphics, and input handling.\n\nif self.win:\n            # If we've already opened a window before, this is just a\n            # pass-through to _doOpenWindow().\n            win = func()\n            self.graphicsEngine.openWindows()\n            return win\n\n        if type is None:\n            type = self.windowType\n        if requireWindow is None:\n            requireWindow = self.requireWindow\n\n        win = func()\n\n        # Give the window a chance to truly open.\n        self.graphicsEngine.openWindows()\n        if win is not None and not win.isValid():\n            self.notify.info(\"Window did not open, removing.\")\n            self.closeWindow(win)\n            win = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4887
+  }
+}

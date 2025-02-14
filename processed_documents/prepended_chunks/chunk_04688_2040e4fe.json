@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a decorator function designed for profiling or debugging purposes. It determines whether to print debug information based on configuration parameters defined in `Config.prc`. The decorator collects prefixes from the configuration and prepares arguments for reporting, while handling exceptions such as missing modules or undefined names.\n\n```plaintext\nContext: A decorator function that configures profiling or debugging behavior using DConfig parameters. It processes argument lists for reporting purposes.\n```\n\ndoPrint = bool(dConfigParamList)\n\n        if not doPrint:\n            return decorator\n\n        # Determine any prefixes defined in our Config.prc.\n        if prefix:\n            prefixes = set([prefix])\n        else:\n            prefixes = set()\n\n        for param in dConfigParamList:\n            prefix = ConfigVariableString(f\"prefix-{param}-report\", \"\", \"DConfig\", ConfigFlags.F_dconfig).value\n            if prefix:\n                prefixes.add(prefix)\n\n    except NameError as e:\n        return decorator\n\n    globalClockDelta = importlib.import_module(\"direct.distributed.ClockDelta\").globalClockDelta\n\n    def decorator(f):\n        def wrap(*args, **kwargs):\n            if args:\n                rArgs = [args[0].__class__.__name__ + ', ']\n            else:\n                rArgs = []\n\n            if 'args' in types:\n                rArgs += [repr(x) + ', ' for x in args[1:]] + \\\n                         [x + ' = ' + '%s, ' % repr(y) for x, y in kwargs.items()]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4688
+  }
+}

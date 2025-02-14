@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces utility functions for debugging and tracing function calls in Python. The functions `traceParentCall()` and `printThisCall()` use frame inspection to trace or print information about a function call, while the magic numbers `_POS_LIST` and `_KEY_DICT` define bitmasks used to inspect function argument structures (variable arguments and keyword arguments). These utilities are part of a larger set of debugging tools designed to help developers understand and debug code execution.\n\ndef traceParentCall():\n        return traceFunctionCall(sys._getframe(2))\n\n    def printThisCall():\n        print(traceFunctionCall(sys._getframe(1)))\n        return 1 # to allow \"assert printThisCall()\"\n\n# Magic numbers: These are the bit masks in func_code.co_flags that\n# reveal whether or not the function has a *arg or **kw argument.\n_POS_LIST = 4\n_KEY_DICT = 8",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4609
+  }
+}

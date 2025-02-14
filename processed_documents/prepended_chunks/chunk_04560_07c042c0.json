@@ -1,0 +1,9 @@
+{
+  "content": "The functions `replaceMessengerFunc`, `replaceTaskMgrFunc`, and `replaceStateFunc` are part of a method-replacement system designed to dynamically update or modify functionality across various components of an application. These functions specifically handle updating references to old methods with new ones in systems related to messaging, task management, and state transitions (FSM). The context is within a codebase that facilitates runtime modifications to improve flexibility and maintainability without requiring restarts.\n\ndef replaceMessengerFunc(replaceFuncList):\n    try:\n        messenger\n    except Exception:\n        return\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        res = messenger.replaceMethod(oldFunc, newFunc)\n        if res:\n            print('replaced %s messenger function(s): %s' % (res, funcName))\n\n\ndef replaceTaskMgrFunc(replaceFuncList):\n    try:\n        taskMgr\n    except Exception:\n        return\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        if taskMgr.replaceMethod(oldFunc, newFunc):\n            print('replaced taskMgr function: %s' % funcName)\n\n\ndef replaceStateFunc(replaceFuncList):\n    if not sys.modules.get('base.direct.fsm.State'):\n        return\n    from direct.fsm.State import State\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        res = State.replaceMethod(oldFunc, newFunc)\n        if res:\n            print('replaced %s FSM transition function(s): %s' % (res, funcName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4560
+  }
+}

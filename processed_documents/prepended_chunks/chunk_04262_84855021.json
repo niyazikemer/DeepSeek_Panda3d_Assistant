@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code belongs to a class called `GarbageReport` designed to detect and analyze memory leaks by examining Python's garbage collector. The specific lines initialize the number of detected cycles, prepare a report header string with details about the garbage collection results (including cycle count), and determine which garbage indices to include in the output based on whether a full report is requested. This context helps in generating clear logs that can assist developers in identifying memory leaks during application development.\n\nself.numCycles = len(self.cycles)\n\n        if self._args.findCycles:\n            s = ['===== GarbageReport: \\'%s\\' (%s %s) =====' % (\n                self._args.name, self.numCycles,\n                ('cycle' if self.numCycles == 1 else 'cycles'))]\n        else:\n            s = ['===== GarbageReport: \\'%s\\' =====' % (\n                self._args.name)]\n        if self.numGarbage > 0:\n            # make a list of the ids we will actually be printing\n            if self._args.fullReport:\n                garbageIndices = range(self.numGarbage)\n            else:\n                garbageIndices = sorted(self.cycleIds)\n            numGarbage = len(garbageIndices)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4262
+  }
+}

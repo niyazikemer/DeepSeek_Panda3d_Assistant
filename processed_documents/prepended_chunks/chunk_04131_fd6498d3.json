@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes methods in a `ControlSystemManager` class that handle managing named instances of control systems for an avatar. The code focuses on adding (`use()`), retrieving (`get()`), and removing (`remove()`) control instances, enabling developers to dynamically manage different control configurations for avatars in the system.\n\nArgs:\n            controls: an avatar control system.\n            name (str): any key that you want to use to refer to the controls\n                later (e.g. using the use(<name>) call).\n\n        See also: :meth:`use()`.\n        \"\"\"\n        assert self.notify.debugCall(id(self))\n        assert controls is not None\n        oldControls = self.controls.get(name)\n        if oldControls is not None:\n            assert self.notify.debug(\"Replacing controls: %s\" % name)\n            oldControls.disableAvatarControls()\n            oldControls.setCollisionsActive(0)\n            oldControls.delete()\n        controls.disableAvatarControls()\n        controls.setCollisionsActive(0)\n        self.controls[name] = controls\n\n    def get(self, name):\n        return self.controls.get(name)\n\n    def remove(self, name):\n        \"\"\"Remove a control instance from the list of available control\n        systems.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4131
+  }
+}

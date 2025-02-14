@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of an `AvatarControls` class in a game or simulation environment. This class manages the movement, physics interactions, and user inputs (like arrow keys) for controlling an avatar. The specific chunk includes methods for resetting the avatar's state (`reset()`), retrieving its velocity (`getVelocity()`), and activating controls (`enableAvatarControls()`) to handle movement input and indicators.\n\ndef reset(self):\n        assert self.debugPrint(\"reset()\")\n        self.actorNode.getPhysicsObject().resetPosition(self.avatarNodePath.getPos())\n        self.priorParent.setVector(Vec3.zero())\n        self.highMark = 0\n        self.actorNode.setContactVector(Vec3.zero())\n        if __debug__:\n            contact=self.actorNode.getContactVector()\n            onScreenDebug.add(\"priorParent po\",\n                self.priorParent.getVector(self.actorNode.getPhysicsObject()).pPrintValues())\n            onScreenDebug.add(\"highMark\", \"% 10.4f\"%(self.highMark,))\n            onScreenDebug.add(\"contact\", contact.pPrintValues())\n\n    def getVelocity(self):\n        physObject=self.actorNode.getPhysicsObject()\n        return physObject.getVelocity()\n\n    def enableAvatarControls(self):\n        \"\"\"\n        Activate the arrow keys, etc.\n        \"\"\"\n        assert self.debugPrint(\"enableAvatarControls()\")\n        assert self.collisionsActive",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4065
+  }
+}

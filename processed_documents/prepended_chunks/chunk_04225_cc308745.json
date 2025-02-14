@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of three methods (`setExclude`, `setSort`, and `setRenderParent`) in a Python class related to a buffer viewer. These methods are used to configure how graphics outputs or textures are displayed as cards on the screen. The methods allow users to specify exclusion sets, set cull-bin and sort order for output cards, and define the scene graph root for rendering.\n\ndef setExclude(self, x):\n        \"\"\"Set the exclude-set for the buffer viewer.  The exclude-set\n        should be a list of GraphicsOutputs and Textures to ignore.\n        The exclude-set is subtracted from the include-set (so the excludes\n        effectively override the includes.)  The initial value is the\n        empty list.\"\"\"\n        if not self.isValidTextureSet(x):\n            BufferViewer.notify.error('setExclude: must be list of textures and buffers')\n            return\n        self.exclude = x\n        self.dirty = 1\n\n    def setSort(self, bin, sort):\n        \"\"\"Set the cull-bin and sort-order for the output cards.  The\n        default value is 'fixed', 10000.\"\"\"\n        self.cullbin = bin\n        self.cullsort = sort\n        self.dirty = 1\n\n    def setRenderParent(self, renderParent):\n        \"\"\"Set the scene graph root to which the output cards should\n        be parented.  The default is render2d. \"\"\"\n        self.renderParent = renderParent\n        self.dirty = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4225
+  }
+}

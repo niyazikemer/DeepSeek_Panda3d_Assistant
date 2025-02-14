@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a generator function in a class that detects potential memory leaks by traversing object references and containers. The specific code checks if an object has a `__dict__`, determines if it acts as a container (has length) or is not a dead end, prevents reference cycles, and adds the object to tracking with appropriate indirections for later leak detection.\n\nif hasattr(curObj, '__dict__'):\n                    child = curObj.__dict__\n                    hasLength = self._hasLength(child)\n                    notDeadEnd = not self._isDeadEnd(child)\n                    if hasLength or notDeadEnd:\n                        # prevent cycles in the references (i.e. base.loader.base)\n                        for goesThrough in parentObjRef.goesThroughGen(child):\n                            # don't yield, container might lose this element\n                            pass\n                        if not goesThrough:\n                            objRef = ObjectRef(Indirection(evalStr='.__dict__'),\n                                               id(child), parentObjRef)\n                            yield None\n                            if hasLength:\n                                for i in self._addContainerGen(child, objRef):\n                                    yield None\n                            if notDeadEnd:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4504
+  }
+}

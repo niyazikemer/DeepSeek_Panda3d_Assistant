@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears to be part of a method within a Python class related to object leak detection or memory management. The `goesThroughGen` function is a generator that iterates through a series of indirections, which are likely used to track or manage object references in a way that prevents premature garbage collection. This context suggests the code is part of a system designed to safely traverse and manage object references during leak detection or memory analysis tasks.\n\nThis method is likely part of a larger framework for detecting leaks by tracking how objects are referenced and accessed through indirect means, ensuring proper cleanup while maintaining control over reference counts during traversal.\n\ndef goesThroughGen(self, obj=None, objId=None):\n        if obj is None:\n            assert type(objId) is int\n        else:\n            objId = id(obj)\n        o = None\n        evalStr = ''\n        curObj = None\n        # make sure the indirections don't go away on us\n        indirections = self._indirections\n        for indirection in indirections:\n            yield None\n            indirection.acquire()\n        for indirection in indirections:\n            yield None\n            if not indirection.isDictKey():\n                # build up a string to be eval'd\n                evalStr += indirection.getString()\n            else:\n                curObj = self._getContainerByEval(evalStr, curObj=curObj)\n                if curObj is None:\n                    raise FailedEval(evalStr)\n                # try to look up this key in the curObj dictionary\n                curObj = indirection.dereferenceDictKey(curObj)\n                evalStr = ''\n            yield None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4480
+  }
+}

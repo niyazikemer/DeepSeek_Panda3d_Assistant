@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `ReferrerSearch` class used for tracking reference paths in Python objects. The method `isManyRef` checks if an object has too many referrers (based on `maxRefs`) and whether it's worth exploring further during the search process. If an object has excessive referrers but isn't a container type like list, tuple, dict, or set, it logs a \"many refs\" warning and returns True to stop further exploration. If it is a container type, it allows exploration despite high reference counts. This helps prevent overwhelming the search with excessively referenced objects while still allowing container types to be explored due to their common use in Python structures.\n\nreturn False\n\n    def isManyRef(self, at, path, referrers):\n        if (len(referrers) > self.maxRefs and \\\n            at is not self.obj):\n            if not isinstance(at, (list, tuple, dict, set)):\n                sys.stdout.write(\"RefPath(%s): ManyRefs(%s)[%s]-> \" % (self._id, len(referrers), fastRepr(at)))\n                path = list(reversed(path))\n                path.insert(0,0)\n                for x in range(len(path) - 1):\n                    sys.stdout.write(self.myrepr(path[x], path[x+1]))\n                print(\"\")\n                return True\n            else:\n                sys.stdout.write(\"RefPath(%s): ManyRefsAllowed(%s)[%s]-> \" % (self._id, len(referrers), fastRepr(at, maxLen = 1, strFactor = 30)))\n                print(\"\")\n        return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4823
+  }
+}

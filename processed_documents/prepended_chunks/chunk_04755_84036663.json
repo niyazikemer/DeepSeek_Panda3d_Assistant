@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents a component of a leak detection framework focused on identifying memory leaks related to message types. The class `MessageTypesLeakDetector` initializes detectors for tracking leaks, sets up a task using `taskMgr`, and creates objects that accept messages to detect potential leaks over time.\n\nclass MessageTypesLeakDetector(LeakDetector, MessageLeakDetectorBase):\n    def __init__(self):\n        LeakDetector.__init__(self)\n        self._msgName2detector = {}\n        self._createJob = None\n        if ConfigVariableBool('leak-message-types', False):\n            self._leakers = []\n            self._leakTaskName = uniqueName('leak-message-types')\n            taskMgr.add(self._leak, self._leakTaskName)\n\n    def _leak(self, task):\n        self._leakers.append(DirectObject())\n        self._leakers[-1].accept('leak-msg', self._leak)\n        return task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4755
+  }
+}

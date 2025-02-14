@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Utility classes and functions for debugging memory leaks in Python applications, including tools for detecting garbage cycles and logging garbage objects.\"\"\"\n\nThe chunk provides core utility classes (`FakeObject`, `FakeDelObject`) and a function `_createGarbage` that generates circular references to simulate potential memory leaks. This is used to test and debug garbage collection mechanisms.\n\n\"\"\"Contains utility classes for debugging memory leaks.\"\"\"\n\n__all__ = ['FakeObject', '_createGarbage', 'GarbageReport', 'GarbageLogger']\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.showbase.PythonUtil import ScratchPad, Stack, AlphabetCounter\nfrom direct.showbase.PythonUtil import itype, deeptype, fastRepr\nfrom direct.showbase.Job import Job\nfrom direct.showbase.JobManagerGlobal import jobMgr\nfrom direct.showbase.MessengerGlobal import messenger\nfrom panda3d.core import ConfigVariableBool\nimport gc\n\nGarbageCycleCountAnnounceEvent = 'announceGarbageCycleDesc2num'\n\n\nclass FakeObject:\n    pass\n\n\nclass FakeDelObject:\n    def __del__(self):\n        pass\n\n\ndef _createGarbage(num=1):\n    for i in range(num):\n        a = FakeObject()\n        b = FakeObject()\n        a.other = b\n        b.other = a\n        a = FakeDelObject()\n        b = FakeDelObject()\n        a.other = b\n        b.other = a",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4244
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a class method that handles camera operations in an application, specifically enabling culling visualization in \"Out Of Body Experience\" (OOBE) mode by creating and attaching a frustum node to visualize bounding volume effectiveness. The method checks if OOBE mode is enabled, creates a LensNode for the cull frustum, sets its lens from the main camera, shows the frustum, and attaches it to the active camera node.\n\n# Transmit other buttons.\n        messenger.send(button + suffix)\n\n    def oobeCull(self, cam = None):\n        \"\"\"\n        While in OOBE mode (see above), cull the viewing frustum as if\n        it were still attached to our original camera.  This allows us\n        to visualize the effectiveness of our bounding volumes.\n        \"\"\"\n        if cam is None:\n            cam = self.cam\n\n        # First, make sure OOBE mode is enabled.\n        if not getattr(self, 'oobeMode', False):\n            self.oobe(cam = cam)\n\n        if self.oobeCullFrustum is None:\n            # Enable OOBE culling.\n            pnode = LensNode('oobeCull')\n            pnode.setLens(self.camLens)\n            pnode.showFrustum()\n            self.oobeCullFrustum = self.camera.attachNewNode(pnode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4985
+  }
+}

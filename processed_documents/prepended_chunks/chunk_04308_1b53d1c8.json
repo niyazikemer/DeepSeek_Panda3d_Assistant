@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines a method `letterboxOn` in a class that manages visual transitions. This method is responsible for smoothly displaying black bars (top and bottom) on the screen over a specified duration `t`, using animation intervals to move the bars into position. The context involves managing these visual elements as part of a larger system for handling fades or letterboxing effects in an application.\n\ndef letterboxOn(self, t=0.25, finishIval=None, blendType='noBlend'):\n        \"\"\"\n        Move black bars in over t seconds.\n        \"\"\"\n        self.noLetterbox()\n        self.loadLetterbox()\n        self.letterbox.unstash()\n        if t == 0:\n            self.letterboxBottom.setPos(0, 0, -1)\n            self.letterboxTop.setPos(0, 0, 0.8)\n            fut = AsyncFuture()\n            fut.setResult(None)\n            return fut\n        else:\n            self.__letterboxFuture = AsyncFuture()\n            self.letterboxIval = Sequence(Parallel(\n                LerpPosInterval(self.letterboxBottom,\n                                t,\n                                pos = Vec3(0, 0, -1),\n                                #startPos = Vec3(0, 0, -1.2),\n                                blendType=blendType\n                                ),\n                LerpPosInterval(self.letterboxTop,\n                                t,\n                                pos = Vec3(0, 0, 0.8),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4308
+  }
+}

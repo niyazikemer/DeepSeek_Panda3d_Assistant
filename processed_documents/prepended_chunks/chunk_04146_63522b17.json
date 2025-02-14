@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger Python class `ControlManager` that handles input state management for controlling character movement in a 3D environment. The chunk specifically implements logic within the `setWASDTurn` method to toggle between WASD-based turning and sliding controls, resetting input states accordingly when switching modes.\n\ninputState.set(\"turnLeft\", slideLeftWASDSet, inputSource=inputState.WASD)\n            inputState.set(\"turnRight\", slideRightWASDSet, inputSource=inputState.WASD)\n\n            inputState.set(\"slideLeft\", False, inputSource=inputState.WASD)\n            inputState.set(\"slideRight\", False, inputSource=inputState.WASD)\n\n        else:\n            self.WASDTurnTokens = (\n                inputState.watchWithModifiers(\"slideLeft\", \"a\", inputSource=inputState.WASD),\n                inputState.watchWithModifiers(\"slideRight\", \"d\", inputSource=inputState.WASD),\n            )\n\n            inputState.set(\"slideLeft\", turnLeftWASDSet, inputSource=inputState.WASD)\n            inputState.set(\"slideRight\", turnRightWASDSet, inputSource=inputState.WASD)\n\n            inputState.set(\"turnLeft\", False, inputSource=inputState.WASD)\n            inputState.set(\"turnRight\", False, inputSource=inputState.WASD)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4146
+  }
+}

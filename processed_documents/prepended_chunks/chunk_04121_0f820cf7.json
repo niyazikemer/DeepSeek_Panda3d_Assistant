@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `handleAvatarControls` method within the `BattleWalker` class, which manages character movement controls in a Panda3D project. This section specifically handles setting forward and reverse movements based on Auto-Run, calculating speeds for different movement types (forward, slide, rotation), and adjusting these speeds during debug mode.\n\n# Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0\n\n        # Determine what the speeds are based on the buttons:\n        self.speed=(forward and self.avatarControlForwardSpeed or\n                    reverse and -self.avatarControlReverseSpeed)\n        # Slide speed is a scaled down version of forward speed\n        self.slideSpeed=(slideLeft and -self.avatarControlForwardSpeed or\n                         slideRight and self.avatarControlForwardSpeed) * 0.5\n        self.rotationSpeed=not (slideLeft or slideRight) and (\n                (turnLeft and self.avatarControlRotateSpeed) or\n                (turnRight and -self.avatarControlRotateSpeed))\n\n        debugRunning = inputState.isSet(\"debugRunning\")\n\n        if debugRunning:\n            self.speed*=base.debugRunningMultiplier\n            self.slideSpeed*=base.debugRunningMultiplier\n            self.rotationSpeed*=1.25",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_230",
+    "parent": "processed_documents/context_documents/df5d144c_BattleWalker.json",
+    "chunk_number": 4121
+  }
+}

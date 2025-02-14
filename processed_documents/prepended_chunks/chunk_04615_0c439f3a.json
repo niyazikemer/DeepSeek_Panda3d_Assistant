@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides two utility functions for manipulating dictionaries: `listToItem2index` converts a list into a dictionary mapping each item to its index, while `invertDict` inverts a dictionary's key-value pairs, optionally allowing duplicates. These functions are part of a collection of general-purpose data manipulation tools designed to assist developers with efficient and flexible data handling.\n\ndef listToItem2index(L):\n    \"\"\"converts list to dict of list item->list index\n    This is lossy if there are duplicate list items\"\"\"\n    d = {}\n    for i, item in enumerate(L):\n        d[item] = i\n    return d\n\n\nassert listToItem2index(['a','b']) == {'a': 0, 'b': 1,}\n\n\ndef invertDict(D, lossy=False):\n    \"\"\"creates a dictionary by 'inverting' D; keys are placed in the new\n    dictionary under their corresponding value in the old dictionary.\n    It is an error if D contains any duplicate values.\n\n    >>> old = {'key1':1, 'key2':2}\n    >>> invertDict(old)\n    {1: 'key1', 2: 'key2'}\n    \"\"\"\n    n = {}\n    for key, value in D.items():\n        if not lossy and value in n:\n            raise Exception('duplicate key in invertDict: %s' % value)\n        n[value] = key\n    return n",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4615
+  }
+}

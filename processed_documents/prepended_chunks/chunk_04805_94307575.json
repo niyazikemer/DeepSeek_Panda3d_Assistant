@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `PhasedObject` class implementation, which provides methods for managing phase transitions. Specifically, `getAliasPhase()` resolves an alias to its corresponding phase number, `getPhase()` returns the current phase (or its alias), and `setPhase()` begins transitioning between phases by validating the operation and initiating state changes. These methods are central to the phase management functionality documented in the class.\n\ndef getAliasPhase(self, alias):\n        \"\"\"\n        Returns the phase number of an alias, if it exists.\n        Otherwise, returns the alias.\n        \"\"\"\n        return self.aliasPhaseMap.get(alias, alias)\n\n    def getPhase(self):\n        \"\"\"\n        Returns the current phase (or alias, if defined)\n        this object is currently in.\n        \"\"\"\n        return self.getPhaseAlias(self.phase)\n\n    def setPhase(self, aPhase):\n        \"\"\"\n        aPhase can be either a phase number or a predefined alias.\n\n        Will invoke a sequence of loadPhase*() or unloadPhase*()\n        functions corresponding to the difference between the current\n        phase and aPhase, starting at the current phase.\n        \"\"\"\n        assert not self.__phasing, 'Already phasing. Cannot setPhase() while phasing in progress.'\n        self.__phasing = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_278",
+    "parent": "processed_documents/context_documents/0cacf4fe_PhasedObject.json",
+    "chunk_number": 4805
+  }
+}

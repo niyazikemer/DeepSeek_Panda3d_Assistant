@@ -1,0 +1,9 @@
+{
+  "content": "The functions `invertDictLossless`, `uniqueElements`, and `disjoint` are utility functions designed to manipulate dictionaries and lists. These tools ensure data integrity by preventing information loss during dictionary inversion and checking for uniqueness and disjointedness in list elements.\n\ndef invertDictLossless(D):\n    \"\"\"similar to invertDict, but values of new dict are lists of keys from\n    old dict. No information is lost.\n\n    >>> old = {'key1':1, 'key2':2, 'keyA':2}\n    >>> invertDictLossless(old)\n    {1: ['key1'], 2: ['key2', 'keyA']}\n    \"\"\"\n    n = {}\n    for key, value in D.items():\n        n.setdefault(value, [])\n        n[value].append(key)\n    return n\n\n\ndef uniqueElements(L):\n    \"\"\"are all elements of list unique?\"\"\"\n    return len(L) == len(list2dict(L))\n\n\ndef disjoint(L1, L2):\n    \"\"\"returns non-zero if L1 and L2 have no common elements\"\"\"\n    used = dict([(k, None) for k in L1])\n    for k in L2:\n        if k in used:\n            return 0\n    return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4616
+  }
+}

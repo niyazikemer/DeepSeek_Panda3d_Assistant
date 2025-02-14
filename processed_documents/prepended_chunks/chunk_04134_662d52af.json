@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code represents a section where the control scheme for an avatar's movement is being assigned or reassigned. It checks if there are existing controls, disables them if necessary, sets up new controls with the given name and avatar, and sends a message about the change. This occurs within a method that handles switching between different control schemes for the avatar, ensuring proper initialization and cleanup of previous controls.\n\n</document>\n\nThis chunk is situated in a section where the class manages assigning or reassigning control schemes to an avatar. It ensures proper handling by disabling existing controls before setting up new ones if necessary, and sends a message about the change.\n\nif controls is not None:\n            if controls is not self.currentControls:\n                if self.currentControls is not None:\n                    self.currentControls.disableAvatarControls()\n                    self.currentControls.setCollisionsActive(0)\n                    self.currentControls.setAvatar(None)\n                self.currentControls = controls\n                self.currentControlsName = name\n                self.currentControls.setAvatar(avatar)\n                self.currentControls.setCollisionsActive(1)\n                if self.isEnabled:\n                    self.currentControls.enableAvatarControls()\n                messenger.send('use-%s-controls'%(name,), [avatar])\n            #else:\n            #    print \"Controls are already\", name\n        else:\n            assert self.notify.debug(\"Unkown controls: %s\" % name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4134
+  }
+}

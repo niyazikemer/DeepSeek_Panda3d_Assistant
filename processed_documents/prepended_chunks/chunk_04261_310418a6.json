@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `GarbageReport` class, specifically handling the generation of textual descriptions for detected garbage cycles. It iterates through each cycle to create a readable syntax representation, appending each formatted cycle string to the `cyclesBySyntax` list. This process is crucial for logging and reporting purposes, allowing developers to understand and debug memory leaks or garbage collection issues effectively.\n\n```python\nclass GarbageReport:\n    # ... other methods ...\n\n    def _generateCycleDescriptions(self):\n        # ... code before chunk ...\n        newCycles = []\n        for cycle in cycles:\n            # ... processing each cycle ...\n            if not objAlreadyRepresented:\n                cycleBySyntax += '%s  -->  ' % itype(obj)\n                objAlreadyRepresented = False\n            newCyclesBySyntax.append(cycleBySyntax)\n            yield None\n        self.cyclesBySyntax.extend(newCyclesBySyntax)\n        # ... code after chunk ...\n```\n\ncycleBySyntax += '%s%s' % (index, brackets[1])\n                            objAlreadyRepresented = True\n                        else:\n                            cycleBySyntax += '%s --> ' % itype(obj)\n                            objAlreadyRepresented = False\n                    newCyclesBySyntax.append(cycleBySyntax)\n                    yield None\n                self.cyclesBySyntax.extend(newCyclesBySyntax)\n                # if we're not doing a full report, add this cycle's IDs to the master set\n                if not self._args.fullReport:\n                    for cycle in newCycles:\n                        yield None\n                        self.cycleIds.update(set(cycle))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4261
+  }
+}

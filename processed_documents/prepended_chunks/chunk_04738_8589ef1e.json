@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated in a vestigial Python module that primarily deals with initializing the `Pmw` library properly and cleaning up the `sys` import to avoid exporting it. The code handles Pmw module name correction for compatibility and prepares the environment before any specific functionality is implemented, such as the subsequent hack for Pmw.NoteBook in Python 3.\n\n\"\"\" This module is now vestigial.  \"\"\"\n\nimport sys\nimport Pmw\n\n\n# This is required by the ihooks.py module used by Squeeze (used by\n# pandaSqueezer.py) so that Pmw initializes properly\nif '_Pmw' in sys.modules:\n    sys.modules['_Pmw'].__name__ = '_Pmw'\n\n# Don't export this from the module.\ndel sys\n\n# Hack to workaround broken Pmw.NoteBook in Python 3",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_267",
+    "parent": "processed_documents/context_documents/9e4614f0_TkGlobal.json",
+    "chunk_number": 4738
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a deprecated method `loadModelOnce()` that attempts to load a model from either a cache or disk and returns a NodePath or None if unsuccessful. It suggests using `loadModel()` instead and is situated within a document discussing various asset loading functionalities such as models, fonts, textures, sounds, and shaders in a Python context.\n\ndef loadModelOnce(self, modelPath):\n        \"\"\"\n        modelPath is a string.\n\n        Attempt to load a model from modelPool, if not present\n        then attempt to load it from disk. Return a nodepath to\n        the model if successful or None otherwise\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"loader.loadModelOnce() is deprecated; use loader.loadModel() instead.\", DeprecationWarning, stacklevel=2)\n\n        return self.loadModel(modelPath, noCache = False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4382
+  }
+}

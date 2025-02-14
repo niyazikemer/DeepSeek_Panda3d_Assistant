@@ -1,0 +1,9 @@
+{
+  "content": "The `piratesAvatarShadow()` function provides a specialized implementation of shadow creation tailored for the local avatar in a 3D environment. It builds upon the general-purpose `avatarShadow()` function by enforcing a specific Level of Detail (LOD) setting, ensuring consistent visual quality when generating shadows for character models.\n\ndef piratesAvatarShadow():\n    a = avatarShadow()\n    # Force the lod to be 0 at all times\n    base.localAvatar.getGeomNode().getChild(0).node().forceSwitch(0)\n    return a",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_282",
+    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
+    "chunk_number": 4837
+  }
+}

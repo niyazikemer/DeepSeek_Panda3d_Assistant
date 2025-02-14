@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within the `handleAvatarControls` method of the `BattleWalker` class, which processes movement controls for an avatar in a game or simulation. The code captures the current position delta and time elapsed, then determines if the avatar is moving based on its speed, slide speed, rotation speed, or prior parent movement. If moving, it calculates the distance, slide distance, and rotation needed for smooth movement updates.\n\nself.__oldPosDelta = self.avatarNodePath.getPosDelta(render)\n        # How far did we move based on the amount of time elapsed?\n        self.__oldDt = ClockObject.getGlobalClock().getDt()\n        dt=self.__oldDt\n\n        # Check to see if we're moving at all:\n        self.moving = self.speed or self.slideSpeed or self.rotationSpeed or (self.priorParent!=Vec3.zero())\n        if self.moving:\n            distance = dt * self.speed\n            slideDistance = dt * self.slideSpeed\n            rotation = dt * self.rotationSpeed",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_230",
+    "parent": "processed_documents/context_documents/df5d144c_BattleWalker.json",
+    "chunk_number": 4124
+  }
+}

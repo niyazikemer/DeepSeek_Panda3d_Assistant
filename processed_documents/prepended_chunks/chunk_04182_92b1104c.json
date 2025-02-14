@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents the core movement logic within an `AvatarControls` method responsible for updating the position of an avatar node based on calculated velocity inputs derived from user keyboard controls. The snippet specifically handles computing the step direction using rotation matrices, applying this step to update the avatar's position, managing rotation adjustments, and tracking velocity metrics. This is critical for implementing smooth avatar movement in a 3D environment based on arrow key inputs.\n\n# Take a step in the direction of our previous heading.\n            self.vel=Vec3(Vec3.forward() * distance +\n                          Vec3.right() * slideDistance)\n            if self.vel != Vec3.zero():\n                # rotMat is the rotation matrix corresponding to\n                # our previous heading.\n                rotMat=Mat3.rotateMatNormaxis(self.avatarNodePath.getH(), Vec3.up())\n                step=rotMat.xform(self.vel)\n                self.avatarNodePath.setFluidPos(Point3(self.avatarNodePath.getPos()+step))\n            self.avatarNodePath.setH(self.avatarNodePath.getH()+rotation)\n            messenger.send(\"avatarMoving\")\n        else:\n            self.vel.set(0.0, 0.0, 0.0)\n\n        self.__oldPosDelta = self.avatarNodePath.getPosDelta(base.render)\n        self.__oldDt = dt\n\n        if self.__oldDt != 0:\n            self.worldVelocity = self.__oldPosDelta * (1 / self.__oldDt)\n        else:\n            # divide by zero\n            self.worldVelocity = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4182
+  }
+}

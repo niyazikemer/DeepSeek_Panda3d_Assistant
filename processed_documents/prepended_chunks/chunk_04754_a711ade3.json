@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines `_MessageTypeLeakDetectorCreator`, a job class responsible for creating `_MessageTypeLeakDetector` instances to track potential leaks of message types. This class iterates over all events from the messenger, determines their name patterns, and ensures each pattern is registered with an associated detector in the `msgName2detector` dictionary.\n\nclass _MessageTypeLeakDetectorCreator(Job):\n    def __init__(self, creator):\n        Job.__init__(self, uniqueName(typeName(self)))\n        self._creator = creator\n\n    def destroy(self):\n        self._creator = None\n        Job.destroy(self)\n\n    def finished(self):\n        Job.finished(self)\n\n    def run(self):\n        for msgName in messenger._getEvents():\n            yield None\n            namePattern = self._creator._getMessageNamePattern(msgName)\n            if namePattern not in self._creator._msgName2detector:\n                self._creator._msgName2detector[namePattern] = _MessageTypeLeakDetector(namePattern)\n            self._creator._msgName2detector[namePattern].addMsgName(msgName)\n        yield Job.Done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4754
+  }
+}

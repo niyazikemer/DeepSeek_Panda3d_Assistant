@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk pertains to window management operations within a Python-based framework (likely for game development or 3D graphics applications). It includes functionality related to opening and closing windows (`open_window`, `close_window`), handling main window-specific behavior, sending messenger notifications about window state changes, and managing camera associations with display regions. This is part of the base class that encapsulates core application logic, particularly relevant for applications requiring multi-window support or interactive manipulation via Direct (a toolset for interactive model manipulation).\n\nmessenger.send('open_window', [win, mainWindow])\n        if mainWindow:\n            messenger.send('open_main_window')\n\n        return win\n\n    def closeWindow(self, win, keepCamera = False, removeWindow = True):\n        \"\"\"\n        Closes the indicated window and removes it from the list of\n        windows.  If it is the main window, clears the main window\n        pointer to None.\n        \"\"\"\n        win.setActive(False)\n\n        # First, remove all of the cameras associated with display\n        # regions on the window.\n        numRegions = win.getNumDisplayRegions()\n        for i in range(numRegions):\n            dr = win.getDisplayRegion(i)\n            # [gjeon] remove drc in base.direct.drList\n            if self.direct is not None:\n                for drc in self.direct.drList:\n                    if drc.cam == dr.getCamera():\n                        self.direct.drList.displayRegionList.remove(drc)\n                        break\n\n            cam = NodePath(dr.getCamera())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4895
+  }
+}

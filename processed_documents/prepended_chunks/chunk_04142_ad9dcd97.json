@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a class method that handles disabling and stopping avatar controls. It manages token releases, disables current controls, sets up default ArrowKey input watches if needed, stops collisions, clears the avatar reference, and resets state to ensure smooth control management.\n\nfor token in self.WASDTurnTokens:\n            token.release()\n        self.WASDTurnTokens = []\n\n        if self.currentControls:\n            self.currentControls.disableAvatarControls()\n\n        if self.passMessagesThrough: # for not breaking toontown\n            ist=self.inputStateTokens\n            ist.append(inputState.watchWithModifiers(\"forward\", \"arrow_up\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watchWithModifiers(\"reverse\", \"arrow_down\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watchWithModifiers(\"turnLeft\", \"arrow_left\", inputSource=inputState.ArrowKeys))\n            ist.append(inputState.watchWithModifiers(\"turnRight\", \"arrow_right\", inputSource=inputState.ArrowKeys))\n\n    def stop(self):\n        self.disable()\n        if self.currentControls:\n            self.currentControls.setCollisionsActive(0)\n            self.currentControls.setAvatar(None)\n        self.currentControls = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4142
+  }
+}

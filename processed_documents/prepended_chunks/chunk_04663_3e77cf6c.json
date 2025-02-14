@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Python utility function named `fastRepr` within a larger collection of helper functions. This function generates concise string representations for various data types, with special handling for dictionaries and strings to prevent infinite recursion by tracking visited object IDs.\n\ns += ', '\n            _visitedIds.remove(id(obj))\n            s += ellips\n            s += {tuple: ')',\n                  list:  ']',}[type(obj)]\n            return s\n        elif type(obj) is dict:\n            s = '{'\n            if maxLen is not None and len(obj) > maxLen:\n                o = list(obj.keys())[:maxLen]\n                ellips = '...'\n            else:\n                o = list(obj.keys())\n                ellips = ''\n            _visitedIds.add(id(obj))\n            for key in o:\n                value = obj[key]\n                s += '%s: %s, ' % (fastRepr(key, maxLen, _visitedIds=_visitedIds),\n                                   fastRepr(value, maxLen, _visitedIds=_visitedIds))\n            _visitedIds.remove(id(obj))\n            s += ellips\n            s += '}'\n            return s\n        elif type(obj) is str:\n            if maxLen is not None:\n                maxLen *= strFactor\n            if maxLen is not None and len(obj) > maxLen:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4663
+  }
+}

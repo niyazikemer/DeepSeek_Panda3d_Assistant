@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of a method within the ReferrerSearch class, which is used to track and analyze object references in a Python application. The specific code checks if an object has too many referrers (indicated by `len(referrers) > self.maxRefs`) and whether it's not the main object being searched for (`at is not self.obj`). If these conditions are met, it logs a message indicating that there are \"ManyRefs\" for the given object. The code then reverses the path to show how the references lead back to the current object, aiding in debugging or memory analysis tasks. This context is crucial for understanding how reference counting and tracking are handled within the application.\n\n```python\n\"\"\"\nThe chunk of code is part of a method that checks if an object has too many referrers,\nlogs a message about it, and prints the path leading to this object.\nThis helps in identifying objects with excessive references during memory analysis or debugging.\n\"\"\"\n```\n\n# world\n        if hasattr(simbase.air, 'mainWorld') and at is simbase.air.mainWorld:\n            sys.stdout.write(\"RefPath(%s): mainWorld-> \" % self._id)\n            path = list(reversed(path))\n            for x in range(len(path) - 1):\n                sys.stdout.write(self.myrepr(path[x], path[x+1]))\n            print(\"\")\n            return True\n\n        return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4822
+  }
+}

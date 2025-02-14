@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `TaskThreaded` class implementation, which manages CPU-intensive tasks by breaking them into smaller chunks that run over multiple frames to prevent freezing the main application. The methods in this chunk include lifecycle management (destroy), timeslice configuration (getTimeslice, setTimeslice), and callback scheduling (scheduleCallback). These methods ensure efficient task execution without blocking the main thread.\n\ndef finished(self):\n        if self._callback:\n            self._callback()\n\n    def destroy(self):\n        for taskName in self.__taskNames:\n            taskMgr.remove(taskName)\n        del self.__taskNames\n        for thread in self.__threads:\n            thread.tearDown()\n            thread._destroy()\n        del self.__threads\n        del self._callback\n        self.ignoreAll()\n\n    def getTimeslice(self):\n        return self.__timeslice\n\n    def setTimeslice(self, timeslice):\n        self.__timeslice = timeslice\n\n    def scheduleCallback(self, callback):\n        assert self.notify.debugCall()\n        if not self.__threaded:\n            callback()\n        else:\n            taskName = ('%s-ThreadedTask-%s' %\n                        (self.__name, TaskThreaded._Serial.next()))\n            assert taskName not in self.__taskNames\n            self.__taskNames.add(taskName)\n            taskMgr.add(Functor(self.__doCallback, callback, taskName),\n                        taskName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_245",
+    "parent": "processed_documents/context_documents/e667161a_TaskThreaded.json",
+    "chunk_number": 4314
+  }
+}

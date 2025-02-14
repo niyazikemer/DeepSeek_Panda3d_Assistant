@@ -1,0 +1,9 @@
+{
+  "content": "The `rebindClass` function serves as the initial entry point within the document, tasked with reading a specified Python file to identify the class definition. It parses the file to determine whether the class inherits from another class or not, extracts the class name accordingly, and prints it for confirmation. If no valid class name is found, it cleans up by closing the file and removing it. This function acts as the starting point for the rebinding process, which involves replacing methods in various systems such as messenger, task manager, state machines, client runners (CR), air managers, and interval functions through subsequent helper functions.\n\ndef rebindClass(filename):\n    file = open(filename, 'r')\n    lines = file.readlines()\n    for line in lines:\n        if line[0:6] == 'class ':\n            # Chop off the \"class \" syntax and strip extra whitespace\n            classHeader = line[6:].strip()\n            # Look for a open paren if it does inherit\n            parenLoc = classHeader.find('(')\n            if parenLoc > 0:\n                className = classHeader[:parenLoc]\n            else:\n                # Look for a colon if it does not inherit\n                colonLoc = classHeader.find(':')\n                if colonLoc > 0:\n                    className = classHeader[:colonLoc]\n                else:\n                    print('error: className not found')\n                    # Remove that temp file\n                    file.close()\n                    os.remove(filename)\n                    return\n            print('Rebinding class name: ' + className)\n            break",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4552
+  }
+}

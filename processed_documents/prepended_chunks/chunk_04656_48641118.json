@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes a `Singleton` metaclass designed to ensure that only one instance of a class can exist, providing a base for classes requiring singleton behavior. It explains how to implement the singleton pattern in Python using New-Style classes and discusses potential issues when inheriting from Classic-Style classes without proper initialization.\n\n############################################################\n# class: Singleton\n# Purpose: This provides a base metaclass for all classes\n#          that require one and only one instance.\n#\n# Example: class mySingleton:\n#              __metaclass__ = PythonUtil.Singleton\n#              def __init__(self, ...):\n#                  ...\n#\n# Note: This class is based on Python's New-Style Class\n#       design. An error will occur if a defined class\n#       attemps to inherit from a Classic-Style Class only,\n#       ie: class myClassX:\n#               def __init__(self, ...):\n#                   ...\n#\n#           class myNewClassX(myClassX):\n#               __metaclass__ = PythonUtil.Singleton\n#               def __init__(self, ...):\n#                   myClassX.__init__(self, ...)\n#                   ...\n#\n#           This causes problems because myNewClassX is a\n#           New-Style class that inherits from only a\n#           Classic-Style base class. There are two ways",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4656
+  }
+}

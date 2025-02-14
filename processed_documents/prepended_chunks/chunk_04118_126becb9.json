@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet defines the `jumpPressed` method within the `TwoDWalker` class, which handles the logic for initiating a jump action in a 2D scroller game environment. This method checks if the avatar is on the ground, not airborne, and has permission to jump before applying upward velocity, sending a jump start message, and updating the airborne state.\n\nreturn Task.cont\n\n    def jumpPressed(self):\n        \"\"\"This function should be called from TwoDDrive when the jump key is pressed.\"\"\"\n        if self.lifter.isOnGround():\n            if self.isAirborne == 0:\n                if self.mayJump:\n                    # The jump button is down and we're close enough to the ground to jump.\n                    self.lifter.addVelocity(self.avatarControlJumpForce)\n                    messenger.send(\"jumpStart\")\n                    self.isAirborne = 1\n                    assert self.debugPrint(\"isAirborne 1 due to jump\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_229",
+    "parent": "processed_documents/context_documents/1cd2beea_TwoDWalker.json",
+    "chunk_number": 4118
+  }
+}

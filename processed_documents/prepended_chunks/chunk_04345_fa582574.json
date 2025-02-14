@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of the `VFSSharedImporter` class, which manages module importation from multiple directories in a virtual file system (VFS). The snippet iterates through available loaders to attempt loading a specified module, handling import errors gracefully. It aggregates paths from successfully loaded modules and sets the appropriate package attributes, ensuring that shared packages can be imported correctly even when spread across different directories.\n\nfor loader in self.loaders:\n            try:\n                mod = loader.load_module(fullname, loadingShared = True)\n            except ImportError:\n                etype, evalue, etraceback = sys.exc_info()\n                print(\"%s on %s: %s\" % (etype.__name__, fullname, evalue))\n                if not message:\n                    message = '%s: %s' % (fullname, evalue)\n                continue\n            for dir in getattr(mod, '__path__', []):\n                if dir not in path:\n                    path.append(dir)\n\n        if mod is None:\n            # If all of them failed to load, raise ImportError.\n            raise ImportError(message)\n\n        # If at least one of them loaded successfully, return the\n        # union of loaded modules.\n        mod.__path__ = path\n        mod.__package__ = fullname",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4345
+  }
+}

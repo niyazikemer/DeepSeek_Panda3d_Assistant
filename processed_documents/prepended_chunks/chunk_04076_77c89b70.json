@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an initialization section for an avatar control system, specifically configuring collision detection using Panda3D's CollisionHandler. The chunk defines a collider node with specific masks to handle how it interacts with other objects in the scene, then sets up a pusher handler based on a configuration setting.\n\nThis code should be placed within the class's initialization method (`__init__`), after defining the collider and before enabling event handling or movement controls.\n\ncSphereNode.setFromCollideMask(bitmask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())\n\n        # set up collision mechanism\n        if ConfigVariableBool('want-fluid-pusher', 0):\n            self.pusher = CollisionHandlerFluidPusher()\n        else:\n            self.pusher = CollisionHandlerPusher()\n        self.pusher.addCollider(cSphereNodePath, self.avatarNodePath)\n        self.cWallSphereNodePath = cSphereNodePath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4076
+  }
+}

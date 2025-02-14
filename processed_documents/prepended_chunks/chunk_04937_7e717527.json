@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method responsible for initializing input devices and setting up mouse and keyboard interaction within a 3D graphics application. The code iterates through each input device attached to a window, creating MouseAndKeyboard nodes and MouseWatcher nodes to handle user interactions. If side-by-side stereo display is enabled, it adjusts the MouseWatcher's display region to accommodate the stereo rendering setup. This context is crucial for understanding how mouse input is managed across multiple devices or stereo displays in the application.\n\nbuttonThrowers = []\n        pointerWatcherNodes = []\n        for i in range(win.getNumInputDevices()):\n            name = win.getInputDeviceName(i)\n            mk = self.dataRoot.attachNewNode(MouseAndKeyboard(win, i, name))\n            mw = mk.attachNewNode(MouseWatcher(\"watcher%s\" % (i)))\n\n            if win.getSideBySideStereo():\n                # If the window has side-by-side stereo enabled, then\n                # we should constrain the MouseWatcher to the window's\n                # DisplayRegion.  This will enable the MouseWatcher to\n                # track the left and right halves of the screen\n                # individually.\n                mw.node().setDisplayRegion(win.getOverlayDisplayRegion())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4937
+  }
+}

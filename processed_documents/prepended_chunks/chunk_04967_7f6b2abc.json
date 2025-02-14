@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a class that manages window controls and rendering settings. It includes methods to toggle backface culling on or off, which affects how 3D objects are rendered by controlling whether their backsides are visible.\n\nContext: Methods for toggling visibility features in the ShowBase class, including backface culling, wireframe mode, and texture display.\n\nAnswer:\n\nMethods within the ShowBase class that control visibility settings of the 3D rendering, such as toggling between wireframe and solid modes, enabling or disabling textures, and managing backface culling to optimize rendering performance.\n\nif win is None:\n            win = self.win\n\n        if win:\n            win.setClearColor(color)\n\n    def toggleBackface(self):\n        \"\"\"\n        Toggles between `backfaceCullingOn()` and `backfaceCullingOff()`.\n        \"\"\"\n        if self.backfaceCullingEnabled:\n            self.backfaceCullingOff()\n        else:\n            self.backfaceCullingOn()\n\n    def backfaceCullingOn(self):\n        \"\"\"\n        Disables two-sided rendering on the entire 3D scene graph.\n        \"\"\"\n        if not self.backfaceCullingEnabled:\n            self.render.setTwoSided(0)\n        self.backfaceCullingEnabled = 1\n\n    def backfaceCullingOff(self):\n        \"\"\"\n        Enables two-sided rendering on the entire 3D scene graph.\n        \"\"\"\n        if self.backfaceCullingEnabled:\n            self.render.setTwoSided(1)\n        self.backfaceCullingEnabled = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4967
+  }
+}

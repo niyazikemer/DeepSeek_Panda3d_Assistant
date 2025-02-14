@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk appears within a larger utility library focused on flexible and configurable logging or notification functionality. Specifically, it is part of a function responsible for constructing and outputting log messages with optional timestamps, deltas, avatar locations, and custom transformations. The function dynamically modifies the output string based on specified types, applies prefixes if provided, and uses either a custom notify function or standard print to output the result.\n\nContext: The code chunk is part of a logging utility within a larger library that provides flexible options for constructing and displaying log messages with various attributes such as timestamps, time deltas, avatar locations, and custom transformations.\n\nif 'timeStamp' in types:\n                outStr = '%-8.3f : %s' % (globalClock.getFrameTime(), outStr)\n\n            if 'deltaStamp' in types:\n                outStr = '%-8.2f : %s' % (globalClock.getRealTime() - \\\n                                         globalClockDelta.delta, outStr)\n            if 'avLocation' in types:\n                outStr = '%s : %s' % (outStr, str(localAvatar.getLocation()))\n\n            if xform:\n                outStr = '%s : %s' % (outStr, xform(args[0]))\n\n            if prefixes:\n                # This will print the same report once for each prefix\n                for prefix in prefixes:\n                    if notifyFunc:\n                        notifyFunc(outStr % (prefix,))\n                    else:\n                        print(indent(outStr % (prefix,)))\n            else:\n                if notifyFunc:\n                    notifyFunc(outStr)\n                else:\n                    print(indent(outStr))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4690
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `createStats` method is part of the `ShowBase` class in the Panda3D framework, which serves as a foundation for creating 3D graphics applications. This specific method handles the setup and connection to a PStats server for performance monitoring and statistics collection, allowing developers to analyze application performance.\n\ndef createStats(self, hostname: str | None = None, port: int | None = None) -> bool:\n        \"\"\"\n        If want-pstats is set in Config.prc, or the `wantStats` member is\n        otherwise set to True, connects to the PStats server.\n        This is normally called automatically from the ShowBase constructor.\n        \"\"\"\n        # You can specify pstats-host in your Config.prc or use ~pstats/~aipstats\n        # The default is localhost\n        if not self.wantStats:\n            return False\n\n        if PStatClient.isConnected():\n            PStatClient.disconnect()\n        # these default values match the C++ default values\n        if hostname is None:\n            hostname = ''\n        if port is None:\n            port = -1\n        PStatClient.connect(hostname, port)\n        if PStatClient.isConnected():\n            PStatClient.mainTick()\n            return True\n        else:\n            return False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4948
+  }
+}

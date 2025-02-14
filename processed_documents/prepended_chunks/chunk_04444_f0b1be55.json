@@ -1,0 +1,9 @@
+{
+  "content": "The `addEvent()` method belongs to the `EventGroup` class, which manages a collection of sub-events. It allows adding new events to the group's list, ensuring they haven't already been added or completed, and sets up a handler for when each sub-event completes.\n\n**Context:** The code chunk defines methods (`getName()`, `getDoneEvent()`, and `addEvent()`) in the `EventGroup` class that manage event names and sub-events, allowing the group to track and respond to multiple events as a single unit.\n\ndef getName(self):\n        return self._name\n\n    def getDoneEvent(self):\n        return self._doneEvent\n\n    def isCompleted(self):\n        return self._completed\n\n    def addEvent(self, eventName):\n        \"\"\" Adds a new event to the list of sub-events that we're waiting on.\n        Returns the name of the event. \"\"\"\n        if self._completed:\n            self.notify.error('addEvent(\\'%s\\') called on completed EventGroup \\'%s\\'' % (\n                eventName, self.getName()))\n        if eventName in self._subEvents:\n            self.notify.error('addEvent(\\'%s\\'): event already in EventGroup \\'%s\\'' % (\n                eventName, self.getName()))\n        self._subEvents.add(eventName)\n        self.acceptOnce(eventName, Functor(self._subEventComplete, eventName))\n        return eventName",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_253",
+    "parent": "processed_documents/context_documents/3322f876_EventGroup.json",
+    "chunk_number": 4444
+  }
+}

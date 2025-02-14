@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the `__init__` method of the `FilterManager` class. This method initializes a new instance by accepting a window (`win`) and a camera (`cam`), along with optional dimensions (`forcex`, `forcey`). It identifies the appropriate display region associated with the given camera in the specified window, setting up necessary variables for subsequent operations within the FilterManager.\n\nclass FilterManager(DirectObject):\n\n    notify = None\n\n    def __init__(self, win, cam, forcex=0, forcey=0):\n\n        \"\"\" The FilterManager constructor requires you to provide\n        a window which is rendering a scene, and the camera which is\n        used by that window to render the scene.  These are henceforth\n        called the 'original window' and the 'original camera.' \"\"\"\n\n        # Create the notify category\n\n        if FilterManager.notify is None:\n            FilterManager.notify = directNotify.newCategory(\"FilterManager\")\n\n        # Find the appropriate display region.\n\n        region = None\n        for dr in win.getDisplayRegions():\n            drcam = dr.getCamera()\n            if drcam == cam:\n                region = dr\n\n        if region is None:\n            self.notify.error('Could not find appropriate DisplayRegion to filter')\n            return\n\n        # Instance Variables.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4003
+  }
+}

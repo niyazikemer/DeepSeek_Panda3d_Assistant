@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `Audio3DManager` class, which manages 3D audio attributes such as position and velocity for sounds and listeners. This specific section includes methods for attaching a sound to an object (`attachSoundToObject`) and detaching a sound from tracking (`detachSound`). These functions are essential for maintaining the correct associations between sounds and their corresponding objects in a 3D environment, ensuring that sounds are updated appropriately based on the movement of objects and the listener. This chunk is crucial for efficiently managing sound-object relationships to provide accurate spatial audio effects.\n\nif object not in self.sound_dict:\n            self.sound_dict[WeakNodePath(object)] = []\n\n        self.sound_dict[object].append(sound)\n        return 1\n\n\n    def detachSound(self, sound):\n        \"\"\"\n        sound will no longer have it's 3D position updated\n        \"\"\"\n        for known_object in list(self.sound_dict.keys()):\n            if self.sound_dict[known_object].count(sound):\n                self.sound_dict[known_object].remove(sound)\n                if len(self.sound_dict[known_object]) == 0:\n                    # if there are no other sounds, don't track\n                    # the object any more\n                    del self.sound_dict[known_object]\n                return 1\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4462
+  }
+}

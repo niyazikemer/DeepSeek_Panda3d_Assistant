@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk sets up collision detection components (cSphereNode and cRayNode) to handle avatar-world interactions. It configures masks for collision ray and sphere to manage collision handling between avatar and environment, including floor detection.\n\nThis chunk would typically be situated in the initialization or setup method of an AvatarControl class, as part of configuring the collision system to detect interactions with the game world's geometry.\n\ncSphereNode.setFromCollideMask(self.cSphereBitMask)\n        cSphereNode.setIntoCollideMask(BitMask32.allOff())\n\n        # Set up the collison ray\n        # This is a ray cast from your head down to detect floor polygons.\n        # This ray start is arbitrarily high in the air.  Feel free to use\n        # a higher or lower value depending on whether you want an avatar\n        # that is outside of the world to step up to the floor when they\n        # get under valid floor:\n        self.cRay = CollisionRay(0.0, 0.0, CollisionHandlerRayStart, 0.0, 0.0, -1.0)\n        cRayNode = CollisionNode('NPW.cRayNode')\n        cRayNode.addSolid(self.cRay)\n        self.cRayNodePath = avatarNodePath.attachNewNode(cRayNode)\n        cRayNode.setFromCollideMask(self.cRayBitMask)\n        cRayNode.setIntoCollideMask(BitMask32.allOff())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4174
+  }
+}

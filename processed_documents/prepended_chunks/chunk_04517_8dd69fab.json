@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a leak detection mechanism in a Python class that tracks changes in container sizes over time to identify potential memory leaks. The chunk specifically checks if the size of a container has consistently grown across three consecutive measurements (diff > 0 for diff, diff2, and diff3), indicating a possible leak. If detected, it retrieves the container's name and attempts to yield its reference.\n\nfastRepr(container, maxLen=CheckContainers.ReprItems)))\n                                    yield None\n                                    \"\"\"\n                        if (self._index > 2 and\n                            objId in idx2id2len[self._index-2] and\n                            objId in idx2id2len[self._index-3]):\n                            diff2 = idx2id2len[self._index-1][objId] - idx2id2len[self._index-2][objId]\n                            diff3 = idx2id2len[self._index-2][objId] - idx2id2len[self._index-3][objId]\n                            if self._index <= 4:\n                                if diff > 0 and diff2 > 0 and diff3 > 0:\n                                    name = self._leakDetector.getContainerNameById(objId)\n                                    try:\n                                        for container in self._leakDetector.getContainerByIdGen(objId):\n                                            yield None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4517
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to managing input devices, specifically handling the detachment of an input device from the system. This process includes removing the device's button throwers and deleting its entry from the tracking dictionary. The context involves ensuring proper management of input devices within a graphical application framework.\n\n**Succinct Context:**\n\nThis chunk is part of a method that detaches an input device, cleaning up resources and ensuring the device is no longer active in the system. It's situated within the section managing input device lifecycle operations, such as attaching or detaching devices to prevent interference during operations like reconnection.\n\nYou do not strictly need to call this if you expect the device to be\n        reconnected (but be careful that you don't reattach it).\n        \"\"\"\n\n        if device not in self.__inputDeviceNodes:\n            assert device in self.__inputDeviceNodes\n            return\n\n        assert self.notify.debug(\"Detached device {0}\".format(device.name))\n\n        # Remove the ButtonThrower from the deviceButtonThrowers list.\n        idn = self.__inputDeviceNodes[device]\n        for bt in self.deviceButtonThrowers:\n            if idn.isAncestorOf(bt):\n                self.deviceButtonThrowers.remove(bt)\n                break\n\n        idn.removeNode()\n        del self.__inputDeviceNodes[device]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4943
+  }
+}

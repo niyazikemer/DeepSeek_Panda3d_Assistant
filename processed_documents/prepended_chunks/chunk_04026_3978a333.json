@@ -1,0 +1,9 @@
+{
+  "content": "The provided document defines a Cg shader program containing two functions: `vshader` (vertex shader) and `fshader` (fragment shader). The vertex shader transforms vertex positions and texture coordinates, while the fragment shader performs texture sampling with multiple offsets to create a blur effect. The specific chunk corresponds to the fragment shader implementation that averages seven texture samples (including the original pixel) to achieve a blurred output.\n\nvoid fshader(float2 l_texcoord0 : TEXCOORD0,\n             out float4 o_color : COLOR,\n             uniform float2 texpix_src,\n             uniform float4 texpad_src,\n             uniform sampler2D k_src : TEXUNIT0)\n{\n  float pad = texpad_src.y * 2;\n  float3 offset = float3(1.0*texpix_src.y, 2.0*texpix_src.y, 3.0*texpix_src.y);\n  o_color  = tex2D(k_src, l_texcoord0);\n  o_color += tex2D(k_src, float2(l_texcoord0.x, l_texcoord0.y - offset.z));\n  o_color += tex2D(k_src, float2(l_texcoord0.x, l_texcoord0.y - offset.y));\n  o_color += tex2D(k_src, float2(l_texcoord0.x, l_texcoord0.y - offset.x));\n  o_color += tex2D(k_src, float2(l_texcoord0.x, min(l_texcoord0.y + offset.x, pad)));\n  o_color += tex2D(k_src, float2(l_texcoord0.x, min(l_texcoord0.y + offset.y, pad)));\n  o_color += tex2D(k_src, float2(l_texcoord0.x, min(l_texcoord0.y + offset.z, pad)));\n  o_color /= 7;\n  o_color.w = 1;\n}\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_224",
+    "parent": "processed_documents/context_documents/bc312466_filterBlurY.json",
+    "chunk_number": 4026
+  }
+}

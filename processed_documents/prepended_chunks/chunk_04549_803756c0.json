@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of the `_getObjectList` method within the `ObjectReport` class. The purpose of this method is to collect all Python objects in the current process by utilizing the garbage collection module (`gc`). The specific chunk shown is responsible for recursively gathering all reachable objects, ensuring that every object in memory is included in the report. This is done by iterating through each object's referents and adding any new objects (those not already tracked) to the list of found objects until no more new objects can be discovered.\n\nThe code collects all Python objects in memory by:\n1. Using `sys.getobjects` if available, or falling back to `gc` methods.\n2. Iteratively collecting referents of objects to ensure all reachable objects are included.\n3. Building a comprehensive list of objects for reporting on object frequencies and types.\n\nThis chunk specifically handles the recursive collection of object references, ensuring an exhaustive inventory of all objects in memory is created.\n\nfor obj in curObjList:\n                    refs = gc.get_referents(obj)\n                    for ref in refs:\n                        if id(ref) not in found:\n                            found.add(id(ref))\n                            objects.append(ref)\n                            nextObjList.append(ref)\n            return objects",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_258",
+    "parent": "processed_documents/context_documents/edd88549_ObjectReport.json",
+    "chunk_number": 4549
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is from the `EventManager` class initialization section of a Python file in a Panda3D project. This class manages event handling and performance statistics tracking for applications using Panda3D. The specific code initializes the event queue, notify category, and sets up performance statistics configuration based on the specified event queue or the global one if not provided.\n\n```plaintext\nThe chunk is part of the `EventManager` class in a Panda3D application, initializing components necessary for managing events and performance tracking.\n```\n\nclass EventManager:\n\n    notify = None\n\n    def __init__(self, eventQueue = None):\n        \"\"\"\n        Create a C++ event queue and handler\n        \"\"\"\n        # Make a notify category for this class (unless there already is one)\n        if EventManager.notify is None:\n            EventManager.notify = directNotify.newCategory(\"EventManager\")\n\n        self.eventQueue = eventQueue\n        self.eventHandler = None\n\n        self._wantPstats = ConfigVariableBool('pstats-eventmanager', False)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4186
+  }
+}

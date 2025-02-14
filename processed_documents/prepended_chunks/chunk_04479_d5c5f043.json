@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet represents methods for managing indirections within a class. These methods handle adding indirections to a list, preventing their premature destruction by acquiring references, releasing those references upon destruction, and counting the number of indirections. The methods are part of a larger system that appears to manage object tracking or leak detection through periodic checks and pruning of object references.\n\nself._indirections.append(indirection)\n\n        # make sure our indirections don't get destroyed while we're using them\n        for ind in self._indirections:\n            ind.acquire()\n        self.notify.debug(repr(self))\n\n    def destroy(self):\n        for indirection in self._indirections:\n            indirection.release()\n        del self._indirections\n\n    def getNumIndirections(self):\n        return len(self._indirections)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4479
+  }
+}

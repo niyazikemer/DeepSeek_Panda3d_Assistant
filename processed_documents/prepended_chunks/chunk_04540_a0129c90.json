@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods in a class for managing recurring tasks related to leak detection and object reference pruning. The `_checkForLeaks` method schedules periodic checks for memory leaks, while `_scheduleNextPruning` and `_pruneObjectRefs` handle the scheduling and execution of tasks that remove unnecessary object references. These methods use task managers and job queues to ensure efficient resource management.\n\ndef _checkForLeaks(self, task=None):\n        self._index2delay[len(self._index2containerId2len)] = self._nextCheckDelay\n        self._checkContainersJob = CheckContainers(\n            '%s-checkForLeaks' % self.getJobName(), self, len(self._index2containerId2len))\n        self.acceptOnce(self._checkContainersJob.getFinishedEvent(),\n                        self._scheduleNextLeakCheck)\n        jobMgr.add(self._checkContainersJob)\n        return task.done\n\n    def _scheduleNextPruning(self):\n        taskMgr.doMethodLater(self._pruneTaskPeriod, self._pruneObjectRefs,\n                              self._getPruneTaskName())\n\n    def _pruneObjectRefs(self, task=None):\n        self._pruneContainersJob = PruneObjectRefs(\n            '%s-pruneObjectRefs' % self.getJobName(), self)\n        self.acceptOnce(self._pruneContainersJob.getFinishedEvent(),\n                        self._scheduleNextPruning)\n        jobMgr.add(self._pruneContainersJob)\n        return task.done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4540
+  }
+}

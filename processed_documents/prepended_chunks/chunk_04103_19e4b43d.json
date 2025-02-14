@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `disableAvatarControls` method in the `AvatarControls` class. This method is responsible for stopping the avatar's movement controls, removing any associated tasks (such as indicator tasks or jump delay tasks), and ignoring debug-related keybindings if applicable. The context involves disabling user input handling and cleaning up related resources to halt the avatar's movement functionality.\n\nself.isAirborne = 0\n        self.mayJump = 1\n\n        if self.physVelocityIndicator:\n            if self.indicatorTask:\n                self.indicatorTask.remove()\n            self.indicatorTask = taskMgr.add(\n                self.avatarPhysicsIndicator,\n                \"AvatarControlsIndicator-%s\"%(id(self),), 35)\n\n    def disableAvatarControls(self):\n        \"\"\"\n        Ignore the arrow keys, etc.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        if self.controlsTask:\n            self.controlsTask.remove()\n            self.controlsTask = None\n        if self.indicatorTask:\n            self.indicatorTask.remove()\n            self.indicatorTask = None\n        if self.jumpDelayTask:\n            self.jumpDelayTask.remove()\n            self.jumpDelayTask = None\n\n        if __debug__:\n            self.ignore(\"control-f3\") #*#",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4103
+  }
+}

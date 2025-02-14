@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a section of the `ShowBase` class from `ToonBase.py`, which includes methods for managing application termination (`getExitErrorCode`), printing environment debug information (`printEnvDebugInfo`), and safely destroying the ShowBase instance and its resources (`destroy`). These methods are designed to handle application exit codes, print debugging details about the runtime environment, and ensure proper cleanup of Panda3D resources when the application terminates or is explicitly destroyed.\n\n# temp; see ToonBase.py\n    def getExitErrorCode(self):\n        return 0\n\n    def printEnvDebugInfo(self):\n        \"\"\"Print some information about the environment that we are running\n        in.  Stuff like the model paths and other paths.  Feel free to\n        add stuff to this.\n        \"\"\"\n        if ConfigVariableBool('want-env-debug-info', False):\n            print(\"\\n\\nEnvironment Debug Info {\")\n            print(\"* model path:\")\n            print(getModelPath())\n            #print \"* dna path:\"\n            #print getDnaPath()\n            print(\"}\")\n\n    def destroy(self) -> None:\n        \"\"\" Call this function to destroy the ShowBase and stop all\n        its tasks, freeing all of the Panda resources.  Normally, you\n        should not need to call it explicitly, as it is bound to the\n        exitfunc and will be called at application exit time\n        automatically.\n\n        This function is designed to be safe to call multiple times.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4877
+  }
+}

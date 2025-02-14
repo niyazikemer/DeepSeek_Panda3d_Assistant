@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk calculates movement speeds for an avatar based on user inputs, including handling auto-run, determining forward/backward motion, computing slide speed with directional adjustments, and setting rotational velocity.\n\n# Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0\n\n        # Determine what the speeds are based on the buttons:\n        self.speed=(forward and self.avatarControlForwardSpeed or\n                    reverse and -self.avatarControlReverseSpeed)\n        # Should fSlide be renamed slideButton?\n        self.slideSpeed=slide and ((reverse and turnLeft and -self.avatarControlReverseSpeed*(0.75)) or\n                                   (reverse and turnRight and self.avatarControlReverseSpeed*(0.75)) or\n                                   (turnLeft and -self.avatarControlForwardSpeed*(0.75)) or\n                                   (turnRight and self.avatarControlForwardSpeed*(0.75)))\n        self.rotationSpeed=not slide and (\n                (turnLeft and self.avatarControlRotateSpeed) or\n                (turnRight and -self.avatarControlRotateSpeed))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_236",
+    "parent": "processed_documents/context_documents/a0f2d386_NonPhysicsWalker.json",
+    "chunk_number": 4179
+  }
+}

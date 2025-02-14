@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within a function responsible for dynamically re-binding class methods with updated ones from a dynamically generated module. The section first updates global function pointers in various subsystems (messenger, taskMgr, etc.) to point to new functions, ensuring all references are current. It then replaces the old methods in the target class with these new functions and adds any entirely new functions, ensuring seamless integration of updates without disrupting existing functionality.\n\nContext: The code is part of a dynamic function replacement process, updating global references before modifying the target class's methods to use updated functions.\n\n# Look in the messenger, taskMgr, and other globals that store func\n    # pointers to see if this old function pointer is stored there, and\n    # update it to the new function pointer.\n    replaceMessengerFunc(replaceFuncList)\n    replaceTaskMgrFunc(replaceFuncList)\n    replaceStateFunc(replaceFuncList)\n    replaceCRFunc(replaceFuncList)\n    replaceAIRFunc(replaceFuncList)\n    replaceIvalFunc(replaceFuncList)\n\n    # Now that we've the globals funcs, actually swap the pointers in\n    # the new class to the new functions\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        # print \"replacing old func: \", oldFunc, funcName, newFunc\n        setattr(toClass, funcName, newFunc)\n    # Add the brand new functions too\n    for funcName, newFunc in newFuncList:\n        # print \"adding new func: \", oldFunc, funcName, newFunc\n        setattr(toClass, funcName, newFunc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4559
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines two functions, `_profileMarshalDump` and `_profileMarshalLoad`, which modify the behavior of `marshal.dump` and `marshal.load` when working with `StringIO` objects that have a specific attribute (`_profFilename`). These modifications are part of a profiling setup to simulate marshal operations for profiling purposes. The functions check if the `StringIO` object has a `_profFilename` attribute, and if so, they store or retrieve data from a dictionary (`profileFilename2marshalData`) instead of performing the usual file operations. This allows for profiling of marshal operations without relying on actual file I/O.\n\ndef _profileMarshalDump(data, file):\n        # marshal.dump doesn't work with StringIO objects\n        # simulate it\n        if isinstance(file, StringIO) and hasattr(file, '_profFilename'):\n            if file._profFilename in profileFilenames:\n                profileFilename2marshalData[file._profFilename] = data\n                return None\n        return movedDumpFuncs[-1](data, file)\n\n    def _profileMarshalLoad(file):\n        # marshal.load doesn't work with StringIO objects\n        # simulate it\n        if isinstance(file, StringIO) and hasattr(file, '_profFilename'):\n            if file._profFilename in profileFilenames:\n                return profileFilename2marshalData[file._profFilename]\n        return movedLoadFuncs[-1](file)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4628
+  }
+}

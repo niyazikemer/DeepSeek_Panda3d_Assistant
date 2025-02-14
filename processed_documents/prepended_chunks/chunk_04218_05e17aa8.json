@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods from the `BufferViewer` class in Panda3D: `refreshReadout()`, which forces an update of the graphics readout, and `isValidTextureSet()`, which validates texture inputs for display. These methods are part of a utility class used to manage and visualize graphics output overlays in applications.\n\ndef refreshReadout(self):\n        \"\"\"Force the readout to be refreshed.  This is usually invoked\n        by GraphicsOutput::add_render_texture (via an event handler).\n        However, it is also possible to invoke it manually.  Currently,\n        the only time I know of that this is necessary is after a\n        window resize (and I ought to fix that).\"\"\"\n        self.dirty = 1\n\n        # Call enabled again, mainly to ensure that the task has been\n        # started.\n        self.enable(self.enabled)\n\n    def isValidTextureSet(self, x):\n        \"\"\"Access: private. Returns true if the parameter is a\n        list of GraphicsOutput and Texture, or the keyword 'all'.\"\"\"\n        if isinstance(x, list):\n            for elt in x:\n                if not self.isValidTextureSet(elt):\n                    return 0\n        else:\n            return x == \"all\" or isinstance(x, Texture) or isinstance(x, GraphicsOutput)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4218
+  }
+}

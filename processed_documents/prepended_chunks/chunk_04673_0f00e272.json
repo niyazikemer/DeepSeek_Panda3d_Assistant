@@ -1,0 +1,9 @@
+{
+  "content": "The `getNumberedTypedSortedString` function is part of a collection of utility functions aimed at debugging and performance analysis. It generates a formatted string representation of a list of items, sorted alphabetically and each item is numbered for clarity. This function is particularly useful when needing to present data in a structured and readable format, aiding developers in troubleshooting or analyzing collections of data efficiently.\n\n**Context:** The function fits within the document's utilities related to debugging, logging, and performance monitoring, as it helps in generating clear, formatted output for inspecting lists of items.\n\ndef getNumberedTypedSortedString(items, maxLen=5000, numPrefix=''):\n    \"\"\"get a string that has each item of the list on its own line,\n    the items are stringwise-sorted, and each item is numbered on\n    the left from zero\"\"\"\n    digits = 0\n    n = len(items)\n    while n > 0:\n        digits += 1\n        n //= 10\n    format = numPrefix + '%0' + '%s' % digits + 'i:%s \\t%s'\n    snip = '<SNIP>'\n    strs = []\n    for item in items:\n        objStr = fastRepr(item)\n        if len(objStr) > maxLen:\n            objStr = '%s%s' % (objStr[:(maxLen-len(snip))], snip)\n        strs.append(objStr)\n    first = True\n    s = ''\n    strs.sort()\n    for i in range(len(strs)):\n        if not first:\n            s += '\\n'\n        first = False\n        objStr = strs[i]\n        s += format % (i, itype(items[i]), strs[i])\n    return s",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4673
+  }
+}

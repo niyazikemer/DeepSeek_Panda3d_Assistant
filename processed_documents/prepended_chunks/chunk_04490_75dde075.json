@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a worker class used by `ContainerLeakDetector` to manage reference sets and traverse objects for leak detection. The `__init__` method initializes references (`_id2ref`) and working lists for tracking start points, ensuring iterations are stable against changes. It integrates with the leak detector's notification system and marks itself as a private object within the framework.\n\ndef __init__(self, name, leakDetector):\n        Job.__init__(self, name)\n        self._leakDetector = leakDetector\n        self._id2ref = self._leakDetector._id2ref\n        # these hold objects that we should start traversals from often and not-as-often,\n        # respectively\n        self._id2baseStartRef = {}\n        self._id2discoveredStartRef = {}\n        # these are working copies so that our iterations aren't disturbed by changes to the\n        # definitive ref sets\n        self._baseStartRefWorkingList = ScratchPad(refGen=nullGen(),\n                                                   source=self._id2baseStartRef)\n        self._discoveredStartRefWorkingList = ScratchPad(refGen=nullGen(),\n                                                         source=self._id2discoveredStartRef)\n        self.notify = self._leakDetector.notify\n        ContainerLeakDetector.addPrivateObj(self.__dict__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4490
+  }
+}

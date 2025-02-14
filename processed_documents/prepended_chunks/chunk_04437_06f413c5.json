@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains core functionality for the `BulletinBoardWatcher` class, implementing methods that handle event management and cleanup. Specifically, these methods (`destroy()`, `isDone()`, `_checkDone()`, and `_handleEvent()`) are responsible for monitoring the completion of bulletin board events, cleaning up resources when done, and ensuring proper callback execution once all required posts or removals have been processed.\n\ndef destroy(self):\n        self.ignoreAll()\n        if hasattr(self, 'callback'):\n            del self.callback\n            del self.waitingOn\n\n    def isDone(self):\n        return len(self.waitingOn) == 0\n\n    def _checkDone(self):\n        if self.isDone():\n            self.notify.debug('%s: done' % self.name)\n            self.callback()\n            self.destroy()\n\n    def _handleEvent(self, eventName):\n        self.notify.debug('%s: handlePost(%s)' % (self.name, eventName))\n        assert eventName in self.waitingOn\n        self.waitingOn.remove(eventName)\n        self._checkDone()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_251",
+    "parent": "processed_documents/context_documents/bb056ef2_BulletinBoardWatcher.json",
+    "chunk_number": 4437
+  }
+}

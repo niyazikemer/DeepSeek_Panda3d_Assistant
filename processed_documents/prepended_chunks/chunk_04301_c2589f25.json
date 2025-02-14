@@ -1,0 +1,9 @@
+{
+  "content": "The function `irisOut` is a screen transition method within a class that handles visual effects. It creates an iris out effect by scaling down a polygon on the aspect2d plane over time. This transition method works alongside others like fade and letterbox effects, using animation to smoothly change the screen appearance.\n\ndef irisOut(self, t=0.5, finishIval=None, blendType='noBlend'):\n        \"\"\"\n        Play an iris out transition over t seconds.\n        Places a polygon on the aspect2d plane then lerps the scale\n        of the iris down so it looks like we iris out. When the scale\n        lerp is finished, it leaves the iris polygon covering the\n        aspect2d plane until you irisIn or call noIris.\n        \"\"\"\n        if t == 0:\n            self.iris.detachNode()\n            self.fadeOut(0)\n            fut = AsyncFuture()\n            fut.setResult(None)\n            return fut\n        else:\n            self.transitionIval = self.getIrisOutIval(t, finishIval, blendType)\n            self.__transitionFuture = AsyncFuture()\n            self.transitionIval.start()\n            return self.__transitionFuture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4301
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `startProfile` function in this Python utility module sets up profiling for performance analysis by generating unique filenames with random numbers to prevent conflicts between multiple processes. The function configures profiling to use either RAM or disk storage based on the `useDisk` parameter, runs the specified command, and then extracts or prints profile results accordingly. After processing, it cleans up by removing temporary data from RAM or disk, ensuring efficient cleanup for subsequent operations. This setup is ideal for analyzing execution performance in Python scripts.\n\ndef startProfile(filename=PyUtilProfileDefaultFilename,\n                     lines=PyUtilProfileDefaultLines,\n                     sorts=PyUtilProfileDefaultSorts,\n                     silent=0,\n                     callInfo=1,\n                     useDisk=False,\n                     cmd='run()'):\n        # uniquify the filename to allow multiple processes to profile simultaneously\n        filename = '%s.%s%s' % (filename, randUint31(), randUint31())\n        if not useDisk:\n            # use a RAM file\n            _installProfileCustomFuncs(filename)\n        _profileWithoutGarbageLeak(cmd, filename)\n        if silent:\n            extractProfile(filename, lines, sorts, callInfo)\n        else:\n            printProfile(filename, lines, sorts, callInfo)\n        if not useDisk:\n            # discard the RAM file\n            _removeProfileCustomFuncs(filename)\n        else:\n            os.remove(filename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4633
+  }
+}

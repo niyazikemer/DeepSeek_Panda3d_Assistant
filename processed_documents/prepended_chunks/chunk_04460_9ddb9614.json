@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two key methods (`setListenerVelocityAuto` and `getListenerVelocity`) within an audio management class responsible for handling 3D sound attributes, including sound positioning relative to a listener. These methods manage how the listener's velocity is calculated (automatically based on position changes over time) or retrieved for use in spatial audio effects. The implementation leverages Panda3D functionality (`ClockObject`, `getPosDelta`) to compute velocity when auto-velocity is enabled.\n\ndef setListenerVelocityAuto(self):\n        \"\"\"\n        If velocity is set to auto, the velocity will be determined by the\n        previous position of the object the listener is attached to and the frame dt.\n        Make sure if you use this method that you remember to clear the previous\n        transformation between frames.\n        \"\"\"\n        self.listener_vel = None\n\n    def getListenerVelocity(self):\n        \"\"\"\n        Get the velocity of the listener.\n        \"\"\"\n        if self.listener_vel is not None:\n            return self.listener_vel\n        elif self.listener_target is not None:\n            clock = ClockObject.getGlobalClock()\n            return self.listener_target.getPosDelta(self.root) / clock.getDt()\n        else:\n            return VBase3(0, 0, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4460
+  }
+}

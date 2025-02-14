@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `loadTexture` method in the Loader class. It handles creating a sampler state for texture filtering and loading either a single texture or a pair (color and alpha) based on provided paths. This implementation ensures that textures are loaded with specified minification, magnification filters, and anisotropic degree settings, making it essential for managing texture resources effectively within the application's asset loading framework.\n\nsampler = SamplerState()\n        if minfilter is not None:\n            sampler.setMinfilter(minfilter)\n        if magfilter is not None:\n            sampler.setMagfilter(magfilter)\n        if anisotropicDegree is not None:\n            sampler.setAnisotropicDegree(anisotropicDegree)\n\n        if alphaPath is None:\n            assert Loader.notify.debug(\"Loading texture: %s\" % (texturePath))\n            texture = TexturePool.loadTexture(texturePath, 0, readMipmaps, loaderOptions, sampler)\n        else:\n            assert Loader.notify.debug(\"Loading texture: %s %s\" % (texturePath, alphaPath))\n            texture = TexturePool.loadTexture(texturePath, alphaPath, 0, 0, readMipmaps, loaderOptions, sampler)\n        if not texture and not okMissing:\n            message = 'Could not load texture: %s' % (texturePath)\n            raise IOError(message)\n\n        return texture",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4408
+  }
+}

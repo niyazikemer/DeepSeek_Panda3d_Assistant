@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the initialization process for setting up the physics system for an avatar in a virtual environment. It creates and configures force nodes, including a prior parent force and viscosity/linear friction force, which are added to the physics engine to control the avatar's movement dynamics. The forces are attached to a linear integrator and linked to the avatar's physical representation in the scene graph.\n\nfn=ForceNode(\"priorParent\")\n        fnp=NodePath(fn)\n        fnp.reparentTo(render)\n        priorParent=LinearVectorForce(0.0, 0.0, 0.0)\n        fn.addForce(priorParent)\n        self.phys.addLinearForce(priorParent)\n        self.priorParentNp = fnp\n        self.priorParent = priorParent\n\n        fn=ForceNode(\"viscosity\")\n        fnp=NodePath(fn)\n        #fnp.reparentTo(physicsActor)\n        fnp.reparentTo(render)\n        self.avatarViscosity=LinearFrictionForce(0.0, 1.0, 0)\n        #self.avatarViscosity.setCoef(0.9)\n        fn.addForce(self.avatarViscosity)\n        self.phys.addLinearForce(self.avatarViscosity)\n\n        self.phys.attachLinearIntegrator(LinearEulerIntegrator())\n        self.phys.attachPhysicalNode(physicsActor.node())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4039
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code defines several key attributes related to camera setup and scene graph management in the `ShowBase` class. These attributes include:\n\n- Camera node paths (`cam`, `cam2d`, `cam2dp`) for 3D, 2D, and overlay rendering\n- Parent nodes (`camera`, `camera2d`, `camera2dp`) that control camera positioning\n\nThe chunk belongs in the initialization section of the document where core application components are set up. Specifically, it should be placed within the `__init__` method or early setup phase, as these attributes form the foundation for rendering and camera controls throughout the application.\n\n#: This is a :class:`~panda3d.core.NodePath` pointing to the\n        #: :class:`~panda3d.core.Camera` object set up for the 3D scene.\n        #: Usually a child of `camera`.\n        self.cam: NodePath | None = None\n        #: Same as `cam`, but for the 2D scene graph.\n        self.cam2d: NodePath | None = None\n        #: Same as `cam2d`, but for the 2D overlay scene graph.\n        self.cam2dp: NodePath | None = None\n\n        #: This is the :class:`~panda3d.core.NodePath` that should be used to\n        #: manipulate the camera.  It points at the node to which the default\n        #: camera (`cam`, `camNode`) is attached.\n        self.camera: NodePath | None = None\n        #: Same as `camera`, but for the 2D scene graph.  Parent of `cam2d`.\n        self.camera2d: NodePath | None = None\n        #: Same as `camera2d`, but for the 2D overlay scene graph.  Parent of\n        #: `cam2dp`.\n        self.camera2dp: NodePath | None = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4857
+  }
+}

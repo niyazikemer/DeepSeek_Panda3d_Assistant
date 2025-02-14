@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines key methods for managing avatar physics and collisions in the provided document. Specifically:\n\n- `setGravity()` and `getGravity()`: Control gravity settings for the avatar's physics simulation\n- `initializeCollisions()`: Sets up collision detection parameters including:\n  - Collision traverser setup\n  - Avatar node path assignment\n  - Parameters like avatar radius, floor offset (step height), and reach distance\n\nThese methods are fundamental to initializing and managing physical interactions in a 3D environment.\n\ndef setGravity(self, gravity):\n        self.__gravity = gravity\n        self.lifter.setGravity(self.__gravity)\n\n    def getGravity(self, gravity):\n        return self.__gravity\n\n    def initializeCollisions(self, collisionTraverser, avatarNodePath,\n            avatarRadius = 1.4, floorOffset = 1.0, reach = 1.0):\n        \"\"\"\n        floorOffset is how high the avatar can reach.  I.e. if the avatar\n            walks under a ledge that is <= floorOffset above the ground (a\n            double floor situation), the avatar will step up on to the\n            ledge (instantly).\n\n        Set up the avatar collisions\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n\n        assert not avatarNodePath.isEmpty()\n        self.avatarNodePath = avatarNodePath\n\n        self.cTrav = collisionTraverser",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4080
+  }
+}

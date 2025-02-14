@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a critical part of the avatar control system in a game, specifically managing player movement commands and preventing falling through the floor. It appears within the `handleAvatarControls` method, which processes input states to determine movement directions and includes essential safety measures. The code also handles debugging information display when enabled.\n\nThe context involves:\n- Resetting the avatar's position if it falls too low (below Z = -50).\n- Collecting input states for forward/backward movement, turning left/right.\n- Enabling auto-run functionality based on local settings.\n- Displaying debug info to assist with troubleshooting and monitoring.\n\n# hack fix for falling through the floor:\n        if contact==Vec3.zero() and self.avatarNodePath.getZ()<-50.0:\n            # DCR: don't reset X and Y; allow player to move\n            self.reset()\n            self.avatarNodePath.setZ(50.0)\n            messenger.send(\"walkerIsOutOfWorld\", [self.avatarNodePath])\n\n        if self.wantDebugIndicator:\n            self.displayDebugInfo()\n\n        # get the button states:\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\")\n        turnRight = inputState.isSet(\"turnRight\")\n        slide = 0#inputState.isSet(\"slide\")\n        slideLeft = 0#inputState.isSet(\"slideLeft\")\n        slideRight = 0#inputState.isSet(\"slideRight\")\n        jump = inputState.isSet(\"jump\")\n\n        # Check for Auto-Run\n        if base.localAvatar.getAutoRun():\n            forward = 1\n            reverse = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4051
+  }
+}

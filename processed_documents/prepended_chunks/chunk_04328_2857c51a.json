@@ -1,0 +1,9 @@
+{
+  "content": "The `VFSLoader` class is a helper component of the `VFSImporter` system that manages importing Python modules and packages using Panda's virtual file system (VFS). It handles the actual loading of individual modules, including frozen modules and C extensions, from specified paths within the VFS structure. This class is integral to enabling Python to import code from virtual files in a manner consistent with standard filesystem imports.\n\nThe `load_module` method in this chunk specifically manages importing modules based on their type (e.g., frozen or C extension), ensuring that they are properly loaded into the Python runtime environment when requested by the import system.\n\nclass VFSLoader:\n    \"\"\" The second part of VFSImporter, this is created for a\n    particular .py file or directory. \"\"\"\n\n    def __init__(self, dir_path, vfile, filename, desc, packagePath=None):\n        self.dir_path = dir_path\n        self.timestamp = None\n        if vfile:\n            self.timestamp = vfile.getTimestamp()\n        self.filename = filename\n        self.desc = desc\n        self.packagePath = packagePath\n\n    def load_module(self, fullname, loadingShared = False):\n        #print >>sys.stderr, \"load_module(%s), dir_path = %s, filename = %s\" % (fullname, self.dir_path, self.filename)\n        if self.desc[2] == imp.PY_FROZEN:\n            return self._import_frozen_module(fullname)\n        if self.desc[2] == imp.C_EXTENSION:\n            return self._import_extension_module(fullname)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4328
+  }
+}

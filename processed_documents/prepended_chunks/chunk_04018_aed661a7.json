@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines three methods (`windowEvent`, `resizeBuffers`, and the start of `cleanup`) for managing dynamic buffer resizing and cleanup in a graphics pipeline. These methods handle automatic adjustment of render buffers when the window resizes, ensuring consistent rendering across different screen dimensions while maintaining performance and state integrity.\n\ndef windowEvent(self, win):\n        \"\"\" When the window changes size, automatically resize all buffers \"\"\"\n        self.resizeBuffers()\n\n    def resizeBuffers(self):\n        \"\"\" Resize all buffers to match the size of the window. \"\"\"\n        for i, buffer in enumerate(self.buffers):\n            (mul, div, align) = self.sizes[i]\n            (xsize, ysize) = self.getScaledSize(mul, div, align)\n            buffer.setSize(xsize, ysize)\n\n    def cleanup(self):\n        \"\"\" Restore everything to its original state, deleting any\n        new buffers in the process. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4018
+  }
+}

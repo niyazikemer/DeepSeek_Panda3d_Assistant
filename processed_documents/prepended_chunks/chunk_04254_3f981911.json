@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a garbage detection system in a Python script. It collects referents (objects referenced by each garbage object) and additional information about each garbage object for analysis and logging purposes.\n\n# grab the referents (pointed to by garbage)\n        if self.numGarbage > 0:\n            if self._args.verbose:\n                self.notify.info('getting referents...')\n            for i in range(self.numGarbage):\n                yield None\n                for result in self._getReferents(self.garbage[i]):\n                    yield None\n                byNum, byRef = result\n                self.referentsByNumber[i] = byNum\n                self.referentsByReference[i] = byRef\n\n        for i in range(self.numGarbage):\n            if hasattr(self.garbage[i], '_garbageInfo') and callable(self.garbage[i]._garbageInfo):\n                try:\n                    info = self.garbage[i]._garbageInfo()\n                except Exception as e:\n                    info = str(e)\n                self._id2garbageInfo[id(self.garbage[i])] = info\n                yield None\n            else:\n                if i % 20 == 0:\n                    yield None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4254
+  }
+}

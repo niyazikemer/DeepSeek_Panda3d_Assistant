@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class responsible for managing weak references to objects, specifically in the context of tracking and identifying paths to specific objects or object types. The methods `_getNonWeakDictKey()` and `__repr__()` are used to construct human-readable string representations of dictionary keys used in the weak reference management system. This helps in debugging and understanding how objects are being referenced and tracked within the application.\n\nThe code is situated within a larger class structure that handles object tracking, memory management, and garbage collection, with a focus on identifying and managing references without preventing objects from being collected when no longer needed. The `_getNonWeakDictKey()` method is responsible for safely converting dictionary keys into string representations, while `__repr__()` provides a standardized way to represent these keys as strings.\n\n# we're stored as a dict key\n        keyRepr = safeRepr(self._getNonWeakDictKey())\n        # if the previous indirection was an instance dict, change our syntax from ['key'] to .key\n        if prevIndirection is not None and prevIndirection.evalStr is not None:\n            if prevIndirection.evalStr[-len(instanceDictStr):] == instanceDictStr:\n                return '.%s' % keyRepr\n        return '[%s]' % keyRepr\n\n    def __repr__(self):\n        return self.getString()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4477
+  }
+}

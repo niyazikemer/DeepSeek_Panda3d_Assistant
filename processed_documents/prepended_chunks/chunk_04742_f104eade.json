@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a memory leak detection system designed to track and identify potential leaks in various components of an application. The `LeakDetector` base class serves as the foundation for different types of leak detectors, including those monitoring containers, tasks, and message listeners.\n\n**Context:**  \nThis chunk defines the core `LeakDetector` class, which is responsible for registering and managing instances of leak detection mechanisms. It ensures that each detector is properly tracked under a unique key in the global `builtins.leakDetectors` registry, allowing for quick access and cleanup when necessary. This class forms the base for all specialized leak detectors used throughout the codebase.\n\nclass LeakDetector:\n    def __init__(self):\n        # put this object just under __builtins__ where the\n        # ContainerLeakDetector will find it quickly\n        if not hasattr(builtins, \"leakDetectors\"):\n            builtins.leakDetectors = {}\n        self._leakDetectorsKey = self.getLeakDetectorKey()\n        if __dev__:\n            assert self._leakDetectorsKey not in builtins.leakDetectors\n        builtins.leakDetectors[self._leakDetectorsKey] = self\n\n    def destroy(self):\n        del builtins.leakDetectors[self._leakDetectorsKey]\n\n    def getLeakDetectorKey(self):\n        # this string will be shown to the end user and should ideally contain enough information to\n        # point to what is leaking\n        return '%s-%s' % (self.__class__.__name__, id(self))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4742
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the `profiled` decorator, which is a utility for profiling functions. It allows selective profiling via category toggles (e.g., \"want-profile-particles 1\") to analyze performance without runtime overhead when disabled.\n\ndef profiled(category=None, terse=False):\n        \"\"\" decorator for profiling functions\n        turn categories on and off via \"want-profile-categoryName 1\"\n\n        e.g.::\n\n            @profiled('particles')\n            def loadParticles():\n                ...\n\n        ::\n\n            want-profile-particles 1\n        \"\"\"\n        assert type(category) in (str, type(None)), \"must provide a category name for @profiled\"\n\n        # allow profiling in published versions\n        #try:\n        #    null = not __dev__\n        #except Exception:\n        #    null = not __debug__\n        #if null:\n        #    # if we're not in __dev__, just return the function itself. This\n        #    # results in zero runtime overhead, since decorators are evaluated\n        #    # at module-load.\n        #    def nullDecorator(f):\n        #        return f\n        #    return nullDecorator",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4625
+  }
+}

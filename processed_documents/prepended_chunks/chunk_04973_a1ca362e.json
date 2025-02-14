@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods for camera control utilities (`useDrive`, `useTrackball`) and a texture memory watcher (`toggleTexMem`) within a larger class handling application initialization, graphics settings, mouse interfaces, and other utilities.\n\ndef useDrive(self):\n        \"\"\"\n        Changes the mouse interface used for camera control to drive mode.\n        \"\"\"\n        if self.drive:\n            self.changeMouseInterface(self.drive)\n            # Set the height to a good eyeheight\n            self.mouseInterfaceNode.reset()\n            self.mouseInterfaceNode.setZ(4.0)\n\n    def useTrackball(self):\n        \"\"\"\n        Changes the mouse interface used for camera control to trackball mode.\n        \"\"\"\n        if self.trackball:\n            self.changeMouseInterface(self.trackball)\n\n    def toggleTexMem(self):\n        \"\"\"\n        Toggles a handy texture memory watcher utility.\n        See :mod:`direct.showutil.TexMemWatcher` for more information.\n        \"\"\"\n\n        if self.texmem and not self.texmem.cleanedUp:\n            self.texmem.cleanup()\n            self.texmem = None\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4973
+  }
+}

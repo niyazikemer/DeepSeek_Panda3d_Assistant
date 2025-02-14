@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes and configures the on-screen text display in the `OnScreenDebug` class by loading a specified font, setting up the text properties, and ensuring proper rendering style.\n\nfont = base.loader.loadFont(fontPath)\n        if not font.isValid():\n            print(\"failed to load OnScreenDebug font %s\" % fontPath)\n            font = TextNode.getDefaultFont()\n        self.onScreenText = OnscreenText.OnscreenText(\n                parent = base.a2dTopLeft, pos = (0.0, -0.1),\n                fg=fgColor, bg=bgColor, scale = (fontScale, fontScale, 0.0),\n                align = TextNode.ALeft, mayChange = 1, font = font)\n        # Make sure readout is never lit or drawn in wireframe\n        DirectUtil.useDirectRenderStyle(self.onScreenText)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_262",
+    "parent": "processed_documents/context_documents/a76bfde3_OnScreenDebug.json",
+    "chunk_number": 4592
+  }
+}

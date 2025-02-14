@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is from the `loadModel` method within the `Loader` class. It handles synchronous loading of model files, appending successfully loaded models to a result list, checking for missing files when `okMissing` is False, and returning either a single NodePath or a list of NodePaths based on whether multiple models were requested. This code ensures proper error handling and return types for both single and batch model loading operations.\n\nresult.append(nodePath)\n\n            if not okMissing and None in result:\n                message = 'Could not load model file(s): %s' % (modelList,)\n                raise IOError(message)\n\n            if gotList:\n                return result\n            else:\n                return result[0]\n\n        else:\n            # We got a callback, so we want an asynchronous (threaded)\n            # load.  We'll return immediately, but when all of the\n            # requested models have been loaded, we'll invoke the\n            # callback (passing it the models on the parameter list).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4379
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `ShowBase` class's method for processing each frame in a 3D graphics application framework. It handles debug text management, frame recording playback, CPU optimization during window minimization, and triggers new frame events to maintain rendering continuity.\n\nif __debug__:\n            # We clear the text buffer for the onScreenDebug as soon\n            # as we reasonably can after the renderFrame().\n            self.onScreenDebug.clear()\n\n        if self.recorder:\n            self.recorder.playFrame()\n\n        if self.mainWinMinimized:\n            # If the main window is minimized, slow down the app a bit\n            # by sleeping here in igLoop so we don't use all available\n            # CPU needlessly.\n\n            # Note: this isn't quite right if multiple windows are\n            # open.  We should base this on whether *all* windows are\n            # minimized, not just the main window.  But it will do for\n            # now until someone complains.\n            time.sleep(0.1)\n\n        # Lerp stuff needs this event, and it must be generated in\n        # C++, not in Python.\n        throw_new_frame()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4960
+  }
+}

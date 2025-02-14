@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a reference search algorithm in the `_search` method of the `ReferrerSearch` class. The code is responsible for collecting and filtering referrers to exclude certain types of references (e.g., traversal steps, frame references, closure locals dictionaries, self references) while ensuring each referrer is only processed once via tracking with `self.visited`.\n\n# mark our progress after checking goal\n        self.visited.add(id(at))\n\n        # Look for all referrers, culling out the ones that\n        # we know to be red herrings.\n        referrers = [ref for ref in gc.get_referrers(at) \\\n                     if not (# we disregard the steps of our traversal\n                             ref is path or \\\n                             # The referrer is this call frame\n                             inspect.isframe(ref) or \\\n                             # The referrer is the locals() dictionary (closure)\n                             (isinstance(ref, dict) and list(ref.keys()) == list(locals().keys())) or \\\n                             # We found the reference on self\n                             ref is self.__dict__ or \\\n                             # We've already seen this referrer\n                             id(ref) in self.visited)]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4817
+  }
+}

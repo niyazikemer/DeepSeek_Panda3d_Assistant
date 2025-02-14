@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a garbage detection mechanism in Python, specifically handling cases where instances define `__del__` methods. It performs garbage collection without saving all garbage, captures relevant garbage instances, and processes them for leak detection. This section is crucial for identifying potential memory leaks involving objects with finalizers.\n\n**Context:**  \nThis code sits within the initialization or setup method of a garbage detection class (likely `GarbageReport`). It handles cases where only instances with `__del__` methods are considered, ensuring efficient leak detection by focusing on critical garbage objects.\n\nif self._args.delOnly:\n            # do a collect without SAVEALL, to identify the instances that are involved in\n            # cycles with instances that define __del__\n            # cycles that do not involve any instances that define __del__ are cleaned up\n            # automatically by Python, but they also appear in gc.garbage when SAVEALL is set\n            gc.set_debug(0)\n            if self._args.collect:\n                gc.collect()\n            garbageInstances = gc.garbage[:]\n            del gc.garbage[:]\n            # only yield if there's more time-consuming work to do,\n            # if there's no garbage, give instant feedback\n            if len(garbageInstances) > 0:\n                yield None\n            # don't repr the garbage list if we don't have to\n            if self.notify.getDebug():\n                self.notify.debug('garbageInstances == %s' % fastRepr(garbageInstances))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4249
+  }
+}

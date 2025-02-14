@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a function responsible for initializing a graphical window using various pipe types when the initial attempt fails. It cycles through available pipes, attempting to open a valid window until successful or all options are exhausted, ensuring robust initialization across different rendering configurations.\n\nif win is None and pipe is None:\n            # Try a little harder if the window wouldn't open.\n            self.makeAllPipes()\n            try:\n                self.pipeList.remove(self.pipe)\n            except ValueError:\n                pass\n            while self.win is None and self.pipeList:\n                self.pipe = self.pipeList[0]\n                self.notify.info(\"Trying pipe type %s (%s)\" % (\n                    self.pipe.getType(), self.pipe.getInterfaceName()))\n                win = func()\n\n                self.graphicsEngine.openWindows()\n                if win is not None and not win.isValid():\n                    self.notify.info(\"Window did not open, removing.\")\n                    self.closeWindow(win)\n                    win = None\n                if win is None:\n                    self.pipeList.remove(self.pipe)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4888
+  }
+}

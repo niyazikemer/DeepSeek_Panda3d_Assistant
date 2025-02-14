@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `ShowBase` class initialization, specifically configuring the default mouse interface to trackball mode for ease of use during development. It also initializes the `Loader` object for asset loading.\n\n```python\nclass ShowBase:\n    def __init__(self):\n        # ... other initializations ...\n\n        # The default is trackball mode, which is more convenient for ad-hoc \n        # development in Python using ShowBase. Applications can explicitly call\n        # base.useDrive() if they prefer a drive interface.\n        self.mouseInterface = self.trackball\n        self.useTrackball()\n\n        #: `.Loader.Loader` object.\n        self.loader = ShowBaseGlobal.loader\n        self.loader._init_base(self)\n        self.graphicsEngine.setDefaultLoader(self.oader.loader)\n\n        # ... other initializations ...\n```\n\n# The default is trackball mode, which is more convenient for\n        # ad-hoc development in Python using ShowBase.  Applications\n        # can explicitly call base.useDrive() if they prefer a drive\n        # interface.\n        self.mouseInterface = self.trackball\n        self.useTrackball()\n\n        #: `.Loader.Loader` object.\n        self.loader = ShowBaseGlobal.loader\n        self.loader._init_base(self)\n        self.graphicsEngine.setDefaultLoader(self.loader.loader)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4863
+  }
+}

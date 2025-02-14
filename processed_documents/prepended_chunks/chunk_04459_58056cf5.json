@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a class managing 3D audio attributes, handling velocity calculations for sound sources and the listener. It includes logic for computing object velocities from position changes over time and setting listener velocities to affect Doppler shift calculations in a 3D audio environment.\n\nclock = ClockObject.getGlobalClock()\n                    return node_path.getPosDelta(self.root) / clock.getDt()\n\n        return VBase3(0, 0, 0)\n\n    def setListenerVelocity(self, velocity):\n        \"\"\"\n        Set the velocity vector (in units/sec) of the listener, for calculating doppler shift.\n        This is relative to the sound root (probably render).\n        Default: VBase3(0, 0, 0)\n        \"\"\"\n        if isinstance(velocity, tuple) and len(velocity) == 3:\n            velocity = VBase3(*velocity)\n        if not isinstance(velocity, VBase3):\n            raise TypeError(\"Invalid argument 0, expected <VBase3>\")\n        self.listener_vel = velocity",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4459
+  }
+}

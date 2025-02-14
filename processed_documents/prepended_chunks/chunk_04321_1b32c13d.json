@@ -1,0 +1,9 @@
+{
+  "content": "The module initializes Panda3D's virtual filesystem-based Python import mechanism, providing hooks for importing modules from virtual files.\n\nContext: This code chunk introduces the core functionality of the virtual file system (VFS) importer by:\n1. Providing an overview docstring explaining its purpose\n2. Defining exported functions (__all__)\n3. Importing required dependencies\n\nThe chunk is located at the module level, establishing the foundational setup for VFS-based Python imports in Panda3D applications.\n\nAnswer: \nThis code chunk appears as the initial content of a Python module that implements an importer for Panda3D's virtual file system. It sets up the necessary environment by documenting the purpose, listing public functions (__all__), and importing required modules.\n\n\"\"\"The VFS importer allows importing Python modules from Panda3D's virtual\nfile system, through Python's standard import mechanism.\n\nCalling the :func:`register()` function to register the import hooks should be\nsufficient to enable this functionality.\n\"\"\"\n\n__all__ = ['register', 'sharedPackages',\n           'reloadSharedPackage', 'reloadSharedPackages']\n\nfrom panda3d.core import Filename, VirtualFileSystem, VirtualFileMountSystem, OFileStream, copyStream\nfrom direct.stdpy.file import open\nimport sys\nimport marshal\nimport imp\nimport types",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_246",
+    "parent": "processed_documents/context_documents/0b1673e6_VFSImporter.json",
+    "chunk_number": 4321
+  }
+}

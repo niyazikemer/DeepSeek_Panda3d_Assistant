@@ -1,0 +1,9 @@
+{
+  "content": "The given chunk is part of an initialization method in a class that manages asynchronous checks for garbage cycles in a Python application. The code initializes parameters related to garbage cycle detection, including whether the check should be performed in the background (threaded), whether the object should automatically destroy itself after completion (autoDestroy), and whether only objects with `__del__` methods should be considered (delOnly). It also sets up priorities for job execution and adds the job to a job manager for processing. The code ensures that if not threaded, the job is completed immediately. This setup allows for flexible management of garbage detection tasks, enabling developers to handle memory leaks and cycles efficiently in both foreground and background contexts.\n\nfindCycles=findCycles, doneCallback=doneCallback,\n                                autoDestroy=autoDestroy, safeMode=safeMode, delOnly=delOnly,\n                                collect=collect)\n        if priority is not None:\n            self.setPriority(priority)\n        jobMgr.add(self)\n        if not threaded:\n            jobMgr.finish(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4247
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `_report()` method in the `ContainerReport` class. This method iterates through a queue of objects, examining each object to determine its type and handling it accordingly. The specific chunk processes each object by popping it from the queue and performing initial checks to skip processing for certain types (e.g., strings, bytes) or internal methods.\n\nContext: Part of the `_report()` method in `ContainerReport`, which iterates through a queue of objects, examining their types and handling them based on their classification.\n\nwhile len(self._queue) > 0:\n            # yield up here instead of at the end, since we skip back to the\n            # top of the while loop from various points\n            yield None\n            parentObj = self._queue.pop()\n            #print '%s: %s, %s' % (id(parentObj), type(parentObj), self._id2pathStr[id(parentObj)])\n            isInstanceDict = False\n            if id(parentObj) in self._instanceDictIds:\n                isInstanceDict = True\n\n            try:\n                if parentObj.__class__.__name__ == 'method-wrapper':\n                    continue\n            except Exception:\n                pass\n\n            if isinstance(parentObj, (str, bytes)):\n                continue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_247",
+    "parent": "processed_documents/context_documents/fec7c1c9_ContainerReport.json",
+    "chunk_number": 4353
+  }
+}

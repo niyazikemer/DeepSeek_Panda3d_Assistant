@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the `safeRepr` function and its helper `_getSafeReprNotify`, which are part of a suite of debugging and error handling utilities within the document. The functions provide a safer way to obtain string representations of objects, particularly for C++ objects exposed to Python via Panda3D's dtoolSuperBase, while logging such operations to help track potential issues or crashes.\n\ndef _getSafeReprNotify():\n    global safeReprNotify\n    from direct.directnotify.DirectNotifyGlobal import directNotify\n    safeReprNotify = directNotify.newCategory(\"safeRepr\")\n    return safeReprNotify\n\n\ndef safeRepr(obj):\n    global dtoolSuperBase\n    if dtoolSuperBase is None:\n        _getDtoolSuperBase()\n\n    global safeReprNotify\n    if safeReprNotify is None:\n        _getSafeReprNotify()\n\n    if isinstance(obj, dtoolSuperBase):\n        # repr of C++ object could crash, particularly if the object has been deleted\n        # log that we're calling repr\n        safeReprNotify.info('calling repr on instance of %s.%s' % (obj.__class__.__module__, obj.__class__.__name__))\n        sys.stdout.flush()\n\n    try:\n        return repr(obj)\n    except Exception:\n        return '<** FAILED REPR OF %s instance at %s **>' % (obj.__class__.__name__, hex(id(obj)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4660
+  }
+}

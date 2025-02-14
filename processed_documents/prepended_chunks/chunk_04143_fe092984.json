@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk consists of two methods, `disableAvatarJump` and `enableAvatarJump`, which are part of a larger Python class named `ControlManager`. These methods manage the state of the avatar's jumping ability by forcing the input state related to jumping (likely associated with the 'Ctrl' key) to be disabled or enabled. This functionality is crucial for controlling when the avatar can perform actions such as jumping, ensuring that the behavior aligns with game mechanics or user interactions.\n\n**Context:**  \nThe code is located in a file named `ControlManager.py`, which appears to handle input states and control logic for an application, possibly a game. The class `ControlManager` manages various input states (e.g., movement directions) and ensures that certain actions, such as jumping, can be programmatically controlled or disabled as needed.\n\n**Purpose:**  \n- **disableAvatarJump**: Forces the jump state to be inactive.\n- **enableAvatarJump**: Re-enables the jump state by releasing the forced state.\n\ndef disableAvatarJump(self):\n        \"\"\"\n        prevent\n        \"\"\"\n        assert self.forceAvJumpToken is None\n        self.forceAvJumpToken=inputState.force(\n            \"jump\", 0, 'ControlManager.disableAvatarJump')\n\n    def enableAvatarJump(self):\n        \"\"\"\n        Stop forcing the ctrl key to return 0's\n        \"\"\"\n        assert self.forceAvJumpToken is not None\n        self.forceAvJumpToken.release()\n        self.forceAvJumpToken = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_231",
+    "parent": "processed_documents/context_documents/76ec7b1d_ControlManager.json",
+    "chunk_number": 4143
+  }
+}

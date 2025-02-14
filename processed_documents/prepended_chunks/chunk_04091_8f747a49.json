@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk defines the `handleAvatarControls` method, which processes user input states to control an avatar's movement, including running, forward/reverse movement, turning left/right, sliding left/right, and jumping. The context is situated within a larger class managing avatar physics and collision detection in a 3D environment, where this method adjusts movement variables based on input events, such as arrow keys or gamepad inputs, to update the avatar's position and velocity accurately.\n\ndef handleAvatarControls(self, task):\n        \"\"\"\n        Check on the arrow keys and update the avatar.\n        \"\"\"\n        # get the button states:\n        run = inputState.isSet(\"run\")\n        forward = inputState.isSet(\"forward\")\n        reverse = inputState.isSet(\"reverse\")\n        turnLeft = inputState.isSet(\"turnLeft\")\n        turnRight = inputState.isSet(\"turnRight\")\n        slideLeft = inputState.isSet(\"slideLeft\")\n        slideRight = inputState.isSet(\"slideRight\")\n        jump = inputState.isSet(\"jump\")\n\n        # Check for Auto-Run\n        if 'localAvatar' in __builtins__:\n            if base.localAvatar and base.localAvatar.getAutoRun():\n                forward = 1\n                reverse = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4091
+  }
+}

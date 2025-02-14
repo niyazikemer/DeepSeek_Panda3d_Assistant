@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `parseEventParameter` method within the `EventManager` class, which is responsible for extracting and converting event parameters into usable data types. This method supports event processing by evaluating the type of each event parameter (e.g., integer, double, string) and returning the corresponding value or a pointer for unrecognized types. It plays a key role in handling event data during event processing tasks.\n\ndef parseEventParameter(self, eventParameter):\n        \"\"\"\n        Extract the actual data from the eventParameter\n        \"\"\"\n        if eventParameter.isInt():\n            return eventParameter.getIntValue()\n        elif eventParameter.isDouble():\n            return eventParameter.getDoubleValue()\n        elif eventParameter.isString():\n            return eventParameter.getStringValue()\n        elif eventParameter.isWstring():\n            return eventParameter.getWstringValue()\n        elif eventParameter.isTypedRefCount():\n            return eventParameter.getTypedRefCountValue()\n        elif eventParameter.isEmpty():\n            return None\n        else:\n            # Must be some user defined type, return the ptr\n            # which will be downcast to that type.\n            return eventParameter.getPtr()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_237",
+    "parent": "processed_documents/context_documents/05bbcb22_EventManager.json",
+    "chunk_number": 4188
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a collection of utility functions designed for debugging, tracing function calls, and safely representing object values. It specifically implements a function `traceFunctionCall` that generates formatted strings showing method or function calls with their arguments and values. This tool aids in debugging by providing clear visualizations of how functions are invoked, including handling cases where 'self' is present (for instance methods) and formatting arguments appropriately for readability. The function leverages other helper utilities like `safeRepr` to safely represent variable values, ensuring that even large or complex objects can be logged without causing issues.\n\ndef traceFunctionCall(frame):\n        \"\"\"\n        return a string that shows the call frame with calling arguments.\n        e.g.\n        foo(x=234, y=135)\n        \"\"\"\n        f = frame\n        co = f.f_code\n        dict = f.f_locals\n        n = co.co_argcount\n        if co.co_flags & 4:\n            n = n + 1\n        if co.co_flags & 8:\n            n = n + 1\n        r = ''\n        if 'self' in dict:\n            r = '%s.' % (dict['self'].__class__.__name__,)\n        r += \"%s(\" % (f.f_code.co_name,)\n        comma=0 # formatting, whether we should type a comma.\n        for i in range(n):\n            name = co.co_varnames[i]\n            if name == 'self':\n                continue\n            if comma:\n                r+=', '\n            else:\n                # ok, we skipped the first one, the rest get commas:\n                comma=1\n            r+=name\n            r+='='\n            if name in dict:\n                v=safeRepr(dict[name])\n                if len(v)>2000:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4607
+  }
+}

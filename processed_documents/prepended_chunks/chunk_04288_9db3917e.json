@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a class managing visual transitions and fades in a graphical user interface. It defines a sequence of operations to create a fade-out effect by adjusting the alpha value of a fade element, reparenting it, showing it through, animating its transparency, and then detaching it once the animation completes. This chunk is situated within a method that handles the transition process, likely in conjunction with other visual effects like letterboxing or scene changes, to create smooth visual transitions for user interface elements.\n\ntransitionIval = Sequence(Func(self.fade.reparentTo, ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX),\n                                  Func(self.fade.showThrough),  # in case aspect2d is hidden for some reason\n                                  self.lerpFunc(self.fade, t,\n                                                self.alphaOff,\n                                                # self.alphaOn,\n                                                blendType=blendType\n                                                ),\n                                  Func(self.fade.detachNode),\n                                  name = self.fadeTaskName,\n                                  )\n        if finishIval:\n            transitionIval.append(finishIval)\n        return transitionIval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4288
+  }
+}

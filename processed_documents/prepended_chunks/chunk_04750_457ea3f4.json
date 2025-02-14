@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines a `TaskLeakDetector` class that tracks task 'types' and creates leak detectors for each task type by processing task names to identify patterns. It is situated within the overall document as part of a collection of leak detection classes, including message listener types and message types, which collectively help in identifying potential memory leaks or resource management issues in an application.\n\nclass TaskLeakDetector(LeakDetector, TaskLeakDetectorBase):\n    # tracks the number task 'types' and creates leak detectors for each task type\n    def __init__(self):\n        LeakDetector.__init__(self)\n        self._taskName2collector = {}\n\n    def destroy(self):\n        for taskName, collector in self._taskName2collector.items():\n            collector.destroy()\n        del self._taskName2collector\n        LeakDetector.destroy(self)\n\n    def _processTaskName(self, taskName):\n        # if this is a new task name pattern, create a leak detector for that pattern\n        namePattern = self._getTaskNamePattern(taskName)\n        if namePattern not in self._taskName2collector:\n            self._taskName2collector[namePattern] = _TaskNamePatternLeakDetector(namePattern)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_269",
+    "parent": "processed_documents/context_documents/b67c5154_LeakDetectors.json",
+    "chunk_number": 4750
+  }
+}

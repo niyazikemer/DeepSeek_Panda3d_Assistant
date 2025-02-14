@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is a section of the `update()` method within an `Audio3DManager` class. This method handles dynamic updates to 3D audio attributes by iterating over sound objects, checking if they still exist in the scene, and updating their position and velocity data for accurate spatial audio rendering.\n\n# The audio manager is not active so do nothing\n        if hasattr(self.audio_manager, \"getActive\"):\n            if self.audio_manager.getActive()==0:\n                return Task.cont\n\n        for known_object, sounds in list(self.sound_dict.items()):\n            node_path = known_object.getNodePath()\n            if not node_path:\n                # The node has been deleted.\n                del self.sound_dict[known_object]\n                continue\n\n            pos = node_path.getPos(self.root)\n\n            for sound in sounds:\n                vel = self.getSoundVelocity(sound)\n                sound.set3dAttributes(pos[0], pos[1], pos[2], vel[0], vel[1], vel[2])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_255",
+    "parent": "processed_documents/context_documents/6df47375_Audio3DManager.json",
+    "chunk_number": 4464
+  }
+}

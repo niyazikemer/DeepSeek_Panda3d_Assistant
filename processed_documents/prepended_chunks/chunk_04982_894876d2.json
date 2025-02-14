@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within a section of the document related to handling **out-of-body experience (OOBE) camera functionality**. Specifically, it is part of a method or function that manages the setup and toggling of an OOBE mode in a 3D rendering or game engine context (likely using Panda3D). The code modifies button thrower events, repositions cameras, and toggles the state of the OOBE mode based on certain conditions. This includes disabling button events, reparenting the `oobeCamera`, and updating the application's internal state via the bulletin board system (`self.bboard`).\n\nbt = self.buttonThrowers[0].node()\n            bt.setSpecificFlag(1)\n            bt.setButtonDownEvent('')\n            bt.setButtonRepeatEvent('')\n            bt.setButtonUpEvent('')\n\n            cam.reparentTo(self.camera)\n            #if cam == self.cam:\n            #    self.camNode.setLens(self.camLens)\n            self.oobeCamera.reparentTo(self.hidden)\n            self.oobeMode = 0\n            self.bboard.post('oobeEnabled', False)\n        else:\n            self.bboard.post('oobeEnabled', True)\n            try:\n                cameraParent = localAvatar\n            except NameError:\n                # Make oobeCamera be a sibling of wherever camera is now.\n                cameraParent = self.camera.getParent()\n            self.oobeCamera.reparentTo(cameraParent)\n            self.oobeCamera.clearMat()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4982
+  }
+}

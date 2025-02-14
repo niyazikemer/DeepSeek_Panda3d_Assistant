@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two functions: `printProfile()` and `extractProfile()`, which are utilities for generating and capturing profiling statistics using Python's `pstats` module. These functions are situated within a larger collection of utility functions designed to aid in debugging, logging, and performance analysis. The context is provided by the overall document title, \"Python Util Functions,\" which includes various helper functions and classes for common programming tasks such as type conversion, statistical calculations, profiling, and error handling.\n\n# call these to see the results again, as a string or in the log\n    def printProfile(filename=PyUtilProfileDefaultFilename,\n                     lines=PyUtilProfileDefaultLines,\n                     sorts=PyUtilProfileDefaultSorts,\n                     callInfo=1):\n        import pstats\n        s = pstats.Stats(filename)\n        s.strip_dirs()\n        for sort in sorts:\n            s.sort_stats(sort)\n            s.print_stats(lines)\n            if callInfo:\n                s.print_callees(lines)\n                s.print_callers(lines)\n\n    # same args as printProfile\n    def extractProfile(*args, **kArgs):\n        global _ProfileResultStr\n        # capture print output\n        sc = StdoutCapture()\n        # print the profile output, redirected to the result string\n        printProfile(*args, **kArgs)\n        # make a copy of the print output\n        _ProfileResultStr = sc.getString()\n        # restore stdout to what it was before\n        sc.destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4634
+  }
+}

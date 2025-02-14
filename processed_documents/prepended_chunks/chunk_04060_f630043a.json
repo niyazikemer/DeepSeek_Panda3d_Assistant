@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the `handleAvatarControls` method of an avatar control system. This method processes keyboard inputs to move and jump the avatar. The chunk adds a jump mechanic that triggers when the spacebar is pressed, applying an upward force based on contact points or slopes, updating the physics object's velocity, and setting the airborne state to prevent multiple jumps in quick succession.\n\n## ...jump away from walls and with with the slope normal.\n                #jumpVec=Vec3(contact+Vec3.up())\n                ##jumpVec=Vec3(rotAvatarToPhys.xform(jumpVec))\n                #jumpVec.normalize()\n\n                # ...jump straight up, even if next to a wall.\n                jumpVec=Vec3.up()\n\n                jumpVec *= self.avatarControlJumpForce\n                physObject.addImpulse(Vec3(jumpVec))\n                self.isAirborne = 1 # Avoid double impulse before fully airborne.\n            else:\n                self.isAirborne = 0\n        if __debug__:\n            onScreenDebug.add(\"isAirborne\", \"%d\"%(self.isAirborne,))\n\n        if contact != self.__oldContact:\n            # We must copy the vector to preserve it:\n            self.__oldContact = Vec3(contact)\n        self.__oldAirborneHeight = airborneHeight",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_225",
+    "parent": "processed_documents/context_documents/29172b8e_PhysicsWalker.json",
+    "chunk_number": 4060
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents a key section of the JobManager's processing loop where it checks if there are active jobs. If so, it sets up a time frame for executing these jobs and uses a flywheel mechanism to schedule them in a round-robin manner, giving higher priority jobs more execution slots. This ensures efficient job management within specified timeslices.\n\n**Context:** The code chunk is part of the JobManager's main processing loop, responsible for scheduling and executing jobs within allocated time slices, prioritizing higher-priority tasks using a flywheel mechanism.\n\nif len(self._pri2jobId2job) > 0:\n            clock = ClockObject.getGlobalClock()\n            #assert self.notify.debugCall()\n            # figure out how long we can run\n            endT = clock.getRealTime() + (self.getTimeslice() * .9)\n            while True:\n                if self._jobIdGenerator is None:\n                    # round-robin the jobs, giving high-priority jobs more timeslices\n                    self._jobIdGenerator = flywheel(\n                        list(self._jobId2timeslices.keys()),\n                        countFunc = lambda jobId: self._jobId2timeslices[jobId])\n                try:\n                    # grab the next jobId in the sequence\n                    jobId = next(self._jobIdGenerator)\n                except StopIteration:\n                    self._jobIdGenerator = None\n                    continue\n                # OK, we've selected a job to run\n                pri = self._jobId2pri.get(jobId)\n                if pri is None:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_238",
+    "parent": "processed_documents/context_documents/91b30848_JobManager.json",
+    "chunk_number": 4208
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `weightedChoice` function is a utility for selecting items based on weighted probabilities from a list of tuples containing weights and corresponding items. It leverages a random number generator to determine the selection, ensuring that items with higher weights have a greater chance of being chosen. This function is particularly useful in scenarios where probabilistic decisions are required and can be seamlessly integrated into systems requiring stochastic behavior, fitting well within the broader collection of helper and utility functions provided in the document.\n\ndef weightedChoice(choiceList, rng=random.random, sum=None):\n    \"\"\"given a list of (weight, item) pairs, chooses an item based on the\n    weights. rng must return 0..1. if you happen to have the sum of the\n    weights, pass it in 'sum'.\"\"\"\n    # Throw an IndexError if we got an empty list.\n    if not choiceList:\n        raise IndexError('Cannot choose from an empty sequence')\n\n    # TODO: add support for dicts\n    if sum is None:\n        sum = 0.\n        for weight, item in choiceList:\n            sum += weight\n\n    rand = rng()\n    accum = rand * sum\n    item = None\n    for weight, item in choiceList:\n        accum -= weight\n        if accum <= 0.:\n            return item\n    # rand is ~1., and floating-point error prevented accum from hitting 0.\n    # Or you passed in a 'sum' that was was too large.\n    # Return the last item.\n    return item",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4647
+  }
+}

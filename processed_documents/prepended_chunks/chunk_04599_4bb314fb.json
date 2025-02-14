@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `Functor` class within a broader collection of utility classes and functions. The `Functor` class is designed to wrap callable objects, allowing them to be invoked with stored positional and keyword arguments, fitting into a framework of modular and reusable components.\n\nclass Functor:\n    def __init__(self, function, *args, **kargs):\n        assert callable(function), \"function should be a callable obj\"\n        self._function = function\n        self._args = args\n        self._kargs = kargs\n        if hasattr(self._function, '__name__'):\n            self.__name__ = self._function.__name__\n        else:\n            self.__name__ = str(itype(self._function))\n        if hasattr(self._function, '__doc__'):\n            self.__doc__ = self._function.__doc__\n        else:\n            self.__doc__ = self.__name__\n\n    def destroy(self):\n        del self._function\n        del self._args\n        del self._kargs\n        del self.__name__\n        del self.__doc__\n\n    def _do__call__(self, *args, **kargs):\n        _kargs = self._kargs.copy()\n        _kargs.update(kargs)\n        return self._function(*(self._args + args), **_kargs)\n\n    __call__ = _do__call__",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4599
+  }
+}

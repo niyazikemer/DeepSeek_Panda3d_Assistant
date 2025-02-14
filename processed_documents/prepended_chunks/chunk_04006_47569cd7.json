@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two private methods: `getScaledSize()` which calculates window dimensions based on scaling factors (mul/div/align), and `renderSceneInto()`, a method for rendering scenes into specified render targets/textures, both used internally by the graphics pipeline setup.\n\ndef getScaledSize(self, mul, div, align):\n        \"\"\" Calculate the size of the desired window. Not public. \"\"\"\n\n        winx = self.forcex\n        winy = self.forcey\n        if winx == 0:\n            winx = self.win.getXSize()\n        if winy == 0:\n            winy = self.win.getYSize()\n\n        if div != 1:\n            winx = ((winx+align-1) // align) * align\n            winy = ((winy+align-1) // align) * align\n            winx = winx // div\n            winy = winy // div\n\n        if mul != 1:\n            winx = int(round(winx * mul))\n            winy = int(round(winy * mul))\n\n        return winx,winy\n\n    def renderSceneInto(self, depthtex=None, colortex=None, auxtex=None, auxbits=0, textures=None, fbprops=None, clamping=None):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4006
+  }
+}

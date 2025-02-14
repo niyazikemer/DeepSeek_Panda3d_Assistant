@@ -1,0 +1,9 @@
+{
+  "content": "The `lineTag` function is part of a collection of utility functions designed to assist with debugging and error tracking. It complements existing tools like `stackEntryInfo` and `lineInfo`, offering developers a way to retrieve and format caller information succinctly or verbosely, enhancing traceability within code.\n\ndef lineTag(baseFileName=1, verbose=0, separator=':'):\n        \"\"\"\n        returns a string containing the sourcefilename and line number\n        of the code that called this function\n        (equivalent to lineInfo, above, with different return type)\n        see stackEntryInfo, above, for info on 'baseFileName'\n\n        if 'verbose' is false, returns a compact string of the form\n        'fileName:lineNum:funcName'\n        if 'verbose' is true, returns a longer string that matches the\n        format of Python stack trace dumps\n\n        returns empty string on error\n        \"\"\"\n        fileName, lineNum, funcName = callerInfo(baseFileName)\n        if fileName is None:\n            return ''\n        if verbose:\n            return 'File \"%s\", line %s, in %s' % (fileName, lineNum, funcName)\n        else:\n            return '%s%s%s%s%s' % (fileName, separator, lineNum, separator,\n                                   funcName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4645
+  }
+}

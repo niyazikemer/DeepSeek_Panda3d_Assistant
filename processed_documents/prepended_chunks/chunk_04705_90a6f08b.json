@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk contains utility functions used for tracking and calculating announce generate times within a profiling or monitoring system. The `getTotalAnnounceTime()` function aggregates the maximum announce generate time across all statistics, while `getAnnounceGenerateTime(stat)` extracts and returns the maximum time associated with \"announceGenerate\" events from individual stat objects. These functions contribute to performance analysis by providing metrics on specific operations within the application's runtime environment.\n\ndef getTotalAnnounceTime():\n    td=0\n    for objs in base.stats.values():\n        for stat in objs:\n            td+=getAnnounceGenerateTime(stat)\n    return td\n\n\ndef getAnnounceGenerateTime(stat):\n    val=0\n    stats=stat.stats\n    for i in list(stats.keys()):\n        if i[2] == \"announceGenerate\":\n            newVal = stats[i][3]\n            if newVal > val:\n                val = newVal\n    return val",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4705
+  }
+}

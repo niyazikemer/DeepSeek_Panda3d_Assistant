@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `fadeOut` method within a class that manages visual transitions such as fading and letterboxing effects. The code snippet handles the logic for transitioning out by adjusting the opacity of a fade overlay and optionally appending cleanup functions or finish intervals to complete the transition process. It also checks configuration settings to determine whether to display loading screens during transitions.\n\nself.fade.reparentTo(ShowBaseGlobal.aspect2d, DGG.FADE_SORT_INDEX)\n            self.fade.setColor(self.alphaOn)\n        elif ConfigVariableBool('no-loading-screen', False):\n            if finishIval:\n                self.transitionIval = finishIval\n                self.transitionIval.start()\n        else:\n            # Create a sequence that lerps the color out, then\n            # parents the fade to hidden\n            self.transitionIval = self.getFadeOutIval(t, finishIval, blendType)\n            self.transitionIval.append(Func(self.__finishTransition))\n            self.__transitionFuture = AsyncFuture()\n            self.transitionIval.start()\n            return self.__transitionFuture\n\n        # Immediately done, so return a dummy future.\n        fut = AsyncFuture()\n        fut.setResult(None)\n        return fut\n\n    def fadeOutActive(self):\n        return self.fade and self.fade.getColor()[3] > 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_244",
+    "parent": "processed_documents/context_documents/04f671e4_Transitions.json",
+    "chunk_number": 4293
+  }
+}

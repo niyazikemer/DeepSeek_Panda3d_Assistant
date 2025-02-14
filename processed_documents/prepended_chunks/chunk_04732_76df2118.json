@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a Python file named `ShadowPlacer.py` which implements a class `ShadowPlacer`. The class manages shadow placement using collision detection with rays. It includes methods for initializing, activating (`on()`), deactivating (`off()`), and cleaning up resources (`delete()`). The chunk specifically shows resource cleanup in the `delete()` method and activation logic in the `on()` method of the `ShadowPlacer` class.\n\ndel self.shadowNodePath\n\n        del self.cRay\n        #del self.cRayNode\n        self.cRayNodePath.removeNode()\n        del self.cRayNodePath\n\n        del self.lifter\n\n    def on(self):\n        \"\"\"\n        Turn on the shadow placement.  The shadow z position will\n        start being updated until a call to off() is made.\n        \"\"\"\n        assert self.notify.debugCall(\"activeCount=%s\"%(self.activeCount,))\n        if self.isActive:\n            assert self.cTrav.hasCollider(self.cRayNodePath)\n            return\n        assert not self.cTrav.hasCollider(self.cRayNodePath)\n        self.cRayNodePath.reparentTo(self.shadowNodePath.getParent())\n        self.cTrav.addCollider(self.cRayNodePath, self.lifter)\n        self.isActive = 1\n        if __debug__:\n            self.activeCount += 1\n            self.debugDisplay()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_265",
+    "parent": "processed_documents/context_documents/ee959aee_ShadowPlacer.json",
+    "chunk_number": 4732
+  }
+}

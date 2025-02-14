@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within a class or module that manages window controls and rendering settings. Specifically, it pertains to the setup of a pixel-based coordinate system (`pixel2dp`) relative to the window dimensions and the adjustment of the window's aspect ratio.\n\n#: This special root, pixel2dp, uses units in pixels that are relative\n        #: to the window. The upperleft corner of the window is (0, 0),\n        #: the lowerleft corner is (xsize, -ysize), in this coordinate system.\n        self.pixel2dp = self.render2dp.attachNewNode(PGTop(\"pixel2dp\"))\n        self.pixel2dp.node().setStartSort(16384)\n        self.pixel2dp.setPos(-1, 0, 1)\n        xsize, ysize = self.getSize()\n        if xsize > 0 and ysize > 0:\n            self.pixel2dp.setScale(2.0 / xsize, 1.0, 2.0 / ysize)\n\n    def setAspectRatio(self, aspectRatio):\n        \"\"\" Sets the global aspect ratio of the main window.  Set it\n        to None to restore automatic scaling. \"\"\"\n        self.__configAspectRatio = aspectRatio\n        self.adjustWindowAspectRatio(self.getAspectRatio())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4919
+  }
+}

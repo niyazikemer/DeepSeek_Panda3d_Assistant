@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods for getting and setting the window's background color in a graphics application, utilizing the Panda3D library. These methods are part of a class managing window controls, enabling customization of visual properties such as background colors through VBase4 color values.\n\n:rtype: panda3d.core.VBase4\n        \"\"\"\n        if win is None:\n            win = self.win\n\n        return VBase4(win.getClearColor())\n\n    def setBackgroundColor(self, r = None, g = None, b = None, a = 0.0, win = None):\n        \"\"\"\n        Sets the window background color to the indicated value.\n        This assumes the window is set up to clear the color each\n        frame (this is the normal setting).\n\n        The color may be either a VBase3 or a VBase4, or a 3-component\n        tuple, or the individual r, g, b parameters.\n        \"\"\"\n        if g is not None:\n            color = VBase4(r, g, b, a)\n        else:\n            arg = r\n            if isinstance(arg, VBase4):\n                color = arg\n            else:\n                color = VBase4(arg[0], arg[1], arg[2], a)\n\n        if win is None:\n            win = self.win\n\n        if win:\n            win.setClearColor(color)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4966
+  }
+}

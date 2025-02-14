@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a memory leak detection mechanism in a Python application, specifically evaluating if an object's size has consistently increased over multiple checks, indicating a potential memory leak. The context describes how objects are monitored for growth across iterations to identify leaks.\n\n```plaintext\nContext: This code identifies potential memory leaks by checking if an object's size has steadily increased over the last five checks.\n```\n\nself.notify.warning(msg)\n                                    yield None\n                            elif (objId in idx2id2len[self._index-4] and\n                                  objId in idx2id2len[self._index-5]):\n                                # if size has consistently increased over the last 5 checks,\n                                # send out a warning\n                                diff4 = idx2id2len[self._index-3][objId] - idx2id2len[self._index-4][objId]\n                                diff5 = idx2id2len[self._index-4][objId] - idx2id2len[self._index-5][objId]\n                                if diff > 0 and diff2 > 0 and diff3 > 0 and diff4 > 0 and diff5 > 0:\n                                    name = self._leakDetector.getContainerNameById(objId)\n                                    try:\n                                        for container in self._leakDetector.getContainerByIdGen(objId):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_256",
+    "parent": "processed_documents/context_documents/e2a31346_ContainerLeakDetector.json",
+    "chunk_number": 4519
+  }
+}

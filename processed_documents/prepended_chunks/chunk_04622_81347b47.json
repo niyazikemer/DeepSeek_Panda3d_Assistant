@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces a class `StdoutPassthrough` that extends `StdoutCapture`, enabling both output capture and its passage to the OS. Additionally, it includes utilities for profiling, such as default settings and result retrieval, fitting within a collection of debugging and performance analysis tools.\n\n```plaintext\nThis chunk introduces a utility class for capturing stdout while allowing it to pass through, along with profiling tools.\n```\n\nThe context is succinctly captured as:\n\nThis chunk introduces a utility class `StdoutPassthrough` that extends `StdoutCapture`, allowing output to be both captured and passed through to the OS. It also includes constants and functions related to profiling, fitting within a larger collection of debugging and performance analysis utilities.\n\nclass StdoutPassthrough(StdoutCapture):\n    # like StdoutCapture but also allows output to go through to the OS as normal\n\n    # internal\n    def write(self, string):\n        self._string = ''.join([self._string, string])\n        self._oldStdout.write(string)\n\n\n# constant profile defaults\nif __debug__:\n    from io import StringIO\n\n    PyUtilProfileDefaultFilename = 'profiledata'\n    PyUtilProfileDefaultLines = 80\n    PyUtilProfileDefaultSorts = ['cumulative', 'time', 'calls']\n\n    _ProfileResultStr = ''\n\n    def getProfileResultString():\n        # if you called profile with 'log' not set to True,\n        # you can call this function to get the results as\n        # a string\n        return _ProfileResultStr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4622
+  }
+}

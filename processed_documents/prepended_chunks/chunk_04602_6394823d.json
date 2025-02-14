@@ -1,0 +1,9 @@
+{
+  "content": "The `Queue` class is part of a comprehensive Python utilities collection that includes various classes and functions for general programming tasks. As a FIFO queue, it complements the LIFO Stack class, offering developers a consistent interface for managing data structures. This consistency aids in quick integration into projects using the library's other utility tools.\n\nclass Queue:\n    # FIFO queue\n    # interface is intentionally identical to Stack (LIFO)\n    def __init__(self):\n        self.__list = []\n\n    def push(self, item):\n        self.__list.append(item)\n\n    def top(self):\n        # return the next item at the front of the queue without popping it off\n        return self.__list[0]\n\n    def front(self):\n        return self.__list[0]\n\n    def back(self):\n        return self.__list[-1]\n\n    def pop(self):\n        return self.__list.pop(0)\n\n    def clear(self):\n        self.__list = []\n\n    def isEmpty(self):\n        return len(self.__list) == 0\n\n    def __len__(self):\n        return len(self.__list)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4602
+  }
+}

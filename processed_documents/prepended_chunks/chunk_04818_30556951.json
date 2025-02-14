@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `stepGenerator` method within the `ReferrerSearch` class, which is designed for recursively exploring object references in a showbase application. The segment checks if an object has too many referrers to avoid excessive traversal, then processes each referrer, updating depth and yielding results. The `printStats` function logs search statistics and current path during the process.\n\n# Check to see if this object has an unusually large\n        # ref-count.  This usually indicates that it is some\n        # sort of global, singleton, or manager object\n        # and as such no further knowledge would be gained from\n        # traversing further up the ref tree.\n        if self.isManyRef(at, path, referrers):\n            raise StopIteration\n\n        while referrers:\n            ref = referrers.pop()\n            self.depth += 1\n            for x in self.stepGenerator(depth + 1, path + [ref]):\n                yield None\n            self.depth -= 1\n\n        yield None\n\n    def printStats(self, path):\n        path = list(reversed(path))\n        path.insert(0,0)\n        print('RefPath(%s) - Stats - visited(%s) | found(%s) | depth(%s) | CurrentPath(%s)' % \\\n              (self._id, len(self.visited), self.found, self.depth, ''.join(self.myrepr(path[x], path[x+1]) for x in range(len(path) - 1))))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4818
+  }
+}

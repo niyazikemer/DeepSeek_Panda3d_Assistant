@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk introduces static methods for managing unique instance identifiers in the `DistancePhasedNode` class. The `_allocateId()` and `_deallocateId()` methods ensure that each phase node instance is assigned a unique ID, which helps prevent conflicts when handling collision events between multiple instances of `DistancePhasedNode`. This feature simplifies development by automating ID management so developers don't need to manually assign unique identifiers for each instance.\n\nnotify = directNotify.newCategory(\"DistancePhasedObject\")\n    __InstanceSequence = 0\n    __InstanceDeque: list[int] = []\n\n    @staticmethod\n    def __allocateId():\n        \"\"\"\n        Give each phase node a unique id in order to filter out\n        collision events from other phase nodes.  We do it in\n        this manner so the client doesn't need to worry about\n        giving each phase node a unique name.\n        \"\"\"\n        if DistancePhasedNode.__InstanceDeque:\n            return DistancePhasedNode.__InstanceDeque.pop(0)\n        else:\n            id = DistancePhasedNode.__InstanceSequence\n            DistancePhasedNode.__InstanceSequence += 1\n            DistancePhasedNode.__InstanceSequence &= 65535\n            return id\n\n    @staticmethod\n    def __deallocateId(id):\n        \"\"\"\n        Reuse abandoned ids.\n        \"\"\"\n        if DistancePhasedNode is not None:\n            DistancePhasedNode.__InstanceDeque.append(id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4574
+  }
+}

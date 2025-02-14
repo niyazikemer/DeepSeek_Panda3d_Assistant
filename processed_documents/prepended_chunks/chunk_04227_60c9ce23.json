@@ -1,0 +1,9 @@
+{
+  "content": "The `makeFrame` method is part of a class used for rendering texture cards with precise pixel-aligned frames. The method builds geometric vertex data to create a two-pixel wide frame (black and white rings) around each texture card, ensuring alignment to pixel boundaries without overlapping the texture content.\n\ndef makeFrame(self, sizex, sizey):\n        \"\"\"Access: private.  Each texture card is displayed with\n        a two-pixel wide frame (a ring of black and a ring of white).\n        This routine builds the frame geometry.  It is necessary to\n        be precise so that the frame exactly aligns to pixel\n        boundaries, and so that it doesn't overlap the card at all.\"\"\"\n\n        format = GeomVertexFormat.getV3c()\n        vdata = GeomVertexData('card-frame', format, Geom.UHDynamic)\n\n        vwriter = GeomVertexWriter(vdata, 'vertex')\n        cwriter = GeomVertexWriter(vdata, 'color')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4227
+  }
+}

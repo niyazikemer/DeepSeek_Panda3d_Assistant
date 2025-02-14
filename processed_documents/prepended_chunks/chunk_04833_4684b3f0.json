@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python class method within a shadow implementation system, responsible for setting up an orthographic camera lens and texture stage to render shadows on 3D objects without self-shadowing.\n\n# Use an orthographic lens for this camera instead of the\n        # usual perspective lens.  An orthographic lens is better to\n        # simulate sunlight, which is (almost) orthographic.  We set\n        # the film size large enough to render a typical avatar (but\n        # not so large that we lose detail in the texture).\n        self.lens = OrthographicLens()\n        self.lens.setFilmSize(filmX, filmY)\n        self.camera.setLens(self.lens)\n\n        # Finally, we'll need a unique TextureStage to apply this\n        # shadow texture to the world.\n        self.stage = TextureStage('shadow')\n\n        # Make sure the shadowing object doesn't get its own shadow\n        # applied to it.\n        self.objectPath.setTextureOff(self.stage)\n\n    def setGround(self, groundPath):\n        \"\"\" Specifies the part of the world that is to be considered\n        the ground: this is the part onto which the rendered texture\n        will be applied. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_282",
+    "parent": "processed_documents/context_documents/1e164d0e_ShadowDemo.json",
+    "chunk_number": 4833
+  }
+}

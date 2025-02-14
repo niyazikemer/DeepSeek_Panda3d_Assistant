@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code defines how frames are constructed by adding vertices and colors to create multiple concentric rectangles (rings) around cards, using geometric data structures within Panda3D.\n\nContext: The code is part of the `makeFrame` method in a Panda3D BufferViewer class. It constructs frame geometry by writing vertex positions and colors for four rings, creating borders or frames around each card displayed.\n\nvwriter = GeomVertexWriter(vdata, 'vertex')\n        cwriter = GeomVertexWriter(vdata, 'color')\n\n        ringoffset = [0, 1, 1, 2]\n        ringbright = [0, 0, 1, 1]\n        for ring in range(4):\n            offsetx = (ringoffset[ring]*2.0) / float(sizex)\n            offsety = (ringoffset[ring]*2.0) / float(sizey)\n            bright = ringbright[ring]\n            vwriter.addData3f(Vec3F.rfu(-1 - offsetx, 0, -1 - offsety))\n            vwriter.addData3f(Vec3F.rfu( 1 + offsetx, 0, -1 - offsety))\n            vwriter.addData3f(Vec3F.rfu( 1 + offsetx, 0,  1 + offsety))\n            vwriter.addData3f(Vec3F.rfu(-1 - offsetx, 0,  1 + offsety))\n            cwriter.addData3f(bright, bright, bright)\n            cwriter.addData3f(bright, bright, bright)\n            cwriter.addData3f(bright, bright, bright)\n            cwriter.addData3f(bright, bright, bright)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_239",
+    "parent": "processed_documents/context_documents/05ee60a9_BufferViewer.json",
+    "chunk_number": 4228
+  }
+}

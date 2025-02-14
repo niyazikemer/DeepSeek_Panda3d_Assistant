@@ -1,0 +1,9 @@
+{
+  "content": "The provided functions are part of a class that manages display controls in a graphical application, allowing temporary suspension and restoration of user inputs, as well as redirection of mouse interactions.\n\n**Context:**\nMethods for controlling user input handling, including temporary disabling/enabling of event processing (`silenceInput`, `reviveInput`) and changing the target node for mouse interaction (`setMouseOnNode`), within a system managing multiple windows and graphical displays.\n\ndef silenceInput(self):\n        \"\"\"\n        This is a heavy-handed way of temporarily turning off\n        all inputs.  Bring them back with `reviveInput()`.\n        \"\"\"\n        if not self.__deadInputs:\n            self.__deadInputs = taskMgr.remove('dataLoop')\n\n    def reviveInput(self):\n        \"\"\"\n        Restores inputs after a previous call to `silenceInput()`.\n        \"\"\"\n        if self.__deadInputs:\n            self.eventMgr.doEvents()\n            self.dgTrav.traverse(self.dataRootNode)\n            self.eventMgr.eventQueue.clear()\n            self.taskMgr.add(self.__dataLoop, 'dataLoop', sort = -50)\n            self.__deadInputs = 0\n\n    def setMouseOnNode(self, newNode):\n        if self.mouse2cam:\n            self.mouse2cam.node().setNode(newNode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4971
+  }
+}

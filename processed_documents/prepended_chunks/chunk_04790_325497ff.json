@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains key methods of the RandomNumGen class: `randrange`, `randint`, and `random`. These methods are responsible for generating random integers within specified ranges (`randint` and `randrange`) and a random float in the range [0.0, 1.0) (`random`).\n\nif n <= 0:\n            raise ValueError(\"empty range for randrange()\")\n        return istart + istep*int(self.__rand(n))\n\n    def randint(self, a, b):\n        \"\"\"returns integer in [a, b]\"\"\"\n        assert a <= b\n        range = b-a+1\n        r = self.__rand(range)\n        return a+r\n\n    # since floats are involved, I would recommend not trusting\n    # this function for important decision points where remote\n    # synchronicity is critical\n    def random(self):\n        \"\"\"returns random float in [0.0, 1.0)\"\"\"\n        return float(self.__rng.getUint31()) / float(1 << 31)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_275",
+    "parent": "processed_documents/context_documents/e9f9509b_RandomNumGen.json",
+    "chunk_number": 4790
+  }
+}

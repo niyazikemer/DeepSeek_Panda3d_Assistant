@@ -1,0 +1,9 @@
+{
+  "content": "The function `safeReprTypeOnFail` is part of a collection of utility functions designed to handle object representations safely, particularly useful for debugging and error reporting. It attempts to return the type or string representation of an object, providing fallback information if the standard `repr` fails.\n\ndef safeReprTypeOnFail(obj):\n    global dtoolSuperBase\n    if dtoolSuperBase is None:\n        _getDtoolSuperBase()\n\n    global safeReprNotify\n    if safeReprNotify is None:\n        _getSafeReprNotify()\n\n    if isinstance(obj, dtoolSuperBase):\n        return type(obj)\n\n    try:\n        return repr(obj)\n    except Exception:\n        return '<** FAILED REPR OF %s instance at %s **>' % (obj.__class__.__name__, hex(id(obj)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4661
+  }
+}

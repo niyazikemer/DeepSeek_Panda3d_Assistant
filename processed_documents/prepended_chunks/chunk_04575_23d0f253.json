@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a Python class named `BufferedDistancePhasedObject`, which is designed to manage phase transitions with collision detection adjustments based on buffer parameters. The highlighted chunk represents the constructor method (`__init__`) of this class, initializing key attributes such as phase configurations, cleanup settings, and collision properties.\n\nThis context is crucial for developers working on object phase management in environments that require dynamic collision handling, such as game development or simulation systems, where adjusting collision radii based on different phases can enhance interaction accuracy.\n\ndef __init__(self, name, phaseParamMap = {},\n                 autoCleanup = True,\n                 enterPrefix = 'enter', exitPrefix = 'exit',\n                 phaseCollideMask = BitMask32.allOn(),\n                 fromCollideNode = None):\n        NodePath.__init__(self, name)\n        self.phaseParamMap = phaseParamMap\n        self.phaseParamList = sorted(list(phaseParamMap.items()),\n                                     key = lambda x: x[1],\n                                     reverse = True)\n        PhasedObject.__init__(self,\n                              dict([(alias,phase) for (phase,alias) in enumerate([item[0] for item in self.phaseParamList])]))\n        self.__id = self.__allocateId()\n\n        self.autoCleanup = autoCleanup\n        self.enterPrefix = enterPrefix\n        self.exitPrefix = exitPrefix\n        self.phaseCollideMask = phaseCollideMask\n        self.cTrav = base.cTrav\n        self.fromCollideNode = fromCollideNode\n        self._colSpheres = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_261",
+    "parent": "processed_documents/context_documents/5be12928_DistancePhasedNode.json",
+    "chunk_number": 4575
+  }
+}

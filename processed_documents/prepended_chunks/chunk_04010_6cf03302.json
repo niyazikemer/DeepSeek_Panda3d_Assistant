@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `renderQuadInto` method within a class designed to manage rendering operations in a graphics pipeline (likely using Panda3D). The purpose of this method is to create and configure a textured quad that will be rendered into an offscreen buffer. The chunk specifically:\n\n1. Sets up a texture group containing depth, color, and auxiliary textures\n2. Determines the size of the offscreen buffer based on window dimensions\n3. Creates the buffer using `createBuffer()`\n4. Generates a card maker for the quad\n5. Configures quad properties (depth handling)\n6. Applies the color texture to the quad\n7. Sets a base color for the quad\n\nThis is used in graphics pipelines where intermediate rendering steps are needed (e.g., post-processing, effects, etc.).\n\ntexgroup = (depthtex, colortex, auxtex0, auxtex1)\n\n        # Choose the size of the offscreen buffer.\n\n        (winx, winy) = self.getScaledSize(1,1,1)\n        if fbprops is not None:\n            buffer = self.createBuffer(\"filter-base\", winx, winy, texgroup, fbprops=fbprops)\n        else:\n            buffer = self.createBuffer(\"filter-base\", winx, winy, texgroup)\n\n        if buffer is None:\n            return None\n\n        cm = CardMaker(\"filter-base-quad\")\n        cm.setFrameFullscreenQuad()\n        quad = NodePath(cm.generate())\n        quad.setDepthTest(0)\n        quad.setDepthWrite(0)\n        quad.setTexture(colortex)\n        quad.setColor(1, 0.5, 0.5, 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4010
+  }
+}

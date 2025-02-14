@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class designed for managing multiple graphics buffers in a Python application. The `createBuffer` method within this chunk handles low-level setup of these buffers, configuring their properties such as color, depth, stereo support, and auxiliary textures to facilitate advanced rendering tasks like post-processing effects. This allows the application to perform complex rendering by dividing the process into steps across different buffers.\n\nself.buffers.append(buffer)\n        self.sizes.append((mul, div, align))\n\n        return quad\n\n    def createBuffer(self, name, xsize, ysize, texgroup, depthbits=True, fbprops=None):\n        \"\"\" Low-level buffer creation.  Not intended for public use. \"\"\"\n\n        winprops = WindowProperties()\n        winprops.setSize(xsize, ysize)\n        props = FrameBufferProperties(FrameBufferProperties.getDefault())\n        props.setBackBuffers(0)\n        props.setRgbColor(1)\n        if depthbits is True:\n            # Respect depth-bits from Config.prc\n            if props.getDepthBits() == 0:\n                props.setDepthBits(1)\n        else:\n            props.setDepthBits(depthbits)\n        props.setStereo(self.win.isStereo())\n        if fbprops is not None:\n            props.addProperties(fbprops)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_221",
+    "parent": "processed_documents/context_documents/3cf0b482_FilterManager.json",
+    "chunk_number": 4015
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods related to avatar control: `getCollisionsActive()` checks if collisions are active, and `placeOnFloor()` ensures the avatar is positioned on the ground by adjusting its Z-coordinate. These functions are situated within the AvatarControls class, which manages movement, collision detection, and state management for the avatar in a game or simulation environment.\n\ndef getCollisionsActive(self):\n        assert self.debugPrint(\"getCollisionsActive() returning=%s\"%(\n            self.collisionsActive,))\n        return self.collisionsActive\n\n    def placeOnFloor(self):\n        \"\"\"\n        Make a reasonable effor to place the avatar on the ground.\n        For example, this is useful when switching away from the\n        current walker.\n        \"\"\"\n        assert self.notify.debugStateCall(self)\n        self.oneTimeCollide()\n        self.avatarNodePath.setZ(self.avatarNodePath.getZ()-self.lifter.getAirborneHeight())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4087
+  }
+}

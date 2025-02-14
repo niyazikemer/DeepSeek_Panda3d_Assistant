@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an asynchronous model-saving method within the Loader class, where a callback object is created to manage multiple save requests, track their progress, and handle their completion. The code processes each item in `modelList` by creating save requests for each `(modelPath, node)` pair, setting optional priorities, and attaching done events before submitting them for asynchronous saving.\n\ncb = Loader._Callback(self, len(modelList), gotList, callback, extraArgs)\n            i = 0\n            for modelPath, node in modelList:\n                request = self.loader.makeAsyncSaveRequest(Filename(modelPath), loaderOptions, node)\n                if priority is not None:\n                    request.setPriority(priority)\n                request.setDoneEvent(self.hook)\n                self.loader.saveAsync(request)\n                cb.requests.add(request)\n                cb.requestList.append(request)\n                self._requests[request] = (cb, i)\n                i += 1\n            return cb\n\n    # font loading funcs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_250",
+    "parent": "processed_documents/context_documents/7b86925a_Loader.json",
+    "chunk_number": 4390
+  }
+}

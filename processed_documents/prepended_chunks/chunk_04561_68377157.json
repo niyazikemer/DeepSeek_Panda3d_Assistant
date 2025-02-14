@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a system designed to dynamically rebind class methods in a software application. The functions `replaceCRFunc` and `replaceAIRFunc` specifically handle method replacement within distributed object systems, checking for fake instances like Gyedo's fake `cr` to prevent crashes during rebinding. These functions are used to update or modify behavior of runtime components without restarting the application, ensuring compatibility with existing systems such as `base.cr` and `simbase.air`.\n\ndef replaceCRFunc(replaceFuncList):\n    try:\n        base.cr\n    except Exception:\n        return\n    # masad: Gyedo's fake cr causes a crash in followingreplaceMethod on rebinding, so\n    # I throw in the isFake check. I still think the fake cr should be eliminated.\n    if hasattr(base.cr, 'isFake'):\n        return\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        if base.cr.replaceMethod(oldFunc, newFunc):\n            print('replaced DistributedObject function: %s' % funcName)\n\n\ndef replaceAIRFunc(replaceFuncList):\n    try:\n        simbase.air\n    except Exception:\n        return\n    for oldFunc, funcName, newFunc in replaceFuncList:\n        if simbase.air.replaceMethod(oldFunc, newFunc):\n            print('replaced DistributedObject function: %s' % funcName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_259",
+    "parent": "processed_documents/context_documents/faa5e57a_Finder.json",
+    "chunk_number": 4561
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a class `DelayedFunctor` which is part of a suite of utility classes and functions for managing delayed function calls and event handling within the system. The `DelayedFunctor` specifically implements functionality to introduce a time delay between when an object is called and when a specified functor (function or callable) is executed, allowing for controlled scheduling of operations.\n\nclass DelayedFunctor:\n    \"\"\" Waits for this object to be called, then calls supplied functor after a delay.\n    Effectively inserts a time delay between the caller and the functor. \"\"\"\n\n    def __init__(self, functor, name=None, delay=None):\n        self._functor = functor\n        self._name = name\n        # FunctionInterval requires __name__\n        self.__name__ = self._name\n        self._delay = delay\n\n    def _callFunctor(self):\n        cb = Functor(self._functor, *self._args, **self._kwArgs)\n        del self._functor\n        del self._name\n        del self._delay\n        del self._args\n        del self._kwArgs\n        del self._delayedCall\n        del self.__name__\n        cb()\n\n    def __call__(self, *args, **kwArgs):\n        self._args = args\n        self._kwArgs = kwArgs\n        self._delayedCall = DelayedCall(self._callFunctor, self._name, self._delay)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4679
+  }
+}

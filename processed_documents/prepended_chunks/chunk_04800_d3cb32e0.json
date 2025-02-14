@@ -1,0 +1,9 @@
+{
+  "content": "The CountedResource class manages shared resources through reference counting. The chunk contains core methods for tracking resource usage: @classmethods getCount(), acquire(), release() handle resource state and allocation/cleanup logic; __init__() initializes resource tracking and increments counters on instantiation; __del__() decrements counters when instances are destroyed, potentially releasing resources if no references remain.\n\n@classmethod\n    def getCount(cls):\n        return cls.RESOURCE_COUNTER\n\n    @classmethod\n    def acquire(cls):\n        pass\n\n    @classmethod\n    def release(cls):\n        pass\n\n    def __init__(self):\n        cls = type(self)\n        cls.RESOURCE_COUNTER_INIT_FAILED = True\n        assert cls.mro()[1] == CountedResource, \\\n               (lambda: \\\n                '%s cannot be subclassed.' \\\n                 % cls.mro()[list(cls.mro()).index(CountedResource) - 1].__name__)()\n        del cls.RESOURCE_COUNTER_INIT_FAILED\n        self.incrementCounter()\n\n    def __del__(self):\n        self.decrementCounter()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_277",
+    "parent": "processed_documents/context_documents/283aed1f_CountedResource.json",
+    "chunk_number": 4800
+  }
+}

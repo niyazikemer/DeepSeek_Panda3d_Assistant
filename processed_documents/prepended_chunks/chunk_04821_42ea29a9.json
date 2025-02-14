@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function within the ReferrerSearch class that identifies and logs key components (simbase.air, messenger, taskMgr) when they have excessive references, aiding in debugging reference leaks or high memory usage by highlighting critical objects.\n\n</context>\n\nThis code chunk is located within the `ReferrerSearch` class, specifically inside the method responsible for detecting and logging when certain core components (`simbase.air`, `messenger`, `taskMgr`) are referenced excessively during a referrer search process, which helps in identifying potential memory leaks or high reference usage in the application.\n\n</context>\n\n# simbase.air\n        if at is simbase.air:\n            sys.stdout.write(\"RefPath(%s): simbase.air-> \" % self._id)\n            path = list(reversed(path))\n            for x in range(len(path) - 1):\n                sys.stdout.write(self.myrepr(path[x], path[x+1]))\n            print(\"\")\n            return True\n\n        # messenger\n        if at is messenger:\n            sys.stdout.write(\"RefPath(%s): messenger-> \" % self._id)\n            path = list(reversed(path))\n            for x in range(len(path) - 1):\n                sys.stdout.write(self.myrepr(path[x], path[x+1]))\n            print(\"\")\n            return True\n\n        # taskMgr\n        if at is taskMgr:\n            sys.stdout.write(\"RefPath(%s): taskMgr-> \" % self._id)\n            path = list(reversed(path))\n            for x in range(len(path) - 1):\n                sys.stdout.write(self.myrepr(path[x], path[x+1]))\n            print(\"\")\n            return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4821
+  }
+}

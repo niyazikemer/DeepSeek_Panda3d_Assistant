@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears within a task function responsible for handling avatar controls in a 3D environment. It captures the current position delta relative to the render parent, calculates elapsed time using the global clock, and computes movement parameters (distance, slide distance, rotation) based on speed multipliers.\n\nself.__oldPosDelta = self.avatarNodePath.getPosDelta(render)\n        # How far did we move based on the amount of time elapsed?\n        self.__oldDt = ClockObject.getGlobalClock().getDt()\n        dt=self.__oldDt\n\n        # Check to see if we're moving at all:\n        self.moving = self.speed or self.slideSpeed or self.rotationSpeed or (self.priorParent!=Vec3.zero())\n        if self.moving:\n            distance = dt * self.speed\n            slideDistance = dt * self.slideSpeed\n            rotation = dt * self.rotationSpeed",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_226",
+    "parent": "processed_documents/context_documents/64d5e226_GravityWalker.json",
+    "chunk_number": 4097
+  }
+}

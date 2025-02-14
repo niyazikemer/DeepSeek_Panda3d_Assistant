@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a method responsible for setting up a new graphical window, including creating input devices (like mouse/keyboard), handling window properties, and optionally configuring a 3D camera for the window. The code manages window creation and setup within a graphics or game development context, ensuring proper initialization of resources for rendering and interaction.\n\n# We also need to set up the mouse/keyboard objects.\n            for inputName in callbackWindowDict.get('inputDevices', ['mouse']):\n                win.createInputDevice(inputName)\n\n        if hasattr(win, \"requestProperties\"):\n            win.requestProperties(props)\n\n        mainWindow = False\n        if self.win is None:\n            mainWindow = True\n            self.win = win\n            if hasattr(self, 'bufferViewer'):\n                self.bufferViewer.win = win\n\n        self.winList.append(win)\n\n        # Set up a 3-d camera for the window by default.\n        if keepCamera:\n            self.makeCamera(win, scene = scene, aspectRatio = aspectRatio,\n                            stereo = stereo, useCamera = self.cam)\n        elif makeCamera:\n            self.makeCamera(win, scene = scene, aspectRatio = aspectRatio,\n                            stereo = stereo)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4894
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sits within the initialization section of the `ShowBase` class, focusing on debug settings, directory management, application runner configuration, and accessibility features.\n\nif __debug__:\n            self.__autoGarbageLogging = self.__dev__ and ConfigVariableBool('auto-garbage-logging', False)\n\n        #: The directory containing the main Python file of this application.\n        self.mainDir = ExecutionEnvironment.getEnvironmentVariable(\"MAIN_DIR\")\n        self.main_dir = self.mainDir\n\n        # This contains the global appRunner instance, as imported from\n        # `.AppRunnerGlobal`.  This is deprecated and always None nowadays.\n        self.appRunner = None\n        self.app_runner = self.appRunner\n\n        #debug running multiplier\n        self.debugRunningMultiplier = 4\n\n        # [gjeon] to disable sticky keys\n        if ConfigVariableBool('disable-sticky-keys', False):\n            storeAccessibilityShortcutKeys()\n            allowAccessibilityShortcutKeys(False)\n            self.__disabledStickyKeys = True\n        else:\n            self.__disabledStickyKeys = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4851
+  }
+}

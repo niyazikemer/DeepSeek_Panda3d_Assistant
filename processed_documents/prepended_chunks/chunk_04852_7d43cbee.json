@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class constructor that initializes various configuration settings and flags related to audio management, rendering options, debugging, and window controls. The chunk sets up initial values for tracking window indices, enabling/disabling features like fog and render2dp, managing audio (sfx and music), handling screenshot formats, and configuring debug tools like Tkinter or Direct Input support.\n\nThe context is within a larger software framework that handles graphical user interfaces, rendering, and audio management. The code appears in the __init__ method of a class responsible for managing application-wide settings and configurations.\n\nself.printEnvDebugInfo()\n        vfs = VirtualFileSystem.getGlobalPtr()\n\n        self.nextWindowIndex = 1\n        self.__directStarted = False\n        self.__deadInputs = 0\n\n        # Store dconfig variables\n        self.sfxActive = ConfigVariableBool('audio-sfx-active', True).value\n        self.musicActive = ConfigVariableBool('audio-music-active', True).value\n        self.wantFog = ConfigVariableBool('want-fog', True).value\n        self.wantRender2dp = ConfigVariableBool('want-render2dp', True).value\n\n        self.screenshotExtension = ConfigVariableString('screenshot-extension', 'jpg').value\n        self.musicManager: AudioManager | None = None\n        self.musicManagerIsValid: bool | None = None\n        self.sfxManagerList: list[AudioManager] = []\n        self.sfxManagerIsValidList: list[bool] = []\n\n        self.wantStats = ConfigVariableBool('want-pstats', False).value\n        self.wantTk = False\n        self.wantWx = False\n        self.wantDirect = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4852
+  }
+}

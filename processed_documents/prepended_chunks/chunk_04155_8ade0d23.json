@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within the `watch()` method of an `InputState` class. The purpose of this method is to set up event monitoring for a specific input state (e.g., keyboard or mouse events) by creating a token that tracks when the event occurs and its corresponding release. This mechanism allows multiple listeners to monitor the same event while initializing the tracked input state based on an initial `startState` value.\n\n# set up\n            token = inputState.watch('forward', 'w', 'w-up', inputSource=inputState.WASD)\n            ...\n            # tear down\n            token.release()\n        \"\"\"\n        assert self.debugPrint(\n            \"watch(name=%s, eventOn=%s, eventOff=%s, startState=%s)\"%(\n            name, eventOn, eventOff, startState))\n        if inputSource is None:\n            inputSource = \"eventPair('%s','%s')\" % (eventOn, eventOff)\n        # Do we really need to reset the input state just because\n        # we're watching it?  Remember, there may be multiple things\n        # watching this input state.\n        self.set(name, startState, inputSource)\n        token = InputStateWatchToken(self)\n        # make the token listen for the events, to allow multiple listeners for the same event\n        token.accept(eventOn, self.set, [name, True, inputSource])\n        token.accept(eventOff, self.set, [name, False, inputSource])\n        self._token2inputSource[token] = inputSource",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4155
+  }
+}

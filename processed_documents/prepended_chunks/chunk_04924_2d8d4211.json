@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of a method responsible for setting up a new camera node within a graphics application. The code handles creating or reusing an existing Camera node, setting its lens (with perspective by default), aspect ratio calculation based on window dimensions, and attaching it to a parent node. It also includes optional configuration for the scene and camera mask. This functionality is likely part of an initialization process for rendering or view setup in a 3D graphics framework.\n\nContext: The chunk is used to initialize or configure a Camera node within a graphics application, handling creation, lens setup, aspect ratio calculation, and optional scene and mask configurations.\n\nself.mouse2cam.node().setNode(self.camera.node())\n\n        if useCamera:\n            # Use the existing camera node.\n            cam = useCamera\n            camNode = useCamera.node()\n            assert isinstance(camNode, Camera)\n            lens = camNode.getLens()\n            cam.reparentTo(self.camera)\n\n        else:\n            # Make a new Camera node.\n            camNode = Camera(camName)\n            if lens is None:\n                lens = PerspectiveLens()\n\n                if aspectRatio is None:\n                    aspectRatio = self.getAspectRatio(win)\n                lens.setAspectRatio(aspectRatio)\n\n            cam = self.camera.attachNewNode(camNode)\n\n        if lens is not None:\n            camNode.setLens(lens)\n\n        if scene is not None:\n            camNode.setScene(scene)\n\n        if mask is not None:\n            if isinstance(mask, int):\n                mask = BitMask32(mask)\n            camNode.setCameraMask(mask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4924
+  }
+}

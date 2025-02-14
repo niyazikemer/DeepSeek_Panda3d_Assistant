@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a collection of mathematical utility functions designed to handle clamping values within specific bounds, performing linear interpolation between two values, and determining the shortest rotational path between two angles. These functions are essential for various applications such as animations, physics calculations, and smooth object rotations in 2D space. They fit seamlessly into the Math Utilities section of the document, complementing existing tools with additional capabilities to ensure efficient and correct value manipulations.\n\ndef bound(value, bound1, bound2):\n    \"\"\"\n    returns value if value is between bound1 and bound2\n    otherwise returns bound that is closer to value\n    \"\"\"\n    if bound1 > bound2:\n        return min(max(value, bound2), bound1)\n    else:\n        return min(max(value, bound1), bound2)\n\n\nclamp = bound\n\n\ndef lerp(v0, v1, t):\n    \"\"\"\n    returns a value lerped between v0 and v1, according to t\n    t == 0 maps to v0, t == 1 maps to v1\n    \"\"\"\n    return v0 + ((v1 - v0) * t)\n\n\ndef getShortestRotation(start, end):\n    \"\"\"\n    Given two heading values, return a tuple describing\n    the shortest interval from 'start' to 'end'.  This tuple\n    can be used to lerp a camera between two rotations\n    while avoiding the 'spin' problem.\n    \"\"\"\n    start, end = start % 360, end % 360\n    if abs(end - start) > 180:\n        if end < start:\n            end += 360\n        else:\n            start += 360\n    return (start, end)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_263",
+    "parent": "processed_documents/context_documents/34ee3f4f_PythonUtil.json",
+    "chunk_number": 4636
+  }
+}

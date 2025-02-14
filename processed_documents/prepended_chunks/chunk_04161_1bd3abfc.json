@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet appears to be part of an `InputState` or similar class that manages input states, likely used for handling user inputs or application events. The specific methods shown relate to managing forced state values and debugging utilities. \n\nThe `_unforce` method is responsible for removing a previously forced value on a specific input name by token, while the `debugPrint` method logs debugging information about the current state of the system. The snake_case aliases at the end provide alternative method names for compatibility or convenience.\n\nIn summary, this code chunk pertains to managing and unforcing input states with debug utilities in an input management system.\n\ndef _unforce(self, token):\n        \"\"\"\n        Stop forcing a value. Don't call this directly, call release() on your token.\n        \"\"\"\n        name, inputSource = self._token2forceInfo[token]\n        token.invalidate()\n        if name in self._forcingOn:\n            self._forcingOn[name].discard(inputSource)\n            if len(self._forcingOn[name]) == 0:\n                del self._forcingOn[name]\n        if name in self._forcingOff:\n            self._forcingOff[name].discard(inputSource)\n            if len(self._forcingOff[name]) == 0:\n                del self._forcingOff[name]\n\n    def debugPrint(self, message):\n        \"\"\"for debugging\"\"\"\n        return self.notify.debug(\n            \"%s (%s) %s\"%(id(self), len(self._state), message))\n\n    #snake_case alias:\n    watch_with_modifiers = watchWithModifiers\n    is_set = isSet\n    get_event_name = getEventName\n    debug_print = debugPrint\n    release_inputs = releaseInputs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_232",
+    "parent": "processed_documents/context_documents/f48bff8b_InputState.json",
+    "chunk_number": 4161
+  }
+}

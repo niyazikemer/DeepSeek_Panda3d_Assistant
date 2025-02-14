@@ -1,0 +1,9 @@
+{
+  "content": "The `GarbageLogger` class is part of a Python module designed to detect and report memory leaks or garbage cycles in an application. The class inherits from `GarbageReport`, which generates detailed reports about current garbage objects and potential memory leaks. `GarbageLogger` simplifies the process by automatically logging the garbage information to a log file and destroying itself after completing the task, making it a convenient utility for monitoring and debugging memory issues in Python applications.\n\nclass GarbageLogger(GarbageReport):\n    \"\"\"If you just want to log the current garbage to the log file, make\n    one of these. It automatically destroys itself after logging\"\"\"\n\n    def __init__(self, name, *args, **kArgs):\n        kArgs['log'] = True\n        kArgs['autoDestroy'] = True\n        GarbageReport.__init__(self, name, *args, **kArgs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_242",
+    "parent": "processed_documents/context_documents/25531caf_GarbageReport.json",
+    "chunk_number": 4279
+  }
+}

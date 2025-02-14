@@ -1,0 +1,9 @@
+{
+  "content": "The chunk should be situated at the top of the document, typically following any initial imports but before class definitions. This ensures foundational setup is complete for subsequent code execution.\n\n</answer>\n\nThe provided chunk includes essential setup steps such as importing NodePath extensions and modifying the `builtins` module to include a `config` attribute set to `DConfig`. These operations are best placed at the beginning of the document to ensure they're available throughout the rest of the code. This early placement supports any subsequent methods or classes that may depend on these extensions and configurations, ensuring proper initialization and functionality across the entire script.\n\n</answer>\n\n# Register the extension methods for NodePath.\nfrom direct.extensions_native import NodePath_extensions # pylint: disable=unused-import\n\n# This needs to be available early for DirectGUI imports\nfrom typing import Any\nbuiltins: Any  # Tell mypy not to worry about us setting attributes on builtins\nimport sys\nimport builtins\nbuiltins.config = DConfig",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 4846
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `step()` method is part of the `ReferrerSearch` class, which is designed to trace and analyze object reference chains in memory. This specific chunk implements the core logic for navigating through an object's referrers, checking conditions to determine if a root condition has been reached (indicating successful tracing), marking visited objects to avoid cycles, and collecting valid referrers while excluding certain references like frames or dictionaries with local variables.\n\nreturn '%s%s' % (pre, post)\n\n    def step(self, depth, path):\n        if self.shouldPrintStats:\n            self.printStats(path)\n            self.shouldPrintStats = False\n\n        at = path[-1]\n\n        if id(at) in self.visited:\n            # don't continue down this path\n            return\n\n        # check for success\n        if self.isAtRoot(at, path):\n            self.found += 1\n            return\n\n        # mark our progress after checking goal\n        self.visited.add(id(at))\n\n        referrers = [ref for ref in gc.get_referrers(at) \\\n                     if not (ref is path or \\\n                       inspect.isframe(ref) or \\\n                       (isinstance(ref, dict) and \\\n                        list(ref.keys()) == list(locals().keys())) or \\\n                       ref is self.__dict__ or \\\n                       id(ref) in self.visited)]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_279",
+    "parent": "processed_documents/context_documents/358f23e5_ReferrerSearch.json",
+    "chunk_number": 4814
+  }
+}
