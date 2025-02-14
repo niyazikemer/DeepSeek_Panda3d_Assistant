@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains the complete implementation of the `MopathInterval` class within the `MopathInterval` module. This class inherits from `LerpFunctionInterval` and is designed to control the movement of a node along a path defined by a `Mopath` object. The `__init__` method initializes parameters such as start and end times (`fromT`, `toT`), duration, blend type, and assigns the node and mopath to instance variables for later use in animating the node's position over time.\n\nclass MopathInterval(LerpInterval.LerpFunctionInterval):\n    # Name counter\n    mopathNum = 1\n    # create MopathInterval DirectNotify category\n    notify = directNotify.newCategory('MopathInterval')\n    # Class methods\n    def __init__(self, mopath, node, fromT = 0, toT = None,\n                 duration = None, blendType = 'noBlend', name = None):\n        if toT is None:\n            toT = mopath.getMaxT()\n\n        if duration is None:\n            duration = abs(toT - fromT)\n\n        # Generate unique name if necessary\n        if name is None:\n            name = 'Mopath-%d' % MopathInterval.mopathNum\n            MopathInterval.mopathNum += 1\n\n        LerpInterval.LerpFunctionInterval.__init__(\n            self, self.__doMopath, fromData = fromT, toData = toT,\n            duration = duration, blendType = blendType,\n            name = name)\n\n        self.mopath = mopath\n        self.node = node",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_158",
+    "parent": "processed_documents/context_documents/7e2ecfd2_MopathInterval.json",
+    "chunk_number": 2799
+  }
+}

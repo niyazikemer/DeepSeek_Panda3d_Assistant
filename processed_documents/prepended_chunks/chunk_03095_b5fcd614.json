@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method in the `Actor` class responsible for collecting joints from parts, handling both simple and complex matching patterns.\n\nfor partData in parts:\n                partBundle = partData.getBundle()\n\n                if not pattern.hasGlobCharacters() and not subset:\n                    # The simple case.\n                    joint = partBundle.findChild(jointName)\n                    if joint:\n                        joints.append(joint)\n                else:\n                    # The more complex case.\n                    isIncluded = True\n                    if subset:\n                        isIncluded = subset.isIncludeEmpty()\n                    self.__getPartJoints(joints, pattern, partBundle, subset, isIncluded)\n\n        return joints",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3095
+  }
+}

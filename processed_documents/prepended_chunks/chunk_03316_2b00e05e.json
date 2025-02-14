@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk introduces two functions (`spawnHPPan` and `XZTranslateOrHPanYZoomTask`) that handle 3D scene navigation. The functions manage camera movements (panning or translating) based on user input, specifically utilizing the shift key state to determine the mode of operation.\n\ndef spawnHPPan(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        self.__startManipulateCamera(func = self.HPPanTask)\n\n    def XZTranslateOrHPanYZoomTask(self, state):\n        if ShowBaseGlobal.direct.fShift:\n            return self.XZTranslateTask(state)\n        else:\n            return self.HPanYZoomTask(state)\n\n    def XZTranslateOrHPPanTask(self, state):\n        if ShowBaseGlobal.direct.fShift:\n            # Panning action\n            return self.HPPanTask(state)\n        else:\n            # Translation action\n            return self.XZTranslateTask(state)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3316
+  }
+}

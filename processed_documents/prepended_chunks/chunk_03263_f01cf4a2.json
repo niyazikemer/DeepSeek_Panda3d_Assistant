@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines methods related to widget state management and activation/deactivation within a Direct manipulation interface, specifically handling color states (disabled vs active), toggle behavior across multiple views, and scaling node activation.\n\ndef disabledModeColor(self):\n        self.setColor(0.1,0.1,0.1,0.1,1)\n\n    def manipModeColor(self):\n        self.clearColor()\n\n    def toggleWidget(self):\n        if self.fActive:\n            if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView:\n                for widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    widget.deactivate()\n            else:\n                self.deactivate()\n        else:\n            if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView:\n                for widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    widget.activate()\n                    widget.showWidgetIfActive()\n            else:\n                self.activate()\n\n    def activate(self):\n        self.scalingNode.reparentTo(self)\n        self.fActive = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3263
+  }
+}

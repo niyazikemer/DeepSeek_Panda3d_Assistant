@@ -1,0 +1,9 @@
+{
+  "content": "The `destroy` method is part of a Tkinter-based dialog or window class responsible for cleaning up resources before closing. It resets key attributes, removes balloon tooltips, and properly disposes of the window by calling the parent `Toplevel.destroy()` method.\n\ndef destroy(self):\n        \"\"\"Destroy the window\"\"\"\n        self.propertyDict = {}\n        self.initial_focus = None\n        # Clean up balloons!\n        for balloon in self.balloonList:\n            balloon.withdraw()\n        tk.Toplevel.destroy(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3583
+  }
+}

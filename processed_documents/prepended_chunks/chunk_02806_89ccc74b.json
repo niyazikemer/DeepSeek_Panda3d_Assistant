@@ -1,0 +1,9 @@
+{
+  "content": "The IntervalManager class manages interval operations by integrating Python and C++ code. It handles per-frame processing via `step()`, emergency cleanup with `interrupt()`, and allows batch state changes for intervals matching specific patterns using `finishIntervalsMatching()` and `pauseIntervalsMatching()`. These methods leverage event queues for efficient processing, enabling integration of custom interval logic within a Panda3D application.\n\ndef finishIntervalsMatching(self, pattern):\n        ivals = self.getIntervalsMatching(pattern)\n        for ival in ivals:\n            ival.finish()\n        return len(ivals)\n\n    def pauseIntervalsMatching(self, pattern):\n        ivals = self.getIntervalsMatching(pattern)\n        for ival in ivals:\n            ival.pause()\n        return len(ivals)\n\n    def step(self):\n        # This method should be called once per frame to perform all\n        # of the per-frame processing on the active intervals.\n        # Call C++ step, then do the Python stuff.\n        CIntervalManager.step(self)\n        self.__doPythonCallbacks()\n\n    def interrupt(self):\n        # This method should be called during an emergency cleanup\n        # operation, to automatically pause or finish all active\n        # intervals tagged with autoPause or autoFinish set true.\n        # Call C++ interrupt, then do the Python stuff.\n        CIntervalManager.interrupt(self)\n        self.__doPythonCallbacks()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_160",
+    "parent": "processed_documents/context_documents/493662c0_IntervalManager.json",
+    "chunk_number": 2806
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `EnterExit` class implements functionality to execute specific callback functions when an input state changes between boolean values. It is part of a larger framework for managing event-driven state transitions and behaviors in Python applications.\n\nclass EnterExit(StateChangeNode):\n    # call enterFunc when our state becomes true, exitFunc when it becomes false\n    def __init__(self, source, enterFunc, exitFunc):\n        self._enterFunc = enterFunc\n        self._exitFunc = exitFunc\n        StateChangeNode.__init__(self, source)\n\n    def destroy(self):\n        StateChangeNode.destroy(self)\n        del self._exitFunc\n        del self._enterFunc\n\n    def _handlePotentialStateChange(self, value):\n        # convert the incoming state as a bool\n        StateChangeNode._handlePotentialStateChange(self, bool(value))\n\n    def _handleStateChange(self):\n        if self._value:\n            self._enterFunc()\n        else:\n            self._exitFunc()\n        StateChangeNode._handleStateChange(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2666
+  }
+}

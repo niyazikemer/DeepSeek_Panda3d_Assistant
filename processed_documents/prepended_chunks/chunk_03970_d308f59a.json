@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a shader generation process within a Python class, specifically handling the setup of texture coordinates and uniform declarations in a fragment shader based on various rendering configurations such as anti-aliasing, bloom, cartoon ink effects, blur/sharpen, volumetric lighting, and other visual effects.\n\nif \"HalfPixelShift\" in configuration:\n                        text += \"  %s += texpix_tx%s.xy * 0.5;\\n\" % (texcoord, padTex)\n\n            text += \"}\\n\"\n\n            text += \"void fshader(\\n\"\n\n            for i, name in texcoordSets:\n                text += \"  float2 %s : TEXCOORD%d,\\n\" % (name, i)\n\n            for key in self.textures:\n                text += \"  uniform sampler2D k_tx\" + key + \",\\n\"\n\n            if \"CartoonInk\" in configuration:\n                text += \"  uniform float4 k_cartoonseparation,\\n\"\n                text += \"  uniform float4 k_cartooncolor,\\n\"\n                text += \"  uniform float4 texpix_txaux,\\n\"\n\n            if \"BlurSharpen\" in configuration:\n                text += \"  uniform float4 k_blurval,\\n\"\n\n            if \"VolumetricLighting\" in configuration:\n                text += \"  uniform float4 k_casterpos,\\n\"\n                text += \"  uniform float4 k_vlparams,\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3970
+  }
+}

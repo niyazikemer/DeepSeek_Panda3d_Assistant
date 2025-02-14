@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of an initialization method in a Panda3D Actor class, specifically handling the setup of Level of Detail (LOD) levels and loading 3D models into the actor. It is situated within a larger code block that processes the creation of an actor from a configuration dictionary containing model files organized by LOD names and part names. The code adds LODs to the actor and loads corresponding geometry for each LOD, handling both single-part and multi-part actors with or without LOD support.\n\n# this will make it easier to set ranges\n                        for lodName in sorted(models):\n                            # make a node under the LOD switch\n                            # for each lod (just because!)\n                            self.addLOD(str(lodName))\n                            # iterate over both dicts\n                            for modelName in models[lodName]:\n                                self.loadModel(models[lodName][modelName],\n                                               modelName, lodName, copy = copy,\n                                               okMissing = okMissing)\n                    # then if there is a dictionary of dictionaries of anims\n                    elif isinstance(anims[next(iter(anims))], dict):\n                        # then this is a multipart actor w/o LOD\n                        for partName in models:\n                            # pass in each part",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3047
+  }
+}

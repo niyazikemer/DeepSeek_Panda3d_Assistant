@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method in a Python class that manages a graphical user interface (GUI) component, likely a valuator or scale widget. The code calculates the screen position for displaying a popup window relative to an arrow button, ensuring proper alignment and spacing based on widget dimensions, borders, and labels. It also adjusts for padding and screen boundaries to ensure the popup is displayed correctly below the arrow button.\n\n# Make sure that the arrow is displayed sunken.\n        self.interior()['relief'] = tk.SUNKEN\n        self.update_idletasks()\n        # Position popup so that marker is immediately below center of\n        # Arrow button\n        # Find screen space position of bottom/center of arrow button\n        x = (self._arrowBtn.winfo_rootx() + self._arrowBtn.winfo_width()/2.0 -\n             self.interior()['bd'])\n#             int(self.interior()['bd']))\n        y = self._arrowBtn.winfo_rooty() + self._arrowBtn.winfo_height()\n        # Popup border width\n        bd = self._popup['bd']\n#        bd = int(self._popup['bd'])\n        # Get width of label\n        minW = self._minLabel.winfo_width()\n        # Width of canvas to adjust for\n        cw = (self._getMarkerX() - self.left) + self.xPad\n        popupOffset = bd + minW + cw\n        ch =  self._widget.winfo_height()\n        sh = self.winfo_screenheight()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3518
+  }
+}

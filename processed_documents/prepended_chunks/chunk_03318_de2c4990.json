@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code represents a task function responsible for handling camera movement and zooming operations during mouse interaction. The function calculates the direction of movement based on whether control keys are pressed or not, adjusts the camera position accordingly, and skips rotation if an orthographic lens is active. This functionality is part of a larger class that manages 3D camera controls in a graphical application, enabling users to pan, rotate, and zoom the view using mouse inputs.\n\nentry = iRay.getEntry(0)\n        hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n        iRay.collisionNodePath.removeNode()\n        del iRay\n        if hasattr(state, 'prevPt'):\n            direct.camera.setPos(direct.camera, (state.prevPt - hitPt))\n        state.prevPt = hitPt\n        return Task.cont\n\n    def HPanYZoomTask(self, state):\n        # If the cam is orthogonal, don't rotate or zoom.\n        direct = ShowBaseGlobal.direct\n        if (hasattr(direct.cam.node(), \"getLens\") and\n            direct.cam.node().getLens().__class__.__name__ == \"OrthographicLens\"):\n            return\n\n        if direct.fControl:\n            moveDir = Vec3(self.coaMarker.getPos(direct.camera))\n            # If marker is behind camera invert vector\n            if moveDir[1] < 0.0:\n                moveDir.assign(moveDir * -1)\n            moveDir.normalize()\n        else:\n            moveDir = Vec3(Y_AXIS)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3318
+  }
+}

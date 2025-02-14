@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a method named `__setupTask` within a class, likely a `TaskManager` or similar task management system. This method is responsible for setting up and configuring tasks, which are objects representing units of work to be executed. The method accepts various parameters to customize the task's behavior, such as its function, priority, sorting order, extra arguments, task chain associations, and cleanup actions upon task termination. This setup ensures that tasks can be properly integrated into the task management system for execution and scheduling.\n\n**Succinct Context:**\n\nThe `__setupTask` method initializes and configures tasks within a task management system, allowing them to be executed with specified attributes such as priority and chained dependencies.\n\ndef __setupTask(\n        self,\n        funcOrTask: _FuncOrTask,\n        name: str | None,\n        priority: int | None,\n        sort: int | None,\n        extraArgs: Sequence | None,\n        taskChain: str | None,\n        appendTask: bool,\n        owner,\n        uponDeath: Callable[[], object] | None,\n    ) -> AsyncTask:\n        wasTask = False\n        if isinstance(funcOrTask, AsyncTask):\n            task = funcOrTask\n            wasTask = True\n        elif hasattr(funcOrTask, '__call__') or \\\n             hasattr(funcOrTask, 'cr_await') or \\\n             isinstance(funcOrTask, types.GeneratorType):\n            # It's a function, coroutine, or something emulating a coroutine.\n            task = PythonTask(funcOrTask)\n            if name is None:\n                name = getattr(funcOrTask, '__qualname__', None) or \\\n                       getattr(funcOrTask, '__name__', None)\n        else:\n            self.notify.error(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3886
+  }
+}

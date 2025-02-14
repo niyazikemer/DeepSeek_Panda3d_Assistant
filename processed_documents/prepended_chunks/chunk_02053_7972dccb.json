@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk introduces C code that interfaces with Python's frozen module system. Specifically, `CallModuleDllMain` dynamically calls the DLL entry point for each module, while `mainInitCode` sets up the execution of a frozen Python application by initializing the import system and invoking the main function. This integrates custom initialization logic into the Python runtime for standalone executables.\n\nBOOL CallModuleDllMain(char *modName, DWORD dwReason)\n{\n    BOOL (WINAPI * pfndllmain)(HINSTANCE, DWORD, LPVOID);\n\n    char funcName[255];\n    HMODULE hmod = GetModuleHandle(NULL);\n    strcpy(funcName, \"_DllMain\");\n    strcat(funcName, modName);\n    strcat(funcName, \"@12\"); // stdcall convention.\n    pfndllmain = (BOOL (WINAPI *)(HINSTANCE, DWORD, LPVOID))GetProcAddress(hmod, funcName);\n    if (pfndllmain==NULL) {\n        /* No function by that name exported - then that module does\n           not appear in our frozen program - return OK\n                */\n        return TRUE;\n    }\n    return (*pfndllmain)(hmod, dwReason, NULL);\n}\n\"\"\"\n\n# Our own glue code to start up a Python executable.\nmainInitCode = \"\"\"\n%(frozenMainCode)s\n\nint\nmain(int argc, char *argv[]) {\n  PyImport_FrozenModules = _PyImport_FrozenModules;\n  return Py_FrozenMain(argc, argv);\n}\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2053
+  }
+}

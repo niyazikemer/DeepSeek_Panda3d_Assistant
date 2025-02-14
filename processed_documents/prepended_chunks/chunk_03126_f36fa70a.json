@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a method in a Python class responsible for managing animations and level-of-detail (LOD) for 3D models in a game or visualization system, likely using Panda3D. The method `getAnimControl` retrieves an animation control object by searching through a dictionary structure based on the provided animation name, part name, and LOD name, with fallbacks to default values when unspecified.\n\nanim = animDict.get(animName)\n        if anim is None:\n            return None\n\n        return anim.filename\n\n    def getAnimControl(self, animName, partName=None, lodName=None,\n                       allowAsyncBind = True):\n        \"\"\"\n        getAnimControl(self, string, string, string=\"lodRoot\")\n        Search the animControl dictionary indicated by lodName for\n        a given anim and part. If none specified, try the first part and lod.\n        Return the animControl if present, or None otherwise.\n        \"\"\"\n\n        if not partName:\n            partName = 'modelRoot'\n\n        if self.mergeLODBundles:\n            lodName = 'common'\n        elif not lodName:\n            if self.switches:\n                lodName = str(next(iter(self.switches)))\n            else:\n                lodName = 'lodRoot'\n\n        partDict = self.__animControlDict.get(lodName)\n        # if this assertion fails, named lod was not present\n        assert partDict is not None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3126
+  }
+}

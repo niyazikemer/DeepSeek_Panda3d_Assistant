@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function `rgb_panel` or similar, which creates a panel with a menubar and adds specific commands to manage colors and transparency on a node path (e.g., in a graphical application). The code snippet adds helper functions as menu items, including clearing color, setting/clearing transparency, and opening a system color picker dialog.\n\n# Some helper functions\n    # Clear color\n    menubar.addmenuitem(\n        'EntryScale Group', 'command',\n        label='Clear Color', command=lambda np=nodePath: np.clearColor())\n\n    # Set/Clear Transparency\n    menubar.addmenuitem(\n        'EntryScale Group', 'command',\n        label='Set Transparency', command=lambda np=nodePath: np.setTransparency(1))\n    menubar.addmenuitem(\n        'EntryScale Group', 'command',\n        label='Clear Transparency',\n        command=lambda np=nodePath: np.clearTransparency())\n\n    # System color picker\n    def popupColorPicker(esg = esg):\n        # Can pass in current color with: color = (255, 0, 0)\n        color = askcolor(\n            parent = esg.interior(),\n            # Initialize it to current color\n            initialcolor = tuple(esg.get()[:3]))[0]\n        if color:\n            esg.set((color[0], color[1], color[2], esg.getAt(3)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3577
+  }
+}

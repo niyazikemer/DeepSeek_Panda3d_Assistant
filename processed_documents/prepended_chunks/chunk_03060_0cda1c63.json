@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces a `pprint` method to the Actor class that provides a hierarchical view of the actor's structure. It prints details about levels of detail (LODs), parts, bundles, and animations, including whether each animation is loaded and its properties like frame count and play rate. This makes it easier to inspect and debug the actor's configuration.\n\nThe `pprint` method is part of a comprehensive Actor class that manages model hierarchy, animations, and level-of-detail management for game or animation frameworks.\n\ndef pprint(self):\n        \"\"\"\n        Pretty print actor's details\n        \"\"\"\n        for lodName, lodInfo in self.getActorInfo():\n            print('LOD: %s' % lodName)\n            for partName, bundle, animInfo in lodInfo:\n                print('  Part: %s' % partName)\n                print('  Bundle: %r' % bundle)\n                for animName, file, animControl in animInfo:\n                    print('    Anim: %s' % animName)\n                    print('      File: %s' % file)\n                    if animControl is None:\n                        print(' (not loaded)')\n                    else:\n                        print('      NumFrames: %d PlayRate: %0.2f' %\n                               (animControl.getNumFrames(),\n                                animControl.getPlayRate()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3060
+  }
+}

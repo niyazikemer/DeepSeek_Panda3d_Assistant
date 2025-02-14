@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a function that sets up an RGBA color selection panel for adjusting node path colors in a 3D application. The code initializes color values from the node's current color (if available), creates an EntryScaleGroup for color adjustments, and configures parameters like title, labels, initial color values, max slider value (255), and resolution (1). It also handles callback execution when color changes occur.\n\ndef setNodePathColor(color, np = nodePath, cb = callback):\n        np.setColor(color[0]/255.0, color[1]/255.0,\n                    color[2]/255.0, color[3]/255.0)\n        # Execute callback to pass along color info\n        if cb:\n            cb(color)\n    # Check init color\n    if nodePath.hasColor():\n        initColor = nodePath.getColor() * 255.0\n    else:\n        initColor = Vec4(255)\n    # Create entry scale group\n    esg = EntryScaleGroup(title = 'RGBA Panel: ' + nodePath.getName(),\n                          dim = 4,\n                          labels = ['R','G','B','A'],\n                          value = [int(initColor[0]),\n                                   int(initColor[1]),\n                                   int(initColor[2]),\n                                   int(initColor[3])],\n                          Valuator_max = 255,\n                          Valuator_resolution = 1,\n                          # Destroy not withdraw panel on dismiss",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3575
+  }
+}

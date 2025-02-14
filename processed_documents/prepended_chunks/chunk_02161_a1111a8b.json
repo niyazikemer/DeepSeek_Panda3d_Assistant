@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an implementation for a custom module finder or loader in Python. It appears to be related to listing submodules within a package by examining directory contents and handling file paths. The surrounding code includes functionality for module importing, searching, and loading, with specific logic for recognizing valid modules based on filename suffixes and handling namespace packages.\n\nThe chunk specifically deals with filtering files to identify valid module names within a directory or zip archive, ensuring only top-level modules are considered.\n\n# List files whose path start with our directory name.\n                prefix = fn.replace(os.path.sep, '/') + '/'\n                result = []\n                for name in zip.namelist():\n                    if name.startswith(prefix) and '/' not in name[len(prefix):]:\n                        result.append(name[len(prefix):])\n\n                return result\n\n            # Look at the parent directory.\n            dir, dirname = os.path.split(dir)\n            fn = os.path.join(dirname, fn)\n\n        return []\n\n    def load_module(self, fqname, fp, pathname, file_info):\n        \"\"\"Copied from ModuleFinder.load_module with fixes to handle sending bytes\n        to compile() for PY_SOURCE types. Sending bytes to compile allows it to\n        handle file encodings.\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2161
+  }
+}

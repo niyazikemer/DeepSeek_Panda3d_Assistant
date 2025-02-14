@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet defines three classes (`Sequence`, `Parallel`, and `ParallelEndTogether`) that inherit from the `MetaInterval` class. These classes are part of an interval management system, likely used in animation or timeline-based applications. Each class implements the `applyIvals` method to add intervals to a meta-interval object with specific start times (`relTime`) and relative positioning (`relTo`), ensuring proper sequencing or parallel execution of interval operations.\n\nclass Sequence(MetaInterval):\n    def applyIvals(self, meta, relTime, relTo):\n        meta.addSequence(self.ivals, self.getName(),\n                         relTime, relTo, self.phonyDuration)\nclass Parallel(MetaInterval):\n    def applyIvals(self, meta, relTime, relTo):\n        meta.addParallel(self.ivals, self.getName(),\n                         relTime, relTo, self.phonyDuration)\n\nclass ParallelEndTogether(MetaInterval):\n    def applyIvals(self, meta, relTime, relTo):\n        meta.addParallelEndTogether(self.ivals, self.getName(),\n                         relTime, relTo, self.phonyDuration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2898
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a class, likely managing time-based intervals or animations. The chunk handles different states (SInitial, SStarted, SPaused, SFinal) by transitioning and modifying interval behavior based on the current state when `setT` is called, ensuring proper management during time updates.\n\nstate = self.getState()\n        if state == CInterval.SInitial:\n            self.privInitialize(t)\n            if self.isPlaying():\n                self.setupResume()\n            else:\n                self.privInterrupt()\n        elif state == CInterval.SStarted:\n            # Support modifying t while the interval is playing.  We\n            # assume is_playing() will be true in this state.\n            assert self.isPlaying()\n            self.privInterrupt()\n            self.privStep(t)\n            self.setupResume()\n        elif state == CInterval.SPaused:\n            # Support modifying t while the interval is paused.  In\n            # this case, we simply step to the new value of t; but\n            # this will change the state to S_started, so we must then\n            # change it back to S_paused by hand (because we're still\n            # paused).\n            self.privStep(t)\n            self.privInterrupt()\n        elif state == CInterval.SFinal:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2835
+  }
+}

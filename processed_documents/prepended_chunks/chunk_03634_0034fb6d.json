@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk should be placed within the `__init__` method of the `ValuatorGroupPanel` class. This ensures that each instance initializes its valuator widget correctly and sets a default reset value if none is provided during instantiation.\n\n```python\nclass ValuatorGroupPanel(Tk_dialog):\n    def __init__(self, **kw):\n        # Existing code...\n        \n        # Pack Valuator Widget\n        self.packValuator()\n\n        # Set reset value if none specified\n        if 'resetValue' not in kw:\n            self['resetValue'] = self['value']\n        \n        # Continue with existing initialization...\n```\n\n# Pack Valuator Widget\n        self.packValuator()\n\n        # Set reset value if none specified\n        if 'resetValue' not in kw:\n            self['resetValue'] = self['value']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3634
+  }
+}

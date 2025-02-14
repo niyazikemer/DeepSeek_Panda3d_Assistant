@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a method in an Actor class used for debugging purposes, specifically displaying animation blending information on-screen. The function processes animation controls to gather effect values and prepares them for visualization.\n\ndef osdAnimBlends(self, animName=None, partName=None, lodName=None):\n        if not onScreenDebug.enabled:\n            return\n        # puts anim blending info into the on-screen debug panel\n        if animName is None:\n            animNames = self.getAnimNames()\n        else:\n            animNames = [animName]\n        for animName in animNames:\n            if animName == 'nothing':\n                continue\n            thisAnim = ''\n            totalEffect = 0.\n            controls = self.getAnimControls(animName, partName, lodName)\n            for control in controls:\n                part = control.getPart()\n                name = part.getName()\n                effect = part.getControlEffect(control)\n                if effect > 0.:\n                    totalEffect += effect\n                    thisAnim += ('%s:%.3f, ' % (name, effect))\n            thisAnim += \"\\n\"\n            for control in controls:\n                part = control.getPart()\n                name = part.getName()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3174
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of an `open()` function that handles file system operations using a virtual file system (VFS) layer. It creates a new file if it doesn't exist, raises errors for existing files in 'creating' mode or directory paths, and opens the file for reading or updating.\n\nvfile = _vfs.createFile(filename)\n            if not vfile:\n                raise IOError(\"Failed to create file: '%s'\" % (filename))\n\n        elif creating:\n            # In 'creating' mode, we have to raise FileExistsError\n            # if the file already exists.  Otherwise, it's the same\n            # as 'writing' mode.\n            raise FileExistsError(\"File exists: '%s'\" % (filename))\n\n        elif vfile.isDirectory():\n            raise IsADirectoryError(\"Is a directory: '%s'\" % (filename))\n\n        # Actually open the streams.\n        if reading:\n            if updating:\n                stream = vfile.openReadWriteFile(False)\n            else:\n                stream = vfile.openReadFile(False)\n\n            if not stream:\n                raise IOError(\"Could not open %s for reading\" % (filename))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3781
+  }
+}

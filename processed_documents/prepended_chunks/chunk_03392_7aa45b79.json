@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains core functionality for managing Out-Of-Body Experience (OOBE) mode, camera controls, and event handling within a 3D application framework. The included methods (`beginOOBE`, `endOOBE`, `destroy`, `reset`, and `enableActionEvents`) provide essential operations for transitioning between OOBE states, enabling/disabling features, and managing action events to control the camera and user interaction.\n\ndef beginOOBE(self):\n        # Make sure we've reached our final destination\n        self.oobeCamera.setPosHpr(self.cameraControl.camManipRef, 0, 0, 0, 0, 0, 0)\n        self.camera = self.oobeCamera\n        self.oobeMode = 1\n\n    def endOOBE(self):\n        # Make sure we've reached our final destination\n        self.oobeCamera.setPosHpr(self.trueCamera, 0, 0, 0, 0, 0, 0)\n        # Disable OOBE mode.\n        self.cam.reparentTo(self.trueCamera)\n        self.camera = self.trueCamera\n        # Get rid of ancillary node paths\n        self.oobeVis.reparentTo(hidden)\n        self.oobeCamera.reparentTo(hidden)\n        self.oobeMode = 0\n\n    def destroy(self):\n        self.disable()\n\n    def reset(self):\n        self.enable()\n\n    # EVENT FUNCTIONS\n    def enableActionEvents(self):\n        for event in self.actionEvents:\n            self.accept(event[0], event[1], extraArgs = event[2:])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3392
+  }
+}

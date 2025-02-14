@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces query methods in the `TaskManager` class to search for and retrieve tasks by name or pattern, enhancing task management capabilities by allowing users to locate specific tasks within the task manager system.\n\ndef hasTaskNamed(self, taskName: str) -> bool:\n        \"\"\"Returns true if there is at least one task, active or\n        sleeping, with the indicated name. \"\"\"\n\n        return bool(self.mgr.findTask(taskName))\n\n    def getTasksNamed(self, taskName: str) -> list[AsyncTask]:\n        \"\"\"Returns a list of all tasks, active or sleeping, with the\n        indicated name. \"\"\"\n        return list(self.mgr.findTasks(taskName))\n\n    def getTasksMatching(self, taskPattern: GlobPattern | str) -> list[AsyncTask]:\n        \"\"\"Returns a list of all tasks, active or sleeping, with a\n        name that matches the pattern, which can include standard\n        shell globbing characters like \\\\*, ?, and []. \"\"\"\n\n        return list(self.mgr.findTasksMatching(GlobPattern(taskPattern)))\n\n    def getAllTasks(self) -> list[AsyncTask]:\n        \"\"\"Returns list of all tasks, active and sleeping, in\n        arbitrary order. \"\"\"\n        return list(self.mgr.getTasks())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3877
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the threading module implementation in Python, specifically handling low-level operations related to thread synchronization primitives. The three methods\u2014`_acquire_restore`, `_release_save`, and `_is_owned`\u2014are part of a lock management mechanism, likely used within the `Lock` or `RLock` classes to ensure proper acquisition, release, and ownership tracking of locks across threads.\n\nThe context involves managing the state of thread locks to prevent race conditions and ensure thread safety. These methods are crucial for correctly handling lock operations in multi-threaded environments, allowing for controlled access to shared resources while preventing deadlocks or data corruption.\n\ndef _acquire_restore(self, state):\n        self.__block.acquire()\n        self.__count, self.__owner = state\n        if __debug__:\n            self._note(\"%s._acquire_restore()\", self)\n\n    def _release_save(self):\n        if __debug__:\n            self._note(\"%s._release_save()\", self)\n        count = self.__count\n        self.__count = 0\n        owner = self.__owner\n        self.__owner = None\n        self.__block.release()\n        return (count, owner)\n\n    def _is_owned(self):\n        return self.__owner is currentThread()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3812
+  }
+}

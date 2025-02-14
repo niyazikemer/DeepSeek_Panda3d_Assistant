@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a rendering pipeline setup where it configures texture coordinates and their padding. It's connected to methods like `setHalfPixelShift`, ensuring correct texture sampling when specific effects are enabled, thus enhancing rendering quality.\n\ntexcoords = {}\n            texcoordPadding = {}\n\n            for tex in needtexcoord:\n                if self.textures[tex].getAutoTextureScale() != ATSNone or \\\n                                           \"HalfPixelShift\" in configuration:\n                    texcoords[tex] = \"l_texcoord_\" + tex\n                    texcoordPadding[\"l_texcoord_\" + tex] = tex\n                else:\n                    # Share unpadded texture coordinates.\n                    texcoords[tex] = \"l_texcoord\"\n                    texcoordPadding[\"l_texcoord\"] = None\n\n            texcoordSets = list(enumerate(texcoordPadding.keys()))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3966
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a custom Python module loader implementation, focusing on module loading, path replacement, and safe import handling. It includes code for unmarshaling compiled bytecode, adding modules to the system, scanning imported modules for external dependencies, and implementing a safer import mechanism to avoid unnecessary errors or side effects during imports. The context involves low-level module management and optimization, relevant for custom importers, frozen applications, or environments requiring strict control over module loading processes.\n\nco = marshal.loads(marshal_data)\n        else:\n            co = None\n\n        m = self.add_module(fqname)\n        m.__file__ = pathname\n        if co:\n            if self.replace_paths:\n                co = self.replace_paths_in_code(co)\n            m.__code__ = co\n            self.scan_code(co, m)\n        self.msgout(2, \"load_module ->\", m)\n        return m\n\n    # This function is provided here since the Python library version has a bug\n    # (see bpo-35376)\n    def _safe_import_hook(self, name, caller, fromlist, level=-1):\n        # wrapper for self.import_hook() that won't raise ImportError\n        if name in self.badmodules:\n            self._add_badmodule(name, caller)\n            return\n\n        if level <= 0 and caller and caller.__name__ in ignoreImports:\n            if name in ignoreImports[caller.__name__]:\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2165
+  }
+}

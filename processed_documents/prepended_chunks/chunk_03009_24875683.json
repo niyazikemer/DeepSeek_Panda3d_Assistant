@@ -1,0 +1,9 @@
+{
+  "content": "The code defines functions for creating geometric primitives (square, box, arrow) using Panda3D's Geom API. The chunk implements the `addSquare` function which creates a textured square geometry by defining vertex positions, normals, colors, and texture coordinates in 3D space.\n\ndef addSquare(attachNode, sizeX, sizeY, color = Vec4(1.0, 1.0, 1.0, 1.0), layer = 0):\n    targetGN = GeomNode(\"Square Geom\")\n    sX = sizeX / 2.0\n    sY = sizeY / 2.0\n\n    color1 = color\n    color2 = color\n    color3 = color\n\n    gFormat = GeomVertexFormat.getV3n3ct2()\n    boxVertexData = GeomVertexData(\"vertices\", gFormat, Geom.UHDynamic)\n\n    boxVertexWriter = GeomVertexWriter(boxVertexData, \"vertex\")\n    boxNormalWriter = GeomVertexWriter(boxVertexData, \"normal\")\n    boxColorWriter = GeomVertexWriter(boxVertexData, \"color\")\n    boxTextureWriter = GeomVertexWriter(boxVertexData, \"texcoord\")\n\n    boxVertexWriter.addData3f(-sX, sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])\n    boxTextureWriter.addData2f(0.0, 1.0)\n\n    boxVertexWriter.addData3f(-sX, -sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])\n    boxTextureWriter.addData2f(0.0, 0.0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3009
+  }
+}

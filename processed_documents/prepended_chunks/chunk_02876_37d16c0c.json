@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines special methods (`__len__`, `__getitem__`, etc.) to enable list-like behavior in a Python class. These methods allow instances to be treated as sequences, supporting indexing, slicing, and item assignment while validating components for consistency.\n\n**Context:**  \nThe chunk extends the functionality of a class managing collections of intervals (e.g., `MetaInterval` or `Track`) by adding list-like operations, enhancing usability and maintaining data integrity through validation.\n\ndef __len__(self):\n        return len(self.ivals)\n\n    def __getitem__(self, index):\n        return self.ivals[index]\n\n    def __setitem__(self, index, value):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals[index] = value\n        self.__ivalsDirty = 1\n        assert self.validateComponent(value)\n\n    def __delitem__(self, index):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        del self.ivals[index]\n        self.__ivalsDirty = 1\n\n    def __getslice__(self, i, j):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        return self.__class__(self.ivals[i: j])\n\n    def __setslice__(self, i, j, s):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        self.ivals[i: j] = s\n        self.__ivalsDirty = 1\n        assert self.validateComponents(s)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2876
+  }
+}

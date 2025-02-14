@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within the `DirectManipulation` class, specifically in the `moveToFit()` method. This method calculates the appropriate distance for the widget to fill 50% of the screen based on its scale, then moves it there while maintaining the relative positions of selected objects to the widget. The chunk handles undo operations, task management, and smooth animation of the widget's movement using intervals.\n\n# Push state onto undo stack\n        direct.pushUndo(direct.selected)\n        # Remove the task to keep the widget attached to the object\n        taskMgr.remove('followSelectedNodePath')\n        # Spawn a task to keep the selected objects with the widget\n        taskMgr.add(self.stickToWidgetTask, 'stickToWidget')\n        # Spawn a task to move the widget\n        ival = direct.widget.posInterval(CAM_MOVE_DURATION,\n                                         Point3(centerVec),\n                                         other=direct.camera,\n                                         blendType='easeInOut')\n        ival = Sequence(ival, Func(lambda: taskMgr.remove('stickToWidget')),\n                        name = 'moveToFit')\n        ival.start()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3348
+  }
+}

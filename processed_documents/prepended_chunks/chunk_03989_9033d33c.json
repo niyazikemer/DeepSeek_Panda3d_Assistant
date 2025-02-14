@@ -1,0 +1,9 @@
+{
+  "content": "The Ambient Occlusion configuration within the document enables developers to enhance realism by adjusting light blocking effects. The `setAmbientOcclusion` method allows tweaking parameters such as sample count, radius, amount, strength, and falloff to simulate realistic lighting conditions, while `delAmbientOcclusion` removes this effect. This is part of a comprehensive system managing various visual enhancements like anti-aliasing and bloom.\n\ndef setAmbientOcclusion(self, numsamples = 16, radius = 0.05, amount = 2.0, strength = 0.01, falloff = 0.000002):\n        fullrebuild = (\"AmbientOcclusion\" not in self.configuration)\n\n        if not fullrebuild:\n            fullrebuild = (numsamples != self.configuration[\"AmbientOcclusion\"].numsamples)\n\n        newconfig = FilterConfig()\n        newconfig.numsamples = numsamples\n        newconfig.radius = radius\n        newconfig.amount = amount\n        newconfig.strength = strength\n        newconfig.falloff = falloff\n        self.configuration[\"AmbientOcclusion\"] = newconfig\n        return self.reconfigure(fullrebuild, \"AmbientOcclusion\")\n\n    def delAmbientOcclusion(self):\n        if \"AmbientOcclusion\" in self.configuration:\n            del self.configuration[\"AmbientOcclusion\"]\n            return self.reconfigure(True, \"AmbientOcclusion\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3989
+  }
+}

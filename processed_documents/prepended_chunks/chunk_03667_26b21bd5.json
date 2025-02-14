@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents the final implementation details within a function creating a color picker interface for adjusting node path colors. It includes menu options for color selection, logging, dismissal, and updates the node's color upon adjustment.\n\n</answer>\n\nThis code chunk is part of a function that creates a color picker panel for adjusting node paths or lights in a graphics application, implementing additional menu items and color update functionality.\n\n# System color picker\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Popup Color Picker', command=popupColorPicker)\n\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Print to log', command=printToLog)\n\n    menubar.addmenuitem(\n        'Valuator Group', 'command', 'Dismiss Valuator Group panel',\n        label='Dismiss', command=vgp.destroy)\n\n    def setNodePathColor(color):\n        nodePath.setColor(color[0]/255.0, color[1]/255.0,\n                          color[2]/255.0, color[3]/255.0)\n        # Update color chip button\n        pButton['bg'] = getTkColorString(color)\n        # Execute callback to pass along color info\n        if callback:\n            callback(color)\n    vgp['command'] = setNodePathColor\n\n    return vgp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3667
+  }
+}

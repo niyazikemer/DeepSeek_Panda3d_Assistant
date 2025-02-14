@@ -1,0 +1,9 @@
+{
+  "content": "The chunk `mouseFlyStop` is a method that stops mouse-based camera manipulation in the 3D application. It calculates the time and frame count elapsed since starting the manipulation and checks if the duration was too short to be meaningful, potentially indicating an accidental input or requiring special handling for Maya camera controls. This method is part of managing interactive 3D navigation and ensuring smooth user experience when manipulating the view with mouse inputs.\n\n```python\ndef mouseFlyStop(self):\n    self.__stopManipulateCamera()\n    base = ShowBaseGlobal.base\n    stopT = base.clock.getFrameTime()\n    deltaT = stopT - self.startT\n    stopF = base.clock.getFrameCount()\n    deltaF = stopF - self.startF\n    # No reason this shouldn't work with Maya cam on\n    if not self.useMayaCamControls and (deltaT <= 0.25) or (deltaF <= 1):\n        pass  # Placeholder for potential handling of short duration inputs\n```\n\ndef mouseFlyStop(self):\n        self.__stopManipulateCamera()\n        base = ShowBaseGlobal.base\n        stopT = base.clock.getFrameTime()\n        deltaT = stopT - self.startT\n        stopF = base.clock.getFrameCount()\n        deltaF = stopF - self.startF\n        ## No reason this shouldn't work with Maya cam on\n        # if not self.useMayaCamControls and (deltaT <= 0.25) or (deltaF <= 1):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3311
+  }
+}

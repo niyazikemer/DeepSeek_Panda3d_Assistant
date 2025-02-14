@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Python module that enhances the default pickling mechanism. It implements a custom `Pickler` class designed to serialize complex objects by checking multiple reduction methods (`__reduce_persist__`, `__reduce_ex__`, and `__reduce__`) in sequence, providing flexibility for objects requiring special handling during serialization.\n\n# Check copy_reg.dispatch_table\n        reduce = dispatch_table.get(t)\n        if reduce:\n            rv = reduce(obj)\n        else:\n            # New code: check for a __reduce_persist__ method, then\n            # fall back to standard methods.\n            reduce = getattr(obj, \"__reduce_persist__\", None)\n            if reduce:\n                rv = reduce(self)\n            else:\n                # Check for a __reduce_ex__ method, fall back to __reduce__\n                reduce = getattr(obj, \"__reduce_ex__\", None)\n                if reduce:\n                    rv = reduce(self.proto)\n                else:\n                    reduce = getattr(obj, \"__reduce__\", None)\n                    if reduce:\n                        rv = reduce()\n                    else:\n                        raise PicklingError(\"Can't pickle %r object: %r\" %\n                                            (t.__name__, obj))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3853
+  }
+}

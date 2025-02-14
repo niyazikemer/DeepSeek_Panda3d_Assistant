@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains the initial import statements, type definitions, and convenience functions related to creating scaling bounce effects in the Showutil Effects module. It defines constants for different types of bounce animations (scale X, Y, Z) and provides helper functions for creating these effects on a given node object with specified parameters.\n\n\"\"\" Showutil Effects module: contains code for useful showcode effects. \"\"\"\n\nfrom panda3d.core import Vec3\nfrom direct.interval.IntervalGlobal import (\n    LerpHprInterval,\n    LerpPosInterval,\n    LerpScaleInterval,\n    Sequence,\n)\n\n# bounce types\nSX_BOUNCE = 0\nSY_BOUNCE = 1\nSZ_BOUNCE = 2\nTX_BOUNCE = 3\nTY_BOUNCE = 4\nTZ_BOUNCE = 5\nH_BOUNCE = 6\nP_BOUNCE = 7\nR_BOUNCE = 8\n\n\n# convenience funcs\n#\ndef createScaleXBounce(nodeObj, numBounces, startValues, totalTime, amplitude):\n    return createBounce(nodeObj, numBounces, startValues, totalTime,\n                        amplitude, SX_BOUNCE)\n\ndef createScaleYBounce(nodeObj, numBounces, startValues, totalTime, amplitude):\n    return createBounce(nodeObj, numBounces, startValues, totalTime,\n                        amplitude, SY_BOUNCE)\n\ndef createScaleZBounce(nodeObj, numBounces, startValue, totalTime, amplitude):\n    return createBounce(nodeObj, numBounces, startValue, totalTime,\n                        amplitude, SZ_BOUNCE)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_170",
+    "parent": "processed_documents/context_documents/c94c3f02_Effects.json",
+    "chunk_number": 2942
+  }
+}

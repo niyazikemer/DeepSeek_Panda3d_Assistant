@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of three event handler methods within a class managing a scale widget. The `_widgetMove` method processes movement events during interaction, enabling updates and callbacks when the user drags the scale. `_scaleBtnPress` triggers pre-callbacks on button press, while `_scaleBtnRelease` handles post-callbacks upon release. These methods are integral to the widget's event management, ensuring responsive user interactions and proper state updates.\n\ndef _widgetMove(self, event):\n        if self._firstPress and not self._fUpdate:\n            canvasY = self._widget.canvasy(\n                event.y_root - self._widget.winfo_rooty())\n            if canvasY > 0:\n                self._fUpdate = 1\n                if self['preCallback']:\n                    self['preCallback'](*self['callbackData'])\n                self._unpostOnNextRelease()\n        elif self._fUpdate:\n            self._updateValue(event)\n\n    def _scaleBtnPress(self, event):\n        if self['preCallback']:\n            self['preCallback'](*self['callbackData'])\n\n    def _scaleBtnRelease(self, event):\n        # Do post callback if any\n        if self['postCallback']:\n            self['postCallback'](*self['callbackData'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3522
+  }
+}

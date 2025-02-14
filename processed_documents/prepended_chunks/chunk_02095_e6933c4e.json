@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method responsible for collecting and organizing the names of valid modules. It iterates through each module definition, filters out those marked as guesses or excluded but not forbidden, compiles a list of valid module names, sorts them alphabetically, and returns this sorted list. The method is used to generate an organized list of module names that will be explicitly or implicitly included in the package or application.\n\nmoduleNames = []\n\n        for newName, mdef in list(self.modules.items()):\n            if mdef.guess:\n                # Not really a module.\n                pass\n            elif mdef.exclude and not mdef.forbid:\n                # An excluded (but not forbidden) file.\n                pass\n            else:\n                moduleNames.append(newName)\n\n        moduleNames.sort()\n        return moduleNames\n\n    def getModuleDefs(self):\n        \"\"\" Return a list of all of the modules we will be explicitly\n        or implicitly including.  The return value is actually a list\n        of tuples: (moduleName, moduleDef).\"\"\"\n\n        moduleDefs = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2095
+  }
+}

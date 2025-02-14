@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears within the `Actor` class implementation, specifically as part of a method responsible for retrieving the current frame number of an animation. The method first attempts to find the specified animation by name and returns its current frame if found. If no animation is specified, it iterates through all animations to check for any that are currently playing, returning the frame number of the first active animation encountered. If no animations are found or playing, the method returns `None`.\n\nif animName:\n            anim = animDict.get(animName)\n            if not anim:\n                Actor.notify.warning(\"couldn't find anim: %s\" % (animName))\n            elif anim.animControl:\n                return anim.animControl.getFrame()\n        else:\n            # loop through all anims for named part and find if any are playing\n            for animName, anim in animDict.items():\n                if anim.animControl and anim.animControl.isPlaying():\n                    return anim.animControl.getFrame()\n\n        # we must have found none, or gotten an error\n        return None\n\n\n    # arranging",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3082
+  }
+}

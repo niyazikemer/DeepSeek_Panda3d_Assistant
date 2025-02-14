@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces a label and an entry field component within a Tkinter application. The label displays text if provided, while the entry field allows user input with validation upon pressing Enter. This enhances the GUI by enabling users to directly enter numerical values or other inputs for color control panels or related applications, complementing slider-based controls.\n\n# The Label\n        if self['text'] is not None:\n            self._label = self.createcomponent('label', (), None,\n                                               tk.Label, (interior,),\n                                               text = self['text'],\n                                               font = ('MS Sans Serif', 12),\n                                               anchor = tk.CENTER)\n        else:\n            self._label = None\n\n        # The entry\n        self._entryVal = tk.StringVar()\n        self._entry = self.createcomponent('entry', (), None,\n                                           tk.Entry, (interior,),\n                                           justify = tk.RIGHT,\n                                           width = 12,\n                                           textvariable = self._entryVal)\n        self._entry.bind('<Return>', self.validateEntryInput)\n        self._entryBackground = self._entry.cget('background')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3633
+  }
+}

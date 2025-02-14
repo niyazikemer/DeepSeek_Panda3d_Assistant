@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of an event-handling method in a Python module managing direct manipulation of 3D objects. It specifically deals with the 'scale' edit type, determining whether to perform uniform (3D) or non-uniform (1D) scaling based on keyboard modifiers like Shift and Control.\n\nelif type == 'scale' and not self.currEditTypes & DG.EDIT_TYPE_UNSCALABLE:\n                        if ShowBaseGlobal.direct.fShift:\n                            self.fScaling3D = 1\n                            self.scale3D(state)\n                        else:\n                            self.fScaling1D = 1\n                            self.scale1D(state)\n                else:\n                    if ShowBaseGlobal.direct.fControl and not self.currEditTypes & DG.EDIT_TYPE_UNSCALABLE:\n                        if type == 'post':\n                            # [gjeon] non-uniform scaling\n                            self.fScaling1D = 1\n                            self.scale1D(state)\n                        else:\n                            # [gjeon] uniform scaling\n                            self.fScaling3D = 1\n                            self.scale3D(state)\n                    else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3220
+  }
+}

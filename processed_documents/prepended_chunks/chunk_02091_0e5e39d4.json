@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a `ModuleFinder` class that locates and manages module dependencies. The methods include logic for sorting modules to ensure packages are loaded before their child modules (`__sortModuleKey`), loading individual modules (`__loadModule`), and reporting missing modules during dependency resolution.\n\nif missing:\n            missing.sort()\n            print(\"There are some missing modules: %r\" % missing)\n\n    def __sortModuleKey(self, mdef):\n        \"\"\" A sort key function to sort a list of mdef's into order,\n        primarily to ensure that packages proceed their modules. \"\"\"\n\n        if mdef.moduleName:\n            # If we have a moduleName, the key consists of the split\n            # tuple of packages names.  That way, parents always sort\n            # before children.\n            return ('a', mdef.moduleName.split('.'))\n        else:\n            # If we don't have a moduleName, the key doesn't really\n            # matter--we use filename--but we start with 'b' to ensure\n            # that all of non-named modules appear following all of\n            # the named modules.\n            return ('b', mdef.filename)\n\n    def __loadModule(self, mdef):\n        \"\"\" Adds the indicated module to the modulefinder. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2091
+  }
+}

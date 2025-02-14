@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a shader function within a graphical rendering framework, specifically setting up vertex transformations and texture coordinates. It handles orientation adjustments based on different coordinate systems (e.g., Z-up or Y-up) and applies padding to texture coordinates for optimization purposes. This code appears in the context of implementing graphical effects such as bloom, cartoon ink, and view glow, which are managed by the surrounding class's methods.\n\ntext += \"  uniform float4x4 mat_modelproj)\\n\"\n            text += \"{\\n\"\n            text += \"  l_position = mul(mat_modelproj, vtx_position);\\n\"\n\n            # The card is oriented differently depending on our chosen\n            # coordinate system.  We could just use vtx_texcoord, but this\n            # saves on an additional variable.\n            if getDefaultCoordinateSystem() in (CS_zup_right, CS_zup_left):\n                pos = \"vtx_position.xz\"\n            else:\n                pos = \"vtx_position.xy\"\n\n            for texcoord, padTex in texcoordPadding.items():\n                if padTex is None:\n                    text += \"  %s = %s * float2(0.5, 0.5) + float2(0.5, 0.5);\\n\" % (texcoord, pos)\n                else:\n                    text += \"  %s = (%s * texpad_tx%s.xy) + texpad_tx%s.xy;\\n\" % (texcoord, pos, padTex, padTex)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3969
+  }
+}

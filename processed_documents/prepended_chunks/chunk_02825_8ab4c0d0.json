@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines the `ParticleInterval` class, which extends `Interval` to offer precise control over `ParticleEffect` instances without global registration. This setup allows for detailed management of particle effects within a 3D environment, leveraging Panda3D's capabilities.\n\nclass ParticleInterval(Interval):\n    \"\"\"\n    Use this interval when you want to have greater control over a\n    ParticleEffect.  The interval does not register the effect with\n    the global particle and physics managers, but it does call upon\n    them to perform its stepping.  You should NOT call\n    particleEffect.start() with an effect that is being controlled\n    by a ParticleInterval.\n    \"\"\"\n    # Name counter\n    particleNum = 1\n    # create ParticleInterval DirectNotify category\n    notify = directNotify.newCategory('ParticleInterval')\n    # Class methods\n    def __init__(self,\n                 particleEffect,\n                 parent,\n                 worldRelative = 1,\n                 renderParent = None,\n                 duration = 0.0,\n                 softStopT = 0.0,\n                 cleanup = False,\n                 name = None):\n        \"\"\"\n        Args:\n            particleEffect (ParticleEffect): a particle effect",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_163",
+    "parent": "processed_documents/context_documents/654cc874_ParticleInterval.json",
+    "chunk_number": 2825
+  }
+}

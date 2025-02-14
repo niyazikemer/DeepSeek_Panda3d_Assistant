@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk belongs to the `TexRegion` class, which manages regions for displaying textures in an interactive environment. The `setRollover` method handles highlighting textures on mouseover, while the `isolateTexture` method isolates a specific texture for focused viewing or restores normal mode. These methods are part of a system that allows users to interact with and inspect textures within a graphical interface.\n\ndef setRollover(self, tr, pi):\n        \"\"\" Sets the highlighted texture (due to mouse rollover) to\n        the indicated texture, or None to clear it. \"\"\"\n\n        self.rollover = tr\n        if self.rollover:\n            self.statusText.setText(tr.tex.getName())\n        else:\n            self.statusText.setText('')\n\n    def isolateTexture(self, tr):\n        \"\"\" Isolates the indicated texture onscreen, or None to\n        restore normal mode. \"\"\"\n\n        if self.isolate:\n            self.isolate.removeNode()\n            self.isolate = None\n\n        self.isolated = tr\n\n        # Undo the previous call to isolate.\n        self.canvas.show()\n        self.canvasBackground.clearColor()\n        self.win.getGsg().setTextureQualityOverride(Texture.QLDefault)\n        if hasattr(self.gsg, 'clearFlashTexture'):\n            self.gsg.clearFlashTexture()\n\n        if not tr:\n            return\n\n        # Now isolate.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2969
+  }
+}

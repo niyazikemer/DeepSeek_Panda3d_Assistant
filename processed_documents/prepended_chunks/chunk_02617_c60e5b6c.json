@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of the `request` method in a ClassicFSM (Finite State Machine) class implementation. It handles the logic for transitioning between states when a request to change state is made. Specifically, it checks if a transition should be allowed based on defined rules or forced explicitly, and includes special handling for transitions to the final/terminal state of the FSM. This section manages state transitions in cases where the requested transition is either explicitly allowed or forced, as well as implicitly allowing transitions to the final state regardless of other conditions.\n\nif transitionAllowed or force:\n            self.__transition(aState,\n                              enterArgList,\n                              exitArgList)\n            return 1\n        # We can implicitly always transition to our final state.\n        elif aStateName == self.__finalState.getName():\n            if self.__currentState == self.__finalState:\n                # Do not do the transition if we are already in the\n                # final state\n                assert ClassicFSM.notify.debug(\n                    \"[%s]: already in final state: %s\" %\n                    (self.__name, aStateName))\n                return 1\n            else:\n                # Force a transition to allow for cleanup\n                assert ClassicFSM.notify.debug(\n                    \"[%s]: implicit transition to final state: %s\" %\n                    (self.__name, aStateName))\n                self.__transition(aState,\n                                  enterArgList,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2617
+  }
+}

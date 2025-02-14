@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of the `ClassicFSM` class implementation in Python, specifically handling state transitions within a finite state machine (FSM). The chunk belongs to the `request` method, which manages transitions between states. It checks if a transition from the current state to a target state exists and handles cases where no such transition is defined. If the FSM is already in the target state or there's no valid transition, it logs appropriate debug messages and returns an indication of success or failure.\n\nThis section is crucial for understanding how the FSM enforces state transitions, ensuring that only valid state changes are processed while handling invalid ones gracefully.\n\n(self.__name, aStateName))\n                self.__transition(aState,\n                                  enterArgList,\n                                  exitArgList)\n                return 1\n        # are we already in this state?\n        elif aStateName == self.__currentState.getName():\n            assert ClassicFSM.notify.debug(\n                \"[%s]: already in state %s and no self transition\" %\n                (self.__name, aStateName))\n            return 0\n        else:\n            msg = (\"[%s]: no transition exists from %s to %s\" %\n                   (self.__name,\n                    self.__currentState.getName(),\n                    aStateName))\n            if self.onUndefTransition == ClassicFSM.ERROR:\n                ClassicFSM.notify.error(msg)\n            elif self.onUndefTransition == ClassicFSM.DISALLOW_VERBOSE:\n                ClassicFSM.notify.warning(msg)\n            return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2618
+  }
+}

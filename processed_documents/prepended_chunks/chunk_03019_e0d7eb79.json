@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a function `addBoxGeom` which is a wrapper around `addBox`, used for creating 3D box geometries in a scene. This function simplifies the creation process by abstracting details like vertex definitions and triangle strips, allowing users to specify dimensions, color, and darkening options directly. It's part of a suite of functions that create geometric shapes, ensuring consistent and maintainable code structure.\n\n**Context:**  \nThe chunk implements `addBoxGeom`, a function that creates 3D box geometries by calling `addBox`. It abstracts vertex and triangle strip definitions, enabling easy specification of dimensions, color, and darkening. This function is part of a collection for generating geometric shapes with consistent styling and unique identifiers, enhancing code clarity and maintainability.\n\n```python\ndef addBoxGeom(rootNode, sizeX, sizeY, sizeZ, color=Vec4(1.0, 1.0, 1.0, 1.0), darken=0):\n    \"\"\"Creates a 3D box geometry node with specified dimensions and color.\"\"\"\n    global GEO_ID\n    GN = GeomNode(f\"Box {GEO_ID}\")\n    GEO_ID += 1\n    nodePath = rootNode.attachNewNode(GN)\n    addBox(nodePath, sizeX, sizeY, sizeZ, color, darken)\n    return nodePath, GN, GN.getGeom(0)\n```\n\ndef addBoxGeom(rootNode, sizeX, sizeY, sizeZ, color = Vec4(1.0, 1.0, 1.0, 1.0), darken = 0):\n    global GEO_ID\n    GN = GeomNode(\"Box %s\" % (GEO_ID))\n    GEO_ID += 1\n    nodePathGeom = rootNode.attachNewNode(GN)\n    geo = addBox(GN, sizeX, sizeY, sizeZ, color, darken)\n    return nodePathGeom, GN, geo",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3019
+  }
+}

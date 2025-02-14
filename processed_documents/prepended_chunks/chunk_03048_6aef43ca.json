@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `Actor` class initialization process in Panda3D, specifically handling model loading for different actor configurations. It determines whether to load a single-part actor (with or without LOD) or a multi-part actor (without LOD), iterating through each specified model and loading it appropriately using the `loadModel()` method. The code ensures that models are loaded correctly based on their structure and configuration, maintaining the proper order of LODs when applicable.\n\n# then this is a multipart actor w/o LOD\n                        for partName in models:\n                            # pass in each part\n                            self.loadModel(models[partName], partName,\n                                           copy = copy, okMissing = okMissing)\n                    else:\n                        # it is a single part actor w/LOD\n                        self.setLODNode(node = lodNode)\n                        # preserve order of LOD's\n                        for lodName in sorted(models):\n                            self.addLOD(str(lodName))\n                            # pass in dictionary of parts\n                            self.loadModel(models[lodName], lodName=lodName,\n                                           copy = copy, okMissing = okMissing)\n                else:\n                    # else it is a single part actor\n                    self.loadModel(models, copy = copy, okMissing = okMissing)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3048
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the setup for defining message descriptors and their fields within a Protocol Buffers (protobuf) generated Python file. Specifically, it's adding various value fields to a `oneof` group named `oneof_value` within the `_PRIMITIVE` descriptor, ensuring that each field is properly associated with this oneof group. This configuration allows the `Primitive` message type to support different kinds of values (float, dimension, fraction, etc.) in a mutually exclusive manner.\n\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['float_value'])\n_PRIMITIVE.fields_by_name['float_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['dimension_value'])\n_PRIMITIVE.fields_by_name['dimension_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['fraction_value'])\n_PRIMITIVE.fields_by_name['fraction_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['int_decimal_value'])\n_PRIMITIVE.fields_by_name['int_decimal_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['int_hexadecimal_value'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_138",
+    "parent": "processed_documents/context_documents/e963edbe_Resources_pb2.json",
+    "chunk_number": 2385
+  }
+}

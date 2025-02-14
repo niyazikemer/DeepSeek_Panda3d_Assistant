@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a function `_get_thread_wrapper` within a module implementing threading functionality. This specific section handles the scenario where a thread has already been assigned an ID (`threadId != -1`). The code safely accesses and updates thread-specific wrapper information using locks to ensure thread safety, creating a new wrapper if necessary and updating the internal thread state accordingly.\n\nfinally:\n            _threadsLock.release()\n\n    else:\n        # The thread has been assigned a threadId.  Look for the wrapper.\n        _threadsLock.acquire()\n        try:\n            t, locals, wrapper = _threads[threadId]\n            assert t == thread\n            if wrapper is None:\n                wrapper = wrapperClass(thread, threadId)\n                _threads[threadId] = (thread, locals, wrapper)\n            return wrapper\n\n        finally:\n            _threadsLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3800
+  }
+}

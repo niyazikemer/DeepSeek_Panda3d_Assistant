@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a wireframe visualization of a 3D object's bounds using line segments, including vertex placement for front edge/top face and three remaining edges, along with methods for getting node path bounds and controlling the visibility of the wireframe lines. It is situated in a section that introduces a class or utility for visualizing node path bounding boxes, likely following the existing collision detection utilities.\n\nContext: The chunk describes a visualization tool for displaying the 3D bounds of a node path using line segments to create a wireframe outline, including vertex placement and visibility control methods.\n\n# Front Edge/Top face\n        ls.setVertex(5, minX, minY, maxZ)\n        ls.setVertex(6, maxX, minY, maxZ)\n        ls.setVertex(7, maxX, maxY, maxZ)\n        ls.setVertex(8, minX, maxY, maxZ)\n        ls.setVertex(9, minX, minY, maxZ)\n\n        # Three remaining edges\n        ls.setVertex(10, maxX, minY, minZ)\n        ls.setVertex(11, maxX, minY, maxZ)\n        ls.setVertex(12, maxX, maxY, minZ)\n        ls.setVertex(13, maxX, maxY, maxZ)\n        ls.setVertex(14, minX, maxY, minZ)\n        ls.setVertex(15, minX, maxY, maxZ)\n\n    def getBounds(self):\n        # Get a node path's bounds\n        nodeBounds = BoundingSphere()\n        nodeBounds.extendBy(self.nodePath.node().getInternalBound())\n        for child in self.nodePath.getChildren():\n            nodeBounds.extendBy(child.getBounds())\n        return nodeBounds.makeCopy()\n\n    def show(self):\n        self.lines.reparentTo(self.nodePath)\n\n    def hide(self):\n        self.lines.reparentTo(hidden)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3456
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an error-handling mechanism within a custom module import process. It tries to import a module using `import_hook`, catches common errors like `ImportError` and `SyntaxError`, logs messages about these issues, and marks the module as \"bad\" if it fails. Additionally, if submodules (`fromlist`) are specified, it attempts to import each one and handles any failures similarly.\n\nThis context suggests the chunk is used in a robust import system that tracks failed imports to prevent repeated errors and provide meaningful feedback during the importing process.\n\ntry:\n            self.import_hook(name, caller, level=level)\n        except ImportError as msg:\n            self.msg(2, \"ImportError:\", str(msg))\n            self._add_badmodule(name, caller)\n        except SyntaxError as msg:\n            self.msg(2, \"SyntaxError:\", str(msg))\n            self._add_badmodule(name, caller)\n        else:\n            if fromlist:\n                for sub in fromlist:\n                    fullname = name + \".\" + sub\n                    if fullname in self.badmodules:\n                        self._add_badmodule(fullname, caller)\n                        continue\n                    try:\n                        self.import_hook(name, caller, [sub], level=level)\n                    except ImportError as msg:\n                        self.msg(2, \"ImportError:\", str(msg))\n                        self._add_badmodule(fullname, caller)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2166
+  }
+}

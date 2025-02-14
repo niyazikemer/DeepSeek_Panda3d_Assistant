@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `Timer` class implementation, which provides functionality for creating and managing timers in a Panda3D application. The methods here (`addT`, `setT`, `getT`, and `__timerTask`) handle adjusting the timer duration, retrieving remaining time, and executing the timing task loop to manage the countdown process.\n\ndef addT(self, t):\n        self.finalT = self.finalT + t\n\n    def setT(self, t):\n        self.finalT = t\n\n    def getT(self):\n        return self.finalT - self.currT\n\n    def __timerTask(self, task):\n        t = ClockObject.getGlobalClock().getFrameTime()\n        te = t - self.startT\n        self.currT = te\n        if te >= self.finalT:\n            if self.callback is not None:\n                self.callback()\n            else:\n                from direct.showbase.MessengerGlobal import messenger\n                messenger.send(self.name)\n            return Task.done\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_211",
+    "parent": "processed_documents/context_documents/a11a72f4_Timer.json",
+    "chunk_number": 3913
+  }
+}

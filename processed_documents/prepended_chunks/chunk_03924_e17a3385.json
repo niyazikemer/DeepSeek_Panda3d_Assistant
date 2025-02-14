@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a code section responsible for cleaning up resources when the frame profiler stops running. It iterates over tasks to remove them, releases sessions, deletes related attributes, and logs the profiler's shutdown.\n\n**Context:** Cleanup procedure in a frame profiler, handling task removal and session release during shutdown.\n\nfor task in self._id2task.values():\n                task.remove()\n            del self._id2task\n            for session in self._id2session.values():\n                session.release()\n            del self._id2session\n            self.notify.info('frame profiler stopped')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3924
+  }
+}

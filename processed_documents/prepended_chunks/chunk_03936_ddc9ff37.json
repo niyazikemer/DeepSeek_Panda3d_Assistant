@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the `addProfileSession` method within the `TaskTracker` class that processes task profiling sessions, checking for zero durations, detecting performance spikes, updating average execution times, and storing reference sessions. It also includes the `getAvgDuration` method that returns the calculated average duration of task executions.\n\ndef addProfileSession(self, session):\n        duration = session.getDuration()\n        if duration == 0.:\n            # profiled code was too fast for the clock, throw this result out\n            # if we keep it we may get many false positive spike detects\n            return\n\n        isSpike = self._checkSpike(session)\n        self._durationAverager.addValue(duration)\n\n        storeAvg = True\n        if self._avgSession is not None:\n            avgDur = self.getAvgDuration()\n            if abs(self._avgSession.getDuration() - avgDur) < abs(duration - avgDur):\n                # current avg data is more average than this new sample, keep the data we've\n                # already got stored\n                storeAvg = False\n        if storeAvg:\n            if self._avgSession:\n                self._avgSession.release()\n            self._avgSession = session.getReference()\n\n    def getAvgDuration(self):\n        return self._durationAverager.getAverage()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3936
+  }
+}

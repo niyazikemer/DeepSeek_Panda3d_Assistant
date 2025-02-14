@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method within a custom module finder (`ModuleFinder`) class, which is responsible for scanning directories to gather submodules. The code attempts to locate a specified module or package, verifies the existence of its directory, and then enumerates all Python files in that directory (excluding `__init__.py`), collecting their base names as potential submodules. This functionality is particularly useful for managing dynamic imports or handling namespace packages where modules are distributed across directories without an explicit `__init__.py`.\n\ntry:\n            file, pathname, description = self.mf.find_module(baseName, path)\n        except ImportError:\n            return None\n\n        if not self.mf._dir_exists(pathname):\n            return None\n\n        # Scan the directory, looking for .py files.\n        modules = []\n        for basename in sorted(self.mf._listdir(pathname)):\n            if basename.endswith('.py') and basename != '__init__.py':\n                modules.append(basename[:-3])\n\n        return modules\n\n    def _gatherSubmodules(self, moduleName, implicit = False, newName = None,\n                          filename = None, guess = False, fromSource = None,\n                          text = None):\n        if not newName:\n            newName = moduleName\n\n        assert moduleName.endswith('.*')\n        assert newName.endswith('.*')\n\n        mdefs = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2077
+  }
+}

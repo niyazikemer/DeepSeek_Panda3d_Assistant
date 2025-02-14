@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `TaskManager` class in a Python module related to task management, specifically dealing with profiling tasks. The methods `_profileTask`, `_hasProfiledDesignatedTask`, `_getLastTaskProfileSession`, and `_getRandomTask` manage the profiling process by setting session data, checking if a task has been profiled, retrieving profiling sessions, and selecting appropriate tasks based on timing constraints.\n\n# set these values *after* profiling in case we're profiling the TaskProfiler\n        profileInfo.session = profileSession\n        profileInfo.profiled = True\n\n        return ret\n\n    def _hasProfiledDesignatedTask(self):\n        # have we run a profile of the designated task yet?\n        return self._taskProfileInfo.profiled\n\n    def _getLastTaskProfileSession(self):\n        return self._taskProfileInfo.session\n\n    def _getRandomTask(self):\n        # Figure out when the next frame is likely to expire, so we\n        # won't grab any tasks that are sleeping for a long time.\n        now = self.globalClock.getFrameTime()\n        avgFrameRate = self.globalClock.getAverageFrameRate()\n        if avgFrameRate < .00001:\n            avgFrameDur = 0.\n        else:\n            avgFrameDur = (1. / self.globalClock.getAverageFrameRate())\n        next = now + avgFrameDur",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3905
+  }
+}

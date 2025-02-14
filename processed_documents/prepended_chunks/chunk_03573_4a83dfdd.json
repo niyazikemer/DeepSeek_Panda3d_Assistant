@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines methods within the `EntryScaleGroup` class responsible for handling user interactions such as button presses and releases. These methods manage state transitions and trigger user-defined callback functions to customize behavior on specific actions, enhancing component adaptability.\n\ndef reset(self):\n        self.set(self['value'])\n\n    def __onReturn(self, esg):\n        # Execute onReturn callback\n        self.onReturn(*esg.get())\n\n    def onReturn(self, *args):\n        \"\"\" User redefinable callback executed on button press \"\"\"\n\n    def __onReturnRelease(self, esg):\n        # Execute onReturnRelease callback\n        self.onReturnRelease(*esg.get())\n\n    def onReturnRelease(self, *args):\n        \"\"\" User redefinable callback executed on button press \"\"\"\n\n    def __onPress(self, esg):\n        # Execute onPress callback\n        if self['preCallback']:\n            self['preCallback'](*esg.get())\n\n    def onPress(self, *args):\n        \"\"\" User redefinable callback executed on button press \"\"\"\n\n    def __onRelease(self, esg):\n        # Execute onRelease callback\n        if self['postCallback']:\n            self['postCallback'](*esg.get())\n\n    def onRelease(self, *args):\n        \"\"\" User redefinable callback executed on button release \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3573
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to implement nested hierarchical FSMs and customize state transitions using specialized fromTo functions, explaining the usage of enterState() and exitState() methods for managing nested FSM instances.\n\nTo implement nested hierarchical FSM's, simply create a nested FSM\n    and store it on the class within the appropriate enterState()\n    function, and clean it up within the corresponding exitState()\n    function.\n\n    There is a way to define specialized transition behavior between\n    two particular states.  This is done by defining a from<X>To<Y>()\n    function, where X is the old state and Y is the new state.  If this\n    is defined, it will be run in place of the exit<X> and enter<Y>\n    functions, so if you want that behavior, you'll have to call them\n    specifically.  Otherwise, you can completely replace that transition's\n    behavior.\n\n    See the code in SampleFSM.py for further examples.\n    \"\"\"\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"FSM\")\n\n    SerialNum = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2629
+  }
+}

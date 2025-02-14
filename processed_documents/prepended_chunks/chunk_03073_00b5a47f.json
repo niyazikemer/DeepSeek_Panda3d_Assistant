@@ -1,0 +1,9 @@
+{
+  "content": "The chunk includes two key methods, `clearLODAnimation` and `update`, which manage how an Actor's animations and joint updates are handled based on Level of Detail (LOD). These methods should be situated near other LOD-related functions in the document.\n\ndef clearLODAnimation(self):\n        \"\"\" Description: Undoes the effect of a recent call to\n        set_lod_animation().  Henceforth, the character will animate\n        every frame, regardless of its distance from the camera.\n        \"\"\"\n\n        self.__LODAnimation = None\n\n        for lodData in self.__partBundleDict.values():\n            for partData in lodData.values():\n                char = partData.partBundleNP\n                char.node().clearLodAnimation()\n\n\n    def update(self, lod=0, partName=None, lodName=None, force=False):\n        \"\"\" Updates all of the Actor's joints in the indicated LOD.\n        The LOD may be specified by name, or by number, where 0 is the\n        highest level of detail, 1 is the next highest, and so on.\n\n        If force is True, this will update every joint, even if we\n        don't believe it's necessary.\n\n        Returns True if any joint has changed as a result of this,\n        False otherwise. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3073
+  }
+}

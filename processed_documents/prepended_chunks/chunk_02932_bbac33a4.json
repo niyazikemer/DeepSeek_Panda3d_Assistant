@@ -1,0 +1,9 @@
+{
+  "content": "The `privStep` method in the `ProjectileInterval` class updates the node's position using a parabolic trajectory over time. It calculates the current position via the `_calcPos` method, which uses the defined parabola equation. The position is then applied to the node using `setFluidPos`. Additionally, it updates collision detection by adjusting the end time (`T2`) of the collision solid to reflect the current step in the projectile's path. This ensures accurate collision tracking as the projectile moves along its trajectory over time.\n\ndef __calcPos(self, t):\n        return self.parabola.calcPoint(t)\n\n    def privStep(self, t):\n        self.node.setFluidPos(self.__calcPos(t))\n        Interval.privStep(self, t)\n        if self.collNode and self.collNode.getNumSolids() > 0:\n            csolid = self.collNode.modifySolid(0)\n            csolid.setT1(csolid.getT2())\n            csolid.setT2(t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2932
+  }
+}

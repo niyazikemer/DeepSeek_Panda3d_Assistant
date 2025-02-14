@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk pertains to parsing and analyzing Mach-O binary file headers, specifically determining endianness, extracting CPU type, subtype, file type, number of commands, command size, and flags. This is part of a larger custom module handling system designed to inspect and load Python modules, particularly those involving binary or compiled components.\n\nKey context elements for search retrieval:\n- Parsing Mach-O binaries\n- Endianness detection\n- Header structure analysis\n- CPU architecture determination\n- Command parsing in binary files\n\nThis code would be relevant when searching for information related to Mach-O file processing within a module handling system.\n\nif macho_data[:4] in (b'\\xCE\\xFA\\xED\\xFE', b'\\xCF\\xFA\\xED\\xFE'):\n            endian = '<'\n        else:\n            endian = '>'\n\n        cputype, cpusubtype, filetype, ncmds, sizeofcmds, flags = \\\n            struct.unpack_from(endian + 'IIIIII', macho_data, 4)\n\n        is_64bit = (cputype & 0x1000000) != 0\n        segments = []\n\n        cmd_ptr = 28\n        nlist_struct = endian + 'IBBHI'\n        if is_64bit:\n            nlist_struct = endian + 'IBBHQ'\n            cmd_ptr += 4\n        nlist_size = struct.calcsize(nlist_struct)\n\n        for i in range(ncmds):\n            cmd, cmd_size = struct.unpack_from(endian + 'II', macho_data, cmd_ptr)\n            cmd_data = macho_data[cmd_ptr+8:cmd_ptr+cmd_size]\n            cmd_ptr += cmd_size\n\n            cmd &= ~0x80000000",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2145
+  }
+}

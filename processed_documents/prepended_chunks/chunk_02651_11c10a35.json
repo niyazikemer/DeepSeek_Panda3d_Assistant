@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `__callExitFunc` method in an FSM (Finite State Machine) class. It handles error conditions during state transitions by setting the FSM to 'InternalError' state, cleaning up old state references, broadcasting state changes, updating the current state, and processing any queued requests after resolving exceptions.\n\nself.state = 'InternalError'\n            del self.oldState\n            del self.newState\n            raise\n\n        if self._broadcastStateChanges:\n            messenger.send(self.getStateChangeEvent())\n\n        self.state = newState\n        del self.oldState\n        del self.newState\n\n        if self.__requestQueue:\n            request, fut = self.__requestQueue.pop(0)\n            assert self.notify.debug(\"%s continued queued request.\" % (self._name))\n            await request()\n            fut.set_result(None)\n\n    def __callEnterFunc(self, name, *args):\n        # Calls the appropriate enter function when transitioning into\n        # a new state, if it exists.\n        assert self.state is None and self.newState == name\n\n        func = getattr(self, \"enter\" + name, None)\n        if not func:\n            # If there's no matching enterFoo() function, call\n            # defaultEnter() instead.\n            func = self.defaultEnter\n        return func(*args)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2651
+  }
+}

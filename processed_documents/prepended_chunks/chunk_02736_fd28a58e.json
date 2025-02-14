@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains essential methods for managing sound playback over time in the `SoundInterval` class:\n\n1. `privInstant()` - Handles any immediate actions when starting the interval (empty implementation here)\n2. `privStep(t)` - Updates the audio state at each time step, including:\n   - Resuming from pause by restarting sound playback\n   - Updating final volume based on spatial relationships between listener and sound source\n3. `finish()` - Properly cleans up and terminates the sound interval\n\nThis chunk implements core functionality for managing spatialized sound playback over time, including handling pauses/resumes and proper termination.\n\ndef privInstant(self):\n        pass\n\n    def privStep(self, t):\n        ## if self._reverse:\n        ##     # Don't attempt to play the sound backwards.\n        ##     return\n\n        if self.state == CInterval.SPaused:\n            # Restarting from a pause.\n            t1 = t + self.startTime\n            if t1 < self.soundDuration:\n                base.sfxPlayer.playSfx(\n                    self.sound, self.fLoop, 1, self.volume, t1, self.node,\n                    listenerNode = self.listenerNode)\n        if self.listenerNode and not self.listenerNode.isEmpty() and \\\n           self.node and not self.node.isEmpty():\n            base.sfxPlayer.setFinalVolume(self.sound, self.node, self.volume,\n                                          self.listenerNode, self.cutOff)\n\n        self.state = CInterval.SStarted\n        self.currT = t\n\n    def finish(self, *args, **kArgs):\n        self._inFinish = True\n        Interval.Interval.finish(self, *args, **kArgs)\n        del self._inFinish",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_155",
+    "parent": "processed_documents/context_documents/3a83844b_SoundInterval.json",
+    "chunk_number": 2736
+  }
+}

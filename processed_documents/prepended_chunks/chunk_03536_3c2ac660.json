@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the initialization of a GUI component, specifically configuring a `ValuatorGroupPanel` for input handling in the `VectorEntry` or its subclasses (e.g., `ColorEntry`). The chunk explains how to configure the floater group and individual floaters, emphasizing their roles in updating input values through slider interactions.\n\n# To configure the floaterGroup use:\n        # ve.configure(floaterGroup_XXX = YYY)\n        # ve.configure(fGroup_XXX = YYY) or\n        # To set the configuration all floaters in a group use:\n        # ve.configure(Valuator_XXX = YYY)\n        # To configure an individual floater in a group use:\n        # ve.configure(floaterGroup_floater0_XXX = YYY) or\n        # ve.configure(fGroup_floater0_XXX = YYY)\n        self._floaters = self.createcomponent(\n            'floaterGroup',\n            (('fGroup', 'floaterGroup'),\n             ('valuator', 'floaterGroup_valuator'),), None,\n            Valuator.ValuatorGroupPanel, (self.interior(),),\n            dim = self['dim'],\n            #title = self['text'],\n            type = self['type'],\n            command = self.set)\n        # Note: This means the 'X' on the menu bar doesn't really destroy\n        # the panel, just withdraws it.  This is to avoid problems which occur",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3536
+  }
+}

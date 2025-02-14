@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a method responsible for writing 8-bit per pixel (bpp) indexed color data into an icon file. It handles aligning rows to a 4-byte boundary by adding padding bytes as needed. This is commonly used in ICO or ICNS format generation where image data must be properly aligned and formatted according to the specific requirements of these icon types.\n\nThe chunk appears within a conditional block that checks for `if bpp == 8`. It iterates over each pixel of an image, retrieves the corresponding color index from a predefined palette, writes this index into the output file, and ensures row alignment by appending padding bytes if necessary. If the bpp value is not 8, it raises a ValueError indicating invalid bpp.\n\nThis functionality is typically found in functions that handle lower-bitdepth images, ensuring compatibility with formats like ICO or ICNS which often support indexed color palettes for smaller icons.\n\n# Write indices.  Align rows to 4-byte boundary.\n            rowalign = b'\\0' * (-size & 3)\n            for y in range(size):\n                for x in range(size):\n                    pixel = image2.get_pixel(x, size - y - 1)\n                    index = colors.index(pixel)\n                    fp.write(struct.pack('<B', index))\n                fp.write(rowalign)\n        else:\n            raise ValueError(\"Invalid bpp %d\" % (bpp))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2192
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes functionality for handling wildcard patterns in module names (`*.py`), particularly when determining parent modules and directories during module discovery or manipulation. This likely pertains to dynamic module resolution or override mechanisms within a package management system.\n\nassert moduleName.endswith('.*')\n        assert newName.endswith('.*')\n\n        mdefs = {}\n\n        # Find the parent module, so we can get its directory.\n        parentName = moduleName[:-2]\n        newParentName = newName[:-2]\n        parentNames = [(parentName, newParentName)]\n\n        if parentName.endswith('.*'):\n            assert newParentName.endswith('.*')\n            # Another special case.  The parent name \"*\" means to\n            # return all possible directories within a particular\n            # directory.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2078
+  }
+}

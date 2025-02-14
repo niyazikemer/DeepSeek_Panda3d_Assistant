@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines essential methods of the `SceneGraphExplorerItem` class that control how nodes are displayed, expanded, and interacted with in the scene graph explorer tool.\n\ndef GetIconName(self):\n        return \"sphere2\" # XXX wish there was a \"file\" icon\n\n    def IsExpandable(self):\n        return self.nodePath.getNumChildren() != 0\n\n    def GetSubList(self):\n        sublist = []\n        for nodePath in self.nodePath.getChildren():\n            item = SceneGraphExplorerItem(nodePath, self.isItemEditable)\n            sublist.append(item)\n        return sublist\n\n    def OnSelect(self):\n        messenger.send('SGE_Flash', [self.nodePath])\n\n    def MenuCommand(self, command):\n        messenger.send('SGE_' + command, [self.nodePath])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3498
+  }
+}

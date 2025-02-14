@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a process for creating and managing serialized module tables in a binary format. It calculates field offsets within a blob structure, which contains pointers relative to the blob's start, ensuring compatibility across different architectures (bitness). This context is essential for understanding how module data is organized and written into binary files, aiding in tasks like serialization or multi-architecture support.\n\n# Calculate the offsets for the variables.  These are pointers,\n        # relative to the beginning of the blob.\n        field_offsets = {}\n        for key, value in fields.items():\n            if value is not None:\n                encoded = value.encode('utf-8')\n                field_offsets[key] = pool_offset + string_offsets[encoded]\n\n        # OK, now go and write the blob.  This consists of the module table\n        # (there may be two in the case of a macOS universal (fat) binary).\n        blob = b\"\"\n        append_offset = False\n        for bitness in bitnesses:\n            entry_layout = entry_layouts[bitness]\n            header_layout = header_layouts[bitness]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2129
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a customized `ModuleFinder` implementation in Python. The chunk sits within an extended or overridden version of the standard `modulefinder.ModuleFinder` class, which is responsible for locating and managing modules during runtime.\n\n**Context:**\n\nThis code defines initialization behavior and a method for opening files within a custom module finder implementation. It extends the default `ModuleFinder` to manage file access more efficiently by preventing multiple openings of zip archives and handling file encoding appropriately.\n\nmodulefinder.ModuleFinder.__init__(self, *args, **kw)\n\n        # Make sure we don't open a .whl/.zip file more than once.\n        self._zip_files = {}\n\n    def _open_file(self, path, mode):\n        \"\"\" Opens a module at the given path, which may contain a zip file.\n        Returns None if the module could not be found. \"\"\"\n\n        if os.path.isfile(path):\n            if 'b' not in mode:\n                return io.open(path, mode, encoding='utf8')\n            else:\n                return open(path, mode)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2154
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe `manipulateObject` method is part of a class responsible for handling object manipulation in a 3D modeling or game development environment using Direct. This function manages the selection of objects, checks their editability, records undo points, and updates widget visibility to prepare for object editing operations. It plays a key role in enabling interactive transformations and maintaining the integrity of selected objects during the manipulation process.\n\"\"\"\n\ndef manipulateObject(self):\n        # Only do this if something is selected\n        direct = ShowBaseGlobal.direct\n        selectedList = direct.selected.getSelectedAsList()\n        # See if any of the selected are completely uneditable\n        editTypes = self.getEditTypes(selectedList)\n        if (editTypes & DG.EDIT_TYPE_UNEDITABLE) == DG.EDIT_TYPE_UNEDITABLE:\n            return\n        self.currEditTypes = editTypes\n        if selectedList:\n            # Remove the task to keep the widget attached to the object\n            taskMgr.remove('followSelectedNodePath')\n            # and the task to highlight the widget\n            taskMgr.remove('highlightWidgetTask')\n            # Set manipulation flag\n            self.fManip = 1\n            # Record undo point\n            direct.pushUndo(direct.selected)\n            # Update object handles visibility\n            if hasattr(direct, 'widget'):\n                direct.widget.showGuides()\n                direct.widget.hideAllHandles()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3215
+  }
+}

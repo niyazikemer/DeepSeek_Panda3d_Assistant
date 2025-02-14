@@ -1,0 +1,9 @@
+{
+  "content": "The `verifySubpartsComplete` method ensures proper validation of model components by checking that every joint within a specified part (or level of detail) is adequately covered by at least one subpart. This function helps prevent issues during rendering or animation by validating the completeness of the model's hierarchical structure, ensuring no joints are left undefined or improperly exposed.\n\ndef verifySubpartsComplete(self, partName = None, lodName = None):\n        \"\"\" Ensures that each joint is defined by at least one\n        subPart.  Prints a warning if this is not the case. \"\"\"\n\n        if partName:\n            assert partName not in self.__subpartDict\n            partNames = [partName]\n        else:\n            if lodName:\n                partNames = self.__partBundleDict[lodName].keys()\n            else:\n                partNames = next(iter(self.__partBundleDict.values())).keys()\n\n        for partName in partNames:\n            subJoints = set()\n            for subPartName, subPartDef in self.__subpartDict.items():\n                if subPartName != partName and subPartDef.truePartName == partName:\n                    subJoints |= set(self.getJoints(partName = subPartName, lodName = lodName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3148
+  }
+}

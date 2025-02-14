@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `Vector2Entry` class, which inherits from the base `VectorEntry` class. It initializes options for handling 2-dimensional vectors, setting the dimension (`dim`) to 2 and defining component labels as ('X', 'Y', 'Z'). This class is part of a hierarchy of vector input classes designed for different dimensionalities (e.g., Vector3Entry, Vector4Entry), each tailored with specific configurations.\n\nclass Vector2Entry(VectorEntry):\n    def __init__(self, parent = None, **kw):\n        # Initialize options for the class\n        optiondefs = (\n            ('dim',    2,       Pmw.INITOPT),\n            ('fGroup_labels',   ('X','Y','Z'),  None),\n        )\n        self.defineoptions(kw, optiondefs)\n        # Initialize the superclass, make sure dim makes it to superclass\n        VectorEntry.__init__(self, parent, dim = self['dim'])\n        # Needed because this method checks if self.__class__ is myClass\n        # where myClass is the argument passed into inialiseoptions\n        self.initialiseoptions(Vector2Entry)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3545
+  }
+}

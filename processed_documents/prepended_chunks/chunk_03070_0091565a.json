@@ -1,0 +1,9 @@
+{
+  "content": "Methods for managing Level of Detail (LOD) nodes and animation playback modes within an Actor class, including retrieving specific LOD nodes via getLOD(), checking if the actor has any LODs with hasLOD(), and determining the play mode of animations using getPlayMode().\n\ndef getLOD(self, lodName):\n        \"\"\"getLOD(self, string)\n        Get the named node under the LOD to which we parent all LOD\n        specific geometry to. Returns 'None' if not found\n        \"\"\"\n        if self.__LODNode:\n            lod = self.__LODNode.find(str(lodName))\n            if lod.isEmpty():\n                return None\n            else:\n                return lod\n        else:\n            return None\n\n    def getPlayMode(self, animName=None, partName=None):\n        if self.__animControlDict:\n            controls = self.getAnimControls(animName, partName, onlyPlaying=False)\n            if controls:\n                return controls[0].getPlayMode()\n        return None\n\n    def hasLOD(self):\n        \"\"\"\n        Return 1 if the actor has LODs, 0 otherwise\n        \"\"\"\n        return self.__hasLOD",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3070
+  }
+}

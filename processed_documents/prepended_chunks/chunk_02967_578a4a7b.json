@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class that manages texture records and user interactions within a graphical application. The methods handle dynamic changes in graphics memory limits, respond to window size adjustments, and manage mouse-over events on specific texture regions.\n\ndef graphicsMemoryLimitChanged(self):\n        if self.dynamicLimit or self.lruLimit:\n            self.__doSetLimit(None)\n            self.reconfigureWindow()\n\n    def windowEvent(self, win):\n        if win == self.win:\n            props = win.getProperties()\n            if not props.getOpen():\n                # User closed window.\n                self.cleanup()\n                return\n\n            size = (props.getXSize(), props.getYSize())\n            if size != self.winSize:\n                self.winSize = size\n                self.reconfigureWindow()\n\n    def enterRegion(self, region, buttonName):\n        \"\"\" the mouse has rolled over a texture. \"\"\"\n        key, pi = map(int, region.getName().split(':'))\n        tr = self.texRecordsByKey.get(key)\n        if not tr:\n            return\n\n        self.setRollover(tr, pi)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2967
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of the `makeTexNodes` method within the `TexManager` class, responsible for creating visual elements (matte, backing, card, and frame) to display textures. The loop processes each texture placement defined by `self.placements`, creating a slightly scaled-back version of each placement area using a shrink matrix, and initializes a dark gray background (`0.1, 0.3, 0.5`) for each placement's backing node. This setup ensures proper framing and positioning of textures on the canvas while preventing overlap with other placements through bitmask management in `TexPlacement`.\n\n# A matte to frame the texture and indicate its status.\n        matte = root.attachNewNode('matte', 0)\n\n        # A backing to put behind the card.\n        backing = root.attachNewNode('backing', 10)\n\n        # A card to display the texture.\n        card = root.attachNewNode('card', 20)\n\n        # A wire frame to ring the matte and separate the card from\n        # its neighbors.\n        frame = root.attachNewNode('frame', 30)\n\n\n        for p in self.placements:\n            l, r, b, t = p.p\n            cx = (l + r) * 0.5\n            cy = (b + t) * 0.5\n            shrinkMat = Mat4.translateMat(-cx, 0, -cy) * Mat4.scaleMat(0.9) * Mat4.translateMat(cx, 0, cy)\n\n            cm = CardMaker('backing')\n            cm.setFrame(l, r, b, t)\n            cm.setColor(0.1, 0.3, 0.5, 1)\n            c = backing.attachNewNode(cm.generate())\n            c.setMat(shrinkMat)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2999
+  }
+}

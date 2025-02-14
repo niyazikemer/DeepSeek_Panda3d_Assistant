@@ -1,0 +1,9 @@
+{
+  "content": "The `getPartBundle` method is a critical utility within the `Actor` class that facilitates access to part bundles for specific parts across different levels of detail (LODs). This method retrieves a `PartBundle` associated with a given part name and LOD, which is essential for managing animations and subparts. It serves as a foundational tool for other methods in the class, enabling operations like animation binding and subpart creation by providing necessary bundle access.\n\ndef getPartBundle(self, partName, lodName=\"lodRoot\"):\n        \"\"\"\n        Find the named part in the optional named lod and return its\n        associated PartBundle, or return None if not present\n        \"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return None\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef is not None:\n            return partDef.getBundle()\n        return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3084
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of a method within a class responsible for managing visual effects or animations. The specific functionality involves scheduling a task to perform a flash effect on a nodePath after a specified duration. This is achieved by using `taskMgr.doMethodLater` to schedule the `flashDummy` method, which sets up the necessary attributes (nodePath and doneColor) and defines a callback (`flashDone`) that triggers upon task completion.\n\nThe code is situated within a class that handles display regions and user interactions, likely in the context of a 3D graphics application using Panda3D. The flash effect is probably used to provide visual feedback for selected objects or UI elements when certain events occur, such as mouse clicks or other user inputs.\n\nt = taskMgr.doMethodLater(DG.DIRECT_FLASH_DURATION,\n                                      # This is just a dummy task\n                                      self.flashDummy,\n                                      'flashNodePath',)\n            t.nodePath = nodePath\n            t.doneColor = doneColor\n            # This really does all the work\n            t.setUponDeath(self.flashDone)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3415
+  }
+}

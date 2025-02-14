@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `ColorEntry` class within a document introducing custom Pmw-based vector entry widgets. The `ColorEntry` class specializes as a 4-dimensional color input handler (R, G, B, A) inheriting from the base `VectorEntry` class.\n\nclass ColorEntry(VectorEntry):\n    def __init__(self, parent = None, **kw):\n        # Initialize options for the class (overriding some superclass options)\n        optiondefs = (\n            ('dim',                     4,                  Pmw.INITOPT),\n            ('type',                    'slider',           Pmw.INITOPT),\n            ('fGroup_labels',           ('R','G','B','A'),  None),\n            ('min',                     0.0,                None),\n            ('max',                     255.0,              None),\n            ('nuDigits',                0,                  None),\n            ('valuator_resolution',     1.0,                None),\n        )\n        self.defineoptions(kw, optiondefs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3548
+  }
+}

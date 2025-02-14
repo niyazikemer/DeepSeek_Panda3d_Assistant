@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a custom Python module loader or import mechanism. It includes methods for scanning code objects to recursively analyze their constants (`scan_code` method) and locating modules on the filesystem with support for namespace packages and frozen modules (`find_module` method). The specific chunk shows how the `scan_code` method processes bytecode constants, ensuring all nested code objects are scanned, while `find_module` handles module discovery across directories and custom overrides.\n\nfor c in co.co_consts:\n            if isinstance(c, type(co)):\n                self.scan_code(c, m)\n\n    def find_module(self, name, path=None, parent=None):\n        \"\"\" Finds a module with the indicated name on the given search path\n        (or self.path if None).  Returns a tuple like (fp, path, stuff), where\n        stuff is a tuple like (suffix, mode, type). \"\"\"\n\n        #if imp.is_frozen(name):\n        #    # Don't pick up modules that are frozen into p3dpython.\n        #    raise ImportError(\"'%s' is a frozen module\" % (name))\n\n        if parent is not None:\n            fullname = parent.__name__+'.'+name\n        else:\n            fullname = name\n        if fullname in self.excludes:\n            raise ImportError(name)\n\n        # If we have a custom override for this module, we know we have it.\n        if fullname in overrideModules:\n            return (None, '', ('.py', 'r', _PY_SOURCE))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2172
+  }
+}

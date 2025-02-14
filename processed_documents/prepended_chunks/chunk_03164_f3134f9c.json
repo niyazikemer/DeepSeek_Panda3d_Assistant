@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within the Actor class that handles animation binding across different Levels of Detail (LODs) or parts of the actor. It manages dictionary lookups to ensure animations are correctly associated with their respective parts or subparts, considering whether common bundles should be merged for all LODs.\n\npartDict = self.__animControlDict[lodName]\n        animDict = partDict.get(partName)\n        if animDict is None:\n            # It must be a subpart that hasn't been bound yet.\n            animDict = {}\n            partDict[partName] = animDict\n\n        anim = animDict.get(animName)\n        if anim is None:\n            # It must be a subpart that hasn't been bound yet.\n            anim = partDict[subpartDef.truePartName].get(animName)\n            anim = anim.makeCopy()\n            animDict[animName] = anim\n\n        if anim is None:\n            Actor.notify.error(\"actor has no animation %s\", animName)\n\n        # only bind if not already bound!\n        if anim.animControl:\n            return anim.animControl\n\n        if self.mergeLODBundles:\n            bundle = self.__commonBundleHandles[subpartDef.truePartName].getBundle()\n        else:\n            bundle = self.__partBundleDict[lodName][subpartDef.truePartName].getBundle()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3164
+  }
+}

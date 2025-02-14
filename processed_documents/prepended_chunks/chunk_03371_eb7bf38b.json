@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a class responsible for managing display regions and handling mouse updates, clipping planes, and field of view settings. The specific chunk pertains to setting up VRPN devices (Joybox, Radamec, Fastrak) based on configuration variables. This functionality should be integrated into the initialization or setup methods of a class managing input devices or VRPN connections.\n\nContext: Setting up VRPN devices for handling input in a 3D application, configured via specified parameters.\n\n# Create a vrpn client vrpn-server or default\n        self.deviceManager = None\n        self.joybox = None\n        self.radamec = None\n        self.fastrak = []\n        if ConfigVariableBool('want-vrpn', False):\n            from direct.directdevices import DirectDeviceManager\n            self.deviceManager = DirectDeviceManager.DirectDeviceManager()\n            # Automatically create any devices specified in config file\n            joybox = ConfigVariableString('vrpn-joybox-device', '').value\n            radamec = ConfigVariableString('vrpn-radamec-device', '').value\n            fastrak = ConfigVariableString('vrpn-fastrak-device', '').value\n            if joybox:\n                from direct.directdevices import DirectJoybox\n                self.joybox = DirectJoybox.DirectJoybox(joybox)\n            if radamec:\n                from direct.directdevices import DirectRadamec\n                self.radamec = DirectRadamec.DirectRadamec(radamec)\n            if fastrak:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3371
+  }
+}

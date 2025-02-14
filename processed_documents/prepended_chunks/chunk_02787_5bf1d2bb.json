@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `__init__` method for the `LerpFunctionNoStateInterval` class, which initializes an interval that manages function calls with blending over time. The method sets up parameters including the function to execute, duration, blend type, and handles name generation if not provided.\n\ndef __init__(self, function, duration = 0.0, fromData = 0, toData = 1,\n                 blendType = 'noBlend', extraArgs = [], name = None):\n        \"\"\"__init__(function, duration, fromData, toData, name)\n        \"\"\"\n        # Record instance variables\n        self.function = function\n        self.fromData = fromData\n        self.toData = toData\n        self.blendType = LerpBlendHelpers.getBlend(blendType)\n        self.extraArgs = extraArgs\n        # Generate unique name if necessary\n        if name is None:\n            name = ('LerpFunctionInterval-%d' %\n                    LerpFunctionNoStateInterval.lerpFunctionIntervalNum)\n            LerpFunctionNoStateInterval.lerpFunctionIntervalNum += 1\n        else:\n            # Allow the user to pass in a %d in the name and we'll go ahead\n            # and uniquify the name for them.\n            if \"%d\" in name:\n                name = name % LerpFunctionNoStateInterval.lerpFunctionIntervalNum",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2787
+  }
+}

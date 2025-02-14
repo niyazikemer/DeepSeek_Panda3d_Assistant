@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a module finder implementation for Python, specifically tailored for use in a freezing or packaging tool like Panda3D's freeze tool. It focuses on initializing the module finder configuration and managing excluded modules to avoid duplication during the freezing process.\n\nThis context emphasizes the setup of module finding parameters (optimization level, excludes) and the exclusion mechanism that integrates another FreezeTool's processed modules into the current instance, ensuring efficient and non-redundant module handling.\n\nif optimize is None or optimize < 0:\n            self.optimize = sys.flags.optimize\n        else:\n            self.optimize = optimize\n\n        self.mf = PandaModuleFinder(excludes=['doctest'], suffixes=suffixes,\n                                    path=path, optimize=self.optimize)\n\n    def excludeFrom(self, freezer):\n        \"\"\" Excludes all modules that have already been processed by\n        the indicated FreezeTool.  This is equivalent to passing the\n        indicated FreezeTool object as previous to this object's\n        constructor, but it may be called at any point during\n        processing. \"\"\"\n\n        for key, value in list(freezer.modules.items()):\n            self.previousModules[key] = value\n            self.modules[key] = value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2073
+  }
+}

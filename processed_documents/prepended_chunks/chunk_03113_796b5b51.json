@@ -1,0 +1,9 @@
+{
+  "content": "The `fixBounds_old` method is part of the Actor class and is related to geometry and animation management, specifically handling bounding sphere computations for character models. It forces a recompute of bounding spheres for all geoms in specified or all parts by updating character nodes.\n\ndef fixBounds_old(self, part=None):\n        \"\"\"fixBounds(self, nodePath=None)\n        Force recomputation of bounding spheres for all geoms\n        in a given part. If no part specified, fix all geoms\n        in this actor\n        \"\"\"\n        # if no part name specified fix all parts\n        if part is None:\n            part = self\n\n        # update all characters first\n        charNodes = part.findAllMatches(\"**/+Character\")\n        for charNode in charNodes:\n            charNode.node().update()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3113
+  }
+}

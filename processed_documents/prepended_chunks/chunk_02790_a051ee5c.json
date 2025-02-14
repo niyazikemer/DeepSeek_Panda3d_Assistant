@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `privStep` method in the `LerpFunctionInterval` class. This method handles the evaluation of an animation step by blending between two values over time, considering edge cases such as when the elapsed time exceeds the duration and when the duration is zero.\n\ndef privStep(self, t):\n        # Evaluate the function\n        #print(\"doing priv step\", t)\n        if t >= self.duration:\n            # Set to end value\n            if t > self.duration:\n                print(\"after end\")\n            #apply(self.function, [self.toData] + self.extraArgs)\n        elif self.duration == 0.0:\n            # Zero duration, just use endpoint\n            self.function(*[self.toData] + self.extraArgs)\n        else:\n            # In the middle of the lerp, compute appropriate blended value\n            bt = self.blendType(t/self.duration)\n            data = (self.fromData * (1 - bt)) + (self.toData * bt)\n            # Evaluate function\n            self.function(*[data] + self.extraArgs)\n\n        # Print debug information\n        #assert self.notify.debug('updateFunc() - %s: t = %f' % (self.name, t))\n\n        self.state = CInterval.SStarted\n        self.currT = t\n\n# New interface",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2790
+  }
+}

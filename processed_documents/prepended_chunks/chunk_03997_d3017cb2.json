@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents the vertex shader portion of a Cg fragment-based blur effect implementation, specifically responsible for transforming vertex positions and adjusting texture coordinates using uniform parameters texpad_src and mat_modelproj within a Cg profile arbvp1 arbfp1.\n\nBLUR_X = \"\"\"\n//Cg\n//\n//Cg profile arbvp1 arbfp1\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float2 l_texcoord0 : TEXCOORD0,\n             uniform float4 texpad_src,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  l_texcoord0 = vtx_texcoord * texpad_src.xy * 2;\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_219",
+    "parent": "processed_documents/context_documents/f24bd907_filterBlurX.json",
+    "chunk_number": 3997
+  }
+}

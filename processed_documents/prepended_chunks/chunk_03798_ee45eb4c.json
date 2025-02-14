@@ -1,0 +1,9 @@
+{
+  "content": "The function `_add_thread` is part of a module managing multi-threading operations using Panda's threading system. It adds a new thread along with its wrapper to the thread list, assigns it a unique identifier, and manages storage for thread-specific data, enabling proper interaction between different parts of the code that rely on per-thread information.\n\ndef _add_thread(thread, wrapper):\n    \"\"\" Adds the indicated core.Thread object, with the indicated Python\n    wrapper, to the thread list.  Returns the new thread ID. \"\"\"\n\n    global _nextThreadId\n    _threadsLock.acquire()\n    try:\n        threadId = _nextThreadId\n        _nextThreadId += 1\n\n        thread.setPythonIndex(threadId)\n        _threads[threadId] = (thread, {}, wrapper)\n        return threadId\n\n    finally:\n        _threadsLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3798
+  }
+}

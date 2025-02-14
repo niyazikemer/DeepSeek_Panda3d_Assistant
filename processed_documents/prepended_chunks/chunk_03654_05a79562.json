@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `ValuatorGroup` class implementation which manages setting and getting values for color property controls in both the RGB panel (`RGBPanel`) and light control panel (`LightControlPanel`). These functions ensure that color values are properly initialized, updated, and retrieved when adjusting properties like node colors or light intensities.\n\n# Make sure valuators are initialized\n        self.set(self['value'], fCommand = 0)\n\n        # Make sure input variables processed\n        self.initialiseoptions(ValuatorGroup)\n\n    # This is the command is used to set the groups value\n    def set(self, value, fCommand = 1):\n        for i in range(self['dim']):\n            self._value[i] = value[i]\n            # Update valuator, but don't execute its command\n            self._valuatorList[i].set(value[i], 0)\n        if fCommand and (self['command'] is not None):\n            self['command'](self._value)\n\n    def setAt(self, index, value):\n        # Update valuator and execute its command\n        self._valuatorList[index].set(value)\n\n    # This is the command used by the valuator\n    def _valuatorSetAt(self, index, value):\n        self._value[index] = value\n        if self['command']:\n            self['command'](self._value)\n\n    def get(self):\n        return self._value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3654
+  }
+}

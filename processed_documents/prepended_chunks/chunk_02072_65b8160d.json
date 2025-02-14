@@ -1,0 +1,9 @@
+{
+  "content": "The given code defines additional file extensions (suffixes) for module loading based on the operating system, enhancing compatibility with platform-specific module formats like `.pyd` for Windows and `.so` files for Unix-like systems. This ensures modules can be found and loaded correctly across different platforms by appending appropriate suffixes to the list of possible file names.\n\nContext: Platform-Specific File Suffix Handling\n\n('.cp{0}-win32.pyd'.format(abi_version), 'rb', 3),\n                    ('.pyd', 'rb', 3),\n                ]\n            elif 'mac' in self.platform:\n                suffixes += [\n                    ('.cpython-{0}{1}-darwin.so'.format(abi_version, abi_flags), 'rb', 3),\n                    ('.abi{0}.so'.format(sys.version_info[0]), 'rb', 3),\n                    ('.so', 'rb', 3),\n                ]\n            else: # FreeBSD et al.\n                suffixes += [\n                    ('.cpython-{0}{1}.so'.format(abi_version, abi_flags), 'rb', 3),\n                    ('.abi{0}.so'.format(sys.version_info[0]), 'rb', 3),\n                    ('.so', 'rb', 3),\n                ]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2072
+  }
+}

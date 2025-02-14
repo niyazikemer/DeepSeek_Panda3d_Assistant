@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a 3D graphics framework (likely using Panda3D) and appears in a section related to creating and managing selection boxes or frustums for object tagging and selection. The `marqueeFrustum` uses a bounding hexahedron to define a 3D selection volume, which is then transformed based on the camera's position. The function `findTaggedNodePath` is used to identify specific nodes in the scene graph that match user-defined tags, enabling object selection and manipulation. This functionality is typically used in viewport interaction for selecting and editing objects in a 3D scene.\n\nmarqueeFrustum = BoundingHexahedron(fll, flr, fur, ful, nll, nlr, nur, nul)\n                marqueeFrustum.xform(direct.cam.getNetTransform().getMat())\n\n                base.marqueeFrustum = marqueeFrustum\n\n                def findTaggedNodePath(nodePath):\n                    # Select tagged object if present\n                    for tag in direct.selected.tagList:\n                        if nodePath.hasNetTag(tag):\n                            nodePath = nodePath.findNetTag(tag)\n                            return nodePath\n                    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3202
+  }
+}

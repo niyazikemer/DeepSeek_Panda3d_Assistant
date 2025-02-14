@@ -1,0 +1,9 @@
+{
+  "content": "This module serves as an umbrella import for various interval-related classes and functions, consolidating multiple interval modules into a single convenient location.\n\n\"\"\"\nThis module imports all of the other interval modules, to provide a\nsingle convenient module from which all interval types can be imported.\n\"\"\"\n\n# In this unusual case, I'm not going to declare __all__,\n# since the purpose of this module is to add up the contributions\n# of a number of other modules.\n\nfrom .Interval import *\nfrom .ActorInterval import *\nfrom .FunctionInterval import *\nfrom .LerpInterval import *\nfrom .IndirectInterval import *\nfrom .MopathInterval import *\ntry:\n    import panda3d.physics\n    # Some people may have the particle system compiled out\n    if hasattr(panda3d.physics, 'ParticleSystem'):\n        from .ParticleInterval import *\n        if __debug__:\n            from .TestInterval import *\nexcept ImportError:\n    pass\nfrom .SoundInterval import *\nfrom .ProjectileInterval import *\nfrom .MetaInterval import *\nfrom .IntervalManager import *\nfrom panda3d.direct import WaitInterval",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_159",
+    "parent": "processed_documents/context_documents/32649bdc_IntervalGlobal.json",
+    "chunk_number": 2801
+  }
+}

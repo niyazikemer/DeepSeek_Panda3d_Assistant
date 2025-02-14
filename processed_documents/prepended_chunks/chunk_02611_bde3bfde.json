@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the `__exitCurrent` method within the ClassicFSM class, which is responsible for exiting the current state. This method ensures that any cleanup or termination logic associated with the current state is executed before transitioning to a new state.\n\n# basic ClassicFSM functionality\n\n    def __exitCurrent(self, argList):\n        \"\"\"\n        Exit the current state\n        \"\"\"\n        assert self.__internalStateInFlux\n        assert ClassicFSM.notify.debug(\"[%s]: exiting %s\" % (self.__name, self.__currentState.getName()))\n        self.__currentState.exit(argList)\n        # Only send the state change event if we are inspecting it\n        # If this event turns out to be generally useful, we can\n        # turn it on all the time, but for now nobody else is using it\n        if self.inspecting:\n            messenger.send(self.getName() + '_' +\n                           self.__currentState.getName() + '_exited')\n        self.__currentState = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2611
+  }
+}

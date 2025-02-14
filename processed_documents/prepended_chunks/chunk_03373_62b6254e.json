@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes essential variables for handling user input (keyboard modifiers), scene transformations, and undo/redo functionality within the DirectContext framework. It sets up initial states and ensures that all display regions are updated to reflect current camera settings upon initialization.\n\n```python\n\"\"\"\nThis section initializes the state variables for keyboard inputs, object manipulation, \nand undo/redo operations. It also triggers an update of all display regions' camera contexts.\n\"\"\"\n\nself.fControl = 0\nself.fAlt = 0\nself.fShift = 0\nself.fMouse1 = 0\nself.fMouse2 = 0\nself.fMouse3 = 0\n\nself.pos = VBase3()\nself.hpr = VBase3()\nself.scale = VBase3()\n\nself.hitPt = Point3(0.0)\n\n# Undo/redo lists for tracking operations\nself.undoList = []\nself.redoList = []\n\n# Update display regions and initialize cameras\nself.drList.updateContext()\nfor dr in self.drList:\n    dr.camUpdate()\n```\n\nself.fControl = 0\n        self.fAlt = 0\n        self.fShift = 0\n        self.fMouse1 = 0 # [gjeon] to update alt key information while mouse1 is pressed\n        self.fMouse2 = 0\n        self.fMouse3 = 0\n\n        self.pos = VBase3()\n        self.hpr = VBase3()\n        self.scale = VBase3()\n\n        self.hitPt = Point3(0.0)\n\n        # Lists for managing undo/redo operations\n        self.undoList = []\n        self.redoList = []\n\n        # One run through the context task to init everything\n        self.drList.updateContext()\n        for dr in self.drList:\n            dr.camUpdate()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3373
+  }
+}

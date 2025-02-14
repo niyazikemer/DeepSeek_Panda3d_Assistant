@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines how collision masks are set for a node, controlling which other nodes it can collide with. It sets the 'from' mask to a given bitmask and disables the 'into' mask, allowing selective collision detection based on bit patterns.\n\n**Succinct Context:**\nThis code configures collision masks in a 3D environment, setting specific interaction rules using bitmasks for selecting or excluding collisions between objects.\n\ndef collideWithBitMask(self, bitMask):\n        # The into collide mask is the bit pattern colliders look at\n        # when deciding whether or not to test for a collision \"into\"\n        # this collision solid.  Set to all Off so this collision solid\n        # will not be considered in any collision tests\n        self.collisionNode.setIntoCollideMask(BitMask32().allOff())\n        # The from collide mask is the bit pattern *this* collision solid\n        # compares against the into collide mask of candidate collision solids\n        # Turn this mask all off since we're not testing for collisions against\n        # collision solids\n        self.collisionNode.setFromCollideMask(bitMask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3461
+  }
+}

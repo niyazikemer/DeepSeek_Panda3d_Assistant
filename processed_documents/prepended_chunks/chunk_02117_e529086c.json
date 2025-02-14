@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a function or method in `importer.py` (likely part of a custom import mechanism) that handles dynamic-link libraries (DLLs). The code checks the platform type to determine the appropriate file extension for the target DLL (`pyd` on Windows, `so` otherwise), compiles initialization code for the module, writes it to a file, and tracks cleanup files. This functionality is part of a broader system for importing modules dynamically or compiling them into shared libraries.\n\nelse:\n            if self.platform.startswith('win'):\n                target = basename + self.cenv.dllext + '.pyd'\n            else:\n                target = basename + '.so'\n\n            initCode = dllInitCode % {\n                'moduleName': os.path.basename(basename),\n                'dllexport': dllexport,\n                'dllimport': dllimport,\n            }\n            compileFunc = self.cenv.compileDll\n\n        self.writeCode(filename, initCode=initCode)\n\n        # Keep track of the files we should clean up after use.\n        cleanFiles = [filename, basename + self.objectExtension]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2117
+  }
+}

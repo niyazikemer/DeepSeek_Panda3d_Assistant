@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a function implementing quaternion interpolation (slerp) between two quaternions, `startQ` and `endQuat`, with a parameter `t`. The chunk handles two cases for computing scaling factors: when the angle between the quaternions (`omega`) is small (using trigonometric calculations) or nearly opposite (180 degrees), leading to linear interpolation.\n\n# usual case\n            omega = math.acos(cosOmega)\n            sinOmega = math.sin(omega)\n            startScale = math.sin((1.0 - t) * omega)/sinOmega\n            endScale = math.sin(t * omega)/sinOmega\n        else:\n            # ends very close\n            startScale = 1.0 - t\n            endScale = t\n        destQuat.setI(startScale * startQ.getI() +\n                      endScale * endQuat.getI())\n        destQuat.setJ(startScale * startQ.getJ() +\n                      endScale * endQuat.getJ())\n        destQuat.setK(startScale * startQ.getK() +\n                      endScale * endQuat.getK())\n        destQuat.setR(startScale * startQ.getR() +\n                      endScale * endQuat.getR())\n    else:\n        # ends nearly opposite\n        destQuat.setI(-startQ.getJ())\n        destQuat.setJ(startQ.getI())\n        destQuat.setK(-startQ.getR())\n        destQuat.setR(startQ.getK())\n        startScale = math.sin((0.5 - t) * math.pi)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3488
+  }
+}

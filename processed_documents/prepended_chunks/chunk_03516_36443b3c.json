@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Python class implementing a Scale widget with miniaturized controls, providing functionality for adjusting relief, updating indicators, and handling value manipulation. It includes initialization logic for setting default styles and public methods for setting and getting slider values while executing associated commands if specified.\n\n# Adjust relief\n        if 'relief' not in kw:\n            if self['style'] == VALUATOR_FULL:\n                self['relief'] = tk.FLAT\n\n        self.updateIndicator(self['value'])\n\n    def destroy(self):\n        if self['style'] == VALUATOR_MINI and self._isPosted:\n            Pmw.popgrab(self._popup)\n        Pmw.MegaWidget.destroy(self)\n\n    #======================================================================\n\n    # Public methods\n\n    def set(self, value, fCommand = 1):\n        \"\"\"\n        self.set(value, fCommand = 1)\n        Set slider to new value, execute command if fCommand == 1\n        \"\"\"\n        # Send command if any\n        if fCommand and (self['command'] is not None):\n            self['command'](*[value] + self['commandData'])\n        # Record value\n        self.value = value\n\n    def get(self):\n        \"\"\"\n        self.get()\n        Get current slider value\n        \"\"\"\n        return self.value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3516
+  }
+}

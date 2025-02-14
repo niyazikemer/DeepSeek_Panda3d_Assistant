@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a custom dynamic module loader implementation written in C++, specifically designed to manage the lifecycle of DLLs (Dynamic Link Libraries) within a Python import system context. The code defines entry points (`DllMain` and `CallModuleDllMain`) for handling module initialization and cleanup on Windows, iterating over possible modules to load or unload their `DllMain` functions as processes attach or detach.\n\nBOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)\n{\n    BOOL ret = TRUE;\n    switch (dwReason) {\n        case DLL_PROCESS_ATTACH:\n        {\n            char **modName;\n            for (modName = possibleModules;*modName;*modName++) {\n                BOOL ok = CallModuleDllMain(*modName, dwReason);\n                if (!ok)\n                    ret = FALSE;\n            }\n            break;\n        }\n        case DLL_PROCESS_DETACH:\n        {\n            // Must go backwards\n            char **modName;\n            for (modName = possibleModules+(sizeof(possibleModules) / sizeof(char *))-2;\n                 modName >= possibleModules;\n                 *modName--)\n                CallModuleDllMain(*modName, DLL_PROCESS_DETACH);\n            break;\n        }\n    }\n    return ret;\n}\n\nBOOL CallModuleDllMain(char *modName, DWORD dwReason)\n{\n    BOOL (WINAPI * pfndllmain)(HINSTANCE, DWORD, LPVOID);",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2052
+  }
+}

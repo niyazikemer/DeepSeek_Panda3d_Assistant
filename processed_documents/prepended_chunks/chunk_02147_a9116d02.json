@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears within a function or method responsible for parsing Mach-O binary file format data. Specifically, it processes symbol table entries (nlist) from a Mach-O file using `struct.unpack_from` to extract details such as name offset (`strx`), type, section, descriptor, and value. The code reads the strings segment from the Mach-O file to resolve symbol names and iterates over all symbols in the symbol table. This is part of a larger system for handling binary analysis or reverse engineering tasks related to macOS or iOS binaries.\n\nContext: Parsing Mach-O binary data structures, specifically extracting symbol information such as names, types, sections, descriptors, and values from the symbol table.\n\nstrings = macho_data[stroff:stroff+strsize]\n\n                for j in range(nsyms):\n                    strx, type, sect, desc, value = struct.unpack_from(nlist_struct, macho_data, symoff)\n                    symoff += nlist_size\n                    name = strings[strx : strings.find(b'\\0', strx)]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2147
+  }
+}

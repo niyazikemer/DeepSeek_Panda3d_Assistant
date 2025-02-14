@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a code section responsible for constructing a binary header for module stub files, which contains essential metadata such as offsets, sizes, and flags necessary for initializing modules correctly at runtime.\n\n# Compose the header we will be writing to the stub, to tell it\n            # where to find the module data blob, as well as other variables.\n            header = struct.pack(header_layout,\n                blob_offset,\n                blob_size,\n                1, # Version number\n                num_pointers, # Number of pointers that follow\n                0, # Codepage, not yet used\n                flags,\n                table_offset, # Module table pointer.\n                # The following variables need to be set before static init\n                # time.  See configPageManager.cxx, where they are read.\n                field_offsets.get('prc_data', 0),\n                field_offsets.get('default_prc_dir', 0),\n                field_offsets.get('prc_dir_envvars', 0),\n                field_offsets.get('prc_path_envvars', 0),\n                field_offsets.get('prc_patterns', 0),\n                field_offsets.get('prc_encrypted_patterns', 0),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2131
+  }
+}

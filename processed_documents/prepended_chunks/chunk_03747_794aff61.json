@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines a method `newCreateComboBox` within an extended Tkinter application shell framework designed for creating GUI elements with specific configurations. This method is used to create and configure a Pmw ComboBox widget with various properties including labels, items, states, and layout options, making it a versatile tool for building user interfaces in Python applications.\n\ndef newCreateComboBox(self, parent, category, text,\n                          help = '', command = None,\n                          items = [], state = tk.DISABLED, history = 0,\n                          labelpos = tk.W, label_anchor = tk.W,\n                          label_width = 16, entry_width = 16,\n                          side = tk.LEFT, fill = tk.X, expand = 0, **kw):\n        # Update kw to reflect user inputs\n        kw['label_text'] = text\n        kw['labelpos'] = labelpos\n        kw['label_anchor'] = label_anchor\n        kw['label_width'] = label_width\n        kw['entry_width'] = entry_width\n        kw['scrolledlist_items'] = items\n        kw['entryfield_entry_state'] = state\n        # Create widget\n        widget = Pmw.ComboBox(parent, **kw)\n        # Bind selection command\n        widget['selectioncommand'] = command\n        # Select first item if it exists\n        if len(items) > 0:\n            widget.selectitem(items[0])\n        # Pack widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3747
+  }
+}

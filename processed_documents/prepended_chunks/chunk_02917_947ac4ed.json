@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two additional interval classes (`Func` and `Wait`) that extend the functionality of the existing interval system. These classes provide support for executing arbitrary functions with arguments and creating timed pauses within animations or execution sequences.\n\nclass Func(FunctionInterval):\n    def __init__(self, *args, **kw):\n        function = args[0]\n        assert hasattr(function, '__call__')\n        extraArgs = args[1:]\n        kw['extraArgs'] = extraArgs\n        FunctionInterval.__init__(self, function, **kw)\n\nclass Wait(WaitInterval):\n    def __init__(self, duration):\n        WaitInterval.__init__(self, duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2917
+  }
+}

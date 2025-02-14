@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the internal mechanism used to clean up thread resources when a thread stops or exits. It safely removes the current thread's entry from the `_active` dictionary, which keeps track of all currently running threads, using a lock (`_active_limbo_lock`) to prevent race conditions. If the thread identifier is not found in `_active`, it raises an exception unless the module is handling dummy threads.\n\n_active_limbo_lock.acquire()\n        try:\n            try:\n                del _active[get_ident()]\n            except KeyError:\n                if 'dummy_threading' not in _sys.modules:\n                    raise\n        finally:\n            _active_limbo_lock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3836
+  }
+}

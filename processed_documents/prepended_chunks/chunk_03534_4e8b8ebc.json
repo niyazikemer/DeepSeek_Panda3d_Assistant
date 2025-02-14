@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk initializes a menubutton component within a VectorEntry-based widget, enabling users to access reset functionality and popup sliders through a context menu.\n\n# Get a handle on the parent container\n        interior = self.interior()\n\n        # This does double duty as a menu button\n        self._label = self.createcomponent('label', (), None,\n                                           tk.Menubutton, (interior,),\n                                           text = self['text'],\n                                           activebackground = '#909090')\n        self.menu = self._label['menu'] = tk.Menu(self._label)\n        self.menu.add_command(label = 'Reset', command = self.reset)\n        self.menu.add_command(label = 'Popup sliders', command = self.popupSliders)\n        self._label.pack(side = tk.LEFT, fill = tk.X, ipadx = self['labelIpadx'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3534
+  }
+}

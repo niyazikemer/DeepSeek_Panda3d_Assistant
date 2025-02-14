@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a process that ensures all necessary modules are loaded by checking for \"hidden\" imports. These hidden imports include both specific modules and submodules, ensuring they're loaded even if not directly imported elsewhere. This code helps in creating a complete bundle with all required dependencies.\n\n# Check if any new modules we found have \"hidden\" imports\n        for origName in list(self.mf.modules.keys()):\n            hidden = self.hiddenImports.get(origName, [])\n            for modname in hidden:\n                if modname.endswith('.*'):\n                    mdefs = self._gatherSubmodules(modname, implicit = True)\n                    for mdef in mdefs.values():\n                        try:\n                            self.__loadModule(mdef)\n                        except ImportError:\n                            pass\n                else:\n                    try:\n                        self.__loadModule(self.ModuleDef(modname, implicit = True))\n                    except ImportError:\n                        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2087
+  }
+}

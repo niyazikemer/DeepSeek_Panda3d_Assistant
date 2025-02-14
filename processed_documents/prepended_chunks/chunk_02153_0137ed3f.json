@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the `__init__` method for a custom `PandaModuleFinder` class, which inherits from `modulefinder.ModuleFinder`. This method initializes the finder with specific search parameters, including excluded modules, debug verbosity levels, custom suffixes for module file extensions, and optimization settings. The initialization also sets up handling for built-in module names and manages zip files to prevent multiple opens.\n\nclass PandaModuleFinder(modulefinder.ModuleFinder):\n\n    def __init__(self, *args, **kw):\n        \"\"\"\n        :param path: search path to look on, defaults to sys.path\n        :param suffixes: defaults to imp.get_suffixes()\n        :param excludes: a list of modules to exclude\n        :param debug: an integer indicating the level of verbosity\n        \"\"\"\n\n        self.builtin_module_names = kw.pop('builtin_module_names', sys.builtin_module_names)\n\n        self.suffixes = kw.pop('suffixes', (\n            [(s, 'rb', _C_EXTENSION) for s in machinery.EXTENSION_SUFFIXES] +\n            [(s, 'r', _PY_SOURCE) for s in machinery.SOURCE_SUFFIXES] +\n            [(s, 'rb', _PY_COMPILED) for s in machinery.BYTECODE_SUFFIXES]\n        ))\n\n        self.optimize = kw.pop('optimize', -1)\n\n        modulefinder.ModuleFinder.__init__(self, *args, **kw)\n\n        # Make sure we don't open a .whl/.zip file more than once.\n        self._zip_files = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2153
+  }
+}

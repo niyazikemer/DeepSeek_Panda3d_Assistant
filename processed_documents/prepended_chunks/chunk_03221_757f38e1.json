@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a 3D manipulation system handling different interaction types (scaling, translation, rotation). It determines the appropriate manipulation mode based on widget type ('post', 'disc', 'ring') and checks for object movability or rotatability. The code also resets object handles when switching modes under specific conditions to maintain proper state management. This ensures correct operations are performed based on user interaction and object properties within the system.\n\n# [gjeon] uniform scaling\n                            self.fScaling3D = 1\n                            self.scale3D(state)\n                    else:\n                        if type == 'post' and not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                            self.xlate1D(state)\n                        elif type == 'disc' and not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                            self.xlate2D(state)\n                        elif type == 'ring' and not self.currEditTypes & DG.EDIT_TYPE_UNROTATABLE:\n                            self.rotate1D(state)\n            # No widget interaction, determine free manip mode\n            elif self.fFreeManip and not self.useSeparateScaleHandles:\n                # If we've been scaling and changed modes, reset object handles\n                if 0 and (self.fScaling1D or self.fScaling3D) and (not ShowBaseGlobal.direct.fAlt):\n                    if hasattr(ShowBaseGlobal.direct, 'widget'):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3221
+  }
+}

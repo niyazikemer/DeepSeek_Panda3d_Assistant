@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a private method `__createCommandArea` within an application shell class. This method creates a command area frame containing buttons or other controls, intended for application-wide commands. The method is called during the initialization of the application interface.\n\ndef __createCommandArea(self):\n        # Create a command area for application-wide buttons.\n        self.__commandFrame = self.createcomponent('commandframe', (), None,\n                                                   tk.Frame,\n                                                   (self._hull,),\n                                                   relief=tk.SUNKEN,\n                                                   bd=1)\n        self.__buttonBox = self.createcomponent('buttonbox', (), None,\n                                                Pmw.ButtonBox,\n                                                (self.__commandFrame,),\n                                                padx=0, pady=0)\n        self.__buttonBox.pack(side=tk.TOP, expand=tk.NO, fill=tk.X)\n        if self['usecommandarea']:\n            self.__commandFrame.pack(side=tk.TOP,\n                                     expand=tk.NO,\n                                     fill=tk.X,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3727
+  }
+}

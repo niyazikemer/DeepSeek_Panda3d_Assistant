@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk implements undo and redo functionality by tracking node transformations. It is situated within a class responsible for managing display regions, likely the `DisplayRegionManager`, which handles state changes across multiple contexts, enabling users to revert edits efficiently.\n\n```python\n\"\"\"\n# UNDO REDO FUNCTIONS\ndef pushUndo(self, nodePathList, fResetRedo=1):\n    # Records transformations of nodes and updates undo/redo lists.\n    pass\n\ndef popUndoGroup(self):\n    # Retrieves the last recorded transformation group for undo operations.\n    pass\n\"\"\"\n```\n\n# UNDO REDO FUNCTIONS\n    def pushUndo(self, nodePathList, fResetRedo = 1):\n        # Assemble group of changes\n        undoGroup = []\n        for nodePath in nodePathList:\n            t = nodePath.getTransform()\n            undoGroup.append([nodePath, t])\n        # Now record group\n        self.undoList.append(undoGroup)\n        # Truncate list\n        self.undoList = self.undoList[-25:]\n        # Alert anyone who cares\n        messenger.send('DIRECT_pushUndo')\n        if fResetRedo and (nodePathList != []):\n            self.redoList = []\n            messenger.send('DIRECT_redoListEmpty')\n\n    def popUndoGroup(self):\n        # Get last item\n        undoGroup = self.undoList[-1]\n        # Strip last item off of undo list\n        self.undoList = self.undoList[:-1]\n        # Update state of undo button\n        if not self.undoList:\n            messenger.send('DIRECT_undoListEmpty')\n        # Return last item\n        return undoGroup",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3421
+  }
+}

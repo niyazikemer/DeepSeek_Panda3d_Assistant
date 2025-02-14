@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within the Actor class responsible for synchronously loading a 3D model. It adjusts error reporting based on the `okMissing` flag, initializes Python loader hooks, and raises an error if the model fails to load.\n\n**Context:**\nThis code is situated in the model-loading section of the Actor class, specifically handling the synchronous retrieval of the actor's 3D model with configurable error reporting.\n\nif okMissing is not None:\n                if okMissing:\n                    loaderOptions.setFlags(loaderOptions.getFlags() & ~LoaderOptions.LFReportErrors)\n                else:\n                    loaderOptions.setFlags(loaderOptions.getFlags() | LoaderOptions.LFReportErrors)\n\n            # Ensure that custom Python loader hooks are initialized.\n            Loader._loadPythonFileTypes()\n\n            # Pass loaderOptions to specify that we want to\n            # get the skeleton model.  This only matters to model\n            # files (like .mb) for which we can choose to extract\n            # either the skeleton or animation, or neither.\n            model = self.loader.loadSync(Filename(modelPath), loaderOptions)\n            if model is not None:\n                model = NodePath(model)\n\n        if model is None:\n            raise IOError(\"Could not load Actor model %s\" % (modelPath))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3137
+  }
+}

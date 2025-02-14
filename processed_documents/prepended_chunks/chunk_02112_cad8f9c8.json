@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a function responsible for generating C code that initializes built-in Python extension modules. The code constructs an `_inittab` structure (or `extensions` array on Windows) to map module names to their initialization functions. It handles both Python 2 and Python 3 cases, with platform-specific considerations for Windows and other operating systems. This is part of a larger system that manages the import process, ensuring that all built-in modules are properly initialized when the Python interpreter starts.\n\nif sys.platform == \"win32\":\n                text += 'static struct _inittab extensions[] = {\\n'\n            else:\n                text += 'struct _inittab _PyImport_Inittab[] = {\\n'\n\n            for module, fn in self.extras:\n                if sys.platform != \"win32\" or fn:\n                    libName = module.split('.')[-1]\n                    initFunc = builtinInitFuncs.get(module, 'PyInit_' + libName) or 'NULL'\n                    text += '  {\"%s\", %s},\\n' % (module, initFunc)\n            text += '  {0, 0},\\n'\n            text += '};\\n\\n'\n\n            # Python 2 case.\n            text += '#else\\n'\n            for module, fn in self.extras:\n                if sys.platform != \"win32\" or fn:\n                    libName = module.split('.')[-1]\n                    initFunc = builtinInitFuncs.get(module, 'init' + libName)\n                    if initFunc:\n                        text += 'extern PyAPI_FUNC(void) %s(void);\\n' % (initFunc)\n            text += '\\n'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2112
+  }
+}

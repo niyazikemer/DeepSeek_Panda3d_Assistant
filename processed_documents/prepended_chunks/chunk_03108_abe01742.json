@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `addLOD` method within an Actor class. It manages the addition of model parts, allowing specification of which parts to add under different Levels of Detail (LODs). The code handles optional parameters for a specific LOD name and a root node, enabling precise control over where in the hierarchy the parts are added or located.\n\n**Context:** This code is used when adding model parts to an actor. It allows specifying an optional LOD name to target a particular level of detail and an optional root node to define the search starting point. If both are provided, it searches for the root within the specified LOD; otherwise, it uses the entire actor as the default root.\n\nTakes an optional argument root as the start of the search for the\n        given parts. Also takes optional lod name to refine search for the\n        named parts. If root and lod are defined, we search for the given\n        root under the given lod.\n        \"\"\"\n        # check to see if we are working within an lod\n        if lodName is not None:\n            # find the named lod node\n            lodRoot = self.__LODNode.find(str(lodName))\n            if root is None:\n                # no need to look further\n                root = lodRoot\n            else:\n                # look for root under lod\n                root = lodRoot.find(\"**/\" + root)\n        else:\n            # start search from self if no root and no lod given\n            if root is None:\n                root = self\n\n        frontParts = root.findAllMatches(\"**/\" + frontPartName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3108
+  }
+}

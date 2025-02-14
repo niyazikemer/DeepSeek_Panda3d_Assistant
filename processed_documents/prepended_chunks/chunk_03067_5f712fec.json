@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods related to Level of Detail (LOD) management in an Actor class: `useLOD` sets the actor to display only a specified LOD level, while `printLOD` prints both Python and C++ switch configurations for debugging.\n\ndef useLOD(self, lodName):\n        \"\"\"\n        Make the Actor ONLY display the given LOD\n        \"\"\"\n        # make sure we don't call this twice in a row\n        # and pollute the the switches dictionary\n        child = self.__LODNode.find(str(lodName))\n        index = self.__LODNode.node().findChild(child.node())\n        self.__LODNode.node().forceSwitch(index)\n\n    def printLOD(self):\n        sortedKeys = self.__sortedLODNames\n        for eachLod in sortedKeys:\n            print(\"python switches for %s: in: %d, out %d\" % (eachLod,\n                                              self.switches[eachLod][0],\n                                              self.switches[eachLod][1]))\n\n        switchNum = self.__LODNode.node().getNumSwitches()\n        for eachSwitch in range(0, switchNum):\n            print(\"c++ switches for %d: in: %d, out: %d\" % (eachSwitch,\n                   self.__LODNode.node().getIn(eachSwitch),\n                   self.__LODNode.node().getOut(eachSwitch)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3067
+  }
+}

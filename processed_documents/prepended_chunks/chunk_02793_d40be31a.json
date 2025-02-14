@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines two classes: `LerpFunctionInterval` and `LerpFunction`. Both classes are designed to manage function execution over a specified duration with linear interpolation (lerp) functionality. The chunk in question is the constructor (`__init__`) of the `LerpFunctionInterval` class, which initializes the interval with specific parameters such as the target function, duration, starting and ending values (`fromData` and `toData`), blending type, additional arguments, and a unique name for tracking or debugging purposes.\n\ndef __init__(self, function, duration = 0.0, fromData = 0, toData = 1,\n                 blendType = 'noBlend', extraArgs = [], name = None):\n        \"\"\"__init__(function, duration, fromData, toData, name)\n        \"\"\"\n        # Record instance variables\n        self.function = function\n        self.fromData = fromData\n        self.toData = toData\n        self.blendType = LerpBlendHelpers.getBlend(blendType)\n        self.extraArgs = extraArgs\n        # Generate unique name if necessary\n        if name is None:\n            if hasattr(function, '__name__'):\n                name = function.__name__\n            else:\n                name = '<' + function.__class__.__name__ + '>'\n            name = ('LerpFunctionInterval-%s-%d' %\n                    (name,\n                     LerpFunctionInterval.lerpFunctionIntervalNum))\n            LerpFunctionInterval.lerpFunctionIntervalNum += 1\n        else:\n            # Allow the user to pass in a %d in the name and we'll go ahead",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2793
+  }
+}

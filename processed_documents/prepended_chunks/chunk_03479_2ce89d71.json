@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `LineNodePath` class that extends `NodePath` for creating and managing 3D line segments with customizable thickness and color in Panda3D. It integrates with geometric operations by utilizing LineSegs for rendering lines between points.\n\nclass LineNodePath(NodePath):\n    def __init__(self, parent = None, name = None,\n                 thickness = 1.0, colorVec = VBase4(1)):\n\n        # Initialize the superclass\n        NodePath.__init__(self)\n\n        if parent is None:\n            parent = hidden\n\n        # Attach a geomNode to the parent and set self to be\n        # the resulting node path\n        self.lineNode = GeomNode(\"lineNode\")\n        self.assign(parent.attachNewNode(self.lineNode))\n        if name:\n            self.setName(name)\n\n        # Create a lineSegs object to hold the line\n        ls = self.lineSegs = LineSegs()\n        # Initialize the lineSegs parameters\n        ls.setThickness(thickness)\n        ls.setColor(colorVec)\n\n    def moveTo(self, *_args):\n        self.lineSegs.moveTo(*_args)\n\n    def drawTo(self, *_args):\n        self.lineSegs.drawTo(*_args)\n\n    def create(self, frameAccurate = 0):\n        self.lineSegs.create(self.lineNode, frameAccurate)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3479
+  }
+}

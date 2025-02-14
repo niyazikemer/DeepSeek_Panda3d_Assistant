@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines internal representation and animation handling within the `Actor` class. The `__repr__` method for `PartDef` provides string representation for debugging, while aliases like `get_bundle` ensure snake_case compliance. The `AnimDef` inner class manages animation definitions, tracking filenames, bundles, and controls, crucial for binding and managing animations across different parts of the actor model.\n\ndef __repr__(self):\n            return 'Actor.PartDef(%s, %s)' % (repr(self.partBundleNP), repr(self.partModel))\n\n\n        #snake_case alias:\n        get_bundle = getBundle\n\n    class AnimDef:\n\n        \"\"\"Instances of this class are stored within the\n        AnimControlDict to track all of the animations associated with\n        the Actor.  This includes animations that have already been\n        bound (these have a valid AnimControl) as well as those that\n        have not yet been bound (for these, self.animControl is None).\n\n        There is a different AnimDef for each different part or\n        sub-part, times each different animation in the AnimDict. \"\"\"\n\n        def __init__(self, filename = None, animBundle = None):\n            self.filename = filename\n            self.animBundle = animBundle\n            self.animControl = None\n\n        def makeCopy(self):\n            return Actor.AnimDef(self.filename, self.animBundle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3036
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of a Python module that handles binary file manipulation and deployment stubs. The specific chunk deals with finding the `blobinfo` symbol in a binary, replacing it with a header, managing string/code pools, padding the blob to a specified size, and handling legacy deploy-stub cases where an offset must be appended manually. It includes assertions for data integrity checks and warnings for outdated deployment stubs.\n\n# Now, find the location of the 'blobinfo' symbol in the binary,\n            # to which we will write our header.\n            if not self._replace_symbol(stub_data, b'blobinfo', header, bitness=bitness):\n                # This must be a legacy deploy-stub, which requires the offset to\n                # be appended to the end.\n                append_offset = True\n\n        # Add the string/code pool.\n        assert len(blob) == pool_offset\n        blob += pool\n        del pool\n\n        # Now pad out the blob to the calculated blob size.\n        if len(blob) < blob_size:\n            blob += b'\\0' * (blob_size - len(blob))\n        assert len(blob) == blob_size\n\n        if append_offset:\n            # This is for legacy deploy-stub.\n            warnings.warn(\"Could not find blob header. Is deploy-stub outdated?\")\n            blob += struct.pack('<Q', blob_offset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2133
+  }
+}

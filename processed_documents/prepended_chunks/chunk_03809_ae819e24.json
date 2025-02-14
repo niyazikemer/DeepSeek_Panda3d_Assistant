@@ -1,0 +1,9 @@
+{
+  "content": "The `_RLock` class is part of the threading module's implementation for reentrant lock objects. It inherits from the `_Verbose` class and manages thread synchronization by tracking ownership and acquisition counts.\n\nclass _RLock(_Verbose):\n\n    def __init__(self, verbose=None):\n        _Verbose.__init__(self, verbose)\n        self.__block = _allocate_lock()\n        self.__owner = None\n        self.__count = 0\n\n    def __repr__(self):\n        return \"<%s(%s, %d)>\" % (\n                self.__class__.__name__,\n                self.__owner and self.__owner.getName(),\n                self.__count)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3809
+  }
+}

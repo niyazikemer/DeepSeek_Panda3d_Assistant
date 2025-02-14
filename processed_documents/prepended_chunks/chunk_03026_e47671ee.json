@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk appears in the `__init__` method of the `TexViewer` class, which is designed to display texture content on screen. The purpose of this specific chunk is to optionally create a reduced-resolution version of the given texture (if available) and display it on the right side of the viewer window, alongside the full-resolution texture displayed on the left. This provides a visual comparison between the original and simplified versions of the texture.\n\n# And the \"simple\", reduced-resolution version goes on the\n        # right.\n        if self.tex.hasSimpleRamImage():\n            self.t2 = Texture('simple')\n            self.t2.setup2dTexture(self.tex.getSimpleXSize(),\n                                   self.tex.getSimpleYSize(),\n                                   Texture.TUnsignedByte,\n                                   Texture.FRgba8)\n            self.t2.setRamImage(self.tex.getSimpleRamImage())\n            self.t2.setMagfilter(Texture.FTNearest)\n\n            cm = CardMaker('right')\n            l, r, b, t = (0.1, 1, 0, 0.9)\n            cm.setFrame(l, r, b, t)\n            right = cards.attachNewNode(cm.generate())\n            right.setTexture(self.t2)\n            right.setTransparency(TransparencyAttrib.MAlpha)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_174",
+    "parent": "processed_documents/context_documents/4108ccf1_TexViewer.json",
+    "chunk_number": 3026
+  }
+}

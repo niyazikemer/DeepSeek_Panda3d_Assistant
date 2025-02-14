@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code sits within a method responsible for determining the nearest point along a specific axis in a 3D space during user interactions. The code uses vector math to decide whether to project onto the X-Y plane (for Z-axis), Y-Z plane (for X-axis), or X-Z plane (for Y-axis) based on direction ratios, and sets irrelevant coordinates to zero for accurate axis-aligned interaction.\n\nself.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.Y_AXIS))\n            else:\n                self.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.Z_AXIS))\n            # We really only care about the nearest point on the axis\n            self.hitPt.setY(0)\n            self.hitPt.setZ(0)\n        elif axis == 'y':\n            if abs(lineDir.dot(DG.X_AXIS)) > abs(lineDir.dot(DG.Z_AXIS)):\n                self.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.X_AXIS))\n            else:\n                self.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.Z_AXIS))\n            # We really only care about the nearest point on the axis\n            self.hitPt.setX(0)\n            self.hitPt.setZ(0)\n        elif axis == 'z':\n            if abs(lineDir.dot(DG.X_AXIS)) > abs(lineDir.dot(DG.Y_AXIS)):\n                self.hitPt.assign(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3288
+  }
+}

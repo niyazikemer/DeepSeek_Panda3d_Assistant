@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a state management system in an interval control class. It handles specific state transitions (like pausing or reversing) during interruptions, including error checking for invalid states. The code ensures the interval controller maintains valid states and posts events after state changes.\n\n# change it back to S_paused by hand (because we're still\n            # paused).\n            self.privStep(t)\n            self.privInterrupt()\n        elif state == CInterval.SFinal:\n            self.privReverseInitialize(t)\n            if self.isPlaying():\n                self.setupResume()\n            else:\n                self.privInterrupt()\n        else:\n            self.notify.error(\"Invalid state: %s\" % (state))\n        self.privPostEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2836
+  }
+}

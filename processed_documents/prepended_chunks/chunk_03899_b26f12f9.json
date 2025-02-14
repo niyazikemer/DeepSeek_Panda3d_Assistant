@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces two methods in the `TaskManager` class: `__tryReplaceTaskMethod` and `replaceMethod`. These methods allow dynamically replacing a specific method (`oldMethod`) with a new function across all tasks. This functionality is particularly useful for modifying task behavior without directly altering each task individually, enhancing flexibility in managing tasks dynamically.\n\ndef __tryReplaceTaskMethod(self, task, oldMethod, newFunction):\n        if not isinstance(task, PythonTask):\n            return 0\n\n        method = task.getFunction()\n        if isinstance(method, types.MethodType):\n            function = method.__func__\n        else:\n            function = method\n        if function == oldMethod:\n            newMethod = types.MethodType(newFunction, method.__self__)\n            task.setFunction(newMethod)\n            # Found a match\n            return 1\n        return 0\n\n    def replaceMethod(self, oldMethod, newFunction):\n        numFound = 0\n        for task in self.getAllTasks():\n            numFound += self.__tryReplaceTaskMethod(task, oldMethod, newFunction)\n        return numFound",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3899
+  }
+}

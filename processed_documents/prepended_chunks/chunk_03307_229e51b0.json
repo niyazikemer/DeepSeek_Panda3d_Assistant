@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods (`__stopManipulateCamera`, `__startManipulateCamera`, and `mouseDollyStop`) for managing camera manipulation tasks and intervals within an interactive system that enables users to position objects via mouse input, ensuring proper control and task management during object placement or movement.\n\ndef __stopManipulateCamera(self):\n        if self.manipulateCameraTask:\n            taskMgr.remove(self.manipulateCameraTask)\n            self.manipulateCameraTask = None\n\n        if self.manipulateCameraInterval:\n            self.manipulateCameraInterval.finish()\n            self.manipulateCameraInterval = None\n\n    def __startManipulateCamera(self, func = None, task = None, ival = None):\n        self.__stopManipulateCamera()\n        if func:\n            assert task is None\n            task = Task.Task(func)\n        if task:\n            self.manipulateCameraTask = taskMgr.add(task, 'manipulateCamera')\n        if ival:\n            ival.start()\n            self.manipulateCameraInterval = ival\n\n    def mouseDollyStop(self):\n        self.__stopManipulateCamera()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3307
+  }
+}

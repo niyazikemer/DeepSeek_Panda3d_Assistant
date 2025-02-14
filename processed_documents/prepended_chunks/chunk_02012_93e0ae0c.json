@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears within a larger Python script related to the `bdist_apps` command in Panda3D's build system. Specifically, it is part of a function that reads and parses Mach-O binary headers on macOS platforms to extract dynamic library (dylib) dependencies from executable files. This code is used to identify required shared libraries during the application packaging process for distribution across different platforms.\n\nis_64bit = (cputype & 0x1000000) != 0\n        if is_64bit:\n            fp.read(4)\n\n        # After the header, we get a series of linker commands.  We just\n        # iterate through them and gather up the LC_LOAD_DYLIB commands.\n        load_dylibs = []\n        for i in range(ncmds):\n            cmd, cmd_size = struct.unpack(endian + 'II', fp.read(8))\n            cmd_data = fp.read(cmd_size - 8)\n            cmd &= ~0x80000000\n\n            if cmd == 0x0c: # LC_LOAD_DYLIB\n                dylib = cmd_data[16:].decode('ascii').split('\\x00', 1)[0]\n                orig = dylib",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2012
+  }
+}

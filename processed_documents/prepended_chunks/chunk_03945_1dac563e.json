@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents a fragment shader implementation for a bloom effect, processing lower-left (SW) and lower-right (SE) quadrants of a texture. It calculates brightness, applies intensity scaling, and blends colors with desaturation based on defined parameters before combining results from all four quadrants into the final output color.\n\nfloat4 inputSW = tex2D(k_src, l_texcoordSW) - float4(0,0,0,0.5);\n  float briteSW = dot(inputSW, k_blend);\n  float scaleSW = saturate((briteSW - k_trigger.x) * k_trigger.y);\n  float4 colorSW = scaleSW * lerp(inputSW, float4(1,1,1,1), k_desat.x);\n\n  float4 inputSE = tex2D(k_src, l_texcoordSE) - float4(0,0,0,0.5);\n  float briteSE = dot(inputSE, k_blend);\n  float scaleSE = saturate((briteSE - k_trigger.x) * k_trigger.y);\n  float4 colorSE = scaleSE * lerp(inputSE, float4(1,1,1,1), k_desat.x);\n\n  o_color = (colorNW + colorNE + colorSW + colorSE) * 0.25;\n}\n\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_215",
+    "parent": "processed_documents/context_documents/a6991670_filterBloomI.json",
+    "chunk_number": 3945
+  }
+}

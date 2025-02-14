@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk belongs to a `State` class in an FSM (Finite State Machine) implementation, specifically managing state transitions and their associated functionality. The chunk includes methods for checking if a transition is defined (`isTransitionDefined`), setting allowed transitions (`setTransitions`), adding a new transition while ensuring it doesn't conflict with existing \"any\" transitions (`addTransition`), and retrieving debug information about the state's position in an inspector tool (`getInspectorPos`, under `__debug__`). These methods are part of a larger system for managing hierarchical FSMs, including handling child FSMs and state entry/exit processes.\n\ndef isTransitionDefined(self, otherState):\n        if self.transitionsToAny():\n            return 1\n\n        # if we're given a state object, get its name instead\n        if not isinstance(otherState, str):\n            otherState = otherState.getName()\n        return otherState in self.__transitions\n\n    def setTransitions(self, stateTransitions):\n        \"\"\"setTransitions(self, string[])\"\"\"\n        self.__transitions = stateTransitions\n\n    def addTransition(self, transition):\n        \"\"\"addTransitions(self, string)\"\"\"\n        if not self.transitionsToAny():\n            self.__transitions.append(transition)\n        else:\n            State.notify.warning(\n                'attempted to add transition %s to state that '\n                'transitions to any state')\n\n    if __debug__:\n        def getInspectorPos(self):\n            \"\"\"getInspectorPos(self)\"\"\"\n            return self.__inspectorPos",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2675
+  }
+}

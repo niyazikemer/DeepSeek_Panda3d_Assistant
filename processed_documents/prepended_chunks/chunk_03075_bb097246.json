@@ -1,0 +1,9 @@
+{
+  "content": "The `getFrameRate` method is part of an actor or model class designed to manage animations across various levels of detail (LODs). This method retrieves the frame rate of a specified animation, essential for controlling playback speed and synchronization. It complements other animation-related functions in the class, ensuring accurate timing information can be accessed when needed.\n\nreturn anyChanged\n\n    def getFrameRate(self, animName=None, partName=None):\n        \"\"\"getFrameRate(self, string, string=None)\n        Return actual frame rate of given anim name and given part.\n        If no anim specified, use the currently playing anim.\n        If no part specified, return anim durations of first part.\n        NOTE: returns info only for an arbitrary LOD\n        \"\"\"\n        lodName = next(iter(self.__animControlDict))\n        controls = self.getAnimControls(animName, partName)\n        if len(controls) == 0:\n            return None\n\n        return controls[0].getFrameRate()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3075
+  }
+}

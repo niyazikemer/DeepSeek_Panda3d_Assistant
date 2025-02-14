@@ -1,0 +1,9 @@
+{
+  "content": "The `SelectedNodePaths` class within the context of the document serves as a manager for tracking and maintaining the state of selected node paths in a 3D scene. It provides functionality to select, deselect, and track nodes, supporting multi-selection and tagging. This class is utilized alongside various selection tools (e.g., SelectionRay, SelectionBox) to manage user interactions where different methods can be used to detect and select objects in the scene.\n\nclass SelectedNodePaths(DirectObject):\n    def __init__(self):\n        self.reset()\n        self.tagList = []\n\n    def addTag(self, tag):\n        if tag not in self.tagList:\n            self.tagList.append(tag)\n\n    def removeTag(self, tag):\n        self.tagList.remove(tag)\n\n    def reset(self):\n        self.selectedDict = {}\n        self.selectedList = [] # [gjeon] to maintain selected order\n        self.deselectedDict = {}\n        __builtins__[\"last\"] = self.last = None\n\n    def select(self, nodePath, fMultiSelect = 0, fSelectTag = 1):\n        \"\"\" Select the specified node path.  Multiselect as required \"\"\"\n        # Do nothing if nothing selected\n        if not nodePath:\n            print('Nothing selected!!')\n            return None\n\n        # Reset selected objects and highlight if multiSelect is false\n        if not fMultiSelect:\n            self.deselectAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3441
+  }
+}

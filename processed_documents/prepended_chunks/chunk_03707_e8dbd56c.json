@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the initial setup of the dial widget's graphical interface, including the creation of a circular canvas with specified dimensions and styling. The code calculates essential measurements such as radius and inner_radius, creates a canvas component using Tkinter, sets its properties (e.g., background, scroll region), and prepares it for drawing the dial face and other elements like ticks and knobs.\n\n# Radius of the dial\n        radius = self.radius = int(size/2.0)\n        # Radius of the inner knob\n        inner_radius = max(3, radius * INNER_SF)\n\n        # The canvas\n        self._widget = self.createcomponent('canvas', (), None,\n                                            tk.Canvas, (interior,),\n                                            width = size, height = size,\n                                            background = self['background'],\n                                            highlightthickness = 0,\n                                            scrollregion = (-radius, -radius,\n                                                            radius, radius))\n        self._widget.pack(expand = 1, fill = tk.BOTH)\n\n        # The dial face (no outline/fill, primarily for binding mouse events)\n        self._widget.create_oval(-radius, -radius, radius, radius,\n                                 outline = '',\n                                 tags = ('dial',))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3707
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk includes two methods for signal handling and task retrieval in the TaskManager class:\n\n- `keyboardInterruptHandler`: Handles SIGINT signals (Ctrl+C), tracks interrupt attempts, and manages interruption behavior\n- `getCurrentTask()`: Retrieves the currently executing task on the thread or returns None if outside task execution context\n\nThis code is situated within the core functionality of the TaskManager class, which manages task scheduling and execution.\n\ndef keyboardInterruptHandler(self, signalNumber, stackFrame):\n        self.fKeyboardInterrupt = 1\n        self.interruptCount += 1\n        if self.interruptCount == 1:\n            print('* interrupt by keyboard')\n        elif self.interruptCount == 2:\n            print('** waiting for end of frame before interrupting...')\n            # The user must really want to interrupt this process\n            # Next time around invoke the default handler\n            signal.signal(signal.SIGINT, self.invokeDefaultHandler)\n\n    def getCurrentTask(self) -> AsyncTask | None:\n        \"\"\" Returns the task currently executing on this thread, or\n        None if this is being called outside of the task manager. \"\"\"\n\n        return Thread.getCurrentThread().getCurrentTask()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3871
+  }
+}

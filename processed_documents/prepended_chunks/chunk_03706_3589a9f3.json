@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a Python class definition for a `Valuator` widget using Pmw (Python MegaWidgets). The chunk in question initializes the superclass, sets up local variables, creates components, and calculates sizes based on parameters. This initialization occurs at the beginning of the `__init__` method to set up the widget's structure and default values before any other operations or configurations are applied.\n\nTo improve search retrieval of this specific code within the overall document, it can be situated as part of the constructor for the `Valuator` class, specifically where the initial setup and sizing calculations occur.\n\n# Initialize the superclass\n        Pmw.MegaWidget.__init__(self, parent)\n\n        # Set up some local and instance variables\n        # Create the components\n        interior = self.interior()\n\n        # Current value\n        self.value = self['value']\n\n        # Running total which increments/decrements every time around dial\n        self.rollCount = 0\n\n        # Base dial size on style, if size not specified,\n        if not self['size']:\n            if self['style'] == VALUATOR_FULL:\n                size = DIAL_FULL_SIZE\n            else:\n                size = DIAL_MINI_SIZE\n        else:\n            size = self['size']\n\n        # Radius of the dial\n        radius = self.radius = int(size/2.0)\n        # Radius of the inner knob\n        inner_radius = max(3, radius * INNER_SF)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3706
+  }
+}

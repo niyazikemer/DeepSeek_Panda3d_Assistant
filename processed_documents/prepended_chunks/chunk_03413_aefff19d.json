@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two methods (`reparent` and `isNotCycle`) that manage node hierarchy and prevent cycles during reparenting operations within a DirectManipulation context, ensuring valid parent-child relationships.\n\ndef reparent(self, nodePath = None, fWrt = 0):\n        if (nodePath and self.activeParent and\n            self.isNotCycle(nodePath, self.activeParent)):\n            oldParent = nodePath.getParent()\n            if fWrt:\n                nodePath.wrtReparentTo(self.activeParent)\n            else:\n                nodePath.reparentTo(self.activeParent)\n            # Alert everyone else\n            messenger.send('DIRECT_reparent',\n                           [nodePath, oldParent, self.activeParent])\n            # [gjeon] for others who needs fWrt information\n            messenger.send('DIRECT_reparent_fWrt',\n                           [nodePath, oldParent, self.activeParent, fWrt])\n\n    def isNotCycle(self, nodePath, parent):\n        if nodePath == parent:\n            print('DIRECT.reparent: Invalid parent')\n            return 0\n        elif parent.hasParent():\n            return self.isNotCycle(nodePath, parent.getParent())\n        else:\n            return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3413
+  }
+}

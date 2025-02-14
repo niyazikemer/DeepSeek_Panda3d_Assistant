@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains utility functions (`toggleVis`, `removeNodePath`, `removeAllSelected`) within a Panda3D-based direct manipulation toolset, enabling basic node path visibility toggling and removal operations to facilitate scene object management.\n\ndef toggleVis(self, nodePath = 'None Given'):\n        \"\"\" Toggle visibility of node path \"\"\"\n        # First kill the flashing task to avoid complications\n        taskMgr.remove('flashNodePath')\n        if nodePath == 'None Given':\n            # If nothing specified, try selected node path\n            nodePath = self.selected.last\n        if nodePath:\n            # Now toggle node path's visibility state\n            if nodePath.isHidden():\n                nodePath.show()\n            else:\n                nodePath.hide()\n\n    def removeNodePath(self, nodePath = 'None Given'):\n        if nodePath == 'None Given':\n            # If nothing specified, try selected node path\n            nodePath = self.selected.last\n        if nodePath:\n            nodePath.removeNode()\n\n    def removeAllSelected(self):\n        self.selected.removeAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3418
+  }
+}

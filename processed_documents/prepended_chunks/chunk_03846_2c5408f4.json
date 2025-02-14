@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within a Python threading module implementation. It defines two key functions: `_pickSomeNonDaemonThread()` for identifying non-daemon, active threads, and `main_thread()` which returns the main thread object created at interpreter startup. The commented code references importing thread-local storage implementations, either from low-level thread module or fallback pure-Python implementation. This chunk is part of a broader threading framework providing core thread management utilities.\n\ndef _pickSomeNonDaemonThread():\n    for t in enumerate():\n        if not t.isDaemon() and t.isAlive():\n            return t\n    return None\n\ndef main_thread():\n    \"\"\"Return the main thread object.\n    In normal conditions, the main thread is the thread from which the\n    Python interpreter was started.\n    \"\"\"\n    return _main_thread\n\n# get thread-local implementation, either from the thread\n# module, or from the python fallback\n\n## try:\n##     from thread import _local as local\n## except ImportError:\n##     from _threading_local import local",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3846
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `add` method in a task management system, used to add new tasks to the manager. It handles functions or existing Task objects, scheduling them immediately or later based on parameters like name, sort order, priority, and delay.\n\ndo_method_later = doMethodLater\n\n    def add(\n        self,\n        funcOrTask: _FuncOrTask,\n        name: str | None = None,\n        sort: int | None = None,\n        extraArgs: Sequence | None = None,\n        priority: int | None = None,\n        uponDeath: Callable[[], object] | None = None,\n        appendTask: bool = False,\n        taskChain: str | None = None,\n        owner = None,\n        delay: float | None = None,\n    ) -> AsyncTask:\n        \"\"\"\n        Add a new task to the taskMgr.  The task will begin executing\n        immediately, or next frame if its sort value has already\n        passed this frame.\n\n        Parameters:\n            funcOrTask: either an existing Task object (not already\n                added to the task manager), or a callable function\n                object. If this is a function, a new Task object will be\n                created and returned. You may also pass in a coroutine\n                object.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3881
+  }
+}

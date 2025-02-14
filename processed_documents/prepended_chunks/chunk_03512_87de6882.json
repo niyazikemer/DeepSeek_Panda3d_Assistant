@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines the creation of an arrow button and dropdown window for a custom Tkinter-based scale widget. It is part of a larger class implementation that handles user interaction with the scale, including value adjustments via keyboard or mouse inputs. The arrow button acts as a control to trigger actions such as opening the dropdown window, which provides additional input options for adjusting the scale's value.\n\n# Create the arrow button to invoke slider\n            self._arrowBtn = self.createcomponent(\n                'arrowbutton',\n                (), None,\n                tk.Canvas, (interior,), borderwidth = 0,\n                relief = tk.FLAT, width = 14, height = 14,\n                scrollregion = (-7, -7, 7, 7))\n            self._arrowBtn.pack(expand = 1, fill = tk.BOTH)\n            self._arrowBtn.create_polygon(-5, -5, 5, -5, 0, 5,\n                                          fill = 'grey50',\n                                          tags = 'arrow')\n            self._arrowBtn.create_line(-5, 5, 5, 5,\n                                       fill = 'grey50',\n                                       tags = 'arrow')\n            # Create the dropdown window.\n            self._popup = self.createcomponent(\n                'popup',\n                (), None,\n                tk.Toplevel, (interior,),\n                relief = tk.RAISED, borderwidth = 2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3512
+  }
+}

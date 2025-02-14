@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code is part of the `__init__` method in the `TexViewer` class. This method initializes a texture viewer window that displays both full-resolution and reduced-resolution versions of a given texture side by side. The chunk specifically handles drawing frames around each card, scaling them based on the texture's aspect ratio to ensure proper proportions, and adding a label with the texture's name below the cards for identification.\n\n```plaintext\nThis code sets up a texture viewer window in a Panda3D application, creating frames around two cards (left and right), scaling them according to the texture's aspect ratio, and adding a labeled name.\n```\n\nls = LineSegs('frame')\n            ls.setColor(0, 0, 0, 1)\n            ls.moveTo(l, 0, b)\n            ls.drawTo(r, 0, b)\n            ls.drawTo(r, 0, t)\n            ls.drawTo(l, 0, t)\n            ls.drawTo(l, 0, b)\n            cards.attachNewNode(ls.create())\n\n        # Scale both sides by the aspect ratio.\n        if self.tex.getXSize() > self.tex.getYSize():\n            cards.setScale(1, 1, float(self.tex.getYSize()) / self.tex.getXSize())\n        else:\n            cards.setScale(float(self.tex.getXSize()) / self.tex.getYSize(), 1, 1)\n\n        # Label the texture.\n        tn = TextNode('label')\n        tn.setShadow(0.1, 0.1)\n        tn.setText(self.tex.getName())\n        tn.setAlign(tn.ACenter)\n        tnp = self.root.attachNewNode(tn)\n        tnp.setScale(0.1)\n        tnp.setPos(0, 0, -tn.getHeight() * 0.1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_174",
+    "parent": "processed_documents/context_documents/4108ccf1_TexViewer.json",
+    "chunk_number": 3027
+  }
+}

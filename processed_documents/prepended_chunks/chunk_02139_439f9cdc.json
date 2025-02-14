@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function within a module loader that processes and modifies Mach-O binaries. It checks for Universal Binary headers, iterates through each architecture slice, and replaces specified symbols if they match the target bitness.\n\n```text\nPart of a function handling binary file processing to replace specific symbols in Mach-O executables, supporting both 32-bit and 64-bit architectures within Universal Binaries.\n```\n\nelif data[:4] in (b'\\xCA\\xFE\\xBA\\xBE', b'\\xBE\\xBA\\xFE\\xCA'):\n            # Universal binary with 32-bit offsets.\n            num_fat, = struct.unpack_from('>I', data, 4)\n            replaced = False\n            ptr = 8\n            for i in range(num_fat):\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack_from('>IIIII', data, ptr)\n                ptr += 20\n\n                # Does this match the requested bitness?\n                if bitness is not None and ((cputype & 0x1000000) != 0) != (bitness == 64):\n                    continue\n\n                macho_data = data[offset:offset+size]\n                off = self._find_symbol_macho(macho_data, symbol_name)\n                if off is not None:\n                    off += offset\n                    data[off:off+len(replacement)] = replacement\n                    replaced = True\n\n            return replaced",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2139
+  }
+}

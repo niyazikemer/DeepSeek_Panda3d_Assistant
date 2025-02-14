@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is situated within the `FloaterGroup` class definition, specifically during its initialization phase. The purpose of this code is to create and configure multiple instances of the `Floater` widget, each representing a numerical input field. These widgets are packed into the GUI layout, initialized with their respective values, and stored in a list for easy management and access later. This setup allows the `FloaterGroup` to manage a dynamic collection of floating-point number input fields, enabling users to interact with each field individually while maintaining group-level functionality such as command execution and value retrieval.\n\nself.floaterList = []\n        for index in range(self['dim']):\n            # Add a group alias so you can configure the floaters via:\n            #   fg.configure(Valuator_XXX = YYY)\n            f = self.createcomponent(\n                'floater%d' % index, (), 'Valuator', Floater,\n                (interior,), value = self._value[index],\n                text = self['labels'][index])\n            # Do this separately so command doesn't get executed during construction\n            f['command'] = lambda val, s=self, i=index: s._floaterSetAt(i, val)\n            f.pack(side = self['side'], expand = 1, fill = tk.X)\n            self.floaterList.append(f)\n\n        # Make sure floaters are initialized\n        self.set(self['value'])\n\n        # Make sure input variables processed\n        self.initialiseoptions(FloaterGroup)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3625
+  }
+}

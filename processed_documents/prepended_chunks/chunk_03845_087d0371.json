@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of functions for tracking and managing threads within a multi-threaded application. Specifically, `active_count()` counts the number of active and limbo threads, while `enumerate()` returns a list of all active thread objects. The code also initializes the main thread object and includes helper functions for identifying non-daemon threads. This chunk is part of the core threading implementation, used to manage thread lifecycle and resource tracking in Python applications.\n\ndef active_count():\n    _active_limbo_lock.acquire()\n    count = len(_active) + len(_limbo)\n    _active_limbo_lock.release()\n    return count\n\nactiveCount = active_count\n\ndef enumerate():\n    _active_limbo_lock.acquire()\n    active = list(_active.values()) + list(_limbo.values())\n    _active_limbo_lock.release()\n    return active\n\n#from thread import stack_size\n\n# Create the main thread object,\n# and make it available for the interpreter\n# (Py_Main) as threading._shutdown.\n\n_main_thread = _MainThread()\n_shutdown = _main_thread._exitfunc\n\ndef _pickSomeNonDaemonThread():\n    for t in enumerate():\n        if not t.isDaemon() and t.isAlive():\n            return t\n    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3845
+  }
+}

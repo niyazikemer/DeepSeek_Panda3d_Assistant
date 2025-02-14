@@ -1,0 +1,9 @@
+{
+  "content": "This code initializes the default node structure for an Actor instance when no Level of Detail (LOD) nodes are present. It creates a root ModelNode named 'actor' with preserved transform, assigns it to the actor's NodePath, and attaches another ModelNode named 'actorGeom' as the container for geometry data. This setup establishes the basic scene graph hierarchy required for an Actor's visual representation in the absence of LOD management.\n\nelse:\n                # A standard Actor has a ModelNode at the root, and\n                # another ModelNode to protect the GeomNode.\n                root = ModelNode('actor')\n                root.setPreserveTransform(1)\n                self.assign(NodePath(root))\n                self.setGeomNode(self.attachNewNode(ModelNode('actorGeom')))\n\n            self.__hasLOD = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3045
+  }
+}

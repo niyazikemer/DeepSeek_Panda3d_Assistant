@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a custom dialog class for modifying widget properties, including methods to validate numerical inputs as real or integer values (with support for 'None'), and button handlers for committing changes or cancelling the operation.\n\ndef realOrNone(self, val):\n        val = val.lower()\n        if 'none'.find(val) != -1:\n            if val == 'none':\n                return Pmw.OK\n            else:\n                return Pmw.PARTIAL\n        return Pmw.realvalidator(val)\n\n    def intOrNone(self, val):\n        val = val.lower()\n        if 'none'.find(val) != -1:\n            if val == 'none':\n                return Pmw.OK\n            else:\n                return Pmw.PARTIAL\n        return Pmw.integervalidator(val)\n\n    #\n    # standard button semantics\n    def ok(self, event=None):\n        self.withdraw()\n        self.update_idletasks()\n        self.validateChanges()\n        self.apply()\n        self.cancel()\n\n    def cancel(self, event=None):\n        # put focus back to the parent window\n        self.parent.focus_set()\n        self.destroy()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3590
+  }
+}

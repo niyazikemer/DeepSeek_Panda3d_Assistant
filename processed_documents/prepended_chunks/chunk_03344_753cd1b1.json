@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a larger set of methods for manipulating the camera view in a 3D application, specifically handling operations like moving the camera to fit selected objects, swinging the camera around a central widget point by specified degrees, and managing tasks related to maintaining relationships between selected nodes and the widget. The `swingCamAboutWidget` method is designed to smoothly rotate the camera around a central point (defined by the widget) by a specified number of degrees while ensuring proper positioning and alignment with the 3D scene.\n\ndef swingCamAboutWidget(self, degrees, t):\n        # Remove existing camera manipulation task\n        self.__stopManipulateCamera()\n\n        # Record undo point\n        direct = ShowBaseGlobal.direct\n        direct.pushUndo([direct.camera])\n\n        # Coincident with widget\n        self.camManipRef.setPos(self.coaMarker, DG.ZERO_POINT)\n        # But aligned with render space\n        self.camManipRef.setHpr(DG.ZERO_POINT)\n\n        parent = direct.camera.getParent()\n        direct.camera.wrtReparentTo(self.camManipRef)\n\n        ival = self.camManipRef.hprInterval(CAM_MOVE_DURATION,\n                                            VBase3(degrees, 0, 0),\n                                            blendType = 'easeInOut')\n        ival = Sequence(ival, Func(self.reparentCam, parent),\n                        name = 'manipulateCamera')\n        self.__startManipulateCamera(ival = ival)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3344
+  }
+}

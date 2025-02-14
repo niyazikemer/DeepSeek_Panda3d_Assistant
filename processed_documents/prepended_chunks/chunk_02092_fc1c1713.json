@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears within a custom `ModuleFinder` implementation, where it handles adding modules to the finder's internal state. Specifically, the method `__loadModule` is responsible for registering a module definition (`mdef`) with the finder, adjusting the search path temporarily if needed to ensure proper module resolution and dependency tracking. This method interacts with other parts of the module finder to manage module loading and dependencies accurately.\n\ndef __loadModule(self, mdef):\n        \"\"\" Adds the indicated module to the modulefinder. \"\"\"\n\n        if mdef.filename:\n            # If it has a filename, then we found it as a file on\n            # disk.  In this case, the moduleName may not be accurate\n            # and useful, so load it as a file instead.\n\n            tempPath = None\n            if '.' not in mdef.moduleName:\n                # If we loaded a python file from the root, we need to\n                # temporarily add its directory to the module search\n                # path, so the modulefinder can find any sibling\n                # python files it imports as well.\n                tempPath = Filename(mdef.filename.getDirname()).toOsSpecific()\n                self.mf.path.append(tempPath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2092
+  }
+}

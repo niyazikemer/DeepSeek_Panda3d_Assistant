@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a custom `load_module` function in a Python import system implementation. It handles different types of modules (e.g., source files, packages) based on their type, loading them accordingly into the runtime environment.\n\nsuffix, mode, type = file_info\n        self.msgin(2, \"load_module\", fqname, fp and \"fp\", pathname)\n        if type == _PKG_DIRECTORY:\n            m = self.load_package(fqname, pathname)\n            self.msgout(2, \"load_module ->\", m)\n            return m\n\n        if type is _PKG_NAMESPACE_DIRECTORY:\n            m = self.add_module(fqname)\n            m.__code__ = compile('', '', 'exec', optimize=self.optimize)\n            m.__path__ = pathname\n            return m\n\n        if type == _PY_SOURCE:\n            if fqname in overrideModules:\n                # This module has a custom override.\n                code = overrideModules[fqname]\n            else:\n                code = fp.read()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2162
+  }
+}

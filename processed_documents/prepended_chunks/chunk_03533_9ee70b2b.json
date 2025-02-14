@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes a Pmw MegaWidget subclass, setting up initial values, resetting configurations, and obtaining references to widget components within a vector editing interface.\n\nContext:\nThis code is part of the initialization process for a VectorEntry widget class. It sets up core attributes including value storage, configuration management, and component references essential for the vector input and manipulation functionality provided by the widget. The chunk includes superclass initialization, data setup, and interior component access, forming the foundation of the vector editing interface.\n\nKey elements include:\n- Superclass (Pmw.MegaWidget) initialization\n- Value handling and storage\n- Configuration management\n- Component references\n- Format string for entry display\n\nThese aspects are critical for enabling multi-dimensional vector input with sliders and text fields in the widget's UI.\n\n# Initialize superclass\n        Pmw.MegaWidget.__init__(self, parent)\n\n        # Initialize value\n        # Make sure its a list (and as a byproduct, make a distinct copy)\n        self._value = list(self['value'])\n        self['resetValue'] = self['value']\n        self._floaters = None\n        self.entryFormat = '%.2f'\n\n        # Get a handle on the parent container\n        interior = self.interior()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3533
+  }
+}

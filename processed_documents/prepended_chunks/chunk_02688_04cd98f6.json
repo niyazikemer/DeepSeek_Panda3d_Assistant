@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods responsible for object cleanup (`delete()`), state retrieval (`getState()`), and network communication (`sendUpdate()`, `sendState()`). These functions are part of a larger Python class managing state transitions and network updates.\n\ndef delete(self):\n        assert self.__debugPrint(\"delete()\")\n        if self.doLaterTask is not None:\n            self.doLaterTask.remove()\n            del self.doLaterTask\n        del self.states\n        del self.fsm\n\n    def getState(self):\n        assert self.__debugPrint(\"getState() returning %s\"%(self.stateIndex,))\n        return [self.stateIndex]\n\n    def sendUpdate(self, fieldName, args = [], sendToId = None):\n        raise NotImplementedError\n\n    def sendState(self):\n        assert self.__debugPrint(\"sendState()\")\n        self.sendUpdate('setState', self.getState())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_148",
+    "parent": "processed_documents/context_documents/ee9f969a_FourStateAI.json",
+    "chunk_number": 2688
+  }
+}

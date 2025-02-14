@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces the new Finite State Machine (FSM) module, replacing the classic FSM implementation. It includes foundational imports, exception classes for handling FSM-related errors, and defines the Transition class used to manage state transitions in asynchronous operations. This sets the stage for implementing finite state machines with advanced features like async/await support.\n\n\"\"\"The new Finite State Machine module. This replaces the module\npreviously called FSM (now called :mod:`.ClassicFSM`).\n\nFor more information on FSMs, consult the :ref:`finite-state-machines` section\nof the programming manual.\n\"\"\"\n\n__all__ = ['FSMException', 'FSM']\n\n\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.showbase.MessengerGlobal import messenger\nfrom direct.showbase import PythonUtil\nfrom direct.directnotify import DirectNotifyGlobal\nfrom direct.stdpy.threading import RLock\nfrom panda3d.core import AsyncTaskManager, AsyncFuture, PythonTask\nimport types\n\n\nclass FSMException(Exception):\n    pass\n\n\nclass AlreadyInTransition(FSMException):\n    pass\n\n\nclass RequestDenied(FSMException):\n    pass\n\n\nclass Transition(tuple):\n    \"\"\"Used for the return value of fsm.request().  Behaves like a tuple, for\n    historical reasons.\"\"\"\n\n    _future = None\n\n    def __await__(self):\n        if self._future:\n            yield self._future\n\n        return tuple(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2623
+  }
+}

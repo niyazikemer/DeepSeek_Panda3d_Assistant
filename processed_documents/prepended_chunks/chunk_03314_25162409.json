@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces additional event handlers (`mouseFlyStartTopWin` and `mouseFlyStopTopWin`) for managing mouse movement in a top-level window, along with task-spawning methods (`spawnXZTranslateOrHPanYZoom` and `spawnXZTranslateOrHPPan`) that control specific types of camera translation or panning/zooming operations. These functions are part of the same class as other mouse-related functionality such as `enableMouseFly`, `disableMouseFly`, and `removeManipulateCameraTask`, which collectively manage camera manipulation, widget interactions, and event handling for user interaction in a 3D application.\n\ndef mouseFlyStartTopWin(self):\n        print(\"Moving mouse 2 in new window\")\n        #altIsDown = base.getAlt()\n        #if altIsDown:\n        #    print \"Alt is down\"\n\n    def mouseFlyStopTopWin(self):\n        print(\"Stopping mouse 2 in new window\")\n\n    def spawnXZTranslateOrHPanYZoom(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn the new task\n        t = Task.Task(self.XZTranslateOrHPanYZoomTask)\n        # For HPanYZoom\n        t.zoomSF = Vec3(self.coaMarker.getPos(ShowBaseGlobal.direct.camera)).length()\n        self.__startManipulateCamera(task = t)\n\n    def spawnXZTranslateOrHPPan(self):\n        # Kill any existing tasks\n        self.__stopManipulateCamera()\n        # Spawn new task\n        self.__startManipulateCamera(func = self.XZTranslateOrHPPanTask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3314
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of a method responsible for managing user interaction with texture regions displayed in a graphical interface. The methods `setRollover`, `leaveRegion`, and `mouseClick` handle mouse events such as rolling over a region to highlight a texture, leaving a region to clear the highlight, and clicking to isolate or cancel isolation of a specific texture.\n\nself.setRollover(tr, pi)\n\n    def leaveRegion(self, region, buttonName):\n        \"\"\" the mouse is no longer over a texture. \"\"\"\n        key, pi = map(int, region.getName().split(':'))\n        tr = self.texRecordsByKey.get(key)\n        if tr != self.rollover:\n            return\n\n        self.setRollover(None, None)\n\n    def mouseClick(self):\n        \"\"\" Received a mouse-click within the window.  This isolates\n        the currently-highlighted texture into a full-window\n        presentation. \"\"\"\n\n        if self.isolate:\n            # We're already isolating a texture; the click undoes this.\n            self.isolateTexture(None)\n            return\n\n        if self.rollover:\n            self.isolateTexture(self.rollover)\n\n    def setRollover(self, tr, pi):\n        \"\"\" Sets the highlighted texture (due to mouse rollover) to\n        the indicated texture, or None to clear it. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2968
+  }
+}

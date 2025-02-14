@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a vertex shader generation process in the context of graphics post-processing within the PostProcess class. It dynamically constructs the vertex shader's input and output declarations based on the current configuration settings, such as whether half-pixel shifting or texture padding adjustments are enabled. This ensures that the shader correctly handles texture coordinates and any necessary adjustments for effects like anti-aliasing or bloom when these features are applied.\n\ntext += \"void vshader(float4 vtx_position : POSITION,\\n\"\n            text += \"  out float4 l_position : POSITION,\\n\"\n\n            for texcoord, padTex in texcoordPadding.items():\n                if padTex is not None:\n                    text += \"  uniform float4 texpad_tx%s,\\n\" % (padTex)\n                    if \"HalfPixelShift\" in configuration:\n                        text += \"  uniform float4 texpix_tx%s,\\n\" % (padTex)\n\n            for i, name in texcoordSets:\n                text += \"  out float2 %s : TEXCOORD%d,\\n\" % (name, i)\n\n            text += \"  uniform float4x4 mat_modelproj)\\n\"\n            text += \"{\\n\"\n            text += \"  l_position = mul(mat_modelproj, vtx_position);\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3968
+  }
+}

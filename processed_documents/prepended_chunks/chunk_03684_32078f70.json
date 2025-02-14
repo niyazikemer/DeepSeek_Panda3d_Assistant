@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of the `TreeNode` class within a tree data structure implementation. The specific code is located inside the `find` method, which searches for nodes based on a key. \n\n**Context:**  \nWithin the `find` method of the `TreeNode` class, this code adds a new child node to the current node's list of children and applies filtering based on predefined tags. If certain tag conditions are not met, the child is removed from the visible list of children (`kidKeys`).\n\nself.children[key] = child\n            self.kidKeys.append(key)\n\n            # [gjeon] to filter by given tag\n            if self.fModeChildrenTag:\n                if self.childrenTag:\n                    showThisItem = False\n                    for tagKey in list(self.childrenTag.keys()):\n                        if item.nodePath.hasTag(tagKey):\n                            showThisItem = self.childrenTag[tagKey]\n                    if not showThisItem:\n                        self.kidKeys.remove(key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3684
+  }
+}

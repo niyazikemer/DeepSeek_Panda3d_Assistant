@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk consists of static methods in the `TaskProfiler` class that manage spike detection thresholds, as well as instance methods to log and flush task profiles based on specified names.\n\n@staticmethod\n    def GetDefaultSpikeThreshold():\n        return ConfigVariableDouble('profile-task-spike-threshold', 5.).value\n\n    @staticmethod\n    def SetSpikeThreshold(spikeThreshold):\n        TaskTracker.SpikeThreshold = spikeThreshold\n    @staticmethod\n    def GetSpikeThreshold():\n        return TaskTracker.SpikeThreshold\n\n    def logProfiles(self, name=None):\n        if name:\n            name = name.lower()\n        for namePrefix, tracker in self._namePrefix2tracker.items():\n            if name and name not in namePrefix.lower():\n                continue\n            tracker.log()\n\n    def flush(self, name):\n        if name:\n            name = name.lower()\n        # flush stored task profiles\n        for namePrefix, tracker in self._namePrefix2tracker.items():\n            if name and name not in namePrefix.lower():\n                continue\n            tracker.flush()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3939
+  }
+}

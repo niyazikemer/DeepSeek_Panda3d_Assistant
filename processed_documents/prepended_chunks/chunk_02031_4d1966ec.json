@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines functions related to module caching and overrides, including `getline`, `clearcache`, `getlines`, `checkcache`, `updatecache`, and `lazycache`. These functions are used for managing cached module data. The code also includes a reference to `_distutils_hack.override`, which is used by setuptools to redirect `distutils` imports to its vendored version, ensuring compatibility and avoiding conflicts with the system's `distutils`. This chunk appears in a larger context of Python's import mechanism and module management.\n\ndef getline(filename, lineno, module_globals=None):\n    return ''\n\ndef clearcache():\n    global cache\n    cache = {}\n\ndef getlines(filename, module_globals=None):\n    return []\n\ndef checkcache(filename=None):\n    pass\n\ndef updatecache(filename, module_globals=None):\n    pass\n\ndef lazycache(filename, module_globals):\n    pass\n\"\"\",\n\n    # Used by setuptools to redirect distutils to setuptools' vendored copy.\n    # This causes problems because it makes assumptions about __file__, so we\n    # simply implement the logic ourselves.\n    '_distutils_hack.override': '',\n}\n\n# These are missing modules that we've reported already this session.\nreportedMissing = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2031
+  }
+}

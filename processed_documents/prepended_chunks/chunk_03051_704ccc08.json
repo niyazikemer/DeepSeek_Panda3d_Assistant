@@ -1,0 +1,9 @@
+{
+  "content": "The code sets the top-level bounding volume of an Actor as \"final\" during initialization or copy operations, ensuring that either the entire Actor is rendered or none of it, avoiding issues with culling and animation artifacts where parts might disappear unexpectedly.\n\nelse:\n            self.copyActor(other, True) # overwrite everything\n\n        if setFinal:\n            # If setFinal is true, the Actor will set its top bounding\n            # volume to be the \"final\" bounding volume: the bounding\n            # volumes below the top volume will not be tested.  If a\n            # cull test passes the top bounding volume, the whole\n            # Actor is rendered.\n\n            # We do this partly because an Actor is likely to be a\n            # fairly small object relative to the scene, and is pretty\n            # much going to be all onscreen or all offscreen anyway;\n            # and partly because of the Character bug that doesn't\n            # update the bounding volume for pieces that animate away\n            # from their original position.  It's disturbing to see\n            # someone's hands disappear; better to cull the whole\n            # object or none of it.\n            self.__geomNode.node().setFinal(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3051
+  }
+}

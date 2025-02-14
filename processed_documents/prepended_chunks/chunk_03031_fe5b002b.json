@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines the `DistributedActor` class in a Python module, combining functionality from `DistributedNode` and `Actor` to create a distributed actor in a networked environment. The class includes initialization, disabling animations, and cleanup methods for managing actor resources efficiently across a distributed system.\n\nclass DistributedActor(DistributedNode.DistributedNode, Actor.Actor):\n    def __init__(self, cr):\n        if not hasattr(self, 'DistributedActor_initialized'):\n            self.DistributedActor_initialized = 1\n            Actor.Actor.__init__(self)\n            DistributedNode.DistributedNode.__init__(self, cr)\n            # Since actors are probably fairly heavyweight, we'd\n            # rather cache them than delete them if possible.\n            self.setCacheable(1)\n\n    def disable(self):\n        # remove all anims, on all parts and all lods\n        if not self.isEmpty():\n            Actor.Actor.unloadAnims(self, None, None, None)\n        DistributedNode.DistributedNode.disable(self)\n\n    def delete(self):\n        if not hasattr(self, 'DistributedActor_deleted'):\n            self.DistributedActor_deleted = 1\n            DistributedNode.DistributedNode.delete(self)\n            Actor.Actor.delete(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_176",
+    "parent": "processed_documents/context_documents/c75850e6_DistributedActor.json",
+    "chunk_number": 3031
+  }
+}

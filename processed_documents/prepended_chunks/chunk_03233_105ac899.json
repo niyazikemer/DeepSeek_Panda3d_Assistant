@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a larger codebase handling 3D widget manipulation in a graphical environment. It specifically deals with rotating widgets around the Z-axis based on user input or programmatic adjustments. The context involves checking whether multi-view functionality is enabled and then applying rotational transformations either to individual widgets or across multiple views.\n\nfor widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    widget.setR(widget, deltaAngle)\n            else:\n                ShowBaseGlobal.direct.widget.setR(ShowBaseGlobal.direct.widget, deltaAngle)\n        elif self.rotateAxis == 'z':\n            if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView:\n                for widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    widget.setH(widget, deltaAngle)\n            else:\n                ShowBaseGlobal.direct.widget.setH(ShowBaseGlobal.direct.widget, deltaAngle)\n        # Record crank angle for next time around\n        self.lastCrankAngle = newAngle",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3233
+  }
+}

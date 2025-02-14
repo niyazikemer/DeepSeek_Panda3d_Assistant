@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `run()` method within a custom distutils command class (`bdist_apps`) used in Panda3D's distribution tools. It handles building platform-specific distributions by iterating over target platforms, determining build directories, and invoking registered installer functions to create distribution packages (e.g., zip, exe, etc.) for each specified platform.\n\nfor platform in platforms:\n            build_dir = os.path.join(build_base, platform)\n            basename = '{}_{}'.format(self.distribution.get_fullname(), platform)\n            installers = self.installers.get(platform, self.DEFAULT_INSTALLERS.get(platform, ['zip']))\n            self._current_platform = platform\n\n            for installer in installers:\n                self.announce('\\nBuilding {} for platform: {}'.format(installer, platform), distutils.log.INFO)\n                if installer not in self.installer_functions:\n                    self.announce(\n                        '\\tUnknown installer: {}'.format(installer),\n                        distutils.log.ERROR\n                    )\n                    continue\n\n                self.installer_functions[installer](self, basename, build_dir)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2023
+  }
+}

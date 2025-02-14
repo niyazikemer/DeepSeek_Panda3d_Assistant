@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents a custom Tkinter dialog class that provides an interface for modifying properties of widgets in an application. The chunk includes methods for setting initial focus on input fields, tracking modified widget properties, and creating standard OK/Cancel buttons with keyboard shortcuts.\n\n# Set initial focus\n        if len(entryList) > 0:\n            entry = entryList[0]\n            entry.select_range(0, tk.END)\n            # Set initial focus to first entry in the list\n            return entryList[0]\n        else:\n            # Just set initial focus to self\n            return self\n\n    def modified(self, widget, entry, property, type, fNone):\n        self.modifiedDict[property] = (widget, entry, type, fNone)\n\n    def buttonbox(self):\n        \"\"\"add standard button box buttons.\n        \"\"\"\n        box = tk.Frame(self)\n        # Create buttons\n        w = tk.Button(box, text=\"OK\", width=10, command=self.ok)\n        w.pack(side=tk.LEFT, padx=5, pady=5)\n        # Create buttons\n        w = tk.Button(box, text=\"Cancel\", width=10, command=self.cancel)\n        w.pack(side=tk.LEFT, padx=5, pady=5)\n        # Bind commands\n        self.bind(\"<Return>\", self.ok)\n        self.bind(\"<Escape>\", self.cancel)\n        # Pack\n        box.pack()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3589
+  }
+}

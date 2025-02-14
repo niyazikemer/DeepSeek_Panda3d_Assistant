@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods related to managing object handles scaling and visibility in a 3D modeling or game development context. These methods allow for adjusting scaling factors, transferring scale values between object handles and their associated objects, and controlling the visibility of guide lines used for manipulation.\n\ndef showGuides(self):\n        self.guideLines.show()\n\n    def hideGuides(self):\n        self.guideLines.hide()\n\n    def setDirectScalingFactor(self, factor):\n        self.directScalingFactor = factor\n        self.setScalingFactor(1)\n\n    def setScalingFactor(self, scaleFactor):\n        self.ohScalingFactor = scaleFactor\n        self.scalingNode.setScale(self.ohScalingFactor * self.directScalingFactor)\n\n    def getScalingFactor(self):\n        return self.scalingNode.getScale()\n\n    def transferObjectHandlesScale(self):\n        # see how much object handles have been scaled\n        ohs = self.getScale()\n        sns = self.scalingNode.getScale()\n        # Transfer this to the scaling node\n        self.scalingNode.setScale(\n            ohs[0] * sns[0],\n            ohs[1] * sns[1],\n            ohs[2] * sns[2])\n        self.setScale(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3274
+  }
+}

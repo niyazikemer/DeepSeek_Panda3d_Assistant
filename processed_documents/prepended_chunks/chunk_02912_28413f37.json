@@ -1,0 +1,9 @@
+{
+  "content": "The code defines several `FunctionInterval` subclasses to handle node transformations, including position, rotation, and scaling. The specific chunk implements the `HprInterval` class, which animates changes to a node's heading, pitch, and roll (hpr) values either absolutely or relative to another node based on provided parameters.\n\nclass HprInterval(FunctionInterval):\n    # HprInterval counter\n    hprIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, hpr, duration = 0.0,\n                 name = None, other = None):\n        \"\"\"__init__(nodePath, hpr, duration, name)\n        \"\"\"\n        # Create function\n        def hprFunc(np = nodePath, hpr = hpr, other = other):\n            if other:\n                np.setHpr(other, hpr)\n            else:\n                np.setHpr(hpr)\n        # Determine name\n        if name is None:\n            name = 'HprInterval-%d' % HprInterval.hprIntervalNum\n            HprInterval.hprIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, hprFunc, name = name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2912
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in the `CollisionLines` class that initializes and draws a wireframe representation of a 3D axis-aligned bounding box. The code defines the lines for each face of the cube and connects corresponding vertices to form the edges.\n\n```python\n\"\"\"\nThis method initializes the wireframe lines for a 3D axis-aligned bounding box.\nThe `min` and `max` parameters define the minimum and maximum coordinates of the box.\nEach face is drawn by connecting its vertices, and vertical edges connect the top and bottom faces.\n\"\"\"\nminX = self.min[0]\nminY = self.min[1]\nminZ = self.min[2]\nmaxX = self.max[0]\nmaxY = self.max[1]\nmaxZ = self.max[2]\n\n# Bottom face\nlines.\n\nminX = self.min[0]\n        minY = self.min[1]\n        minZ = self.min[2]\n        maxX = self.max[0]\n        maxY = self.max[1]\n        maxZ = self.max[2]\n\n        # Bottom face\n        lines.moveTo(minX, minY, minZ)\n        lines.drawTo(maxX, minY, minZ)\n        lines.drawTo(maxX, maxY, minZ)\n        lines.drawTo(minX, maxY, minZ)\n        lines.drawTo(minX, minY, minZ)\n\n        # Front Edge/Top face\n        lines.drawTo(minX, minY, maxZ)\n        lines.drawTo(maxX, minY, maxZ)\n        lines.drawTo(maxX, maxY, maxZ)\n        lines.drawTo(minX, maxY, maxZ)\n        lines.drawTo(minX, minY, maxZ)\n\n        # Three remaining edges\n        lines.moveTo(maxX, minY, minZ)\n        lines.drawTo(maxX, minY, maxZ)\n        lines.moveTo(maxX, maxY, minZ)\n        lines.drawTo(maxX, maxY, maxZ)\n        lines.moveTo(minX, maxY, minZ)\n        lines.drawTo(minX, maxY, maxZ)\n\n        # Create and return bbox lines\n        lines.create()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3454
+  }
+}

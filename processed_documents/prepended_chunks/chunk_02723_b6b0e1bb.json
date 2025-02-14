@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a class `IndirectInterval` that wraps another interval to play a subset or transformed version of it. The chunk includes methods for stepping through the interval (`privStep`), finalizing execution (`privFinalize`), and initializing in reverse (`privReverseInitialize`). These methods manage state transitions, event posting, and interaction with the wrapped interval's lifecycle.\n\nContext: Methods for managing interval execution, including time stepping, finalization, and reverse initialization.\n\ndef privStep(self, t):\n        self.interval.privStep(self.__calcT(t))\n        self.currT = t\n        self.state = CInterval.SStarted\n        self.interval.privPostEvent()\n\n    def privFinalize(self):\n        if self.endAtEnd:\n            self.interval.privFinalize()\n        else:\n            self.interval.privStep(self.endT)\n            self.interval.privInterrupt()\n        self.currT = self.getDuration()\n        self.state = CInterval.SFinal\n        self.interval.privPostEvent()\n        self.intervalDone()\n\n    def privReverseInitialize(self, t):\n        state = self.interval.getState()\n        if state == CInterval.SInitial or state == CInterval.SFinal:\n            self.interval.privReverseInitialize(self.__calcT(t))\n        else:\n            self.interval.privStep(self.__calcT(t))\n        self.currT = t\n        self.state = CInterval.SStarted\n        self.interval.privPostEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_152",
+    "parent": "processed_documents/context_documents/43d373be_IndirectInterval.json",
+    "chunk_number": 2723
+  }
+}

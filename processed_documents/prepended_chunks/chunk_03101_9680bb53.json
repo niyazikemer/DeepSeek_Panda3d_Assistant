@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `Actor` class's `freezeJoint` method, which is designed to assign a static transform to a specified joint. This functionality is useful when you need to fix a joint's position without intending to animate it further during runtime, offering a more efficient alternative to `controlJoint` for such scenarios.\n\nContext: The code chunk implements the `freezeJoint` method within an Actor class, allowing users to set a static transform on a specified joint, which is optimal for non-animated joints.\n\nif not anyGood:\n            self.notify.warning(\"Cannot control joint %s\" % (jointName))\n\n        return node\n\n    def freezeJoint(self, partName, jointName, transform = None,\n                    pos=Vec3(0,0,0), hpr=Vec3(0,0,0), scale=Vec3(1,1,1)):\n        \"\"\"Similar to controlJoint, but the transform assigned is\n        static, and may not be animated at runtime (without another\n        subsequent call to freezeJoint).  This is slightly more\n        optimal than controlJoint() for cases in which the transform\n        is not intended to be animated during the lifetime of the\n        Actor. \"\"\"\n        if transform is None:\n            transform = TransformState.makePosHprScale(pos, hpr, scale)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3101
+  }
+}

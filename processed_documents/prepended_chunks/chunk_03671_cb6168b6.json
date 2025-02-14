@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements a set of interactive controls for adjusting and managing color values in a graphical interface. It adds a color picker button and menu options to modify RGB/alpha values, along with logging capabilities, enhancing the usability of the node/light control panel within a 3D application framework like Panda3D.\n\n# Add a print button which will also serve as a color tile\n    pButton = tk.Button(vgp.interior(), text = 'Print to Log',\n                        bg = getTkColorString(initColor),\n                        command = printToLog)\n    pButton.pack(expand = 1, fill = tk.BOTH)\n\n    # Update menu\n    menubar = vgp.component('menubar')\n    # System color picker\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Popup Color Picker', command=popupColorPicker)\n    menubar.addmenuitem(\n        'Valuator Group', 'command',\n        label='Print to log', command=printToLog)\n\n    def setLightColor(color):\n        light.setColor(Vec4(color[0]/255.0, color[1]/255.0,\n                            color[2]/255.0, color[3]/255.0))\n        # Update color chip button\n        pButton['bg'] = getTkColorString(color)\n    vgp['command'] = setLightColor\n    return vgp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3671
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a custom module loader's `find_module` method, which overrides Python's default mechanism for locating modules and packages. The code specifically handles special cases related to vendored libraries within `setuptools` and `pkg_resources`. It first checks if the requested module is `'distutils'` and redirects to a vendored version provided by `setuptools`, then looks for vendor directories when dealing with certain parent modules. This context ensures that the loader correctly resolves modules from their respective vendor paths before proceeding to search the standard module locations.\n\nelif (fullname == 'distutils' and 'setuptools' in self.modules and\n                  '_distutils_hack.override' in self.modules):\n                # Redirect to setuptools' vendored copy.\n                setuptools = self.modules['setuptools']\n                return self.find_module('_distutils', setuptools.__path__, parent=setuptools)\n\n        elif parent is not None and parent.__name__ in ('setuptools.extern', 'pkg_resources.extern'):\n            # Look for vendored versions of these libraries.\n            root = self.modules[parent.__name__.split('.', 1)[0]]\n            try:\n                fp, fn, stuff = self.find_module('_vendor', root.__path__, parent=root)\n                vendor = self.load_module(root.__name__ + '._vendor', fp, fn, stuff)\n                return self.find_module(name, vendor.__path__, parent=vendor)\n            except ImportError:\n                pass\n\n        # Look for the module on the search path.\n        ns_dirs = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2174
+  }
+}

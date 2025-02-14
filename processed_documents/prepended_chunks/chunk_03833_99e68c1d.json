@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two internal methods, `__stop` and `__delete`, within a threading class. These methods handle thread termination and cleanup. The `__stop` method marks the thread as stopped by setting a flag and notifying all waiting threads, while `__delete` removes the thread from the active list to prevent memory leaks and ensure accurate tracking of running processes. Together, they are essential for managing the lifecycle of threads within the threading system.\n\ndef __stop(self):\n        self.__block.acquire()\n        self.__stopped = True\n        self.__block.notifyAll()\n        self.__block.release()\n\n    def __delete(self):\n        \"Remove current thread from the dict of currently running threads.\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3833
+  }
+}

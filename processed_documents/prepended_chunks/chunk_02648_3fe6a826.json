@@ -1,0 +1,9 @@
+{
+  "content": "The chunk includes two methods: `requestPrev()` which handles transitioning to the previous state in a predefined array while managing thread safety with a lock, and `__setState()` an internal method responsible for creating transition objects during unconditional state changes. Both are part of a Finite State Machine (FSM) implementation that manages state transitions, entry/exit functions, and request handling.\n\ndef requestPrev(self, *args):\n        \"\"\"Request the 'previous' state in the predefined state array.\"\"\"\n        self.fsmLock.acquire()\n        try:\n            if self.stateArray:\n                if not self.state in self.stateArray:\n                    return self.request(self.stateArray[0])\n                else:\n                    cur_index = self.stateArray.index(self.state)\n                    new_index = (cur_index - 1) % len(self.stateArray)\n                    return self.request(self.stateArray[new_index], args)\n            else:\n                assert self.notify.debug(\n                                    \"stateArray empty. Can't switch to next.\")\n        finally:\n            self.fsmLock.release()\n\n    def __setState(self, newState, *args):\n        # Internal function to change unconditionally to the indicated state.\n\n        transition = Transition((newState,) + args)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2648
+  }
+}

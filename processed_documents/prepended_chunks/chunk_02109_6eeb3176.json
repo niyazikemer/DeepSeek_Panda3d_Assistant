@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a warning message regarding Python's inability to import extension modules under frozen packages. It suggests passing either `-l` to link in extension modules or `-x <package>` to exclude an entire package. This warning would be triggered when attempting to import certain modules that are not properly linked or excluded during the freezing process of Python applications, commonly encountered in environments where code is frozen into a single executable or package.\n\n**Context:**\nThis warning appears in a function or method responsible for importing or loading modules within a frozen Python environment. It is used to alert users about compatibility issues when trying to import extension modules (e.g., C extensions) that are not properly integrated into the frozen application, providing guidance on how to resolve such issues by linking extensions or excluding problematic packages during the freezing process.\n\n# Nothing we can do about this case except warn the user they\n                # are in for some trouble.\n                print('WARNING: Python cannot import extension modules under '\n                      'frozen Python packages; %s will be inaccessible.  '\n                      'passing either -l to link in extension modules or use '\n                      '-x %s to exclude the entire package.' % (moduleName, moduleName.split('.')[0]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2109
+  }
+}

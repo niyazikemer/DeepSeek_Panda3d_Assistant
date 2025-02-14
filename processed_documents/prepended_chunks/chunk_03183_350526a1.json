@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines three methods within the `DirectLights` class that manage light objects. The `deleteAll()` method deletes all lights, `asList()` converts the dictionary of lights into a list, and `getNameList()` returns a sorted list of light names. These functions are part of the functionality to create, manage, and control lights in a Panda3D environment.\n\ndef deleteAll(self):\n        for light in self:\n            self.delete(light)\n\n    def asList(self):\n        return [self[n] for n in self.getNameList()]\n\n    def getNameList(self):\n        # Return a sorted list of all lights in the light dict\n        return sorted(x.getName() for x in self.lightDict.values())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_178",
+    "parent": "processed_documents/context_documents/94320a32_DirectLights.json",
+    "chunk_number": 3183
+  }
+}

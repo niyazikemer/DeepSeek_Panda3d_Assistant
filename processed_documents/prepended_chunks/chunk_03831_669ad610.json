@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within the exception-handling section of a thread implementation. It captures and displays detailed traceback information when an exception occurs in a thread, particularly during interpreter shutdown, aiding in debugging by writing the error details to standard error output.\n\n# approximate a traceback (code ideas from\n                    # Lib/traceback.py)\n                    exc_type, exc_value, exc_tb = self.__exc_info()\n                    try:\n                        self.__stderr.write(\"Exception in thread \" + self.getName() +\n                            \" (most likely raised during interpreter shutdown):\\n\")\n                        self.__stderr.write(\"Traceback (most recent call last):\\n\")\n                        while exc_tb:\n                            self.__stderr.write('  File \"%s\", line %s, in %s\\n' %\n                                (exc_tb.tb_frame.f_code.co_filename,\n                                    exc_tb.tb_lineno,\n                                    exc_tb.tb_frame.f_code.co_name))\n                            exc_tb = exc_tb.tb_next\n                        self.__stderr.write(\"%s: %s\\n\" % (exc_type, exc_value))\n                    # Make sure that exc_tb gets deleted since it is a memory",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3831
+  }
+}

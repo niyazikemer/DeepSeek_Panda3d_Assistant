@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains three methods related to managing and interacting with selected and deselected node paths in a selection system:\n\n1. `getDeselectedAsList()`: Returns a list of all deselected node paths.\n\n2. `getDeselectedDict(id)`: \n   - Attempts to retrieve a specific deselected node path by ID from the deselected dictionary\n   - Includes logic to handle and repair potentially broken node path references\n\n3. `forEachSelectedNodePathDo(func)`: \n   - Applies a given function to each currently selected node path\n   - Does not verify node path connectivity before executing the function\n\nThese methods appear to be part of a selection management system, likely within the SelectionQueue class or a related helper class that tracks and manipulates selections of 3D objects in a scene. The code is used for maintaining state about deselected items and performing batch operations on selected items.\n\ndef getDeselectedAsList(self):\n        return list(self.deselectedDict.values())\n\n    def getDeselectedDict(self, id):\n        \"\"\"\n        Search deselectedDict for node path, try to repair broken node paths.\n        \"\"\"\n        dnp = self.deselectedDict.get(id, None)\n        if dnp:\n            # Yes\n            return dnp\n        else:\n            # Not in deselected dictionary\n            return None\n\n    def forEachSelectedNodePathDo(self, func):\n        \"\"\"\n        Perform given func on selected node paths.  No node path\n        connectivity verification performed\n        \"\"\"\n        selectedNodePaths = self.getSelectedAsList()\n        for nodePath in selectedNodePaths:\n            func(nodePath)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3447
+  }
+}

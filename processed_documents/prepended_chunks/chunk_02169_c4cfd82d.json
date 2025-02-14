@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a custom module finder/loader implementation that handles Python imports. It is specifically situated within a conditional block managing absolute or relative imports. The code attempts to resolve whether a given module name refers to a submodule within the current package context (`m.__path__`) or a global top-level module, updating import tracking structures accordingly. This functionality is part of an overridden `find_module`-like mechanism for handling namespace packages and custom module resolution logic.\n\n# the code has already been parsed and we can suck out the\n                    # global names.\n                    mm = None\n                    if m.__path__:\n                        # At this point we don't know whether 'name' is a\n                        # submodule of 'm' or a global module. Let's just try\n                        # the full name first.\n                        mm = self.modules.get(m.__name__ + \".\" + name)\n                    if mm is None:\n                        mm = self.modules.get(name)\n                    if mm is not None:\n                        m.globalnames.update(mm.globalnames)\n                        m.starimports.update(mm.starimports)\n                        if mm.__code__ is None:\n                            m.starimports[name] = 1\n                    else:\n                        m.starimports[name] = 1\n            elif what == \"relative_import\":\n                level, fromlist, name = args",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2169
+  }
+}

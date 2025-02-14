@@ -1,0 +1,9 @@
+{
+  "content": "The function `_get_thread_locals` is part of Panda3D's implementation of Python's threading module, specifically handling per-thread local storage for thread-specific data. This function ensures that each thread has its own isolated namespace by managing a dictionary stored in the thread's entry within the global threads registry. It uses a lock to ensure thread safety when accessing or creating the local storage dictionaries.\n\ndef _get_thread_locals(thread, i):\n    \"\"\" Returns the locals dictionary for the indicated thread.  If\n    there is not one, creates an empty dictionary. \"\"\"\n\n    threadId = thread.getPythonIndex()\n    if threadId == -1:\n        # The thread has never been assigned a threadId.  Go assign one.\n\n        global _nextThreadId\n        _threadsLock.acquire()\n        try:\n            threadId = _nextThreadId\n            _nextThreadId += 1\n\n            thread.setPythonIndex(threadId)\n            locals = {}\n            _threads[threadId] = (thread, locals, None)\n            return locals.setdefault(i, {})\n\n        finally:\n            _threadsLock.release()\n\n    else:\n        # The thread has been assigned a threadId.  Get the locals.\n        _threadsLock.acquire()\n        try:\n            t, locals, wrapper = _threads[threadId]\n            assert t == thread\n            return locals.setdefault(i, {})\n\n        finally:\n            _threadsLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3801
+  }
+}

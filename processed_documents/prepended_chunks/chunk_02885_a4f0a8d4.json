@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class hierarchy managing time-based intervals, specifically handling the addition of Python-style intervals as external components, setting up managers for playback control, and updating interval states based on time changes.\n\nelif isinstance(ival, Interval.Interval):\n            # It's a Python-style Interval, so add it as an external.\n            index = len(self.pythonIvals)\n            self.pythonIvals.append(ival)\n            if self.pstats:\n                ival.pstats = PStatCollector(self.pstats, ival.pname)\n            self.addExtIndex(index, ival.getName(), ival.getDuration(),\n                             ival.getOpenEnded(), relTime, relTo)\n\n        else:\n            self.notify.error(\"Not an Interval: %s\" % (ival,))\n\n    # Functions to support automatic playback of MetaIntervals along\n    # with all of their associated Python callbacks:\n\n    def setManager(self, manager):\n        self.__manager = manager\n        CMetaInterval.setManager(self, manager)\n\n    def getManager(self):\n        return self.__manager\n\n    manager = property(getManager, setManager)\n\n    def setT(self, t):\n        self.__updateIvals()\n        CMetaInterval.setT(self, t)\n\n    t = property(CMetaInterval.getT, setT)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2885
+  }
+}

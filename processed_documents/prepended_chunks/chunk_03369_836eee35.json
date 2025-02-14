@@ -1,0 +1,9 @@
+{
+  "content": "This code initializes components for handling selected node paths and displaying their information on screen, essential for user interaction tracking and feedback within the Direct framework.\n\n```python\n# Initialize selected nodes and UI readout for selection info\nself.selected  = SelectedNodePaths()\nself.ancestry  = []\nself.ancestryIndex  = 0\nself.activeParent  = None\n\n# Create on-screen text for displaying selected node paths information\nself.selectedNPReadout  = OnscreenText.onscreen_text(\n    pos=(0.1, 0.1), bg=Vec4(0,0,0,.2), style=3,\n    fg=(1,1,1,1), scale=0.05, align=TextNode.ALeft,\n    mayChange=1, font=self.font\n)\n# Configure the readout for proper display\nuseDirectRenderStyle(self.selectedNPReadout)\nself.selectedNPReadout.reparentTo(hidden)\n```\n\n# Initialize the collection of selected nodePaths\n        self.selected = SelectedNodePaths()\n        # Ancestry of currently selected object\n        self.ancestry = []\n        self.ancestryIndex = 0\n        self.activeParent = None\n\n        self.selectedNPReadout = OnscreenText.OnscreenText(\n            pos = (0.1, 0.1), bg=Vec4(0, 0, 0, .2), style=3,\n            fg = (1, 1, 1, 1), scale = 0.05, align = TextNode.ALeft,\n            mayChange = 1, font = self.font)\n        # Make sure readout is never lit or drawn in wireframe\n        useDirectRenderStyle(self.selectedNPReadout)\n        self.selectedNPReadout.reparentTo(hidden)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3369
+  }
+}

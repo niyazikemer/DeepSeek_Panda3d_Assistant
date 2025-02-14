@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a custom Pickle implementation in Python, specifically handling the reduction process for object serialization. It ensures proper validation and processing of the return value from an object's reduce methods, either saving the object as a global or validating and saving the tuple structure required for reconstruction during unpickling.\n\nContext: The code is within the `save` method of a custom Pickler class that extends Python's standard pickle module. It handles post-reduction validation steps to ensure compatibility with both standard and custom pickling mechanisms, helping prevent errors when serializing complex objects.\n\n# Check for string returned by reduce(), meaning \"save as global\"\n        if type(rv) is str:\n            self.save_global(obj, rv)\n            return\n\n        # Assert that reduce() returned a tuple\n        if type(rv) is not tuple:\n            raise PicklingError(\"%s must return string or tuple\" % reduce)\n\n        # Assert that it returned an appropriately sized tuple\n        l = len(rv)\n        if not (2 <= l <= 5):\n            raise PicklingError(\"Tuple returned by %s must have \"\n                                \"two to five elements\" % reduce)\n\n        # Save the reduce() output and finally memoize the object\n        self.save_reduce(obj=obj, *rv)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3854
+  }
+}

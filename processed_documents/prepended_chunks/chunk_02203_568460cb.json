@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a function `ref_resource` and its nested `compile` method. This functionality should be integrated into the `ANDROID_ATTRIBUTES` dictionary, which maps XML attribute names to corresponding processing functions within the `AndroidManifest` class. Specifically, when an attribute value references another resource (e.g., `@android:style/Theme`), this function compiles and resolves the reference, setting the appropriate resource ID.\n\nContext: The chunk implements a function for handling resource references in the Android manifest XML parser, where it processes attributes that point to other resources like styles or drawables. It's used within the `AndroidManifest` class during XML parsing to correctly resolve these resource IDs.\n\ndef ref_resource(id):\n    def compile(attrib, manifest):\n        assert attrib.value[0] == '@'\n        ref_type, ref_name = attrib.value[1:].split('/')\n        attrib.resource_id = id\n        attrib.compiled_item.ref.name = ref_type + '/' + ref_name\n\n        if ref_type == 'android:style':\n            attrib.compiled_item.ref.id = ANDROID_STYLES[ref_name]\n        elif ':' not in ref_type:\n            attrib.compiled_item.ref.id = manifest.register_resource(ref_type, ref_name)\n        else:\n            print(f'Warning: unhandled AndroidManifest.xml reference \"{attrib.value}\"')\n    return compile",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_136",
+    "parent": "processed_documents/context_documents/d67df3a6__android.json",
+    "chunk_number": 2203
+  }
+}

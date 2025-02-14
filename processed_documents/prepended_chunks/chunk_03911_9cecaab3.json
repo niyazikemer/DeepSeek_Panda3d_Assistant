@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains the `__init__`, `start()`, and `startCallback()` methods of the Timer class, which is designed for managing time intervals within a Panda3D application. The Timer class handles scheduling tasks using the task manager, supports callbacks or events upon timeout, and provides basic operations like stopping, restarting, and adjusting timers.\n\nclass Timer:\n    id = 0\n\n    def __init__(self, name=None):\n        self.finalT = 0.0\n        self.currT = 0.0\n        if name is None:\n            name = 'default-timer-%d' % Timer.id\n            Timer.id += 1\n        self.name = name\n        self.started = 0\n        self.callback = None\n\n    def start(self, t, name):\n        if self.started:\n            self.stop()\n        self.callback = None\n        self.finalT = t\n        self.name = name\n        self.startT = ClockObject.getGlobalClock().getFrameTime()\n        self.currT = 0.0\n        taskMgr.add(self.__timerTask, self.name + '-run')\n        self.started = 1\n\n    def startCallback(self, t, callback):\n        if self.started:\n            self.stop()\n        self.callback = callback\n        self.finalT = t\n        self.startT = ClockObject.getGlobalClock().getFrameTime()\n        self.currT = 0.0\n        taskMgr.add(self.__timerTask, self.name + '-run')\n        self.started = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_211",
+    "parent": "processed_documents/context_documents/a11a72f4_Timer.json",
+    "chunk_number": 3911
+  }
+}

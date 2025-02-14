@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated at the end of a Python module generated from Protocol Buffers definitions. It establishes cross-references between various message descriptors to define their interdependencies. This occurs after all individual message types (like `_VALUE`, `_ITEM`) are declared, ensuring each field correctly references its nested messages.\n\n**Context:**\nThis code chunk is part of the setup for protocol buffer message descriptors in a Python module, where it defines cross-references between different message types to establish their relationships and dependencies.\n\n_CONFIGVALUE.fields_by_name['config'].message_type = frameworks_dot_base_dot_tools_dot_aapt2_dot_Configuration__pb2._CONFIGURATION\n_CONFIGVALUE.fields_by_name['value'].message_type = _VALUE\n_VALUE.fields_by_name['source'].message_type = _SOURCE\n_VALUE.fields_by_name['item'].message_type = _ITEM\n_VALUE.fields_by_name['compound_value'].message_type = _COMPOUNDVALUE\n_VALUE.oneofs_by_name['value'].fields.append(\n  _VALUE.fields_by_name['item'])\n_VALUE.fields_by_name['item'].containing_oneof = _VALUE.oneofs_by_name['value']\n_VALUE.oneofs_by_name['value'].fields.append(\n  _VALUE.fields_by_name['compound_value'])\n_VALUE.fields_by_name['compound_value'].containing_oneof = _VALUE.oneofs_by_name['value']\n_ITEM.fields_by_name['ref'].message_type = _REFERENCE\n_ITEM.fields_by_name['str'].message_type = _STRING\n_ITEM.fields_by_name['raw_str'].message_type = _RAWSTRING\n_ITEM.fields_by_name['styled_str'].message_type = _STYLEDSTRING\n_ITEM.fields_by_name['file'].message_type = _FILEREFERENCE",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_138",
+    "parent": "processed_documents/context_documents/e963edbe_Resources_pb2.json",
+    "chunk_number": 2379
+  }
+}

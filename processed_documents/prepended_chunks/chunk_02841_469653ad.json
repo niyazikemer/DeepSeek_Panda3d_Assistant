@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines core lifecycle management functions for a `CInterval` class. The methods handle initialization (`privInitialize`, `privReverseInitialize`), state transitions (`privStep`, `privFinalize`), and instantaneous completion (`privInstant`) of interval operations, enabling subclasses to customize behavior during different phases of the interval's execution.\n\ndef privInitialize(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(t)\n\n    def privInstant(self):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(self.getDuration())\n        self.state = CInterval.SFinal\n        self.intervalDone()\n\n    def privStep(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.currT = t\n\n    def privFinalize(self):\n        # Subclasses may redefine this function\n        self.privStep(self.getDuration())\n        self.state = CInterval.SFinal\n        self.intervalDone()\n\n    def privReverseInitialize(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2841
+  }
+}

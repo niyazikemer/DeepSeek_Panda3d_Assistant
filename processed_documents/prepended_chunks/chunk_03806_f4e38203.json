@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines debugging support functionality (the `_Verbose` class) that is used by several major classes in the threading module to provide verbose logging when enabled. It appears near the top of the document, before the definition of the main thread management classes and functions like `Thread`, `MainThread`, and `DummyThread`.\n\n# Debug support (adapted from ihooks.py).\n# All the major classes here derive from _Verbose.  We force that to\n# be a new-style class so that all the major classes here are new-style.\n# This helps debugging (type(instance) is more revealing for instances\n# of new-style classes).\n\n_VERBOSE = False\n\nif __debug__:\n\n    class _Verbose(object):\n\n        def __init__(self, verbose=None):\n            if verbose is None:\n                verbose = _VERBOSE\n            self.__verbose = verbose\n\n        def _note(self, format, *args):\n            if self.__verbose:\n                format = format % args\n                format = \"%s: %s\\n\" % (\n                    currentThread().getName(), format)\n                _sys.stderr.write(format)\n\nelse:\n    # Disable this when using \"python -O\"\n    class _Verbose(object):  # type: ignore[no-redef]\n        def __init__(self, verbose=None):\n            pass\n        def _note(self, *args):\n            pass\n\n# Support for profile and trace hooks",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3806
+  }
+}

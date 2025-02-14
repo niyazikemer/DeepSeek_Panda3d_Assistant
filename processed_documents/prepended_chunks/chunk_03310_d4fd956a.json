@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function handling mouse movement within a 3D object manipulation system. The code checks if the mouse is in specific regions (corners or outer frame) to trigger different rotation behaviors (roll or rotate). It also resets an `altDown` flag when modifiers indicate the Alt key is not pressed.\n\n```python\ndef handleMouseMove(self):\n    \"\"\"\n    Handles mouse movement by checking mouse position relative to screen boundaries and\n    triggering appropriate tasks for rotating or rolling objects. Also manages modifier\n    states.\n    \"\"\"\n    # ... rest of the code ...\n```\n\nelif abs(direct.dr.mouseX) > 0.9 and abs(direct.dr.mouseY) > 0.9:\n                # Mouse is in corners, spawn roll task\n                self.spawnMouseRollTask()\n            else:\n                # Mouse is in outer frame, spawn mouseRotateTask\n                self.spawnMouseRotateTask()\n        if not modifiers == 4:\n            self.altDown = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3310
+  }
+}

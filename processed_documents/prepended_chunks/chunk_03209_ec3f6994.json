@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class managing 3D object manipulation in Panda3D, specifically handling tasks related to following selected node paths and cleanup operations during object manipulation.\n\n# Restart followSelectedNodePath task\n        self.spawnFollowSelectedNodePathTask()\n        messenger.send('DIRECT_manipulateObjectCleanup',\n                       [direct.selected.getSelectedAsList()])\n\n    def spawnFollowSelectedNodePathTask(self):\n        # If nothing selected, just return\n        if not ShowBaseGlobal.direct.selected.last:\n            return\n        # Clear out old task to make sure\n        taskMgr.remove('followSelectedNodePath')\n        # Where are the object handles relative to the selected object\n        pos = VBase3(0)\n        hpr = VBase3(0)\n        decomposeMatrix(ShowBaseGlobal.direct.selected.last.mCoa2Dnp,\n                        VBase3(0), hpr, pos, CSDefault)\n        # Create the task\n        t = Task.Task(self.followSelectedNodePathTask)\n        # Update state variables\n        t.pos = pos\n        t.hpr = hpr\n        t.base = ShowBaseGlobal.direct.selected.last\n        # Spawn the task\n        taskMgr.add(t, 'followSelectedNodePath')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3209
+  }
+}

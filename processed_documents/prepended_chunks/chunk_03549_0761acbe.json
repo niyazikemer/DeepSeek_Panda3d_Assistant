@@ -1,0 +1,9 @@
+{
+  "content": "This chunk belongs to a Python class definition for `ColorEntry`, which inherits from `VectorEntry`. The code initializes the superclass with 4 dimensions (R, G, B, A) and adds functionality to handle color input. Specifically, it adds a menu item that triggers a color picker dialog, allowing users to select colors interactively while preserving the alpha channel value.\n\n```python\n\"\"\"\nThis method initializes the ColorEntry class by setting up its core components,\nincluding adding a context menu for launching a color picker dialog. It enables \nusers to interactively update RGB values via the color picker while maintaining\nthe existing alpha (A) component.\n\"\"\"\n```\n\n</context>\n\n# Initialize the superclass, make sure dim makes it to superclass\n        VectorEntry.__init__(self, parent, dim = self['dim'])\n        # Add menu item to popup color picker\n        self.addMenuItem(\n            'Popup color picker',\n            command = lambda s = self: s.popupColorPicker())\n        # Needed because this method checks if self.__class__ is myClass\n        # where myClass is the argument passed into inialiseoptions\n        self.initialiseoptions(ColorEntry)\n\n    def popupColorPicker(self):\n        # Can pass in current color with: color = (255, 0, 0)\n        color = askcolor(\n            parent = self.interior(),\n            # Initialize it to current color\n            initialcolor = tuple(self.get()[:3]))[0]\n        if color:\n            self.set((color[0], color[1], color[2], self.getAt(3)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3549
+  }
+}

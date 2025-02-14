@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two deprecated methods related to animation blending in an actor/animation system: `disableBlend`, which disables blending of multiple animations, and `setControlEffect`, which sets the contribution level of a specific animation during blending.\n\ndef disableBlend(self, partName = None):\n        \"\"\"\n        Restores normal one-animation-at-a-time operation after a\n        previous call to enableBlend().\n\n        This method is deprecated.  You should use setBlend() instead.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"This method is deprecated.  You should use setBlend() instead.\", DeprecationWarning, stacklevel=2)\n        self.setBlend(animBlend = False, partName = partName)\n\n    def setControlEffect(self, animName, effect,\n                         partName = None, lodName = None):\n        \"\"\"\n        Sets the amount by which the named animation contributes to\n        the overall pose.  This controls blending of multiple\n        animations; it only makes sense to call this after a previous\n        call to setBlend(animBlend = True).\n        \"\"\"\n        for control in self.getAnimControls(animName, partName, lodName):\n            control.getPart().setControlEffect(control, effect)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3124
+  }
+}

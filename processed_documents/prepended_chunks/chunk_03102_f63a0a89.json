@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains methods related to controlling specific joints in an Actor class. The `freezeJoint` method stops a joint's animation and sets its transform, while the `releaseJoint` method restores the joint's normal animation behavior. These functions are part of managing low-level joint control within the actor's model.\n\nContext:\nThis code is part of an Actor class that manages 3D animations and models. The methods handle joint manipulation, allowing specific skeletal components to be frozen or released from animation control, useful for advanced pose management in character animations.\n\nsubpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        trueName = subpartDef.truePartName\n        anyGood = False\n        for bundleDict in self.__partBundleDict.values():\n            if bundleDict[trueName].getBundle().freezeJoint(jointName, transform):\n                anyGood = True\n\n        if not anyGood:\n            self.notify.warning(\"Cannot freeze joint %s\" % (jointName))\n\n    def releaseJoint(self, partName, jointName):\n        \"\"\"Undoes a previous call to controlJoint() or freezeJoint()\n        and restores the named joint to its normal animation. \"\"\"\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        trueName = subpartDef.truePartName\n        for bundleDict in self.__partBundleDict.values():\n            bundleDict[trueName].getBundle().releaseJoint(jointName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3102
+  }
+}

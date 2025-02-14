@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements two methods, `setMSAA` and `delMSAA`, which manage multisample anti-aliasing (MSAA) configuration within the rendering pipeline. These methods allow enabling or disabling MSAA on the render-to-texture buffer, providing guidance on optimal resource utilization and noting that this feature was introduced in version 1.10.13.\n\n**Context:** The code chunk is part of a broader set of methods for configuring visual effects, where each method pair (e.g., `setBloom`/`delBloom`) manages specific rendering options, including MSAA, to enhance image quality and performance.\n\ndef setMSAA(self, samples):\n        \"\"\"Enables multisample anti-aliasing on the render-to-texture buffer.\n        If you enable this, it is recommended to leave any multisample request\n        on the main framebuffer OFF (ie. don't set framebuffer-multisample true\n        in Config.prc), since it would be a waste of resources otherwise.\n\n        .. versionadded:: 1.10.13\n        \"\"\"\n        fullrebuild = \"MSAA\" not in self.configuration or self.configuration[\"MSAA\"].samples != samples\n        newconfig = FilterConfig()\n        newconfig.samples = samples\n        self.configuration[\"MSAA\"] = newconfig\n        return self.reconfigure(fullrebuild, \"MSAA\")\n\n    def delMSAA(self):\n        if \"MSAA\" in self.configuration:\n            del self.configuration[\"MSAA\"]\n            return self.reconfigure(True, \"MSAA\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3982
+  }
+}

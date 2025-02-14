@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a custom `Thread` class implementation within a Python module designed for managing threads in an application. The module integrates with a core system (likely Panda3D given the references to `core.MainThread`) to handle thread creation, execution, and cleanup.\n\n**Context:**\n- The code initializes a thread using `core.PythonThread`, sets up internal state tracking, and registers it.\n- It manages thread lifecycle events like cleanup upon deletion (`__del__` method) and checks if the thread is active (`is_alive()`).\n- Implements thread starting logic with error handling in the `start()` method.\n- Executes the target function within `run()`, setting tracing and profiling functions as configured.\n\nThis chunk is integral to the threading functionality, enabling custom thread management alongside system integration.\n\nself.__thread = core.PythonThread(call_run, None, name, name)\n        threadId = _thread._add_thread(self.__thread, weakref.proxy(self))\n        self.__dict__['ident'] = threadId\n\n    def __del__(self):\n        _thread._remove_thread_id(self.ident)\n\n    def is_alive(self):\n        thread = self.__thread\n        return thread is not None and thread.is_started()\n\n    isAlive = is_alive\n\n    def start(self):\n        thread = self.__thread\n        if thread is None or thread.is_started():\n            raise RuntimeError\n\n        if not thread.start(core.TPNormal, True):\n            raise RuntimeError\n\n    def run(self):\n        if _settrace_func:\n            _sys.settrace(_settrace_func)\n        if _setprofile_func:\n            _sys.setprofile(_setprofile_func)\n\n        self.__target(*self.__args, **self.__kwargs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3762
+  }
+}

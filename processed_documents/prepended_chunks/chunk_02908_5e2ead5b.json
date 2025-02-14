@@ -1,0 +1,9 @@
+{
+  "content": "The `IgnoreInterval` class is an auxiliary interval designed to schedule the ignoring of a specific event by a director object within the application's flow. This class complements the existing scene graph and timing control classes by adding functionality for event management, allowing developers to control which events should be ignored during particular intervals of execution.\n\n```python\nclass IgnoreInterval(Interval):\n    # Implementation details...\n```\n\nThis situates `IgnoreInterval` as a utility class that enhances event handling alongside other functional and timing intervals.\n\nclass IgnoreInterval(FunctionInterval):\n    # Initialization\n    def __init__(self, dirObj, event, name = None):\n        \"\"\"__init__(dirObj, event, name)\n        \"\"\"\n        def ignoreFunc(dirObj = dirObj, event = event):\n            dirObj.ignore(event)\n        # Determine name\n        if name is None:\n            name = 'Ignore-' + event\n        # Create function interval\n        FunctionInterval.__init__(self, ignoreFunc, name = name)\n\n### Function Interval subclass for adjusting scene graph hierarchy ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2908
+  }
+}

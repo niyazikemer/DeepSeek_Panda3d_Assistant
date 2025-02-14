@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a section from a Python class implementation, specifically dealing with input processing and value management within a graphical user interface (GUI) component. The methods `set()` and `get()` are part of a widget or control element that interacts with valuator components (e.g., sliders, entry fields). These methods handle updating the widget's state (`set()`) and retrieving its current value (`get()`), playing a key role in user interaction and data flow within the application. The context is part of a larger system managing color picker panels and UI controls for RGB values and lighting attributes.\n\n# Make sure input variables processed\n        self.fInit = self['fCommandOnInit']\n        self.initialiseoptions(Valuator)\n\n    def set(self, value, fCommand = 1):\n        \"\"\"\n        Update widget's value by setting valuator, which will in\n        turn update the entry.  fCommand flag (which is passed to the\n        valuator as commandData, which is then passed in turn to\n        self.setEntry) controls command execution.\n        \"\"\"\n        self._valuator['commandData'] = [fCommand]\n        self._valuator.set(value)\n        # Restore commandData to 1 so that interaction via valuator widget\n        # will result in command being executed, otherwise a set with\n        # commandData == 0 will stick and commands will not be executed\n        self._valuator['commandData'] = [1]\n\n    def get(self):\n        \"\"\" Return current widget value \"\"\"\n        return self.adjustedValue",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3639
+  }
+}

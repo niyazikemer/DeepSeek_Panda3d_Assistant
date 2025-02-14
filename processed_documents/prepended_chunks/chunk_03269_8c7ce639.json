@@ -1,0 +1,9 @@
+{
+  "content": "The `disableHandles` method is part of a class managing 3D selection and manipulation handles. It disables specific graphical elements used for interacting with objects in a 3D environment, allowing selective disablement of translation posts, rotation rings, scaling discs, and scale handles along the x, y, or z axes.\n\ndef disableHandles(self, handles):\n        if isinstance(handles, list):\n            for handle in handles:\n                self.disableHandle(handle)\n        elif handles == 'x':\n            self.disableHandles(['x-post','x-ring','x-disc','x-scale'])\n        elif handles == 'y':\n            self.disableHandles(['y-post','y-ring','y-disc','y-scale'])\n        elif handles == 'z':\n            self.disableHandles(['z-post','z-ring','z-disc','z-scale'])\n        elif handles == 'post':\n            self.disableHandles(['x-post','y-post','z-post'])\n        elif handles == 'ring':\n            self.disableHandles(['x-ring','y-ring','z-ring'])\n        elif handles == 'disc':\n            self.disableHandles(['x-disc','y-disc','z-disc'])\n        elif handles == 'scale':\n            self.disableHandles(['x-scale','y-scale','z-scale'])\n        elif handles == 'all':\n            self.disableHandles(['x-post','x-ring','x-disc','x-scale',",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3269
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method for creating circular geometric shapes by iterating over vertices and applying color data, then constructing triangle fan primitives to form the shape in a 3D rendering context using Panda3D's Geom classes.\n\nfor vertex in targetCircleShape:\n        targetCircleVertexWriter.addData3f(0.0 + vertex[0], 0.0 + vertex[1], zFloat)\n        targetCircleColorWriter.addData4f(color[0], color[1], color[2], color[3])\n        #targetCircleColorWriter.addData4f(1.0, 1.0, 1.0, 1.0)\n\n    targetTris = GeomTrifans(Geom.UHStatic) # triangle object\n\n    sizeTarget = len(targetCircleShape)\n    targetTris.addVertex(0)\n    for countVertex in range(1, sizeTarget + 1):\n        targetTris.addVertex(countVertex)\n    targetTris.addVertex(1)\n    targetTris.closePrimitive()\n\n    targetGeom = Geom(targetCircleVertexData)\n    targetGeom.addPrimitive(targetTris)\n    attachNode.addGeom(targetGeom)\n    return targetGeom",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3007
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `ClassicFSM` class implements a finite state machine managing state transitions. The `request()` method attempts to transition from the current state to a specified new state, returning whether the transition is possible.\n\n</document>\n\ndef request(self, aStateName, enterArgList=[], exitArgList=[],\n                force=0):\n        \"\"\"\n        Attempt transition from currentState to given one.\n        Return true is transition exists to given state,\n        false otherwise.\n        \"\"\"\n        # If you trigger this assertion failure, you must have\n        # recursively requested a state transition from within the\n        # exitState() function for the previous state.  This is not\n        # supported because we're not fully transitioned into the new\n        # state yet.\n        assert not self.__internalStateInFlux\n\n        if not self.__currentState:\n            # Make this a warning for now\n            ClassicFSM.notify.warning(\"[%s]: request: never entered initial state\" %\n                               (self.__name))\n            self.__currentState = self.__initialState",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2614
+  }
+}

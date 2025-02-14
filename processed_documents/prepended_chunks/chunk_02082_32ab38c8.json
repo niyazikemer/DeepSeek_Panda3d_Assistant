@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sits within a class method responsible for dynamically managing and importing Python modules. Specifically, it handles two cases: adding individual modules or gathering multiple submodules using wildcards (e.g., `module.*`). The code updates the module registry accordingly before preparing to generate output via the `done()` method, which finalizes module processing.\n\n**Context:**  \nThe code manages dynamic module imports and definitions, handling both single modules and wildcard-based submodule collections.\n\nif not newName:\n            newName = moduleName\n\n        if moduleName.endswith('.*'):\n            self.modules.update(self._gatherSubmodules(\n                moduleName, implicit, newName, filename,\n                guess, fromSource, text))\n        else:\n            # A normal, explicit module name.\n            self.modules[newName] = self.ModuleDef(\n                moduleName, filename = filename, implicit = implicit,\n                guess = guess, fromSource = fromSource, text = text)\n\n    def done(self, addStartupModules = False):\n        \"\"\" Call this method after you have added all modules with\n        addModule().  You may then call generateCode() or\n        writeMultifile() to dump the resulting output.  After a call\n        to done(), you may not add any more modules until you call\n        reset(). \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2082
+  }
+}

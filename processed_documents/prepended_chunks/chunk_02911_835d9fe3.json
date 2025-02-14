@@ -1,0 +1,9 @@
+{
+  "content": "The `PosInterval` class is a specific type of interval designed to handle node position transformations, part of a suite of interval classes for managing node properties such as position, rotation (HPR), scaling, and their combinations.\n\nclass PosInterval(FunctionInterval):\n    # PosInterval counter\n    posIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, pos, duration = 0.0,\n                 name = None, other = None):\n        \"\"\"__init__(nodePath, pos, duration, name)\n        \"\"\"\n        # Create function\n        def posFunc(np = nodePath, pos = pos, other = other):\n            if other:\n                np.setPos(other, pos)\n            else:\n                np.setPos(pos)\n        # Determine name\n        if name is None:\n            name = 'PosInterval-%d' % PosInterval.posIntervalNum\n            PosInterval.posIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, posFunc, name = name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2911
+  }
+}

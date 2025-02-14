@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a method that handles camera manipulation in a 3D environment. It specifically deals with setting the camera's position and orientation based on different predefined views (view numbers 0-7). The chunk corresponds to handling view number 7, where it sets the camera's heading, pitch, and roll (hprOffset), positions the camera relative to a marker (camManipRef), calculates the offset distance from the target, scales this distance along the Y-axis, updates the camera position, records the current view, and prepares an animation interval for smooth camera movement.\n\nhprOffset.set(-90., 0., 0.)\n        elif view == 5:\n            hprOffset.set(0., -90., 0.)\n        elif view == 6:\n            hprOffset.set(0., 90., 0.)\n        elif view == 7:\n            hprOffset.set(135., -35.264, 0.)\n        # Position target\n        self.camManipRef.setPosHpr(self.coaMarker, DG.ZERO_VEC,\n                                   hprOffset)\n        # Scale center vec by current distance to target\n        offsetDistance = Vec3(direct.camera.getPos(self.camManipRef) -\n                              DG.ZERO_POINT).length()\n        scaledCenterVec = Y_AXIS * (-1.0 * offsetDistance)\n        # Now put the camManipRef at that point\n        self.camManipRef.setPosHpr(self.camManipRef,\n                                   scaledCenterVec,\n                                   DG.ZERO_VEC)\n        # Record view for next time around\n        self.lastView = view\n        ival = direct.camera.posHprInterval(CAM_MOVE_DURATION,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3342
+  }
+}

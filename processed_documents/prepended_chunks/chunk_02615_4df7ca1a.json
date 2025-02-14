@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `request` method within a finite state machine (FSM) implementation, which handles state transitions by validating input parameters and determining if a requested state transition is defined or allowed.\n\nif isinstance(aStateName, str):\n            aState = self.getStateNamed(aStateName)\n        else:\n            # Allow the caller to pass in a state in itself, not just\n            # the name of a state.\n            aState = aStateName\n            aStateName = aState.getName()\n\n        if aState is None:\n            ClassicFSM.notify.error(\"[%s]: request: %s, no such state\" %\n                             (self.__name, aStateName))\n\n        # is the transition defined? if it isn't, should we allow it?\n        transitionDefined = self.__currentState.isTransitionDefined(aStateName)\n        transitionAllowed = transitionDefined",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2615
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk generates a sorted list of module definitions by iterating over `self.modules`, filtering based on whether each module should be included or excluded. It's part of a process that likely occurs after discovering all relevant modules in the package path and before finalizing the module list for distribution or further processing. The goal is to collect only necessary modules while excluding those marked as forbidden or previously exported.\n\n**Context:** This code is within a method responsible for preparing the final list of included modules, ensuring each meets specific criteria such as exclusion flags or previous exports before being added to `moduleDefs`.\n\nmoduleDefs = []\n\n        for newName, mdef in list(self.modules.items()):\n            prev = self.previousModules.get(newName, None)\n            if not mdef.exclude:\n                # Include this module (even if a previous pass\n                # excluded it).  But don't bother if we exported it\n                # previously.\n                if prev and not prev.exclude:\n                    # Previously exported.\n                    pass\n                elif mdef.moduleName in self.mf.modules or \\\n                     mdef.moduleName in startupModules or \\\n                     mdef.filename:\n                    moduleDefs.append((newName, mdef))\n            elif mdef.forbid:\n                if not prev or not prev.forbid:\n                    moduleDefs.append((newName, mdef))\n\n        moduleDefs.sort()\n        return moduleDefs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2096
+  }
+}

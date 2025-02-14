@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a Python class named `FrameProfiler` which is responsible for profiling and monitoring frame performance. The specific chunk shows the initialization (`__init__`) method where configuration variables are set, including time periods between frame profiles and schedules for logging output. This setup allows customization of profiling frequency and logging intervals based on system configuration settings such as `frequent-frames-profiles`.\n\ndef __init__(self):\n        Hour = FrameProfiler.Hour\n        # how long to wait between frame profiles\n        frequent_profiles = ConfigVariableBool('frequent-frame-profiles', False)\n        self._period = 2 * FrameProfiler.Minute\n        if frequent_profiles:\n            self._period = 1 * FrameProfiler.Minute\n        # used to prevent profile from being taken exactly every 'period' seconds\n        self._jitterMagnitude = self._period * .75\n        # when to log output\n        # each entry must be an integer multiple of all previous entries\n        # as well as an integer multiple of the period\n        self._logSchedule = [ 1 * FrameProfiler.Hour,\n                              4 * FrameProfiler.Hour,\n                             12 * FrameProfiler.Hour,\n                              1 * FrameProfiler.Day,\n                              ] # day schedule proceeds as 1, 2, 4, 8 days, etc.\n        if frequent_profiles:\n            self._logSchedule = [ 1  * FrameProfiler.Minute,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3919
+  }
+}

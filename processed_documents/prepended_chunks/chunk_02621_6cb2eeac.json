@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `conditional_request` method in the ClassicFSM class. This method checks if a transition from the current state to a specified target state exists before attempting it, allowing for safe, flexible state transitions without causing errors when no transition exists.\n\n```plaintext\nThis code implements the conditional request functionality within a finite state machine (FSM) framework. It checks whether a transition from the current state to a specified target state is defined or valid by either being an explicit transition, staying in the same state, or transitioning to the final state. If the transition is valid, it proceeds with the request; otherwise, it logs a debug message and returns without error.\n```\n\nif isinstance(aStateName, str):\n            aState = self.getStateNamed(aStateName)\n        else:\n            # Allow the caller to pass in a state in itself, not just\n            # the name of a state.\n            aState = aStateName\n            aStateName = aState.getName()\n\n        if aState is None:\n            ClassicFSM.notify.error(\"[%s]: request: %s, no such state\" %\n                                (self.__name, aStateName))\n\n        transitionDefined = (\n            self.__currentState.isTransitionDefined(aStateName) or\n            aStateName in [self.__currentState.getName(),\n                           self.__finalState.getName()]\n        )\n\n        if transitionDefined:\n            return self.request(aStateName, enterArgList, exitArgList)\n        else:\n            assert ClassicFSM.notify.debug(\n                \"[%s]: condition_request: %s, transition doesnt exist\" %\n                (self.__name, aStateName))\n            return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2621
+  }
+}

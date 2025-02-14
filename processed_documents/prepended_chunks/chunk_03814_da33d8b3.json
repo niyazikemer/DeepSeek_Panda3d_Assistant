@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `_Condition` class within a threading module implementation, which is part of a broader set of thread-synchronization primitives. The `_Condition` class inherits from `_Verbose`, manages a lock (defaulting to an `RLock`), and provides mechanisms for threads to wait until specific conditions are met. It forms part of the core synchronization utilities used to coordinate concurrent operations between multiple threads in a multi-threaded application.\n\nclass _Condition(_Verbose):\n\n    def __init__(self, lock=None, verbose=None):\n        _Verbose.__init__(self, verbose)\n        if lock is None:\n            lock = RLock()\n        self.__lock = lock\n        # Export the lock's acquire() and release() methods\n        self.acquire = lock.acquire\n        self.release = lock.release\n        # If the lock defines _release_save() and/or _acquire_restore(),\n        # these override the default implementations (which just call\n        # release() and acquire() on the lock).  Ditto for _is_owned().\n        try:\n            self._release_save = lock._release_save\n        except AttributeError:\n            pass\n        try:\n            self._acquire_restore = lock._acquire_restore\n        except AttributeError:\n            pass\n        try:\n            self._is_owned = lock._is_owned\n        except AttributeError:\n            pass\n        self.__waiters = []\n\n    def __enter__(self):\n        return self.__lock.__enter__()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3814
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of the `DirectManipulate` class within a Panda3D-related document. The code snippet pertains to adjusting the position of a marker (likely representing the center of action) when its distance from the origin is too close to the camera's near clipping plane, ensuring it remains visible and maintaining proper positioning for user interaction.\n\nThe context involves updating the `coa` (center of action) marker in 3D space, specifically handling cases where the marker might be too close to the camera. The code ensures that if the distance (`coaDist`) is less than a threshold (1.1 times the near clip plane distance), the marker is reset to a safe position (0, 100, 0) with an explicit distance of 100 units, then updates the marker's position accordingly.\n\ncoaDist = Vec3(coa - DG.ZERO_POINT).length()\n        if coaDist < (1.1 * dr.near):\n            coa.set(0, 100, 0)\n            coaDist = 100\n        # Update coa and marker\n        self.updateCoa(coa, coaDist = coaDist)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3331
+  }
+}

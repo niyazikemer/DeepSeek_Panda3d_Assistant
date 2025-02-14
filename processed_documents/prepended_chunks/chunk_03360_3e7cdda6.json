@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class that manages a 3D modeling grid system, handling snap operations for points and angles within the grid. It includes methods for enabling/disabling XYZ and HPR (heading, pitch, roll) snaps, computing snapped positions and angles based on grid settings, and updating visual elements like grid lines and background scaling when grid properties change.\n\ncenter.create()\n        minor.create()\n        major.create()\n        if self.gridBack:\n            self.gridBack.setScale(scaledSize)\n\n    def setXyzSnap(self, fSnap):\n        self.fXyzSnap = fSnap\n\n    def getXyzSnap(self):\n        return self.fXyzSnap\n\n    def setHprSnap(self, fSnap):\n        self.fHprSnap = fSnap\n\n    def getHprSnap(self):\n        return self.fHprSnap\n\n    def computeSnapPoint(self, point):\n        # Start of with current point\n        self.snapPos.assign(point)\n        # Snap if necessary\n        if self.fXyzSnap:\n            self.snapPos.set(\n                ROUND_TO(self.snapPos[0], self.gridSpacing),\n                ROUND_TO(self.snapPos[1], self.gridSpacing),\n                ROUND_TO(self.snapPos[2], self.gridSpacing))\n\n        # Move snap marker to this point\n        self.snapMarker.setPos(self.snapPos)\n\n        # Return the hit point\n        return self.snapPos\n\n    def computeSnapAngle(self, angle):\n        return ROUND_TO(angle, self.snapAngle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_183",
+    "parent": "processed_documents/context_documents/fba96cb7_DirectGrid.json",
+    "chunk_number": 3360
+  }
+}

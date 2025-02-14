@@ -1,0 +1,9 @@
+{
+  "content": "The `cleanup` method is placed in the Actor class to handle resource management and proper destruction. It's situated near other lifecycle methods like `removeNode` and `clearPythonData`, ensuring all resources are freed correctly before the object is destroyed.\n\ndef cleanup(self):\n        \"\"\"\n        This method should be called when intending to destroy the Actor, and\n        cleans up any additional resources stored on the Actor class before\n        removing the underlying node using `removeNode()`.\n\n        Note that `removeNode()` itself is not sufficient to destroy actors,\n        which is why this method exists.\n        \"\"\"\n        self.stop(None)\n        self.clearPythonData()\n        self.flush()\n        if self.__geomNode:\n            self.__geomNode.removeNode()\n            self.__geomNode = None\n        if not self.isEmpty():\n            self.removeNode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3061
+  }
+}

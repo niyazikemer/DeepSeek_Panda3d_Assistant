@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk handles the creation of `ModuleDef` instances for both parent and child modules by iterating through parent module names, checking if they have associated submodules, and defining new module definitions accordingly. This process is part of a method that manages module definitions, including handling implicit or guessed modules, within the broader import system management framework.\n\nfor parentName, newParentName in parentNames:\n            modules = self.getModuleStar(parentName)\n\n            if modules is None:\n                # It's actually a regular module.\n                mdefs[newParentName] = self.ModuleDef(\n                    parentName, implicit = implicit, guess = guess,\n                    fromSource = fromSource, text = text)\n\n            else:\n                # Now get all the py files in the parent directory.\n                for basename in modules:\n                    moduleName = '%s.%s' % (parentName, basename)\n                    newName = '%s.%s' % (newParentName, basename)\n                    mdefs[newName] = self.ModuleDef(\n                        moduleName, implicit = implicit, guess = True,\n                        fromSource = fromSource)\n        return mdefs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2080
+  }
+}

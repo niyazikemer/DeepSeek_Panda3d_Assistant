@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods for managing inverted colors (`delInverted`) and volumetric lighting effects (`setVolumetricLighting`), providing functionality to toggle and configure these graphical features within the application.\n\ndef delInverted(self):\n        if \"Inverted\" in self.configuration:\n            del self.configuration[\"Inverted\"]\n            return self.reconfigure(True, \"Inverted\")\n        return True\n\n    def setVolumetricLighting(self, caster, numsamples = 32, density = 5.0, decay = 0.1, exposure = 0.1, source = \"color\"):\n        oldconfig = self.configuration.get(\"VolumetricLighting\", None)\n        fullrebuild = True\n        if oldconfig and oldconfig.source == source and oldconfig.numsamples == int(numsamples):\n            fullrebuild = False\n        newconfig = FilterConfig()\n        newconfig.caster = caster\n        newconfig.numsamples = int(numsamples)\n        newconfig.density = density\n        newconfig.decay = decay\n        newconfig.exposure = exposure\n        newconfig.source = source\n        self.configuration[\"VolumetricLighting\"] = newconfig\n        return self.reconfigure(fullrebuild, \"VolumetricLighting\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3987
+  }
+}

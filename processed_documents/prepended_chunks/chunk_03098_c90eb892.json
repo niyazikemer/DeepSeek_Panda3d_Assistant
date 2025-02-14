@@ -1,0 +1,9 @@
+{
+  "content": "The `getJointTransformState` method is part of an Actor class that handles 3D animations and transformations. This method retrieves the transformation state (pose) of a specified joint in a given part of the actor, optionally at a specific Level of Detail (LOD). It is used to access the current spatial properties (position, orientation, scale) of joints for animation or manipulation purposes.\n\nParameters:\n- `partName`: Name of the part containing the joint.\n- `jointName`: Name of the joint whose transform state is requested.\n- `lodName` (optional): Level of Detail name; defaults to 'lodRoot'.\n\nReturns: The joint's current transform state, or None if the part or joint doesn't exist.\n\ndef getJointTransformState(self, partName, jointName, lodName='lodRoot'):\n        partBundleDict=self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return None\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef:\n            bundle = partDef.getBundle()\n        else:\n            Actor.notify.warning(\"no part named %s!\" % (partName))\n            return None\n\n        joint = bundle.findChild(jointName)\n        if joint is None:\n            Actor.notify.warning(\"no joint named %s!\" % (jointName))\n            return None\n        return joint.getTransformState()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3098
+  }
+}

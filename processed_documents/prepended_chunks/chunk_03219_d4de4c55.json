@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet defines methods for manipulating 3D objects (translation, rotation, scaling) in a scene. The specific chunk implements a task function (`manipulateObjectTask`) that handles object manipulation based on user input and constraints, prioritizing widget-based operations such as 1D or 2D translation, rotation, or scaling depending on the current edit type and user interaction (e.g., shift key).\n\ndef manipulateObjectTask(self, state):\n        if self.fScaling1D:\n            self.scale1D(state)\n        elif self.fScaling3D:\n            self.scale3D(state)\n        else:\n            # Widget takes precedence\n            if self.constraint:\n                type = self.constraint[2:]\n                if self.useSeparateScaleHandles:\n                    if type == 'post' and not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                        self.xlate1D(state)\n                    elif type == 'disc' and not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                        self.xlate2D(state)\n                    elif type == 'ring' and not self.currEditTypes & DG.EDIT_TYPE_UNROTATABLE:\n                        self.rotate1D(state)\n                    elif type == 'scale' and not self.currEditTypes & DG.EDIT_TYPE_UNSCALABLE:\n                        if ShowBaseGlobal.direct.fShift:\n                            self.fScaling3D = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3219
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a function named `addArrow` within a larger document that focuses on creating geometric shapes (like boxes and arrows) using Python. The chunk defines the initial vertices for an arrow's base, setting up their positions, normals, and colors in preparation for constructing the full arrow geometry. This function is part of a broader context aimed at generating custom 3D graphics elements programmatically.\n\ndef addArrow(attachNode, sizeX, sizeY, color = Vec4(1.0, 1.0, 1.0, 1.0), layer = 0):\n    targetGN = GeomNode(\"Arrow Geom\")\n    sX = sizeX / 2.0\n    sY = sizeY / 2.0\n\n    color1 = color\n    color2 = color\n    color3 = color\n\n    gFormat = GeomVertexFormat.getV3n3c()\n    boxVertexData = GeomVertexData(\"vertices\", gFormat, Geom.UHDynamic)\n\n    boxVertexWriter = GeomVertexWriter(boxVertexData, \"vertex\")\n    boxNormalWriter = GeomVertexWriter(boxVertexData, \"normal\")\n    boxColorWriter = GeomVertexWriter(boxVertexData, \"color\")\n\n    boxVertexWriter.addData3f(-sX, sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])\n\n    boxVertexWriter.addData3f(-sX, -sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])\n\n    boxVertexWriter.addData3f(sX, -sY, 0.0)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3020
+  }
+}

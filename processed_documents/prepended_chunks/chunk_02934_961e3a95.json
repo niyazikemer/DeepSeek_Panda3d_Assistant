@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk belongs to the `Rope` class definition in a Python document, which implements a NURBS curve-based rope animation system with support for vertex colors and thickness, inheriting from `NodePath`.\n\nclass Rope(NodePath):\n    \"\"\"\n    This class defines a NURBS curve whose control vertices are\n    defined based on points relative to one or more nodes in space, so\n    that the \"rope\" will animate as the nodes move around.  It uses\n    the C++ RopeNode class to achieve fancy rendering effects like\n    thick lines built from triangle strips.\n    \"\"\"\n\n    showRope = ConfigVariableBool('show-rope', True, \\\n      \"Set this to false to deactivate the display of ropes.\")\n\n    def __init__(self, name = 'Rope'):\n        self.ropeNode = RopeNode(name)\n        self.curve = NurbsCurveEvaluator()\n        self.ropeNode.setCurve(self.curve)\n        NodePath.__init__(self, self.ropeNode)\n        self.name = name\n        self.order = 0\n        self.verts = []\n        self.knots = None\n\n    def setup(self, order, verts, knots = None):\n        \"\"\"This must be called to define the shape of the curve\n        initially, and may be called again as needed to adjust the\n        curve's properties.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_169",
+    "parent": "processed_documents/context_documents/b78c6f86_Rope.json",
+    "chunk_number": 2934
+  }
+}

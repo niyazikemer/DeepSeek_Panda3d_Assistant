@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines key lifecycle management methods (`privReverseInitialize`, `privReverseInstant`, `privReverseFinalize`, `privInterrupt`, and `loop`) for the SoundInterval class, which handles sound playback behavior during interval reversal, interruption, and looping in a Panda3D environment.\n\ndef privReverseInitialize(self, t):\n        self._reverse = True\n\n    def privReverseInstant(self):\n        self.state = CInterval.SInitial\n\n    def privReverseFinalize(self):\n        self._reverse = False\n        self.state = CInterval.SInitial\n\n    def privInterrupt(self):\n        if self.sound is not None:\n            self.sound.stop()\n            self._soundPlaying = False\n        self.state = CInterval.SPaused\n\n    def loop(self, startT = 0.0, endT = -1.0, playRate = 1.0, stagger=False):\n        self.fLoop = 1\n        Interval.Interval.loop(self, startT, endT, playRate)\n        if stagger:\n            self.setT(random.random() * self.getDuration())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_155",
+    "parent": "processed_documents/context_documents/3a83844b_SoundInterval.json",
+    "chunk_number": 2738
+  }
+}

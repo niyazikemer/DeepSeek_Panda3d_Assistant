@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function implementing quaternion spherical linear interpolation (Slerp), specifically handling cases where quaternions are nearly opposite. It computes smooth rotations between orientations represented by quaternions, ensuring minimal rotation angles for natural animations or 3D transformations.\n\ndestQuat.setJ(startQ.getI())\n        destQuat.setK(-startQ.getR())\n        destQuat.setR(startQ.getK())\n        startScale = math.sin((0.5 - t) * math.pi)\n        endScale = math.sin(t * math.pi)\n        destQuat.setI(startScale * startQ.getI() +\n                      endScale * endQuat.getI())\n        destQuat.setJ(startScale * startQ.getJ() +\n                      endScale * endQuat.getJ())\n        destQuat.setK(startScale * startQ.getK() +\n                      endScale * endQuat.getK())\n    return destQuat",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3489
+  }
+}

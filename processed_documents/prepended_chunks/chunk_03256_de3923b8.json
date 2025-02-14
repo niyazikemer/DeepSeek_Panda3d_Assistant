@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of an object initialization sequence within a class constructor (`__init__` method), likely for setting up visual handles or manipulation aids for 3D objects. It assigns model references, scaling nodes, and collision groups for X-axis components (posts, rings, discs) used in interactive object manipulation.\n\n# Load up object handles model and assign it to self\n        self.assign(ShowBaseGlobal.loader.loadModel('models/misc/objectHandles'))\n        self.setName(name)\n        self.scalingNode = NodePath(self)\n        self.scalingNode.setName('ohScalingNode')\n        self.ohScalingFactor = 1.0\n        self.directScalingFactor = 1.0\n        # To avoid recreating a vec every frame\n        self.hitPt = Vec3(0)\n        # Get a handle on the components\n        self.xHandles = self.find('**/X')\n        self.xPostGroup = self.xHandles.find('**/x-post-group')\n        self.xPostCollision = self.xHandles.find('**/x-post')\n        self.xRingGroup = self.xHandles.find('**/x-ring-group')\n        self.xRingCollision = self.xHandles.find('**/x-ring')\n        self.xDiscGroup = self.xHandles.find('**/x-disc-group')\n        self.xDisc = self.xHandles.find('**/x-disc-visible')\n        self.xDiscCollision = self.xHandles.find('**/x-disc')\n        self.xScaleGroup = deepcopy(self.xPostGroup)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3256
+  }
+}

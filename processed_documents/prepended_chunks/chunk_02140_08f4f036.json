@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a function responsible for replacing a specific symbol in binary data, particularly handling Universal binaries with 64-bit offsets and processing Mach-O headers. It iterates through fat headers, checks for the requested bitness, searches for a symbol in each Mach-O segment, and replaces it if found.\n\nContext: Handling of binary module data manipulation, specifically dealing with Mach-O executable files to find and replace symbols.\n\nreturn replaced\n\n        elif data[:4] in (b'\\xCA\\xFE\\xBA\\xBF', b'\\xBF\\xBA\\xFE\\xCA'):\n            # Universal binary with 64-bit offsets.\n            num_fat, = struct.unpack_from('>I', data, 4)\n            replaced = False\n            ptr = 8\n            for i in range(num_fat):\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack_from('>QQQQQ', data, ptr)\n                ptr += 40\n\n                # Does this match the requested bitness?\n                if bitness is not None and ((cputype & 0x1000000) != 0) != (bitness == 64):\n                    continue\n\n                macho_data = data[offset:offset+size]\n                off = self._find_symbol_macho(macho_data, symbol_name)\n                if off is not None:\n                    off += offset\n                    data[off:off+len(replacement)] = replacement\n                    replaced = True\n\n            return replaced",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2140
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines three methods for the TreeNode class: deselecttree(), flip(), and createPopupMenu(). These methods handle user interaction behaviors including deselection management across the tree hierarchy, toggling node expansion states, and creating right-click popup menus. The methods are part of the interactive functionality enabling users to navigate and manipulate the tree structure visually.\n\ndef deselecttree(self):\n        if self.selected:\n            self.deselect()\n        for key in self.kidKeys:\n            child = self.children[key]\n            child.deselecttree()\n\n    def flip(self, event=None):\n        if self.state == 'expanded':\n            self.collapse()\n        else:\n            self.expand()\n        self.item.OnDoubleClick()\n        return \"break\"\n\n    def createPopupMenu(self):\n        if self.menuList:\n            self._popupMenu = tk.Menu(self.canvas, tearoff = 0)\n            for i, item in enumerate(self.menuList):\n                if item == 'Separator':\n                    self._popupMenu.add_separator()\n                else:\n                    self._popupMenu.add_radiobutton(\n                        label = item,\n                        variable = self.menuVar,\n                        value = i,\n                        indicatoron = 0,\n                        command = self.popupMenuCommand)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3676
+  }
+}

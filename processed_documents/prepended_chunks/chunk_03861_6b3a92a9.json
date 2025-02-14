@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `TaskManager` class with methods for managing and executing tasks, including task scheduling, execution, and cleanup. The included type hints and annotations use typing constructs like `TypeVar`, `Coroutine`, `Generator`, `Callable`, and `Union` to express the various types of functions and coroutines that can be converted into tasks.\n\nThe code chunk introduces typing variables used in the class's method annotations to succinctly describe all possible task-related types.\n\n# The following variables are typing constructs used in annotations\n# to succinctly express all the types that can be converted into tasks.\n_T = TypeVar('_T', covariant=True)\n_TaskCoroutine = Union[Coroutine[Any, None, _T], Generator[Any, None, _T]]\n_TaskFunction = Callable[..., Union[int, _TaskCoroutine[Union[int, None]], None]]\n_FuncOrTask = Union[_TaskFunction, _TaskCoroutine[Any], AsyncTask]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3861
+  }
+}

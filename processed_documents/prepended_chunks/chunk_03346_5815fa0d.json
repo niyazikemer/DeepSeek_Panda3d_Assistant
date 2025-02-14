@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk calculates the camera movement needed to frame the widget correctly by determining the relative positions, adjusting the camera target, and smoothly moving the camera into position.\n\n```plaintext\nThe code adjusts the camera's position so that a selected widget fills 50% of the screen. It calculates the widget's position relative to the camera, computes the required camera movement, updates the camera's target point, and animates the camera smoothly to the new position.\n```\n\n# Where is the node relative to the viewpoint\n        vWidget2Camera = direct.widget.getPos(direct.camera)\n\n        # How far do you move the camera to be this distance from the node?\n        deltaMove = vWidget2Camera - centerVec\n\n        # Move a target there\n        try:\n            self.camManipRef.setPos(direct.camera, deltaMove)\n        except Exception:\n            #self.notify.debug\n            pass\n\n        parent = direct.camera.getParent()\n        direct.camera.wrtReparentTo(self.camManipRef)\n        ival = direct.camera.posInterval(CAM_MOVE_DURATION,\n                                         Point3(0, 0, 0),\n                                         blendType='easeInOut')\n        ival = Sequence(ival, Func(self.reparentCam, parent),\n                        name='manipulateCamera')\n        self.__startManipulateCamera(ival=ival)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3346
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a custom `Pickler` class that extends Python's built-in pickling functionality. This section illustrates the initialization of key components, including the `BamWriter` for handling object serialization and a dictionary `_canonical` for tracking canonical forms of objects. Additionally, it shows how the `clear_memo` method resets these resources and part of the `save` method that checks for persistent IDs to manage object persistence efficiently during pickling.\n\nclass Pickler(BasePickler):  # type: ignore[misc, valid-type]\n\n    def __init__(self, *args, **kw):\n        self.bamWriter = BamWriter()\n        self._canonical = {}\n        BasePickler.__init__(self, *args, **kw)\n\n    def clear_memo(self):\n        BasePickler.clear_memo(self)\n        self._canonical.clear()\n        self.bamWriter = BamWriter()\n\n    # We have to duplicate most of the save() method, so we can add\n    # support for __reduce_persist__().\n\n    def save(self, obj, save_persistent_id=True):\n        if self.proto >= 4:\n            self.framer.commit_frame()\n\n        # Check for persistent id (defined by a subclass)\n        pid = self.persistent_id(obj)\n        if pid is not None and save_persistent_id:\n            self.save_pers(pid)\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3850
+  }
+}

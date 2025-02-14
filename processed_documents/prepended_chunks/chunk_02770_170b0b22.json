@@ -1,0 +1,9 @@
+{
+  "content": "The `privDoEvent` method is part of the `LerpNodePathInterval` class, which handles interpolation between two positions and/or orientations for a node in Panda3D. This method is responsible for setting up parameters when an interval is initialized, ensuring that any Python functors provided for start and end values are properly configured before the interpolation begins.\n\ndef privDoEvent(self, t, event):\n        # This function is only used if Python functors were passed in\n        # for some of the input parameters.\n        if self.paramSetup and event == CInterval.ETInitialize:\n            self.setupParam(self.setEndPos, self.endPos)\n            self.setupParam(self.setStartPos, self.startPos)\n            self.setupParam(self.setEndHpr, self.endHpr)\n            self.setupParam(self.setStartHpr, self.startHpr)\n            self.setupParam(self.setStartQuat, self.startQuat)\n            self.setupParam(self.setEndScale, self.endScale)\n            self.setupParam(self.setStartScale, self.startScale)\n        LerpNodePathInterval.privDoEvent(self, t, event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2770
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk belongs within a class definition for an `Actor` or similar entity that manages 3D models and animations. Specifically, it appears in methods that handle:\n\n1. Part bundle management: Retrieving animation or model bundles associated with specific parts of the actor (e.g., limbs, accessories). The code checks if a part exists and handles missing parts gracefully.\n\n2. LOD (Level of Detail) management: Sorting and managing different levels of detail for 3D models based on distance from the viewer or other criteria. The sorting function prioritizes higher detail (`h`) over medium (`m`), low (`l`), and fallback (`f`) levels.\n\nThe code is part of a system that binds animations, manages model hierarchy, and handles dynamic updates to visual quality based on runtime conditions.\n\nelse:\n                subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n                partDef = partBundleDict.get(subpartDef.truePartName)\n                if partDef is not None:\n                    bundles.append(partDef.getBundle())\n                else:\n                    Actor.notify.warning(\"Couldn't find part: %s\" % (partName))\n\n        return bundles\n\n    def __updateSortedLODNames(self):\n        # Reverse sort the doing a string->int\n        def sortKey(x):\n            if not str(x).isdigit():\n                smap = {'h':3,\n                        'm':2,\n                        'l':1,\n                        'f':0}\n\n                #sx = smap.get(x[0], None)\n                #\n                #if sx is None:\n                #    self.notify.error('Invalid lodName: %s' % x)\n                return smap[x[0]]\n            else:\n                return int(x)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3064
+  }
+}

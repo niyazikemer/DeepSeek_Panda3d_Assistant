@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a function responsible for copying specific files from wheel distributions to the target build directory. It handles case insensitivity in filenames to ensure compatibility across different operating systems during the build process of installers.\n\n# Look case-insensitively.\n                namelist = whlfile.namelist()\n                namelist_lower = [file.lower() for file in namelist]\n\n                if wf.lower() in namelist_lower:\n                    # We have a match.  Change it to the correct case.\n                    wf = namelist[namelist_lower.index(wf.lower())]\n                    source_path = os.path.join(whl, wf)\n                    target_path = os.path.join(target_dir, os.path.basename(wf))\n                    self.copy_with_dependencies(source_path, target_path, search_path)\n                    return\n\n        # If we didn't find it, look again, but case-insensitively.\n        name_lower = name.lower()\n\n        for dir in search_path:\n            if os.path.isdir(dir):\n                files = os.listdir(dir)\n                files_lower = [file.lower() for file in files]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2001
+  }
+}

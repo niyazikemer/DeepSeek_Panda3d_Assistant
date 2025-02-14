@@ -1,0 +1,9 @@
+{
+  "content": "The code introduces a `TexMemWatcher` class, part of a system designed to visually represent and monitor texture memory usage in a graphics application. The `TextureNode` class manages individual textures, while `TexPlacement` handles the placement and intersection detection of these textures within the monitoring interface.\n\nclass TexMemWatcher(DirectObject):\n    \"\"\"\n    This class creates a separate graphics window that displays an\n    approximation of the current texture memory, showing the textures\n    that are resident and/or active, and an approximation of the\n    amount of texture memory consumed by each one.  It's intended as a\n    useful tool to help determine where texture memory is being spent.\n\n    Although it represents the textures visually in a 2-d space, it\n    doesn't actually have any idea how textures are physically laid\n    out in memory--but it has to lay them out somehow, so it makes\n    something up.  It occasionally rearranges the texture display when\n    it feels it needs to, without regard to what the graphics card is\n    actually doing.  This tool can't be used to research texture\n    memory fragmentation issues.\n    \"\"\"\n\n    NextIndex = 1\n\n    StatusHeight = 20  # in pixels\n\n    def __init__(self, gsg = None, limit = None):\n        DirectObject.__init__(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2949
+  }
+}

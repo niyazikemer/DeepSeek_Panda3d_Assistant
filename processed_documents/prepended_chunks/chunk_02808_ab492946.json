@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code belongs to the `__doPythonCallbacks` method within the `IntervalManager` class, which handles post-processing of intervals and event management. The code processes events from the interval manager's custom event queue, ensuring that all done events generated in C++ are processed immediately rather than waiting for the global event queue. This section is crucial for maintaining timely event handling and proper interval cleanup within the application.\n\nindex = self.getNextEvent()\n        while index >= 0:\n            self.ivals[index].privPostEvent()\n            index = self.getNextEvent()\n\n        # Finally, throw all the events on the custom event queue.\n        # These are the done events that may have been generated in\n        # C++.  We use a custom event queue so we can service all of\n        # these immediately, rather than waiting for the global event\n        # queue to be serviced (which might not be till next frame).\n        self.MyEventmanager.doEvents()\n\n\n    def __storeInterval(self, interval, index):\n        while index >= len(self.ivals):\n            self.ivals.append(None)\n        assert self.ivals[index] is None or self.ivals[index] == interval\n        self.ivals[index] = interval\n\n#: The global IntervalManager object.\nivalMgr = IntervalManager(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_160",
+    "parent": "processed_documents/context_documents/493662c0_IntervalManager.json",
+    "chunk_number": 2808
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk pertains to a section within the `mouseUpdate` method of the `DisplayRegionContextList` class. Its purpose is to handle mouse events correctly by checking for orphaned events (where a mouse button release occurs without a corresponding press) and ensuring that only relevant windows process each event, thereby maintaining accurate state management across multiple display regions.\n\nif (self.fMouse1 == 0 and 'mouse1-up' in input) or\\\n                   (self.fMouse2 == 0 and 'mouse2-up' in input) or\\\n                   (self.fMouse3 == 0 and 'mouse3-up' in input):\n                    # to handle orphan events\n                    return\n\n                if (self.fMouse1 or self.fMouse2 or self.fMouse3) and\\\n                   input[4:7] != self.camera.getName()[:3] and\\\n                   input.endswith('-up'):\n                    # to handle orphan events\n                    return\n\n                winCtrl = None\n                possibleWinCtrls = []\n                for cWinCtrl in base.winControls:\n                    if cWinCtrl.mouseWatcher.node().hasMouse():\n                        possibleWinCtrls.append(cWinCtrl)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3395
+  }
+}

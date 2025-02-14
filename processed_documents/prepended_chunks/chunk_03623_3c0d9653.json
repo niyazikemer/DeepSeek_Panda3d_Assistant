@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `FloaterGroup` class definition, specifically within its constructor method (`__init__`). It initializes the toplevel widget using Pmw's MegaToplevel, creates necessary components including a menubar with options for resetting and dismissing the panel, and sets up each individual Floater component within the group. Each Floater is configured with command callbacks to handle value changes.\n\n# Initialize the toplevel widget\n        Pmw.MegaToplevel.__init__(self, parent)\n\n        # Create the components\n        interior = self.interior()\n        # Get a copy of the initial value (making sure its a list)\n        self._value = list(self['value'])\n\n        # The Menu Bar\n        self.balloon = Pmw.Balloon()\n        menubar = self.createcomponent('menubar', (), None,\n                                       Pmw.MenuBar, (interior,),\n                                       balloon = self.balloon)\n        menubar.pack(fill=tk.X)\n\n        # FloaterGroup Menu\n        menubar.addmenu('Floater Group', 'Floater Group Operations')\n        menubar.addmenuitem(\n            'Floater Group', 'command', 'Reset the Floater Group panel',\n            label = 'Reset',\n            command = lambda s = self: s.reset())\n        menubar.addmenuitem(\n            'Floater Group', 'command', 'Dismiss Floater Group panel',\n            label = 'Dismiss', command = self.withdraw)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3623
+  }
+}

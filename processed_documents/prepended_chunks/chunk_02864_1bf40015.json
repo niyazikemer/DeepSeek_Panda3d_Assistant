@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within the `privStep` method of an animation interval class, responsible for advancing the animation state at each time step. The method calculates the current frame based on elapsed time, handles frame wrapping for looping animations, ensures frames are within valid bounds, and updates the animation controls to the computed frame.\n\n# Calc integer frame number\n        intFrame = int(math.floor(absFrame + 0.0001))\n\n        # Pose anim\n\n        # We use our pre-computed list of animControls for\n        # efficiency's sake, rather than going through the relatively\n        # expensive Actor interface every frame.\n\n        # Each animControl might have a different number of frames.\n        numFrames = self.controls.getAnim(0).getNumFrames()\n        if self.loopAnim:\n            frame = (intFrame % numFrames) + (absFrame - intFrame)\n        else:\n            frame = max(min(absFrame, numFrames - 1), 0)\n\n        self.controls.poseAll(frame)\n\n        self.state = CInterval.SStarted\n        self.currT = t",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_165",
+    "parent": "processed_documents/context_documents/0899ec70_AnimControlInterval.json",
+    "chunk_number": 2864
+  }
+}

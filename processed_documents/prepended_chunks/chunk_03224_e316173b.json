@@ -1,0 +1,9 @@
+{
+  "content": "This chunk represents a segment of a task function managing direct manipulation operations for 3D object editing, specifically handling rotation and translation in different planes (XY or XZ) based on user input and modifier keys. It includes conditional checks for edit type restrictions, center-of-action updates, and object movement relative to a widget. The code is part of an event-driven system that responds to mouse events during 3D object editing operations.\n\nself.rotate2D(state)\n                elif not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                    # Mouse started in central region, xlate\n                    # Mode depends on shift key\n                    if ShowBaseGlobal.direct.fShift or ShowBaseGlobal.direct.fControl:\n                        self.xlateCamXY(state)\n                    else:\n                        self.xlateCamXZ(state)\n            else:\n                return Task.done\n        if self.fSetCoa:\n            # Update coa based on current widget position\n            ShowBaseGlobal.direct.selected.last.mCoa2Dnp.assign(\n                ShowBaseGlobal.direct.widget.getMat(ShowBaseGlobal.direct.selected.last))\n        else:\n            # Move the objects with the widget\n            ShowBaseGlobal.direct.selected.moveWrtWidgetAll()\n        # Continue\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3224
+  }
+}

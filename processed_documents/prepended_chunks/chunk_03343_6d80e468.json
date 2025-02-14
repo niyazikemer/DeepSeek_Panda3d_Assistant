@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a `manipulateCamera` method within a 3D graphics or game development tool's codebase, specifically handling camera positioning and orientation based on predefined views. The code uses DirectGraphics (DG) utilities to set up smooth transitions between camera positions and orientations, updating the marker size upon completion for visual feedback.\n\nDG.ZERO_VEC)\n        # Record view for next time around\n        self.lastView = view\n        ival = direct.camera.posHprInterval(CAM_MOVE_DURATION,\n                                            pos=DG.ZERO_POINT,\n                                            hpr=VBase3(0, 0, self.orthoViewRoll),\n                                            other=self.camManipRef,\n                                            blendType='easeInOut')\n        ival = Sequence(ival, Func(self.updateCoaMarkerSizeOnDeath),\n                        name = 'manipulateCamera')\n        self.__startManipulateCamera(ival = ival)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3343
+  }
+}

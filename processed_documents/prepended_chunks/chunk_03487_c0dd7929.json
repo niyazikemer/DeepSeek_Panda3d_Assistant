@@ -1,0 +1,9 @@
+{
+  "content": "The chunk belongs to the implementation of the `qSlerp` function in a document containing various 3D graphics and math utilities. The function performs spherical linear interpolation between two quaternions, ensuring robustness by checking for near-opposite cases to compute the shorter angular distance.\n\ndef qSlerp(startQuat, endQuat, t):\n    startQ = Quat(startQuat)\n    destQuat = Quat(Quat.identQuat())\n    # Calc dot product\n    cosOmega = (startQ.getI() * endQuat.getI() +\n                startQ.getJ() * endQuat.getJ() +\n                startQ.getK() * endQuat.getK() +\n                startQ.getR() * endQuat.getR())\n    # If the above dot product is negative, it would be better to\n    # go between the negative of the initial and the final, so that\n    # we take the shorter path.\n    if cosOmega < 0.0:\n        cosOmega *= -1\n        startQ.setI(-1 * startQ.getI())\n        startQ.setJ(-1 * startQ.getJ())\n        startQ.setK(-1 * startQ.getK())\n        startQ.setR(-1 * startQ.getR())\n    if (1.0 + cosOmega) > Q_EPSILON:\n        # usual case\n        if (1.0 - cosOmega) > Q_EPSILON:\n            # usual case\n            omega = math.acos(cosOmega)\n            sinOmega = math.sin(omega)\n            startScale = math.sin((1.0 - t) * omega)/sinOmega",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3487
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method responsible for reconfiguring graphics effects in a 3D rendering pipeline. It manages auxiliary textures and bitmasks needed for specific visual effects like CartoonInk and AmbientOcclusion, ensuring that only required resources are allocated when rebuilding the configuration.\n\nconfiguration = self.configuration\n\n        if fullrebuild:\n            self.cleanup()\n\n            if len(configuration) == 0:\n                return\n\n            if not self.manager.win.gsg.getSupportsBasicShaders():\n                return False\n\n            auxbits = 0\n            needtex = set([\"color\"])\n            needtexcoord = set([\"color\"])\n\n            if \"CartoonInk\" in configuration:\n                needtex.add(\"aux\")\n                auxbits |= AuxBitplaneAttrib.ABOAuxNormal\n                needtexcoord.add(\"aux\")\n\n            if \"AmbientOcclusion\" in configuration:\n                needtex.add(\"depth\")\n                needtex.add(\"ssao0\")\n                needtex.add(\"ssao1\")\n                needtex.add(\"ssao2\")\n                needtex.add(\"aux\")\n                auxbits |= AuxBitplaneAttrib.ABOAuxNormal\n                needtexcoord.add(\"ssao2\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3958
+  }
+}

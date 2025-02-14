@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `DirectSelection` class in a 3D modeling environment. It implements the `deselect` method, which manages node deselection by updating dictionaries and lists, sending relevant messages, and handling cluster operations for clients.\n\n```python\n\"\"\"This code defines the deselect functionality within the DirectSelection class, enabling removal of selected nodes, updating tracking structures, notifying listeners, and managing cluster synchronization.\"\"\"\n```\n\ndef deselect(self, nodePath):\n        \"\"\" Deselect the specified node path \"\"\"\n        # Get this pointer\n        id = nodePath.get_key()\n        # See if it is in the selected dictionary\n        dnp = self.getSelectedDict(id)\n        if dnp:\n            # It was selected:\n            # Hide its bounding box\n            dnp.dehighlight()\n            # Remove it from the selected dictionary\n            del self.selectedDict[id]\n            if dnp in self.selectedList: # [gjeon]\n                self.selectedList.remove(dnp)\n            # And keep track of it in the deselected dictionary\n            self.deselectedDict[id] = dnp\n            # Send a message\n            messenger.send('DIRECT_deselectedNodePath', [dnp])\n            # Update cluster servers if this is a cluster client\n            if base.direct.clusterMode == 'client':\n                cluster.deselectNodePath(dnp)\n        return dnp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3445
+  }
+}

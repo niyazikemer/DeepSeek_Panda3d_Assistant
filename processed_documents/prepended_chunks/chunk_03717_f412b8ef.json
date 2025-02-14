@@ -1,0 +1,9 @@
+{
+  "content": "The `setNumSegments` method within a class is responsible for customizing the appearance of a dial widget by setting the number of segments (ticks) around its circumference. It calculates tick positions based on the specified number of segments, converts these positions to canvas coordinates, and draws the ticks with specific styling for major intervals. This method allows users to define the visual segmentation of the dial, enhancing its readability and customizability.\n\ndef setNumSegments(self):\n        self._widget.delete('ticks')\n        # Based upon input snap angle, how many ticks\n        numSegments = self['numSegments']\n        # Compute snapAngle (radians)\n        self.snapAngle = snapAngle = TWO_PI / numSegments\n        # Create the ticks at the snap angles\n        for ticknum in range(numSegments):\n            angle = snapAngle * ticknum\n            # convert to canvas coords\n            angle = angle - POINTFIVE_PI\n            # Compute tick endpoints\n            startx = math.cos(angle) * self.radius\n            starty = math.sin(angle) * self.radius\n            # Elongate ticks at 90 degree points\n            if (angle % POINTFIVE_PI) == 0.0:\n                sf = 0.6\n            else:\n                sf = 0.8\n            endx = startx * sf\n            endy = starty * sf\n            self._widget.create_line(startx, starty, endx, endy,\n                                     tags = ('ticks','dial'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3717
+  }
+}

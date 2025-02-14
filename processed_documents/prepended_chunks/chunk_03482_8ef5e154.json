@@ -1,0 +1,9 @@
+{
+  "content": "```\nDrawing Functions\n-----------------\n\nHelper functions for creating visual elements such as arrows using 3D coordinates and angles.\n\ndef drawArrow2d(...\n    Draws a 2D arrow from start vector to end vector with specified angle and length, taking z value of end point.\n</chunk>\n```\n\ndef drawArrow2d(self, sv, ev, arrowAngle, arrowLength):\n        \"\"\"\n        Do the work of moving the cursor around to draw an arrow from\n        sv to ev. Hack: the arrows take the z value of the end point\n        \"\"\"\n        self.moveTo(sv)\n        self.drawTo(ev)\n        v = sv - ev\n        # Find the angle of the line\n        angle = math.atan2(v[2], v[0])\n        # Get the arrow angles\n        a1 = angle + deg2Rad(arrowAngle)\n        a2 = angle - deg2Rad(arrowAngle)\n        # Get the arrow points\n        a1x = arrowLength * math.cos(a1)\n        a1y = arrowLength * math.sin(a1)\n        a2x = arrowLength * math.cos(a2)\n        a2y = arrowLength * math.sin(a2)\n        self.moveTo(ev)\n        self.drawTo(Point3(ev + Point3(a1x, 0.0, a1y)))\n        self.moveTo(ev)\n        self.drawTo(Point3(ev + Point3(a2x, 0.0, a2y)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3482
+  }
+}

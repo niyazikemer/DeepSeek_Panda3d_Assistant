@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk represents the initial class definition and constructor of `SceneGraphExplorer`, establishing its role as a GUI tool for visualizing scene graphs, setting up essential parameters, and initializing necessary components.\n\nclass SceneGraphExplorer(Pmw.MegaWidget, DirectObject):\n    \"Graphical display of a scene graph\"\n\n    def __init__(self, parent = None, nodePath = None, isItemEditable = True, **kw):\n        if nodePath is None:\n            nodePath = base.render\n\n        # Define the megawidget options.\n        optiondefs = (\n            ('menuItems',   [],   Pmw.INITOPT),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Initialise superclass\n        Pmw.MegaWidget.__init__(self, parent)\n\n        # Initialize some class variables\n        self.nodePath = nodePath\n\n        # Create the components.\n\n        # Setup up container\n        interior = self.interior()\n        interior.configure(relief = tk.GROOVE, borderwidth = 2)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3491
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code is part of a method in the `TexRegion` class responsible for efficiently placing texture regions within a canvas. It attempts to find an optimal rectangular hole to accommodate the current texture region while considering rotation to achieve a better fit. If successful, it updates the placement details, creates the graphical representation (card), adjusts tracking metrics, and records the placement.\n\n**Context:**\nThis code is part of an image or texture packing algorithm that efficiently arranges regions within a canvas by finding suitable holes, possibly rotating them for better fit, and managing placements to minimize wasted space.\n\nif shouldFit:\n            # Look for a single rectangular hole to hold this piece.\n            tp = self.findHole(tr.area, tr.w, tr.h)\n            if tp:\n                texCmp = (tr.w > tr.h) - (tr.w < tr.h)\n                holeCmp = ((tp.p[1] - tp.p[0]) > (tp.p[3] - tp.p[2])) \\\n                        - ((tp.p[1] - tp.p[0]) < (tp.p[3] - tp.p[2]))\n                if texCmp != 0 and holeCmp != 0 and texCmp != holeCmp:\n                    tp.rotated = True\n                tr.placements = [tp]\n                tr.makeCard(self)\n                tp.setBitmasks(self.bitmasks)\n                self.placedQSize += tp.area\n                self.texPlacements[tp] = tr\n                self.placedSize += tr.size\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2985
+  }
+}

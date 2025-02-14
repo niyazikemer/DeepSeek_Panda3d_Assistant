@@ -1,0 +1,9 @@
+{
+  "content": "A function within the document defines how to draw a 3D box (cube) with specified center coordinates and side length. It uses line operations to create wireframe representations of cubic structures in three-dimensional space.\n\n</context>\n\nThe provided chunk is a function that draws a cube by connecting points relative to its center, using line movements and drawing commands to outline all edges of the cube structure.\n\ndef drawBox(lines, center, sideLength):\n    l = sideLength * 0.5\n    lines.moveTo(center[0] + l, center[1] + l, center[2] + l)\n    lines.drawTo(center[0] + l, center[1] + l, center[2] - l)\n    lines.drawTo(center[0] + l, center[1] - l, center[2] - l)\n    lines.drawTo(center[0] + l, center[1] - l, center[2] + l)\n    lines.drawTo(center[0] + l, center[1] + l, center[2] + l)\n\n    lines.moveTo(center[0] - l, center[1] + l, center[2] + l)\n    lines.drawTo(center[0] - l, center[1] + l, center[2] - l)\n    lines.drawTo(center[0] - l, center[1] - l, center[2] - l)\n    lines.drawTo(center[0] - l, center[1] - l, center[2] + l)\n    lines.drawTo(center[0] - l, center[1] + l, center[2] + l)\n\n    lines.moveTo(center[0] + l, center[1] + l, center[2] + l)\n    lines.drawTo(center[0] + l, center[1] + l, center[2] - l)\n    lines.drawTo(center[0] - l, center[1] + l, center[2] - l)\n    lines.drawTo(center[0] - l, center[1] + l, center[2] + l)\n    lines.drawTo(center[0] + l, center[1] + l, center[2] + l)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3293
+  }
+}

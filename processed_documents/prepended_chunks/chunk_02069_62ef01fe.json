@@ -1,0 +1,9 @@
+{
+  "content": "This code sets up module suffix handling in a custom import system, including special cases for hidden plyer platform imports and conditional suffix definitions based on the Python version and platform.\n\nif plyer_platform:\n            self.hiddenImports['plyer'].append(f'plyer.platforms.{plyer_platform}.*')\n\n        # Suffix/extension for Python C extension modules\n        if self.platform == PandaSystem.getPlatform():\n            suffixes = (\n                [(s, 'rb', _C_EXTENSION) for s in machinery.EXTENSION_SUFFIXES] +\n                [(s, 'rb', _PY_SOURCE) for s in machinery.SOURCE_SUFFIXES] +\n                [(s, 'rb', _PY_COMPILED) for s in machinery.BYTECODE_SUFFIXES]\n            )\n        else:\n            suffixes = [('.py', 'rb', 1), ('.pyc', 'rb', 2)]\n\n            abi_version = '{0}{1}'.format(*sys.version_info)\n            abi_flags = ''\n            if sys.version_info < (3, 8):\n                abi_flags += 'm'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2069
+  }
+}

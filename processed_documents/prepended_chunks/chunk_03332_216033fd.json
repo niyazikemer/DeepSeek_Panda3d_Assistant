@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines two methods related to updating the center-of-attention (COA) marker in a 3D viewport. The `updateCoa` method sets the COA position based on a reference point and updates its size, while `updateCoaMarkerSizeOnDeath` adjusts the marker's size during certain events. These methods are part of a class managing camera manipulation, undo operations, and interactive selection in a 3D environment, using keyboard/mouse inputs for object interaction.\n\ndef updateCoa(self, ref2point, coaDist = None, ref = None):\n        self.coa.set(ref2point[0], ref2point[1], ref2point[2])\n        if not coaDist:\n            coaDist = Vec3(self.coa - DG.ZERO_POINT).length()\n        # Place the marker in render space\n        if ref is None:\n            # KEH: use the current display region\n            # ref = base.cam\n            ref = ShowBaseGlobal.direct.drList.getCurrentDr().cam\n        self.coaMarker.setPos(ref, self.coa)\n        pos = self.coaMarker.getPos()\n        self.coaMarker.setPosHprScale(pos, Vec3(0), Vec3(1))\n        # Resize it\n        self.updateCoaMarkerSize(coaDist)\n        # Record marker pos in render space\n        self.coaMarkerPos.assign(self.coaMarker.getPos())\n\n    def updateCoaMarkerSizeOnDeath(self):\n        # Needed because tasks pass in state as first arg\n        self.updateCoaMarkerSize()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3332
+  }
+}

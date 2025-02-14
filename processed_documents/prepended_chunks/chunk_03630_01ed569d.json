@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a class definition for a custom Tkinter-based widget or component within a larger application. The `__init__` method initializes various options and parameters for a valuator-style control, such as appearance (relief, borderwidth), label text, value ranges (min, max, resolution), formatting (numDigits), and state (normal or disabled). This chunk is part of the initialization logic for a reusable GUI component that likely provides adjustable controls with validation or input constraints. The code appears to be part of a larger system for creating interactive user interfaces, possibly for configuring node attributes or light properties in a graphical application.\n\ndef __init__(self, parent = None, **kw):\n        #define the megawidget options\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('state',             tk.NORMAL,      self.setState),\n            # Widget appearance\n            ('relief',            tk.GROOVE,      None),\n            ('borderwidth',       2,              None),\n            ('text',              'Valuator',     self.setLabel),\n            # Initial and reset values\n            ('value',             0.0,            INITOPT),\n            ('resetValue',        0.0,            None),\n            # Behavior\n            ('min',               None,           None),\n            ('max',               None,           None),\n            ('resolution',        None,           None),\n            ('numDigits',         2,              self.setEntryFormat),\n            # Enable/disable popup menu\n            ('fAdjustable',       1,              None),\n            # Actions",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3630
+  }
+}

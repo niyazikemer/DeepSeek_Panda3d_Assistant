@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes a label frame and an entry field within the EntryScaleGroup class, which is part of a GUI component system. The code creates UI elements to display and validate numerical input values for user interaction, ensuring values remain within specified bounds using validation rules. This functionality supports real-time value adjustment and manipulation, such as in color channel editing within applications.\n\n# Create a label and an entry\n        self.labelFrame = self.createcomponent('frame', (), None,\n                                               tk.Frame, interior)\n        # Create an entry field to display and validate the entryScale's value\n        self.entryValue = tk.StringVar()\n        self.entryValue.set(self['value'])\n        self.entry = self.createcomponent('entryField',\n                                          # Access widget's entry using \"entry\"\n                                          (('entry', 'entryField_entry'),),\n                                          None,\n                                          Pmw.EntryField, self.labelFrame,\n                                          entry_width=10,\n                                          validate={'validator': 'real',\n                                                    'min': self['min'],\n                                                    'max': self['max'],",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3553
+  }
+}

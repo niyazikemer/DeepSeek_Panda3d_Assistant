@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements window size management functions (`getWidth`, `getHeight`) and camera lens film size adjustment (`updateFilmSize`). These methods are part of a Direct module class that manages display region context and camera settings.\n\ndef getWidth(self):\n        prop = ShowBaseGlobal.direct.win.getProperties()\n        if prop.hasSize():\n            return prop.getXSize()\n        else:\n            return 640\n\n    def getHeight(self):\n        prop = ShowBaseGlobal.direct.win.getProperties()\n        if prop.hasSize():\n            return prop.getYSize()\n        else:\n            return 480\n\n    def updateFilmSize(self, width, height):\n        if self.camLens.__class__.__name__ == \"OrthographicLens\":\n            width *= self.orthoFactor\n            height *= self.orthoFactor\n\n        self.camLens.setFilmSize(width, height)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3430
+  }
+}

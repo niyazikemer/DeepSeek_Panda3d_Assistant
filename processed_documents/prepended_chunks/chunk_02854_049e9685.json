@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `popup` method in a class, where the user creates a control panel with buttons for interacting with an animation or similar playback functionality. The chunk defines the layout and command assignments for the \"Stop\", \"Play\", \"<<\", and \">>\" buttons, along with functionality to update a slider during setT calls. This context provides control elements for pausing, resuming, jumping to start/end, and tracking progress within the application's interface.\n\nstop = tkinter.Button(bf, text = 'Stop',\n                      command = lambda s=self: s.pause())\n        play = tkinter.Button(\n            bf, text = 'Play',\n            command = doPlay)\n        jumpToEnd = tkinter.Button(bf, text = '>>', command = toEnd)\n        jumpToStart.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n        play.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n        stop.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n        jumpToEnd.pack(side = tkinter.LEFT, expand = 1, fill = tkinter.X)\n        bf.pack(expand = 1, fill = tkinter.X)\n        outerFrame.pack(expand = 1, fill = tkinter.X)\n        # Add function to update slider during setT calls\n        def update(t, es=es):\n            es.set(t, fCommand = 0)\n        if not hasattr(self, \"setTHooks\"):\n            self.setTHooks = []\n        self.setTHooks.append(update)\n        # Clear out function on destroy\n        def onDestroy(e, s=self, u=update):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2854
+  }
+}

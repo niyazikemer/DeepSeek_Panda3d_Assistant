@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk defines methods for a thread-safe lock object, specifically handling representation and acquisition in a multi-threaded environment.\n\ndef __repr__(self):\n        return \"<%s(%s, %d)>\" % (\n                self.__class__.__name__,\n                self.__owner and self.__owner.getName(),\n                self.__count)\n\n    def acquire(self, blocking=1):\n        me = currentThread()\n        if self.__owner is me:\n            self.__count = self.__count + 1\n            if __debug__:\n                self._note(\"%s.acquire(%s): recursive success\", self, blocking)\n            return 1\n        rc = self.__block.acquire(blocking)\n        if rc:\n            self.__owner = me\n            self.__count = 1\n            if __debug__:\n                self._note(\"%s.acquire(%s): initial success\", self, blocking)\n        else:\n            if __debug__:\n                self._note(\"%s.acquire(%s): failure\", self, blocking)\n        return rc\n\n    __enter__ = acquire",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3810
+  }
+}

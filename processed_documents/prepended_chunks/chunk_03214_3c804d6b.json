@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class managing 3D object manipulation, providing methods for creating geometric shapes, handling user interactions (mouse events), and determining object editability based on tags. The `getEditTypes` function specifically determines the allowed editing operations for selected objects by checking against predefined unmovable tags.\n\n#--------------------------------------------------------------------------\n    # Function:   get edit types list for specified objects which indicate\n    #             how editable the objects are\n    # Parameters: object, list of object to get edit types for\n    # Changes:    none\n    # Returns:    list of edit types\n    #--------------------------------------------------------------------------\n    def getEditTypes(self, objects):\n        # See if any of the selected in the don't manipulate tag list\n        editTypes = 0\n        for tag in self.unmovableTagList:\n            for selected in objects:\n                unmovableTag = selected.getTag(tag)\n                if unmovableTag:\n                    # check value of unmovableTag to see if it is\n                    # completely uneditable or if it allows only certain\n                    # types of editing\n                    editTypes |= int(unmovableTag)\n        return editTypes",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3214
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes two methods of the `StateData` class: `unload()` and `getDoneStatus()`. These methods are part of a base class for managing states within a Finite State Machine (FSM). The `unload()` method handles freeing resources and unloading state data, while `getDoneStatus()` retrieves the status information used to determine transitions between states in the FSM.\n\ndef unload(self):\n        \"\"\"\n        Unloads the StateData.  This frees whatever assets were loaded\n        by load(), and generally makes the memory usage for this thing\n        be as small as possible.  Some StateData-derived classes can\n        load and unload repeatedly; others are useless once they have\n        been unloaded.\n        \"\"\"\n        if not self.isLoaded:\n            return 0\n        if self.isEntered:\n            self.notify.warning(\"unloaded StateData before it was exited\")\n            self.exit()\n        self.isLoaded = 0\n        StateData.notify.debug('unload()')\n        return 1\n\n    def getDoneStatus(self):\n        \"\"\"\n        The done status of a state data may be anything.  It is common\n        practice to return a Python dictionary or a string; the default\n        value is None.\n        \"\"\"\n        return self.doneStatus",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_150",
+    "parent": "processed_documents/context_documents/7695349b_StateData.json",
+    "chunk_number": 2706
+  }
+}

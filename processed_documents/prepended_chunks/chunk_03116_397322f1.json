@@ -1,0 +1,9 @@
+{
+  "content": "The given code is a part of an Actor class in Python, which includes methods for managing animations, controls, and levels of detail (LOD) in a 3D environment. The specific chunk provided defines the `play` method, which is used to play animations on specified parts of the actor across all LODs.\n\ndef play(self, animName, partName=None, fromFrame=None, toFrame=None):\n        \"\"\"play(self, string, string=None)\n        Play the given animation on the given part of the actor.\n        If no part is specified, try to play on all parts. NOTE:\n        plays over ALL LODs\"\"\"\n        if fromFrame is None:\n            for control in self.getAnimControls(animName, partName):\n                control.play()\n        else:\n            for control in self.getAnimControls(animName, partName):\n                if toFrame is None:\n                    control.play(fromFrame, control.getNumFrames() - 1)\n                else:\n                    control.play(fromFrame, toFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3116
+  }
+}

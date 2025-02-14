@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods (`newCreateSider` and `newCreateEntryScale`) in the `AppShell` class that are used to create and configure specific graphical user interface (GUI) components\u2014sliders and entry scales\u2014for an application. These methods are part of a larger set of utility functions designed to streamline the creation and management of UI elements within the application framework, leveraging widget-specific classes (`Slider.Slider` and `EntryScale.EntryScale`) while handling common setup tasks such as packing, help binding, and variable tracking.\n\ndef newCreateSider(self, parent, category, text,\n                       help = '', command = None,\n                       side = tk.LEFT, fill = tk.X, expand = 0, **kw):\n        # Create the widget\n        widget = self.createWidget(parent, category, text,\n                                   Slider.Slider,\n                                   help, command, side, fill, expand, kw)\n        return widget\n\n    def newCreateEntryScale(self, parent, category, text,\n                            help = '', command = None,\n                            side = tk.LEFT, fill = tk.X, expand = 0, **kw):\n        # Create the widget\n        widget = self.createWidget(parent, category, text,\n                                   EntryScale.EntryScale,\n                                   help, command, side, fill, expand, kw)\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3742
+  }
+}

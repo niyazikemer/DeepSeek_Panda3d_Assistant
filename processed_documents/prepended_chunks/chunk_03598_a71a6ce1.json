@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class responsible for analyzing and displaying hierarchical data about graphical nodes in a Panda3D application. Specifically, the chunk defines methods for creating interactive buttons and labels that represent nodes and their memory usage within a tree-like structure. These methods are used to build a user interface where each button's width reflects its proportional memory contribution, allowing users to explore and interact with node details through left and right click actions.\n\nreturn newBT\n\n    def addSelfCtrl(self, item, totalBytes):\n        self.addLabel(\"[self] : %s bytes\" % item.getSelfVertexBytes())\n\n        bt = self.addButton(item.getSelfVertexBytes(),\n                            totalBytes,\n                            self.onSelfButtonLClick,\n                            self.onSelfButtonRClick,\n                            item)\n\n    def addChildCtrl(self, item, totalBytes):\n        self.addLabel(\"%s [+%s] : %s bytes\" % (item.getName(),\n                                                item.getNumChildren(),\n                                                item.getVertexBytes()))\n\n        bt = self.addButton(item.getVertexBytes(),\n                            totalBytes,\n                            self.onChildButtonLClick,\n                            self.onChildButtonRClick,\n                            item)\n\n    def addButton(self, vertexBytes, totalBytes, funcLClick, funcRClick, item):\n        width = self.getBTWidth(vertexBytes, totalBytes)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3598
+  }
+}

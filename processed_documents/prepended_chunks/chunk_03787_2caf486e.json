@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `Stream` class implementation in a Python module designed to provide operating system-like functionalities over a virtual file system (VFS). The chunk includes the `readline`, `seek`, and `read1` methods, which are essential for reading lines from files, adjusting file positions, and ensuring proper state management within the VFS environment. These methods handle input/output operations and integrate with the underlying file system to provide a seamless experience.\n\nread1 = read\n\n    def readline(self, size=-1):\n        if not self.__reader:\n            if not self.__writer:\n                # The stream is not even open at all.\n                raise ValueError(\"I/O operation on closed file\")\n\n            # The stream is open only in write mode.\n            raise IOError(\"Attempt to read from write-only stream\")\n\n        self.__stream.clear()  # clear eof flag\n        self.__lastWrite = False\n        return self.__reader.readline()\n\n    def seek(self, offset, whence = 0):\n        if self.__stream:\n            self.__stream.clear()  # clear eof flag\n        if self.__reader:\n            self.__stream.seekg(offset, whence)\n        if self.__writer:\n            self.__stream.seekp(offset, whence)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3787
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a loop within the `createBounce` function that generates lerp intervals to simulate a spring-like bounce effect. The loop alternates between 'bounce up' and 'bounce down', adjusting the blend type for natural motion and progressively reducing the bounce height, enhancing search retrieval for bounce animation implementation in Panda3D projects.\n\nContext: The code chunk is part of the `createBounce` function within the Showutil Effects module, which generates spring-like animations by alternating between upward (easeOut) and downward (easeIn) motions. This loop creates smooth, progressively smaller bounces to simulate realistic damping effects for position, scale, or rotation changes on a Panda3D node.\n\n# create a lerp interval for each bounce, making sure to\n    # figure out the new value, which progressively gets closer\n    # to our start value\n    #\n    for bounceNum in range(numBounces * 2):\n        # determine the direction that this value should go,\n        # alternating for each lerp interval to simulate\n        # a spring effect\n        #\n        if bounceNum % 2:\n            # bounce down\n            currBounceVal = startValues[index]\n            blend = 'easeIn'\n        else:\n            # bounce up\n            currBounceVal = startValues[index] + currAmplitude\n            blend = 'easeOut'\n\n        newVec3 = Vec3(startValues)\n        newVec3.setCell(index, currBounceVal)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_170",
+    "parent": "processed_documents/context_documents/c94c3f02_Effects.json",
+    "chunk_number": 2946
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a part of a system that initializes specific Windows-related modules during the startup and shutdown of a frozen Python executable, complementing the Python import customization to ensure proper module handling.\n\nstatic char *possibleModules[] = {\n    \"pywintypes\",\n    \"pythoncom\",\n    \"win32ui\",\n    NULL,\n};\n\nBOOL CallModuleDllMain(char *modName, DWORD dwReason);\n\n\n/*\n  Called by a frozen .EXE only, so that built-in extension\n  modules are initialized correctly\n*/\nvoid PyWinFreeze_ExeInit(void)\n{\n    char **modName;\n    for (modName = possibleModules;*modName;*modName++) {\n/*      printf(\"Initialising '%s'\\\\n\", *modName); */\n        CallModuleDllMain(*modName, DLL_PROCESS_ATTACH);\n    }\n}\n\n/*\n  Called by a frozen .EXE only, so that built-in extension\n  modules are cleaned up\n*/\nvoid PyWinFreeze_ExeTerm(void)\n{\n    // Must go backwards\n    char **modName;\n    for (modName = possibleModules+(sizeof(possibleModules) / sizeof(char *))-2;\n         modName >= possibleModules;\n         *modName--) {\n/*      printf(\"Terminating '%s'\\\\n\", *modName);*/\n        CallModuleDllMain(*modName, DLL_PROCESS_DETACH);\n    }\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2051
+  }
+}

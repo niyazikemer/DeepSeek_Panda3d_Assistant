@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `LerpHprInterval` class, which is part of an animation/interpolation system, extending `LerpNodePathInterval`. It handles interpolating heading-pitch-roll (HPR) rotations over time. The class supports setting up start and end HPR values or quaternions for smooth rotational animations, with optional parameter validation and setup for callable functions in input parameters. This is situated within a document describing various interpolation classes (`LerpFunctionInterval`, `LerpFunc`, etc.) used for animating properties over time in 3D graphics applications.\n\nclass LerpHprInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, hpr,\n                 startHpr = None, startQuat = None,\n                 other = None, blendType = 'noBlend',\n                 bakeInStart = 1, fluid = 0, name = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, fluid, nodePath, other)\n\n        # Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(hpr, startHpr, startQuat)\n        if self.paramSetup:\n            self.endHpr = hpr\n            self.startHpr = startHpr\n            self.startQuat = startQuat\n            self.inPython = 1\n        else:\n            self.setEndHpr(hpr)\n            if startHpr is not None:\n                self.setStartHpr(startHpr)\n            if startQuat is not None:\n                self.setStartQuat(startQuat)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2748
+  }
+}

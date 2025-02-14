@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains utility functions and methods related to thread management within a Python module tailored for Panda3D's threading system. These include functions for removing threads, exiting, allocating locks, retrieving thread identifiers, and handling stack sizes, all crucial for managing multi-threaded operations effectively.\n\ndef _remove_thread_id(threadId):\n    \"\"\" Removes the thread with the indicated ID from the thread list. \"\"\"\n\n    # On interpreter shutdown, Python may set module globals to None.\n    if _threadsLock is None or _threads is None:\n        return\n\n    _threadsLock.acquire()\n    try:\n        if threadId in _threads:\n            thread, locals, wrapper = _threads[threadId]\n            assert thread.getPythonIndex() == threadId\n            del _threads[threadId]\n            thread.setPythonIndex(-1)\n\n    finally:\n        _threadsLock.release()\n\n\ndef interrupt_main():\n    # TODO.\n    pass\n\n\ndef exit():\n    raise SystemExit\n\n\ndef allocate_lock():\n    return LockType()\n\n\ndef get_ident():\n    return core.Thread.getCurrentThread().this\n\n\ndef stack_size(size = 0):\n    raise error",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3802
+  }
+}

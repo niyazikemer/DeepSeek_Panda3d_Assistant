@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a constructor in a class related to 3D transformations, specifically handling parameter setup for interpolation between start and end states. This includes managing quaternions (for rotations) and scales. The `assert scale` ensures that scaling parameters are valid before proceeding.\n\n**Context:**\nThis code chunk sits within the initialization method (`__init__`) of a class (likely a subclass like `LerpRotationScale` or similar), where it sets up transformation parameters for interpolation, ensuring correct handling of rotation and scaling data.\n\nassert scale\n\n        # Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(quat, startHpr, startQuat, scale, startScale)\n        if self.paramSetup:\n            self.endQuat = quat\n            self.startHpr = startHpr\n            self.startQuat = startQuat\n            self.endScale = scale\n            self.startScale = startScale\n            self.inPython = 1\n        else:\n            self.setEndQuat(quat)\n            if startHpr is not None:\n                self.setStartHpr(startHpr)\n            if startQuat is not None:\n                self.setStartQuat(startQuat)\n            self.setEndScale(scale)\n            if startScale is not None:\n                self.setStartScale(startScale)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2766
+  }
+}

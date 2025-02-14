@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet is part of a `join()` method implementation within a thread class. It manages the waiting process by checking if the specified delay has elapsed. If the delay is non-positive, it breaks out of the loop and logs a timeout message in debug mode. Otherwise, it waits for the given delay. The `else` clause logs that the thread has stopped when the loop completes without timing out. Finally, it releases any locks held by the thread to ensure proper resource management.\n\nif delay <= 0:\n                        if __debug__:\n                            self._note(\"%s.join(): timed out\", self)\n                        break\n                    self.__block.wait(delay)\n                else:\n                    if __debug__:\n                        self._note(\"%s.join(): thread stopped\", self)\n        finally:\n            self.__block.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3838
+  }
+}

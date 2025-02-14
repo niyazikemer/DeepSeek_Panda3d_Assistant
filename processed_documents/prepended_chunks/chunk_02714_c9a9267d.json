@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a Python class designed to manage state transitions in an application, likely within a game or simulation context. The `setTrack` function handles the management of animation or process tracks associated with each state, ensuring smooth transitions by pausing existing tracks and starting new ones. The `enterStateN` method initializes the current state with its corresponding duration. Together, these functions facilitate state transitions, while the `isOn` method checks if the system is in an active ('on') state (state 4). This code is integral to controlling animations or processes tied to each state, ensuring proper execution and synchronization.\n\ndef setTrack(self, track):\n        assert self.__debugPrint(\"setTrack(track=%s)\"%(track,))\n        if self.track is not None:\n            self.track.pause()\n            self.track = None\n        if track is not None:\n            track.start(self.stateTime)\n            self.track = track\n\n    def enterStateN(self, stateIndex):\n        self.stateIndex = stateIndex\n        self.duration = self.durations[stateIndex] or 0.0\n\n    # The AI is the authority on setting the On value.\n    # If the client wants the state changed it needs to\n    # send a request to the AI.\n    #def setIsOn(self, isOn):\n    #    assert self.__debugPrint(\"setIsOn(isOn=%s)\"%(isOn,))\n    #    pass\n\n    def isOn(self):\n        assert self.__debugPrint(\"isOn() returning %s (stateIndex=%s)\"%(self.stateIndex==4, self.stateIndex))\n        return self.stateIndex==4",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_151",
+    "parent": "processed_documents/context_documents/c156758e_FourState.json",
+    "chunk_number": 2714
+  }
+}

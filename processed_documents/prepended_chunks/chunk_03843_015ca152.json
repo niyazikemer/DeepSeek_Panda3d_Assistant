@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the `_DummyThread` class within the threading module, providing context about its purpose and behavior. It follows the definition of the main thread setup and precedes the global API functions for thread management. The `_DummyThread` is used to represent threads not explicitly started by this code, ensuring that `currentThread()` returns a valid object even for external threads. These dummy threads are marked as daemon threads to prevent them from blocking program exit, aligning with previous threading semantics in Python.\n\nContext: This section explains the implementation of dummy threads in the threading module, highlighting their role in handling external threads and maintaining compatibility with thread management functions.\n\n# Dummy thread class to represent threads not started here.\n# These aren't garbage collected when they die, nor can they be waited for.\n# If they invoke anything in threading.py that calls currentThread(), they\n# leave an entry in the _active dict forever after.\n# Their purpose is to return *something* from currentThread().\n# They are marked as daemon threads so we won't wait for them\n# when we exit (conform previous semantics).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3843
+  }
+}

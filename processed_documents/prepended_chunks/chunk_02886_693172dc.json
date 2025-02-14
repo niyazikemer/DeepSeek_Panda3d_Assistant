@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk includes essential methods for managing interval playback. These methods control starting, looping, pausing, and resuming intervals, and they interact with a manager to handle these operations efficiently within the interval management system.\n\n**Context:**\n\nThis section contains critical functionality for controlling how intervals are played back. The `start()`, `loop()`, `pause()`, and `resume()` methods manage the playback state of the intervals, while `setT()` allows setting specific times. These operations interact with an interval manager to coordinate multiple intervals effectively.\n\nmanager = property(getManager, setManager)\n\n    def setT(self, t):\n        self.__updateIvals()\n        CMetaInterval.setT(self, t)\n\n    t = property(CMetaInterval.getT, setT)\n\n    def start(self, startT = 0.0, endT = -1.0, playRate = 1.0):\n        self.__updateIvals()\n        self.setupPlay(startT, endT, playRate, 0)\n        self.__manager.addInterval(self)\n\n    def loop(self, startT = 0.0, endT = -1.0, playRate = 1.0):\n        self.__updateIvals()\n        self.setupPlay(startT, endT, playRate, 1)\n        self.__manager.addInterval(self)\n\n    def pause(self):\n        if self.getState() == CInterval.SStarted:\n            self.privInterrupt()\n        self.__manager.removeInterval(self)\n        self.privPostEvent()\n        return self.getT()\n\n    def resume(self, startT = None):\n        self.__updateIvals()\n        if startT is not None:\n            self.setT(startT)\n        self.setupResume()\n        self.__manager.addInterval(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2886
+  }
+}

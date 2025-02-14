@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a shader function responsible for color manipulation, specifically implementing a form of color compression with desaturation. The context suggests it is related to image processing effects, potentially tied to functions like `setBloom`, `setVolumetricLighting`, or other visual enhancement techniques within the document's framework.\n\ntext += \"  float x = min(o_color.r, min(o_color.g, o_color.b));\\n\"\n                    text += \"  float offset = x < 0.08 ? x - 6.25 * x * x : 0.04;\\n\"\n                    text += \"  o_color.rgb -= offset;\\n\"\n\n                    text += \"  float peak = max(o_color.r, max(o_color.g, o_color.b));\\n\"\n\n                    text += \"  if (peak >= start_compression) {\\n\"\n                    text += \"    const float d = 1.0 - start_compression;\\n\"\n                    text += \"    float new_peak = 1.0 - d * d / (peak + d - start_compression);\\n\"\n                    text += \"    o_color.rgb *= new_peak / peak;\\n\"\n                    text += \"    float g = 1.0 - 1.0 / (desaturation * (peak - new_peak) + 1.0);\\n\"\n\n                    text += \"    o_color.rgb = lerp(o_color.rgb, new_peak * float3(1, 1, 1), g);\\n\"\n                    text += \"}\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3976
+  }
+}

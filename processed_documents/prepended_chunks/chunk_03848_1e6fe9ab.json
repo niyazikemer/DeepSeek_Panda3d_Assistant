@@ -1,0 +1,9 @@
+{
+  "content": "This document discusses a custom pickle module designed to efficiently handle NodePath serialization in scene graphs. The standard pickle module is inadequate because it causes each NodePath to duplicate its scene graph data, as there's no mechanism for sharing context between objects written to the same stream. The provided solution introduces `__reduce_persist()` to enable shared context via the Pickler object, preventing duplication. However, cPickle cannot support this approach due to its limitations.\n\nIf you use the standard pickle module instead, the NodePaths will each\nduplicate its own copy of its scene graph.\n\nThis is necessary because the standard pickle module doesn't provide a\nmechanism for sharing context between different objects written to the\nsame pickle stream, so each NodePath has to write itself without\nknowing about the other NodePaths that will also be writing to the\nsame stream.  This replacement module solves this problem by defining\na ``__reduce_persist__()`` replacement method for ``__reduce__()``,\nwhich accepts a pointer to the Pickler object itself, allowing for\nshared context between all objects written by that Pickler.\n\nUnfortunately, cPickle cannot be supported, because it does not\nsupport extensions of this nature. \"\"\"\n\n__all__ = [\"PickleError\", \"PicklingError\", \"UnpicklingError\", \"Pickler\",\n           \"Unpickler\", \"dump\", \"dumps\", \"load\", \"loads\",\n           \"HIGHEST_PROTOCOL\", \"DEFAULT_PROTOCOL\"]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3848
+  }
+}

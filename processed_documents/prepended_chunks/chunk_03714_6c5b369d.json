@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a class that manages a graphical dial or valuator interface, implementing methods for updating visual indicators based on angular input (degrees/radians) and handling mouse interactions to control the dial's movement. The context involves event-driven programming, trigonometric calculations for positioning, and integration with a task management system for smooth updates.\n\ndef updateIndicatorDegrees(self, degAngle):\n        self.updateIndicatorRadians(degAngle * (math.pi/180.0))\n\n    def updateIndicatorRadians(self, dialAngle):\n        rawAngle = dialAngle - POINTFIVE_PI\n        # Compute end points\n        endx = math.cos(rawAngle) * self.radius\n        endy = math.sin(rawAngle) * self.radius\n        # Draw new indicator\n        self._widget.coords('indicator', endx * INNER_SF, endy * INNER_SF,\n                            endx, endy)\n\n    # Knob velocity controller\n    def knobMouseDown(self, event):\n        self._onButtonPress()\n        self.knobSF = 0.0\n        self.updateTask = taskMgr.add(self.updateDialTask, 'updateDial')\n        self.updateTask.lastTime = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3714
+  }
+}

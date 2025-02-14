@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two methods in a Python class that manages various image processing or rendering settings. The `delHighDynamicRange` method removes the \"HighDynamicRange\" configuration setting and triggers a reconfiguration process. The `setExposureAdjust` method sets an exposure adjustment value, which modifies the brightness of rendered scenes, particularly useful when working with high dynamic range (HDR) rendering as enabled by the `setHighDynamicRange` method. These methods are part of a larger set of utilities for managing visual effects such as bloom, cartoon ink, and other post-processing adjustments.\n\ndef delHighDynamicRange(self):\n        if \"HighDynamicRange\" in self.configuration:\n            del self.configuration[\"HighDynamicRange\"]\n            return self.reconfigure(True, \"HighDynamicRange\")\n        return True\n\n    def setExposureAdjust(self, stops):\n        \"\"\" Sets a relative exposure adjustment to multiply with the result of\n        rendering the scene, in stops.  A value of 0 means no adjustment, a\n        positive value will result in a brighter image.  Useful in conjunction\n        with HDR, see setHighDynamicRange.\n\n        .. versionadded:: 1.10.7\n        \"\"\"\n        old_stops = self.configuration.get(\"ExposureAdjust\")\n        if old_stops != stops:\n            self.configuration[\"ExposureAdjust\"] = stops\n            return self.reconfigure(old_stops is None, \"ExposureAdjust\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3993
+  }
+}

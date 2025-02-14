@@ -1,0 +1,9 @@
+{
+  "content": "The `makeICO` function is responsible for writing image data into a Windows ICO file format. It prepares an icon directory structure by first counting the number of valid icons (resolutions under 256x256 and up to 256x256) and then initializes the file offset pointer. The code chunk shown begins processing each image, writing header information for those with resolutions below 256x256.\n\ndef makeICO(self, fn):\n        \"\"\" Writes the images to a Windows ICO file.  Returns True on success. \"\"\"\n\n        if not isinstance(fn, Filename):\n            fn = Filename.fromOsSpecific(fn)\n        fn.setBinary()\n\n        # ICO files only support resolutions up to 256x256.\n        count = 0\n        for size in self.images:\n            if size < 256:\n                count += 1\n            if size <= 256:\n                count += 1\n        dataoffs = 6 + count * 16\n\n        ico = open(fn, 'wb')\n        ico.write(struct.pack('<HHH', 0, 1, count))\n\n        # Write 8-bpp image headers for sizes under 256x256.\n        for size, image in self.images.items():\n            if size >= 256:\n                continue\n            ico.write(struct.pack('<BB', size, size))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2194
+  }
+}

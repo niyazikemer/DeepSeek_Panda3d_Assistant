@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a custom import system implementation that generates platform-specific initialization code for Python modules. It constructs an initialization table (inittab) for modules, handling both Windows and other platforms, to ensure proper module loading and extension management within the extended import mechanism.\n\nif sys.platform == \"win32\":\n                text += 'static struct _inittab extensions[] = {\\n'\n            else:\n                text += 'struct _inittab _PyImport_Inittab[] = {\\n'\n\n            for module, fn in self.extras:\n                if sys.platform != \"win32\" or fn:\n                    libName = module.split('.')[-1]\n                    initFunc = builtinInitFuncs.get(module, 'init' + libName) or 'NULL'\n                    text += '  {\"%s\", %s},\\n' % (module, initFunc)\n            text += '  {0, 0},\\n'\n            text += '};\\n'\n            text += '#endif\\n\\n'\n\n        elif sys.platform == \"win32\":\n            text += 'static struct _inittab extensions[] = {\\n'\n            text += '  {0, 0},\\n'\n            text += '};\\n\\n'\n\n        text += initCode\n\n        if filename is not None:\n            file = open(filename, 'w')\n            file.write(text)\n            file.close()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2113
+  }
+}

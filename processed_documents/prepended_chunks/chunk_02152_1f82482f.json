@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two methods related to module management in a system that handles module inclusion/exclusion and output control. `makeForbiddenModuleListEntry` generates entries for a list of forbidden modules, while `__writingModule` checks if a named module is eligible for output during the current processing pass based on exclusion status and prior output history.\n\ndef makeForbiddenModuleListEntry(self, moduleName):\n        return '  {\"%s\", NULL, 0},' % (moduleName)\n\n    def __writingModule(self, moduleName):\n        \"\"\" Returns true if we are outputting the named module in this\n        pass, false if we have already output in a previous pass, or\n        if it is not yet on the output table. \"\"\"\n\n        mdef = self.modules.get(moduleName, (None, None))\n        if mdef.exclude:\n            return False\n\n        if moduleName in self.previousModules:\n            return False\n\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2152
+  }
+}

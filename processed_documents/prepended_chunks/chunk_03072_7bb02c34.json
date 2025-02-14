@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines a method to set up animation rates for characters based on their distance from the camera. The animation rate is interpolated between `near_distance` and `far_distance`, with further distances leading to slower animation updates.\n\nIf the character is closer to the camera than near_distance,\n        then it is animated its normal rate, every frame.  If the\n        character is exactly far_distance away, it is animated only\n        every delay_factor seconds (which should be a number greater\n        than 0).  If the character is between near_distance and\n        far_distance, its animation rate is linearly interpolated\n        according to its distance between the two.  The interpolation\n        function continues beyond far_distance, so that the character\n        is animated increasingly less frequently as it gets farther\n        away. \"\"\"\n\n        self.__LODAnimation = (farDistance, nearDistance, delayFactor)\n\n        for lodData in self.__partBundleDict.values():\n            for partData in lodData.values():\n                char = partData.partBundleNP\n                char.node().setLodAnimation(self.__LODCenter, farDistance, nearDistance, delayFactor)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3072
+  }
+}

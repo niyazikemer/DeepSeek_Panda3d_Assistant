@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two methods within the Floater widget: \n\n1. `updateFloaterTask(self, state)`: This method updates the floater's value based on the current velocity scale factor (`velocitySF`) and the time elapsed since the last frame (`dt`). It ensures smooth updates regardless of frame rate fluctuations.\n\n2. `updateFloaterSF(self, event)`: This method calculates the velocity scale factor based on the mouse's distance from the origin within the widget, beyond a defined deadband area, using exponential scaling for fine and coarse adjustments.\n\nThese methods are integral to the Floater class, handling real-time updates during user interaction via mouse movements. They ensure accurate and responsive value adjustments by continuously updating the floater's state based on input and time intervals.\n\ndef updateFloaterTask(self, state):\n        \"\"\"\n        Update floaterWidget value based on current scaleFactor\n        Adjust for time to compensate for fluctuating frame rates\n        \"\"\"\n        currT = ClockObject.getGlobalClock().getFrameTime()\n        dt = currT - state.lastTime\n        self.set(self.value + self.velocitySF * dt)\n        state.lastTime = currT\n        return Task.cont\n\n    def updateFloaterSF(self, event):\n        \"\"\"\n        Update velocity scale factor based of mouse distance from origin\n        \"\"\"\n        x = self._widget.canvasx(event.x)\n        y = self._widget.canvasy(event.y)\n        offset = max(0, abs(x) - Valuator.deadband)\n        if offset == 0:\n            return 0\n        sf = math.pow(Valuator.sfBase,\n                      self.minExp + offset/Valuator.sfDist)\n        if x > 0:\n            self.velocitySF = sf\n        else:\n            self.velocitySF = -sf",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3618
+  }
+}

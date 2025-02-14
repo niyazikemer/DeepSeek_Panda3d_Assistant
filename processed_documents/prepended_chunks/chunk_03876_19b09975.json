@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Add a new task chain to manage tasks in parallel or serial execution across threads. Configure the chain's behavior using optional parameters including thread count, priority, budget allocation, synchronization mode, and timeslicing strategy. This method creates and initializes a new task chain with specified properties for efficient task management and execution scheduling.\"\"\"\n\ntimeslicePriority is False in the default mode, in which each\n        task runs exactly once each frame, round-robin style,\n        regardless of the task's priority value; or True to change the\n        meaning of priority so that certain tasks are run less often,\n        in proportion to their time used and to their priority value.\n        See AsyncTaskManager.setTimeslicePriority() for more.\n        \"\"\"\n\n        chain = self.mgr.makeTaskChain(chainName)\n        if numThreads is not None:\n            chain.setNumThreads(numThreads)\n        if tickClock is not None:\n            chain.setTickClock(tickClock)\n        if threadPriority is not None:\n            chain.setThreadPriority(threadPriority)\n        if frameBudget is not None:\n            chain.setFrameBudget(frameBudget)\n        if frameSync is not None:\n            chain.setFrameSync(frameSync)\n        if timeslicePriority is not None:\n            chain.setTimeslicePriority(timeslicePriority)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3876
+  }
+}

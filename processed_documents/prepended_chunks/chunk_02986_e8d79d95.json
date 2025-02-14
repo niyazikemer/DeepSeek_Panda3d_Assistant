@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a texture packing algorithm where, when no single rectangular hole can accommodate the entire texture, the code divides the texture into smaller pieces and attempts to fit them into available spaces. The process involves checking each piece's aspect ratio against its allocated space and rotating it if necessary for optimal fitting. This helps maximize space utilization in texture atlases or similar packing scenarios.\n\n# Couldn't find a single rectangular hole.  We'll have to\n            # divide the texture up into several smaller pieces to cram it\n            # in.\n            tpList = self.findHolePieces(tr.area)\n            if tpList:\n                texCmp = (tr.w > tr.h) - (tr.w < tr.h)\n                tr.placements = tpList\n                for tp in tpList:\n                    holeCmp = ((tp.p[1] - tp.p[0]) > (tp.p[3] - tp.p[2])) \\\n                            - ((tp.p[1] - tp.p[0]) < (tp.p[3] - tp.p[2]))\n                    if texCmp != 0 and holeCmp != 0 and texCmp != holeCmp:\n                        tp.rotated = True\n                    tp.setBitmasks(self.bitmasks)\n                    self.placedQSize += tp.area\n                    self.texPlacements[tp] = tr\n                self.placedSize += tr.size\n                tr.makeCard(self)\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2986
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `_open_file` method within a custom module loader, designed to handle both regular files and modules stored within zip archives. This method checks if the specified path is a file, opens it appropriately based on mode (text with UTF-8 encoding or binary), and also examines whether the file might be inside a zip archive by traversing the directory structure.\n\n</document>\n\nThe code chunk sits within the `_open_file` method of a custom module finder. This method is responsible for opening files or modules, handling both regular files and zip archives, to support namespace packages and frozen modules in Python.\n\nif os.path.isfile(path):\n            if 'b' not in mode:\n                return io.open(path, mode, encoding='utf8')\n            else:\n                return open(path, mode)\n\n        # Is there a zip file along the path?\n        dir, dirname = os.path.split(path)\n        fn = dirname\n        while dirname:\n            if os.path.isfile(dir):\n                # Okay, this is actually a file.  Is it a zip file?\n                if dir in self._zip_files:\n                    # Yes, and we've previously opened this.\n                    zip = self._zip_files[dir]\n                elif zipfile.is_zipfile(dir):\n                    zip = zipfile.ZipFile(dir)\n                    self._zip_files[dir] = zip\n                else:\n                    # It's a different kind of file.  Stop looking.\n                    return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2155
+  }
+}

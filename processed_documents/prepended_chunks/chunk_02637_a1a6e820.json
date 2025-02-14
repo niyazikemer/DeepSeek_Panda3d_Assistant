@@ -1,0 +1,9 @@
+{
+  "content": "The `demand()` method in the FSM class manages asynchronous state transitions by queuing requests when in transition. It returns a future that can be awaited to suspend coroutines until the transition completes.\n\nThe return value of this function can be used in an `await`\n        expression to suspend the current coroutine until the\n        transition is done.\n        \"\"\"\n\n        self.fsmLock.acquire()\n        try:\n            assert isinstance(request, str)\n            self.notify.debug(\"%s.demand(%s, %s\" % (\n                self._name, request, str(args)[1:]))\n            if not self.state:\n                # Queue up the request.\n                fut = AsyncFuture()\n                self.__requestQueue.append((PythonUtil.Functor(\n                    self.demand, request, *args), fut))\n                return fut\n\n            result = self.request(request, *args)\n            if not result:\n                raise RequestDenied(\"%s (from state: %s)\" % (request, self.state))\n            return result._future or self.__doneFuture\n        finally:\n            self.fsmLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2637
+  }
+}

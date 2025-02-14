@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a function within a class that handles dynamic library (dylib) dependencies, specifically dealing with parsing Universal (FAT) binary files. The `_read_dependencies_fat` method reads the structure of a FAT file to extract information about its constituent binaries, including their CPU types, offsets, and sizes, which are used to correctly load and process each architecture's dependencies during the build or runtime phase.\n\nload_dylibs.append(dylib)\n\n        return load_dylibs\n\n    def _read_dependencies_fat(self, fp, is_64bit, flatten=False):\n        num_fat, = struct.unpack('>I', fp.read(4))\n\n        # After the header we get a table of executables in this fat file,\n        # each one with a corresponding offset into the file.\n        offsets = []\n        for i in range(num_fat):\n            if is_64bit:\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack('>QQQQQ', fp.read(40))\n            else:\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack('>IIIII', fp.read(20))\n            offsets.append(offset)\n\n        # Go through each of the binaries in the fat file.\n        deps = []\n        for offset in offsets:\n            # Add 4, since it expects we've already read the magic.\n            fp.seek(offset)\n            magic = fp.read(4)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2015
+  }
+}

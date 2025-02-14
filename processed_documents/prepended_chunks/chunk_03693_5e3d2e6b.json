@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk represents the `TreeItem` class definition within the overall document. This abstract base class defines methods for handling text display, editability, expandability, and icon representation in a tree structure. It is situated after the `TreeNode` class, which implements the visual aspects of the tree nodes, while this `TreeItem` class focuses on defining data-handling methods that should be implemented by concrete subclasses to provide specific item behaviors.\n\nclass TreeItem:\n\n    \"\"\"Abstract class representing tree items.\n\n    Methods should typically be overridden, otherwise a default action\n    is used.\n\n    \"\"\"\n\n    def __init__(self):\n        \"\"\"Constructor.  Do whatever you need to do.\"\"\"\n\n    def GetText(self):\n        \"\"\"Return text string to display.\"\"\"\n\n    def GetTextFg(self):\n        return \"black\"\n\n    def GetTextBg(self):\n        return \"white\"\n\n    def GetLabelText(self):\n        \"\"\"Return label text string to display in front of text (if any).\"\"\"\n\n    def IsExpandable(self):\n        \"\"\"Return whether there are subitems.\"\"\"\n        return 1\n\n    def _GetSubList(self):\n        \"\"\"Do not override!  Called by TreeNode.\"\"\"\n        if not self.IsExpandable():\n            return []\n        return self.GetSubList()\n\n    def IsEditable(self):\n        \"\"\"Return whether the item's text may be edited.\"\"\"\n\n    def SetText(self, text):\n        \"\"\"Change the item's text (if it is editable).\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3693
+  }
+}

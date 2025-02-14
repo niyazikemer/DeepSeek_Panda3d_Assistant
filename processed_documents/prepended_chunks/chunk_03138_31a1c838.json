@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an `Actor` class implementation that handles 3D models and animations. It deals with loading a model, checking if it contains a Character node (for animation purposes), and binding animations if available. This section is critical for initializing the actor's geometry and animations from a given model file, ensuring proper integration of character data or handling non-character assets appropriately.\n\nif model is None:\n            raise IOError(\"Could not load Actor model %s\" % (modelPath))\n\n        if model.node().isOfType(Character.getClassType()):\n            bundleNP = model\n        else:\n            bundleNP = model.find(\"**/+Character\")\n\n        if bundleNP.isEmpty():\n            Actor.notify.warning(\"%s is not a character!\" % (modelPath))\n            model.reparentTo(self.__geomNode)\n        else:\n            # Maybe the model file also included some animations.  If\n            # so, try to bind them immediately and put them into the\n            # animControlDict.\n            if autoBindAnims:\n                acc = AnimControlCollection()\n                autoBind(model.node(), acc, ~0)\n                numAnims = acc.getNumAnims()\n            else:\n                numAnims = 0\n\n            # Now extract out the Character and integrate it with\n            # the Actor.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3138
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `initAnimsOnAllLODs` method in the Actor class. This method sets up animation control dictionaries for specified parts across all Levels of Detail (LODs). It ensures that each LOD and part has an entry in the `__animControlDict` to store animations before they are bound or played.\n\ndef initAnimsOnAllLODs(self,partNames):\n        if self.mergeLODBundles:\n            lodNames = ['common']\n        else:\n            lodNames = self.__partBundleDict.keys()\n\n        for lod in lodNames:\n            for part in partNames:\n                self.__animControlDict.setdefault(lod,{})\n                self.__animControlDict[lod].setdefault(part, {})\n\n        #for animName, filename in anims.items():\n        #    # make sure this lod is in anim control dict\n        #    for lod in self.__partBundleDict.keys():\n        #        # store the file path only; we will bind it (and produce\n        #        # an AnimControl) when it is played\n        #\n        #        self.__animControlDict[lod][partName][animName] = Actor.AnimDef(filename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3152
+  }
+}

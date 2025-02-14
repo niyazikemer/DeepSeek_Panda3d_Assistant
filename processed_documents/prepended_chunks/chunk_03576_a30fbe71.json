@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk configures and initializes an EntryScaleGroup object for an RGBA color panel in a graphical user interface. The Valuator_max parameter sets the maximum value for each RGBA component (255), while Valuator_resolution determines the step size between values (1). The fDestroy parameter ensures the panel is destroyed upon dismissal, preventing resource leaks. The command callback updates the node's color when sliders are adjusted. This section also modifies the menu button text to \"RGBA Panel\" and deletes existing menu items to prepare for custom ones.\n\nValuator_max = 255,\n                          Valuator_resolution = 1,\n                          # Destroy not withdraw panel on dismiss\n                          fDestroy = 1,\n                          command = setNodePathColor)\n    # Update menu button\n    esg.component('menubar').component('EntryScale Group-button')['text'] = (\n        'RGBA Panel')\n    # Update menu\n    menubar = esg.component('menubar')\n    menubar.deletemenuitems('EntryScale Group', 1, 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3576
+  }
+}

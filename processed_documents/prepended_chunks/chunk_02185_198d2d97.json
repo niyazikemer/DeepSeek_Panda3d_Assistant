@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Python script that generates standalone executables or shared libraries from Python scripts using Panda's FreezeTool. The section handles different output types (DLLs, executables, etc.) by determining which modules to include in the final build. It ensures the main module is correctly specified for executables and sets flags for additional processing steps like compiling to an executable or including startup modules.\n\nif outputType == 'dll' or outputType == 'c':\n            freezer.addModule(startmod, filename = startfile)\n        else:\n            freezer.addModule('__main__', filename = startfile)\n            compileToExe = True\n            addStartupModules = True\n\n    elif outputType == 'exe':\n        # We must have a main module when making an executable.\n        usage(1, 'A main file needs to be specified when creating an executable.')\n\n    freezer.done(addStartupModules = addStartupModules)\n\n    if outputType == 'mf':\n        freezer.writeMultifile(basename)\n    elif outputType == 'c':\n        freezer.writeCode(basename)\n    else:\n        freezer.generateCode(basename, compileToExe = compileToExe)\n\n    return 0\n\n\nif __name__ == '__main__':\n    sys.exit(main())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_134",
+    "parent": "processed_documents/context_documents/619969b9_pfreeze.json",
+    "chunk_number": 2185
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `_handleStateChange` method is part of the `FunctionWrapper` class, which is used to manage function execution in response to state changes within a system. This method triggers the stored function (`self._func`) with its pre-configured arguments and keyword arguments whenever the state is updated, ensuring that any connected components or observers are notified of the change through the inherited `_handleStateChange` method from `PushesStateChanges`. It serves as a critical mechanism for propagating updates in systems where functions need to react dynamically to state transitions.\n\ndef _handleStateChange(self):\n        if self._initialized:\n            self._func(*self._bakedArgs, **self._bakedKargs)\n            PushesStateChanges._handleStateChange(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2665
+  }
+}

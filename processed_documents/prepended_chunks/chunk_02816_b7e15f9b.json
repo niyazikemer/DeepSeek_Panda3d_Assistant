@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of an interval class that manages animations in a game or graphics application. The section focuses on determining whether the animation plays forward or backward based on the play rate or frame order, calculates the number of frames, and computes the duration if not specified. It also includes a method to get the current frame during playback.\n\n# Must we play the animation backwards?  We play backwards if\n        # either (or both) of the following is true: the playRate is\n        # negative, or endFrame is before startFrame.\n        self.reverse = (playRate < 0)\n        if self.endFrame < self.startFrame:\n            self.reverse = 1\n            t = self.endFrame\n            self.endFrame = self.startFrame\n            self.startFrame = t\n\n        self.numFrames = self.endFrame - self.startFrame + 1\n\n        # Compute duration if no duration specified\n        self.implicitDuration = 0\n        if duration is None:\n            self.implicitDuration = 1\n            duration = float(self.numFrames) / self.frameRate\n\n        # Initialize superclass\n        Interval.Interval.__init__(self, name, duration)\n\n    def getCurrentFrame(self):\n        \"\"\"Calculate the current frame playing in this interval.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2816
+  }
+}

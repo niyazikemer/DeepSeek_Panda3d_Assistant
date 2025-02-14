@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines default installer functions, command-line options, and a helper method for processing build options within the `bdist_apps` setuptools command class, which bundles Panda3D applications into distributable packages.\n\nDEFAULT_INSTALLER_FUNCS = {\n        'zip': installers.create_zip,\n        'gztar': installers.create_gztar,\n        'bztar': installers.create_bztar,\n        'xztar': installers.create_xztar,\n        'nsis': installers.create_nsis,\n        'aab': installers.create_aab,\n    }\n\n    description = 'bundle built Panda3D applications into distributable forms'\n    user_options = build_apps.user_options + [\n        ('dist-dir=', 'd', 'directory to put final built distributions in'),\n        ('skip-build', None, 'skip rebuilding everything (for testing/debugging)'),\n    ]\n\n    def _build_apps_options(self):\n        return [opt[0].replace('-', '_').replace('=', '') for opt in build_apps.user_options]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2019
+  }
+}

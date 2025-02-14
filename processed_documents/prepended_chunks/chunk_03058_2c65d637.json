@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method in an Actor class responsible for organizing and preparing animation data across different levels of detail (LODs). The code collects information about each part's associated animations, including filenames and control objects, and structures this data into a hierarchical format for efficient access and management during runtime.\n\npartInfo = []\n            for partName in partDict:\n                subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n                partBundleDict = self.__partBundleDict.get(lodName)\n                partDef = partBundleDict.get(subpartDef.truePartName)\n                partBundle = partDef.getBundle()\n                animDict = partDict[partName]\n                animInfo = []\n                for animName in animDict:\n                    file = animDict[animName].filename\n                    animControl = animDict[animName].animControl\n                    animInfo.append([animName, file, animControl])\n                partInfo.append([partName, partBundle, animInfo])\n            lodInfo.append([lodName, partInfo])\n        return lodInfo",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3058
+  }
+}

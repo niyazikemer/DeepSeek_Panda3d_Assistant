@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method responsible for preparing texture resources and auxiliary attributes based on active rendering configurations. It checks which visual effects (like blur, bloom) are enabled in the configuration, collects required texture names into `needtex`, adds corresponding texture coordinates to `needtexcoord`, and sets auxiliary bits such as glow effects. This setup ensures that all necessary textures and attributes are correctly initialized for subsequent rendering operations.\n\nif \"BlurSharpen\" in configuration:\n                needtex.add(\"blur0\")\n                needtex.add(\"blur1\")\n                needtexcoord.add(\"blur1\")\n\n            if \"Bloom\" in configuration:\n                needtex.add(\"bloom0\")\n                needtex.add(\"bloom1\")\n                needtex.add(\"bloom2\")\n                needtex.add(\"bloom3\")\n                auxbits |= AuxBitplaneAttrib.ABOGlow\n                needtexcoord.add(\"bloom3\")\n\n            if \"ViewGlow\" in configuration:\n                auxbits |= AuxBitplaneAttrib.ABOGlow\n\n            if \"VolumetricLighting\" in configuration:\n                needtex.add(configuration[\"VolumetricLighting\"].source)\n\n            for tex in needtex:\n                self.textures[tex] = Texture(\"scene-\" + tex)\n                self.textures[tex].setWrapU(Texture.WMClamp)\n                self.textures[tex].setWrapV(Texture.WMClamp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3959
+  }
+}

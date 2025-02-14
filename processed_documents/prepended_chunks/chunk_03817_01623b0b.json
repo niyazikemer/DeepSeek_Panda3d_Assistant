@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a thread-synchronization mechanism, specifically managing timeouts while waiting for lock acquisition in Python's threading implementation. It employs an exponential back-off strategy with a maximum delay cap to prevent indefinite blocking, ensuring efficient resource management and avoiding deadlocks.\n\n**Context:** The code manages lock acquisition with timeout handling in the threading module.\n\nendtime = _time() + timeout\n                delay = 0.0005 # 500 us -> initial delay of 1 ms\n                while True:\n                    gotit = waiter.acquire(0)\n                    if gotit:\n                        break\n                    remaining = endtime - _time()\n                    if remaining <= 0:\n                        break\n                    delay = min(delay * 2, remaining, .05)\n                    _sleep(delay)\n                if not gotit:\n                    if __debug__:\n                        self._note(\"%s.wait(%s): timed out\", self, timeout)\n                    try:\n                        self.__waiters.remove(waiter)\n                    except ValueError:\n                        pass\n                else:\n                    if __debug__:\n                        self._note(\"%s.wait(%s): got it\", self, timeout)\n        finally:\n            self._acquire_restore(saved_state)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3817
+  }
+}

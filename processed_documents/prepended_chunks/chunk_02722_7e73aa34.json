@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two private methods, `privInstant` and `privStep`, which are part of the core functionality of the `IndirectInterval` class. These methods handle the logic for immediately initializing the nested interval (`privInstant`) and stepping through the interval at a given time (`privStep`). Together, they play a critical role in controlling how the interval is played and manipulated over time within the IndirectInterval system.\n\ndef privInstant(self):\n        state = self.interval.getState()\n        if (state == CInterval.SInitial or state == CInterval.SFinal) and \\\n           self.endAtEnd:\n            self.interval.privInstant()\n            self.currT = self.getDuration()\n            self.interval.privPostEvent()\n            self.intervalDone()\n        else:\n            if state == CInterval.SInitial or state == CInterval.SFinal:\n                self.interval.privInitialize(self.startT)\n            else:\n                self.interval.privStep(self.startT)\n            self.privFinalize()\n\n    def privStep(self, t):\n        self.interval.privStep(self.__calcT(t))\n        self.currT = t\n        self.state = CInterval.SStarted\n        self.interval.privPostEvent()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_152",
+    "parent": "processed_documents/context_documents/43d373be_IndirectInterval.json",
+    "chunk_number": 2722
+  }
+}

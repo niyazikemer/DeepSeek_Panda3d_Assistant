@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"Chunk describing the `_DummyThread` class and the `current_thead()` function within the threading module's implementation. The `_DummyThread` is used to represent threads not started in this context, ensuring thread management even when no active thread exists. The `current_thread()` function provides access to the current thread or returns a dummy thread if none exists. These components are part of the thread management API implemented in the threading module.\"\"\"\n\nclass _DummyThread(Thread):\n\n    def __init__(self):\n        Thread.__init__(self, name=_newname(\"Dummy-%d\"), daemon=True)\n\n        # Thread.__block consumes an OS-level locking primitive, which\n        # can never be used by a _DummyThread.  Since a _DummyThread\n        # instance is immortal, that's bad, so release this resource.\n        del self._Thread__block\n\n        self._Thread__started = True\n        _active_limbo_lock.acquire()\n        _active[get_ident()] = self\n        _active_limbo_lock.release()\n\n    def _set_daemon(self):\n        return True\n\n    def join(self, timeout=None):\n        assert False, \"cannot join a dummy thread\"\n\n\n# Global API functions\n\ndef current_thread():\n    try:\n        return _active[get_ident()]\n    except KeyError:\n        ##print \"current_thread(): no current thread for\", get_ident()\n        return _DummyThread()\n\ncurrentThread = current_thread",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3844
+  }
+}

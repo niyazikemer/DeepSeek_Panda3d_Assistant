@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a method responsible for clearing animation controls and related effects within an Actor class implementation. Specifically, it handles both general and specific cases for unbinding animations by iterating through levels of detail (LODs), parts, and animations to clear control effects and release references to animation controls.\n\nThis context is relevant for managing animations in a 3D environment, ensuring proper cleanup when animations are stopped or removed.\n\nif anims is None:\n            for lodName in lodNames:\n                for partName in partNames:\n                    for animDef in self.__animControlDict[lodName][partName].values():\n                        if animDef.animControl is not None:\n                            # Try to clear any control effects before we let\n                            # our handle on them go. This is especially\n                            # important if the anim control was blending\n                            # animations.\n                            animDef.animControl.getPart().clearControlEffects()\n                            animDef.animControl = None\n        else:\n            for lodName in lodNames:\n                for partName in partNames:\n                    for anim in anims:\n                        animDef = self.__animControlDict[lodName][partName].get(anim)\n                        if animDef and animDef.animControl is not None:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3158
+  }
+}

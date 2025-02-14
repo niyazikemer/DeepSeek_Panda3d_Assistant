@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a function that handles scaling transformations in a 3D graphics application. It ensures numerical stability by preventing division by zero when calculating the scaling factor based on user input, specifically mouse interactions, and updates the widget's scale accordingly.\n\n```python\ndef handle_scale():\n    \"\"\"\n    Handles scaling transformation, avoiding division by zero to ensure numerical stability.\n    Updates the widget's scale based on calculated factors from mouse interaction.\n    \"\"\"\n    if d0 == 0:\n        d0 = 0.001\n    d1 = (self.hitPtScale).length()\n    if d1 == 0:\n        d1 = 0.001\n    currScale = self.origScale\n    currScale = Vec3(currScale.getX() * d1/d0, currScale.getY() * d1/d0, currScale.getZ() * d1/d0)\n    direct.widget.setScale(currScale)\n```\n\nif d0 == 0: #make sure we don't divide by zero\n                        d0 = 0.001\n                    d1 = (self.hitPtScale).length()\n                    if d1 == 0:  #make sure we don't set scale to zero\n                        d1 = 0.001\n                    currScale = self.origScale\n                    # Scale factor is ratio current mag with init mag\n                    currScale = Vec3(currScale.getX() * d1/d0, currScale.getY() * d1/d0, currScale.getZ() * d1/d0)\n                    direct.widget.setScale(currScale)\n                return\n            else:\n                self.hitPtScale.assign(self.objectHandles.getMouseIntersectPt())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3250
+  }
+}

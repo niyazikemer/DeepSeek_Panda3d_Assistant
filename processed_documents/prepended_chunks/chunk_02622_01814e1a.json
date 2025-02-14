@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class that implements a Finite State Machine (FSM) system. The `view()` method provides a way to inspect or visualize the FSM's state using an external tool, while `isInternalStateInFlux()` checks if the FSM is in the process of transitioning between states. These methods are utility functions added to enhance functionality and debugging capabilities within the FSM class.\n\ndef view(self):\n        # Don't use a regular import, to prevent ModuleFinder from picking\n        # it up as a dependency when building a .p3d package.\n        import importlib\n        FSMInspector = importlib.import_module('direct.tkpanels.FSMInspector')\n        FSMInspector.FSMInspector(self)\n\n    def isInternalStateInFlux(self):\n        return self.__internalStateInFlux",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2622
+  }
+}

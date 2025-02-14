@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is situated within a function responsible for compiling and packaging module files. It checks if an original source file exists and adds it to an archive; otherwise, it includes the compiled Python bytecode (.pyc or .pyo) based on debug settings. This ensures modules are correctly bundled for distribution.\n\n# Attempt to add the original source file if we can.\n        sourceFilename = None\n        if mdef.filename and mdef.filename.getExtension() == \"py\":\n            sourceFilename = mdef.filename\n        elif getattr(module, '__file__', None):\n            sourceFilename = Filename.fromOsSpecific(module.__file__)\n            sourceFilename.setExtension(\"py\")\n            sourceFilename.setText()\n\n        if self.storePythonSource:\n            if sourceFilename and sourceFilename.exists():\n                filename += '.py'\n                multifile.addSubfile(filename, sourceFilename, compressionLevel)\n                return\n\n        # If we can't find the source file, add the compiled pyc instead.\n        if __debug__:\n            filename += '.pyc'\n        else:\n            filename += '.pyo'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2102
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk implements a context manager interface for a threading lock mechanism, allowing use with 'with' statements.\n\n__enter__ = acquire\n\n    def release(self):\n        self.__cond.acquire()\n        self.__value = self.__value + 1\n        if __debug__:\n            self._note(\"%s.release: success, value=%s\",\n                       self, self.__value)\n        self.__cond.notify()\n        self.__cond.release()\n\n    def __exit__(self, t, v, tb):\n        self.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3821
+  }
+}

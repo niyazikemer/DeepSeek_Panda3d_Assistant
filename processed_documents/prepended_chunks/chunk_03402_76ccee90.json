@@ -1,0 +1,9 @@
+{
+  "content": "The chunk modifies modifier flags based on mouse button presses and releases while the alt key is active, then sends corresponding messages. It's situated within the event handling code in the DisplayRegionContext class.\n\nThe context is:\n\n```python\n# Handle modifier keys during mouse events\nif self.fMouse1:\n    modifiers |= DG.DIRECT_ALT_MOD\n    messenger.send('DIRECT-mouse1', [modifiers])\nelif self.fMouse2:\n    modifiers |= DG.DIRECT_ALT_MOD\n    messenger.send('DIRECT-mouse2', [modifiers])\nelif self.fMouse3:\n    modifiers |= DG.DIRECT_ALT_MOD\n    messenger.send('DIRECT-mouse3', [modifiers])\nelif input == 'alt-up':\n    modifiers &= ~DG.DIRECT_ALT_MOD\n```\n\nmodifiers |= DG.DIRECT_ALT_MOD\n                messenger.send('DIRECT-mouse1', sentArgs = [modifiers])\n            elif self.fMouse2:\n                modifiers = DG.DIRECT_NO_MOD\n                modifiers |= DG.DIRECT_ALT_MOD\n                messenger.send('DIRECT-mouse2', sentArgs = [modifiers])\n            elif self.fMouse3:\n                modifiers = DG.DIRECT_NO_MOD\n                modifiers |= DG.DIRECT_ALT_MOD\n                messenger.send('DIRECT-mouse3', sentArgs = [modifiers])\n        elif input == 'alt-up':\n            self.fAlt = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3402
+  }
+}

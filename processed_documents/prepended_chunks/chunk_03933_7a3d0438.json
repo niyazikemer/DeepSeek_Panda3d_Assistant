@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of the `TaskTracker` class, which is responsible for monitoring and analyzing the execution time of specific tasks in a system. This class is utilized within a larger framework designed to detect performance anomalies, such as spikes in task execution times. The `__init__` method initializes the tracker with a name prefix, sets up an averager to track task durations, and configures thresholds for identifying performance issues. This setup allows the system to log and analyze task profiles, aiding in performance optimization and troubleshooting.\n\nclass TaskTracker:\n    # call it TaskProfiler to avoid confusion for the user\n    notify = directNotify.newCategory(\"TaskProfiler\")\n    MinSamples = None\n    SpikeThreshold = None\n\n    def __init__(self, namePrefix):\n        self._namePrefix = namePrefix\n        self._durationAverager = Averager('%s-durationAverager' % namePrefix)\n        self._avgSession = None\n        if TaskTracker.MinSamples is None:\n            # number of samples required before spikes start getting identified\n            TaskTracker.MinSamples = ConfigVariableInt('profile-task-spike-min-samples', 30).value\n            # defines spike as longer than this multiple of avg task duration\n            TaskTracker.SpikeThreshold = TaskProfiler.GetDefaultSpikeThreshold()\n\n    def destroy(self):\n        self.flush()\n        del self._namePrefix\n        del self._durationAverager",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3933
+  }
+}

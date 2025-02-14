@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a rendering configuration system responsible for updating visual effects in real-time when certain settings change. It specifically handles adjustments to volumetric lighting, screen space ambient occlusion (SSAO), and exposure parameters by modifying shader inputs accordingly. These updates ensure that visual effects like light scattering and shadowing are accurately rendered based on the current configuration settings.\n\n**Context:**\nThe code chunk is situated within a rendering configuration system where it manages real-time updates of visual effects. It adjusts shader parameters for volumetric lighting, SSAO, and exposure when changes occur, ensuring accurate rendering without restarts.\n\nif changed == \"VolumetricLighting\" or fullrebuild:\n            if \"VolumetricLighting\" in configuration:\n                config = configuration[\"VolumetricLighting\"]\n                tcparam = config.density / float(config.numsamples)\n                self.finalQuad.setShaderInput(\"vlparams\", tcparam, config.decay, config.exposure, 0.0)\n\n        if changed == \"AmbientOcclusion\" or fullrebuild:\n            if \"AmbientOcclusion\" in configuration:\n                config = configuration[\"AmbientOcclusion\"]\n                self.ssao[0].setShaderInput(\"params1\", config.numsamples, -float(config.amount) / config.numsamples, config.radius, 0)\n                self.ssao[0].setShaderInput(\"params2\", config.strength, config.falloff, 0, 0)\n\n        if changed == \"ExposureAdjust\" or fullrebuild:\n            if \"ExposureAdjust\" in configuration:\n                stops = configuration[\"ExposureAdjust\"]\n                self.finalQuad.setShaderInput(\"exposure\", 2 ** stops)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3980
+  }
+}

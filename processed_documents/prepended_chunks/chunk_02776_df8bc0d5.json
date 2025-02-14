@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within a section of a document that defines classes for handling 3D object transformations (position, rotation, scaling) over time using intervals. Specifically, the `privDoEvent` method is part of a class related to `LerpNodePathInterval`, which manages interpolations between start and end states of a 3D node path in a graphics library like Panda3D. The method handles initialization events by setting up parameters for various transformations (position, heading-pitch-roll, quaternions, scale, shear) when Python functors are used to define these properties. This ensures that the interpolation logic has concrete values to work with before starting the animation or transformation process.\n\ndef privDoEvent(self, t, event):\n        # This function is only used if Python functors were passed in\n        # for some of the input parameters.\n        if self.paramSetup and event == CInterval.ETInitialize:\n            self.setupParam(self.setEndPos, self.endPos)\n            self.setupParam(self.setStartPos, self.startPos)\n            self.setupParam(self.setEndHpr, self.endHpr)\n            self.setupParam(self.setStartHpr, self.startHpr)\n            self.setupParam(self.setStartQuat, self.startQuat)\n            self.setupParam(self.setEndScale, self.endScale)\n            self.setupParam(self.setStartScale, self.startScale)\n            self.setupParam(self.setEndShear, self.endShear)\n            self.setupParam(self.setStartShear, self.startShear)\n        LerpNodePathInterval.privDoEvent(self, t, event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2776
+  }
+}

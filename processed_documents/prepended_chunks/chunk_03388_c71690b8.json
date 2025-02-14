@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines methods for enabling and disabling a tool or system (`Direct`) that manages camera controls, object manipulation, and event handling. These methods include:\n\n- `enableLight()`: Enables lighting-related functionality.\n- `disable()`: Disables various features including camera movement, object manipulation, events, and tasks.\n- `toggleDirect()`: Toggles the enabled/disabled state of the system.\n\nThe context for these methods is within a larger class that handles user interaction with a 3D environment or graphics application.\n\ndef enableLight(self):\n        self.fEnabledLight = 1\n        self.enable()\n\n    def disable(self):\n        # Shut down all display region context tasks\n        self.drList.removeContextTask()\n        # Turn off camera fly\n        self.cameraControl.disableMouseFly()\n        # Turn off object manipulation\n        self.deselectAll()\n        self.manipulationControl.disableManipulation()\n        self.disableKeyEvents()\n        self.disableModifierEvents()\n        self.disableMouseEvents()\n        self.disableActionEvents()\n        # Kill tasks\n        taskMgr.remove('flashNodePath')\n        taskMgr.remove('hideDirectMessage')\n        taskMgr.remove('hideDirectMessageLater')\n        # Set flag\n        self.fEnabled = 0\n\n    def toggleDirect(self):\n        if self.fEnabled:\n            self.disable()\n        else:\n            self.enable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3388
+  }
+}

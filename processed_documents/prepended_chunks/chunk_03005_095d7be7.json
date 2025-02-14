@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines utility functions for calculating coordinates on a circle and generating lists of circular points, which can be used in creating 3D geometric shapes like spheres or toruses within the document's context.\n\ndef circleX(angle, radius, centerX, centerY):\n    x = radius * cos(angle) + centerX\n    return x\n\n\ndef circleY(angle, radius, centerX, centerY):\n    y = radius * sin(angle) + centerY\n    return y\n\n\ndef getCirclePoints(segCount, centerX, centerY, radius, wideX= 1.0, wideY = 1.0):\n    returnShape = []\n    for seg in range(0, segCount):\n        coordX = wideX * (circleX(((pi * 2.0) * float(float(seg) / float(segCount))), radius, centerX, centerY))\n        coordY = wideY * (circleY(((pi * 2.0) * float(float(seg) / float(segCount))), radius, centerX, centerY))\n        returnShape.append((coordX, coordY, 1))\n\n    coordX = wideX * (circleX(((pi * 2.0) * float(0 / segCount)), radius, centerX, centerY))\n    coordY = wideY * (circleY(((pi * 2.0) * float(0 / segCount)), radius, centerX, centerY))\n    returnShape.append((coordX, coordY, 1))\n    return returnShape",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3005
+  }
+}

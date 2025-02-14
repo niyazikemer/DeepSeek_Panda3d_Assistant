@@ -1,0 +1,9 @@
+{
+  "content": "The `PushesStateChanges` class is a base class in a system designed for managing state changes and notifications in an event-driven architecture. It provides core functionality for objects to broadcast their state changes to registered subscribers, handle subscriptions, and manage state transitions, serving as the foundation for more specialized classes like `EventPulse`, `StateChangeNode`, and others that extend its capabilities for specific use cases involving state tracking and event handling.\n\nclass PushesStateChanges:\n    # base class for objects that broadcast state changes to a set of subscriber objects\n    def __init__(self, value):\n        self._value = value\n        # push state changes to these objects\n        self._subscribers = set()\n\n    def destroy(self):\n        if len(self._subscribers) != 0:\n            raise Exception('%s object still has subscribers in destroy(): %s' % (\n                self.__class__.__name__, self._subscribers))\n        del self._subscribers\n        del self._value\n\n    def getState(self):\n        return self._value\n\n    def pushCurrentState(self):\n        self._handleStateChange()\n        return self\n\n    def _addSubscription(self, subscriber):\n        self._subscribers.add(subscriber)\n        subscriber._recvStatePush(self)\n\n    def _removeSubscription(self, subscriber):\n        self._subscribers.remove(subscriber)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2656
+  }
+}

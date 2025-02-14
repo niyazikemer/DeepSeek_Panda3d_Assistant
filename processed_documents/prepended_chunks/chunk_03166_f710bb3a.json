@@ -1,0 +1,9 @@
+{
+  "content": "The `__copyPartBundles` method in the provided code chunk is an internal utility function within the Actor class. It is used to copy the part bundle dictionary from another actor instance into the current instance. This method ensures that only non-flattened avatars are copied and handles the transfer of part bundles across different levels of detail (LODs). The purpose of this method is to allow one actor to take on the structure and animations of another without duplicating geometry, which is useful for cloning or transferring configurations between actors efficiently.\n\ndef __copyPartBundles(self, other):\n        \"\"\"__copyPartBundles(self, Actor)\n        Copy the part bundle dictionary from another actor as this\n        instance's own. NOTE: this method does not actually copy geometry\n        \"\"\"\n        for lodName in other.__partBundleDict:\n            # find the lod Asad\n            if lodName == 'lodRoot':\n                partLod = self\n            else:\n                partLod = self.__LODNode.find(str(lodName))\n            if partLod.isEmpty():\n                Actor.notify.warning(\"no lod named: %s\" % (lodName))\n                return None\n            for partName, partDef in other.__partBundleDict[lodName].items():\n                # We can really only copy from a non-flattened avatar.\n                assert partDef.partBundleNP.node().getNumBundles() == 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3166
+  }
+}

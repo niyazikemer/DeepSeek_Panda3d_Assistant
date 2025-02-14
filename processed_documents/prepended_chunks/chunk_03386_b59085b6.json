@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of an initialization or setup process for handling clustered rendering in a 3D graphics application. The context involves setting up either client-side or server-side cluster functionality using the `ClusterClient` or `ClusterServer` classes, respectively, and managing pass-through keys for event handling. This chunk is likely situated within a method or function that initializes the cluster mode based on configuration settings and prepares the environment for distributed rendering tasks.\n\n```plaintext\nThe code initializes clustered rendering setup (client/server) and manages pass-through keys.\n```\n\nif self.clusterMode == 'client':\n            from direct.cluster.ClusterClient import createClusterClient\n            self.cluster = createClusterClient()\n        elif self.clusterMode == 'server':\n            from direct.cluster.ClusterServer import ClusterServer\n            self.cluster = ClusterServer(base.camera, base.cam)\n        else:\n            from direct.cluster.ClusterClient import DummyClusterClient\n            self.cluster = DummyClusterClient()\n        setattr(builtins, 'cluster', self.cluster)\n\n    def addPassThroughKey(self,key):\n\n        self.passThroughKeys.append(key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3386
+  }
+}

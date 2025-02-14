@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods for managing anti-aliasing (MSAA) and cartoon ink effects in a rendering configuration class. The `delMSAA` method removes multi-sampling anti-aliasing settings, while `setCartoonInk` adds or updates parameters for a cartoon-style ink effect with specified separation distance and color. These methods are part of a larger class managing various rendering filters and post-processing effects.\n\ndef delMSAA(self):\n        if \"MSAA\" in self.configuration:\n            del self.configuration[\"MSAA\"]\n            return self.reconfigure(True, \"MSAA\")\n        return True\n\n    def setCartoonInk(self, separation=1, color=(0, 0, 0, 1)):\n        fullrebuild = (\"CartoonInk\" not in self.configuration)\n        newconfig = FilterConfig()\n        newconfig.separation = separation\n        newconfig.color = color\n        self.configuration[\"CartoonInk\"] = newconfig\n        return self.reconfigure(fullrebuild, \"CartoonInk\")\n\n    def delCartoonInk(self):\n        if \"CartoonInk\" in self.configuration:\n            del self.configuration[\"CartoonInk\"]\n            return self.reconfigure(True, \"CartoonInk\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3983
+  }
+}

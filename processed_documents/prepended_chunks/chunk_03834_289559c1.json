@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides notes about handling edge cases in the threading module when running with `dummy_thread`. It explains how the use of a simplified thread implementation can lead to potential issues such as KeyError during thread cleanup due to overlapping thread identifiers (`get_ident()`) and the limitations of using a single thread context.\n\n# Notes about running with dummy_thread:\n        #\n        # Must take care to not raise an exception if dummy_thread is being\n        # used (and thus this module is being used as an instance of\n        # dummy_threading).  dummy_thread.get_ident() always returns -1 since\n        # there is only one thread if dummy_thread is being used.  Thus\n        # len(_active) is always <= 1 here, and any Thread instance created\n        # overwrites the (if any) thread currently registered in _active.\n        #\n        # An instance of _MainThread is always created by 'threading'.  This\n        # gets overwritten the instant an instance of Thread is created; both\n        # threads return -1 from dummy_thread.get_ident() and thus have the\n        # same key in the dict.  So when the _MainThread instance created by\n        # 'threading' tries to clean itself up when atexit calls this method\n        # it gets a KeyError if another Thread instance was created.\n        #",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3834
+  }
+}

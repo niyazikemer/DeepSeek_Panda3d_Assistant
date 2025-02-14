@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines the `DirectLights` class, which manages multiple lighting objects (ambient, directional, point, and spotlight) within a 3D rendering system. It provides functionality to create, store, access, delete, and toggle lights using methods like `delete()`, `deleteAll()`, `asList()`, and `__getitem__()`.\n\nclass DirectLights(NodePath):\n    def __init__(self, parent = None):\n        if parent is None:\n            parent = base.render\n\n        # Initialize the superclass\n        NodePath.__init__(self)\n        # Create a node for the lights\n        self.assign(parent.attachNewNode('DIRECT Lights'))\n        # Create a list of all active lights\n        self.lightDict = {}\n        # Counts of the various types of lights\n        self.ambientCount = 0\n        self.directionalCount = 0\n        self.pointCount = 0\n        self.spotCount = 0\n\n    def __getitem__(self, name):\n        return self.lightDict.get(name, None)\n\n    def __len__(self):\n        return len(self.lightDict)\n\n    def delete(self, light):\n        del self.lightDict[light.getName()]\n        self.setOff(light)\n        light.removeNode()\n\n    def deleteAll(self):\n        for light in self:\n            self.delete(light)\n\n    def asList(self):\n        return [self[n] for n in self.getNameList()]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_178",
+    "parent": "processed_documents/context_documents/94320a32_DirectLights.json",
+    "chunk_number": 3182
+  }
+}

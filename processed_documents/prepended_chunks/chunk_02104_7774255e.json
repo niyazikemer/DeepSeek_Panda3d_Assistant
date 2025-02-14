@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes methods for handling Python modules, including reading source code from files, compiling it, and storing the compiled bytecode in a multifile format. The `addToMultifile` method specifically processes each module definition, skips excluded modules, and adds their Python files to a multifile with optional compression.\n\nSuccinct context: This code is part of a module management system that compiles Python source files into bytecode and packages them into a compressed multifile format for efficient distribution or runtime use.\n\nelse:\n            # Read the code from the source file and compile it on-the-fly.\n            if sourceFilename and sourceFilename.exists():\n                source = open(sourceFilename.toOsSpecific(), 'r').read()\n                if source and source[-1] != '\\n':\n                    source = source + '\\n'\n                code = compile(source, str(sourceFilename), 'exec', optimize=self.optimize)\n\n        self.__addPyc(multifile, filename, code, compressionLevel)\n\n    def addToMultifile(self, multifile, compressionLevel = 0):\n        \"\"\" After a call to done(), this stores all of the accumulated\n        python code into the indicated Multifile.  Additional\n        extension modules are listed in self.extras.  \"\"\"\n\n        moduleDirs = {}\n        for moduleName, mdef in self.getModuleDefs():\n            if not mdef.exclude:\n                self.__addPythonFile(multifile, moduleDirs, moduleName, mdef,\n                                     compressionLevel)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2104
+  }
+}

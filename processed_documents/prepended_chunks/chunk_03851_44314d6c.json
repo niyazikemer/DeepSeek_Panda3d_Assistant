@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a custom pickling mechanism designed to handle serialization of Panda objects. The code checks if an object is a Panda type and ensures that only one instance (canonical copy) is stored for each unique C++ pointer, preventing duplicate serialization and optimizing the pickling process.\n\n# Check for persistent id (defined by a subclass)\n        pid = self.persistent_id(obj)\n        if pid is not None and save_persistent_id:\n            self.save_pers(pid)\n            return\n\n        # Check if this is a Panda type that we've already saved; if so, store\n        # a mapping to the canonical copy, so that Python's memoization system\n        # works properly.  This is needed because Python uses id(obj) for\n        # memoization, but there may be multiple Python wrappers for the same\n        # C++ pointer, and we don't want that to result in duplication.\n        t = type(obj)\n        if issubclass(t, TypedObject.__base__):\n            canonical = self._canonical.get(obj.this)\n            if canonical is not None:\n                obj = canonical\n            else:\n                # First time we're seeing this C++ pointer; save it as the\n                # \"canonical\" version.\n                self._canonical[obj.this] = obj",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3851
+  }
+}

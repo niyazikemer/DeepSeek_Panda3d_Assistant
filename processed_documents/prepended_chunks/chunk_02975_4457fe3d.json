@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method responsible for managing and preparing textures in a graphics system. It checks if repacking is needed, processes each prepared texture to determine its size, updates corresponding texture records, and ensures efficient resource utilization by tracking which textures have been visited. The purpose is to optimize the management and rendering of textures within the application's graphics pipeline.\n\nif self.needsRepack:\n            self.needsRepack = False\n            self.repack()\n            return task.again\n\n        pgo = self.gsg.getPreparedObjects()\n        totalSize = 0\n\n        texRecords = []\n        neverVisited = copy.copy(self.texRecordsByTex)\n        for tex in self.gsg.getPreparedTextures():\n            # We have visited this texture; remove it from the\n            # neverVisited list.\n            if tex in neverVisited:\n                del neverVisited[tex]\n\n            size = 0\n            if tex.getResident(pgo):\n                size = tex.getDataSizeBytes(pgo)\n\n            tr = self.texRecordsByTex.get(tex, None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2975
+  }
+}

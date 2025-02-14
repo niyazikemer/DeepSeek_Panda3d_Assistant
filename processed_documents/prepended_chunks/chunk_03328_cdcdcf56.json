@@ -1,0 +1,9 @@
+{
+  "content": "The method `pickNextCOA()` is part of a class handling 3D object manipulation and camera controls. It cycles through collision entries to update the center of action (COA) marker, avoiding collisions under the camera. This method is situated among other functions related to selection, camera movement, and object manipulation to facilitate interactive 3D scene editing.\n\ndef pickNextCOA(self):\n        \"\"\" Cycle through collision handler entries \"\"\"\n        if self.cqEntries:\n            # Get next entry and rotate entries\n            entry = self.cqEntries[0]\n            self.cqEntries = self.cqEntries[1:] + self.cqEntries[:1]\n            # Filter out object's under camera\n            nodePath = entry.getIntoNodePath()\n            if ShowBaseGlobal.direct.camera not in nodePath.getAncestors():\n                # Compute new hit point\n                hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n                # Move coa marker to new point\n                self.updateCoa(hitPt, ref = self.coaMarkerRef)\n            else:\n                # Remove offending entry\n                self.cqEntries = self.cqEntries[:-1]\n                self.pickNextCOA()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3328
+  }
+}

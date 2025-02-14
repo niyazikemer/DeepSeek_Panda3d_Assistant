@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code is part of a larger system for managing graphical textures and mouse interactions within a windowed application. It sets up event handlers for window-related events, mouse clicks, and graphics memory limit changes. The code initializes a mouse object for capturing user input, configures button throwers for handling mouse button events, and establishes listeners for critical system events that affect the application's behavior. This setup is essential for enabling user interaction with graphical elements and ensuring proper resource management within the application.\n\neventName = '%s-window' % (self.name)\n        self.win.setWindowEvent(eventName)\n        self.accept(eventName, self.windowEvent)\n\n        # Listen for this event so we can update appropriately, if\n        # anyone changes the window's graphics memory limit,\n        self.accept('graphics_memory_limit_changed',\n                    self.graphicsMemoryLimitChanged)\n\n        # We'll need a mouse object to get mouse events.\n        self.mouse = base.dataRoot.attachNewNode(MouseAndKeyboard(self.win, 0, '%s-mouse' % (self.name)))\n        bt = ButtonThrower('%s-thrower' % (self.name))\n        self.mouse.attachNewNode(bt)\n        bt.setPrefix('button-%s-' % (self.name))\n        self.accept('button-%s-mouse1' % (self.name), self.mouseClick)\n\n        self.setupGui()\n        self.setupCanvas()\n\n        # Now start handling up the actual stuff in the scene.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2957
+  }
+}

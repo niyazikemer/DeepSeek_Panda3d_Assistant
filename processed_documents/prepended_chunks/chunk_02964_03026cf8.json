@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines an internal method `__doSetLimit` of a class (likely `TexMemWatcher`) responsible for setting memory usage limits based on either explicit settings, graphics memory constraints, or dynamic adjustment when no practical limit is specified.\n\ndef __doSetLimit(self, limit):\n        \"\"\" Internal implementation of setLimit(). \"\"\"\n        self.limit = limit\n        self.lruLimit = False\n        self.dynamicLimit = False\n\n        if not limit:\n            # If no limit was specified, use the specified graphics\n            # memory limit, if any.\n            lruSize = self.gsg.getPreparedObjects().getGraphicsMemoryLimit()\n            if lruSize and lruSize < 2**32 - 1:\n                # Got a real lruSize.  Use it.\n                self.limit = lruSize\n                self.lruLimit = True\n\n            else:\n                # No LRU limit either, so there won't be a practical\n                # limit to the TexMemWatcher.  We'll determine our\n                # limit on-the-fly instead.\n                self.dynamicLimit = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2964
+  }
+}

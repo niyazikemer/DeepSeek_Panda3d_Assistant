@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of initializing and configuring protocol buffer descriptors for various message types (e.g., StyledString, FileReference, Primitive) by setting up field relationships, message types, enums, and oneof group associations.\n\n_STYLEDSTRING.fields_by_name['span'].message_type = _STYLEDSTRING_SPAN\n_FILEREFERENCE.fields_by_name['type'].enum_type = _FILEREFERENCE_TYPE\n_FILEREFERENCE_TYPE.containing_type = _FILEREFERENCE\n_PRIMITIVE_NULLTYPE.containing_type = _PRIMITIVE\n_PRIMITIVE_EMPTYTYPE.containing_type = _PRIMITIVE\n_PRIMITIVE.fields_by_name['null_value'].message_type = _PRIMITIVE_NULLTYPE\n_PRIMITIVE.fields_by_name['empty_value'].message_type = _PRIMITIVE_EMPTYTYPE\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['null_value'])\n_PRIMITIVE.fields_by_name['null_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['empty_value'])\n_PRIMITIVE.fields_by_name['empty_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['float_value'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_138",
+    "parent": "processed_documents/context_documents/e963edbe_Resources_pb2.json",
+    "chunk_number": 2384
+  }
+}

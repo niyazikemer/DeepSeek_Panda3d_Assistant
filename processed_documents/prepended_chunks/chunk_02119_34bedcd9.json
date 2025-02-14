@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a function or script that manages the compilation and linking of Python modules into binary shared libraries. The context involves generating `.lib` files using specific system commands, handling module names, and managing temporary files during the build process. This section specifically deals with creating a `.lib` file from a module name, exporting symbols for linkage, appending the generated library to link arguments, and cleaning up temporary files after compilation if required.\n\n**Context:** Compilation and linking of Python modules into shared libraries, including generation of `.lib` files and management of temporary resources.\n\n# No, so we have to generate a .lib file.  This is pretty\n                    # easy given that we know the only symbol we need is a\n                    # initmodule or PyInit_module function.\n                    modname = mod.split('.')[-1]\n                    libfile = modname + '.lib'\n                    symbolName = 'PyInit_' + modname\n                    os.system('lib /nologo /def /export:%s /name:%s.pyd /out:%s' % (symbolName, modname, libfile))\n                    extraLink.append(libfile)\n                    cleanFiles += [libfile, modname + '.exp']\n                else:\n                    extraLink.append(fn)\n\n        try:\n            compileFunc(filename, basename, extraLink=extraLink)\n        finally:\n            if not self.keepTemporaryFiles:\n                for file in cleanFiles:\n                    if os.path.exists(file):\n                        os.unlink(file)\n\n        return target",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2119
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `pickGeom` method belongs to a class related to line segment selection operations, such as the `SelectionSegment` or another similar class that handles geometric collision detection using endpoints. This method initializes each segment's points from the provided list and performs the necessary traversal and collision checks against geometry in the scene graph.\n\ndef pickGeom(self, targetNodePath = None, endPointList = [],\n                 skipFlags = DG.SKIP_HIDDEN | DG.SKIP_CAMERA):\n        if targetNodePath is None:\n            targetNodePath = render\n        self.collideWithGeom()\n        for i in range(min(len(endPointList), self.numColliders)):\n            pointA, pointB = endPointList[i]\n            collider = self.colliders[i]\n            collider.setPointA(pointA)\n            collider.setPointB(pointB)\n        self.ct.traverse(targetNodePath)\n        # Determine collision entry\n        return self.findCollisionEntry(skipFlags)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3473
+  }
+}

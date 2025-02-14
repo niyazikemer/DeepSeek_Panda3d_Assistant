@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is situated within a function that manipulates 3D graphics elements in a scene. The function appears to handle drawing bounding boxes and positioning graphical widgets relative to the camera's perspective. The specific chunk of code moves a widget by setting its position relative to the camera, using a calculated offset vector (`vWidget2Camera`), which adjusts the widget's placement based on the camera's current orientation or position in 3D space.\n\n```python\ndef move_widget(camera_pos, widget_size):\n    \"\"\"\n    Draws a bounding box around the camera and positions a widget relative to it.\n    \n    Args:\n        camera_pos: The current position of the camera in 3D space.\n        widget_size: The size of the widget being positioned.\n    \"\"\"\n    lines = ShowBaseGlobal.direct.lines\n    draw_box(lines, center=camera_pos, size=widget_size)\n    \n    # Move widget\n    ShowBaseGlobal.irect.widget.setPos(ShowBaseGlobal.direct.camera, vWidget2Camera)\n```\n\n# Move widget\n        ShowBaseGlobal.direct.widget.setPos(ShowBaseGlobal.direct.camera, vWidget2Camera)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3241
+  }
+}

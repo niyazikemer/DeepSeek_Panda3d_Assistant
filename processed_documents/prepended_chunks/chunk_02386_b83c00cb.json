@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger document that defines various message classes using Protocol Buffers (protobuf) syntax. These messages are designed to handle different types of resource values, such as integers, booleans, colors, and strings, each with their own specific formats. The chunk in question modifies the `_PRIMITIVE` message by adding several fields to a oneof group named `oneof_value`, which allows only one of these fields to be set at any given time. This setup enhances flexibility by providing multiple mutually exclusive options for representing different types of primitive values, ensuring efficient data serialization and deserialization.\n\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['int_hexadecimal_value'])\n_PRIMITIVE.fields_by_name['int_hexadecimal_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['boolean_value'])\n_PRIMITIVE.fields_by_name['boolean_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['color_argb8_value'])\n_PRIMITIVE.fields_by_name['color_argb8_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['color_rgb8_value'])\n_PRIMITIVE.fields_by_name['color_rgb8_value'].containing_oneof = _PRIMITIVE.oneofs_by_name['oneof_value']\n_PRIMITIVE.oneofs_by_name['oneof_value'].fields.append(\n  _PRIMITIVE.fields_by_name['color_argb4_value'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_138",
+    "parent": "processed_documents/context_documents/e963edbe_Resources_pb2.json",
+    "chunk_number": 2386
+  }
+}

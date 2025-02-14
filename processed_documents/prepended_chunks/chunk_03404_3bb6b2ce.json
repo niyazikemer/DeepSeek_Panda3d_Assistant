@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains methods related to object selection and modifier key handling in a display region context. These functions (`doSelect`, `getModifiers`, `gotShift`, `gotControl`, `gotAlt`) are part of an event-handling system that manages user interactions, particularly those involving keyboard modifiers during object selection or manipulation operations within the display regions managed by the `DisplayRegionContext` and `DRManager` classes.\n\ndef doSelect(self):\n        if self.selected.last:\n            self.select(self.selected.last)\n\n    def getModifiers(self, input, base):\n        modifiers = DG.DIRECT_NO_MOD\n        modifierString = input[: input.find(base)]\n        if modifierString.find('shift') != -1:\n            modifiers |= DG.DIRECT_SHIFT_MOD\n        if modifierString.find('control') != -1:\n            modifiers |= DG.DIRECT_CONTROL_MOD\n        if modifierString.find('alt') != -1:\n            modifiers |= DG.DIRECT_ALT_MOD\n        return modifiers\n\n    def gotShift(self, modifiers):\n        return modifiers & DG.DIRECT_SHIFT_MOD\n\n    def gotControl(self, modifiers):\n        return modifiers & DG.DIRECT_CONTROL_MOD\n\n    def gotAlt(self, modifiers):\n        return modifiers & DG.DIRECT_ALT_MOD",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3404
+  }
+}

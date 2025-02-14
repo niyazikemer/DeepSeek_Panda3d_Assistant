@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is likely part of a custom module loader or manager. It deals with preventing certain \"startupModules\" from being loaded and handling extension modules or built-in modules by recording their filenames in an extras list for further processing.\n\nThe context involves managing module loading, specifically dealing with forbidden modules and extension/builtin modules, to control how they are handled during the application's startup or runtime.\n\n#if moduleName in startupModules:\n            #    # Forbid the loading of this startup module.\n            #    moduleList.append(self.makeForbiddenModuleListEntry(moduleName))\n            #    continue\n\n            # This is a module with no associated Python code.  It is either\n            # an extension module or a builtin module.  Get the filename, if\n            # it is the former.\n            extensionFilename = getattr(module, '__file__', None)\n\n            if extensionFilename or self.linkExtensionModules:\n                self.extras.append((moduleName, extensionFilename))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2107
+  }
+}

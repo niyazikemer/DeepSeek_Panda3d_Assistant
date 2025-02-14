@@ -1,0 +1,9 @@
+{
+  "content": "The `createBounce` function is the core method within the showutil effects module responsible for generating intervals that create bouncing animations on node paths. It handles the initialization of parameters, calculates timing and amplitude decay, and constructs the necessary Lerp intervals based on the specified bounce type (scale, position, or rotation). This function is called by various convenience methods to produce different types of bounce effects.\n\ndef createBounce(nodeObj, numBounces, startValues, totalTime, amplitude,\n                 bounceType=SZ_BOUNCE):\n    \"\"\"\n    createBounce: create and return a list of intervals to make a\n    given nodePath bounce a given number of times over a give total time.\n    \"\"\"\n    if not nodeObj or numBounces < 1 or totalTime == 0:\n        raise ValueError(\"createBounce called with invalid parameter\")\n\n    result = Sequence()\n\n    # calculate how long, in seconds, each bounce should last\n    bounceTime = totalTime / numBounces\n    currTime = bounceTime\n    currAmplitude = amplitude\n\n    # determine the how much of a change in value the first bounce\n    # will produce based on the given start value and amplitude\n    #\n    index = bounceType % 3\n    currBounceVal = startValues[index]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_170",
+    "parent": "processed_documents/context_documents/c94c3f02_Effects.json",
+    "chunk_number": 2945
+  }
+}

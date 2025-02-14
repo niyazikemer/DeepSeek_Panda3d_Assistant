@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `computeCOA` method, which calculates the Center Of Action (COA) for object manipulation. This is critical functionality within a 3D interaction system, enabling precise control over how selected objects are moved, rotated, and scaled relative to user input. The COA serves as the focal point for these operations, ensuring that actions are performed in the correct spatial context within the scene.\n\ndef computeCOA(self, entry):\n        coa = Point3(0)\n        dr = ShowBaseGlobal.direct.drList.getCurrentDr()\n        if self.fLockCOA:\n            # COA is locked, use existing point\n            # Use existing point\n            coa.assign(self.coaMarker.getPos(ShowBaseGlobal.direct.camera))\n            # Reset hit point count\n            self.nullHitPointCount = 0\n        elif entry:\n            # Got a hit point (hit point is in camera coordinates)\n            # Set center of action\n            hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n            hitPtDist = Vec3(hitPt).length()\n            coa.assign(hitPt)\n            # Handle case of bad coa point (too close or too far)\n            if ((hitPtDist < (1.1 * dr.near)) or\n                (hitPtDist > dr.far)):\n                # Just use existing point\n                coa.assign(self.coaMarker.getPos(ShowBaseGlobal.direct.camera))\n            # Reset hit point count\n            self.nullHitPointCount = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3329
+  }
+}

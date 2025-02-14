@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `TexPage` class, which manages the placement of texture regions while avoiding overlaps. It implements strategies for finding suitable rectangular areas (\"holes\") in a grid-based layout, using bitmasks to track occupied spaces. The methods handle both standard hole-finding and overflow scenarios, ensuring efficient packing of textures by marking and updating available spots.\n\n# Just let it overflow.\n        tr.overflowed = 1\n        tp = self.findOverflowHole(tr.area, tr.w, tr.h)\n        tp.overflowed = 1\n        while len(self.bitmasks) <= tp.p[3]:\n            self.bitmasks.append(BitArray())\n\n        tr.placements = [tp]\n        tr.makeCard(self)\n        tp.setBitmasks(self.bitmasks)\n        self.texPlacements[tp] = tr\n\n\n    def findHole(self, area, w, h):\n        \"\"\" Searches for a rectangular hole that is at least area\n        square units big, regardless of its shape, but attempt to find\n        one that comes close to the right shape, at least.  If one is\n        found, returns an appropriate TexPlacement; otherwise, returns\n        None. \"\"\"\n\n        if area == 0:\n            tp = TexPlacement(0, 0, 0, 0)\n            return tp\n\n        # Rotate the hole to horizontal first.\n        w, h = max(w, h), min(w, h)\n\n        aspect = float(w) / float(h)\n        holes = self.findAvailableHoles(area, w, h)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2987
+  }
+}

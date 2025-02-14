@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a module or package providing OS-like filesystem operations integrated with Panda's virtual filesystem (VFS). The `open` function here implements the Python built-in open() functionality, but extended to work with Pandas' VFS. It validates and processes mode flags like reading ('r'), writing ('w'), appending ('a'), creating ('x'), updating ('+'), binary ('b'), universal newline support ('U'), ensuring they are compatible with each other and conforming to Python's file opening rules, while also supporting Panda's virtual filesystem operations.\n\ndef open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True):\n    \"\"\"This function emulates the built-in Python open() function, additionally\n    providing support for Panda's virtual file system.  It takes the same\n    arguments as Python's built-in open() function.\n    \"\"\"\n\n    for ch in mode:\n        if ch not in 'rwxabt+U':\n            raise ValueError(\"invalid mode: '%s'\" % (mode))\n\n    creating = 'x' in mode\n    writing = 'w' in mode\n    appending = 'a' in mode\n    updating = '+' in mode\n    binary = 'b' in mode\n    universal = 'U' in mode\n    reading = universal or 'r' in mode\n\n    if binary and 't' in mode:\n        raise ValueError(\"can't have text and binary mode at once\")\n\n    if creating + reading + writing + appending > 1:\n        raise ValueError(\"must have exactly one of create/read/write/append mode\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3778
+  }
+}

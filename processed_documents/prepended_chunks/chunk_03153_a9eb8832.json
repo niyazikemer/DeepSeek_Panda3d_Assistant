@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `Actor.loadAnimsOnAllLODs()` method, which handles loading animation files for all levels of detail (LODs) within a 3D character model. This method accepts a dictionary of animation names mapped to file paths, along with optional parameters specifying the part name (defaulting to 'modelRoot') and LOD structure. The method iterates through each LOD level, storing the animation definitions in an internal dictionary that maps LODs to parts and animations, preparing them for later binding during playback. This functionality is essential for managing multi-LOD character models with complex animation systems, ensuring smooth transitions between detail levels while maintaining consistent animation behavior across all model configurations.\n\ndef loadAnimsOnAllLODs(self, anims,partName=\"modelRoot\"):\n        \"\"\"loadAnims(self, string:string{}, string='modelRoot',\n        string='lodRoot')\n        Actor anim loader. Takes an optional partName (defaults to\n        'modelRoot' for non-multipart actors) and lodName (defaults\n        to 'lodRoot' for non-LOD actors) and dict of corresponding\n        anims in the form animName:animPath{}\n        \"\"\"\n        if self.mergeLODBundles:\n            lodNames = ['common']\n        else:\n            lodNames = self.__partBundleDict.keys()\n\n        for animName, filename in anims.items():\n            # make sure this lod is in anim control dict\n            for lod in lodNames:\n                # store the file path only; we will bind it (and produce\n                # an AnimControl) when it is played\n\n                self.__animControlDict[lod][partName][animName]= Actor.AnimDef(filename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3153
+  }
+}

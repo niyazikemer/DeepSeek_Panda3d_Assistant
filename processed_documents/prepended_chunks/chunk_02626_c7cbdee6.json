@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sits within a document describing an FSM (Finite State Machine) class and its implementation. The chunk explains the optional `enterFoo()`, `exitFoo()`, and `filterState()` functions used in the FSM class. These functions allow custom behavior when transitioning into or out of a specific state, or when deciding transitions based on input requests.\n\nBoth functions are optional.  If either function is omitted, the\n    state is still defined, but nothing is done when transitioning\n    into (or out of) the state.\n\n    Additionally, you may define a filterState() function for each\n    state.  The purpose of this function is to decide what state to\n    transition to next, if any, on receipt of a particular input.  The\n    input is always a string and a tuple of optional parameters (which\n    is often empty), and the return value should either be None to do\n    nothing, or the name of the state to transition into.  For\n    example::\n\n        def filterRed(self, request, args):\n            if request in ['Green']:\n                return (request,) + args\n            return None\n\n        def filterYellow(self, request, args):\n            if request in ['Red']:\n                return (request,) + args\n            return None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2626
+  }
+}

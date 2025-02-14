@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is situated within the documentation of a state machine (FSM) class, specifically describing the `request()` method responsible for processing state transition requests. The context explains the behavior of the FSM when handling state changes, including exception handling for concurrent transitions and asynchronous execution of enter/exit functions using coroutines. This content is crucial for understanding how to interact with the FSM safely and efficiently while managing state transitions.\n\nIf the FSM is currently in transition (i.e. in the middle of\n        executing an enterState or exitState function), an\n        `AlreadyInTransition` exception is raised (but see `demand()`,\n        which will queue these requests up and apply when the\n        transition is complete).\n\n        If the previous state's exitFunc or the new state's enterFunc\n        is a coroutine, the state change may not have been applied by\n        the time request() returns, but you can use `await` on the\n        return value to await the transition.\"\"\"\n\n        self.fsmLock.acquire()\n        try:\n            assert isinstance(request, str)\n            self.notify.debug(\"%s.request(%s, %s\" % (\n                self._name, request, str(args)[1:]))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2639
+  }
+}

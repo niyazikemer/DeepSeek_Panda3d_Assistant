@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines key initialization parameters for a projectile motion simulation in 3D space, including setup of starting position, gravitational acceleration (with an optional multiplier), and helper functions to calculate initial velocities based on target positions/durations, as well as solving quadratic equations to determine projectile impacts with height planes.\n\n# we're guaranteed to know the starting position at this point\n        self.startPos = startPos\n\n        # gravity is applied in the -Z direction\n        self.zAcc = -self.gravity\n        if gravityMult:\n            self.zAcc *= gravityMult\n\n        def calcStartVel(startPos, endPos, duration, zAccel):\n            # p(t) = p_0 + t*v_0 + .5*a*t^2\n            # v_0 = [p(t) - p_0 - .5*a*t^2] / t\n            if duration == 0:\n                return Point3(0, 0, 0)\n            else:\n                return Point3((endPos[0] - startPos[0]) / duration,\n                          (endPos[1] - startPos[1]) / duration,\n                          (endPos[2] - startPos[2] - (.5*zAccel*duration*duration)) / duration)\n\n        def calcTimeOfImpactOnPlane(startHeight, endHeight, startVel, accel):\n            return PythonUtil.solveQuadratic(accel * .5, startVel,\n                                             startHeight-endHeight)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2925
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines `LerpTexRotateInterval`, a subclass of `LerpNodePathInterval` designed to animate texture rotation on a node path in a graphics context. It supports specifying duration, start and end texture rotations, blend types, and optional parameters like texture stage and override. This class is part of a collection of utility classes for creating smooth animations or transitions in a graphical application.\n\nclass LerpTexRotateInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, texRotate, startTexRotate = None,\n                 other = None, blendType = 'noBlend',\n                 textureStage = None,\n                 bakeInStart = 1, name = None, override = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, 0, nodePath, other)\n        self.setEndTexRotate(texRotate)\n        if startTexRotate is not None:\n            self.setStartTexRotate(startTexRotate)\n        if textureStage is not None:\n            self.setTextureStage(textureStage)\n        if override is not None:\n            self.setOverride(override)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2784
+  }
+}

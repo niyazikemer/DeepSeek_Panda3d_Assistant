@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains essential utility methods for managing widgets and variables in the `AppShell` class. These include aligning buttons, binding help messages, updating a progress bar, and maintaining dictionaries of widgets and associated variables for easy access.\n\ndef alignbuttons(self):\n        \"\"\" Make all buttons wide as widest \"\"\"\n        self.__buttonBox.alignbuttons()\n\n    def bind(self, child, balloonHelpMsg, statusHelpMsg=None):\n        # Bind a help message and/or status message to a widget.\n        self.__balloon.bind(child, balloonHelpMsg, statusHelpMsg)\n\n    def updateProgress(self, newValue=0, newMax=0):\n        # Used to update progress bar\n        self.__progressBar.updateProgress(newValue, newMax)\n\n    ## WIDGET UTILITY FUNCTIONS ##\n    def addWidget(self, category, text, widget):\n        self.widgetDict[category + '-' + text] = widget\n\n    def getWidget(self, category, text):\n        return self.widgetDict.get(category + '-' + text, None)\n\n    def addVariable(self, category, text, variable):\n        self.variableDict[category + '-' + text] = variable\n\n    def getVariable(self, category, text):\n        return self.variableDict.get(category + '-' + text, None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3734
+  }
+}

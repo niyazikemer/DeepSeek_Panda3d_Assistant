@@ -1,0 +1,9 @@
+{
+  "content": "The `rechunk` method in the Rope class is used to dynamically update the geometry of a rope object by dividing it into evenly spaced chunks along its length. The number of chunks and their smoothness can be adjusted based on user input, allowing for dynamic visual effects such as stretching or bending the rope in 3D space.\n\nif isinstance(point, tuple):\n                if len(point) >= 4:\n                    self.curve.setVertex(i, VBase4(point[0], point[1], point[2], point[3]))\n                else:\n                    self.curve.setVertex(i, VBase3(point[0], point[1], point[2]))\n            else:\n                self.curve.setVertex(i, point)\n            if nodePath:\n                self.curve.setVertexSpace(i, nodePath)\n            if useVertexColor:\n                self.curve.setExtendedVertex(i, vcd + 0, color[0])\n                self.curve.setExtendedVertex(i, vcd + 1, color[1])\n                self.curve.setExtendedVertex(i, vcd + 2, color[2])\n                self.curve.setExtendedVertex(i, vcd + 3, color[3])\n            if useVertexThickness:\n                self.curve.setExtendedVertex(i, vtd, thickness)\n\n        if self.knots is not None:\n            for i in range(len(self.knots)):\n                self.curve.setKnot(i, self.knots[i])\n\n        self.ropeNode.resetBound(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_169",
+    "parent": "processed_documents/context_documents/b78c6f86_Rope.json",
+    "chunk_number": 2940
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a utility method used to handle parameter setup in animation/interpolation classes. It checks if any parameter is callable (e.g., a function or lambda) and sets up parameters accordingly, likely within the `LerpNodePath` or related lerp classes for handling dynamic values during animations.\n\n```python\ndef hasCallableParam(params):\n    \"\"\"Checks if any parameter in the list is a callable function.\"\"\"\n    for param in params:\n        if callable(param):\n            return 1\n    return 0\n\ndef setupParam(self, func, param):\n    \"\"\"\n    Handles setting up parameters for animation.\n    If the parameter is callable (e.g., a function or lambda), calls it and uses the result.\n    Otherwise, directly applies the parameter value to the given function.\n    Used in various lerp classes to handle dynamic vs static values.\n    \"\"\"\n    if param is not None:\n        if callable(param):\n            func(param())\n        else:\n            func(param)\n```\n\nfor param in params:\n            if callable(param):\n                return 1\n        return 0\n\n    def setupParam(self, func, param):\n        # Stores the indicated parameter by passing it to the given\n        # function (probably a C++ setter function).  If the param is\n        # a callable functor, calls it; otherwise, uses the param\n        # directly.\n        if param is not None:\n            if callable(param):\n                func(param())\n            else:\n                func(param)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2743
+  }
+}

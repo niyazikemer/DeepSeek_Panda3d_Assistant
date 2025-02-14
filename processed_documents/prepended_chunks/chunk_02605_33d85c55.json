@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk defines the `ClassicFSM` class, a finite state machine implementation designed for backward compatibility with existing code. This class is part of a larger module that provides functionality for managing state transitions, including methods like `request()`, `conditional_request()`, and `view()`. The `ClassicFSM` class uses `DirectNotify` for logging messages and handles undefined transitions based on specified flags such as `ALLOW`, `DISALLOW`, `DISALLOW_VERBOSE`, and `ERROR`.\n\nclass ClassicFSM(DirectObject):\n    \"\"\"\n    Finite State Machine class.\n\n    This module and class exist only for backward compatibility with\n    existing code.  New code should use the FSM class instead.\n    \"\"\"\n\n    # create ClassicFSM DirectNotify category\n    notify = directNotify.newCategory(\"ClassicFSM\")\n\n    # special methods\n\n    # these are flags that tell the ClassicFSM what to do when an\n    # undefined transition is requested:\n    ALLOW = 0            # print a warning, and do the transition\n    DISALLOW = 1         # silently ignore the request (don't do the transition)\n    DISALLOW_VERBOSE = 2 # print a warning, and don't do the transition\n    ERROR = 3            # print an error message and raise an exception\n\n    def __init__(self, name, states=[], initialStateName=None,\n                 finalStateName=None, onUndefTransition=DISALLOW_VERBOSE):\n        \"\"\"__init__(self, string, State[], string, string, int)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2605
+  }
+}

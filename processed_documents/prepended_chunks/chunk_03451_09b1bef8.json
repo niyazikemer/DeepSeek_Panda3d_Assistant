@@ -1,0 +1,9 @@
+{
+  "content": "The `DirectBoundingBox` class provides functionality for creating and updating axis-aligned bounding boxes (AABBs) to visualize or manage the spatial extents of 3D objects within a node path, serving as a complementary tool for collision detection and selection operations in a 3D rendering environment.\n\nclass DirectBoundingBox:\n    def __init__(self, nodePath, bboxColor=None):\n        # Record the node path\n        self.nodePath = nodePath\n        # Compute bounds, min, max, etc.\n        self.computeTightBounds()\n        # Generate the bounding box\n        self.lines = self.createBBoxLines(bboxColor)\n\n    def recompute(self):\n        # Compute bounds, min, max, etc.\n        self.computeTightBounds()\n        self.updateBBoxLines()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3451
+  }
+}

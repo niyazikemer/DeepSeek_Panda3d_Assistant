@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of two methods (`onDestroy` and `updateSelection`) from the `SceneGraphExplorer` class, which is part of a Python implementation for a scene graph viewer or inspector. The code handles event cleanup when the window/widget is destroyed (`onDestroy`), as well as updating the selection in the scene graph based on a search key (`updateSelection`). These methods are part of a larger class that provides functionality to explore and manipulate a hierarchical structure (scene graph) of nodes, likely used in a graphics or game development context.\n\ndef onDestroy(self, event):\n        # Remove hooks\n        self.ignore('DIRECT_activeParent')\n        self.ignore('SGE_Update Explorer')\n\n    def updateSelection(self, searchKey):\n        # [gjeon] update SGE selection with directSession\n        sceneGraphItem = self._node.find(searchKey)\n        if sceneGraphItem:\n            sceneGraphItem.reveal()\n            sceneGraphItem.select()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3496
+  }
+}

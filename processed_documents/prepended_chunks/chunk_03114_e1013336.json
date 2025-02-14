@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a larger Actor class implementation, specifically focusing on managing and updating bounding spheres for geometric nodes within the actor's structure. The `fixBounds` method ensures that all character and geometry nodes have their bounds updated by marking them as stale, while the `showAllBounds` method displays these bounds for visualization purposes. This chunk is situated within the context of methods related to geometry node management and visualization in the Actor class.\n\n# update all characters first\n        charNodes = part.findAllMatches(\"**/+Character\")\n        for charNode in charNodes:\n            charNode.node().update()\n\n        # for each geomNode, iterate through all geoms and force update\n        # of bounding spheres by marking current bounds as stale\n        geomNodes = part.findAllMatches(\"**/+GeomNode\")\n        for nodeNum, thisGeomNode in enumerate(geomNodes):\n            for geomNum, thisGeom in enumerate(thisGeomNode.node().getGeoms()):\n                thisGeom.markBoundsStale()\n                assert Actor.notify.debug(\"fixing bounds for node %s, geom %s\" % \\\n                                          (nodeNum, geomNum))\n            thisGeomNode.node().markInternalBoundsStale()\n\n    def showAllBounds(self):\n        \"\"\"\n        Show the bounds of all actor geoms\n        \"\"\"\n        geomNodes = self.__geomNode.findAllMatches(\"**/+GeomNode\")\n\n        for node in geomNodes:\n            node.showBounds()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3114
+  }
+}

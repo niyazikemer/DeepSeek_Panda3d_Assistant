@@ -1,0 +1,9 @@
+{
+  "content": "The `_updateValue` method calculates the new value of a scale or slider component based on the mouse position within the widget. It ensures the mouse coordinates are within valid bounds and maps them to the desired value range before updating the component's value.\n\ndef _updateValue(self, event):\n        mouseX = self._widget.canvasx(\n            event.x_root - self._widget.winfo_rootx())\n        if mouseX < self.left:\n            mouseX = self.left\n        if mouseX > self.right:\n            mouseX = self.right\n        # Update value\n        sf = (mouseX - self.left)/(self.right - self.left)\n        newVal = sf * (self['max'] - self['min']) + self['min']\n        self.set(newVal)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3520
+  }
+}

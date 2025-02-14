@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a method `getMouseIntersectPt()` within a class that handles 3D gizmo interaction, specifically for translating and scaling objects in a 3D environment. The method creates a ray from the camera to determine the 3D position corresponding to the mouse cursor, using collision detection with a grid object, and returns the intersection point or the origin if no intersection is found. This functionality is critical for enabling precise 3D manipulation based on user input.\n\ndef getMouseIntersectPt(self):\n        # create ray from the camera to detect 3d position\n        iRay = SelectionRay(ShowBaseGlobal.direct.camera)\n        iRay.collider.setFromLens(ShowBaseGlobal.direct.camNode, ShowBaseGlobal.direct.dr.mouseX, ShowBaseGlobal.direct.dr.mouseY)\n        #iRay.collideWithBitMask(1)\n        iRay.collideWithBitMask(BitMask32.bit(21))\n        iRay.ct.traverse(ShowBaseGlobal.direct.grid)\n\n        if iRay.getNumEntries() == 0:\n            del iRay\n            return Point3(0)\n\n        entry = iRay.getEntry(0)\n        hitPt = entry.getSurfacePoint(entry.getFromNodePath())\n\n        # create a temp nodePath to get the position\n        np = NodePath('temp')\n        np.setPos(ShowBaseGlobal.direct.camera, hitPt)\n        resultPt = Point3(0)\n        resultPt.assign(np.getPos())\n        np.removeNode()\n        del iRay\n        return resultPt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3290
+  }
+}

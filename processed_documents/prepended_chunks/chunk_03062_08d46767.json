@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of three methods related to resource management in the Actor class: removeNode(), clearPythonData(), and flush(). These functions handle the proper removal and cleanup of Actor objects, ensuring all associated resources and data structures are correctly disposed of or reset. This is crucial for preventing memory leaks and maintaining efficient resource utilization within the Panda3D framework.\n\n```The chunk includes methods for removing nodes, clearing Python data, and flushing resources in the Actor class, which are essential for proper cleanup and resource management.\n```\n\ndef removeNode(self):\n        \"\"\"\n        You should call `cleanup()` for Actor objects instead, since\n        :meth:`~panda3d.core.NodePath.removeNode()` is not sufficient for\n        completely destroying Actor objects.\n        \"\"\"\n        if self.__geomNode and (self.__geomNode.getNumChildren() > 0):\n            assert self.notify.warning(\"called actor.removeNode() on %s without calling cleanup()\" % self.getName())\n        NodePath.removeNode(self)\n\n    def clearPythonData(self):\n        self.__commonBundleHandles = {}\n        self.__partBundleDict = {}\n        self.__subpartDict = {}\n        self.__sortedLODNames = []\n        self.__animControlDict = {}\n\n    def flush(self):\n        \"\"\"\n        Actor flush function.  Used by `cleanup()`.\n        \"\"\"\n        self.clearPythonData()\n\n        if self.__LODNode and (not self.__LODNode.isEmpty()):\n            self.__LODNode.removeNode()\n            self.__LODNode = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3062
+  }
+}

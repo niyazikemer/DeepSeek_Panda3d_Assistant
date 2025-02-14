@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines a dialog class with methods for initialization, creating UI elements, handling user input validation (for real and integer types with optional None support), providing tooltip help using Pmw Balloon widgets, and applying changes when the OK button is clicked.\n\n# Create balloon for help\n            balloon = Pmw.Balloon(state='balloon')\n            self.balloonList.append(balloon)\n            # extra info if None is allowed value\n            if helpString is None:\n                if fAllowNone:\n                    extra = ' or None'\n                else:\n                    extra = ''\n            # Set up help string and validator based upon type\n            if entryType == 'real':\n                # Only allow real numbers\n                if fAllowNone:\n                    entry['validate'] = {'validator': self.realOrNone}\n                else:\n                    entry['validate'] = {'validator': 'real'}\n                if helpString is None:\n                    helpString = 'Enter a floating point number' + extra + '.'\n            elif entryType == 'integer':\n                # Only allow integer values\n                if fAllowNone:\n                    entry['validate'] = {'validator': self.intOrNone}\n                else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_193",
+    "parent": "processed_documents/context_documents/5541e2ed_WidgetPropertiesDialog.json",
+    "chunk_number": 3586
+  }
+}

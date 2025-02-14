@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains helper methods for customizing and highlighting graphical elements in a GUI component, specifically managing visual aspects like relief style, border width, background color, and arrow button highlighting.\n\ndef _getMarkerX(self):\n        # Get marker triangle coordinates\n        c = self._widget.coords(self._marker)\n        # Marker postion defined as X position of third vertex\n        return c[4]\n\n    def setRelief(self):\n        self.interior()['relief'] = self['relief']\n\n    def setBorderwidth(self):\n        self.interior()['borderwidth'] = self['borderwidth']\n\n    def setBackground(self):\n        self._widget['background'] = self['background']\n\n    def highlightWidget(self, event):\n        self._arrowBtn.itemconfigure('arrow', fill = 'black')\n\n    def restoreWidget(self, event):\n        self._arrowBtn.itemconfigure('arrow', fill = 'grey50')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3527
+  }
+}

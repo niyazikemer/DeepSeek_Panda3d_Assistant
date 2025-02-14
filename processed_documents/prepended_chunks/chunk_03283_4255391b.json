@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a larger document describing code for creating 3D visual elements in a scene graph using LineNodePath objects. The context involves defining visual indicators for scaling along the Z-axis, including creating colored lines and boxes to represent scale markers, as well as circular rings around the Z-axis for visualization purposes.\n\nlines.create()\n        lines.setName('z-post-line')\n\n        #Z scale\n        self.zScale = self.zScaleGroup.attachNewNode('z-scale-visible')\n        lines = LineNodePath(self.zScale)\n        lines.setColor(VBase4(0, 0, 1, 1))\n        lines.setThickness(5)\n        lines.moveTo(0, 0, 1.3)\n        lines.drawTo(0, 0, -1.5)\n\n        drawBox(lines, (0, 0, 1.4), 0.2)\n\n        lines.create()\n        lines.setName('y-scale-line')\n\n        # Z ring\n        self.zRing = self.zRingGroup.attachNewNode('z-ring-visible')\n        lines = LineNodePath(self.zRing)\n        lines.setColor(VBase4(0, 0, 1, 1))\n        lines.setThickness(3)\n        lines.moveTo(1, 0, 0)\n        for ang in range(15, 370, 15):\n            lines.drawTo(math.cos(deg2Rad(ang)),\n                          math.sin(deg2Rad(ang)),\n                          0)\n        lines.create()\n        lines.setName('z-ring-line')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3283
+  }
+}

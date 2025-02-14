@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes a log schedule for frame profiling with specific time periods (days by default or minutes if `frequent_profiles` is enabled), validates that each period is evenly divisible by the base `_period`, and ensures divisibility between all elements in the schedule.\n\n] # day schedule proceeds as 1, 2, 4, 8 days, etc.\n        if frequent_profiles:\n            self._logSchedule = [ 1  * FrameProfiler.Minute,\n                                  4  * FrameProfiler.Minute,\n                                  12 * FrameProfiler.Minute,\n                                  24 * FrameProfiler.Minute,\n                                  ]\n        for t in self._logSchedule:\n            #assert isInteger(t)\n            # make sure the period is evenly divisible into each element of the log schedule\n            assert (t % self._period) == 0\n        # make sure each element of the schedule is evenly divisible into each subsequent element\n        for i in range(len(self._logSchedule)):\n            e = self._logSchedule[i]\n            for j in range(i, len(self._logSchedule)):\n                assert (self._logSchedule[j] % e) == 0\n        #assert isInteger(self._period)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3920
+  }
+}

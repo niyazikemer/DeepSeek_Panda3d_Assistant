@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a custom module-finding system that dynamically constructs and loads modules based on the runtime platform. It handles different OS-specific suffixes, attempts implicit loading of modules, and updates internal module definitions accordingly.\n\nif 'linux' in self.platform:\n                    arch = self.platform.split('_', 1)[1]\n                    modname += '_linux_' + arch + '-linux-gnu'\n                elif 'mac' in self.platform:\n                    modname += '_darwin_darwin'\n                elif 'emscripten' in self.platform:\n                    if '_' in self.platform:\n                        arch = self.platform.split('_', 1)[1]\n                    else:\n                        arch = 'wasm32'\n                    modname += '_emscripten_' + arch + '-emscripten'\n\n            try:\n                self.__loadModule(self.ModuleDef(modname, implicit=True))\n            except Exception:\n                missing.append(modname)\n\n        # Now, any new modules we found get added to the export list.\n        for origName in list(self.mf.modules.keys()):\n            if origName not in origToNewName:\n                self.modules[origName] = self.ModuleDef(origName, implicit = True)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2089
+  }
+}

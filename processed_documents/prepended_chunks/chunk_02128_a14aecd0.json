@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a process for managing binary data offsets and padding adjustments specific to macOS systems, within the context of an extended filesystem implementation that handles frozen Python modules.\n\nif self.platform.startswith(\"macosx\") and not append_blob:\n            # Take this time to shift any Mach-O structures around to fit our\n            # blob. We don't need to worry about aligning the offset since the\n            # compiler already took care of that when creating the segment.\n            blob_offset = self._shift_macho_structures(stub_data, load_commands, blob_size)\n        else:\n            # Add padding before the blob if necessary.\n            blob_offset = len(stub_data)\n            if (blob_offset & (blob_align - 1)) != 0:\n                pad = (blob_align - (blob_offset & (blob_align - 1)))\n                stub_data += (b'\\0' * pad)\n                blob_offset += pad\n            assert (blob_offset % blob_align) == 0\n            assert blob_offset == len(stub_data)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2128
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a custom module loader responsible for defining module data in a specific format (C-style static arrays) and managing module list entries. The functions `makeModuleDef` and `makeModuleListEntry` are used to generate C-compatible definitions for modules, including handling package-specific flags. This complements the broader functionality of module importation, path management, and resource handling described in the document.\n\nlayout = LC_SEGMENT_64 if lc_key in [b'__PANDA', b'__LINKEDIT'] else lc_key\n            struct.pack_into(lc_layouts[layout], macho_data, load_commands[lc_key][0], *load_commands[lc_key][1])\n\n        blob_offset = load_commands[b'__PANDA'][1][5]\n\n        # Write in some null bytes until we write in the actual blob.\n        macho_data[blob_offset:blob_offset] = b'\\0' * blob_size\n\n        return blob_offset\n\n    def makeModuleDef(self, mangledName, code):\n        lines = ',\\n  '.join(','.join(map(str, code[i:i+16])) for i in range(0, len(code), 16))\n        return f'static unsigned char {mangledName}[] = {{\\n  {lines}\\n}};\\n'\n\n    def makeModuleListEntry(self, mangledName, code, moduleName, module):\n        size = len(code)\n        if getattr(module, \"__path__\", None):\n            # Indicate package by negative size\n            size = -size\n        return '  {\"%s\", %s, %s},' % (moduleName, mangledName, size)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2151
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code appears in the initialization section (`__init__` method) of a custom slider widget implementation. It configures the appearance and behavior of the slider component by setting parameters such as width, orientation, showvalue, length, relief, borderwidth, and highlightthickness. The code distinguishes between using a `ttk.Scale` or a custom canvas-based slider, defining specific properties and graphical elements (like an interaction marker) for each case.\n\nwidth = 10,\n                    orient = 'horizontal',\n                    showvalue = 0,\n                    length = sliderWidth,\n                    relief = tk.FLAT, bd = 2,\n                    highlightthickness = 0)\n            else:\n                # Use a canvas slider\n                self._widget = self.createcomponent(\n                    'slider', (), None,\n                    tk.Canvas, (parent,),\n                    width = sliderWidth,\n                    height = height,\n                    bd = 2,\n                    highlightthickness = 0,\n                    scrollregion = (left - xPad, top, right + xPad, bottom))\n                # Interaction marker\n                xShift = 1\n                # Shadow arrow\n                self._marker = self._widget.create_polygon(-7 + xShift, 12,\n                                                           7 + xShift, 12,\n                                                           xShift, 0,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3509
+  }
+}

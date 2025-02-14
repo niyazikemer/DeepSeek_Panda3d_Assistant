@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods in an Actor class: `getOverlappingJoints` which finds common joints between two specified parts of an actor, and `__getPartJoints`, a helper method that recursively gathers joint names based on patterns. These methods are part of a larger collection of tools for managing animations, parts, and levels of detail (LODs) in 3D models.\n\nreturn joints\n\n    def getOverlappingJoints(self, partNameA, partNameB, jointName = '*', lodName = None):\n        \"\"\" Returns the set of joints, matching jointName, that are\n        shared between partNameA and partNameB. \"\"\"\n        jointsA = set(self.getJoints(partName = partNameA, jointName = jointName, lodName = lodName))\n        jointsB = set(self.getJoints(partName = partNameB, jointName = jointName, lodName = lodName))\n\n        return jointsA & jointsB\n\n    def __getPartJoints(self, joints, pattern, part, subset, isIncluded):\n        \"\"\" Recursively walks the joint hierarchy to look for matching\n        joint names, implementing getJoints(). \"\"\"\n\n        name = part.name\n        if subset:\n            # Constrain the traversal just to the named subset.\n            if subset.matchesInclude(name):\n                isIncluded = True\n            elif subset.matchesExclude(name):\n                isIncluded = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3096
+  }
+}

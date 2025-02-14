@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the implementation details of a method within an actor or animation system class. The method facilitates controlling a joint in an actor model by attaching it to a specified node. It was previously required before any animations were loaded and bound but is now handled automatically during the binding process. The chunk demonstrates how the system checks if the joint can be controlled across part bundles, attaches the joint to a new node with default transformations if necessary, and issues a warning if no bundle successfully controls the joint.\n\nIt used to be necessary to call this before any animations\n        have been loaded and bound, but that is no longer so.\n        \"\"\"\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        trueName = subpartDef.truePartName\n        anyGood = False\n        for bundleDict in self.__partBundleDict.values():\n            bundle = bundleDict[trueName].getBundle()\n            if node is None:\n                node = self.attachNewNode(ModelNode(jointName))\n                joint = bundle.findChild(jointName)\n                if joint and isinstance(joint, MovingPartMatrix):\n                    node.setMat(joint.getDefaultValue())\n\n            if bundle.controlJoint(jointName, node.node()):\n                anyGood = True\n\n        if not anyGood:\n            self.notify.warning(\"Cannot control joint %s\" % (jointName))\n\n        return node",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3100
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `instance` function is part of an Actor class in a 3D modeling or animation system, likely used for game development or character creation. The method allows developers to attach a nodePath (a 3D model or scene graph component) to a specific joint within an actor's part, enabling dynamic object attachment and manipulation within the hierarchy of the character or model.\n\ndef instance(self, path, partName, jointName, lodName=\"lodRoot\"):\n        \"\"\"instance(self, NodePath, string, string, key=\"lodRoot\")\n        Instance a nodePath to an actor part at a joint called jointName\"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if partBundleDict:\n            subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n            partDef = partBundleDict.get(subpartDef.truePartName)\n            if partDef:\n                joint = partDef.partBundleNP.find(\"**/\" + jointName)\n                if joint.isEmpty():\n                    Actor.notify.warning(\"%s not found!\" % (jointName))\n                else:\n                    return path.instanceTo(joint)\n            else:\n                Actor.notify.warning(\"no part named %s!\" % (partName))\n        else:\n            Actor.notify.warning(\"no lod named %s!\" % (lodName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3103
+  }
+}

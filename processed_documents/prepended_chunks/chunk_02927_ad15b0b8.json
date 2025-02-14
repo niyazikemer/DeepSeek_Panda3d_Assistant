@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `ProjectileInterval` class implementation, specifically within the `__calcTrajectory` method. This method initializes the projectile's motion parameters based on different input combinations, ensuring that only valid sets are used for trajectory calculation.\n\n# which set of input parameters do we have?\n        if None not in (endPos, duration):\n            assert not startVel\n            assert not endZ\n            assert not wayPoint\n            assert not timeToWayPoint\n            self.duration = duration\n            self.endPos = endPos\n            self.startVel = calcStartVel(self.startPos, self.endPos,\n                                         self.duration, self.zAcc)\n        elif None not in (startVel, duration):\n            assert not endPos\n            assert not endZ\n            assert not wayPoint\n            assert not timeToWayPoint\n            self.duration = duration\n            self.startVel = startVel\n            self.endPos = None\n        elif None not in (startVel, endZ):\n            assert not endPos\n            assert not duration\n            assert not wayPoint\n            assert not timeToWayPoint\n            self.startVel = startVel\n            time = calcTimeOfLastImpactOnPlane(self.startPos[2], endZ,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2927
+  }
+}

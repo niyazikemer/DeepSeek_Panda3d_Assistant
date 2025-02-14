@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in the State class called `replaceMethod`, which is designed to replace all instances of a specific function (`oldFunction`) with another function (`newFunction`) across all states. The chunk specifically handles replacing the `exitFunc` if it matches the `oldFunction`. This code is situated within a conditional block that checks if the exit function is an instance of `types.MethodType` and then replaces it with the new function.\n\nif isinstance(exitFunc, types.MethodType):\n                    if exitFunc.__func__ == oldFunction:\n                        # print 'found: ', exitFunc, oldFunction\n                        state.setExitFunc(types.MethodType(newFunction,\n                                                           exitFunc.__self__))\n                        count += 1\n            return count",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2672
+  }
+}

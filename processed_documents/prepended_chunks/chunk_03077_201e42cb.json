@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides two methods (`getPlayRate` and `setPlayRate`) for managing the playback speed of animations in the `Actor` class. These methods allow developers to retrieve or set the play rate for specific animations and parts, with optional support across multiple levels of detail (LODs). The context is situated within a comprehensive animation control system that includes functions for binding animations, manipulating joints, and managing LODs.\n\n```python\n\"\"\"Methods for controlling animation playback rates in the Actor class.\"\"\"\n```\n\nreturn controls[0].getAnim().getBaseFrameRate()\n\n    def getPlayRate(self, animName=None, partName=None):\n        \"\"\"\n        Return the play rate of given anim for a given part.\n        If no part is given, assume first part in dictionary.\n        If no anim is given, find the current anim for the part.\n        NOTE: Returns info only for an arbitrary LOD\n        \"\"\"\n        if self.__animControlDict:\n            # use the first lod\n            lodName = next(iter(self.__animControlDict))\n            controls = self.getAnimControls(animName, partName)\n            if controls:\n                return controls[0].getPlayRate()\n        return None\n\n    def setPlayRate(self, rate, animName, partName=None):\n        \"\"\"setPlayRate(self, float, string, string=None)\n        Set the play rate of given anim for a given part.\n        If no part is given, set for all parts in dictionary.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3077
+  }
+}

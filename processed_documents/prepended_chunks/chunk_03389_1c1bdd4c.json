@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk contains methods related to enabling/disabling direct mode (`toggleDirect`), setting up minimal configuration for out-of-body experience (OOBE) mode (`minimumConfiguration`), and initializing the OOBE structures (`oobe`). These are part of a larger system managing camera controls, display regions, and user interactions in a 3D application.\n\ndef toggleDirect(self):\n        if self.fEnabled:\n            self.disable()\n        else:\n            self.enable()\n\n    def minimumConfiguration(self):\n        # Remove context task\n        self.drList.removeContextTask()\n        # Turn off camera fly\n        self.cameraControl.disableMouseFly()\n        # Ignore keyboard and action events\n        self.disableKeyEvents()\n        self.disableActionEvents()\n        # But let mouse events pass through\n        self.enableMouseEvents()\n        self.enableModifierEvents()\n\n    def oobe(self):\n        # If oobeMode was never set, set it to false and create the\n        # structures we need to implement OOBE.\n        if not hasattr(self, 'oobeMode'):\n            self.oobeMode = 0\n\n            self.oobeCamera = hidden.attachNewNode('oobeCamera')\n\n            self.oobeVis = base.loader.loadModel('models/misc/camera')\n            if self.oobeVis:\n                self.oobeVis.node().setFinal(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3389
+  }
+}

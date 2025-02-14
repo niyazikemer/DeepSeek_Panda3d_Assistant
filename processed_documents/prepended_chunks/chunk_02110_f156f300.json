@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a function responsible for generating a program file that includes definitions and lists of modules. The code writes out module information using `programFile` with formatted strings containing `'moduleDefs'` and `'moduleList'`. If extension modules are to be linked and extras are available, the function handles built-in module tables differently depending on the platform (e.g., overriding on Linux or extending via `PyImport_ExtendInittab` on Windows).\n\ntext = programFile % {\n            'moduleDefs': '\\n'.join(moduleDefs),\n            'moduleList': '\\n'.join(moduleList),\n        }\n\n        if self.linkExtensionModules and self.extras:\n            # Should we link in extension modules?  If so, we write out a new\n            # built-in module table that directly hooks up with the init\n            # functions.  On Linux, we completely override Python's own\n            # built-in module table; on Windows, we can't do this, so we\n            # instead use PyImport_ExtendInittab to add to it.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2110
+  }
+}

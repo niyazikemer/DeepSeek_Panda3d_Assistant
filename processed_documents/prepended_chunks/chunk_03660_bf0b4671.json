@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a function or method that sets up the menubar for a GUI panel. It adds two new menu items: one for dismissing the panel (with behavior determined by a flag) and another help menu with an option to toggle balloon help. This functionality is being added to a class called `ValuatorGroupPanel` which manages color picker panels in a Tkinter-based GUI application.\n\nif self['fDestroy']:\n            dismissCommand = self.destroy\n        else:\n            dismissCommand = self.withdraw\n\n        menubar.addmenuitem(\n            'Valuator Group', 'command', 'Dismiss Valuator Group panel',\n            label = 'Dismiss', command = dismissCommand)\n\n        menubar.addmenu('Help', 'Valuator Group Help Operations')\n        self.toggleBalloonVar = tk.IntVar()\n        self.toggleBalloonVar.set(0)\n        menubar.addmenuitem('Help', 'checkbutton',\n                            'Toggle balloon help',\n                            label = 'Balloon Help',\n                            variable = self.toggleBalloonVar,\n                            command = self.toggleBalloon)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3660
+  }
+}

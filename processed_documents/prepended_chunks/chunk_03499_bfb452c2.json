@@ -1,0 +1,9 @@
+{
+  "content": "The `explore()` function is part of a module designed to create and display a graphical interface for exploring 3D scene graphs. This function initializes a top-level window with a title indicating the node being explored and sets up a SceneGraphExplorer widget to visualize the scene graph hierarchy, making it expandable in both directions within the window.\n\ndef explore(nodePath = None):\n    if nodePath is None:\n        nodePath = base.render\n\n    tl = tk.Toplevel()\n    tl.title('Explore: ' + nodePath.getName())\n    sge = SceneGraphExplorer(parent = tl, nodePath = nodePath)\n    sge.pack(expand = 1, fill = 'both')\n    return sge",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3499
+  }
+}

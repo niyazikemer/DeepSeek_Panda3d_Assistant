@@ -1,0 +1,9 @@
+{
+  "content": "This code configures a task with its name, priority, sorting order, chain, owner, and upon-death callback. It includes validation steps to ensure proper task setup and handles cases where priority may be used as sort if only one is specified.\n\n```python\n\"\"\"\nConfigures a task object with provided parameters including name,\npriority, sort order, chain, owner, and upon-death callback.\nHandles task validation and ensures correct priority/sort assignment.\n\"\"\"\nif name is not None:\n    task.setName(name)\nassert task.hasName()\n\n# For historical reasons, if priority is specified but not\n# sort, it really means sort.\nif priority is not None and sort is None:\n    task.setSort(priority)\nelse:\n    if priority is not None:\n        task.setPriority(priority)\n    if sort is not None:\n        task.setSort(sort)\n\nif taskChain is not None:\n    task.setTaskChain(taskChain)\n\nif owner is not None:\n    task.setOwner(owner)\n\nif uponDeath is not None:\n    task.setUponDeath(uponDeath)\n\nreturn task\n```\n\nif name is not None:\n            task.setName(name)\n        assert task.hasName()\n\n        # For historical reasons, if priority is specified but not\n        # sort, it really means sort.\n        if priority is not None and sort is None:\n            task.setSort(priority)\n        else:\n            if priority is not None:\n                task.setPriority(priority)\n            if sort is not None:\n                task.setSort(sort)\n\n        if taskChain is not None:\n            task.setTaskChain(taskChain)\n\n        if owner is not None:\n            task.setOwner(owner)\n\n        if uponDeath is not None:\n            task.setUponDeath(uponDeath)\n\n        return task",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3889
+  }
+}

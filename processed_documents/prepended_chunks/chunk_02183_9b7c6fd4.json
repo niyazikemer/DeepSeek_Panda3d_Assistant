@@ -1,0 +1,9 @@
+{
+  "content": "The chunk processes command-line arguments in the `pfreeze.py` script, handling options like `-o`, `-i`, `-x`, `-p`, `-P`, `-s`, `-l`, `-k`, and `-h`, to set parameters such as output file name, included modules, excluded modules, custom paths, system path additions, startup module inclusion, extension linking, temporary file retention, and help display.\n\nbasename = None\n    addStartupModules = False\n\n    try:\n        opts, args = getopt.getopt(args, 'o:i:x:p:P:slkh')\n    except getopt.error as msg:\n        usage(1, msg)\n\n    for opt, arg in opts:\n        if opt == '-o':\n            basename = arg\n        elif opt == '-i':\n            for module in arg.split(','):\n                freezer.addModule(module)\n        elif opt == '-x':\n            for module in arg.split(','):\n                freezer.excludeModule(module)\n        elif opt == '-p':\n            for module in arg.split(','):\n                freezer.handleCustomPath(module)\n        elif opt == '-P':\n            sys.path.append(arg)\n        elif opt == '-s':\n            addStartupModules = True\n        elif opt == '-l':\n            freezer.linkExtensionModules = True\n        elif opt == '-k':\n            freezer.keepTemporaryFiles = True\n        elif opt == '-h':\n            usage(0)\n        else:\n            print('illegal option: ' + opt)\n            sys.exit(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_134",
+    "parent": "processed_documents/context_documents/619969b9_pfreeze.json",
+    "chunk_number": 2183
+  }
+}

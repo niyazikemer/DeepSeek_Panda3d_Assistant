@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `main()` function in a Python script named `pfreeze.py`, which is designed to generate standalone executables from Python scripts using Panda's FreezeTool. The chunk initializes the freezing process by creating a `Freezer` instance, parsing command-line arguments for output file names and module exclusions/inclusions, and handling exceptions during argument processing.\n\ndef main(args=None):\n    if args is None:\n        args = sys.argv[1:]\n\n    freezer = FreezeTool.Freezer()\n\n    basename = None\n    addStartupModules = False\n\n    try:\n        opts, args = getopt.getopt(args, 'o:i:x:p:P:slkh')\n    except getopt.error as msg:\n        usage(1, msg)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_134",
+    "parent": "processed_documents/context_documents/619969b9_pfreeze.json",
+    "chunk_number": 2182
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes a specific case within the ClassicFSM class where transitioning to the \"Off\" state is explicitly allowed. This occurs in the context of handling default transitions, specifically when `self.defaultTransitions` is not None and only explicit transitions are permitted.\n\n(2) if self.defaultTransitions is not None, allow only those\n        requests explicitly identified in this map.  This is similar\n        to the old ClassicFSM onUndefTransition=DISALLOW, with an\n        explicit list of allowed state transitions.\n\n        Specialized FSM's may wish to redefine this default filter\n        (for instance, to always return the request itself, thus\n        allowing any transition.).\"\"\"\n\n        if request == 'Off':\n            # We can always go to the \"Off\" state.\n            return (request,) + args",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2642
+  }
+}

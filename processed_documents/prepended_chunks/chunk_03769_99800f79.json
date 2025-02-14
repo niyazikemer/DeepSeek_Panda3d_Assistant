@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements core functionality for managing thread synchronization through an event mechanism. The methods:\n\n- `clear()`: Acquires lock, sets internal event flag to False, then releases lock\n- `wait(timeout)`: Blocks thread execution until event flag is set (or timeout occurs)\n\nThis functionality enables threads to synchronize operations and wait for specific conditions or events with optional timeouts.\n\ndef clear(self):\n        self.__lock.acquire()\n        try:\n            self.__flag = False\n\n        finally:\n            self.__lock.release()\n\n    def wait(self, timeout = None):\n        self.__lock.acquire()\n        try:\n            if timeout is None:\n                while not self.__flag:\n                    self.__cvar.wait()\n            else:\n                clock = core.TrueClock.getGlobalPtr()\n                expires = clock.getShortTime() + timeout\n                while not self.__flag:\n                    wait = expires - clock.getShortTime()\n                    if wait < 0:\n                        return\n\n                    self.__cvar.wait(wait)\n\n        finally:\n            self.__lock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3769
+  }
+}

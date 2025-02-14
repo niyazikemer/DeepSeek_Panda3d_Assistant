@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of essential methods in a Python class that manages a graphical dial widget. These include:\n\n- `get()`: Retrieves the current value of the dial.\n- Mouse event handlers (`mouseDown`, `mouseUp`, `mouseMotion`): Process user interactions to adjust the dial's value based on mouse actions.\n\nThis code is integral for handling user input and updating the dial's state accordingly within a graphical interface.\n\ndef get(self):\n        \"\"\"\n        self.get()\n        Get current dial value\n        \"\"\"\n        return self.value\n\n    ## Canvas callback functions\n    # Dial\n    def mouseDown(self, event):\n        self._onButtonPress()\n        self.lastAngle = dialAngle = self.computeDialAngle(event)\n        self.computeValueFromAngle(dialAngle)\n\n    def mouseUp(self, event):\n        self._onButtonRelease()\n\n    def shiftMouseMotion(self, event):\n        self.mouseMotion(event, 1)\n\n    def mouseMotion(self, event, fShift = 0):\n        dialAngle = self.computeDialAngle(event, fShift)\n        self.computeValueFromAngle(dialAngle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3711
+  }
+}

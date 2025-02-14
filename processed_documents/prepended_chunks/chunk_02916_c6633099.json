@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines `PosHprScaleInterval`, a subclass of `FunctionInterval` designed to create functions for setting position, heading/rotation (hpr), and scaling of a node in a scene graph. This class is part of a collection of transformation interval classes that enable specifying combined geometric transformations on nodes. The class maintains an internal counter to generate unique names for instances when not explicitly provided.\n\nclass PosHprScaleInterval(FunctionInterval):\n    # PosHprScaleInterval counter\n    posHprScaleIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, pos, hpr, scale, duration = 0.0,\n                 name = None, other = None):\n        \"\"\"__init__(nodePath, pos, hpr, scale, duration, other, name)\n        \"\"\"\n        # Create function\n        def posHprScaleFunc(np=nodePath, pos=pos, hpr=hpr, scale=scale,\n                            other = other):\n            if other:\n                np.setPosHprScale(other, pos, hpr, scale)\n            else:\n                np.setPosHprScale(pos, hpr, scale)\n        # Determine name\n        if name is None:\n            name = ('PosHprScale-%d' %\n                    PosHprScaleInterval.posHprScaleIntervalNum)\n            PosHprScaleInterval.posHprScaleIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, posHprScaleFunc, name = name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2916
+  }
+}

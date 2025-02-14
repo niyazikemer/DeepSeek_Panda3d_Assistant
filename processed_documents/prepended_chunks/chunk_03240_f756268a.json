@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears in a method responsible for translating selected 3D objects based on mouse input, specifically handling camera-relative movements while maintaining object position relative to the mouse cursor. The code calculates deltaNearX (difference between current near vector and coaCenter X), determines movement direction (either from widget-to-camera vector or Y-axis default), scales movement by mouseDeltaY and a scaling factor (xlateSF), updates the vWidget2Camera vector, and adjusts object position to maintain relative mouse alignment.\n\nself.deltaNearX = coaCenter[0] - ShowBaseGlobal.direct.dr.nearVec[0]\n        # Which way do we move the object?\n        if ShowBaseGlobal.direct.fControl:\n            moveDir = Vec3(vWidget2Camera)\n            # If widget is behind camera invert vector\n            if moveDir[1] < 0.0:\n                moveDir.assign(moveDir * -1)\n            moveDir.normalize()\n        else:\n            moveDir = Vec3(DG.Y_AXIS)\n        # Move selected objects\n        dr = ShowBaseGlobal.direct.dr\n        # Scale move dir\n        moveDir.assign(moveDir * (2.0 * dr.mouseDeltaY * self.xlateSF))\n        # Add it to current widget offset\n        vWidget2Camera += moveDir\n        # The object, however, stays at the same relative point to mouse in X\n        vWidget2Camera.setX((dr.nearVec[0] + self.deltaNearX) *\n                            (vWidget2Camera[1]/dr.near))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3240
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a larger function that manipulates ELF binaries to modify their run-time path (rpath) settings. The code reads string tables from an ELF file to extract shared library dependencies and processes dynamic sections to update or remove existing rpath/runpath entries, ensuring that the binary can find its required libraries when deployed.\n\nContext: Handling platform-specific build steps for Linux by modifying ELF binaries to adjust their dependency paths for proper deployment.\n\n# Read the relevant string tables.\n        for idx in string_tables.keys():\n            elf.seek(shoff + idx * shentsize)\n            type, offset, size, link, entsize = struct.unpack_from(section_struct, elf.read(shentsize))\n            if type != 3:\n                continue\n            elf.seek(offset)\n            string_tables[idx] = elf.read(size)\n\n        # Loop through the dynamic sections and rewrite it if it has an rpath/runpath.\n        needed = []\n        rpath = []\n        for offset, size, link, entsize in dynamic_sections:\n            elf.seek(offset)\n            data = elf.read(entsize)\n            tag, val = struct.unpack_from(dynamic_struct, data)\n\n            # Read tags until we find a NULL tag.\n            while tag != 0:\n                if tag == 1: # A NEEDED entry.  Read it from the string table.\n                    string = string_tables[link][val : string_tables[link].find(b'\\0', val)]\n                    needed.append(string.decode('utf-8'))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2009
+  }
+}

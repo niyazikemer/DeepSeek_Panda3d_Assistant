@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes the top-level widget and creates essential UI components such as the interior frame and menu bar with balloon help for an EntryScaleGroup dialog box. This initialization is necessary before adding other features to the dialog.\n\n# Initialize the toplevel widget\n        Pmw.MegaToplevel.__init__(self, parent)\n\n        # Create the components\n        interior = self.interior()\n        # Get a copy of the initial value (making sure its a list)\n        self._value = list(self['value'])\n\n        # The Menu Bar\n        self.balloon = Pmw.Balloon()\n        menubar = self.createcomponent('menubar', (), None,\n                                       Pmw.MenuBar, (interior,),\n                                       balloon = self.balloon)\n        menubar.pack(fill=tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3567
+  }
+}

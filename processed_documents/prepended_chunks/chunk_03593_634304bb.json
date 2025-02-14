@@ -1,0 +1,9 @@
+{
+  "content": "The provided Python code chunk initializes the `MemoryExplorer` class, which is designed as a tool to analyze and visualize memory usage within a 3D graphics application. This specific section sets up the initial configuration of the widget, including UI components like a scrolled frame, scale, refresh button, and tooltip balloon, essential for interacting with and displaying memory analysis data in the application.\n\nclass MemoryExplorer(Pmw.MegaWidget, DirectObject):\n\n    #--------------------------------------------------------------------------\n    # Init\n    #--------------------------------------------------------------------------\n    def __init__(self, parent = None, nodePath = None, **kw):\n        if nodePath is None:\n            nodePath = render\n\n        optiondefs = (('menuItems',   [],   Pmw.INITOPT),)\n        self.defineoptions(kw, optiondefs)\n        Pmw.MegaWidget.__init__(self, parent)\n\n        self.nodePath = nodePath\n        self.renderItem = None\n        self.render2dItem = None\n\n        self.buttons = []\n        self.labels = []\n        self.rootItem = None\n\n        self.btWidth = DEFAULT_BT_WIDTH\n\n        self.createScrolledFrame()\n        self.createScale()\n        self.createRefreshBT()\n\n        self.balloon = Pmw.Balloon(self.interior())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3593
+  }
+}

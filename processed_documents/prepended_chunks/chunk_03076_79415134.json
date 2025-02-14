@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces two related methods, `getFrameRate` and `getBaseFrameRate`, which are part of an Actor or similar class. These methods allow retrieval of the current frame rate for animations, either considering any active play rate modifications (`getFrameRate`) or returning the unaltered base frame rate (`getBaseFrameRate`). The chunk fits within a section dealing with animation controls and frame management, alongside other related methods like `bindAnim`, `setPlayRate`, and `getAnimControls`.\n\nreturn controls[0].getFrameRate()\n\n    def getBaseFrameRate(self, animName=None, partName=None):\n        \"\"\"getBaseFrameRate(self, string, string=None)\n        Return frame rate of given anim name and given part, unmodified\n        by any play rate in effect.\n        \"\"\"\n        lodName = next(iter(self.__animControlDict))\n        controls = self.getAnimControls(animName, partName)\n        if len(controls) == 0:\n            return None\n\n        return controls[0].getAnim().getBaseFrameRate()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3076
+  }
+}

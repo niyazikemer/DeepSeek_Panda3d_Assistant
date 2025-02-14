@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method that creates a popup control panel for manipulating interval playback. The specific lines manage update functionality for the slider in the control panel and ensure proper cleanup when the window is closed.\n\nif not hasattr(self, \"setTHooks\"):\n            self.setTHooks = []\n        self.setTHooks.append(update)\n        # Clear out function on destroy\n        def onDestroy(e, s=self, u=update):\n            if u in s.setTHooks:\n                s.setTHooks.remove(u)\n        tl.bind('<Destroy>', onDestroy)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2855
+  }
+}

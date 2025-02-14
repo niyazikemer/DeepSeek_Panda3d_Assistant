@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the initialization and namespace handling methods of a class `AndroidManifest` designed to parse and process Android manifest files into structured data using an XML parser.\n\nclass AndroidManifest:\n    def __init__(self):\n        super().__init__()\n        self._stack = []\n        self.root = XmlNode()\n        self.resource_types = []\n        self.resources = {}\n\n    def parse_xml(self, data):\n        parser = ET.XMLParser(target=self)\n        parser.feed(data)\n        parser.close()\n\n    def start_ns(self, prefix, uri):\n        decl = self.root.element.namespace_declaration.add()\n        decl.prefix = prefix\n        decl.uri = uri\n\n    def start(self, tag, attribs):\n        if not self._stack:\n            node = self.root\n        else:\n            node = self._stack[-1].child.add()\n\n        element = node.element\n        element.name = tag\n\n        self._stack.append(element)\n\n        for key, value in attribs.items():\n            attrib = element.attribute.add()\n            attrib.value = value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_136",
+    "parent": "processed_documents/context_documents/d67df3a6__android.json",
+    "chunk_number": 2213
+  }
+}

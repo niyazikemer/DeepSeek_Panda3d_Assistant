@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a Python class definition for an Application Shell, specifically within the `TestAppShell` subclass. It includes methods for adding menu items, retrieving UI components, and managing buttons. The code is situated within the overall document that defines a structured GUI application framework using Tkinter and Pmw libraries.\n\nThis section implements functionality related to:\n- Adding menu bar items\n- Retrieving key UI components (interior, balloon, button box, message bar)\n- Managing button creation and customization\n\nThe context involves setting up the graphical user interface for an application with standard features like menus, status bars, buttons and tooltips.\n\nself.menuBar.addmenuitem('File', 'command', 'Quit this application',\n                                label='Quit',\n                                command=self.quit)\n\n    # Getters\n    def interior(self):\n        # Retrieve the interior site where widgets should go.\n        return self.dataArea\n\n    def balloon(self):\n        # Retrieve the panel's balloon widget\n        return self.__balloon\n\n    def buttonBox(self):\n        # Retrieve the button box.\n        return self.__buttonBox\n\n    def messageBar(self):\n        # Retieve the message bar\n        return self.__messageBar\n\n    # Utility functions\n    def buttonAdd(self, buttonName, helpMessage=None,\n                  statusMessage=None, **kw):\n        # Add a button to the button box.\n        newBtn = self.__buttonBox.add(buttonName)\n        newBtn.configure(kw)\n        if helpMessage:\n            self.bind(newBtn, helpMessage, statusMessage)\n        return newBtn",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3733
+  }
+}

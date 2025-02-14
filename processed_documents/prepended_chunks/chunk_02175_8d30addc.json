@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents the core logic within the `find_module` method responsible for locating modules on the Python path. It occurs after special case handling (e.g., frozen modules, vendor packages) but before namespace package resolution. The section iterates through directories in the search path to find module files by checking recognized file extensions and package structures.\n\n# Look for the module on the search path.\n        ns_dirs = []\n\n        for dir_path in path:\n            basename = os.path.join(dir_path, name.split('.')[-1])\n\n            # Look for recognized extensions.\n            for stuff in self.suffixes:\n                suffix, mode, _ = stuff\n                fp = self._open_file(basename + suffix, mode)\n                if fp:\n                    return (fp, basename + suffix, stuff)\n\n            # Consider a package, i.e. a directory containing __init__.py.\n            for suffix, mode, _ in self.suffixes:\n                init = os.path.join(basename, '__init__' + suffix)\n                if self._open_file(init, mode):\n                    return (None, basename, ('', '', _PKG_DIRECTORY))\n\n            # This may be a namespace package.\n            if self._dir_exists(basename):\n                ns_dirs.append(basename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2175
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of methods `privPostEvent()`, `setIntervalStartTime()`, and `getIntervalStartTime()` within the `MetaInterval` class. These methods are responsible for managing interval start times and ensuring proper handling of intervals when modifying their timings, while also incorporating performance statistics tracking (`pstats`). This is part of the core functionality for scheduling and coordinating multiple intervals in a sequence or parallel execution context.\n\ndef privPostEvent(self):\n        if self.pstats:\n            self.pstats.start()\n        self.__doPythonCallbacks()\n        CMetaInterval.privPostEvent(self)\n        if self.pstats:\n            self.pstats.stop()\n\n    def setIntervalStartTime(self, *args, **kw):\n        # This function overrides from the parent level to force it to\n        # update the interval list first, if necessary.\n\n        self.__updateIvals()\n        # Once we have monkeyed with the interval timings, we'd better\n        # run the whole thing as a monolithic Python interval, since\n        # we can't extract the ivals list back out and append them\n        # into a parent MetaInterval.\n        self.inPython = 1\n        return CMetaInterval.setIntervalStartTime(self, *args, **kw)\n\n    def getIntervalStartTime(self, *args, **kw):\n        # This function overrides from the parent level to force it to\n        # update the interval list first, if necessary.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2894
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `Floater` class inheriting from `Valuator`, implementing a specialized evaluator widget. The `Floater` binds a double-click reset functionality and initializes its valuator component with entry-setting command, fitting within the FloaterGroup's structure of managing multiple interactive evaluators.\n\nclass Floater(Valuator):\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('style',  VALUATOR_MINI,   INITOPT),\n        )\n        self.defineoptions(kw, optiondefs)\n        # Initialize the superclass\n        Valuator.__init__(self, parent)\n        self.initialiseoptions(Floater)\n\n    def createValuator(self):\n        self._valuator = self.createcomponent('valuator',\n                                              (('floater', 'valuator'),),\n                                              None,\n                                              FloaterWidget,\n                                              (self.interior(),),\n                                              command = self.setEntry,\n                                              value = self['value'])\n        self._valuator._widget.bind('<Double-ButtonPress-1>', self.mouseReset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3609
+  }
+}

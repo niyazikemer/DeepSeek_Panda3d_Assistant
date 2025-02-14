@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `__addPythonFile` method, which is responsible for adding a specified Python module to a multifile archive as a compiled `.pyc` file. This method constructs directory structures and handles the packaging of modules into the multifile format, ensuring proper organization and compression. It's part of a system that manages module distribution and optimization by bundling modules efficiently.\n\ndef __addPythonFile(self, multifile, moduleDirs, moduleName, mdef,\n                        compressionLevel):\n        \"\"\" Adds the named module to the multifile as a .pyc file. \"\"\"\n\n        # First, split the module into its subdirectory names.\n        dirnames = moduleName.split('.')\n        if len(dirnames) > 1 and dirnames[-1] == '__init__':\n            # The \"module\" may end in __init__, but that really means\n            # the parent directory.\n            dirnames = dirnames[:-1]\n\n        self.__addPythonDirs(multifile, moduleDirs, dirnames[:-1], compressionLevel)\n\n        filename = '/'.join(dirnames)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2100
+  }
+}

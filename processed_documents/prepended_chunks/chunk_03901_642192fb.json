@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a TaskManager class in Direct, which handles task scheduling and execution. The specific code chunk adds functionality for managing frame profiling sessions. It includes methods to start frame profiling sessions with specified parameters (number of frames, session object, callback), execute steps during profiling, and manage the state of frame profiling through getter and setter methods. This allows users to profile application performance at the frame level, providing insights into task execution times and optimizing performance as needed.\n\ndef profileFrames(self, num=None, session=None, callback=None):\n        if num is None:\n            num = 1\n        if session is None:\n            session = self.getProfileSession()\n        # make sure the profile session doesn't get destroyed before we're done with it\n        session.acquire()\n        self._frameProfileQueue.append((num, session, callback))\n\n    def _doProfiledFrames(self, numFrames):\n        for i in range(numFrames):\n            self.step()\n\n    def getProfileFrames(self):\n        return self._profileFrames.get()\n\n    def getProfileFramesSV(self):\n        return self._profileFrames\n\n    def setProfileFrames(self, profileFrames):\n        self._profileFrames.set(profileFrames)\n        if (not self._frameProfiler) and profileFrames:\n            # import here due to import dependencies\n            FP = importlib.import_module('direct.task.FrameProfiler')\n            self._frameProfiler = FP.FrameProfiler()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3901
+  }
+}

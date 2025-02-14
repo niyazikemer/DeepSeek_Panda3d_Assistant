@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `Pickler` class implementation in a custom object serialization mechanism. It handles checking if an object has already been serialized (memo check) and determines how to serialize it based on its type or metaclass, ensuring efficient and correct pickling of objects within a BAM file context.\n\n# Check the memo\n        x = self.memo.get(id(obj))\n        if x:\n            self.write(self.get(x[0]))\n            return\n\n        # Check the type dispatch table\n        f = self.dispatch.get(t)\n        if f:\n            f(self, obj) # Call unbound method with explicit self\n            return\n\n        # Check for a class with a custom metaclass; treat as regular class\n        try:\n            issc = issubclass(t, type)\n        except TypeError: # t is not a class (old Boost; see SF #502085)\n            issc = 0\n        if issc:\n            self.save_global(obj)\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3852
+  }
+}

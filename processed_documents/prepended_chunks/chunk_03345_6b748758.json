@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two methods: `reparentCam` and `fitOnWidget`, both of which are part of a class responsible for managing camera manipulation and object positioning within a 3D environment. The `reparentCam` method adjusts the camera's parent node and updates the size of a marker, while `fitOnWidget` calculates the appropriate position and scale to ensure a specified node is centered and fills a certain percentage of the screen. These methods are critical for maintaining an optimal view of selected objects during user interaction.\n\ndef reparentCam(self, parent):\n        ShowBaseGlobal.direct.camera.wrtReparentTo(parent)\n        self.updateCoaMarkerSize()\n\n    def fitOnWidget(self, nodePath = 'None Given'):\n        # Fit the node on the screen\n        # stop any ongoing tasks\n        self.__stopManipulateCamera()\n        # How big is the node?\n        direct = ShowBaseGlobal.direct\n        nodeScale = direct.widget.scalingNode.getScale(ShowBaseGlobal.base.render)\n        maxScale = max(nodeScale[0], nodeScale[1], nodeScale[2])\n        maxDim = min(direct.dr.nearWidth, direct.dr.nearHeight)\n\n        # At what distance does the object fill 30% of the screen?\n        # Assuming radius of 1 on widget\n        camY = direct.dr.near * (2.0 * maxScale) / (0.3 * maxDim)\n\n        # What is the vector through the center of the screen?\n        centerVec = Y_AXIS * camY\n\n        # Where is the node relative to the viewpoint\n        vWidget2Camera = direct.widget.getPos(direct.camera)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3345
+  }
+}

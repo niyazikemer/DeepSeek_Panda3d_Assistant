@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears within a custom import mechanism implementation, specifically within an overridden `find_module` or similar method that handles locating Python modules from various sources, including zip files and directory paths. The code is responsible for opening modules or files, particularly dealing with special cases related to Tkinter modules stored in zip archives (e.g., `_tkinter`), while ensuring compatibility and avoiding conflicts with other module distributions on the import path.\n\ntry:\n                    zip_fn = fn.replace(os.path.sep, '/')\n                    if zip_fn.startswith('deploy_libs/_tkinter.'):\n                        # If we have a tkinter wheel on the path, ignore the\n                        # _tkinter extension in deploy-libs.\n                        if any(entry.endswith(\".whl\") and os.path.basename(entry).startswith(\"tkinter-\") for entry in self.path):\n                            return None\n                    fp = zip.open(zip_fn, 'r')\n                except KeyError:\n                    return None\n\n                if 'b' not in mode:\n                    return io.TextIOWrapper(fp, encoding='utf8')\n                return fp\n\n            # Look at the parent directory.\n            dir, dirname = os.path.split(dir)\n            fn = os.path.join(dirname, fn)\n\n        return None\n\n    def _file_exists(self, path):\n        if os.path.exists(path):\n            return os.path.isfile(path)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2156
+  }
+}

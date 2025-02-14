@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within a class dealing with 3D intersection detection using rays in an OpenGL or similar graphics environment. It handles the retrieval of intersection points by checking if a ray intersects any objects, adjusting the hit point to align with a specified axis (x, y, or z) by setting two coordinates to zero. This adjustment ensures that the intersection point is snapped to the nearest position on the chosen axis for precise manipulation.\n\nif iRay.getNumEntries() == 0:\n                del iRay\n                return self.hitPt\n\n            entry = iRay.getEntry(0)\n            self.hitPt = entry.getSurfacePoint(self)\n            del iRay\n            if axis == 'x':\n                # We really only care about the nearest point on the axis\n                self.hitPt.setY(0)\n                self.hitPt.setZ(0)\n            elif axis == 'y':\n                self.hitPt.setX(0)\n                self.hitPt.setZ(0)\n            elif axis == 'z':\n                self.hitPt.setX(0)\n                self.hitPt.setY(0)\n            return self.hitPt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3286
+  }
+}

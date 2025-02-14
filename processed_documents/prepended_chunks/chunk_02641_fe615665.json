@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides default implementation methods (`defaultEnter`, `defaultExit`, `defaultFilter`) for a finite state machine (FSM) class, which are invoked when specific state transition handling methods are not defined. These fallback methods manage state transitions and undefined behavior, enabling the FSM to operate with minimal configuration while maintaining flexibility in state management.\n\ndef defaultEnter(self, *args):\n        \"\"\" This is the default function that is called if there is no\n        enterState() method for a particular state name. \"\"\"\n\n    def defaultExit(self):\n        \"\"\" This is the default function that is called if there is no\n        exitState() method for a particular state name. \"\"\"\n\n    def defaultFilter(self, request, args):\n        \"\"\"This is the function that is called if there is no\n        filterState() method for a particular state name.\n\n        This default filter function behaves in one of two modes:\n\n        (1) if self.defaultTransitions is None, allow any request\n        whose name begins with a capital letter, which is assumed to\n        be a direct request to a particular state.  This is similar to\n        the old ClassicFSM onUndefTransition=ALLOW, with no explicit\n        state transitions listed.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2641
+  }
+}

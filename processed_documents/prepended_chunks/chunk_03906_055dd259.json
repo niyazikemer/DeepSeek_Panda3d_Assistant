@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of the `TaskManager` class implementation in a Python-based game or animation engine. The specific chunk involves methods for managing tasks, including frame time management and scheduling optimization. The `doYield` method is designed as a placeholder for implementing custom logic to manage frame timing, such as adjusting sleep times based on task schedules.\n\n# Now grab a task at random, until we find one that we like.\n        tasks = self.mgr.getTasks()\n        i = random.randrange(tasks.getNumTasks())\n        task = tasks.getTask(i)\n        while not isinstance(task, PythonTask) or \\\n              task.getWakeTime() > next:\n            tasks.removeTask(i)\n            i = random.randrange(tasks.getNumTasks())\n            task = tasks.getTask(i)\n        return task\n\n    def __repr__(self) -> str:\n        return str(self.mgr)\n\n    # In the event we want to do frame time managment, this is the\n    # function to replace or overload.\n    def doYield(self, frameStartTime: float, nextScheduledTaskTime: float) -> None:\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3906
+  }
+}

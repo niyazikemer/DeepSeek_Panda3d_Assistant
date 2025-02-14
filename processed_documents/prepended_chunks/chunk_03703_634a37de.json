@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `DialWidget` class implementation in Python, specifically within the `__init__` method. This method initializes the dial widget with various configurable options such as appearance (style, size, relief, borderwidth, background), behavior (numDigits for precision), and dial-specific settings (base value). The chunk defines default values and callback functions for these options, setting up the initial state of the dial widget and its visual elements. This initialization is crucial for configuring how the dial appears and behaves when interacted with by users, including handling mouse events and visual ticks on the dial face.\n\nclass DialWidget(Pmw.MegaWidget):\n    def __init__(self, parent = None, **kw):\n        #define the megawidget options\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            # Appearance\n            ('style',           VALUATOR_FULL,      INITOPT),\n            ('size',            None,           INITOPT),\n            ('relief',          tk.SUNKEN,      self.setRelief),\n            ('borderwidth',     2,              self.setBorderwidth),\n            ('background',      'white',        self.setBackground),\n            # Number of segments the dial is divided into\n            ('numSegments',     10,             self.setNumSegments),\n            # Behavior\n            # Initial value of dial, use self.set to change value\n            ('value',           0.0,            INITOPT),\n            ('numDigits',       2,              self.setNumDigits),\n            # Dial specific options\n            ('base',            0.0,            None),",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3703
+  }
+}

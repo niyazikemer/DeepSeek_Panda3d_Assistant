@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines code for creating visual elements such as arrows, boxes, and scale lines in a 3D graphics context (likely Panda3D). It includes specifications for arrow dimensions, color settings (red for X-axis), line thickness, node creation, and coordinate positioning. The code creates nodes named 'x-post-line' and 'x-scale-line' to represent geometric elements of a coordinate system or UI element.\n\narrowInfo0 = 1.3\n        arrowInfo1 = 0.1\n        #lines.setThickness(5)\n        lines.moveTo(1.5, 0, 0)\n        lines.drawTo(arrowInfo0, arrowInfo1, arrowInfo1)\n        lines.moveTo(1.5, 0, 0)\n        lines.drawTo(arrowInfo0, arrowInfo1, -1 * arrowInfo1)\n        lines.moveTo(1.5, 0, 0)\n        lines.drawTo(arrowInfo0, -1 * arrowInfo1, arrowInfo1)\n        lines.moveTo(1.5, 0, 0)\n        lines.drawTo(arrowInfo0, -1 * arrowInfo1, -1 * arrowInfo1)\n\n        lines.create()\n        lines.setName('x-post-line')\n\n        #X scale\n        self.xScale = self.xScaleGroup.attachNewNode('x-scale-visible')\n        lines = LineNodePath(self.xScale)\n        lines.setColor(VBase4(1, 0, 0, 1))\n        lines.setThickness(5)\n        lines.moveTo(1.3, 0, 0)\n        lines.drawTo(-1.5, 0, 0)\n\n        drawBox(lines, (1.3, 0, 0), 0.2)\n\n        lines.create()\n        lines.setName('x-scale-line')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3278
+  }
+}

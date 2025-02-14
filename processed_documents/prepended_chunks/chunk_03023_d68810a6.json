@@ -1,0 +1,9 @@
+{
+  "content": "This function creates an arrow geometry object in a 3D scene using Panda3D's GeomNode and Geom classes, incrementing a global ID counter for unique identification.\n\ndef addArrowGeom(rootNode, sizeX, sizeY, color = Vec4(1.0, 1.0, 1.0, 1.0), layer = 0):\n    global GEO_ID\n    GN = GeomNode(\"Arrow %s\" % (GEO_ID))\n    GEO_ID += 1\n    NodePathGeom = rootNode.attachNewNode(GN)\n    geo = addArrow(GN, sizeX, sizeY, color, layer)\n    return NodePathGeom, GN, geo",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3023
+  }
+}

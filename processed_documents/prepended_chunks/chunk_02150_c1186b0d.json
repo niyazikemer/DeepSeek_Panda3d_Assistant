@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of a function responsible for manipulating Mach-O binary structures, specifically shifting load commands and adjusting section headers to accommodate additional data blobs. It is situated within a larger codebase that handles file operations, package management, and module loading, likely for managing custom or extended modules in a Python environment.\n\ncurr_lc_offset += lc[1]\n\n        return load_commands\n\n    def _shift_macho_structures(self, macho_data, load_commands, blob_size):\n        \"\"\"Given the stub and the size of our blob, make room for it and edit\n        all of the necessary structures to keep the binary valid. Returns the\n        offset where the blob should be placed.\"\"\"\n\n        for lc_key in load_commands.keys():\n            for index in lc_indices_to_slide[lc_key]:\n                load_commands[lc_key][1][index] += blob_size\n\n            if lc_key == b'__PANDA':\n                section_header_offset = load_commands[lc_key][0] + struct.calcsize(lc_layouts[LC_SEGMENT_64])\n                section_header = list(struct.unpack_from(section64_header_layout, macho_data, section_header_offset))\n                section_header[3] = blob_size\n                struct.pack_into(section64_header_layout, macho_data, section_header_offset, *section_header)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2150
+  }
+}

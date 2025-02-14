@@ -1,0 +1,9 @@
+{
+  "content": "This code defines a custom XML parser for processing AndroidManifest.xml files. The specific chunk is part of the `AndroidManifest` class, which parses XML data using ElementTree. The chunk implements methods to start (`start`) and end (`end`) XML elements, handle namespace declarations (`start_ns`), and manage resource registration (`register_resource`). The `start` method creates new XML nodes, processes attributes, handles namespaced attributes, compiles resources, and applies them. This is part of an Android manifest parsing system that compiles resources into unique IDs during processing.\n\nself._stack.append(element)\n\n        for key, value in attribs.items():\n            attrib = element.attribute.add()\n            attrib.value = value\n\n            if key.startswith('{'):\n                attrib.namespace_uri, key = key[1:].split('}', 1)\n                res_compile = ANDROID_ATTRIBUTES.get(key, None)\n                if not res_compile:\n                    print(f'Warning: unhandled AndroidManifest.xml attribute \"{key}\"')\n            else:\n                res_compile = None\n\n            attrib.name = key\n\n            if res_compile:\n                res_compile(attrib, self)\n\n    def end(self, tag):\n        self._stack.pop()\n\n    def register_resource(self, type, name):\n        if type not in self.resource_types:\n            self.resource_types.append(type)\n            type_id = len(self.resource_types)\n            self.resources[type] = []\n        else:\n            type_id = self.resource_types.index(type) + 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_136",
+    "parent": "processed_documents/context_documents/d67df3a6__android.json",
+    "chunk_number": 2214
+  }
+}

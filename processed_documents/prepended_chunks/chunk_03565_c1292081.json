@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines default configurations (group size, value range, and variable labels) in the `EntryScaleGroup` class constructor, essential for initializing color adjustment panels in the application.\n\n```context\nThis code chunk is part of the `__init__` method of the `EntryScaleGroup` class. It initializes default settings including group dimension (`DEFAULT_DIM`), initial values (`DEFAULT_VALUE`), and variable labels (`DEFAULT_LABELS`). These defaults are used when creating instances of `EntryScaleGroup`, such as in the `rgb_panel` function, to set up color adjustment panels with appropriate scales and labels.\n```\n\nclass EntryScaleGroup(Pmw.MegaToplevel):\n    def __init__(self, parent = None, **kw):\n\n        # Default group size\n        DEFAULT_DIM = 1\n        # Default value depends on *actual* group size, test for user input\n        DEFAULT_VALUE = [0.0] * kw.get('dim', DEFAULT_DIM)\n        DEFAULT_LABELS = ['v[%d]' % x for x in range(kw.get('dim', DEFAULT_DIM))]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3565
+  }
+}

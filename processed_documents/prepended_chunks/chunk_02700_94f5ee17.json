@@ -1,0 +1,9 @@
+{
+  "content": "The chunk illustrates a state transition example using `ClassicStyle`, demonstrating valid (`Red -> Green`) vs. invalid (`Red -> Yellow`) requests within an FSM implementation context.\n\ndef enterOff(self):\n        taskMgr.remove(self.__unblinkName)\n\n\n####\n#### Example of using ClassicStyle:\n##\n## >>> import SampleFSM\n## >>> foo = SampleFSM.ClassicStyle('foo')\n## >>> foo.request('Red')\n## enterRed(self, 'Off', 'Red')\n## ('Red',)\n## >>> foo.request('Yellow')\n## Traceback (most recent call last):\n##   File \"<stdin>\", line 1, in ?\n##   File \"/home/drose/player/direct/src/fsm/FSM.py\", line 168, in request\n##     result = func(request, args)\n##   File \"/home/drose/player/direct/src/fsm/FSM.py\", line 210, in defaultFilter\n##     self.notify.error(\"%s rejecting request %s from state %s.\" % (self.name, request, self.state))\n##   File \"/home/drose/player/direct/src/directnotify/Notifier.py\", line 99, in error\n##     raise exception(errorString)\n## StandardError: foo rejecting request Yellow from state Red.\n## >>> foo.request('Green')\n## exitRed(self, 'Red', 'Green')\n## enterGreen(self, 'Red', 'Green')\n## ('Green',)\n## >>>",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_149",
+    "parent": "processed_documents/context_documents/c3ea557f_SampleFSM.json",
+    "chunk_number": 2700
+  }
+}

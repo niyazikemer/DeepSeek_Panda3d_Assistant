@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nMethod to initialize ValuatorGroupPanel by creating individual valuators (e.g., dials, sliders) for each dimension based on user-specified 'type' parameter, adding them to the panel's interior and configuring with provided value range, resolution and initial values.\n\"\"\"\n\n# Create the valuators\n        self._valuatorList = []\n        for index in range(self['dim']):\n            # Add a group alias so you can configure the valuators via:\n            #   fg.configure(Valuator_XXX = YYY)\n            if self['type'] == DIAL:\n                from . import Dial\n                valuatorType = Dial.Dial\n            elif self['type'] == ANGLEDIAL:\n                from . import Dial\n                valuatorType = Dial.AngleDial\n            elif self['type'] == SLIDER:\n                from . import Slider\n                valuatorType = Slider.Slider\n            else:\n                from . import Floater\n                valuatorType = Floater.Floater\n            f = self.createcomponent(\n                'valuator%d' % index, (), 'valuator', valuatorType,\n                (interior,), value = self._value[index],\n                min = self['min'], max = self['max'],\n                resolution = self['resolution'],",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3652
+  }
+}

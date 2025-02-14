@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk implements functionality related to determining whether a surface is back-facing relative to a camera, and finding the next collision entry in a sequence of collision results. It is part of a larger document that defines various classes (e.g., SelectionRay, SelectionSegment) for performing collision detection in a 3D environment using Panda3D, with methods for handling different types of collisions and determining back-facing surfaces.\n\nif base.direct:\n            cam = base.direct.cam\n        else:\n            cam = base.cam\n\n        fromNodePath = entry.getFromNodePath()\n        v = Vec3(entry.getSurfacePoint(fromNodePath))\n        n = entry.getSurfaceNormal(fromNodePath)\n        # Convert to camera space for backfacing test\n        if self.collisionNodePath.getParent() != cam:\n            # Problem: assumes base.cam is the camera in question\n            p2cam = self.collisionNodePath.getParent().getMat(cam)\n            v = Vec3(p2cam.xformPoint(v))\n            n = p2cam.xformVec(n)\n        # Normalize and check angle between to vectors\n        v.normalize()\n        return v.dot(n) >= 0\n\n    def findNextCollisionEntry(self, skipFlags = DG.SKIP_NONE):\n        return self.findCollisionEntry(skipFlags, self.index + 1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3465
+  }
+}

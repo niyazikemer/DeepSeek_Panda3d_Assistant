@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a `TreeNode` class implementation that manages hierarchical tree nodes, likely within a graphical user interface or data visualization component. The specific chunk handles the creation and management of child nodes, including optional sorting of children based on text values (via the `fSortChildren` flag) and setting flags recursively for each child node to control their visibility or behavior (e.g., via `setFSortChildren` and `setChildrenTag`). This functionality is part of a broader tree structure that supports expandable items, icons, selection states, and contextual menus.\n\n# [gjeon] to sort children\n        if self.fSortChildren:\n            def compareText(x, y):\n                textX = x.GetText()\n                textY = y.GetText()\n                if textX > textY:\n                    return 1\n                elif textX == textY:\n                    return 0\n                else: # textX < textY\n                    return -1\n            sublist.sort(compareText)\n        for item in sublist:\n            key = item.GetKey()\n            if fUseCachedChildren and key in self.children:\n                child = self.children[key]\n            else:\n                child = TreeNode(self.canvas, self, item, self.menuList)\n\n            # [gjeon] to set flag recursively\n            child.setFSortChildren(self.fSortChildren)\n            child.setChildrenTag(self.childrenTag, self.fModeChildrenTag)\n\n            self.children[key] = child\n            self.kidKeys.append(key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3683
+  }
+}

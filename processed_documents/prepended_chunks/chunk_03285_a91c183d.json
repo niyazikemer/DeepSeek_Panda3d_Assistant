@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a method within a class that handles 3D graphics or game development, likely using Panda3D. This specific function, `getAxisIntersectPt`, is responsible for detecting intersections between a camera-generated selection ray and axes in the scene. It uses similar techniques as other functions like `getGridIntersectPt` to determine hit points, but it's tailored for axis detection. The context involves multi-view setups and grid traversal, making it a utility function for managing 3D intersections in a graphics or game engine environment.\n\n**Context:**\nThis code is part of a class that manages 3D selection rays and intersections within a scene. `getAxisIntersectPt` detects intersections between the camera's ray and axes, using multi-view support and grid traversal to find hit points, similar to other methods like `getGridIntersectPt`.\n\ndef getAxisIntersectPt(self, axis):\n        if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView and\\\n           ShowBaseGlobal.direct.camera.getName() != 'persp':\n            # create ray from the camera to detect 3d position\n            iRay = SelectionRay(ShowBaseGlobal.direct.camera)\n            iRay.collider.setFromLens(ShowBaseGlobal.direct.camNode, ShowBaseGlobal.direct.dr.mouseX, ShowBaseGlobal.direct.dr.mouseY)\n            #iRay.collideWithBitMask(1)\n            iRay.collideWithBitMask(BitMask32.bit(21))\n            iRay.ct.traverse(ShowBaseGlobal.direct.grid)\n\n            if iRay.getNumEntries() == 0:\n                del iRay\n                return self.hitPt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3285
+  }
+}

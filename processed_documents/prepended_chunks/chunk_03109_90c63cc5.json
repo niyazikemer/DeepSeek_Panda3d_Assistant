@@ -1,0 +1,9 @@
+{
+  "content": "The chunk manages front-to-back rendering order and visual effects for specified actor model parts based on different modes.\n\nfrontParts = root.findAllMatches(\"**/\" + frontPartName)\n\n        if mode > 0:\n            # Use the 'fixed' bin instead of reordering the scene\n            # graph.\n            for part in frontParts:\n                part.setBin('fixed', mode)\n            return\n\n        if mode == -2:\n            # Turn off depth test/write on the frontParts.\n            for part in frontParts:\n                part.setDepthWrite(0)\n                part.setDepthTest(0)\n\n        # Find the back part.\n        backPart = root.find(\"**/\" + backPartName)\n        if backPart.isEmpty():\n            Actor.notify.warning(\"no part named %s!\" % (backPartName))\n            return\n\n        if mode == -3:\n            # Draw as a decal.\n            backPart.node().setEffect(DecalEffect.make())\n        else:\n            # Reorder the backPart to be the first of its siblings.\n            backPart.reparentTo(backPart.getParent(), -1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3109
+  }
+}

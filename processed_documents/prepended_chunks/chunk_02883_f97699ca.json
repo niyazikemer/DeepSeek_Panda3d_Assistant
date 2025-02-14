@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method in the `MetaInterval` class that handles the addition of interval components to a sequence, parallel, or track structure. The specific chunk deals with checking if an interval (`ival`) is a C++-style interval (`CInterval`). If it is, the code determines whether to treat it as a Python-style interval (due to its `inPython` flag) or directly add it to the meta-interval. This functionality is critical for managing and combining intervals in a flexible animation or task management system.\n\nif isinstance(ival, CInterval):\n            # It's a C++-style Interval, so add it directly.\n            if getattr(ival, \"inPython\", 0):\n                # Actually, it's been flagged to run in Python, even\n                # though it's a C++ Interval.  It's probably got some\n                # Python functors that must be invoked at runtime to\n                # define some of its parameters.  Treat it as a Python\n                # interval.\n                index = len(self.pythonIvals)\n                self.pythonIvals.append(ival)\n                self.addExtIndex(index, ival.getName(), ival.getDuration(),\n                                 ival.getOpenEnded(), relTime, relTo)\n            elif isinstance(ival, MetaInterval):\n                # It's another MetaInterval, so copy in its intervals\n                # directly to this object.  We could just store the\n                # MetaInterval itself, which would work, but we get a",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2883
+  }
+}

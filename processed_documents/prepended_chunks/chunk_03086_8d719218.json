@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes functionality for removing animations from a specified `partName` and hiding a part in a given Level of Detail (LOD) within an actor model.\n\n# remove the animations\n        if partName in partDict:\n            del partDict[partName]\n\n    def hidePart(self, partName, lodName=\"lodRoot\"):\n        \"\"\"\n        Make the given part of the optionally given lod not render,\n        even though still in the tree.\n        NOTE: this will affect child geometry\n        \"\"\"\n        partBundleDict = self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return\n        partDef = partBundleDict.get(partName)\n        if partDef:\n            partDef.partBundleNP.hide()\n        else:\n            Actor.notify.warning(\"no part named %s!\" % (partName))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3086
+  }
+}

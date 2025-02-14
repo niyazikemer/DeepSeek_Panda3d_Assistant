@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `State` class in Python, which represents state management functionality. It includes attributes for notifications, a constant for specifying transitions to any state (`Any = 'ANY'`), and debug features using weak references to track `State` instances.\n\nclass State(DirectObject):\n    notify = directNotify.newCategory(\"State\")\n\n    # this 'constant' can be used to specify that the state\n    # can transition to any other state\n    Any = 'ANY'\n\n    # Keep a list of State objects currently in memory for\n    # Control-C-Control-V redefining. These are just weakrefs so they\n    # should not cause any leaks.\n    if __debug__:\n        import weakref\n        States: weakref.WeakKeyDictionary[State, int] = weakref.WeakKeyDictionary()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2670
+  }
+}

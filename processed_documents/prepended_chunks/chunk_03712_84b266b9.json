@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class for implementing a dial widget with mouse interaction. The `mouseMotion` and `computeDialAngle` methods handle mouse movement events over the dial, calculating the angle based on cursor position relative to the dial's center while optionally snapping to predefined segments if shift state or configuration specifies it.\n\ndef mouseMotion(self, event, fShift = 0):\n        dialAngle = self.computeDialAngle(event, fShift)\n        self.computeValueFromAngle(dialAngle)\n\n    def computeDialAngle(self, event, fShift = 0):\n        x = self._widget.canvasx(event.x)\n        y = self._widget.canvasy(event.y)\n        rawAngle = math.atan2(y, x)\n        # Snap to grid\n        # Convert to dial coords to do snapping\n        dialAngle = rawAngle + POINTFIVE_PI\n        if operator.xor(self['fSnap'], fShift):\n            dialAngle = round(dialAngle / self.snapAngle) * self.snapAngle\n        return dialAngle",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3712
+  }
+}

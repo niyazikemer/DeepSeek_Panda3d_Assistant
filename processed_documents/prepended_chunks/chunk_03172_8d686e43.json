@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method within an `Actor` class in the Panda3D library, which handles 3D character animation controls. This specific segment is responsible for collecting active animations (`animNames`) across specified levels of detail (`lodNames`) and their associated parts (`partNames`). It iterates through each combination of LOD level and part to determine if an animation control exists and has a non-zero blend effect, compiling this information into a structured result. The context is crucial for managing animation blending and transitions within 3D models.\n\nif partName is None and self.__subpartsComplete:\n            partNames = self.__subpartDict.keys()\n        else:\n            partNames = [partName]\n\n        for lodName in lodNames:\n            animList = []\n            for animName in animNames:\n                blendList = []\n                for partName in partNames:\n                    control = self.getAnimControl(animName, partName, lodName)\n                    if control:\n                        part = control.getPart()\n                        effect = part.getControlEffect(control)\n                        if effect > 0.:\n                            blendList.append((partName, effect))\n                if blendList:\n                    animList.append((animName, blendList))\n            if animList:\n                result.append((lodName, animList))\n\n        return result",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3172
+  }
+}

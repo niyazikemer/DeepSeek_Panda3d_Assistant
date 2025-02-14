@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces the `LerpNodePathInterval` class, serving as the foundation for various NodePath property animations like position or rotation. It's part of an animation system that enables smooth transitions between states in applications using NodePaths, such as 3D graphics in Panda3D.\n\nclass LerpNodePathInterval(CLerpNodePathInterval):\n    # This is the base class for all of the lerps, defined below, that\n    # affect a property on a NodePath, like pos or hpr.\n    lerpNodePathNum = 1\n\n    def __init__(self, name, duration, blendType, bakeInStart, fluid,\n                 nodePath, other):\n        if name is None:\n            name = '%s-%d' % (self.__class__.__name__, self.lerpNodePathNum)\n            LerpNodePathInterval.lerpNodePathNum += 1\n        else:\n            # Allow the user to pass in a %d in the name and we'll go ahead\n            # and uniquify the name for them.\n            if \"%d\" in name:\n                name = name % LerpNodePathInterval.lerpNodePathNum\n                LerpNodePathInterval.lerpNodePathNum += 1\n\n        blendType = self.stringBlendType(blendType)\n        assert blendType != self.BTInvalid\n\n        if other is None:\n            other = NodePath()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2741
+  }
+}

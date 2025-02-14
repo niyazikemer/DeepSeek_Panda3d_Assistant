@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within the initialization method (`__init__`) of a class related to frame profiling. The chunk performs assertions to ensure that each element in the `_logSchedule` list is divisible by all previous elements, enforcing a hierarchical structure where each subsequent log period is a multiple of the prior one. This ensures consistent aggregation of profile data across different time intervals. Following the assertions, the code initializes and configures a function call (`_enableFC`) to manage frame profiling enablement based on `taskMgr.getProfileFramesSV()`.\n\ne = self._logSchedule[i]\n            for j in range(i, len(self._logSchedule)):\n                assert (self._logSchedule[j] % e) == 0\n        #assert isInteger(self._period)\n        self._enableFC = FunctionCall(self._setEnabled, taskMgr.getProfileFramesSV())\n        self._enableFC.pushCurrentState()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3921
+  }
+}

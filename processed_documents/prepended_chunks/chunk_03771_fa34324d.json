@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains core thread management functions within a Python module implementing threading functionality using Panda3D's core thread support. The functions `_create_thread_wrapper`, `current_thead`, `main_tread`, `enumerate`, and `active_count` manage thread creation, enumeration, and bookkeeping to provide high-level thread operations for concurrent execution in applications using Panda3D.\n\ndef _create_thread_wrapper(t, threadId):\n    \"\"\" Creates a thread wrapper for the indicated external thread. \"\"\"\n    if isinstance(t, core.MainThread):\n        pyt = MainThread(t, threadId)\n    else:\n        pyt = ExternalThread(t, threadId)\n\n    return pyt\n\n\ndef current_thread():\n    t = core.Thread.getCurrentThread()\n    return _thread._get_thread_wrapper(t, _create_thread_wrapper)\n\n\ndef main_thread():\n    t = core.Thread.getMainThread()\n    return _thread._get_thread_wrapper(t, _create_thread_wrapper)\n\n\ncurrentThread = current_thread\n\n\ndef enumerate():\n    tlist = []\n    _thread._threadsLock.acquire()\n    try:\n        for thread, locals, wrapper in list(_thread._threads.values()):\n            if wrapper and wrapper.is_alive():\n                tlist.append(wrapper)\n        return tlist\n    finally:\n        _thread._threadsLock.release()\n\n\ndef active_count():\n    return len(enumerate())\n\n\nactiveCount = active_count\n\n_settrace_func = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3771
+  }
+}

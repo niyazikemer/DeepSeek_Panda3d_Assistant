@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `addTex` method in the `TexGrid` class. The method adds a texture to the grid by creating CardMaker objects for the card, matte, and frame elements, setting their positions and transformations based on the current placement parameters. It also handles rotation of textures when necessary. This is used within a larger system that manages texture placement and grid layout for rendering or UI purposes.\n\ncm = CardMaker('card')\n            cm.setFrame(l, r, b, t)\n            if p.rotated:\n                cm.setUvRange((0, 1), (0, 0), (1, 0), (1, 1))\n            c = card.attachNewNode(cm.generate())\n            c.setMat(shrinkMat)\n\n            cm = CardMaker('matte')\n            cm.setFrame(l, r, b, t)\n            matte.attachNewNode(cm.generate())\n\n            ls = LineSegs('frame')\n            ls.setColor(0, 0, 0, 1)\n            ls.moveTo(l, 0, b)\n            ls.drawTo(r, 0, b)\n            ls.drawTo(r, 0, t)\n            ls.drawTo(l, 0, t)\n            ls.drawTo(l, 0, b)\n            f1 = frame.attachNewNode(ls.create())\n            f2 = f1.copyTo(frame)\n            f2.setMat(shrinkMat)\n\n        #matte.flattenStrong()\n        self.matte = matte\n\n        #backing.flattenStrong()\n        self.backing = backing\n\n        card.setTransparency(TransparencyAttrib.MAlpha)\n        card.setTexture(self.tex)\n        #card.flattenStrong()\n        self.card = card",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 3000
+  }
+}

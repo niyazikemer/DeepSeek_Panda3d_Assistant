@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a class managing object manipulation in a 3D modeling or game development environment using Python and Panda3D. The `toggleObjectHandlesMode` function switches between interaction modes (e.g., center of attention vs. manipulation) and updates visual indicators, while `removeManipulateObjectTask` stops active manipulation tasks to ensure smooth interaction within the real-time application.\n\ndef toggleObjectHandlesMode(self):\n        if self.fMovable:\n            self.fSetCoa = 1 - self.fSetCoa\n\n            if self.fSetCoa:\n                if hasattr(ShowBaseGlobal.direct, 'widget'):\n                    ShowBaseGlobal.direct.widget.coaModeColor()\n                else:\n                    self.objectHandles.coaModeColor()\n            else:\n                if hasattr(ShowBaseGlobal.direct, 'widget'):\n                    ShowBaseGlobal.direct.widget.manipModeColor()\n                else:\n                    self.objectHandles.manipModeColor()\n        else:\n            if hasattr(ShowBaseGlobal.direct, 'widget'):\n                ShowBaseGlobal.direct.widget.disabledModeColor()\n            else:\n                self.objectHandles.disabledModeColor()\n\n    def removeManipulateObjectTask(self):\n        taskMgr.remove('manipulateObject')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3212
+  }
+}

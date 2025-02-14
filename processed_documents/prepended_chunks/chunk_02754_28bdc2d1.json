@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `LerpShearInterval` class which inherits from `LerpNodePathInterval`. It implements an interval that controls the shear transformation of a node path over time, allowing smooth animations. The constructor initializes the interval with parameters including duration, shear values, start shear, and blend type, while checking for callable input parameters to determine how to handle the shear animation.\n\nclass LerpShearInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, shear, startShear = None,\n                 other = None, blendType = 'noBlend',\n                 bakeInStart = 1, fluid = 0, name = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, fluid, nodePath, other)\n        # Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(shear, startShear)\n        if self.paramSetup:\n            self.endShear = shear\n            self.startShear = startShear\n            self.inPython = 1\n        else:\n            self.setEndShear(shear)\n            if startShear is not None:\n                self.setStartShear(startShear)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2754
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `draw` method is a critical component within the `TreeNode` class, responsible for rendering individual tree nodes and their child elements in a graphical interface. This method manages the positioning, icon display, text rendering, and conditional drawing of child nodes based on expansion state. It interacts with the `TreeItem` abstract class to retrieve necessary data for visualization.\n\nContext: The `draw` method is part of the TreeNode class in a tree widget implementation. It handles node rendering, including icons, text, and children when expanded, using data from TreeItem instances.\n\ndef draw(self, x, y, fUseCachedChildren = 1):\n        # XXX This hard-codes too many geometry constants!\n        self.x, self.y = x, y\n        self.drawicon()\n        self.drawtext()\n\n        if self.state != 'expanded':\n            return y+17\n        # draw children\n        sublist = self.item._GetSubList()\n        if not sublist:\n            # IsExpandable() was mistaken; that's allowed\n            return y+17\n        self.kidKeys = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3682
+  }
+}

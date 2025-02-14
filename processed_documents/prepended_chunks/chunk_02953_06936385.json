@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is found within the `TexManager` class initialization or setup method, specifically defining the `quantize` variable which controls the size of packing units (Q-units) in texture memory. The Q-units determine how texture bytes are grouped for efficient packing, balancing resolution and performance trade-offs based on window size and texture memory constraints.\n\n# Internally, textures are packed into an integer grid of\n        # Q-units.  Q-units are in proportion to texture bytes.\n        # Specifically, each Q-unit corresponds to a block of\n        # self.quantize * self.quantize texture bytes in the Texture\n        # Memory window.  The Q-units are the smallest packable unit;\n        # increasing self.quantize therefore reduces the visual\n        # packing resolution correspondingly.  Q-units very roughly\n        # correspond to pixels onscreen (they may be larger, sometimes\n        # considerably larger, than 1 pixel, depending on the window\n        # size).\n\n\n        # This number defines the size of a Q-unit square, in texture\n        # bytes.  It is automatically adjusted in repack() based on\n        # the window size and the texture memory size.\n        self.quantize = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2953
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a Python module defining various `FunctionInterval` subclasses for handling function execution and timing within an application. The specific chunk pertains to debugging functionality and name generation for these intervals. It includes code for remembering function intervals during debugging, creating unique names for functions, and executing stored functions with arguments. This chunk is situated within the overall context of a module that provides tools for scheduling and executing timed operations in a structured manner.\n\nContext: The code chunk is part of the `FunctionInterval` class implementation, which handles function execution and timing. It includes debugging features and unique name generation to manage function intervals effectively.\n\n# For rebinding, let's remember this function interval on the class\n        if __debug__:\n            self.FunctionIntervals[self] = 1\n\n    @staticmethod\n    def makeUniqueName(func, suffix = ''):\n        func_name = getattr(func, '__name__', None)\n        if func_name is None:\n            func_name = str(func)\n        name = 'Func-%s-%d' % (func_name, FunctionInterval.functionIntervalNum)\n        FunctionInterval.functionIntervalNum += 1\n        if suffix:\n            name = '%s-%s' % (name, str(suffix))\n        return name\n\n    def privInstant(self):\n        # Evaluate the function\n        self.function(*self.extraArgs, **self.kw)\n        # Print debug information\n        self.notify.debug(\n            'updateFunc() - %s: executing Function' % self.name)\n\n\n### FunctionInterval subclass for throwing events ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2906
+  }
+}

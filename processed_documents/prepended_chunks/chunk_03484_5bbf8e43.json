@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements two geometric utility functions: `planeIntersect()` for calculating the intersection of a line with a plane using vector dot products, and `getNearProjectionPoint()` for projecting 3D points onto the near clipping plane of a camera. These functions are likely part of a 3D graphics or visualization system, providing core geometry operations for rendering, picking, or scene manipulation tasks.\n\ndef planeIntersect(lineOrigin, lineDir, planeOrigin, normal):\n    t = 0\n    offset = planeOrigin - lineOrigin\n    t = offset.dot(normal) / lineDir.dot(normal)\n    hitPt = lineDir * t\n    return hitPt + lineOrigin\n\n\ndef getNearProjectionPoint(nodePath):\n    # Find the position of the projection of the specified node path\n    # on the near plane\n    origin = nodePath.getPos(base.direct.camera)\n    # project this onto near plane\n    if origin[1] != 0.0:\n        return origin * (base.direct.dr.near / origin[1])\n    else:\n        # Object is coplaner with camera, just return something reasonable\n        return Point3(0, base.direct.dr.near, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3484
+  }
+}

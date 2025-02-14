@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a fragment shader implementation for screen-space ambient occlusion (SSAO), which computes occlusion by sampling neighboring pixels' depth and normal buffers. It uses random vectors to determine sample positions, adjusting based on pixel depth and normal orientation, with the number of samples determined by the %d parameter, likely set via k_params1.x.\n\nvoid fshader(out float4 o_color : COLOR,\n             uniform float4 k_params1,\n             uniform float4 k_params2,\n             float2 l_texcoord : TEXCOORD0,\n             float2 l_texcoordD : TEXCOORD1,\n             float2 l_texcoordN : TEXCOORD2,\n             uniform sampler2D k_random : TEXUNIT0,\n             uniform sampler2D k_depth : TEXUNIT1,\n             uniform sampler2D k_normal : TEXUNIT2)\n{\n  float pixel_depth = tex2D(k_depth, l_texcoordD).a;\n  float3 pixel_normal = (tex2D(k_normal, l_texcoordN).xyz * 2.0 - 1.0);\n  float3 random_vector = normalize((tex2D(k_random, l_texcoord * 18.0 + pixel_depth + pixel_normal.xy).xyz * 2.0) - float3(1.0)).xyz;\n  float occlusion = 0.0;\n  float radius = k_params1.z / pixel_depth;\n  float depth_difference;\n  float3 sample_normal;\n  float3 ray;\n  for(int i = 0; i < %d; ++i) {\n   ray = radius * reflect(sphere[i], random_vector);\n   sample_normal = (tex2D(k_normal, l_texcoordN + ray.xy).xyz * 2.0 - 1.0);",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3954
+  }
+}

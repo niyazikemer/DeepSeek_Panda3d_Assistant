@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class that implements a Task Manager system, likely within a larger software framework or application. The methods `getDoLaters` and `doMethodLater` are part of a task management interface designed to handle asynchronous tasks, scheduling, and execution control. These methods allow users to retrieve lists of delayed/sleeping tasks and schedule new tasks with specific delays and parameters, respectively.\n\ndef getDoLaters(self) -> list[AsyncTask]:\n        \"\"\"Returns list of all sleeping tasks in arbitrary order. \"\"\"\n        return list(self.mgr.getSleepingTasks())\n\n    def doMethodLater(\n        self,\n        delayTime: float,\n        funcOrTask: _FuncOrTask,\n        name: str | None,\n        extraArgs: Sequence | None = None,\n        sort: int | None = None,\n        priority: int | None = None,\n        taskChain: str | None = None,\n        uponDeath: Callable[[], object] | None = None,\n        appendTask: bool = False,\n        owner = None,\n    ) -> AsyncTask:\n        \"\"\"Adds a task to be performed at some time in the future.\n        This is identical to `add()`, except that the specified\n        delayTime is applied to the Task object first, which means\n        that the task will not begin executing until at least the\n        indicated delayTime (in seconds) has elapsed.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3879
+  }
+}

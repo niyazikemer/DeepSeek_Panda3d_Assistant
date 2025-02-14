@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the threading module in Python, specifically defining methods for a synchronization primitive class such as Condition or similar. These methods support context management (via `__enter__` and `__exit__`) and internal lock handling mechanisms for thread synchronization. The `_is_owned()` method checks if the current thread owns the lock, which is essential for ensuring proper thread safety in concurrent environments.\n\nThe chunk is situated within a class definition that implements threading primitives, providing additional functionality to manage locks and condition variables efficiently. This allows developers to use `with` statements for resource management, enhancing code readability and safety when working with threads.\n\nIn summary, this code is part of the threading module's implementation, adding context management and lock handling features to synchronization primitives.\n\ndef __enter__(self):\n        return self.__lock.__enter__()\n\n    def __exit__(self, *args):\n        return self.__lock.__exit__(*args)\n\n    def __repr__(self):\n        return \"<Condition(%s, %d)>\" % (self.__lock, len(self.__waiters))\n\n    def _release_save(self): # pylint: disable=method-hidden\n        self.__lock.release()           # No state to save\n\n    def _acquire_restore(self, x): # pylint: disable=method-hidden\n        self.__lock.acquire()           # Ignore saved state\n\n    def _is_owned(self): # pylint: disable=method-hidden\n        # Return True if lock is owned by currentThread.\n        # This method is called only if __lock doesn't have _is_owned().\n        if self.__lock.acquire(0):\n            self.__lock.release()\n            return False\n        else:\n            return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3815
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code defines a method `__createMessageBar` within an `AppShell` class. This method is responsible for creating a message bar area using the Pmw library to display help and status messages. The message bar is placed in a frame with specific styling and configurations, including sunkem relief, borders, and no label position. This method is typically called during the initialization or setup phase of the application shell to provide a consistent messaging interface for user feedback.\n\nContext: Part of an `AppShell` class used to initialize a message bar component for displaying help and status messages, created during application setup.\n\ndef __createMessageBar(self):\n        # Create the message bar area for help and status messages.\n        frame = self.createcomponent('bottomtray', (), None,\n                                     tk.Frame, (self._hull,), relief=tk.SUNKEN)\n        self.__messageBar = self.createcomponent('messagebar',\n                                                  (), None,\n                                                 Pmw.MessageBar,\n                                                 (frame,),\n                                                 #entry_width = 40,\n                                                 entry_relief=tk.SUNKEN,\n                                                 entry_bd=1,\n                                                 labelpos=None)\n        self.__messageBar.pack(side=tk.LEFT, expand=tk.YES, fill=tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3729
+  }
+}

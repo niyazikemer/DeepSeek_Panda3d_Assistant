@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `rgb_panel.py` file, which defines an RGB panel using Tkinter's `EntryScaleGroup`. The specific code adds menu items to the panel's menubar, including options for popping up a color picker dialog, printing color values to the log, and dismissing the panel. It also sets up a callback function that sends a message via the messenger system when colors are selected or modified in the RGB panel.\n\nmenubar.addmenuitem(\n        'EntryScale Group', 'command',\n        label='Popup Color Picker', command=popupColorPicker)\n\n    def printToLog(nodePath=nodePath):\n        c = nodePath.getColor()\n        print(\"Vec4(%.3f, %.3f, %.3f, %.3f)\" % (c[0], c[1], c[2], c[3]))\n\n    menubar.addmenuitem(\n        'EntryScale Group', 'command',\n        label='Print to log', command=printToLog)\n\n    # Add back the Dismiss item we removed.\n    if esg['fDestroy']:\n        dismissCommand = esg.destroy\n    else:\n        dismissCommand = esg.withdraw\n    menubar.addmenuitem(\n        'EntryScale Group', 'command', 'Dismiss EntryScale Group panel',\n        label='Dismiss', command=dismissCommand)\n\n    # Set callback\n    def onRelease(r, g, b, a, nodePath = nodePath):\n        messenger.send('RGBPanel_setColor', [nodePath, r, g, b, a])\n    esg['postCallback'] = onRelease\n    return esg",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3578
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a function `_listdir` within a custom module finder/loader. This function lists directory contents, checking both directories and zip files to assist in module resolution.\n\nContext: Part of a custom module finding system that handles directories and zip archives for importing modules and packages.\n\nreturn False\n\n    def _listdir(self, path):\n        \"\"\"Lists files in the given directory if it exists.\"\"\"\n\n        if os.path.isdir(path):\n            return os.listdir(path)\n\n        # Is there a zip file along the path?\n        dir, dirname = os.path.split(path.rstrip(os.path.sep + '/'))\n        fn = dirname\n        while dirname:\n            if os.path.isfile(dir):\n                # Okay, this is actually a file.  Is it a zip file?\n                if dir in self._zip_files:\n                    # Yes, and we've previously opened this.\n                    zip = self._zip_files[dir]\n                elif zipfile.is_zipfile(dir):\n                    zip = zipfile.ZipFile(dir)\n                    self._zip_files[dir] = zip\n                else:\n                    # It's not a directory or zip file.\n                    return []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2160
+  }
+}

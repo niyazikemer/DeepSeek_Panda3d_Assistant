@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk provides utility methods for determining if parameters passed to animation intervals (like `LerpNodePathInterval`) are callable functors and initializes such intervals with specified blend types, bakeInStart flags, fluid settings, and node paths. These utilities help in creating flexible and dynamic animations where parameters can be either fixed values or functions generating values over time.\n\nblendType = self.stringBlendType(blendType)\n        assert blendType != self.BTInvalid\n\n        if other is None:\n            other = NodePath()\n\n        CLerpNodePathInterval.__init__(self, name, duration, blendType,\n                                       bakeInStart, fluid, nodePath, other)\n\n    def anyCallable(self, *params):\n        # Returns true if any of the parameters listed is a callable\n        # functor, false if none of them are.  This is used by derived\n        # classes to determine if a functor was passed in for a\n        # parameter.\n\n        for param in params:\n            if callable(param):\n                return 1\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2742
+  }
+}

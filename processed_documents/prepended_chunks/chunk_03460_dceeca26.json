@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines classes for handling 3D collision detection in a scene graph. The `SelectionQueue` serves as a base class that manages collision events and stores them in a queue for processing. Subclasses like `SelectionRay`, `SelectionSegment`, and `SelectionSphere` extend this functionality by implementing specific types of colliders (rays, line segments, spheres) tailored to different collision detection needs.\n\nThe functions in the chunk are part of the base `SelectionQueue` class:\n\n```python\ndef setParentNP(self, parentNP):\n    # Updates where the collider is attached in the scene graph hierarchy\n\ndef addCollider(self, collider):\n    # Attaches a specific collision shape (e.g., ray, sphere) to the node for detecting collisions\n```\n\nThese methods provide essential setup functionality for managing and positioning colliders within the 3D scene.\n\ndef setParentNP(self, parentNP):\n        # Update collisionNodePath's parent\n        self.collisionNodePath.reparentTo(parentNP)\n\n    def addCollider(self, collider):\n        # Inherited class must call this function to specify collider object\n        # Record collision object\n        self.collider = collider\n        # Add the collider to the collision Node\n        self.collisionNode.addSolid(self.collider)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3460
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears in a section of the document that handles the compilation and target naming of executables or shared libraries. It replaces placeholders with function declarations and calls, appends platform-specific code, constructs target file names, and selects the appropriate compilation function based on the operating system.\n\nContext: The code is part of a method that manages the final stages of module processing, including compiling to an executable or DLL and setting up target files with correct extensions for different platforms.\n\ncode = code.replace('EXTRA_INIT_FUNC_DECLS', decls)\n            code = code.replace('EXTRA_INIT_FUNC_CALLS', calls)\n\n            if self.platform.startswith('win'):\n                code += self.frozenDllMainCode\n            initCode = self.mainInitCode % {\n                'frozenMainCode': code,\n                'programName': os.path.basename(basename),\n                'dllexport': dllexport,\n                'dllimport': dllimport,\n            }\n            if self.platform.startswith('win'):\n                target = basename + '.exe'\n            else:\n                target = basename\n\n            compileFunc = self.cenv.compileExe\n\n        else:\n            if self.platform.startswith('win'):\n                target = basename + self.cenv.dllext + '.pyd'\n            else:\n                target = basename + '.so'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2116
+  }
+}

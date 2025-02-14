@@ -1,0 +1,9 @@
+{
+  "content": "The chunk represents a critical initialization method in a class handling projectile motion. It sets up trajectory parameters by resolving callables into actual values, establishing the starting position and other essential variables needed to define the projectile's path.\n\n```plaintext\nThis code chunk is part of a method named __calcTrajectory within a ProjectileInterval class. The method initializes the necessary parameters for calculating the trajectory of a projectile, such as start and end positions, velocity, duration, and gravity multiplier. It processes these parameters by resolving any callables into actual values and sets up the starting position for the projectile's motion.\n```\n\nInterval.__init__(self, name, self.duration)\n\n    def __calcTrajectory(self, startPos = None,\n                         endPos = None, duration = None,\n                         startVel = None, endZ = None,\n                         wayPoint = None, timeToWayPoint = None,\n                         gravityMult = None):\n        if startPos is None:\n            startPos = self.node.getPos()\n\n        def doIndirections(*items):\n            result = []\n            for item in items:\n                if callable(item):\n                    item = item()\n                result.append(item)\n            return result\n\n        startPos, endPos, startVel, endZ, gravityMult, wayPoint, \\\n                  timeToWayPoint = \\\n                  doIndirections(startPos, endPos, startVel, endZ, gravityMult,\n                                 wayPoint, timeToWayPoint)\n\n        # we're guaranteed to know the starting position at this point\n        self.startPos = startPos",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2924
+  }
+}

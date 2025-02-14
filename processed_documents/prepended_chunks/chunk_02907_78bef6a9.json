@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces two classes, `EventInterval` and `AcceptInterval`, which extend `FunctionInterval` to handle event-driven functionality. These classes enable scheduling of event notifications (`messenger.send()`) and managing event acceptance within scene state intervals, enhancing interactivity control.\n\nclass EventInterval(FunctionInterval):\n    # Initialization\n    def __init__(self, event, sentArgs=[]):\n        \"\"\"__init__(event, sentArgs)\n        \"\"\"\n        def sendFunc(event = event, sentArgs = sentArgs):\n            messenger.send(event, sentArgs)\n        # Create function interval\n        FunctionInterval.__init__(self, sendFunc, name = event)\n\n### FunctionInterval subclass for accepting hooks ###\nclass AcceptInterval(FunctionInterval):\n    # Initialization\n    def __init__(self, dirObj, event, function, name = None):\n        \"\"\"__init__(dirObj, event, function, name)\n        \"\"\"\n        def acceptFunc(dirObj = dirObj, event = event, function = function):\n            dirObj.accept(event, function)\n        # Determine name\n        if name is None:\n            name = 'Accept-' + event\n        # Create function interval\n        FunctionInterval.__init__(self, acceptFunc, name = name)\n\n### FunctionInterval subclass for ignoring events ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2907
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the initialization process for an application shell class that extends Tkinter's Frame. It creates a progress bar and sets up configuration details, followed by creating an about dialog with application metadata using Pmw (Python Mega Widget). The context involves configuring GUI components and initializing help and status messages for the application interface.\n\nself.__progressBar = ProgressBar.ProgressBar(\n            frame,\n            fillColor='slateblue',\n            doLabel=1,\n            width=150)\n        self.__progressBar.frame.pack(side=tk.LEFT, expand=tk.NO, fill=tk.NONE)\n\n        self.updateProgress(0)\n        if self['usestatusarea']:\n            frame.pack(side=tk.BOTTOM, expand=tk.NO, fill=tk.X)\n\n        self.__balloon.configure(statuscommand = \\\n                                 self.__messageBar.helpmessage)\n\n    def __createAboutBox(self):\n        Pmw.aboutversion(self.appversion)\n        Pmw.aboutcopyright(self.copyright)\n        Pmw.aboutcontact(\n            'For more information, contact:\\n %s\\n Phone: %s\\n Email: %s' % \\\n            (self.contactname, self.contactphone, self.contactemail))\n        self.about = Pmw.AboutDialog(self._hull,\n                                     applicationname=self.appname)\n        self.about.withdraw()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3730
+  }
+}

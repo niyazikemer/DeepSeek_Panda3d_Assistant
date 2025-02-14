@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines `_doAnalysisGen`, a generator method within a profiling system that processes sampled frame data by aggregating it into period-based profiles. The method handles session cleanup, checks for successful profiling results, and initializes logging controls to ensure efficient profile aggregation and analysis across different time intervals.\n\ndef _doAnalysisGen(self, sessionId):\n        # generator to limit max number of profile loggings per frame\n        p2ap = self._period2aggregateProfile\n\n        self._id2task.pop(sessionId)\n        session = self._id2session.pop(sessionId)\n\n        if session.profileSucceeded():\n            # always add this profile to the first aggregated profile\n            period = self._logSchedule[0]\n            if period not in self._period2aggregateProfile:\n                p2ap[period] = session.getReference()\n            else:\n                p2ap[period].aggregate(session)\n        else:\n            self.notify.warning('frame profile did not succeed')\n\n        session.release()\n        session = None\n\n        counter = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3927
+  }
+}

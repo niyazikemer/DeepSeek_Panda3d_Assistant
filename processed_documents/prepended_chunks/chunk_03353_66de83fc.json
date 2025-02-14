@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines two utility functions (`LE_showInAllCam` and `LE_showInOneCam`) that control the visibility of node paths across multiple cameras in a 3D application. These functions use bitmask flags (defined earlier) to show or hide nodes in specific camera views, enabling selective rendering based on the camera context. The functionality is part of a multi-camera support system designed for applications requiring different visual perspectives (e.g., top, front, left, and perspective views).\n\ndef LE_showInAllCam(nodePath):\n    for camName, mask in LE_CAM_MASKS.items():\n        nodePath.show(mask)\n\ndef LE_showInOneCam(nodePath, thisCamName):\n    LE_showInAllCam(nodePath)\n    for camName, mask in LE_CAM_MASKS.items():\n        if camName != thisCamName:\n            nodePath.hide(mask)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_182",
+    "parent": "processed_documents/context_documents/131b33ef_DirectGlobals.json",
+    "chunk_number": 3353
+  }
+}

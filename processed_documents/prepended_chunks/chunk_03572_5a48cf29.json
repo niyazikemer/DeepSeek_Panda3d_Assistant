@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines core methods for managing state and interaction in an EntryScale group panel used for color manipulation. It includes functions for retrieving values (`get`, `getAt`), setting new values without command execution (`set`), updating specific entry scales (`setAt`), handling value updates via callbacks (`_entryScaleSetAt`), resetting to default values (`reset`), and executing return callbacks (`__onReturn`). These methods are essential for maintaining and interacting with the color panel's state within the larger application.\n\ndef get(self):\n        return self._value\n\n    def getAt(self, index):\n        return self._value[index]\n\n    # This is the command is used to set the groups value\n    def set(self, value, fCommand = 1):\n        for i in range(self['dim']):\n            self._value[i] = value[i]\n            # Update entryScale, but don't execute its command\n            self.entryScaleList[i].set(value[i], 0)\n        if fCommand and (self['command'] is not None):\n            self['command'](self._value)\n\n    def setAt(self, index, value):\n        # Update entryScale and execute its command\n        self.entryScaleList[index].set(value)\n\n    # This is the command used by the entryScale\n    def _entryScaleSetAt(self, index, value):\n        self._value[index] = value\n        if self['command']:\n            self['command'](self._value)\n\n    def reset(self):\n        self.set(self['value'])\n\n    def __onReturn(self, esg):\n        # Execute onReturn callback\n        self.onReturn(*esg.get())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3572
+  }
+}

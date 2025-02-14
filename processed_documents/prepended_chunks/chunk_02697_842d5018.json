@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines state transition behavior (enter, filter, exit) for the 'Green' state within an FSM implementation, similar to other state methods in the NewStyle class that handle transitions between Red, Green, and Yellow states.\n\ndef enterGreen(self):\n        print(\"enterGreen(self, '%s', '%s')\" % (self.oldState, self.newState))\n\n    def filterGreen(self, request, args):\n        print(\"filterGreen(self, '%s', %s)\" % (request, args))\n        if request == 'advance':\n            return 'Yellow'\n        return self.defaultFilter(request, args)\n\n    def exitGreen(self):\n        print(\"exitGreen(self, '%s', '%s')\" % (self.oldState, self.newState))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_149",
+    "parent": "processed_documents/context_documents/c3ea557f_SampleFSM.json",
+    "chunk_number": 2697
+  }
+}

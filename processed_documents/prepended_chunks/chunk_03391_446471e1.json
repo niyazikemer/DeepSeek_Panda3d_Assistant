@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method that manages camera transitions into an out-of-body experience (OOBE) mode in a 3D application. It sets up the oobeCamera, repositions the main camera under it, defines a target position and orientation for smooth transition using easing, and starts the animation to trigger the OOBE mode after completion.\n\n# Prepare oobe camera\n            self.oobeCamera.reparentTo(cameraParent)\n            self.oobeCamera.setPosHpr(self.trueCamera, 0, 0, 0, 0, 0, 0)\n            # Put camera under new oobe camera\n            self.cam.reparentTo(self.oobeCamera)\n            # Position a target point to lerp the oobe camera to\n            self.cameraControl.camManipRef.setPos(\n                self.trueCamera, Vec3(-2, -20, 5))\n            self.cameraControl.camManipRef.lookAt(self.trueCamera)\n            ival = self.oobeCamera.posHprInterval(\n                2.0, pos = Point3(0), hpr = Vec3(0),\n                other = self.cameraControl.camManipRef,\n                blendType = 'easeInOut')\n            ival = Sequence(ival, Func(self.beginOOBE), name = 'oobeTransition')\n            ival.start()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3391
+  }
+}

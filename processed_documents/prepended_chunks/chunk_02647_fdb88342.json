@@ -1,0 +1,9 @@
+{
+  "content": "The `requestNext` method is part of a thread-safe Finite State Machine (FSM) implementation designed to manage state transitions. It allows requesting the next state from a predefined array, ensuring safe access using locks. The method handles cases where the current state may not be in the array and provides debugging information if the array is empty.\n\ndef requestNext(self, *args):\n        \"\"\"Request the 'next' state in the predefined state array.\"\"\"\n        self.fsmLock.acquire()\n        try:\n            if self.stateArray:\n                if not self.state in self.stateArray:\n                    return self.request(self.stateArray[0])\n                else:\n                    cur_index = self.stateArray.index(self.state)\n                    new_index = (cur_index + 1) % len(self.stateArray)\n                    return self.request(self.stateArray[new_index], args)\n            else:\n                assert self.notify.debug(\n                                    \"stateArray empty. Can't switch to next.\")\n        finally:\n            self.fsmLock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2647
+  }
+}

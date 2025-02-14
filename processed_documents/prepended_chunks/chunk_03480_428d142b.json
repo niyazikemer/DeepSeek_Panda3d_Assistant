@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a set of methods related to drawing and managing line segments in 3D space using the `LineSegs` class from Panda3D. The methods provide functionality for creating lines, resetting them, setting their properties (like color and thickness), and managing vertices. These utilities are part of a larger collection of geometric and utility functions designed for working with 3D graphics in Panda3D.\n\ndef drawTo(self, *_args):\n        self.lineSegs.drawTo(*_args)\n\n    def create(self, frameAccurate = 0):\n        self.lineSegs.create(self.lineNode, frameAccurate)\n\n    def reset(self):\n        self.lineSegs.reset()\n        self.lineNode.removeAllGeoms()\n\n    def isEmpty(self):\n        return self.lineSegs.isEmpty()\n\n    def setThickness(self, thickness):\n        self.lineSegs.setThickness(thickness)\n\n    def setColor(self, *_args):\n        self.lineSegs.setColor(*_args)\n\n    def setVertex(self, *_args):\n        self.lineSegs.setVertex(*_args)\n\n    def setVertexColor(self, vertex, *_args):\n        self.lineSegs.setVertexColor(*(vertex,) + _args)\n\n    def getCurrentPosition(self):\n        return self.lineSegs.getCurrentPosition()\n\n    def getNumVertices(self):\n        return self.lineSegs.getNumVertices()\n\n    def getVertex(self, index):\n        return self.lineSegs.getVertex(index)\n\n    def getVertexColor(self):\n        return self.lineSegs.getVertexColor()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_187",
+    "parent": "processed_documents/context_documents/e315e4bf_DirectGeometry.json",
+    "chunk_number": 3480
+  }
+}

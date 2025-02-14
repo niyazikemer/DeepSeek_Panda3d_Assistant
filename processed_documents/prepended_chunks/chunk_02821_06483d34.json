@@ -1,0 +1,9 @@
+{
+  "content": "The `LerpAnimInterval` class facilitates smooth transitions between two animations on an actor by blending their effects over a specified duration. This class is designed for scenarios where you want to gradually shift from one animation state (`startAnim`) to another (`endAnim`). The blend can be customized with weights and different types (e.g., linear, sine), allowing for nuanced control over the transition effect.\n\nclass LerpAnimInterval(CLerpAnimEffectInterval):\n    # Blends between two anims.  Start both anims first (or use\n    # parallel ActorIntervals), then invoke LerpAnimInterval to\n    # smoothly blend the control effect from the first to the second.\n    lerpAnimNum = 1\n\n    def __init__(self, actor, duration, startAnim, endAnim,\n                 startWeight = 0.0, endWeight = 1.0,\n                 blendType = 'noBlend', name = None,\n                 partName=None, lodName=None):\n        # Generate unique name if necessary\n        if name is None:\n            name = 'LerpAnimInterval-%d' % LerpAnimInterval.lerpAnimNum\n            LerpAnimInterval.lerpAnimNum += 1\n\n        blendType = self.stringBlendType(blendType)\n        assert blendType != self.BTInvalid\n\n        # Initialize superclass\n        CLerpAnimEffectInterval.__init__(self, name, duration, blendType)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_161",
+    "parent": "processed_documents/context_documents/9713deac_ActorInterval.json",
+    "chunk_number": 2821
+  }
+}

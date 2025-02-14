@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within a method responsible for managing and binding animations of an actor in the Panda3D framework. It handles cases where animations are associated with subparts that have not yet been bound, ensuring those animations are properly loaded or copied into the animation dictionary to be used by the actor's subcomponents.\n\n```python\n# This code chunk is part of a method within the Actor class in Panda3D,\n# specifically handling animation binding. It checks for and binds animations\n# related to subparts that may not have been explicitly bound yet, ensuring they're\n# available for use.\n```\n\nif animNameList is True:\n                        names = animDict.keys()\n                    for animName in names:\n                        anim = animDict.get(animName)\n                        if anim is None and partName is not None:\n                            for pName in partNameList:\n                                # Maybe it's a subpart that hasn't been bound yet.\n                                subpartDef = self.__subpartDict.get(pName)\n                                if subpartDef:\n                                    truePartName = subpartDef.truePartName\n                                    anim = partDict[truePartName].get(animName)\n                                    if anim:\n                                        anim = anim.makeCopy()\n                                        animDict[animName] = anim",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3133
+  }
+}

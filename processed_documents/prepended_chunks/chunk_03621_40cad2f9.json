@@ -1,0 +1,9 @@
+{
+  "content": "This code defines the `FloaterGroup` class initialization method, which sets up a group of floaters (slider-like widgets) in a GUI application. The code snippet is part of the larger implementation that initializes default values for the floater group based on user input parameters, including setting the number of floaters (`dim`), their default values, and labels. This section is crucial for understanding how the floater group component is initialized within the application's graphical interface.\n\nclass FloaterGroup(Pmw.MegaToplevel):\n    def __init__(self, parent = None, **kw):\n\n        # Default group size\n        DEFAULT_DIM = 1\n        # Default value depends on *actual* group size, test for user input\n        DEFAULT_VALUE = [0.0] * kw.get('dim', DEFAULT_DIM)\n        DEFAULT_LABELS = ['v[%d]' % x for x in range(kw.get('dim', DEFAULT_DIM))]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3621
+  }
+}

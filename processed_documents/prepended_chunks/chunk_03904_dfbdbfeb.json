@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `_TaskManager` class, specifically within a method responsible for handling task execution and profiling. This method ensures that each task's original function and arguments are restored before execution, preventing consecutive profiling of the same task. It then runs a profiling session to measure performance metrics, which helps in optimizing task management.\n\n```python\n\"\"\"\nThis code snippet is part of a method within the _TaskManager class responsible for handling task execution with profiling. The method restores the task's original function and arguments before running it, ensuring tasks are only profiled once per execution.\n\"\"\"\n```\n\nassert profileInfo.task == task\n        # don't profile the same task twice in a row\n        assert not profileInfo.profiled\n\n        # Restore the task's proper function for next time.\n        appendTask = False\n        taskArgs = profileInfo.taskArgs\n        if taskArgs and taskArgs[-1] == task:\n            appendTask = True\n            taskArgs = taskArgs[:-1]\n        task.setArgs(taskArgs, appendTask)\n        task.setFunction(profileInfo.taskFunc)\n\n        # Defer this import until we need it: some Python\n        # distributions don't provide the profile and pstats modules.\n        PS = importlib.import_module('direct.showbase.ProfileSession')\n        profileSession = PS.ProfileSession('profiled-task-%s' % task.getName(),\n                                           Functor(profileInfo.taskFunc, *profileInfo.taskArgs))\n        ret = profileSession.run()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3904
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk introduces two core classes for state management: `StateVar`, which enables value assignment and state change propagation, and `StateChangeNode`, a foundational class for creating interconnected state notification chains. These classes are essential components in a system designed to manage state changes and notifications efficiently.\n\nclass StateVar(PushesStateChanges):\n    # coder-friendly object that allows values to be set on it and pushes those values\n    # as state changes\n    def set(self, value):\n        PushesStateChanges._handlePotentialStateChange(self, value)\n\n    def get(self):\n        return PushesStateChanges.getState(self)\n\n\nclass StateChangeNode(PushesStateChanges, ReceivesStateChanges):\n    # base class that can be used to create a state-change notification chain\n    def __init__(self, source):\n        ReceivesStateChanges.__init__(self, source)\n        PushesStateChanges.__init__(self, source.getState())\n        ReceivesStateChanges._finishInit(self)\n\n    def destroy(self):\n        PushesStateChanges.destroy(self)\n        ReceivesStateChanges.destroy(self)\n\n    def _recvStatePush(self, source):\n        # got a state push, apply new state to self\n        self._handlePotentialStateChange(source._value)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2659
+  }
+}

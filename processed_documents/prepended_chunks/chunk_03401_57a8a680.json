@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of an event handling method within the `DisplayRegionContext` class. It manages modifier key states (Shift, Control, Alt) and adjusts mouse interaction behavior accordingly. When these keys are pressed along with mouse buttons, it updates the context to modify the effect of those mouse actions, such as panning or rotating, enhancing user interaction in a 3D graphics application.\n\n```python\ndef handleModifiers(self):\n    \"\"\"\n    Handle modifier key states (Shift, Control, Alt) and update mouse interaction behavior.\n    Modifies how mouse actions are processed based on active modifier keys.\n    \"\"\"\n```\n\nelif input == 'shift':\n            self.fShift = 1\n        elif input == 'shift-up':\n            self.fShift = 0\n        elif input == 'control':\n            self.fControl = 1\n            # [gjeon] to update control key information while mouse1 is pressed\n            if self.fMouse1:\n                modifiers = DG.DIRECT_NO_MOD\n                modifiers |= DG.DIRECT_CONTROL_MOD\n                messenger.send('DIRECT-mouse1', sentArgs = [modifiers])\n        elif input == 'control-up':\n            self.fControl = 0\n        elif input == 'alt':\n            if self.fAlt:\n                return\n            self.fAlt = 1\n            # [gjeon] to update alt key information while mouse1 is pressed\n            if self.fMouse1:\n                modifiers = DG.DIRECT_NO_MOD\n                modifiers |= DG.DIRECT_ALT_MOD\n                messenger.send('DIRECT-mouse1', sentArgs = [modifiers])\n            elif self.fMouse2:\n                modifiers = DG.DIRECT_NO_MOD",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3401
+  }
+}

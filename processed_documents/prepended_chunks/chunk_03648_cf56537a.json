@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk defines the `ValuatorGroup` class, which is a custom widget built on top of `Pmw.MegaWidget`. It serves as the foundation for creating groups of input controls (e.g., sliders) to adjust multiple values simultaneously. This class is used by higher-level functions like `rgb_panel` and `light_rgb_panel` to implement color adjustment panels in a 3D environment, leveraging Tkinter for GUI components.\n\nclass ValuatorGroup(Pmw.MegaWidget):\n    def __init__(self, parent = None, **kw):\n\n        # Default group size\n        DEFAULT_DIM = 1\n        # Default value depends on *actual* group size, test for user input\n        DEFAULT_VALUE = [0.0] * kw.get('dim', DEFAULT_DIM)\n        DEFAULT_LABELS = ['v[%d]' % x for x in range(kw.get('dim', DEFAULT_DIM))]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3648
+  }
+}

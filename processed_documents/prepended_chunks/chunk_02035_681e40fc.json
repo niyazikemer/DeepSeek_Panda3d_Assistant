@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a method `determineStandardSetup()` that initializes platform-specific paths and environment variables, particularly relevant for Windows systems. It sets the Python installation directory and locates the Microsoft Visual C++ compiler by checking environment variables or known installation paths, which is crucial for compiling modules during import operations. This setup ensures compatibility with tools like Visual Studio on Windows platforms.\n\ndef determineStandardSetup(self):\n        if self.platform.startswith('win'):\n            self.Python = sysconf.PREFIX\n\n            if 'VCINSTALLDIR' in os.environ:\n                self.MSVC = os.environ['VCINSTALLDIR']\n            elif Filename('/c/Program Files/Microsoft Visual Studio 9.0/VC').exists():\n                self.MSVC = Filename('/c/Program Files/Microsoft Visual Studio 9.0/VC').toOsSpecific()\n            elif Filename('/c/Program Files (x86)/Microsoft Visual Studio 9.0/VC').exists():\n                self.MSVC = Filename('/c/Program Files (x86)/Microsoft Visual Studio 9.0/VC').toOsSpecific()\n            elif Filename('/c/Program Files/Microsoft Visual Studio .NET 2003/Vc7').exists():\n                self.MSVC = Filename('/c/Program Files/Microsoft Visual Studio .NET 2003/Vc7').toOsSpecific()\n            else:\n                print('Could not locate Microsoft Visual C++ Compiler! Try running from the Visual Studio Command Prompt.')\n                sys.exit(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2035
+  }
+}

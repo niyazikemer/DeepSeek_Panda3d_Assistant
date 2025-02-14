@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the reconfiguration process for graphics rendering settings, adjusting shader parameters for blur sharpening and bloom effects.\n\nif changed == \"BlurSharpen\" or fullrebuild:\n            if \"BlurSharpen\" in configuration:\n                blurval = configuration[\"BlurSharpen\"]\n                self.finalQuad.setShaderInput(\"blurval\", LVecBase4(blurval, blurval, blurval, blurval))\n\n        if changed == \"Bloom\" or fullrebuild:\n            if \"Bloom\" in configuration:\n                bloomconf = configuration[\"Bloom\"]\n                intensity = bloomconf.intensity * 3.0\n                self.bloom[0].setShaderInput(\"blend\", bloomconf.blendx, bloomconf.blendy, bloomconf.blendz, bloomconf.blendw * 2.0)\n                self.bloom[0].setShaderInput(\"trigger\", bloomconf.mintrigger, 1.0/(bloomconf.maxtrigger-bloomconf.mintrigger), 0.0, 0.0)\n                self.bloom[0].setShaderInput(\"desat\", bloomconf.desat)\n                self.bloom[3].setShaderInput(\"intensity\", intensity, intensity, intensity, intensity)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3979
+  }
+}

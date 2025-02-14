@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `waitPending()` method for an Actor class, which blocks until all asynchronously pending animations (currently playing) have been loaded and bound to the Actor. It is particularly useful when needing immediate animation loading after calling play() with asynchronous binds.\n\ndef waitPending(self, partName = None):\n        \"\"\"Blocks until all asynchronously pending animations (that\n        are currently playing) have been loaded and bound the the\n        Actor.  Call this after calling play() if you are using\n        asynchronous binds, but you need this particular animation\n        to be loaded immediately. \"\"\"\n\n        for bundle in self.getPartBundles(partName = partName):\n            bundle.waitPending()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3162
+  }
+}

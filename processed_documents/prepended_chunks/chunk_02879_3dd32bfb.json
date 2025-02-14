@@ -1,0 +1,9 @@
+{
+  "content": "The `addParallelEndTogether` method is part of a MetaInterval class implementation, used for synchronizing interval playback. It ensures that all added intervals end at the same time by adjusting their start times based on their durations.\n\n```python\ndef addParallelEndTogether(self, list, name, relTime, relTo, duration):\n    # Adds intervals to play simultaneously, ending together.\n    maxDuration = 0\n    for ival in list:\n        maxDuration = max(maxDuration, ival.getDuration())\n    self.pushLevel(name, relTime, relTo)\n    for ival in list:\n        self.addInterval(ival, maxDuration - ival.getDuration(), TRACK_START)\n    self.popLevel(duration)\n```\n\ndef addParallelEndTogether(self, list, name, relTime, relTo, duration):\n        # Adds the given list of intervals to the MetaInterval to be\n        # played simultaneously; all will end at the same time, but\n        # the longest interval will be started first to achieve this.\n\n        maxDuration = 0\n        for ival in list:\n            maxDuration = max(maxDuration, ival.getDuration())\n\n        self.pushLevel(name, relTime, relTo)\n        for ival in list:\n            self.addInterval(ival, maxDuration - ival.getDuration(), TRACK_START)\n        self.popLevel(duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2879
+  }
+}

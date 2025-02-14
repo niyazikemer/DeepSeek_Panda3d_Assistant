@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class method responsible for handling file operations over a virtual file system (VFS). The specific lines implement error checking and line-by-line writing functionality when attempting to write multiple lines to a file. The context involves verifying that the file stream is not read-only before proceeding with the write operation, and then iterating through each line in the input to perform the writes.\n\n# The stream is open only in read mode.\n            raise IOError(\"Attempt to write to read-only stream\")\n\n        self.__stream.clear()  # clear eof flag\n        for line in lines:\n            self.__write(line)\n        self.__lastWrite = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3789
+  }
+}

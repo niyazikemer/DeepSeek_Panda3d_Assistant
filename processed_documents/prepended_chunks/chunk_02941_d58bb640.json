@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `recompute()` method in the `Rope` class, which handles setting up knots for the curve if provided and resetting bounds. It ensures that the rope's geometry is accurately represented by evaluating points along its length.\n\nif self.knots is not None:\n            for i in range(len(self.knots)):\n                self.curve.setKnot(i, self.knots[i])\n\n        self.ropeNode.resetBound(self)\n\n    def getPoints(self, len):\n        \"\"\"Returns a list of len points, evenly distributed in\n        parametric space on the rope, in the coordinate space of the\n        Rope itself.\"\"\"\n\n        result = self.curve.evaluate(self)\n        startT = result.getStartT()\n        sizeT = result.getEndT() - startT\n\n        numPts = len\n        ropePts = []\n        for i in range(numPts):\n            pt = Point3()\n            result.evalPoint(sizeT * i / float(numPts - 1) + startT, pt)\n            ropePts.append(pt)\n        return ropePts",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_169",
+    "parent": "processed_documents/context_documents/b78c6f86_Rope.json",
+    "chunk_number": 2941
+  }
+}

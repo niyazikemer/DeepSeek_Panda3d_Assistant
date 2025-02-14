@@ -1,0 +1,9 @@
+{
+  "content": "The provided document appears to be a Protocol Buffers (proto) file that defines multiple message types related to Android app targeting criteria. These include ABI, Sanitizer, AssetDirectoryTargeting, NativeDirectoryTargeting, APEXImageTargeting, and others.\n\nThe specific chunk of code is configuring field dependencies between these message types. For example:\n- Setting up enum types for fields like `abi.alias` and `sanitizer.alias`\n- Establishing relationships between messages such as `AssetDirectoryTargeting.abi` depending on `_ABITARGETING` \n- Linking `APEXImageTargeting.multi_abi` to `_MULTIABITARGETING`\n\nThe code is establishing the interdependencies between different message types used for targeting Android devices and apps.\n\n_ABI.fields_by_name['alias'].enum_type = _ABI_ABIALIAS\n_ABI_ABIALIAS.containing_type = _ABI\n_MULTIABI.fields_by_name['abi'].message_type = _ABI\n_SANITIZER.fields_by_name['alias'].enum_type = _SANITIZER_SANITIZERALIAS\n_SANITIZER_SANITIZERALIAS.containing_type = _SANITIZER\n_ASSETSDIRECTORYTARGETING.fields_by_name['abi'].message_type = _ABITARGETING\n_ASSETSDIRECTORYTARGETING.fields_by_name['texture_compression_format'].message_type = _TEXTURECOMPRESSIONFORMATTARGETING\n_ASSETSDIRECTORYTARGETING.fields_by_name['language'].message_type = _LANGUAGETARGETING\n_ASSETSDIRECTORYTARGETING.fields_by_name['device_tier'].message_type = _DEVICETIERTARGETING\n_NATIVEDIRECTORYTARGETING.fields_by_name['abi'].message_type = _ABI\n_NATIVEDIRECTORYTARGETING.fields_by_name['texture_compression_format'].message_type = _TEXTURECOMPRESSIONFORMAT\n_NATIVEDIRECTORYTARGETING.fields_by_name['sanitizer'].message_type = _SANITIZER\n_APEXIMAGETARGETING.fields_by_name['multi_abi'].message_type = _MULTIABITARGETING",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_141",
+    "parent": "processed_documents/context_documents/8f498409_targeting_pb2.json",
+    "chunk_number": 2533
+  }
+}

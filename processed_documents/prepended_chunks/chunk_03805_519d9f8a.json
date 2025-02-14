@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains initial imports and setup for a threading module implementation. It imports necessary components like thread management functions from `direct.stdpy.thread`, time-related functions, traceback formatting, and Panda3D's core threading utilities. The code defines essential global variables such as `__all__` to control exports, renames key functions for internal use, and deletes unused modules to clean up the namespace. This section establishes the foundational environment required for implementing thread management classes and functions that follow in the document.\n\nfrom direct.stdpy import thread as _thread\nfrom direct.stdpy.thread import stack_size, _newname, _local as local\nfrom panda3d import core\n_sleep = core.Thread.sleep\n\nfrom time import time as _time\nfrom traceback import format_exc as _format_exc\n\n__all__ = ['get_ident', 'active_count', 'Condition', 'current_thread',\n           'enumerate', 'main_thread', 'TIMEOUT_MAX',\n           'Event', 'Lock', 'RLock', 'Semaphore', 'BoundedSemaphore', 'Thread',\n           'Timer', 'ThreadError',\n           'setprofile', 'settrace', 'local', 'stack_size']\n\n# Rename some stuff so \"from threading import *\" is safe\n_start_new_thread = _thread.start_new_thread\n_allocate_lock = _thread.allocate_lock\nget_ident = _thread.get_ident\nThreadError = _thread.error\nTIMEOUT_MAX = _thread.TIMEOUT_MAX\ndel _thread",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3805
+  }
+}

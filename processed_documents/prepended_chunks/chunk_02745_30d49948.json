@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides context for understanding the behavior of certain animation intervals (e.g., LerpPos, LerpHpr) that continuously update node properties based on frame-by-frame calculations, enabling smooth animations and allowing real-time adjustments while animating. It specifically addresses how fluid motion is handled in collision detection systems when using position-based lerps.\n\n##  recomputed each frame based on the current value and the time\n##  delta since the last time the interval ran, which allows show code\n##  to manipulate the node even while it is being lerped.\n##\n##  If fluid is true for a LerpPos-style interval, then the pos is set\n##  via NodePath.setFluidPos() instead of NodePath.setPos(), causing\n##  the collision system to treat the motion as continuous and test\n##  for collisions against the entire motion path, instead of as\n##  discrete position updates.  This has no meaning for Lerp intervals\n##  that do not adjust pos.\n##\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2745
+  }
+}

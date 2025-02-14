@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `WrtParentInterval` class, which is one of several `FunctionInterval` subclasses provided in the document. It belongs to a section that implements functionality for scene graph node manipulation and reparenting operations.\n\nclass WrtParentInterval(FunctionInterval):\n    # WrtParentInterval counter\n    wrtParentIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, parent, name = None):\n        \"\"\"__init__(nodePath, parent, name)\n        \"\"\"\n        def wrtReparentFunc(nodePath = nodePath, parent = parent):\n            nodePath.wrtReparentTo(parent)\n        # Determine name\n        if name is None:\n            name = ('WrtParentInterval-%d' %\n                    WrtParentInterval.wrtParentIntervalNum)\n            WrtParentInterval.wrtParentIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, wrtReparentFunc, name = name)\n\n### Function Interval subclasses for instantaneous pose changes ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2910
+  }
+}

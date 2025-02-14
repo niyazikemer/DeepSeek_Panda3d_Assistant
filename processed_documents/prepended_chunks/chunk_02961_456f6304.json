@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes the rendering and interaction components for the texture placement system by setting up a canvas node, camera, display region, and MouseWatcher to handle user interactions with texture regions.\n\nself.canvas = self.canvasRoot.attachNewNode('canvas')\n\n        # Create a DisplayRegion and an associated camera.\n        self.canvasDR = self.win.makeDisplayRegion()\n        self.canvasDR.setSort(-10)\n        cam = Camera('cam2d')\n        self.canvasLens = OrthographicLens()\n        self.canvasLens.setNearFar(-1000, 1000)\n        cam.setLens(self.canvasLens)\n\n        np = self.canvasRoot.attachNewNode(cam)\n        self.canvasDR.setCamera(np)\n\n        # Create a MouseWatcher so we can interact with the various\n        # textures.\n        self.mw = MouseWatcher('%s-watcher' % (self.name))\n        self.mw.setDisplayRegion(self.canvasDR)\n        mwnp = self.mouse.attachNewNode(self.mw)\n\n        eventName = '%s-enter' % (self.name)\n        self.mw.setEnterPattern(eventName)\n        self.accept(eventName, self.enterRegion)\n\n        eventName = '%s-leave' % (self.name)\n        self.mw.setLeavePattern(eventName)\n        self.accept(eventName, self.leaveRegion)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2961
+  }
+}

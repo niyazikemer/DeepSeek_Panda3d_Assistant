@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the `Slider` class, which is a subclass of `Valuator`. This class implements a slider widget that allows users to set floating-point values within a specified range. The `Slider` includes an entry field for precise value input and a slider control for adjusting values interactively. It supports setting minimum and maximum allowable values and provides methods for updating the displayed value and handling user interactions, such as mouse clicks and keyboard inputs.\n\nThe `Slider` class is designed to be part of a larger set of widget components, with its functionality tailored for applications requiring precise numeric input through both direct entry and slider-based adjustments.\n\nclass Slider(Valuator):\n    \"\"\"\n    Valuator widget which includes an min/max slider and an entry for setting\n    floating point values in a range\n    \"\"\"\n\n    def __init__(self, parent = None, **kw):\n        INITOPT = Pmw.INITOPT\n        optiondefs = (\n            ('min',        0.0,           self.setMin),\n            ('max',        100.0,         self.setMax),\n            ('style',      VALUATOR_MINI,   INITOPT),\n        )\n        self.defineoptions(kw, optiondefs)\n        Valuator.__init__(self, parent)\n        # Can not enter None for min or max, update propertyDict to reflect\n        self.propertyDict['min']['fNone'] = 0\n        self.propertyDict['min']['help'] = 'Minimum allowable value.'\n        self.propertyDict['max']['fNone'] = 0\n        self.propertyDict['max']['help'] = 'Maximum allowable value.'\n        self.initialiseoptions(Slider)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3501
+  }
+}

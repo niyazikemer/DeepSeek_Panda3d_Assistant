@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the State class and defines a class method called replaceMethod. This method iterates over all instances of State stored in cls.States, checking if their enter or exit functions are instance methods that match the oldFunction parameter. If a match is found, it replaces the old function with newFunction for those state instances and increments a count to track how many replacements were made.\n\n</context>\n\nThe chunk is situated within the State class as a utility method used to replace old method references in enter or exit functions across all state instances, aiding in dynamic code maintenance.\n\n@classmethod\n        def replaceMethod(cls, oldFunction, newFunction):\n            import types\n            count = 0\n            for state in cls.States:\n                # Note: you can only replace methods currently\n                enterFunc = state.getEnterFunc()\n                exitFunc = state.getExitFunc()\n                # print 'testing: ', state, enterFunc, exitFunc, oldFunction\n                if isinstance(enterFunc, types.MethodType):\n                    if enterFunc.__func__ == oldFunction:\n                        # print 'found: ', enterFunc, oldFunction\n                        state.setEnterFunc(types.MethodType(newFunction,\n                                                            enterFunc.__self__))\n                        count += 1\n                if isinstance(exitFunc, types.MethodType):\n                    if exitFunc.__func__ == oldFunction:\n                        # print 'found: ', exitFunc, oldFunction",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2671
+  }
+}

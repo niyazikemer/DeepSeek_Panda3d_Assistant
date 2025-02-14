@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method within a class responsible for 3D camera manipulation in a Panda3D-based application. The chunk specifically handles camera positioning and rotation relative to a central point (coaMarker) using mouse or keyboard inputs. It adjusts the camera's position based on deltaX and deltaY values, scaled by the horizontal and vertical fields of view (fovH and fovV). Additionally, it manages the camera's roll angle if roll locking is enabled. This functionality is part of a broader system for interactive 3D scene navigation, including methods for handling mouse events, keyboard commands, and maintaining the relationship between selected objects and the widget-based interface.\n\n(deltaX * direct.dr.fovH),\n                                 (-deltaY * direct.dr.fovV),\n                                 0.0)\n            if self.lockRoll:\n                # flatten roll\n                direct.camera.setR(0)\n            self.camManipRef.setPos(self.coaMarkerPos)\n            self.camManipRef.setHpr(direct.camera, DG.ZERO_POINT)\n        else:\n            if direct.camera.getPos().getZ() >=0 or not self.switchDirBelowZero:\n                dirX = -1\n            else:\n                dirX = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3324
+  }
+}

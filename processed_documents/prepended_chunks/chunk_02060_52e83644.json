@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a custom `Freezer` class that extends Python's `modulefinder.ModuleFinder`. The `ModuleDef` class within it represents module definitions, storing details like module names, filenames, and flags to control behavior such as implicit imports or exclusion. This chunk implements module representation and management logic within the broader context of module path handling and dependency resolution in the `modulefinder` framework.\n\nclass Freezer:\n    class ModuleDef:\n        def __init__(self, moduleName, filename = None,\n                     implicit = False, guess = False,\n                     exclude = False, forbid = False,\n                     allowChildren = False, fromSource = None,\n                     text = None):\n            # The Python module name.\n            self.moduleName = moduleName\n\n            # The file on disk it was loaded from, if any.\n            self.filename = filename\n            if filename is not None and not isinstance(filename, Filename):\n                self.filename = Filename(filename)\n\n            # True if the module was found via the modulefinder.\n            self.implicit = implicit\n\n            # True if the moduleName might refer to some Python object\n            # other than a module, in which case the module should be\n            # ignored.\n            self.guess = guess",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2060
+  }
+}

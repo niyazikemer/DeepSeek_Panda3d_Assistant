@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a `ParentInterval` class, which is part of a collection of utility classes designed to manipulate node paths in Panda3D. The class inherits from `FunctionInterval` and provides functionality to re-parent a node path in the scene graph during animations or tasks. This sits within a broader framework for creating and managing animation intervals and scene graph manipulations.\n\nclass ParentInterval(FunctionInterval):\n    # ParentInterval counter\n    parentIntervalNum = 1\n    # Initialization\n    def __init__(self, nodePath, parent, name = None):\n        \"\"\"__init__(nodePath, parent, name)\n        \"\"\"\n        def reparentFunc(nodePath = nodePath, parent = parent):\n            nodePath.reparentTo(parent)\n        # Determine name\n        if name is None:\n            name = 'ParentInterval-%d' % ParentInterval.parentIntervalNum\n            ParentInterval.parentIntervalNum += 1\n        # Create function interval\n        FunctionInterval.__init__(self, reparentFunc, name = name)\n\n### Function Interval subclass for adjusting scene graph hierarchy ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2909
+  }
+}

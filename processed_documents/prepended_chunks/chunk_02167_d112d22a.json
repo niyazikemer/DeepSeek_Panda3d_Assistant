@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a custom module loader or finder class that overrides Python's default module-finding behavior to handle specific module loading requirements, such as managing frozen modules, namespace packages, and vendored dependencies. The `scan_code` method in the chunk specifically deals with scanning bytecode for opcode handling, supporting compatibility across different Python versions (2.5+), and is part of a broader system for analyzing and loading modules dynamically while managing their dependencies and external libraries.\n\ndef scan_code(self, co, m):\n        code = co.co_code\n        # This was renamed to scan_opcodes in Python 3.6\n        if hasattr(self, 'scan_opcodes_25'):\n            scanner = self.scan_opcodes_25\n        else:\n            scanner = self.scan_opcodes",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2167
+  }
+}

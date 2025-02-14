@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Task Manager class implementation in Python, which handles scheduling, execution, and management of tasks. The chunk includes methods for removing tasks matching a pattern and advancing the task manager by one frame (step method). It sits within a broader context of task management functionality, including interrupt handling, timing tracking, and task scheduling.\n\nReturns the number of tasks removed.\n        \"\"\"\n        tasks = self.mgr.findTasksMatching(GlobPattern(taskPattern))\n        return self.mgr.remove(tasks)\n\n    def step(self) -> None:\n        \"\"\"Invokes the task manager for one frame, and then returns.\n        Normally, this executes each task exactly once, though task\n        chains that are in sub-threads or that have frame budgets\n        might execute their tasks differently. \"\"\"\n\n        startFrameTime = self.globalClock.getRealTime()\n\n        # Replace keyboard interrupt handler during task list processing\n        # so we catch the keyboard interrupt but don't handle it until\n        # after task list processing is complete.\n        self.fKeyboardInterrupt = False\n        self.interruptCount = 0\n\n        if signal:\n            self.__prevHandler = signal.signal(signal.SIGINT, self.keyboardInterruptHandler)\n\n        try:\n            self.mgr.poll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3892
+  }
+}

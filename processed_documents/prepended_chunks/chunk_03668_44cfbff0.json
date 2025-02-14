@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a nested function `popupColorPicker` within the `lightRGBPanel` function, which creates a control panel for adjusting light colors in a scene graph. The nested function enables users to select a new color via a color picker dialog, updating both the light's color and the panel's UI accordingly.\n\ndef lightRGBPanel(light, style = 'mini'):\n    # Color picker for lights\n    def popupColorPicker():\n        # Can pass in current color with: color = (255, 0, 0)\n        color = askcolor(\n            parent = vgp.interior(),\n            # Initialize it to current color\n            initialcolor = tuple(vgp.get()[:3]))[0]\n        if color:\n            vgp.set((color[0], color[1], color[2], vgp.getAt(3)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3668
+  }
+}

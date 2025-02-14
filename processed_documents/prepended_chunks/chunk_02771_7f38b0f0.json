@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a class `LerpPosQuatScaleInterval`, which is part of a series of interpolation (lerp) classes used for animating node properties in 3D graphics. This specific class extends `LerpNodePathInterval` to handle simultaneous interpolation of position, rotation (using quaternions), and scale of a node path. It is designed for complex animations requiring precise orientation control through quaternions, avoiding issues like gimbal lock associated with HPR rotations.\n\n**Succinct Context:**  \nThis code introduces the `LerpPosQuatScaleInterval` class within a suite of animation tools, enabling smooth transitions of position, rotation (via quaternions), and scale for 3D objects.\n\nclass LerpPosQuatScaleInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, pos, quat = None, scale = None,\n                 startPos = None, startHpr = None, startQuat = None,\n                 startScale = None,\n                 other = None, blendType = 'noBlend',\n                 bakeInStart = 1, fluid = 0, name = None, hpr = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, fluid, nodePath, other)\n\n        if not quat:\n            # If we didn't specify a quat, we're allowed to specify a\n            # hpr instead, which is converted to the equivalent quat.\n            assert hpr\n            quat = LOrientationf()\n            quat.setHpr(hpr)\n\n        assert scale",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2771
+  }
+}

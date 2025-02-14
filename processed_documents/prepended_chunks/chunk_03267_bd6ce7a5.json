@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a 3D modeling/manipulation tool's codebase and defines the `enableHandle` method within a class responsible for managing object transformations (translation, rotation, scaling). This method controls the visibility and availability of specific manipulation handles by re-parenting their respective groups to handle containers. The handles (`x-`, `y-`, `z-post`, `ring`, `disc`, `scale`) are used in user interaction to modify objects in 3D space, as indicated by related methods for creating handles, handling mouse events, and performing transformations (e.g., `createHandle`, `getHandleHit` methods).\n\ndef enableHandle(self, handle):\n        if handle == 'x-post':\n            self.xPostGroup.reparentTo(self.xHandles)\n        elif handle == 'x-ring':\n            self.xRingGroup.reparentTo(self.xHandles)\n        elif handle == 'x-disc':\n            self.xDiscGroup.reparentTo(self.xHandles)\n        elif handle == 'x-scale' and ShowBaseGlobal.direct.manipulationControl.useSeparateScaleHandles:\n            self.xScaleGroup.reparentTo(self.xHandles)\n        elif handle == 'y-post':\n            self.yPostGroup.reparentTo(self.yHandles)\n        elif handle == 'y-ring':\n            self.yRingGroup.reparentTo(self.yHandles)\n        elif handle == 'y-disc':\n            self.yDiscGroup.reparentTo(self.yHandles)\n        elif handle == 'y-scale' and ShowBaseGlobal.direct.manipulationControl.useSeparateScaleHandles:\n            self.yScaleGroup.reparentTo(self.yHandles)\n        elif handle == 'z-post':\n            self.zPostGroup.reparentTo(self.zHandles)\n        elif handle == 'z-ring':",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3267
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an input handling mechanism in a Python-based 3D graphics or game development framework (like Panda3D). The code processes keyboard and mouse inputs, checking against predefined mappings for hotkeys, special keys, and direct-only keys. It dispatches appropriate events via the messenger system when matches are found. For mouse inputs, it adjusts internal state flags (e.g., tracking mouse button presses) and sends corresponding events ('DIRECT-mouse1', 'DIRECT-mouse2') with modifiers as needed.\n\n# Deal with keyboard and mouse input\n        if input in self.hotKeyMap:\n            keyDesc = self.hotKeyMap[input]\n            messenger.send(keyDesc[1])\n        elif input in self.speicalKeyMap:\n            messenger.send(self.speicalKeyMap[input])\n        elif input in self.directOnlyKeyMap:\n            if self.fIgnoreDirectOnlyKeyMap:\n                return\n            keyDesc = self.directOnlyKeyMap[input]\n            messenger.send(keyDesc[1])\n        elif input == 'mouse1-up':\n            self.fMouse1 = 0 # [gjeon] to update alt key information while mouse1 is pressed\n            messenger.send('DIRECT-mouse1Up')\n        elif input.find('mouse1') != -1:\n            self.fMouse1 = 1 # [gjeon] to update alt key information while mouse1 is pressed\n            modifiers = self.getModifiers(input, 'mouse1')\n            messenger.send('DIRECT-mouse1', sentArgs = [modifiers])\n        elif input == 'mouse2-up':\n            self.fMouse2 = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3399
+  }
+}

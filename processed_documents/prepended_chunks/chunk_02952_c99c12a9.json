@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe provided code is part of a texture placement system for managing 2D textures in a canvas. The `TexPlacement` class represents individual texture regions with their coordinates and area, while the ` Tex` class manages multiple placements, handling intersections, bitmasks, and visual representation on a canvas. \n\nThe chunk discusses an arbitrary limit (`self.limit`) representing maximum allowed texture memory utilization, assuming perfect packing for guaranteeing fit within available memory despite potential distortions or fragmentation.\n\"\"\"\n\n# There is an arbitrary limit, self.limit, which may have been\n        # passed to the constructor, or which may be arbitrarily\n        # determined.  This represents the intended limit to texture\n        # memory utilization.  We (generously) assume that the\n        # graphics card will implement a perfect texture packing\n        # algorithm, so that as long as our total utilization <=\n        # self.limit, it must fit within texture memory.  We represent\n        # this visually by aggressively packing textures within the\n        # self.limit block so that they are guaranteed to fit, as long\n        # as we do not exceed the total utilization.  This may\n        # sometimes mean distorting a texture block or even breaking\n        # it into multiple pieces to get it to fit, clearly\n        # fictionalizing whatever the graphics driver is actually\n        # doing.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2952
+  }
+}

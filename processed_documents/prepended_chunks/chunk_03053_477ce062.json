@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of an Actor class implementation that handles Level of Detail (LOD) management, part dictionaries, and animation controls. The specific lines shown are responsible for copying LOD switches, part bundles, subparts, and animation controls from one actor instance to another. This functionality is likely used during the initialization or duplication of actor instances to ensure they share the same level of detail configuration and animation properties as an existing instance.\n\nContext: Copying Level of Detail (LOD) configurations, part dictionaries, and animation controls between Actor instances.\n\n# copy the switches for lods\n        self.switches = other.switches\n        self.__LODNode = self.find('**/+LODNode')\n        self.__hasLOD = 0\n        if not self.__LODNode.isEmpty():\n            self.__hasLOD = 1\n\n\n        # copy the part dictionary from other\n        self.__copyPartBundles(other)\n        self.__copySubpartDict(other)\n        self.__subpartsComplete = other.__subpartsComplete\n\n        # copy the anim dictionary from other\n        self.__copyAnimControls(other)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3053
+  }
+}

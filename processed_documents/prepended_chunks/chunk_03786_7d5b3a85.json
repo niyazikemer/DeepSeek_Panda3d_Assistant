@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of the `FileLike` class implementation in a Python module designed to provide an OS-like interface for interacting with a virtual file system (VFS). The chunk includes initialization steps and method definitions that handle resource management (`flush`) and data reading operations (`read`). These methods ensure proper interaction with the VFS layer, managing resources correctly and providing standard file-like operations.\n\nself.__needsVfsClose = False\n\n        self.__stream = None\n        self.__reader = None\n        self.__writer = None\n\n    def flush(self):\n        if self.__writer:\n            self.__stream.clear()  # clear eof flag\n            self.__stream.flush()\n\n    def read(self, size=-1):\n        if not self.__reader:\n            if not self.__writer:\n                # The stream is not even open at all.\n                raise ValueError(\"I/O operation on closed file\")\n\n            # The stream is open only in write mode.\n            raise IOError(\"Attempt to read from write-only stream\")\n\n        self.__stream.clear()  # clear eof flag\n        self.__lastWrite = False\n        if size is not None and size >= 0:\n            return self.__reader.extractBytes(size)\n        else:\n            # Read to end-of-file.\n            result = bytearray()\n            while not self.__stream.eof():\n                result += self.__reader.extractBytes(4096)\n            return bytes(result)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3786
+  }
+}

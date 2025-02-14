@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe code chunk defines core functionality for the VectorEntry class, which handles numerical vector manipulation. It includes methods to clamp values within specified bounds, update vector elements, refresh UI displays (entries and floaters), trigger command callbacks, and reset vectors to default values. These operations ensure data integrity and maintain synchronization between internal state and user interface components.\n\"\"\"\n\n# Clamp value\n        if self['min'] is not None:\n            if newVal < self['min']:\n                newVal = self['min']\n        if self['max'] is not None:\n            if newVal > self['max']:\n                newVal = self['max']\n\n        # Update vector's value\n        self._value[index] = newVal\n\n        # refresh entry to reflect formatted value\n        self._refreshEntry(index)\n\n        # Update the floaters and call the command\n        self.action()\n\n    def _refreshEntry(self, index):\n        self.variableList[index].set(self.entryFormat % self._value[index])\n        self.entryList[index].checkentry()\n\n    def _refreshFloaters(self):\n        if self._floaters:\n            self._floaters.set(self._value, 0)\n\n    def action(self, fCommand = 1):\n        self._refreshFloaters()\n        if fCommand and (self['command'] is not None):\n            self['command'](self._value)\n\n    def reset(self):\n        self.set(self['resetValue'])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3541
+  }
+}

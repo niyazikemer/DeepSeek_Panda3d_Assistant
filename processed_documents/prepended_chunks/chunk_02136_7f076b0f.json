@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a custom import mechanism that handles module loading, specifically related to determining the bitness (32-bit or 64-bit) of CPU architectures when processing universal binaries or frozen modules. The code checks for specific binary signatures and extracts CPU type information to determine compatibility or execution context.\n\nif (cputype & 0x1000000) != 0:\n                    bitnesses.add(64)\n                else:\n                    bitnesses.add(32)\n            return tuple(bitnesses)\n\n        elif data[:4] in (b'\\xCA\\xFE\\xBA\\xBF', b'\\xBF\\xBA\\xFE\\xCA'):\n            # Universal binary with 64-bit offsets.\n            num_fat, = struct.unpack_from('>I', data, 4)\n            bitnesses = set()\n            ptr = 8\n            for i in range(num_fat):\n                cputype, cpusubtype, offset, size, align = \\\n                    struct.unpack_from('>QQQQQ', data, ptr)\n                ptr += 40\n\n                if (cputype & 0x1000000) != 0:\n                    bitnesses.add(64)\n                else:\n                    bitnesses.add(32)\n            return tuple(bitnesses)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2136
+  }
+}

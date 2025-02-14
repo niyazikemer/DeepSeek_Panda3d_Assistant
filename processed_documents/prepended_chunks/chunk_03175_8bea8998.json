@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method within an Actor class that handles debugging visualization of animation blends. The code constructs a string representing animation rates and effects for display, then manages adding or removing debug information based on whether any animations are actively blending.\n\nthisAnim += \"\\n\"\n            for control in controls:\n                part = control.getPart()\n                name = part.getName()\n                rate = control.getPlayRate()\n                thisAnim += ('%s:%.1f, ' % (name, rate))\n            # don't display anything if this animation is not being played\n            itemName = 'anim %s' % animName\n            if totalEffect > 0.:\n                onScreenDebug.add(itemName, thisAnim)\n            else:\n                if onScreenDebug.has(itemName):\n                    onScreenDebug.remove(itemName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3175
+  }
+}

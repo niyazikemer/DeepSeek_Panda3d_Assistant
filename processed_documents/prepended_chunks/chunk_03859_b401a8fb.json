@@ -1,0 +1,9 @@
+{
+  "content": "The code defines a Python-level wrapper around Panda3D's C++ AsyncTaskManager for task management and event handling. The chunk contains module imports and documentation for TaskManager functionality.\n\n\"\"\" This module defines a Python-level wrapper around the C++\n:class:`~panda3d.core.AsyncTaskManager` interface.  It replaces the old\nfull-Python implementation of the Task system.\n\nFor more information about the task system, consult the\n:ref:`tasks-and-event-handling` page in the programming manual.\n\"\"\"\n\nfrom __future__ import annotations\n\n__all__ = ['Task', 'TaskManager',\n           'cont', 'done', 'again', 'pickup', 'exit',\n           'sequence', 'loop', 'pause']\n\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.showbase.PythonUtil import Functor, ScratchPad\nfrom direct.showbase.MessengerGlobal import messenger\nfrom typing import Any, Callable, Coroutine, Final, Generator, Sequence, TypeVar, Union\nimport types\nimport random\nimport importlib\nimport sys",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3859
+  }
+}

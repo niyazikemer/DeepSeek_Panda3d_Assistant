@@ -1,0 +1,9 @@
+{
+  "content": "The provided text describes a process for managing the packing of textures into a grid. Here\u2019s a concise summary:\n\n1. **Check Capacity**: Determine if there's enough space in the current row to fit the texture based on its width.\n2. **Place or Stack**:\n   - If there is sufficient space, place the texture next to existing ones in the current row.\n   - If not, move the texture to the top of the grid (stack vertically) and start a new row.\n3. **Update Layout**: Adjust the grid layout to accommodate the placed or stacked textures.\n\nThis method ensures efficient use of space by either placing textures side-by-side or stacking them when necessary.\n\nif w > self.w:\n            # It won't fit within the margins at all; just stack it on\n            # the top.\n\n            # Scan down past all of the empty bitmasks that may be\n            # stacked on top.\n            b = len(self.bitmasks)\n            while b > self.h and self.bitmasks[b - 1].isZero():\n                b -= 1\n\n            tp = TexPlacement(0, w, b, b + h)\n            return tp\n\n        # It fits within the margins; find the first row with enough\n        # space for it.\n\n        lastTuples = set()\n        lastBitmask = None\n        b = self.h\n        while True:\n            if b >= len(self.bitmasks):\n                # Off the top.  Just leave it here.\n                tp = TexPlacement(0, w, b, b + h)\n                return tp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2994
+  }
+}

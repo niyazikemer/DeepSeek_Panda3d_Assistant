@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the code for an Actor class in Panda3D, specifically dealing with loading animations into the actor model. The code checks if the animations are provided as nested dictionaries and whether the models are similarly structured, indicating multi-part models with different levels of detail (LODs). If so, it iterates through each LOD and part name to load the corresponding animations for the actor.\n\n# load anims\n            # make sure the actor has animations\n            if anims:\n                if len(anims) >= 1:\n                    # if so, does it have a dictionary of dictionaries?\n                    if isinstance(anims[next(iter(anims))], dict):\n                        # are the models a dict of dicts too?\n                        if isinstance(models, dict):\n                            if isinstance(models[next(iter(models))], dict):\n                                # then we have a multi-part w/ LOD\n                                for lodName in sorted(models):\n                                    # iterate over both dicts\n                                    for partName in anims:\n                                        self.loadAnims(\n                                            anims[partName], partName, lodName)\n                            else:\n                                # then it must be multi-part w/o LOD",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3049
+  }
+}

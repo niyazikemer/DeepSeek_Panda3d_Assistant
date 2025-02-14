@@ -1,0 +1,9 @@
+{
+  "content": "The function `updateCoaMarkerSize` is a method that adjusts the size of a marker (`coaMarker`) based on its distance from the camera. It also includes logic to fade out the marker's color over time. This function is situated within a class that handles 3D camera manipulation, marker positioning, and task management in a Panda3D-based application. The method is called when the marker's position or size needs to be updated relative to the camera's perspective.\n\ndef updateCoaMarkerSize(self, coaDist = None):\n        if not coaDist:\n            coaDist = Vec3(self.coaMarker.getPos(ShowBaseGlobal.direct.camera)).length()\n        # Nominal size based on default 30 degree vertical FOV\n        # Need to adjust size based on distance and current FOV\n        sf = COA_MARKER_SF * coaDist * (ShowBaseGlobal.direct.drList.getCurrentDr().fovV/30.0)\n        if sf == 0.0:\n            sf = 0.1\n        self.coaMarker.setScale(sf)\n        # Lerp color to fade out\n        if self.coaMarkerColorIval:\n            self.coaMarkerColorIval.finish()\n        self.coaMarkerColorIval = Sequence(\n            Func(self.coaMarker.unstash),\n            self.coaMarker.colorInterval(1.5, Vec4(1, 0, 0, 0),\n                                         startColor = Vec4(1, 0, 0, 1),\n                                         blendType = 'easeInOut'),\n            Func(self.coaMarker.stash)\n        )\n        self.coaMarkerColorIval.start()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3333
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe provided code snippet is part of a method for handling 3D object selection via a marquee selection mechanism. The chunk processes the removal of an existing marquee, retrieves selection boundaries (start and end coordinates), and uses camera projection to extrude points in 3D space based on these boundaries. This functionality is typically used in interactive 3D modeling or animation software for selecting objects or defining regions within a viewport.\n\"\"\"\n\nif self.marquee:\n                self.marquee.removeNode()\n                self.marquee = None\n                direct.deselectAll()\n\n                startX = self.marqueeInfo[0]\n                startY = self.marqueeInfo[1]\n                endX = self.marqueeInfo[2]\n                endY = self.marqueeInfo[3]\n\n                fll = Point3(0, 0, 0)\n                flr = Point3(0, 0, 0)\n                fur = Point3(0, 0, 0)\n                ful = Point3(0, 0, 0)\n                nll = Point3(0, 0, 0)\n                nlr = Point3(0, 0, 0)\n                nur = Point3(0, 0, 0)\n                nul = Point3(0, 0, 0)\n\n                lens = direct.cam.node().getLens()\n                lens.extrude((startX, startY), nul, ful)\n                lens.extrude((endX, startY), nur, fur)\n                lens.extrude((endX, endY), nlr, flr)\n                lens.extrude((startX, endY), nll, fll)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3201
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided methods (`calcTextureBytes`, `calcNumFaces`, `analyzeChildren`, and `ls`) are part of a class designed for analyzing geometric nodes, likely within a 3D rendering or game development framework. These methods collectively enable the analysis of texture memory usage, face count, and hierarchical data aggregation across a node's children, contributing to a comprehensive tool for assessing resource utilization in 3D models.\n\ndef calcTextureBytes(self):\n        texCol = self.nodePath.findAllTextures()\n        for i in range(texCol.getNumTextures()):\n            tex = texCol.getTexture(i)\n            self.textureBytes += tex.estimateTextureMemory()\n\n            # what about shared textures by multiple nodes ?\n\n    def calcNumFaces(self, geom):\n        for k in range(geom.getNumPrimitives()):\n            primitive = geom.getPrimitive(k)\n            self.numFaces += primitive.getNumFaces()\n\n    def analyzeChildren(self):\n        for child in self.children:\n            child.analyze()\n            self.childrenVertexBytes += child.getVertexBytes()\n            self.numFaces += child.numFaces\n\n    def ls(self, indent = \"\"):\n        print(indent + self.nodePath.getName() + \" \" + str(self.getVertexBytes()) + \" \" + str(self.numFaces) + \" \" + str(self.textureBytes))\n        indent = indent +  \" \"\n\n        for child in self.children:\n            child.ls(indent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3607
+  }
+}

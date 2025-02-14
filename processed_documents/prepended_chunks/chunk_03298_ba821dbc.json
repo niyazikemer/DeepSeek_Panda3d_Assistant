@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is an initialization method (`__init__`) from a class related to direct camera manipulation in Panda3D. It sets up core variables and components needed for managing the center of attention (COA), including marker nodes, transparency settings, color, position references, and other attributes required for smooth object manipulation relative to a widget or camera position. This initialization supports features like moving objects with the widget, maintaining relationships between selected nodes, and enabling fly-like camera operations.\n\ndef __init__(self):\n        # Create the grid\n        self.startT = 0.0\n        self.startF = 0\n        self.orthoViewRoll = 0.0\n        self.lastView = 0\n        self.coa = Point3(0, 100, 0)\n        self.coaMarker = ShowBaseGlobal.loader.loadModel('models/misc/sphere')\n        self.coaMarker.setName('DirectCameraCOAMarker')\n        self.coaMarker.setTransparency(1)\n        self.coaMarker.setColor(1, 0, 0, 0)\n        self.coaMarker.setPos(0, 100, 0)\n        useDirectRenderStyle(self.coaMarker)\n        self.coaMarkerPos = Point3(0)\n        self.coaMarkerColorIval = None\n        self.fLockCOA = 0\n        self.nullHitPointCount = 0\n        self.cqEntries = []\n        self.coaMarkerRef = ShowBaseGlobal.direct.group.attachNewNode('coaMarkerRef')\n        self.camManipRef = ShowBaseGlobal.direct.group.attachNewNode('camManipRef')\n        self.switchDirBelowZero = True\n        self.manipulateCameraTask = None\n        self.manipulateCameraInterval = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3298
+  }
+}

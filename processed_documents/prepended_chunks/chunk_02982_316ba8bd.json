@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk appears in a class (likely `TexMorpher` or similar) that manages texture placement on a canvas. The loop processes each texture record (`tr`) by calling `self.placeTexture(tr)`, which handles placing textures based on their calculated coordinates and rotation. \n\nThe `formatSize` method is a utility function within the same class that converts a given size in bytes into a human-readable format (e.g., KB, MB, GB). It's used to display the size of textures or other data in a user-friendly way.\n\nThe code context is part of a texture management system, likely handling graphics rendering or layout optimization for applications like games or visualizations.\n\nfor tr in texRecords:\n            self.placeTexture(tr)\n\n    def formatSize(self, size):\n        \"\"\" Returns a size in MB, KB, GB, whatever. \"\"\"\n        if size < 1000:\n            return '%s bytes' % (size)\n        size /= 1024.0\n        if size < 1000:\n            return '%0.1f kb' % (size)\n        size /= 1024.0\n        if size < 1000:\n            return '%0.1f MB' % (size)\n        size /= 1024.0\n        return '%0.1f GB' % (size)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2982
+  }
+}

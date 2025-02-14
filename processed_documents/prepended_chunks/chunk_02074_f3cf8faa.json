@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code appears within a document describing a module-freezing tool or similar application. It includes functionality for managing and excluding specific modules during the freezing process. The code snippet specifically handles copying existing module definitions into a previous state (`previousModules`) and defining methods to exclude certain modules from being exported or even imported, with options to forbid their use or allow their child modules. This is likely part of a tool designed to freeze Python applications into standalone executables or package them for distribution.\n\nfor key, value in list(freezer.modules.items()):\n            self.previousModules[key] = value\n            self.modules[key] = value\n\n    def excludeModule(self, moduleName, forbid = False, allowChildren = False,\n                      fromSource = None):\n        \"\"\" Adds a module to the list of modules not to be exported by\n        this tool.  If forbid is true, the module is furthermore\n        forbidden to be imported, even if it exists on disk.  If\n        allowChildren is true, the children of the indicated module\n        may still be included.\"\"\"\n\n        self.modules[moduleName] = self.ModuleDef(\n            moduleName, exclude = True,\n            forbid = forbid, allowChildren = allowChildren,\n            fromSource = fromSource)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2074
+  }
+}

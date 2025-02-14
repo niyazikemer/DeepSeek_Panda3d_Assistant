@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines core utility methods in a `State` class for setting/getting enter/exit functions, checking if a state allows transitioning to any other state (`transitionsToAny()`), retrieving transition targets with a warning about empty lists when transitions are set to 'any' (`getTransitions()`), and determining if a specific transition is defined (`isTransitionDefined()`). These methods situate within the broader context of state management, focusing on handling state transitions and child FSMs (Finite State Machines) in a system that manages hierarchical or composite state behaviors.\n\ndef setEnterFunc(self, stateEnterFunc):\n        self.__enterFunc = stateEnterFunc\n\n    def getExitFunc(self):\n        return self.__exitFunc\n\n    def setExitFunc(self, stateExitFunc):\n        self.__exitFunc = stateExitFunc\n\n    def transitionsToAny(self):\n        \"\"\" returns true if State defines transitions to any other state \"\"\"\n        return self.__transitions is State.Any\n\n    def getTransitions(self):\n        \"\"\"\n        warning -- if the state transitions to any other state,\n        returns an empty list (falsely implying that the state\n        has no transitions)\n        see State.transitionsToAny()\n        \"\"\"\n        if self.transitionsToAny():\n            return []\n        return self.__transitions\n\n    def isTransitionDefined(self, otherState):\n        if self.transitionsToAny():\n            return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2674
+  }
+}

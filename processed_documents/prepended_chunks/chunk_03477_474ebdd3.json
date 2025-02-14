@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines methods for handling collision detection in a 3D environment, specifically tailored for selection queues or similar systems, likely within the Panda3D framework. The methods allow querying collisions based on geometric properties and bitmasks, utilizing a central traversal mechanism to sort and return the closest valid entry. These functions are integral to performing accurate and efficient collision checks, essential for applications like 3D rendering or game development.\n\n**Context:** This code is part of a selection queue system that facilitates collision detection using different criteria (geometric and bitmask-based) by traversing nodes and processing entries to find the closest valid collision.\n\ndef pick(self, targetNodePath, skipFlags):\n        self.ct.traverse(targetNodePath)\n        self.sortEntries()\n        return self.findCollisionEntry(skipFlags)\n\n    def pickGeom(self, targetNodePath = None,\n                 skipFlags = DG.SKIP_HIDDEN | DG.SKIP_CAMERA):\n        if targetNodePath is None:\n            targetNodePath = render\n        self.collideWithGeom()\n        return self.pick(targetNodePath, skipFlags)\n\n    def pickBitMask(self, bitMask = BitMask32.allOff(),\n                    targetNodePath = None,\n                    skipFlags = DG.SKIP_HIDDEN | DG.SKIP_CAMERA):\n        if targetNodePath is None:\n            targetNodePath = render\n        self.collideWithBitMask(bitMask)\n        return self.pick(targetNodePath, skipFlags)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3477
+  }
+}

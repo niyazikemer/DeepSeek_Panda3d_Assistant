@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines several key methods for the Actor class: `showBounds()`, `hideAllBounds()`, `animPanel()`, and `stop()`. These methods relate to visualizing geometry bounds, controlling animations, and stopping animations across all levels of detail (LODs). The `stop()` method is particularly important as it stops named animations on specific parts or all parts of the actor across all LODs.\n\nfor node in geomNodes:\n            node.showBounds()\n\n    def hideAllBounds(self):\n        \"\"\"\n        Hide the bounds of all actor geoms\n        \"\"\"\n        geomNodes = self.__geomNode.findAllMatches(\"**/+GeomNode\")\n\n        for node in geomNodes:\n            node.hideBounds()\n\n\n    # actions\n    def animPanel(self):\n        # Don't use a regular import, to prevent ModuleFinder from picking\n        # it up as a dependency when building a .p3d package.\n        import importlib\n        AnimPanel = importlib.import_module('direct.tkpanels.AnimPanel')\n        return AnimPanel.AnimPanel(self)\n\n    def stop(self, animName=None, partName=None):\n        \"\"\"stop(self, string=None, string=None)\n        Stop named animation on the given part of the actor.\n        If no name specified then stop all animations on the actor.\n        NOTE: stops all LODs\"\"\"\n        for control in self.getAnimControls(animName, partName):\n            control.stop()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3115
+  }
+}

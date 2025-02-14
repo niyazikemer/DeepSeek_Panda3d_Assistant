@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet is part of a 3D graphics or visualization system, specifically implementing logic to find the nearest point on an axis (X, Y, or Z) relative to a given origin and direction. The chunk handles projection onto axis-aligned planes, setting coordinates to zero based on the selected axis for precise alignment with coordinate axes.\n\nContext: `findNearestPointOnAxis` function - calculates nearest intersection points on X/Y/Z axes by projecting along specified directions, using plane intersections to snap points accurately to axis lines.\n\nself.hitPt.setX(0)\n            self.hitPt.setZ(0)\n        elif axis == 'z':\n            if abs(lineDir.dot(DG.X_AXIS)) > abs(lineDir.dot(DG.Y_AXIS)):\n                self.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.X_AXIS))\n            else:\n                self.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.Y_AXIS))\n            # We really only care about the nearest point on the axis\n            self.hitPt.setX(0)\n            self.hitPt.setY(0)\n        return self.hitPt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3289
+  }
+}

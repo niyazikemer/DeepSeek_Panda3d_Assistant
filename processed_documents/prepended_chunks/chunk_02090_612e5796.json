@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears within a function or method responsible for handling missing modules in the module finder system. It checks for modules that were not successfully loaded or imported during runtime, skips those that are explicitly allowed to be missing (via `okMissing`), marks others as excluded and implicit, and reports any new missing modules by adding them to `reportedMissing`. If there are unreported missing modules, it prints a warning message listing them.\n\nfor origName in self.mf.any_missing_maybe()[0]:\n            if origName in startupModules:\n                continue\n            if origName in self.previousModules:\n                continue\n            if origName in self.modules:\n                continue\n\n            # This module is missing.  Let it be missing in the\n            # runtime also.\n            self.modules[origName] = self.ModuleDef(origName, exclude = True,\n                                                    implicit = True)\n\n            if origName in okMissing:\n                # If it's listed in okMissing, don't even report it.\n                continue\n\n            prefix = origName.split('.')[0]\n            if origName not in reportedMissing:\n                missing.append(origName)\n                reportedMissing[origName] = True\n\n        if missing:\n            missing.sort()\n            print(\"There are some missing modules: %r\" % missing)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2090
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the `Thread` class implementation within a threading module. The code includes logic for executing thread targets, managing thread synchronization via the `join()` method, and handling thread name updates.\n\nself.__target(*self.__args, **self.__kwargs)\n\n    def join(self, timeout = None):\n        # We don't support a timed join here, sorry.\n        assert timeout is None\n        thread = self.__thread\n        if thread is not None:\n            thread.join()\n            # Clear the circular reference.\n            self.__thread = None\n            _thread._remove_thread_id(self.ident)\n\n    def setName(self, name):\n        self.__dict__['name'] = name\n        self.__thread.setName(name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3763
+  }
+}

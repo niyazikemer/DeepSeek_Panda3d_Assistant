@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements the `placeTexture` method in a texture packing system. This method checks if a texture can fit into the allocated space on a canvas. It computes the necessary placement dimensions and adjusts for potential rounding errors to ensure proper fitting, crucial for optimizing texture usage.\n\n**Answer:**\n\nThe context is within a texture packing algorithm that manages how textures are placed on a canvas. The `placeTexture` method ensures a given texture fits by adjusting its size if needed due to rounding errors, facilitating efficient texture space utilization.\n\ndef placeTexture(self, tr):\n        \"\"\" Places the texture somewhere on the canvas where it will\n        fit. \"\"\"\n\n        tr.computePlacementSize(self)\n        tr.overflowed = 0\n\n        shouldFit = False\n        availableSize = self.limit - self.placedSize\n        if availableSize >= tr.size:\n            shouldFit = True\n            availableQSize = self.area - self.placedQSize\n            if availableQSize < tr.area:\n                # The texture should fit, but won't, due to roundoff\n                # error.  Make it correspondingly smaller, so we can\n                # place it anyway.\n                tr.area = availableQSize",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2984
+  }
+}

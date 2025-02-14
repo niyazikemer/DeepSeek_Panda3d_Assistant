@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an implementation for managing different eye expressions (e.g., open, closed, surprised) in a toon character using a finite state machine (FSM). The `ToonEyes` class handles transitions between states like blinking (`closed`), returning to the open state after a blink timeout via a scheduled task (`__unblink` method), and switching to a surprised expression.\n\ndef __unblink(self, task):\n        self.request('unblink')\n        return Task.done\n\n    def enterClosed(self):\n        print(\"swap in eyes closed model\")\n\n    def filterClosed(self, request, args):\n        if request == 'unblink':\n            return 'Open'\n        return self.defaultFilter(request, args)\n\n    def enterSurprised(self):\n        print(\"swap in eyes surprised model\")\n\n    def enterOff(self):\n        taskMgr.remove(self.__unblinkName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_149",
+    "parent": "processed_documents/context_documents/c3ea557f_SampleFSM.json",
+    "chunk_number": 2699
+  }
+}

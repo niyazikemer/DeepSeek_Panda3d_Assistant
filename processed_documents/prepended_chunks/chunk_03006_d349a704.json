@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a `addCircle` function that creates circular geometries using Panda3D's Geom classes. The function generates vertices for a circle with a specified number of points (vertexCount), radius, color, and optional center color. It complements existing geometry creation functions like `addBox`, `addArrow`, and others in the document by providing a way to create circular shapes for UI elements or visualizations.\n\ndef addCircle(attachNode, vertexCount, radius, color = Vec4(1.0, 1.0, 1.0, 1.0), centerColor = None, layer = 0):\n    targetGN = GeomNode(\"target Circle\")\n    if centerColor is None:\n        centerColor = color\n    zFloat = 0.025\n    targetCircleShape = getCirclePoints(5 + (vertexCount), 0.0, 0.0, radius)\n    gFormat = GeomVertexFormat.getV3c()\n    targetCircleVertexData = GeomVertexData(\"holds my vertices\", gFormat, Geom.UHDynamic)\n    targetCircleVertexWriter = GeomVertexWriter(targetCircleVertexData, \"vertex\")\n    targetCircleColorWriter = GeomVertexWriter(targetCircleVertexData, \"color\")\n    targetCircleVertexWriter.addData3f(0.0, 0.0, zFloat) #center\n    targetCircleColorWriter.addData4f(centerColor[0], centerColor[1], centerColor[2], centerColor[3])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3006
+  }
+}

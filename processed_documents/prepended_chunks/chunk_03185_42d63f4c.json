@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `DirectLights` class's `create()` method, which handles creating and managing different types of lighting nodes (ambient, directional, point, spot) in a Panda3D scene. The specific chunk shown is responsible for configuring the light based on its type (e.g., setting up a spotlight with a lens), adding it to the `lightDict`, enabling it by default, sending an event about the new light addition via `messenger`, and returning the newly created `DirectLight` object.\n\nlight.setLens(PerspectiveLens())\n        else:\n            print('Invalid light type')\n            return None\n        # Add the new light\n        directLight = DirectLight(light, self)\n        self.lightDict[directLight.getName()] = directLight\n        # Turn it on as a default\n        self.setOn(directLight)\n        # Send an event to all watching objects\n        messenger.send('DIRECT_addLight', [directLight])\n        # Return the new light\n        return directLight",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_178",
+    "parent": "processed_documents/context_documents/94320a32_DirectLights.json",
+    "chunk_number": 3185
+  }
+}

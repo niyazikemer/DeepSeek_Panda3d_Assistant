@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk introduces three methods (`removeManipulateObjectTask`, `enableWidgetMove`, and `disableWidgetMove`) that control object manipulation tasks and widget interaction states within a 3D environment. These methods handle enabling/disabling object movement, updating visual feedback (colors) for different manipulation modes, and managing task execution related to object manipulation.\n\ndef removeManipulateObjectTask(self):\n        taskMgr.remove('manipulateObject')\n\n    def enableWidgetMove(self):\n        self.fMovable = 1\n        if self.fSetCoa:\n            if hasattr(ShowBaseGlobal.direct, 'widget'):\n                ShowBaseGlobal.direct.widget.coaModeColor()\n            else:\n                self.objectHandles.coaModeColor()\n        else:\n            if hasattr(ShowBaseGlobal.direct, 'widget'):\n                ShowBaseGlobal.direct.widget.manipModeColor()\n            else:\n                self.objectHandles.manipModeColor()\n\n    def disableWidgetMove(self):\n        self.fMovable = 0\n        if hasattr(ShowBaseGlobal.direct, 'widget'):\n            ShowBaseGlobal.direct.widget.disabledModeColor()\n        else:\n            self.objectHandles.disabledModeColor()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3213
+  }
+}

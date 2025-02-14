@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class managing 3D viewport navigation controls, specifically handling mouse-based camera movement interactions. The `mouseFlyStart` method initializes the process for moving the camera perspective or orthographic view based on user input, including handling Maya-style controls when specific modifiers are active, while maintaining relationships between selected objects and widgets during manipulation.\n\ndef mouseFlyStart(self, modifiers):\n        # Record undo point\n        base = ShowBaseGlobal.base\n        direct = ShowBaseGlobal.direct\n        #direct.pushUndo([direct.camera])            # Wasteful use of undo\n        if self.useMayaCamControls and modifiers == 4:          # alt is down, use maya controls\n            # Hide the marker for this kind of motion\n            self.coaMarker.hide()\n            # Record time of start of mouse interaction\n            self.startT = base.clock.getFrameTime()\n            self.startF = base.clock.getFrameCount()\n            # Start manipulation\n            # If the cam is orthogonal, spawn differentTask\n            if hasattr(direct, \"manipulationControl\") and \\\n               direct.manipulationControl.fMultiView and \\\n               direct.camera.getName() != 'persp':\n                self.spawnOrthoTranslate()\n            else:\n                self.spawnXZTranslate()\n            self.altDown = 1\n        elif not self.useMayaCamControls:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3308
+  }
+}

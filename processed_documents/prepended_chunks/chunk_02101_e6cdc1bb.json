@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within a custom module bundling or packaging system. It handles writing module structures into a multifile format, specifically dealing with packages by ensuring their `__init__.py` files are included and removing redundant compiled Python files. This part of the code ensures that both individual modules and package directories are correctly represented in the final bundled structure.\n\nself.__addPythonDirs(multifile, moduleDirs, dirnames[:-1], compressionLevel)\n\n        filename = '/'.join(dirnames)\n\n        module = self.mf.modules.get(mdef.moduleName, None)\n        if getattr(module, '__path__', None) is not None or \\\n          (getattr(module, '__file__', None) is not None and getattr(module, '__file__').endswith('/__init__.py')):\n            # It's actually a package.  In this case, we really write\n            # the file moduleName/__init__.py.\n            filename += '/__init__'\n            moduleDirs[moduleName] = True\n\n            # Ensure we don't have an implicit filename from above.\n            multifile.removeSubfile(filename + '.py')\n            if __debug__:\n                multifile.removeSubfile(filename + '.pyc')\n            else:\n                multifile.removeSubfile(filename + '.pyo')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2101
+  }
+}

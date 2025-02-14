@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk consists of methods within the `TreeNode` class that handle context menus and node expansion. The `popupMenu` method displays a context menu upon right-click, while `popupMenuCommand` executes selected commands, including expanding or collapsing all nodes. The `expand` method manages individual node expansion by updating its state and redrawing it. These methods are integral to user interaction and visual management in the tree view implementation.\n\ndef popupMenu(self, event=None):\n        if not self._popupMenu:\n            self.createPopupMenu()\n        if self._popupMenu:\n            self._popupMenu.post(event.widget.winfo_pointerx(),\n                                 event.widget.winfo_pointery())\n            return \"break\"\n\n    def popupMenuCommand(self):\n        command = self.menuList[self.menuVar.get()]\n\n        if command == 'Expand All':\n            self.updateAll(1)\n        elif command == 'Collapse All':\n            self.updateAll(0)\n        else:\n            skipUpdate = self.item.MenuCommand(command)\n            if not skipUpdate and self.parent and (command != 'Update Explorer'):\n                # Update parent to try to keep explorer up to date\n                self.parent.update()\n\n    def expand(self, event=None):\n        if not self.item.IsExpandable():\n            return\n        if self.state != 'expanded':\n            self.state = 'expanded'\n            self.update()\n            self.view()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_197",
+    "parent": "processed_documents/context_documents/d2c5ef36_Tree.json",
+    "chunk_number": 3677
+  }
+}

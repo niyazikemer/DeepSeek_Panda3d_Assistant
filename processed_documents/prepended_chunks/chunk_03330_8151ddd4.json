@@ -1,0 +1,9 @@
+{
+  "content": "The chunk pertains to handling cases where no valid intersection (hit point) is detected with the scene. It implements logic for incrementing a counter on null hits and adjusting the Center Of Attention (COA) distance exponentially based on this count. The code ensures COA remains at least 100 units away from the camera when too close, while displaying real-time feedback about the current COA distance.\n\n# Just use existing point\n                coa.assign(self.coaMarker.getPos(ShowBaseGlobal.direct.camera))\n            # Reset hit point count\n            self.nullHitPointCount = 0\n        else:\n            # Increment null hit point count\n            self.nullHitPointCount = (self.nullHitPointCount + 1) % 7\n            # No COA lock and no intersection point\n            # Use a point out in front of camera\n            # Distance to point increases on multiple null hit points\n            # MRM: Would be nice to be able to control this\n            # At least display it\n            dist = pow(10.0, self.nullHitPointCount)\n            ShowBaseGlobal.direct.message('COA Distance: ' + repr(dist))\n            coa.set(0, dist, 0)\n        # Compute COA Dist\n        coaDist = Vec3(coa - DG.ZERO_POINT).length()\n        if coaDist < (1.1 * dr.near):\n            coa.set(0, 100, 0)\n            coaDist = 100\n        # Update coa and marker",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3330
+  }
+}

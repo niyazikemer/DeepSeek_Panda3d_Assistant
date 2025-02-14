@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears within a method `_updateTexRecords` of a `TexBrowser` class, which manages texture records for prepared textures in a graphics system. The method iterates through all prepared textures, calculates their total size, and creates `TexRecord` entries to track each texture's state (active/inactive) and memory usage. This information is used to update the UI display of total texture memory size and manage texture memory limits dynamically.\n\npgo = self.gsg.getPreparedObjects()\n        totalSize = 0\n\n        for tex in self.gsg.getPreparedTextures():\n            if tex.getResident(pgo):\n                size = tex.getDataSizeBytes(pgo)\n                if size:\n                    active = tex.getActive(pgo)\n                    key = self.nextTexRecordKey\n                    self.nextTexRecordKey += 1\n                    tr = TexRecord(key, tex, size, active)\n                    self.texRecordsByTex[tr.tex] = tr\n                    self.texRecordsByKey[tr.key] = tr\n                    totalSize += size\n\n        self.totalSize = totalSize\n        self.sizeText.setText(self.formatSize(self.totalSize))\n        if not self.totalSize:\n            return\n\n        if self.dynamicLimit or self.lruLimit:\n            # Adjust the limit to ensure we keep tracking the lru size.\n            self.__doSetLimit(None)\n\n        # Now make that into a 2-D rectangle of the appropriate shape,\n        # such that w * h == limit.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2979
+  }
+}

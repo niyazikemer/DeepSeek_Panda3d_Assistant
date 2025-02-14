@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a 3D geometry processing and selection system, where it calculates bounding boxes, transforms them into world space, performs frustum culling to determine visibility, and manages node selection based on containment tests. The context involves geometric transformations, bounds calculations, and scene graph traversal for rendering or selection purposes in a 3D graphics pipeline.\n\nbb = geom.getBounds()\n                    bbc = bb.makeCopy()\n                    bbc.xform(geom.getParent().getNetTransform().getMat())\n\n                    boundingSphereTest = marqueeFrustum.contains(bbc)\n                    if boundingSphereTest > 1:\n                        if boundingSphereTest == 7:\n                            if nodePath not in selectionList:\n                                selectionList.append(nodePath)\n                        else:\n                            tMat = Mat4(geom.getMat())\n                            geom.clearMat()\n                            # Get bounds\n                            min = Point3(0)\n                            max = Point3(0)\n                            geom.calcTightBounds(min, max)\n                            # Restore transform\n                            geom.setMat(tMat)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3205
+  }
+}

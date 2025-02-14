@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains two methods related to image processing configuration:\n\n1. `delVolumetricLighting()`: Removes volumetric lighting effects from the rendering configuration\n2. `setBlurSharpen(amount)`: Adjusts blur/sharpen effect intensity, where 0.0 is fully blurred and values >1.0 sharpen\n\nThese methods belong within a section of the document that configures visual effects for image processing or rendering. They appear to be part of a larger collection of functions for managing various post-processing effects like bloom, cartoon ink, and other filters.\n\nThe chunk appears to be part of a configuration class with multiple related methods for enabling/disabling different rendering effects, suggesting it belongs in the same document section as other effect management functions (e.g., setBloom(), delBloom(), setCartoonInk(), etc.).\n\ndef delVolumetricLighting(self):\n        if \"VolumetricLighting\" in self.configuration:\n            del self.configuration[\"VolumetricLighting\"]\n            return self.reconfigure(True, \"VolumetricLighting\")\n        return True\n\n    def setBlurSharpen(self, amount=0.0):\n        \"\"\"Enables the blur/sharpen filter. If the 'amount' parameter is 1.0, it will not have any effect.\n        A value of 0.0 means fully blurred, and a value higher than 1.0 sharpens the image.\"\"\"\n        fullrebuild = (\"BlurSharpen\" not in self.configuration)\n        self.configuration[\"BlurSharpen\"] = amount\n        return self.reconfigure(fullrebuild, \"BlurSharpen\")\n\n    def delBlurSharpen(self):\n        if \"BlurSharpen\" in self.configuration:\n            del self.configuration[\"BlurSharpen\"]\n            return self.reconfigure(True, \"BlurSharpen\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3988
+  }
+}

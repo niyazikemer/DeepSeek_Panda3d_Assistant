@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears within a class method that handles object manipulation tasks in a 3D graphics environment, likely using Panda3D given references to DirectGlobals (DG). The method is responsible for stopping ongoing manipulation operations, removing associated tasks from the task manager, and handling deselection or cleanup of selected objects when manipulation is terminated.\n\nif self.fMultiView:\n            DG.LE_showInOneCam(self.marquee, ShowBaseGlobal.direct.camera.getName())\n\n    def manipulationStop(self):\n        taskMgr.remove('manipulateObject')\n        taskMgr.remove('manip-move-wait')\n        taskMgr.remove('manip-watch-mouse')\n        taskMgr.remove('manip-marquee-mouse')\n        direct = ShowBaseGlobal.direct\n        # depending on flag.....\n        if self.mode == 'select':\n            base = ShowBaseGlobal.base\n            # Check for object under mouse\n            # Don't intersect with hidden or backfacing objects, as well as any\n            # optionally specified things\n            skipFlags = self.defaultSkipFlags | self.optionalSkipFlags\n            # Skip camera (and its children), unless control key is pressed\n            skipFlags |= DG.SKIP_CAMERA * (1 - base.getControl())\n\n            if self.marquee:\n                self.marquee.removeNode()\n                self.marquee = None\n                direct.deselectAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3200
+  }
+}

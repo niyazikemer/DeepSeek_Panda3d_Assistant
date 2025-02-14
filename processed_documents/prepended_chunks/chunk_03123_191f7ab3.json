@@ -1,0 +1,9 @@
+{
+  "content": "The `enableBlend` method in the actor class is a deprecated function used to enable blending of multiple animations simultaneously, allowing them to contribute to the final pose each frame.\n\ndef enableBlend(self, blendType = PartBundle.BTNormalizedLinear, partName = None):\n        \"\"\"\n        Enables blending of multiple animations simultaneously.\n        After this is called, you may call play(), loop(), or pose()\n        on multiple animations and have all of them contribute to the\n        final pose each frame.\n\n        With blending in effect, starting a particular animation with\n        play(), loop(), or pose() does not implicitly make the\n        animation visible; you must also call setControlEffect() for\n        each animation you wish to use to indicate how much each\n        animation contributes to the final pose.\n\n        This method is deprecated.  You should use setBlend() instead.\n        \"\"\"\n        if __debug__:\n            warnings.warn(\"This method is deprecated.  You should use setBlend() instead.\", DeprecationWarning, stacklevel=2)\n        self.setBlend(animBlend = True, blendType = blendType, partName = partName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3123
+  }
+}

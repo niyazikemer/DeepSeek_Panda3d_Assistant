@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods, `homeCam()` and `uprightCam()`, within a larger document focused on 3D camera manipulation. These methods handle resetting the camera to its default position (`homeCam()`) and adjusting it to an upright orientation (`uprightCam()`), providing essential user interaction features for navigating and viewing scenes in a 3D application.\n\ndef homeCam(self):\n        # Record undo point\n        direct = ShowBaseGlobal.direct\n        direct.pushUndo([direct.camera])\n        direct.camera.reparentTo(ShowBaseGlobal.base.render)\n        direct.camera.clearMat()\n        # Resize coa marker\n        self.updateCoaMarkerSize()\n\n    def uprightCam(self):\n        self.__stopManipulateCamera()\n        # Record undo point\n        direct = ShowBaseGlobal.direct\n        direct.pushUndo([direct.camera])\n        # Pitch camera till upright\n        currH = direct.camera.getH()\n        ival = direct.camera.hprInterval(CAM_MOVE_DURATION,\n                                         (currH, 0, 0),\n                                         other=ShowBaseGlobal.base.render,\n                                         blendType='easeInOut',\n                                         name='manipulateCamera')\n        self.__startManipulateCamera(ival=ival)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3334
+  }
+}

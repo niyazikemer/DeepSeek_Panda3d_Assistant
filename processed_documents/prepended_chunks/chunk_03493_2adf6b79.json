@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a class method that initializes a graphical interface for exploring and manipulating 3D scenes. It sets up mouse bindings for middle-click dragging to navigate through the scene hierarchy, creates a label to display the active reparent target, initializes the tree node structure, and configures UI elements to facilitate interactive exploration and modification of the scene graph.\n\nself._canvas.bind('<ButtonPress-2>', self.mouse2Down)\n        self._canvas.bind('<B2-Motion>', self.mouse2Motion)\n        self._canvas.bind('<Configure>',\n                          lambda e, sc = self._scrolledCanvas:\n                          sc.resizescrollregion())\n        self.interior().bind('<Destroy>', self.onDestroy)\n\n        # Create the contents\n        self._treeItem = SceneGraphExplorerItem(self.nodePath, isItemEditable)\n\n        self._node = TreeNode(self._canvas, None, self._treeItem,\n                              DEFAULT_MENU_ITEMS + self['menuItems'])\n        self._node.expand()\n\n        self._parentFrame = tk.Frame(interior)\n        self._label = self.createcomponent(\n            'parentLabel',\n            (), None,\n            tk.Label, (interior,),\n            text = 'Active Reparent Target: ',\n            anchor = tk.W, justify = tk.LEFT)\n        self._label.pack(fill = tk.X)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3493
+  }
+}

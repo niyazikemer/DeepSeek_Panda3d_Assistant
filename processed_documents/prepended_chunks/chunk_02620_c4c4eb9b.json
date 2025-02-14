@@ -1,0 +1,9 @@
+{
+  "content": "The `conditional_request` method is part of a Finite State Machine (FSM) implementation within the ClassicFSM class, designed to handle state transitions safely by attempting a transition only if it exists. This method allows for conditional state changes without generating errors or warnings when the requested transition is undefined, making it useful for flexible FSM configurations. It includes checks to ensure the current state is valid and initializes it to the initial state if necessary.\n\ndef conditional_request(self, aStateName, enterArgList=[], exitArgList=[]):\n        \"\"\"\n        'if this transition is defined, do it'\n        Attempt transition from currentState to given one, if it exists.\n        Return true if transition exists to given state, false otherwise.\n        It is NOT an error/warning to attempt a cond_request if the\n        transition doesn't exist.  This lets people be sloppy about\n        ClassicFSM transitions, letting the same fn be used for different\n        states that may not have the same out transitions.\n        \"\"\"\n        assert not self.__internalStateInFlux\n        if not self.__currentState:\n            # Make this a warning for now\n            ClassicFSM.notify.warning(\"[%s]: request: never entered initial state\" %\n                               (self.__name))\n            self.__currentState = self.__initialState",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2620
+  }
+}

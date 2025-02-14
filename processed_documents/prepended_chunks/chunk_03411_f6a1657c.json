@@ -1,0 +1,9 @@
+{
+  "content": "This chunk belongs to a class responsible for managing user interaction and selection within a 3D modeling or visualization tool, such as Blender or Maya. The `deselect` method handles the process of deselecting a specific nodePath, hiding manipulation widgets, updating UI elements, and sending messages about the deselection event. The `deselectAll` method sends a pre-deselect message before clearing all selections. These methods are part of a larger system that manages display regions, cameras, and user interactions like mouse events and selection/deselection of nodes.\n\ndef deselect(self, nodePath):\n        dnp = self.selected.deselect(nodePath)\n        if dnp:\n            # Hide the manipulation widget\n            if self.manipulationControl.fMultiView:\n                for widget in self.manipulationControl.widgetList:\n                    widget.hideWidget()\n            else:\n                self.widget.hideWidget()\n            self.selectedNPReadout.reparentTo(hidden)\n            self.selectedNPReadout.setText(' ')\n            taskMgr.remove('followSelectedNodePath')\n            self.ancestry = []\n            # Send an message marking the event\n            messenger.send('DIRECT_deselectedNodePath', [dnp])\n\n    def deselectAll(self):\n        messenger.send('DIRECT-preDeselectAll')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3411
+  }
+}

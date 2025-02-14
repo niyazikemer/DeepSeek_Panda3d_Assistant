@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes the main UI components of the `SceneGraphExplorer` class, creating a styled container and configuring a scrollable canvas area for displaying the scene graph structure.\n\n# Create the components.\n\n        # Setup up container\n        interior = self.interior()\n        interior.configure(relief = tk.GROOVE, borderwidth = 2)\n\n        # Create a label and an entry\n        self._scrolledCanvas = self.createcomponent(\n            'scrolledCanvas',\n            (), None,\n            Pmw.ScrolledCanvas, (interior,),\n            hull_width = 200, hull_height = 300,\n            usehullsize = 1)\n        self._canvas = self._scrolledCanvas.component('canvas')\n        self._canvas['scrollregion'] = ('0i', '0i', '2i', '4i')\n        self._scrolledCanvas.resizescrollregion()\n        self._scrolledCanvas.pack(padx = 3, pady = 3, expand=1, fill = tk.BOTH)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3492
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The function `listdir` is part of a Python module designed to interact with a virtual file system (VFS). This specific implementation mimics the behavior of `os.listdir`, providing directory listing capabilities over the VFS. The function retrieves and lists directory contents by scanning the specified path, returning a list of filenames as basenames. It raises an `OSError` if the directory does not exist, ensuring robust error handling. This function is part of a broader set of utilities within the module that facilitate file system operations, including opening files, walking directories, and checking file/directory existence.\n\ndef listdir(path):\n    \"\"\" Implements os.listdir over vfs. \"\"\"\n    files = []\n    dirlist = _vfs.scanDirectory(core.Filename.fromOsSpecific(path))\n    if dirlist is None:\n        raise OSError(\"No such file or directory: '%s'\" % (path))\n\n    for file in dirlist:\n        files.append(file.getFilename().getBasename())\n    return files",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3790
+  }
+}

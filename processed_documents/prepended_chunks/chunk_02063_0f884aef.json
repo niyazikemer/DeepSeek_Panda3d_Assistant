@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `ModuleDef` class initialization and representation methods. It defines how a module definition object is created, with parameters for platform, path, hidden imports, and optimization, and provides a string representation for debugging purposes.\n\nif self.forbid:\n                self.exclude = True\n                self.allowChildren = False\n\n        def __repr__(self):\n            args = [repr(self.moduleName), repr(self.filename)]\n            if self.implicit:\n                args.append('implicit = True')\n            if self.guess:\n                args.append('guess = True')\n            if self.exclude:\n                args.append('exclude = True')\n            if self.forbid:\n                args.append('forbid = True')\n            if self.allowChildren:\n                args.append('allowChildren = True')\n            return 'ModuleDef(%s)' % (', '.join(args))\n\n    def __init__(self, previous = None, debugLevel = 0,\n                 platform = None, path=None, hiddenImports=None, optimize=None):\n        # Normally, we are freezing for our own platform.  Change this\n        # if untrue.\n        self.platform = platform or PandaSystem.getPlatform()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2063
+  }
+}

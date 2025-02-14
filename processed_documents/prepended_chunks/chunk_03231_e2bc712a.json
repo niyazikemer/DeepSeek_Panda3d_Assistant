@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class handling 3D object manipulation in an animation or modeling software, specifically implementing constrained 1D rotation about X/Y/Z axes based on mouse movement around the widget's projected origin.\n\ndef rotate1D(self, state):\n        assert self.constraint is not None\n\n        # Constrained 1D rotation about the widget's main axis (X, Y, or Z)\n        # Rotation depends upon circular motion of the mouse about the\n        # projection of the widget's origin on the image plane\n        # A complete circle about the widget results in a change in\n        # orientation of 360 degrees.\n\n        # First initialize hit point/rotation angle\n        if self.fHitInit:\n            self.fHitInit = 0\n            self.rotateAxis = self.constraint[:1]\n            self.fWidgetTop = self.widgetCheck('top?')\n            self.rotationCenter = getScreenXY(ShowBaseGlobal.direct.widget)\n            self.lastCrankAngle = getCrankAngle(self.rotationCenter)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3231
+  }
+}

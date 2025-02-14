@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a list of action-event pairs that map specific user interface actions to corresponding methods in a scene graph exploration tool, enabling functionality such as node selection, deselection, reparenting, deletion, and visibility toggling.\n\nself.actionEvents = [\n            ['select', self.select],\n            ['DIRECT-select', self.selectCB],\n            ['deselect', self.deselect],\n            ['deselectAll', self.deselectAll],\n            ['DIRECT-preDeselectAll', self.deselectAllCB],\n            ['highlightAll', self.selected.highlightAll],\n            ['preRemoveNodePath', self.deselect],\n            # Scene graph explorer functions\n            ['SGE_Select', self.select],\n            ['SGE_Deselect', self.deselect],\n            ['SGE_Set Reparent Target', self.setActiveParent],\n            ['SGE_Reparent', self.reparent],\n            ['SGE_WRT Reparent', lambda np, s=self: s.reparent(np, fWrt = 1)],\n            ['SGE_Flash', self.flash],\n            ['SGE_Isolate', self.isolate],\n            ['SGE_Toggle Vis', self.toggleVis],\n            ['SGE_Show All', self.showAllDescendants],\n            ['SGE_Fit', self.fitOnNodePath],\n            ['SGE_Delete', self.removeNodePath],",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3374
+  }
+}

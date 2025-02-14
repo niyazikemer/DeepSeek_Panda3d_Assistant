@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a class method `replaceMethod` within the `FunctionInterval` class that allows replacing old function references with new ones across all instances of `FunctionInterval`. Additionally, it initializes a logging category for `FunctionInterval` to enhance debugging capabilities. This code should be placed within the `FunctionInterval` class definition in the document to improve search retrieval and maintain context.\n\n@classmethod\n        def replaceMethod(cls, oldFunction, newFunction):\n            import types\n            count = 0\n            for ival in cls.FunctionIntervals:\n                # print 'testing: ', ival.function, oldFunction\n                # Note: you can only replace methods currently\n                if isinstance(ival.function, types.MethodType):\n                    if ival.function.__func__ == oldFunction:\n                        # print 'found: ', ival.function, oldFunction\n                        ival.function = types.MethodType(newFunction,\n                                                         ival.function.__self__)\n                        count += 1\n            return count\n\n    # create FunctionInterval DirectNotify category\n    notify = directNotify.newCategory('FunctionInterval')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2903
+  }
+}

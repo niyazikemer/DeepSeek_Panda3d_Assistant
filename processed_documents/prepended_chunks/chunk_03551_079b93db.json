@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines the initial implementation of `EntryScale`, a custom MegaWidget built using Pmw, which combines an entry field with a scale for numeric input and validation. This class serves as the core component of the EntryScaleGroup widget system, providing validated numeric input capabilities within the RGB color picker panel described in the document. The `__init__` method sets up key configuration options including value range, resolution, callbacks, and display properties.\n\nclass EntryScale(Pmw.MegaWidget):\n    \"Scale with linked and validated entry\"\n\n    def __init__(self, parent = None, **kw):\n\n        # Define the megawidget options.\n        optiondefs = (\n            ('state',        None,          None),\n            ('value',        0.0,           Pmw.INITOPT),\n            ('resolution',   0.001,         None),\n            ('command',      None,          None),\n            ('preCallback',  None,          None),\n            ('postCallback', None,          None),\n            ('callbackData', [],            None),\n            ('min',          0.0,           self._updateValidate),\n            ('max',          100.0,         self._updateValidate),\n            ('text',         'EntryScale',  self._updateLabelText),\n            ('numDigits',    2,             self._setSigDigits),\n        )\n        self.defineoptions(kw, optiondefs)\n\n        # Initialise superclass\n        Pmw.MegaWidget.__init__(self, parent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3551
+  }
+}

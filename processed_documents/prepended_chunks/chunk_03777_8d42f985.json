@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated at the beginning of a Python module that reimplements standard file I/O operations using Panda3D's virtual filesystem (VFS). It provides core imports and initializations for interacting with Panda's VFS, including functions like `open`, directory traversal (`listdir`, `walk`), file existence checks (`isfile`, `isdir`), metadata retrieval (`getmtime`, `getsize`), and script execution from the VFS.\n\n\"\"\" This module reimplements Python's file I/O mechanisms using Panda\nconstructs.  This enables Python to interface more easily with Panda's\nvirtual file system, and it also better-supports Panda's\nSIMPLE_THREADS model, by avoiding blocking all threads while waiting\nfor I/O to complete. \"\"\"\n\n__all__ = [\n    'open', 'listdir', 'walk', 'join',\n    'isfile', 'isdir', 'exists', 'lexists', 'getmtime', 'getsize',\n    'execfile',\n]\n\nfrom panda3d import core\nimport os\nimport io\nfrom posixpath import join\n\n_vfs = core.VirtualFileSystem.getGlobalPtr()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3777
+  }
+}

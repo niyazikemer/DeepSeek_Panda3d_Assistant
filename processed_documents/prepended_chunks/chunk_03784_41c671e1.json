@@ -1,0 +1,9 @@
+{
+  "content": "The `StreamIOWrapper` class is a component of a Python module designed to interface with a virtual filesystem (VFS), providing methods for listing directories, checking file existence, executing files, and managing file metadata. This specific class facilitates binary I/O operations by wrapping C++ istream/ostream objects, enabling integration with Python's IOBase functionality for reading from or writing to files within the VFS.\n\nclass StreamIOWrapper(io.IOBase):\n    \"\"\" This is a file-like object that wraps around a C++ istream and/or\n    ostream object.  It only deals with binary data; to work with text I/O,\n    create an io.TextIOWrapper object around this, or use the open()\n    function that is also provided with this module. \"\"\"\n\n    def __init__(self, stream, needsVfsClose=False):\n        self.__stream = stream\n        self.__needsVfsClose = needsVfsClose\n        self.__reader = None\n        self.__writer = None\n        self.__lastWrite = False\n\n        if isinstance(stream, core.Istream):\n            self.__reader = core.StreamReader(stream, False)\n\n        if isinstance(stream, core.Ostream):\n            self.__writer = core.StreamWriter(stream, False)\n            self.__lastWrite = True\n            self.__write = self.__writer.appendData",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_204",
+    "parent": "processed_documents/context_documents/ad467a3d_file.json",
+    "chunk_number": 3784
+  }
+}

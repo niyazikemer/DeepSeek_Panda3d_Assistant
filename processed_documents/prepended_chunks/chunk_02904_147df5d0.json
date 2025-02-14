@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the core `FunctionInterval` class within a DirectNotify category for logging, providing its initialization method with parameters such as function, name, openEnded, and extraArgs.\n\n# create FunctionInterval DirectNotify category\n    notify = directNotify.newCategory('FunctionInterval')\n\n    # Class methods\n    def __init__(self, function, **kw):\n        \"\"\"__init__(function, name = None, openEnded = 1, extraArgs = [])\n        \"\"\"\n        name = kw.pop('name', None)\n        openEnded = kw.pop('openEnded', 1)\n        extraArgs = kw.pop('extraArgs', [])\n\n        # Record instance variables\n        self.function = function\n\n        # Create a unique name for the interval if necessary\n        if name is None:\n            name = self.makeUniqueName(function)\n        assert isinstance(name, str)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2904
+  }
+}

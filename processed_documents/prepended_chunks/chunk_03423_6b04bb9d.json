@@ -1,0 +1,9 @@
+{
+  "content": "These `undo()` and `redo()` functions are part of a version control system that tracks node transformations within the 3D scene. They manage undo/redo operations by maintaining lists of transformations and sending messages via messenger for other components to respond to these state changes.\n\ndef undo(self):\n        if self.undoList:\n            # Get last item off of redo list\n            undoGroup = self.popUndoGroup()\n            # Record redo information\n            nodePathList = [x[0] for x in undoGroup]\n            self.pushRedo(nodePathList)\n            # Now undo xform for group\n            for pose in undoGroup:\n                # Undo xform\n                pose[0].setTransform(pose[1])\n            # Alert anyone who cares\n            messenger.send('DIRECT_undo', [nodePathList])\n\n    def redo(self):\n        if self.redoList:\n            # Get last item off of redo list\n            redoGroup = self.popRedoGroup()\n            # Record undo information\n            nodePathList = [x[0] for x in redoGroup]\n            self.pushUndo(nodePathList, fResetRedo = 0)\n            # Redo xform\n            for pose in redoGroup:\n                pose[0].setTransform(pose[1])\n            # Alert anyone who cares\n            messenger.send('DIRECT_redo', [nodePathList])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3423
+  }
+}

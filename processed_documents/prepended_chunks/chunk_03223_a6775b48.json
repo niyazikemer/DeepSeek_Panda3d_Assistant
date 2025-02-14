@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears in a method of the `DirectManipulation` class that handles 3D transformations (rotation, scaling, translation). The chunk implements logic to determine the manipulation mode based on user input (keyboard and mouse) and object properties (`EDIT_TYPE` flags). It includes conditional checks for control keys (Alt) to enable scaling modes and mouse events to determine rotation or translation operations.\n\nself.fScaling1D = 0\n                    self.fScaling3D = 0\n                # Alt key switches to a scaling mode\n                if ShowBaseGlobal.direct.fControl and not self.currEditTypes & DG.EDIT_TYPE_UNSCALABLE:\n                    self.fScaling3D = 1\n                    self.scale3D(state)\n                # Otherwise, manip mode depends on where you started\n                elif state.fMouseX and state.fMouseY and not self.currEditTypes & DG.EDIT_TYPE_UNROTATABLE:\n                    # In the corner, spin around camera's axis\n                    self.rotateAboutViewVector(state)\n                elif state.fMouseX or state.fMouseY and not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                    # Mouse started elsewhere in the outer frame, rotate\n                    self.rotate2D(state)\n                elif not self.currEditTypes & DG.EDIT_TYPE_UNMOVABLE:\n                    # Mouse started in central region, xlate",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3223
+  }
+}

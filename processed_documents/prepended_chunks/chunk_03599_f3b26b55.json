@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains three key utility methods (`addButton`, `addLabel`, `getBTWidth`) within a class that manages graphical user interface (GUI) elements for displaying and interacting with 3D model data, including vertex bytes, faces, and textures. These methods handle button creation, label addition, and dynamic width calculation based on memory metrics.\n\ndef addButton(self, vertexBytes, totalBytes, funcLClick, funcRClick, item):\n        width = self.getBTWidth(vertexBytes, totalBytes)\n\n        if totalBytes == 0:\n            ratio = 0.0\n        else:\n            ratio = vertexBytes/float(totalBytes)\n\n        bt = self.getNewButton(width, ratio)\n\n        def callbackL(event):\n            funcLClick(item)\n\n        def callbackR(event):\n            funcRClick(item)\n\n        bt.bind(\"<Button-1>\", callbackL)\n        bt.bind(\"<Button-3>\", callbackR)\n\n        bt.pack(side = tk.TOP, anchor = tk.NW)\n        self.buttons.append(bt)\n\n        self.balloon.bind(bt, item.getPathName())\n\n        return bt\n\n    def addLabel(self, label):\n        label = tk.Label(self.frame.interior(), text = label)\n        label.pack(side = tk.TOP, anchor = tk.NW,  expand = 0)\n        self.labels.append(label)\n\n    def getBTWidth(self, vertexBytes, totalBytes):\n        if totalBytes == 0:\n            return 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_194",
+    "parent": "processed_documents/context_documents/1e329885_MemoryExplorer.json",
+    "chunk_number": 3599
+  }
+}

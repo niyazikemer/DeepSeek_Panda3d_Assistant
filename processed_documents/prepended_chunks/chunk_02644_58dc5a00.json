@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an FSM (Finite State Machine) class's request method, which processes state change requests. It evaluates whether a requested state transition is allowed based on default transition rules defined for the FSM.\n\n**Context:**\nWithin the FSM's `request` method, this code section determines if transitioning to a new state is permitted by checking three conditions related to wildcard transitions:\n1. If the current state allows transitions to any state (`FSM.EnumStates.ANY`).\n2. If the requested state is specified in global transitions from any state.\n3. If all states can transition freely when `ANY` is allowed from `ANY`.\n\nThese checks enable flexible, wildcard-based state transitions without requiring explicit definitions for every possible state change.\n\nelif FSM.EnumStates.ANY in self.defaultTransitions.get(self.state, []):\n                # Whenever we have a '*' as our to transition, we allow\n                # to transit to any other state\n                return (request,) + args\n\n            elif request in self.defaultTransitions.get(FSM.EnumStates.ANY, []):\n                # If the requested state is in the default transitions\n                # from any state list, we also alow to transit to the\n                # new state\n                return (request,) + args\n\n            elif FSM.EnumStates.ANY in self.defaultTransitions.get(FSM.EnumStates.ANY, []):\n                # This is like we had set the defaultTransitions to None.\n                # Any state can transit to any other state\n                return (request,) + args",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2644
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a larger collection of classes for 3D collision detection in a programming context. Specifically, it defines the `SelectionSphere` class, which inherits from `SelectionQueue`, and provides functionality for creating and managing spherical collision volumes. This includes methods for initializing multiple colliders, setting their centers and radii, and handling collisions within these spherical regions.\n\nclass SelectionSphere(SelectionQueue):\n    # Wrapper around collision sphere\n    def __init__(self, parentNP = None, numSpheres = 1):\n        if parentNP is None:\n            parentNP = render\n        # Initialize the superclass\n        SelectionQueue.__init__(self, parentNP)\n        self.colliders = []\n        self.numColliders = 0\n        for i in range(numSpheres):\n            self.addCollider(CollisionSphere(Point3(0), 1))\n\n    def addCollider(self, collider):\n        # Record new collision object\n        self.colliders.append(collider)\n        # Add the collider to the collision Node\n        self.collisionNode.addSolid(collider)\n        self.numColliders += 1\n\n    def setCenter(self, i, center):\n        c = self.colliders[i]\n        c.setCenter(center)\n\n    def setRadius(self, i, radius):\n        c = self.colliders[i]\n        c.setRadius(radius)\n\n    def setCenterRadius(self, i, center, radius):\n        c = self.colliders[i]\n        c.setCenter(center)\n        c.setRadius(radius)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3475
+  }
+}

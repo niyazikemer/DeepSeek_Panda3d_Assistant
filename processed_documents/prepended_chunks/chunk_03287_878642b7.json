@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code calculates the line-of-action intersection point for a widget's motion axis by transforming the camera-to-widget matrix, determining the interaction direction relative to the widget, and selecting the most appropriate plane based on the orientation of the intersection ray.\n\n# Calc the xfrom from camera to widget\n        mCam2Widget = ShowBaseGlobal.direct.camera.getMat(ShowBaseGlobal.direct.widget)\n        lineDir = Vec3(mCam2Widget.xformVec(ShowBaseGlobal.direct.dr.nearVec))\n        lineDir.normalize()\n        # And determine where the viewpoint is relative to widget\n        lineOrigin = VBase3(0)\n        decomposeMatrix(mCam2Widget, VBase3(0), VBase3(0), lineOrigin,\n                        CSDefault)\n        # Now see where this hits the plane containing the 1D motion axis.\n        # Pick the intersection plane most normal to the intersection ray\n        # by comparing lineDir with plane normals.  The plane with the\n        # largest dotProduct is most \"normal\"\n        if axis == 'x':\n            if abs(lineDir.dot(DG.Y_AXIS)) > abs(lineDir.dot(DG.Z_AXIS)):\n                self.hitPt.assign(\n                    planeIntersect(lineOrigin, lineDir, DG.ORIGIN, DG.Y_AXIS))\n            else:\n                self.hitPt.assign(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3287
+  }
+}

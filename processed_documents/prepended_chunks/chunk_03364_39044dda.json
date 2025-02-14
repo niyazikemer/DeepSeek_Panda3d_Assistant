@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two utility functions: `useDirectRenderStyle` which sets a node path to use direct rendering without lighting or wireframe, and `getFileData` which processes file input by stripping whitespace and splitting lines into lists based on a separator.\n\ndef useDirectRenderStyle(nodePath, priority = 0):\n    \"\"\"\n    Function to force a node path to use direct render style:\n    no lighting, and no wireframe\n    \"\"\"\n    nodePath.setLightOff(priority)\n    nodePath.setRenderModeFilled()\n\n# File data util\ndef getFileData(filename, separator = ','):\n    \"\"\"\n    Open the specified file and strip out unwanted whitespace and\n    empty lines.  Return file as list of lists, one file line per element,\n    list elements based upon separator\n    \"\"\"\n    f = open(filename.toOsSpecific(), 'r')\n    rawData = f.readlines()\n    f.close()\n    fileData = []\n    for line in rawData:\n        # First strip whitespace from both ends of line\n        l = line.strip()\n        if l:\n            # If its a valid line, split on separator and\n            # strip leading/trailing whitespace from each element\n            data = [s.strip() for s in l.split(separator)]\n            fileData.append(data)\n    return fileData",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_184",
+    "parent": "processed_documents/context_documents/1c2cbc90_DirectUtil.json",
+    "chunk_number": 3364
+  }
+}

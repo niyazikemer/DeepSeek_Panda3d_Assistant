@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the initialization section of a Python Finite State Machine (FSM) implementation, specifically establishing logging, state transition rules, and concurrency management. The `notify` variable sets up a direct notification category for FSM-related messages, while `SerialNum` serves as a counter for tracking FSM instances or operations. The `defaultTransitions` variable defines the allowed state transitions, which can be either flexible (allowing all capital-letter state requests) or strictly defined via a transition map. The `__doneFuture` is used to handle asynchronous completion of FSM operations. This section establishes the foundational behavior and rules for how the FSM will manage state changes and notifications throughout its operation.\n\nSee the code in SampleFSM.py for further examples.\n    \"\"\"\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"FSM\")\n\n    SerialNum = 0\n\n    # This member lists the default transitions that are accepted\n    # without question by the defaultFilter.  It's a map of state\n    # names to a list of legal target state names from that state.\n    # Define it only if you want to use the classic FSM model of\n    # defining all (or most) of your transitions up front.  If\n    # this is set to None (the default), all named-state\n    # transitions (that is, those requests whose name begins with\n    # a capital letter) are allowed.  If it is set to an empty\n    # map, no transitions are implicitly allowed--all transitions\n    # must be approved by some filter function.\n    defaultTransitions = None\n\n    __doneFuture = AsyncFuture()\n    __doneFuture.set_result(None)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2630
+  }
+}

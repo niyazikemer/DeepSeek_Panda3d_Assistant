@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a class definition for an `Actor` object, which manages 3D models and animations. The chunk introduces three methods: `setSubpartsComplete()`, `getSubpartsComplete()`, and `verifySubpartsComplete()`. These methods handle the completeness and validation of subparts within the actor's structure, ensuring that all necessary parts are defined and properly validated for correct rendering or animation behavior.\n\nIt makes sense to set this True when the union of all of your\n        subparts completely defines the entire Actor.\n        \"\"\"\n\n        self.__subpartsComplete = flag\n\n        if __dev__ and self.__subpartsComplete and self.validateSubparts.getValue():\n            # If we've specified any parts at all so far, make sure we've\n            # specified all of them.\n            if self.__subpartDict:\n                self.verifySubpartsComplete()\n\n\n    def getSubpartsComplete(self):\n        \"\"\"See setSubpartsComplete().\"\"\"\n\n        return self.__subpartsComplete\n\n    def verifySubpartsComplete(self, partName = None, lodName = None):\n        \"\"\" Ensures that each joint is defined by at least one\n        subPart.  Prints a warning if this is not the case. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3147
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines methods within the `ProjectileInterval` class that handle the initialization of a projectile's trajectory, including calculating its path, setting up collision detection, and updating its position over time. These functions are crucial for initializing the projectile's movement, ensuring accurate trajectory calculations, managing collision nodes, and handling error checking to validate the projectile parameters.\n\ndef __initialize(self):\n        if self.implicitStartPos:\n            self.__calcTrajectory(*self.trajectoryArgs)\n\n    def testTrajectory(self):\n        try:\n            self.__calcTrajectory(*self.trajectoryArgs)\n        except Exception:\n            assert self.notify.error('invalid projectile parameters')\n            return False\n        return True\n\n    def privInitialize(self, t):\n        self.__initialize()\n        if self.collNode:\n            self.collNode.clearSolids()\n            csolid = CollisionParabola(self.parabola, 0, 0)\n            self.collNode.addSolid(csolid)\n\n        Interval.privInitialize(self, t)\n\n    def privInstant(self):\n        self.__initialize()\n        Interval.privInstant(self)\n        if self.collNode:\n            self.collNode.clearSolids()\n            csolid = CollisionParabola(self.parabola, 0, self.duration)\n            self.collNode.addSolid(csolid)\n\n    def __calcPos(self, t):\n        return self.parabola.calcPoint(t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2931
+  }
+}

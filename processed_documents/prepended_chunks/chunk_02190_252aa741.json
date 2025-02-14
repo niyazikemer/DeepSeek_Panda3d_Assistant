@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of a function responsible for writing a Windows bitmap (BMP) file. It constructs the header using `BITMAPINFOHEADER` format, handles both 24-bit (RGB) and 32-bit (with alpha channel) color depths, ensuring proper alignment and pixel data ordering.\n\n```context\n# This code writes the BITMAPINFOHEADER and image data to a file object for a BMP file.\n# It supports 24-bit RGB and 32-bit RGBA formats, including row alignment and alpha handling.\n```\n\nfp.write(struct.pack('<IiiHHIIiiII', 40, size, size * 2, 1, bpp, 0, 0, 0, 0, 0, 0))\n\n        # XOR mask\n        if bpp == 24:\n            # Align rows to 4-byte boundary\n            rowalign = b'\\0' * (-(size * 3) & 3)\n            for y in range(size):\n                for x in range(size):\n                    r, g, b = image.getXel(x, size - y - 1)\n                    fp.write(struct.pack('<BBB', int(b * 255), int(g * 255), int(r * 255)))\n                fp.write(rowalign)\n\n        elif bpp == 32:\n            for y in range(size):\n                for x in range(size):\n                    r, g, b, a = image.getXelA(x, size - y - 1)\n                    fp.write(struct.pack('<BBBB', int(b * 255), int(g * 255), int(r * 255), int(a * 255)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2190
+  }
+}

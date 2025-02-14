@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines two methods related to application shell functionality. The `onDestroy` method handles panel shutdown events, while `createMenuBar` sets up a default menu bar with Help options including About and Balloon help toggling. These methods are part of an AppShell class that provides infrastructure for building GUI applications.\n\nThe succinct context is: Methods for managing application shutdown and creating a menu bar with help features in an AppShell-based GUI framework.\n\ndef onDestroy(self, event):\n        # Override this method with actions to be performed on panel shutdown\n        pass\n\n    def createMenuBar(self):\n        # Creates default menus.  Can be overridden or simply augmented\n        # Using button Add below\n        self.menuBar.addmenuitem('Help', 'command',\n                                 'Get information on application',\n                                 label='About...', command=self.showAbout)\n        self.toggleBalloonVar = tk.IntVar()\n        if self.balloonState == 'none':\n            self.toggleBalloonVar.set(0)\n        else:\n            self.toggleBalloonVar.set(1)\n        self.menuBar.addmenuitem('Help', 'checkbutton',\n                                 'Toggle balloon help',\n                                 label='Balloon help',\n                                 variable = self.toggleBalloonVar,\n                                 command=self.toggleBalloon)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3732
+  }
+}

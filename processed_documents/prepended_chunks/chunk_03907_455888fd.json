@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains a commented-out method `doYieldExample` which demonstrates an example implementation of frame time management, and a debugging function `checkLeak()` used to verify reference counting in tasks.\n\n#def doYieldExample(self, frameStartTime, nextScheduledTaskTime):\n    #    minFinTime = frameStartTime + self.MaxEpochSpeed\n    #    if nextScheduledTaskTime > 0 and nextScheduledTaskTime < minFinTime:\n    #        print(' Adjusting Time')\n    #        minFinTime = nextScheduledTaskTime\n    #    delta = minFinTime - self.globalClock.getRealTime()\n    #    while delta > 0.002:\n    #        print ' sleep %s'% (delta)\n    #        time.sleep(delta)\n    #        delta = minFinTime - self.globalClock.getRealTime()\n\n\nif __debug__:\n    def checkLeak():\n        import gc\n        gc.enable()\n        from direct.showbase.DirectObject import DirectObject\n        from direct.task.TaskManagerGlobal import taskMgr",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3907
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within an initialization method (__init__) of a class designed to handle geometric transformations. It checks if input parameters (such as position, quaternion, etc.) are functors (callable objects) and sets up corresponding start and end properties accordingly, facilitating the handling of dynamic or computed values during object initialization.\n\n**Context:** Initialization of transformation parameters in a class managing 3D object animations, checking for callable inputs to set up dynamic start and end values.\n\n# Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(pos, startPos, quat, startHpr,\n                                           startQuat, scale, startScale,\n                                           shear, startShear)\n        if self.paramSetup:\n            self.endPos = pos\n            self.startPos = startPos\n            self.endQuat = quat\n            self.startHpr = startHpr\n            self.startQuat = startQuat\n            self.endScale = scale\n            self.startScale = startScale\n            self.endShear = shear\n            self.startShear = startShear\n            self.inPython = 1\n        else:\n            self.setEndPos(pos)\n            if startPos is not None:\n                self.setStartPos(startPos)\n            self.setEndQuat(quat)\n            if startHpr is not None:\n                self.setStartHpr(startHpr)\n            if startQuat is not None:\n                self.setStartQuat(startQuat)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2778
+  }
+}

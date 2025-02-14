@@ -1,0 +1,9 @@
+{
+  "content": "The chunk presents the `FunctionCall` class, part of a state management system enabling responsive programming by automatically invoking functions when their arguments' states change.\n\nclass FunctionCall(ReceivesMultipleStateChanges, PushesStateChanges):\n    # calls func with provided args whenever arguments' state changes\n    def __init__(self, func, *args, **kArgs):\n        self._initialized = False\n        ReceivesMultipleStateChanges.__init__(self)\n        PushesStateChanges.__init__(self, None)\n        self._func = func\n        self._args = args\n        self._kArgs = kArgs\n        # keep a copy of the arguments ready to go, already filled in with\n        # the value of arguments that push state\n        self._bakedArgs = []\n        self._bakedKargs = {}\n        for i, arg in enumerate(self._args):\n            key = i\n            if isinstance(arg, PushesStateChanges):\n                self._bakedArgs.append(arg.getState())\n                self._subscribeTo(arg, key)\n            else:\n                self._bakedArgs.append(self._args[i])\n        for key, arg in self._kArgs.items():\n            if isinstance(arg, PushesStateChanges):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2662
+  }
+}

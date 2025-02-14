@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger document detailing various collision detection classes in a 3D environment. Specifically, the `pickBitMask` method within the `SelectionQueue` class facilitates collision detection by setting up multiple rays or segments based on given endpoints and applying a bitmask filter for object selection. This method is crucial for efficiently determining intersections with specific objects in the scene using Panda3D's collision API.\n\ndef pickBitMask(self, bitMask = BitMask32.allOff(),\n                    targetNodePath = None, endPointList = [],\n                 skipFlags = DG.SKIP_HIDDEN | DG.SKIP_CAMERA):\n        if targetNodePath is None:\n            targetNodePath = render\n        self.collideWithBitMask(bitMask)\n        for i in range(min(len(endPointList), self.numColliders)):\n            pointA, pointB = endPointList[i]\n            collider = self.colliders[i]\n            collider.setPointA(pointA)\n            collider.setPointB(pointB)\n        self.ct.traverse(targetNodePath)\n        # Determine collision entry\n        return self.findCollisionEntry(skipFlags)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3474
+  }
+}

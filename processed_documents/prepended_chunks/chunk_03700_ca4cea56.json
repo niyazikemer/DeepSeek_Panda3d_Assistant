@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines methods for adding configuration options to a valuator dial's popup menu, including snap and rollover features, as well as setting the base and delta values that define the dial's range and behavior.\n\ndef addValuatorMenuEntries(self):\n        # The popup menu\n        self._fSnap = tk.IntVar()\n        self._fSnap.set(self['fSnap'])\n        self._popupMenu.add_checkbutton(label = 'Snap',\n                                        variable = self._fSnap,\n                                        command = self._setSnap)\n        self._fRollover = tk.IntVar()\n        self._fRollover.set(self['fRollover'])\n        if self['fAdjustable']:\n            self._popupMenu.add_checkbutton(label = 'Rollover',\n                                            variable = self._fRollover,\n                                            command = self._setRollover)\n\n    def setBase(self):\n        \"\"\" Set Dial base value: value = base + delta * numRevs \"\"\"\n        self._valuator['base'] = self['base']\n\n    def setDelta(self):\n        \"\"\" Set Dial delta value: value = base + delta * numRevs \"\"\"\n        self._valuator['delta'] = self['delta']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3700
+  }
+}

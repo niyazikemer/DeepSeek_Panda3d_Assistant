@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk initializes a collision detection system by creating a CollisionTraverser for performing collision tests, adding a collider node path to it, and setting up a list of unpickable objects that cannot be selected. It is part of a broader framework for handling 3D selection operations using collision detection, such as those found in Direct3D applications. The code sets up the core components needed for detecting collisions between geometric shapes (like rays, spheres, or line segments) and other scene objects to enable object selection functionality.\n\nself.collideWithGeom()\n        # And a traverser to do the actual collision tests\n        self.ct = CollisionTraverser(\"DirectSelection\")\n        self.ct.setRespectPrevTransform(False)\n        # Let the traverser know about the collision node and the queue\n        self.ct.addCollider(self.collisionNodePath, self)\n        # List of objects that can't be selected\n        self.unpickable = DG.UNPICKABLE\n        # Derived class must add Collider to complete initialization",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3459
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the `setHighDynamicRange` method in a Python class, which enables HDR rendering by using a floating-point framebuffer, disabling color clamping, and applying a tone map operator. This method is part of a suite of functions for enhancing visual effects, such as bloom, cartoon ink, and ambient occlusion, to optimize image quality and realism.\n\ndef setHighDynamicRange(self, tonemap=ToneMap.ACES):\n        \"\"\" Enables HDR rendering by using a floating-point framebuffer,\n        disabling color clamping on the main scene, and applying a tone map\n        operator (ACES or Khronos PBR Neutral).\n\n        It may also be necessary to use setExposureAdjust to perform exposure\n        compensation on the scene, depending on the lighting intensity.\n\n        .. versionadded:: 1.10.7\n        \"\"\"\n\n        fullrebuild = \"HighDynamicRange\" not in self.configuration or \\\n                      self.configuration[\"HighDynamicRange\"] is not tonemap\n        if tonemap is not ToneMap.ACES and tonemap is not ToneMap.PBR_NEUTRAL:\n            raise ValueError(\"Invalid value for tonemap\")\n        self.configuration[\"HighDynamicRange\"] = tonemap\n        return self.reconfigure(fullrebuild, \"HighDynamicRange\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3992
+  }
+}

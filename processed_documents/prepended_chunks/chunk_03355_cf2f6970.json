@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the `DirectGrid` class constructor (`__init__`) which initializes a 3D grid visualization with specified size, spacing, color, and parent node. The chunk sets up the grid's visual components by loading a background model, applying render style settings, creating line nodes for minor grid lines, setting their properties (color, thickness), and initializing necessary attributes for grid rendering.\n\nThis initialization is essential for creating a functional 3D grid with proper snapping capabilities, which can be used in applications like 3D modeling or scene layout.\n\nclass DirectGrid(NodePath, DirectObject):\n    def __init__(self,gridSize=100.0,gridSpacing=5.0,planeColor=(0.5,0.5,0.5,0.5),parent = None):\n        # Initialize superclass\n        NodePath.__init__(self, 'DirectGrid')\n        # Don't wireframe or light\n        useDirectRenderStyle(self)\n\n        # Load up grid parts to initialize grid object\n        # Polygon used to mark grid plane\n        self.gridBack = ShowBaseGlobal.loader.loadModel('models/misc/gridBack')\n        self.gridBack.reparentTo(self)\n        self.gridBack.setColor(*planeColor)\n\n        # Grid Lines\n        self.lines = self.attachNewNode('gridLines')\n        self.minorLines = LineNodePath(self.lines)\n        self.minorLines.lineNode.setName('minorLines')\n        self.minorLines.setColor(VBase4(0.3, 0.55, 1, 1))\n        self.minorLines.setThickness(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_183",
+    "parent": "processed_documents/context_documents/fba96cb7_DirectGrid.json",
+    "chunk_number": 3355
+  }
+}

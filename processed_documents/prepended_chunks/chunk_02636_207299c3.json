@@ -1,0 +1,9 @@
+{
+  "content": "The `demand()` method in the FSM class allows code to enforce a state transition without expecting denial. It queues requests if the FSM is busy, enabling asynchronous execution by returning a future.\n\n</context>\n\nThe provided chunk introduces the `demand` method within an FSM class. This method handles state transitions more strictly than other methods like `request()`, allowing new requests even when the FSM is transitioning by queuing them. The code includes setting the state and managing futures for async operations, fitting into the broader context of the FSM's state management system.\n\n</context>\n\nresult = self.__setState(request, *args)\n            return result._future or self.__doneFuture\n        finally:\n            self.fsmLock.release()\n\n    def demand(self, request, *args):\n        \"\"\"Requests a state transition, by code that does not expect\n        the request to be denied.  If the request is denied, raises a\n        `RequestDenied` exception.\n\n        Unlike `request()`, this method allows a new request to be made\n        while the FSM is currently in transition.  In this case, the\n        request is queued up and will be executed when the current\n        transition finishes.  Multiple requests will queue up in\n        sequence.\n\n        The return value of this function can be used in an `await`\n        expression to suspend the current coroutine until the\n        transition is done.\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2636
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `Icon` class in this document is a central component used to manage and manipulate images for creating platform-specific icons. This class is responsible for storing multiple square images of different sizes, which are essential for generating icons compatible with various operating systems like Windows (`.ico`) and macOS (`.icns`). The `addImage` method ensures that only properly formatted, square images are added to the collection, preventing invalid data from being used in icon generation. This core functionality is critical as it feeds into other methods within the document that handle scaling, color depth adjustments, and platform-specific formatting, ensuring that icons meet the requirements for different operating systems.\n\nclass Icon:\n    \"\"\" This class is used to create an icon for various platforms. \"\"\"\n    notify = directNotify.newCategory(\"Icon\")\n\n    def __init__(self):\n        self.images = {}\n\n    def addImage(self, image):\n        \"\"\" Adds an image to the icon.  Returns False on failure, True on success.\n        Only one image per size can be loaded, and the image size must be square. \"\"\"\n\n        if not isinstance(image, PNMImage):\n            fn = image\n            if not isinstance(fn, Filename):\n                fn = Filename.fromOsSpecific(fn)\n\n            image = PNMImage()\n            if not image.read(fn):\n                Icon.notify.warning(\"Image '%s' could not be read\" % fn.getBasename())\n                return False\n\n        if image.getXSize() != image.getYSize():\n            Icon.notify.warning(\"Ignoring image without square size\")\n            return False\n\n        self.images[image.getXSize()] = image\n\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2187
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `_setEnabled` method is a critical component of the `TaskProfiler` class, which controls the activation or deactivation of task profiling within the system. This method manages the start and stop functionality of the profiling process, adding or removing tasks from the task manager (`taskMgr`) as needed to begin or halt profiling operations.\n\ndef _setEnabled(self, enabled):\n        if enabled:\n            self.notify.info('task profiler started')\n            self._taskName = 'profile-tasks-%s' % id(self)\n            taskMgr.add(self._doProfileTasks, self._taskName, priority=-200)\n        else:\n            taskMgr.remove(self._taskName)\n            del self._taskName\n            self.notify.info('task profiler stopped')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_214",
+    "parent": "processed_documents/context_documents/a0ddb5b3_TaskProfiler.json",
+    "chunk_number": 3940
+  }
+}

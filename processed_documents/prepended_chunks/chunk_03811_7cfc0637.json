@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a lock implementation within Python's threading module. It includes `__enter__`, `release`, `__exit__` methods for managing the acquisition and release of a reentrant lock (`RLock`), along with an internal `_acquire_restore` method used by condition variables to restore lock state. These methods are essential for thread synchronization, allowing multiple releases after acquisition and ensuring proper lock management in concurrent environments.\n\n__enter__ = acquire\n\n    def release(self):\n        me = currentThread()\n        assert self.__owner is me, \"release() of un-acquire()d lock\"\n        self.__count = count = self.__count - 1\n        if not count:\n            self.__owner = None\n            self.__block.release()\n            if __debug__:\n                self._note(\"%s.release(): final release\", self)\n        else:\n            if __debug__:\n                self._note(\"%s.release(): non-final release\", self)\n\n    def __exit__(self, t, v, tb):\n        self.release()\n\n    # Internal methods used by condition variables\n\n    def _acquire_restore(self, state):\n        self.__block.acquire()\n        self.__count, self.__owner = state\n        if __debug__:\n            self._note(\"%s._acquire_restore()\", self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3811
+  }
+}

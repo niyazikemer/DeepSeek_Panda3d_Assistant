@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk implements special methods (`__delslice__`, `__iadd__`, and `__add__`) within a class context. These methods allow instances of the class (likely a subclass of `MetaInterval` such as `Sequence`, `Parallel`, or `Track`) to support slice deletion, in-place addition, and concatenation of interval components, enabling dynamic modification and combination of interval structures for building complex timelines.\n\nContext: This code is part of a class that manages collections of intervals, providing functionalities to modify the sequence of intervals by deleting slices and adding new intervals either in place or through concatenation.\n\ndef __delslice__(self, i, j):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        del self.ivals[i: j]\n        self.__ivalsDirty = 1\n\n    def __iadd__(self, other):\n        if isinstance(self.ivals, tuple):\n            self.ivals = list(self.ivals)\n        if isinstance(other, MetaInterval):\n            assert self.__class__ == other.__class__\n            ivals = other.ivals\n        else:\n            ivals = list(other)\n        self.ivals += ivals\n        self.__ivalsDirty = 1\n        assert self.validateComponents(ivals)\n        return self\n\n    def __add__(self, other):\n        copy = self[:]\n        copy += other\n        return copy\n\n    # Functions to define sequence, parallel, and track behaviors:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2877
+  }
+}

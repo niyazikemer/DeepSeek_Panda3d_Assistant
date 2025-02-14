@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines the `IntervalManager` class, which is a Python extension of the C++ `CIntervalManager` class. This class is designed to manage intervals, including adding, removing, and controlling events related to these intervals. The `__init__` method initializes the interval manager with an event queue and sets up storage for intervals and removed intervals.\n\nclass IntervalManager(CIntervalManager):\n\n    # This is a Python-C++ hybrid class.  IntervalManager is a Python\n    # extension of the C++ class CIntervalManager; the main purpose of\n    # the Python extensions is to add support for Python-based\n    # intervals (like MetaIntervals).\n\n    def __init__(self, globalPtr = 0):\n        # Pass globalPtr == 1 to the constructor to trick it into\n        # \"constructing\" a Python wrapper around the global\n        # CIntervalManager object.\n        if globalPtr:\n            self.cObj = CIntervalManager.getGlobalPtr()\n            Dtool_BorrowThisReference(self, self.cObj)\n            self.dd = self\n        else:\n            CIntervalManager.__init__(self)\n        self.eventQueue = EventQueue()\n        self.MyEventmanager = EventManager.EventManager(self.eventQueue)\n        self.setEventQueue(self.eventQueue)\n        self.ivals = []\n        self.removedIvals = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_160",
+    "parent": "processed_documents/context_documents/493662c0_IntervalManager.json",
+    "chunk_number": 2803
+  }
+}

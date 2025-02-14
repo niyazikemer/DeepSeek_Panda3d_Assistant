@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Protocol Buffers (proto) definition file, specifically setting up field relationships between various message types such as `XmlNode`, `XmlElement`, `XmlAttribute`, and others, which collectively define an XML structure with associated metadata like source positions.\n\n_XMLNODE.fields_by_name['element'].message_type = _XMLELEMENT\n_XMLNODE.fields_by_name['source'].message_type = _SOURCEPOSITION\n_XMLNODE.oneofs_by_name['node'].fields.append(\n  _XMLNODE.fields_by_name['element'])\n_XMLNODE.fields_by_name['element'].containing_oneof = _XMLNODE.oneofs_by_name['node']\n_XMLNODE.oneofs_by_name['node'].fields.append(\n  _XMLNODE.fields_by_name['text'])\n_XMLNODE.fields_by_name['text'].containing_oneof = _XMLNODE.oneofs_by_name['node']\n_XMLELEMENT.fields_by_name['namespace_declaration'].message_type = _XMLNAMESPACE\n_XMLELEMENT.fields_by_name['attribute'].message_type = _XMLATTRIBUTE\n_XMLELEMENT.fields_by_name['child'].message_type = _XMLNODE\n_XMLNAMESPACE.fields_by_name['source'].message_type = _SOURCEPOSITION\n_XMLATTRIBUTE.fields_by_name['source'].message_type = _SOURCEPOSITION\n_XMLATTRIBUTE.fields_by_name['compiled_item'].message_type = _ITEM\n_MACROBODY.fields_by_name['style_string'].message_type = _STYLESTRING",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_138",
+    "parent": "processed_documents/context_documents/e963edbe_Resources_pb2.json",
+    "chunk_number": 2390
+  }
+}

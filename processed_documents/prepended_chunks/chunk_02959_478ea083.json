@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears to be part of a larger document discussing 3D graphics programming using Panda3D, specifically focusing on texture mapping and UI setup. The chunk itself is responsible for creating a display region, setting up a camera with an orthographic lens, and initializing a status display system for providing visual feedback. It's likely part of the initialization process within the `TexMap` class to create a user interface overlay for displaying status messages during texture placement operations.\n\nContext: Panda3D Texture Mapping Setup with UI Feedback\n\n# Create a DisplayRegion and an associated camera.\n        dr = self.win.makeDisplayRegion()\n        cam = Camera('cam2d')\n        self.lens = OrthographicLens()\n        self.lens.setNearFar(-1000, 1000)\n        self.lens.setFilmSize(2, 2)\n        cam.setLens(self.lens)\n\n        np = self.render2d.attachNewNode(cam)\n        dr.setCamera(np)\n\n        self.aspect2d = self.render2d.attachNewNode('aspect2d')\n\n        cm = CardMaker('statusBackground')\n        cm.setColor(0.85, 0.85, 0.85, 1)\n        cm.setFrame(0, 2, 0, 2)\n        self.statusBackground = self.render2d.attachNewNode(cm.generate(), -1)\n        self.statusBackground.setPos(-1, 0, -1)\n\n        self.status = self.aspect2d.attachNewNode('status')\n        self.statusText = TextNode('statusText')\n        self.statusText.setTextColor(0, 0, 0, 1)\n        self.statusTextNP = self.status.attachNewNode(self.statusText)\n        self.statusTextNP.setScale(1.5)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2959
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines methods related to copying animation controls between Actor instances, specifically handling subpart definitions and ensuring consistency in Level of Detail (LOD) bundle configurations during the copy process.\n\nself.__subpartDict = {}\n        for partName, subpartDef in other.__subpartDict.items():\n            subpartDefCopy = subpartDef\n            if subpartDef:\n                subpartDef = subpartDef.makeCopy()\n            self.__subpartDict[partName] = subpartDef\n\n    def __copyAnimControls(self, other):\n        \"\"\"__copyAnimControls(self, Actor)\n        Get the anims from the anim control's in the anim control\n        dictionary of another actor. Bind these anim's to the part\n        bundles in our part bundle dict that have matching names, and\n        store the resulting anim controls in our own part bundle dict\"\"\"\n\n        assert other.mergeLODBundles == self.mergeLODBundles",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3168
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a `ClassicFSM` (Classical Finite State Machine) implementation in Python. The specific chunk shows methods related to transitioning between states, specifically handling state entry and transitions, with checks for valid state existence and management of internal state flux to prevent concurrent transitions. This functionality enables the FSM to safely manage state changes while preventing race conditions or invalid state accesses.\n\n# Once we begin entering the new state, we're allow to\n            # recursively request a transition to another state.\n            # Indicate this by marking our internal state no longer in\n            # flux.\n            self.__internalStateInFlux = 0\n            aState.enter(argList)\n        else:\n            # notify.error is going to raise an exception; reset the\n            # flux flag first\n            self.__internalStateInFlux = 0\n            ClassicFSM.notify.error(\"[%s]: enter: no such state\" % (self.__name))\n\n    def __transition(self, aState, enterArgList=[], exitArgList=[]):\n        \"\"\"\n        Exit currentState and enter given one\n        \"\"\"\n        assert not self.__internalStateInFlux\n        self.__internalStateInFlux = 1\n        self.__exitCurrent(exitArgList)\n        self.__enter(aState, enterArgList)\n        assert not self.__internalStateInFlux",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_143",
+    "parent": "processed_documents/context_documents/10476738_ClassicFSM.json",
+    "chunk_number": 2613
+  }
+}

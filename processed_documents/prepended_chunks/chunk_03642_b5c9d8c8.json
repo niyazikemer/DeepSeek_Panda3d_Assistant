@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `setEntryFormat` method in a custom Tkinter widget that manages color adjustment panels, allowing users to control how numerical values are displayed with specified precision.\n\ndef setEntryFormat(self):\n        \"\"\"\n        Change the number of significant digits in entry\n        \"\"\"\n        # Create new format string\n        self.entryFormat = \"%.\" + \"%df\" % self['numDigits']\n        # Update entry to reflect new format\n        self.setEntry(self.get())\n        # Pass info down to valuator to adjust valuator sensitivity\n        self._valuator['numDigits'] = self['numDigits']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3642
+  }
+}

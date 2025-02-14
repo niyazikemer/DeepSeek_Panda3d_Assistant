@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `Thread` class implementation in the Python threading module. It includes methods for managing thread names (`getName`, `setName`), checking if a thread is alive (`is_alive`, aliased as `isAlive`), determining and setting daemon status (`isDaemon`, `setDaemon`), and defining properties for these attributes. This code is followed by the definition of the `Timer` class, contributed by Itamar Shtull-Trauring.\n\ndef getName(self):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        return self.__name\n\n    def setName(self, name):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        self.__name = str(name)\n\n    def is_alive(self):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        return self.__started and not self.__stopped\n\n    isAlive = is_alive\n\n    def isDaemon(self):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        return self.__daemonic\n\n    def setDaemon(self, daemonic):\n        assert self.__initialized, \"Thread.__init__() not called\"\n        assert not self.__started, \"cannot set daemon status of active thread\"\n        self.__daemonic = daemonic\n\n    name = property(getName, setName)\n    daemon = property(isDaemon, setDaemon)\n\n# The timer class was contributed by Itamar Shtull-Trauring",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3839
+  }
+}

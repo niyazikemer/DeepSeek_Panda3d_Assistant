@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within a method related to updating and marking bounds as stale for geometry nodes in an Actor class. This ensures proper handling of geometric transformations or updates when interacting with 3D models.\n\n```text\nThis chunk appears in a method responsible for updating the geometry nodes of an actor, marking their bounds as stale to ensure accurate recalculations after changes.\n```\n\n```text\nThe code is part of a method that updates and invalidates the bounding boxes for all geometric nodes within a character model's node path. This ensures that any transformations or modifications are properly reflected in subsequent rendering or physics calculations by forcing the recalibration of bounds data.\n```\n\nif partData:\n                    char = partData.partBundleNP\n                    char.node().update()\n                    geomNodes = char.findAllMatches(\"**/+GeomNode\")\n                    for thisGeomNode in geomNodes:\n                        for thisGeom in thisGeomNode.node().getGeoms():\n                            thisGeom.markBoundsStale()\n                        thisGeomNode.node().markInternalBoundsStale()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3112
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk belongs to a Python class that manages various rendering effects and configurations. The specific methods `setSrgbEncode` and `delSrgbEncode` handle enabling/disabling sRGB color space encoding, which ensures proper color representation in the rendered output. The implementation checks if the framebuffer uses sRGB encoding and allows forcing the setting for compatibility across different devices or setups.\n\nSet the force argument to True to force it to be applied in all cases.\n\n        .. versionadded:: 1.10.7\n        \"\"\"\n        new_enable = force or not self.manager.win.getFbProperties().getSrgbColor()\n        old_enable = self.configuration.get(\"SrgbEncode\", False)\n        if new_enable and not old_enable:\n            self.configuration[\"SrgbEncode\"] = True\n            return self.reconfigure(True, \"SrgbEncode\")\n        elif not new_enable and old_enable:\n            del self.configuration[\"SrgbEncode\"]\n        return new_enable\n\n    def delSrgbEncode(self):\n        \"\"\" Reverses the effects of setSrgbEncode. \"\"\"\n        if \"SrgbEncode\" in self.configuration:\n            old_enable = self.configuration[\"SrgbEncode\"]\n            del self.configuration[\"SrgbEncode\"]\n            return self.reconfigure(old_enable, \"SrgbEncode\")\n        return True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3991
+  }
+}

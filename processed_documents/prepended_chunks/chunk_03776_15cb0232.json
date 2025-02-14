@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two helper functions: `has_magic` which checks if a string contains globbing wildcard characters (`*`, `?`, `[`), and `escape` which escapes these characters to treat them literally. These functions support the main `glob` and `iglob` functions in matching file patterns within Panda's virtual filesystem.\n\ndef has_magic(s):\n    if isinstance(s, bytes):\n        return b'*' in s or b'?' in s or b'[' in s\n    else:\n        return '*' in s or '?' in s or '[' in s\n\n\ndef escape(pathname):\n    drive, pathname = os.path.splitdrive(pathname)\n    if isinstance(pathname, bytes):\n        newpath = bytearray(drive)\n        for c in pathname:\n            if c == 42 or c == 63 or c == 91:\n                newpath += bytes((91, c, 93))\n            else:\n                newpath.append(c)\n        return bytes(newpath)\n    else:\n        newpath = drive\n        for c in pathname:\n            if c == '*' or c == '?' or c == '[':\n                newpath += '[' + c + ']'\n            else:\n                newpath += c\n        return newpath",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_203",
+    "parent": "processed_documents/context_documents/29a1b250_glob.json",
+    "chunk_number": 3776
+  }
+}

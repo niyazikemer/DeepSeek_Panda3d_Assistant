@@ -1,0 +1,9 @@
+{
+  "content": "The `makeSubpart` method in the Actor class is designed to create a new part of the actor that animates only specific subsets of joints. This functionality is essential for creating complex animations where different body parts can move independently, such as waving a hand while the rest of the body performs another action. The method allows users to specify which joints (including their descendants) should be included or excluded, providing precise control over which parts of the model are animated.\n\ndef makeSubpart(self, partName, includeJoints, excludeJoints = (),\n                    parent=\"modelRoot\", overlapping = False):\n\n        \"\"\"Defines a new \"part\" of the Actor that corresponds to the\n        same geometry as the named parent part, but animates only a\n        certain subset of the joints.  This can be used for\n        partial-body animations, for instance to animate a hand waving\n        while the rest of the body continues to play its walking\n        animation.\n\n        includeJoints is a list of joint names that are to be animated\n        by the subpart.  Each name can include globbing characters\n        like '?' or '*', which will match one or any number of\n        characters, respectively.  Including a joint by naming it in\n        includeJoints implicitly includes all of the descendents of\n        that joint as well, except for excludeJoints, below.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3143
+  }
+}

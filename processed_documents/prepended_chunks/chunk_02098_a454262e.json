@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a custom Python import mechanism that extends or modifies how modules are located, loaded, and stored. The specific functions handle adding Python byte-code (`.pyc` files) to an archive structure, including handling compression levels and managing module directories by ensuring proper initialization through `__init__.py` files for namespace packages. This is part of a larger system that controls module resolution, loading, and bundling, with a focus on customizing how modules are stored and accessed in the Python runtime environment.\n\ndef __addPyc(self, multifile, filename, code, compressionLevel):\n        if code:\n            data = importlib.util.MAGIC_NUMBER + b'\\0\\0\\0\\0\\0\\0\\0\\0'\n            data += marshal.dumps(code)\n\n            stream = StringStream(data)\n            multifile.addSubfile(filename, stream, compressionLevel)\n            multifile.flush()\n\n    def __addPythonDirs(self, multifile, moduleDirs, dirnames, compressionLevel):\n        \"\"\" Adds all of the names on dirnames as a module directory. \"\"\"\n        if not dirnames:\n            return\n\n        str = '.'.join(dirnames)\n        if str not in moduleDirs:\n            # Add an implicit __init__.py file (but only if there's\n            # not already a legitimate __init__.py file).\n            moduleName = '.'.join(dirnames)\n            filename = '/'.join(dirnames) + '/__init__'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2098
+  }
+}

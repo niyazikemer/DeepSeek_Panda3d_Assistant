@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated in a method that configures the `ModuleFinder` by processing module definitions. It categorizes these definitions into excludes, auto-includes, and explicit includes. The chunk handles adding excluded modules to the finder's exclude list and sorts the includes to ensure proper ordering during import resolution. This configuration ensures that the ModuleFinder correctly processes modules according to specified exclusions and order requirements.\n\nif mdef.exclude:\n                if not mdef.allowChildren:\n                    excludeDict[moduleName] = mdef\n            elif mdef.implicit or mdef.guess:\n                autoIncludes.append(mdef)\n            else:\n                includes.append(mdef)\n\n        # Add the excludes to the ModuleFinder.\n        for exclude in excludeDict:\n            self.mf.excludes.append(exclude)\n\n        # Attempt to import the explicit modules into the modulefinder.\n\n        # First, ensure the includes are sorted in order so that\n        # packages appear before the modules they contain.  This\n        # resolves potential ordering issues, especially with modules\n        # that are discovered by filename rather than through import\n        # statements.\n        includes.sort(key = self.__sortModuleKey)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2085
+  }
+}

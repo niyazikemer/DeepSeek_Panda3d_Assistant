@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class responsible for scheduling periodic frame rate profiling or performance analysis tasks. The `_scheduleNextProfileDoLater` and `_scheduleNextProfile` methods are used to initiate profiling sessions at regular intervals, manage session IDs, handle jitter (random timing adjustments) to prevent interference with other periodic events, and set up callbacks for processing the profiling results.\n\ndef _scheduleNextProfileDoLater(self, task):\n        self._scheduleNextProfile()\n        return Task.done\n\n    def _scheduleNextProfile(self):\n        self._profileCounter += 1\n        self._timeElapsed = self._profileCounter * self._period\n        #assert isInteger(self._timeElapsed)\n        time = self._startTime + self._timeElapsed\n\n        # vary the actual delay between profiles by a random amount to prevent interaction\n        # with periodic events\n        jitter = self._jitter\n        if jitter is None:\n            jitter = normalDistrib(-self._jitterMagnitude, self._jitterMagnitude)\n            time += jitter\n        else:\n            time -= jitter\n            jitter = None\n        self._jitter = jitter\n\n        sessionId = serialNum()\n        session = taskMgr.getProfileSession('FrameProfile-%s' % sessionId)\n        self._id2session[sessionId] = session\n        taskMgr.profileFrames(num=1, session=session, callback=Functor(\n            self._analyzeResults, sessionId))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3925
+  }
+}

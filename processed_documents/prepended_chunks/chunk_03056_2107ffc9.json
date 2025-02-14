@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an `Actor` class implementation in a document related to 3D modeling or animation systems, specifically handling joint structure listing. It defines methods for recursively listing joints with indentation and includes logic for subset inclusion/exclusion to determine which joints are displayed.\n\nself.__doListJoints(0, partDef.getBundle(),\n                            subpartDef.subset.isIncludeEmpty(), subpartDef.subset)\n\n    def __doListJoints(self, indentLevel, part, isIncluded, subset):\n        name = part.name\n        if subset.matchesInclude(name):\n            isIncluded = True\n        elif subset.matchesExclude(name):\n            isIncluded = False\n\n        if isIncluded:\n            value = ''\n            if hasattr(part, 'outputValue'):\n                lineStream = LineStream()\n                part.outputValue(lineStream)\n                value = lineStream.getLine()\n\n            print(' '.join((' ' * indentLevel, name, value)))\n\n        for child in part.children:\n            self.__doListJoints(indentLevel + 2, child, isIncluded, subset)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3056
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sits within a function responsible for copying files based on specified patterns and managing dependencies, including handling .whl files as part of a build process.\n\nfor dep in self.exclude_dependencies:\n            if dep.matches_file(name):\n                return\n\n        for dir in search_path:\n            source_path = os.path.join(dir, name)\n\n            if os.path.isfile(source_path):\n                target_path = os.path.join(target_dir, name)\n                self.copy_with_dependencies(source_path, target_path, search_path)\n                return\n\n            elif '.whl' in source_path:\n                # Check whether the file exists inside the wheel.\n                whl, wf = source_path.split('.whl' + os.path.sep)\n                whl += '.whl'\n                whlfile = self._get_zip_file(whl)\n\n                # Normalize the path separator\n                wf = os.path.normpath(wf).replace(os.path.sep, '/')\n\n                # Look case-insensitively.\n                namelist = whlfile.namelist()\n                namelist_lower = [file.lower() for file in namelist]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2000
+  }
+}

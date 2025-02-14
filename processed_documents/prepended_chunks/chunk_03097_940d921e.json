@@ -1,0 +1,9 @@
+{
+  "content": "This chunk retrieves the transform of a specific joint within an actor model's part and LOD (Level of Detail), handling cases where the requested part or joint does not exist by logging warnings.\n\nif isIncluded and pattern.matches(name) and isinstance(part, MovingPartBase):\n            joints.append(part)\n\n        for child in part.children:\n            self.__getPartJoints(joints, pattern, child, subset, isIncluded)\n\n    def getJointTransform(self, partName, jointName, lodName='lodRoot'):\n        partBundleDict=self.__partBundleDict.get(lodName)\n        if not partBundleDict:\n            Actor.notify.warning(\"no lod named: %s\" % (lodName))\n            return None\n\n        subpartDef = self.__subpartDict.get(partName, Actor.SubpartDef(partName))\n        partDef = partBundleDict.get(subpartDef.truePartName)\n        if partDef:\n            bundle = partDef.getBundle()\n        else:\n            Actor.notify.warning(\"no part named %s!\" % (partName))\n            return None\n\n        joint = bundle.findChild(jointName)\n        if joint is None:\n            Actor.notify.warning(\"no joint named %s!\" % (jointName))\n            return None\n        return joint.getDefaultValue()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3097
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method in an `Actor` class responsible for managing 3D models and their animations. The snippet processes each part name from a list (`partNameList`) to check if it exists in a dictionary (`partDict`). If not found, it looks up subparts using a predefined dictionary (`__subpartDict`) and initializes necessary data structures for animation binding. This ensures all required parts, including subparts, are properly accounted for during model setup or animation processing.\n\n```text\nThe code chunk is part of an `Actor` class method responsible for initializing or binding animations to parts of a 3D model. It iterates through each part name to ensure proper setup of animation dictionaries, handling both main parts and potential subparts that need explicit definition.\n```\n\nanimDictItems = []\n\n                for pName in partNameList:\n                    animDict = partDict.get(pName)\n                    if animDict is None:\n                        # Maybe it's a subpart that hasn't been bound yet.\n                        subpartDef = self.__subpartDict.get(pName)\n                        if subpartDef:\n                            animDict = {}\n                            partDict[pName] = animDict\n\n                    if animDict is None:\n                        # part was not present\n                        Actor.notify.warning(\"couldn't find part: %s\" % (pName))\n                    else:\n                        animDictItems.append((pName, animDict))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3131
+  }
+}

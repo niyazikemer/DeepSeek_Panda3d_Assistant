@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within the constructor of a Python class (likely `MetaInterval` or one of its subclasses) that manages timing and composition of intervals in a timeline. The code handles optional keyword arguments, specifically extracting a `'duration'` parameter to set `self.phonyDuration`, which controls how long an interval appears to last for scheduling purposes. It also checks for unexpected keyword arguments and raises an error if any are found. This functionality is critical for defining the timing behavior of intervals when they are added to sequences or tracks in timeline compositions.\n\n# A duration keyword specifies the duration the interval will\n        # appear to have for the purposes of computing the start time\n        # for subsequent intervals in a sequence or track.\n        self.phonyDuration = -1\n        if 'duration' in kw:\n            self.phonyDuration = kw['duration']\n            del kw['duration']\n\n        if kw:\n            self.notify.error(\"Unexpected keyword parameters: %s\" % (list(kw.keys())))\n\n        # We must allow the old style: Track([ival0, ival1, ...]) as\n        # well as the new style: Track(ival0, ival1, ...)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2870
+  }
+}

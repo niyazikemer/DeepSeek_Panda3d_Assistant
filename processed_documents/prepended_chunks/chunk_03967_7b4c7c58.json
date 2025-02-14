@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within a section of a document discussing the application of various post-processing effects (e.g., MSAA, bloom, sharpening) in an image processing or rendering context. The specific chunk is part of a shader setup, defining matrices for HDR tonemapping when the \"HighDynamicRange\" configuration is enabled.\n\ntexcoordSets = list(enumerate(texcoordPadding.keys()))\n\n            text = \"//Cg\\n\"\n            if \"HighDynamicRange\" in configuration:\n                tonemap = configuration[\"HighDynamicRange\"]\n                if tonemap is ToneMap.ACES:\n                    text += \"static const float3x3 aces_input_mat = {\\n\"\n                    text += \"  {0.59719, 0.35458, 0.04823},\\n\"\n                    text += \"  {0.07600, 0.90834, 0.01566},\\n\"\n                    text += \"  {0.02840, 0.13383, 0.83777},\\n\"\n                    text += \"};\\n\"\n                    text += \"static const float3x3 aces_output_mat = {\\n\"\n                    text += \"  { 1.60475, -0.53108, -0.07367},\\n\"\n                    text += \"  {-0.10208,  1.10813, -0.00605},\\n\"\n                    text += \"  {-0.00327, -0.07276,  1.07602},\\n\"\n                    text += \"};\\n\"\n\n            text += \"void vshader(float4 vtx_position : POSITION,\\n\"\n            text += \"  out float4 l_position : POSITION,\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3967
+  }
+}

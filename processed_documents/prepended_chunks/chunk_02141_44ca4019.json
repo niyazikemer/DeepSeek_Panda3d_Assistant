@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class method responsible for replacing symbols in ELF binaries. This function parses ELF headers and sections to identify and replace specific symbols within executables or shared libraries on Linux/FreeBSD systems.\n\nreturn replaced\n\n        # We don't know what kind of file this is.\n        return False\n\n    def _replace_symbol_elf(self, elf_data, symbol_name, replacement):\n        \"\"\" The Linux/FreeBSD implementation of _replace_symbol. \"\"\"\n\n        replaced = False\n\n        # Make sure we read in the correct endianness and integer size\n        endian = \"<>\"[ord(elf_data[5:6]) - 1]\n        is_64bit = ord(elf_data[4:5]) - 1 # 0 = 32-bits, 1 = 64-bits\n        header_struct = endian + (\"HHIIIIIHHHHHH\", \"HHIQQQIHHHHHH\")[is_64bit]\n        section_struct = endian + (\"4xI4xIIII8xI\", \"4xI8xQQQI12xQ\")[is_64bit]\n        symbol_struct = endian + (\"IIIBBH\", \"IBBHQQ\")[is_64bit]\n\n        header_size = struct.calcsize(header_struct)\n        type, machine, version, entry, phoff, shoff, flags, ehsize, phentsize, phnum, shentsize, shnum, shstrndx \\\n          = struct.unpack_from(header_struct, elf_data, 16)\n        section_offsets = []\n        symbol_tables = []\n        string_tables = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2141
+  }
+}

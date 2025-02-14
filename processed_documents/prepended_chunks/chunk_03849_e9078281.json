@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sets up the foundational imports and class definitions required for the custom Pickler and Unpickler implementations in a Python module designed to serialize/deserialize objects, particularly integrating with the Panda3D library. The imports from panda3d.core (BamWriter, BamReader, TypedObject) suggest specialized handling of Panda3D data structures during pickling/unpickling operations.\n\n__all__ = [\"PickleError\", \"PicklingError\", \"UnpicklingError\", \"Pickler\",\n           \"Unpickler\", \"dump\", \"dumps\", \"load\", \"loads\",\n           \"HIGHEST_PROTOCOL\", \"DEFAULT_PROTOCOL\"]\n\nimport sys\nfrom panda3d.core import BamWriter, BamReader, TypedObject\nfrom copyreg import dispatch_table\n\n\n# A funny replacement for \"import pickle\" so we don't get confused\n# with the local pickle.py.\npickle = __import__('pickle')\n\nHIGHEST_PROTOCOL = pickle.HIGHEST_PROTOCOL\nDEFAULT_PROTOCOL = pickle.DEFAULT_PROTOCOL\n\nPickleError = pickle.PickleError\nPicklingError = pickle.PicklingError\nUnpicklingError = pickle.UnpicklingError\n\nBasePickler = pickle._Pickler\nBaseUnpickler = pickle._Unpickler",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3849
+  }
+}

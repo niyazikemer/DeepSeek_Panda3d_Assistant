@@ -1,0 +1,9 @@
+{
+  "content": "This code snippet is part of a class responsible for managing display regions and handling mouse input within a graphical application. It includes event bindings for mouse button presses and releases, iteration over display regions, and methods to update context and set camera parameters such as near/far clipping planes.\n\nself.accept(\"DIRECT-mouse1\", self.mouseUpdate)\n        self.accept(\"DIRECT-mouse2\", self.mouseUpdate)\n        self.accept(\"DIRECT-mouse3\", self.mouseUpdate)\n        self.accept(\"DIRECT-mouse1Up\", self.mouseUpdate)\n        self.accept(\"DIRECT-mouse2Up\", self.mouseUpdate)\n        self.accept(\"DIRECT-mouse3Up\", self.mouseUpdate)\n        self.tryToGetCurrentDr = True\n\n    def __getitem__(self, index):\n        return self.displayRegionList[index]\n\n    def __len__(self):\n        return len(self.displayRegionList)\n\n    def __iter__(self):\n        return iter(self.displayRegionList)\n\n    def updateContext(self):\n        self.contextTask(None)\n\n    def setNearFar(self, near, far):\n        for dr in self.displayRegionList:\n            dr.camLens.setNearFar(near, far)\n\n    def setNear(self, near):\n        for dr in self.displayRegionList:\n            dr.camLens.setNear(near)\n\n    def setFar(self, far):\n        for dr in self.displayRegionList:\n            dr.camLens.setFar(far)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3435
+  }
+}

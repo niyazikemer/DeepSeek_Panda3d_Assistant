@@ -1,0 +1,9 @@
+{
+  "content": "The code defines a dictionary `overrideModules` that specifies custom implementations for certain Python modules. These overrides prevent modules like `linecache` from accessing line numbers in the main executable, which would be problematic since the code is embedded within a binary.\n\n**Context:** This chunk is located near the top of the document, likely in a section where global module handling and customization rules are defined. It's used to modify the behavior of specific modules to avoid issues related to accessing source code lines from the main executable.\n\n# These are overrides for specific modules.\noverrideModules = {\n    # Used by the warnings module, among others, to get line numbers.  Since\n    # we set __file__, this would cause it to try and extract Python code\n    # lines from the main executable, which we don't want.\n    'linecache': \"\"\"__all__ = [\"getline\", \"clearcache\", \"checkcache\", \"lazycache\"]\n\ncache = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2030
+  }
+}

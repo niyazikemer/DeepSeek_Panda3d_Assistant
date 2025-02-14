@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method within a class responsible for creating visual elements like posts and arrows on a 3D graph. Specifically, this code adds a Y-axis post with lines extending in four diagonal directions from (0,1.5,0).\n\n# Y post\n        self.yPost = self.yPostGroup.attachNewNode('y-post-visible')\n        lines = LineNodePath(self.yPost)\n        lines.setColor(VBase4(0, 1, 0, 1))\n        lines.setThickness(5)\n        #lines.moveTo(0, 0, 0)\n        #lines.drawTo(0, 1.5, 0)\n        lines.moveTo(0, 1.5, 0)\n        #lines.create()\n        #lines = LineNodePath(self.yPost)\n        #lines.setColor(VBase4(0, 1, 0, 1))\n        #lines.setThickness(1.5)\n        #lines.moveTo(0, 0, 0)\n        lines.drawTo(0, -1.5, 0)\n\n        #lines.setThickness(5)\n        lines.moveTo(0, 1.5, 0)\n        lines.drawTo(arrowInfo1, arrowInfo0, arrowInfo1)\n        lines.moveTo(0, 1.5, 0)\n        lines.drawTo(arrowInfo1, arrowInfo0, -1 * arrowInfo1)\n        lines.moveTo(0, 1.5, 0)\n        lines.drawTo(-1 * arrowInfo1, arrowInfo0, arrowInfo1)\n        lines.moveTo(0, 1.5, 0)\n        lines.drawTo(-1 * arrowInfo1, arrowInfo0, -1 * arrowInfo1)\n        lines.create()\n        lines.setName('y-post-line')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3280
+  }
+}

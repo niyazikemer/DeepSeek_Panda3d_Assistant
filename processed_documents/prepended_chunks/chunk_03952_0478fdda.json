@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines the vertex shader component of the SSAO (Screen Space Ambient Occlusion) effect implementation. This section is part of a larger set of methods that configure various rendering effects such as bloom, cartoon ink, view glow, and others. The SSAO implementation specifically handles the configuration for handling depth and normal textures, including workarounds for GPUs with limited support for variable-length loops by predefining loop limits based on numsamples.\n\n# Some GPUs do not support variable-length loops.\n#\n# We fill in the actual value of numsamples in the loop limit\n# when the shader is configured.\n#\nSSAO_BODY = \"\"\"//Cg\n\nvoid vshader(float4 vtx_position : POSITION,\n             float2 vtx_texcoord : TEXCOORD0,\n             out float4 l_position : POSITION,\n             out float2 l_texcoord : TEXCOORD0,\n             out float2 l_texcoordD : TEXCOORD1,\n             out float2 l_texcoordN : TEXCOORD2,\n             uniform float4 texpad_depth,\n             uniform float4 texpad_normal,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  l_texcoord = vtx_texcoord;\n  l_texcoordD = vtx_texcoord * texpad_depth.xy * 2;\n  l_texcoordN = vtx_texcoord * texpad_normal.xy * 2;\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3952
+  }
+}

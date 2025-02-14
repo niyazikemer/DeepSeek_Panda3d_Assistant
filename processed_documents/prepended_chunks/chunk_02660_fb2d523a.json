@@ -1,0 +1,9 @@
+{
+  "content": "The `ReceivesMultipleStateChanges` class is a crucial component in a state management framework that allows an object to efficiently track and respond to state changes from multiple sources. It maintains mappings between subscription keys and state sources, enabling dynamic subscriptions and unsubscriptions while ensuring clean cleanup of resources during destruction. This class serves as the foundation for other components like `FunctionCaller` and `EnterExit`, which rely on handling multiple state change events to trigger specific actions or state transitions.\n\nclass ReceivesMultipleStateChanges:\n    # base class for objects that subscribe to state changes from multiple PushesStateChanges\n    # objects\n    def __init__(self):\n        self._key2source = {}\n        self._source2key = {}\n\n    def destroy(self):\n        keys = list(self._key2source.keys())\n        for key in keys:\n            self._unsubscribe(key)\n        del self._key2source\n        del self._source2key\n\n    def _subscribeTo(self, source, key):\n        self._unsubscribe(key)\n        self._key2source[key] = source\n        self._source2key[source] = key\n        source._addSubscription(self)\n\n    def _unsubscribe(self, key):\n        if key in self._key2source:\n            source = self._key2source[key]\n            source._removeSubscription(self)\n            del self._key2source[key]\n            del self._source2key[source]\n\n    def _recvStatePush(self, source):\n        self._recvMultiStatePush(self._source2key[source], source)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2660
+  }
+}

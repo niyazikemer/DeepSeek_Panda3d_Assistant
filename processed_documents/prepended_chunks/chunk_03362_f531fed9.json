@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains essential utility functions for numerical adjustments (rounding, clamping) and color conversion, laying the groundwork for graphical manipulations in a Panda3D application.\n\nfrom panda3d.core import VBase4\nfrom direct.task.Task import Task\nfrom direct.task.TaskManagerGlobal import taskMgr\n\n# Routines to adjust values\ndef ROUND_TO(value, divisor):\n    return round(value/float(divisor)) * divisor\n\ndef ROUND_INT(val):\n    return int(round(val))\n\ndef CLAMP(val, minVal, maxVal):\n    return min(max(val, minVal), maxVal)\n\n# Create a tk compatible color string\ndef getTkColorString(color):\n    \"\"\"\n    Print out a Tk compatible version of a color string\n    \"\"\"\n    def toHex(intVal):\n        val = int(intVal)\n        if val < 16:\n            return \"0\" + hex(val)[2:]\n        else:\n            return hex(val)[2:]\n    r = toHex(color[0])\n    g = toHex(color[1])\n    b = toHex(color[2])\n    return \"#\" + r + g + b\n\n## Background Color ##",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_184",
+    "parent": "processed_documents/context_documents/1c2cbc90_DirectUtil.json",
+    "chunk_number": 3362
+  }
+}

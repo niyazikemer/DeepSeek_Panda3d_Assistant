@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code defines the `addBox` function which constructs a 3D box using Panda3D's Geom components. The provided section initializes the vertex data for the front face of the box, setting its position, normal vector, and color. This is part of a larger function that creates all six faces of a box, each with appropriate geometric properties.\n\nThe function:\n1. Creates a GeomNode to hold the geometry.\n2. Defines vertices for each face with correct normals (front/back/left/right/top/bottom).\n3. Uses triangle strips to form each face.\n4. Allows color customization and optional shading via the `darken` parameter.\n\nThis code is used to generate 3D boxes with customizable dimensions, colors, and shading effects in a Panda3D application.\n\ndef addBox(attachNode, sizeX, sizeY, sizeZ, color = Vec4(1.0, 1.0, 1.0, 1.0), darken = 0):\n    targetGN = GeomNode(\"Box Geom\")\n    sX = sizeX / 2.0\n    sY = sizeY / 2.0\n    sZ = sizeZ / 2.0\n\n    color1 = color\n    color2 = color\n    color3 = color\n    if darken:\n        color1 = color * 0.75 #Vec4(0.0, 0.0, 0.0, 1.0)\n        color2 = color * 0.50 #Vec4(0.0, 0.0, 0.0, 1.0)\n        color3 = color * 0.25 #Vec4(0.0, 0.0, 0.0, 1.0)\n\n    gFormat = GeomVertexFormat.getV3n3c()\n    boxVertexData = GeomVertexData(\"vertices\", gFormat, Geom.UHDynamic)\n\n    boxVertexWriter = GeomVertexWriter(boxVertexData, \"vertex\")\n    boxNormalWriter = GeomVertexWriter(boxVertexData, \"normal\")\n    boxColorWriter = GeomVertexWriter(boxVertexData, \"color\")\n\n    #Front\n\n    boxVertexWriter.addData3f(sX, sY, sZ)\n    boxNormalWriter.addData3f(0, 1, 0)\n    boxColorWriter.addData4f(color[0], color[1], color[2], color[3])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3012
+  }
+}

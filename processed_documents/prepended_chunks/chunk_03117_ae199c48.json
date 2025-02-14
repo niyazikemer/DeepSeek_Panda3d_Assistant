@@ -1,0 +1,9 @@
+{
+  "content": "The `loop` method is part of the Actor class's animation control functionality. It allows looping a specified animation on a given part (or all parts if not specified) across all Levels of Detail (LODs). The method provides flexibility by enabling the loop to start from a specific frame and end at another, or to use the entire animation length if no frames are specified. This feature is essential for creating repetitive motion effects in animations within the Actor's model.\n\ndef loop(self, animName, restart=1, partName=None,\n             fromFrame=None, toFrame=None):\n        \"\"\"loop(self, string, int=1, string=None)\n        Loop the given animation on the given part of the actor,\n        restarting at zero frame if requested. If no part name\n        is given then try to loop on all parts. NOTE: loops on\n        all LOD's\n        \"\"\"\n\n        if fromFrame is None:\n            for control in self.getAnimControls(animName, partName):\n                control.loop(restart)\n        else:\n            for control in self.getAnimControls(animName, partName):\n                if toFrame is None:\n                    control.loop(restart, fromFrame, control.getNumFrames() - 1)\n                else:\n                    control.loop(restart, fromFrame, toFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3117
+  }
+}

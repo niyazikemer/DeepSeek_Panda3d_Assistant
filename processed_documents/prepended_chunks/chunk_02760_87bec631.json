@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is situated within the initialization methods of classes related to motion interpolation (lerp) between positions and orientations. It checks if any input parameters are functors (callable objects) and sets up internal state accordingly to handle either functor-based or direct value-based parameter configurations. This setup ensures that the lerp operation can properly configure its start and end points based on the provided inputs.\n\n# Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(pos, startPos, quat, startHpr, startQuat)\n        if self.paramSetup:\n            self.endPos = pos\n            self.startPos = startPos\n            self.endQuat = quat\n            self.startHpr = startHpr\n            self.startQuat = startQuat\n            self.inPython = 1\n        else:\n            self.setEndPos(pos)\n            if startPos is not None:\n                self.setStartPos(startPos)\n            self.setEndQuat(quat)\n            if startHpr is not None:\n                self.setStartHpr(startHpr)\n            if startQuat is not None:\n                self.setStartQuat(startQuat)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2760
+  }
+}

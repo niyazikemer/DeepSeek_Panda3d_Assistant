@@ -1,0 +1,9 @@
+{
+  "content": "The `_local` class provides per-thread attribute storage using Panda's threading system, enabling thread-specific data management with automatic cleanup during object deletion.\n\n```python\nclass _local(object):\n    \"\"\"This class offers local thread storage using Panda's threading mechanism,\n    allowing attributes to be stored and accessed on a per-thread basis. Upon \n    instance deletion, it cleans up its data across all threads.\"\"\"\n    \n    def __del__(self):\n        # Cleanup code here\n    \n    def __setattr__(self, key, value):\n        # Stores attribute in thread-specific storage\n        \n    def __getattribute__(self, key):\n        # Retrieves attribute from thread-specific storage\n```\n\nclass _local(object):\n    \"\"\" This class provides local thread storage using Panda's\n    threading system. \"\"\"\n\n    def __del__(self):\n        i = id(self)\n\n        # Delete this key from all threads.\n        _threadsLock.acquire()\n        try:\n            for thread, locals, wrapper in list(_threads.values()):\n                try:\n                    del locals[i]\n                except KeyError:\n                    pass\n\n        finally:\n            _threadsLock.release()\n\n    def __setattr__(self, key, value):\n        d = _get_thread_locals(core.Thread.getCurrentThread(), id(self))\n        d[key] = value\n\n    def __getattribute__(self, key):\n        d = _get_thread_locals(core.Thread.getCurrentThread(), id(self))\n        if key == '__dict__':\n            return d\n        try:\n            return d[key]\n        except KeyError:\n            return object.__getattribute__(self, key)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3803
+  }
+}

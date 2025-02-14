@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains three methods (`deselectAll`, `deselectAllCB`, and `setActiveParent`) that appear to be part of a class (possibly `Direct`) responsible for managing selections and node path manipulations in a 3D graphics or game development context. The methods handle operations like deselection of objects, hiding manipulation widgets, updating user interface readouts, and setting parent-child relationships between nodes in a scene graph.\n\ndef deselectAll(self):\n        messenger.send('DIRECT-preDeselectAll')\n\n    def deselectAllCB(self):\n        self.selected.deselectAll()\n        # Hide the manipulation widget\n        if self.manipulationControl.fMultiView:\n            for widget in self.manipulationControl.widgetList:\n                widget.hideWidget()\n        else:\n            self.widget.hideWidget()\n        self.selectedNPReadout.reparentTo(hidden)\n        self.selectedNPReadout.setText(' ')\n        taskMgr.remove('followSelectedNodePath')\n        messenger.send('DIRECT_deselectAll')\n\n    def setActiveParent(self, nodePath = None):\n        # Record new parent\n        self.activeParent = nodePath\n        # Update the activeParentReadout\n        self.activeParentReadout.reparentTo(base.a2dBottomLeft)\n        self.activeParentReadout.setText(\n            'Active Reparent Target:' + nodePath.getName())\n        # Alert everyone else\n        messenger.send('DIRECT_activeParent', [self.activeParent])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3412
+  }
+}

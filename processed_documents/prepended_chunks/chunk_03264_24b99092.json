@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of several methods related to activating, deactivating, showing, and hiding a widget in the context of Direct3D. These methods are used to control the visibility and active state of the scaling widget, ensuring that it is only displayed and functional when needed. The `activate` method makes the widget active by reparenting it to the current node, while `deactivate` hides it by reparenting it to a hidden group. The `showWidgetIfActive` method conditionally shows the widget if it's active, and `showWidget` and `hideWidget` methods explicitly control its visibility.\n\nContext:\nThis code chunk is part of a larger class that manages scaling operations in Direct3D. The methods within the chunk are responsible for controlling the visibility and activation state of a widget used for scaling, ensuring that it is displayed and functional only when needed.\n\ndef activate(self):\n        self.scalingNode.reparentTo(self)\n        self.fActive = 1\n\n    def deactivate(self):\n        self.scalingNode.reparentTo(hidden)\n        self.fActive = 0\n\n    def showWidgetIfActive(self):\n        if self.fActive:\n            self.reparentTo(ShowBaseGlobal.direct.group)\n\n    def showWidget(self):\n        self.reparentTo(ShowBaseGlobal.direct.group)\n\n    def hideWidget(self):\n        self.reparentTo(hidden)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3264
+  }
+}

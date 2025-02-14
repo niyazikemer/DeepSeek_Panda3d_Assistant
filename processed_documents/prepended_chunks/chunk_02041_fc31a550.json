@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk modifies linker commands (`linkExe` and `linkDll`) to include specific framework paths and flags when building executables or dynamic libraries, likely for macOS compatibility using clang.\n\nif framework_dir != \"/System/Library/Frameworks\":\n                    self.linkExe += \" -F \" + framework_dir\n            self.linkExe += \" -framework Python\"\n            self.linkDll = \"clang %(arch)s -undefined dynamic_lookup -bundle -o %(basename)s.so %(basename)s.o\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2041
+  }
+}

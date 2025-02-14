@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is a crucial part of the `ParticleInterval` class implementation, which controls particle effects over time. The code includes initialization for the superclass, methods to step through particle updates (`__step`), start/stop functionality with soft transitions (`__softStart`, `__softStop`), and initialization logic for setting up the interval (`privInitialize`). These components are essential for managing particle effect lifecycle and timing within the interval-based animation system.\n\n# Initialize superclass\n        Interval.__init__(self, name, duration)\n\n    def __step(self,dt):\n        if self.particleEffect:\n            self.particleEffect.accelerate(dt,1,0.05)\n\n    def __softStart(self):\n        if self.particleEffect:\n            self.particleEffect.softStart()\n        self.__softStopped = False\n\n    def __softStop(self):\n        if self.particleEffect:\n            self.particleEffect.softStop()\n        self.__softStopped = True\n\n    def privInitialize(self, t):\n        if self.state != CInterval.SPaused:\n            # Restarting from a hard stop or just interrupting the\n            # current play\n            self.__softStart()\n            if self.particleEffect:\n                self.particleEffect.clearToInitial()\n            self.currT = 0\n\n        if self.particleEffect:\n            for forceGroup in self.particleEffect.getForceGroupList():\n                forceGroup.enable()\n\n        Interval.privInitialize(self,t)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_163",
+    "parent": "processed_documents/context_documents/654cc874_ParticleInterval.json",
+    "chunk_number": 2829
+  }
+}

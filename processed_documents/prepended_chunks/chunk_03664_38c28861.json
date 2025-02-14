@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes color values from a nodePath's color attributes (if available) or sets default white (255), then creates a ValuatorGroupPanel with R, G, B, A sliders to control node colors in the application, configured to destroy on dismissal.\n\n# Check init color\n    if nodePath.hasColor():\n        initColor = nodePath.getColor() * 255.0\n    else:\n        initColor = Vec4(255)\n    # Create entry scale group\n    vgp = ValuatorGroupPanel(title = 'RGBA Panel: ' + nodePath.getName(),\n                             dim = 4,\n                             labels = ['R','G','B','A'],\n                             value = [int(initColor[0]),\n                                      int(initColor[1]),\n                                      int(initColor[2]),\n                                      int(initColor[3])],\n                             type = 'slider',\n                             valuator_style = style,\n                             valuator_min = 0,\n                             valuator_max = 255,\n                             valuator_resolution = 1,\n                             # Destroy not withdraw panel on dismiss\n                             fDestroy = 1)\n    # Update menu button",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3664
+  }
+}

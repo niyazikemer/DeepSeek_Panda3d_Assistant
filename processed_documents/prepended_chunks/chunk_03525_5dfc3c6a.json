@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of methods within a class handling user interactions with a scale widget in a GUI application. These methods include event handlers for incrementing and decrementing the scale's value by small or large steps, setting the value to minimum or maximum, and initializing command callbacks to manage value changes.\n\nself._isPosted = 0\n\n        # Raise up arrow button\n        self.interior()['relief'] = tk.RAISED\n\n    def _incrementValue(self, event):\n        self.set(self.value + self.increment)\n\n    def _bigIncrementValue(self, event):\n        self.set(self.value + self.increment * 10.0)\n\n    def _decrementValue(self, event):\n        self.set(self.value - self.increment)\n\n    def _bigDecrementValue(self, event):\n        self.set(self.value - self.increment * 10.0)\n\n    def _goToMin(self, event):\n        self.set(self['min'])\n\n    def _goToMax(self, event):\n        self.set(self['max'])\n\n    def _firstScaleCommand(self, val):\n        \"\"\" Hack to avoid calling command on instantiation of Scale \"\"\"\n        self._widget['command'] = self._scaleCommand\n\n    def _scaleCommand(self, val):\n        self.set(float(val))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_189",
+    "parent": "processed_documents/context_documents/409002c6_Slider.json",
+    "chunk_number": 3525
+  }
+}

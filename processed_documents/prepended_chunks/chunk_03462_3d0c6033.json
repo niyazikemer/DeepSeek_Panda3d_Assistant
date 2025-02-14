@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `collideWithGeom` method within a selection class (likely part of the SelectionQueue or similar) that configures collision detection settings. It sets up the collision node's \"into\" and \"from\" masks to control how it interacts with other geometry nodes during collision tests. This method is used to ensure proper collision detection between geometric objects in a 3D scene, aligning with Panda3D's collision system requirements.\n\ndef collideWithGeom(self):\n        # The into collide mask is the bit pattern colliders look at\n        # when deciding whether or not to test for a collision \"into\"\n        # this collision solid.  Set to all Off so this collision solid\n        # will not be considered in any collision tests\n        self.collisionNode.setIntoCollideMask(BitMask32().allOff())\n        # The from collide mask is the bit pattern *this* collision solid\n        # compares against the into collide mask of candidate collision solids\n        # Turn this mask all off since we're not testing for collisions against\n        # collision solids\n        self.collisionNode.setFromCollideMask(GeomNode.getDefaultCollideMask())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_186",
+    "parent": "processed_documents/context_documents/eebfe557_DirectSelection.json",
+    "chunk_number": 3462
+  }
+}

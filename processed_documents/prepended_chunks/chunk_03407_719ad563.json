@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a callback function (`selectCB`) used to handle node path selection within the Direct Selection system. It updates the selected node paths, resets their ancestry, displays a readout of the selected node's name, shows manipulation widgets, and determines edit types for the selected nodes.\n\ndef selectCB(self, nodePath, fMultiSelect = 0,\n               fSelectTag = 1, fResetAncestry = 1, fLEPane = 0, fUndo=1):\n        dnp = self.selected.select(nodePath, fMultiSelect, fSelectTag)\n        if dnp:\n            messenger.send('DIRECT_preSelectNodePath', [dnp])\n            if fResetAncestry:\n                # Update ancestry\n                self.ancestry = dnp.getAncestors()\n                self.ancestryIndex = 0\n            # Update the selectedNPReadout\n            self.selectedNPReadout.reparentTo(base.a2dBottomLeft)\n            self.selectedNPReadout.setText(\n                'Selected:' + dnp.getName())\n            # Show the manipulation widget\n            if self.manipulationControl.fMultiView:\n                for widget in self.manipulationControl.widgetList:\n                    widget.showWidget()\n            else:\n                self.widget.showWidget()\n            editTypes = self.manipulationControl.getEditTypes([dnp])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3407
+  }
+}

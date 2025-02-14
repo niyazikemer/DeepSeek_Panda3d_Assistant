@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears to be part of a larger Python script related to module and package management. It specifically handles finding modules in directories, managing package paths, and executing system commands for linking executables during a build or setup process. The chunk is situated within a context that deals with file operations, directory listings, and handling namespaces for packages.\n\nThe code likely belongs to a custom module loader or a build tool that extends Python's import mechanism, particularly dealing with namespace packages and frozen modules.\n\nlink = self.linkExe % dict({\n            'python': self.Python,\n            'MSVC': self.MSVC,\n            'PSDK': self.PSDK,\n            'suffix64': self.suffix64,\n            'pythonIPath': self.PythonIPath,\n            'pythonVersion': self.PythonVersion,\n            'arch': self.arch,\n            'filename': filename,\n            'basename': basename,\n        }, **sysconf.get_config_vars())\n        link += ' ' + ' '.join(extraLink)\n        sys.stderr.write(link + '\\n')\n        if os.system(link) != 0:\n            raise Exception('failed to link %s.' % basename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2044
+  }
+}

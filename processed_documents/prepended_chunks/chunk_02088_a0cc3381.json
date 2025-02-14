@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a larger document dealing with module finding and importing mechanisms in Python, likely within an application or framework context such as PyInstaller or similar tools. The specific code handles special cases for platform-specific modules like `sysconfig` and `_sysconfigdata`, ensuring compatibility across different POSIX systems (Linux, macOS, Emscripten) and varying Python versions.\n\n# Special case for sysconfig, which depends on a platform-specific\n        # sysconfigdata module on POSIX systems.\n        missing = []\n        if 'sysconfig' in self.mf.modules and \\\n           ('linux' in self.platform or 'mac' in self.platform or 'emscripten' in self.platform):\n            modname = '_sysconfigdata'\n            if sys.version_info >= (3, 6):\n                modname += '_'\n                if sys.version_info < (3, 8):\n                    modname += 'm'",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2088
+  }
+}

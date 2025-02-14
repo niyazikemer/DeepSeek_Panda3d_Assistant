@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines methods for entering and exiting a state in a Hierarchical Finite State Machine (HFSM). The `enter` method initializes child FSMs, while the `exit` method ensures proper cleanup by first exiting all child FSMs before executing its own exit function.\n\ndef __exitChildren(self, argList):\n        \"\"\"\n        Exit all child FSMs\n        \"\"\"\n        for fsm in self.__FSMList:\n            fsm.request((fsm.getFinalState()).getName())\n\n\n    # basic State functionality\n\n    def enter(self, argList=[]):\n        \"\"\"\n        Call the enter function for this state\n        \"\"\"\n        # enter child FSMs first. It is assumed these have a start\n        # state that is safe to enter\n        self.__enterChildren(argList)\n\n        if self.__enterFunc is not None:\n            self.__enterFunc(*argList)\n\n    def exit(self, argList=[]):\n        \"\"\"\n        Call the exit function for this state\n        \"\"\"\n        # first exit child FSMs\n        self.__exitChildren(argList)\n\n        # call exit function if it exists\n        if self.__exitFunc is not None:\n            self.__exitFunc(*argList)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_147",
+    "parent": "processed_documents/context_documents/417dc244_State.json",
+    "chunk_number": 2678
+  }
+}

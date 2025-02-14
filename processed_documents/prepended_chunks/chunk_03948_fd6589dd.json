@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a fragment shader function (`fshader`) within a Cg shader program that processes texture samples from four neighboring positions (NW, NE, SW, SE) to compute an output color by averaging their values. It is part of a shader pair (vertex and fragment) designed for image processing or filtering tasks.\n\nvoid fshader(float2 l_texcoordNW : TEXCOORD0,\n             float2 l_texcoordNE : TEXCOORD1,\n             float2 l_texcoordSW : TEXCOORD2,\n             float2 l_texcoordSE : TEXCOORD3,\n             uniform sampler2D k_src : TEXUNIT0,\n             out float4 o_color : COLOR) {\n  float4 colorNW = tex2D(k_src, l_texcoordNW);\n  float4 colorNE = tex2D(k_src, l_texcoordNE);\n  float4 colorSW = tex2D(k_src, l_texcoordSW);\n  float4 colorSE = tex2D(k_src, l_texcoordSE);\n  o_color = (colorNW + colorNE + colorSW + colorSE);\n}\n\"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_217",
+    "parent": "processed_documents/context_documents/1f46d8bc_filterDown4.json",
+    "chunk_number": 3948
+  }
+}

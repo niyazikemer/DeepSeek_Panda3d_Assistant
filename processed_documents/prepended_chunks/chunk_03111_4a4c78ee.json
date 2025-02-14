@@ -1,0 +1,9 @@
+{
+  "content": "The `fixBounds` method is part of a larger system for managing 3D actors in a graphical environment. It ensures that the bounding boxes of geometric nodes are correctly updated, which is crucial for rendering accuracy. The method can either update bounds for all parts or focus on a specific part when provided, iterating through each relevant node to trigger bound updates. This functionality is essential for maintaining accurate visual and collision representations within the actor's model hierarchy.\n\ndef fixBounds(self, partName = None):\n        if partName is None:\n            #iterate through everything\n            for lodData in self.__partBundleDict.values():\n                for partData in lodData.values():\n                    char = partData.partBundleNP\n                    char.node().update()\n                    geomNodes = char.findAllMatches(\"**/+GeomNode\")\n                    for thisGeomNode in geomNodes:\n                        for thisGeom in thisGeomNode.node().getGeoms():\n                            thisGeom.markBoundsStale()\n                        thisGeomNode.node().markInternalBoundsStale()\n        else:\n            #iterate through for a specific part\n            for lodData in self.__partBundleDict.values():\n                partData = lodData.get(partName)\n                if partData:\n                    char = partData.partBundleNP\n                    char.node().update()\n                    geomNodes = char.findAllMatches(\"**/+GeomNode\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3111
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `orbitUprightCam()` method is part of a class handling 3D camera operations, specifically for orbiting and adjusting the camera's upright orientation in relation to the render space.\n\ndef orbitUprightCam(self):\n        self.__stopManipulateCamera()\n        # Record undo point\n        direct = ShowBaseGlobal.direct\n        direct.pushUndo([direct.camera])\n        # Transform camera z axis to render space\n        render = ShowBaseGlobal.base.render\n        mCam2Render = Mat4(Mat4.identMat()) # [gjeon] fixed to give required argument\n        mCam2Render.assign(direct.camera.getMat(render))\n        zAxis = Vec3(mCam2Render.xformVec(DG.Z_AXIS))\n        zAxis.normalize()\n        # Compute rotation angle needed to upright cam\n        orbitAngle = rad2Deg(math.acos(CLAMP(zAxis.dot(DG.Z_AXIS), -1, 1)))\n        # Check angle\n        if orbitAngle < 0.1:\n            # Already upright\n            return\n        # Compute orthogonal axis of rotation\n        rotAxis = Vec3(zAxis.cross(DG.Z_AXIS))\n        rotAxis.normalize()\n        # Find angle between rot Axis and render X_AXIS\n        rotAngle = rad2Deg(math.acos(CLAMP(rotAxis.dot(DG.X_AXIS), -1, 1)))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_181",
+    "parent": "processed_documents/context_documents/b7d65bc2_DirectCameraControl.json",
+    "chunk_number": 3335
+  }
+}

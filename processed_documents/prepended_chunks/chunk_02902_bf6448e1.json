@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `FunctionInterval` class, which serves as the base for various animation intervals in the document. It includes a name counter for unique identification and, in debug mode, tracks instances using weak references to prevent memory leaks. This foundational class is essential for all subsequent interval implementations.\n\nclass FunctionInterval(Interval.Interval):\n    # Name counter\n    functionIntervalNum = 1\n\n    # Keep a list of function intervals currently in memory for\n    # Control-C-Control-V redefining. These are just weakrefs so they\n    # should not cause any leaks.\n    if __debug__:\n        import weakref\n        FunctionIntervals: weakref.WeakKeyDictionary[FunctionInterval, int] = weakref.WeakKeyDictionary()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_167",
+    "parent": "processed_documents/context_documents/2d73dafb_FunctionInterval.json",
+    "chunk_number": 2902
+  }
+}

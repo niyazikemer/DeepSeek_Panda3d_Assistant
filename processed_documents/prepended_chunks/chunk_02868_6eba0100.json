@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces the `MetaInterval` class, which serves as the foundational Python extension of the C++ `CMetaInterval` class. This class is designed to manage and extend functionality related to intervals, sequences, and tracks in an animation or task management system. The constructor (`__init__`) initializes a new `MetaInterval` instance, handling parameters such as interval components and name assignment, while also preparing for further processing of these components.\n\nclass MetaInterval(CMetaInterval):\n    # This is a Python-C++ hybrid class.  MetaInterval is a Python\n    # extension of the C++ class CMetaInterval, which adds some\n    # Python-specific features (like list management).\n\n    # This is the base class of Sequence, Parallel, and Track.\n\n    notify = directNotify.newCategory(\"MetaInterval\")\n\n    SequenceNum = 1\n    def __init__(self, *ivals, **kw):\n        #if __debug__:\n        #    self.debugInitTraceback = PythonUtil.StackTrace(\n        #        \"create interval\", 1, 10)\n\n        name = None\n        #if len(ivals) == 2 and isinstance(ivals[1], str):\n        #    # If the second parameter is a string, it's the name.\n        #    name = ivals[1]\n        #    ivals = ivals[0]\n        #else:\n\n        # Look for the name in the keyword params.\n        if 'name' in kw:\n            name = kw['name']\n            del kw['name']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2868
+  }
+}

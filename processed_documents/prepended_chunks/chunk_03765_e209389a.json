@@ -1,0 +1,9 @@
+{
+  "content": "The Lock and RLock classes are part of an implementation providing thread synchronization primitives within a larger framework for integrating Python threading with Panda3D's thread system. The Lock class wraps Panda's Mutex to offer mutual exclusion functionality akin to Python's threading.Lock, while the RLock class encapsulates Panda's ReMutex to provide reentrant locking similar to threading.RLock, enabling familiar thread-safety constructs in a Panda3D environment.\n\nclass Lock(core.Mutex):\n    \"\"\" This class provides a wrapper around Panda's Mutex object.\n    The wrapper is designed to emulate Python's own threading.Lock\n    object. \"\"\"\n\n    def __init__(self, name = \"PythonLock\"):\n        core.Mutex.__init__(self, name)\n\n\nclass RLock(core.ReMutex):\n    \"\"\" This class provides a wrapper around Panda's ReMutex object.\n    The wrapper is designed to emulate Python's own threading.RLock\n    object. \"\"\"\n\n    def __init__(self, name = \"PythonRLock\"):\n        core.ReMutex.__init__(self, name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_202",
+    "parent": "processed_documents/context_documents/301c6a95_threading.json",
+    "chunk_number": 3765
+  }
+}

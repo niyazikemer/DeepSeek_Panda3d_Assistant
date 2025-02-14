@@ -1,0 +1,9 @@
+{
+  "content": "The `SceneGraphExplorerItem` class is a subclass of `TreeItem` used to represent nodes in a scene graph for exploration. The `IsExpandable()` method determines if a node has children that can be expanded, enabling hierarchical navigation within the scene graph structure.\n\nclass SceneGraphExplorerItem(TreeItem):\n\n    \"\"\"Example TreeItem subclass -- browse the file system.\"\"\"\n\n    def __init__(self, nodePath, isItemEditable = True):\n        self.nodePath = nodePath\n        self.isItemEditable = isItemEditable\n\n    def GetText(self):\n        type = self.nodePath.node().getType().getName()\n        name = self.nodePath.getName()\n        return type + \"  \" + name\n\n    def GetKey(self):\n        return hash(self.nodePath)\n\n    def IsEditable(self):\n        # All nodes' names can be edited nowadays.\n        return self.isItemEditable\n        #return issubclass(self.nodePath.node().__class__, NamedNode)\n\n    def SetText(self, text):\n        try:\n            self.nodePath.setName(text)\n        except AttributeError:\n            pass\n\n    def GetIconName(self):\n        return \"sphere2\" # XXX wish there was a \"file\" icon\n\n    def IsExpandable(self):\n        return self.nodePath.getNumChildren() != 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_188",
+    "parent": "processed_documents/context_documents/377f8479_SceneGraphExplorer.json",
+    "chunk_number": 3497
+  }
+}

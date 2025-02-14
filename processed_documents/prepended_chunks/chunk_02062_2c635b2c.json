@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code appears to be part of a Python module loader or finder system that overrides standard import mechanisms. It is used to define metadata for module records, including whether the module excludes itself from further processing and allows child modules to be imported based on specific conditions like forbidding certain imports. This system handles custom package loading, namespace management, and frozen module support.\n\n# Additional black-box information about where this module\n            # record came from, supplied by the caller.\n            self.fromSource = fromSource\n\n            # If this is set, it contains Python code of the module.\n            self.text = text\n\n            # Some sanity checks.\n            if not self.exclude:\n                self.allowChildren = True\n\n            if self.forbid:\n                self.exclude = True\n                self.allowChildren = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2062
+  }
+}

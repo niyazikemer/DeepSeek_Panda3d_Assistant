@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within the initialization or setup method of the TextureManager class, where it defines event handling for region exits and creates a checkerboard background for the canvas using PNMImage and Textures.\n\neventName = '%s-leave' % (self.name)\n        self.mw.setLeavePattern(eventName)\n        self.accept(eventName, self.leaveRegion)\n\n        # Create a checkerboard background card for the canvas.\n        p = PNMImage(2, 2, 1)\n        p.setGray(0, 0, 0.40)\n        p.setGray(1, 1, 0.40)\n        p.setGray(0, 1, 0.75)\n        p.setGray(1, 0, 0.75)\n\n        self.checkTex = Texture('checkTex')\n        self.checkTex.load(p)\n        self.checkTex.setMagfilter(Texture.FTNearest)\n\n        self.canvasBackground = None\n\n        self.makeCanvasBackground()\n\n    def makeCanvasBackground(self):\n        if self.canvasBackground:\n            self.canvasBackground.removeNode()\n\n        self.canvasBackground = self.canvasRoot.attachNewNode('canvasBackground', -100)\n\n        cm = CardMaker('background')\n        cm.setFrame(0, 1, 0, 1)\n        cm.setUvRange((0, 0), (1, 1))\n        self.canvasBackground.attachNewNode(cm.generate())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2962
+  }
+}

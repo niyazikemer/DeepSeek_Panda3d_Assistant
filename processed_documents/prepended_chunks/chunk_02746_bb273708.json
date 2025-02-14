@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines `LerpPosInterval`, a class derived from `LerpNodePathInterval` that handles the interpolation of position attributes for NodePaths in Panda3D. It allows users to create smooth animations by transitioning between start and end positions over a specified duration, with optional blending types and the ability to use relative positioning or absolute coordinates. This class is part of a family of lerp (linear interpolation) classes designed for animating various properties of 3D objects in real-time applications like games or simulations.\n\nclass LerpPosInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, pos, startPos = None,\n                 other = None, blendType = 'noBlend',\n                 bakeInStart = 1, fluid = 0, name = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, fluid, nodePath, other)\n\n        # Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(pos, startPos)\n        if self.paramSetup:\n            self.endPos = pos\n            self.startPos = startPos\n            self.inPython = 1\n        else:\n            self.setEndPos(pos)\n            if startPos is not None:\n                self.setStartPos(startPos)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2746
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a class method named `getWidgetIntersectPt` which calculates the intersection point between the mouse click position and a specified plane in 3D space. The method first checks if the application is in multi-view mode and if the current camera is not the default 'persp' camera; if so, it delegates to another method for determining the hit point. The code then proceeds to calculate the transformation matrix from the camera to the target nodePath, decompose this matrix to determine the viewpoint's position relative to the widget, and eventually find the intersection with the specified plane. This is used in a 3D graphics or game development context for handling user interactions with graphical UI elements such as translation or rotation widgets.\n\ndef getWidgetIntersectPt(self, nodePath, plane):\n        if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView and\\\n           ShowBaseGlobal.direct.camera.getName() != 'persp':\n            self.hitPt.assign(self.getMouseIntersectPt())\n            return self.hitPt\n\n        # Find out the point of interection of the ray passing though the mouse\n        # with the plane containing the 2D xlation or 1D rotation widgets\n\n        # Calc the xfrom from camera to the nodePath\n        mCam2NodePath = ShowBaseGlobal.direct.camera.getMat(nodePath)\n\n        # And determine where the viewpoint is relative to widget\n        lineOrigin = VBase3(0)\n        decomposeMatrix(mCam2NodePath, VBase3(0), VBase3(0), lineOrigin,\n                        CSDefault)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3291
+  }
+}

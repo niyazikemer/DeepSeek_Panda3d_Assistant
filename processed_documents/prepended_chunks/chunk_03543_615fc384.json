@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a `VectorEntry` class inheriting from `Pmw.MegaWidget`, along with specialized subclasses like `ColorEntry`. The `_setState` method within `VectorEntry` manages UI component states (enabled/disabled) for text entry fields and slider controls, ensuring consistent visual feedback when the widget is enabled or disabled.\n\ndef _setState(self):\n        if self['state'] == 'disabled':\n            # Disable entry\n            self.configure(Entry_entry_state = 'disabled')\n            self.configure(Entry_entry_background = '#C0C0C0')\n            # Disable floater Group scale\n            self.component('fGroup').configure(\n                valuator_state = 'disabled')\n            # Disable floater group entry\n            self.component('fGroup').configure(\n                valuator_entry_state = 'disabled')\n            self.component('fGroup').configure(\n                valuator_entry_background = '#C0C0C0')\n        else:\n            # Disable entry\n            self.configure(Entry_entry_state = 'normal')\n            self.configure(Entry_entry_background = self.entryBackground)\n            # Disable floater Group scale\n            self.component('fGroup').configure(\n                valuator_state = 'normal')\n            # Disable floater group entry\n            self.component('fGroup').configure(",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_191",
+    "parent": "processed_documents/context_documents/285face5_VectorWidgets.json",
+    "chunk_number": 3543
+  }
+}

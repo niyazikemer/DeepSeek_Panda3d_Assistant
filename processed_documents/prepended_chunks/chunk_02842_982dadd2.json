@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of several methods (`privReverseInitialize`, `privReverseInstant`, `privReverseFinalize`, `privInterrupt`, `intervalDone`, and `setupPlay`) that manage the lifecycle and state transitions of an interval object. These functions handle reversing direction, interrupting playback, finalizing execution, sending completion events, and setting up playback parameters for intervals in a game or simulation engine.\n\ndef privReverseInitialize(self, t):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(t)\n\n    def privReverseInstant(self):\n        # Subclasses may redefine this function\n        self.state = CInterval.SStarted\n        self.privStep(0)\n        self.state = CInterval.SInitial\n\n    def privReverseFinalize(self):\n        # Subclasses may redefine this function\n        self.privStep(0)\n        self.state = CInterval.SInitial\n\n    def privInterrupt(self):\n        # Subclasses may redefine this function\n        self.state = CInterval.SPaused\n\n    def intervalDone(self):\n        # Subclasses should call this when the interval transitions to\n        # its final state.\n        if self.doneEvent:\n            messenger.send(self.doneEvent)\n\n    def setupPlay(self, startT, endT, playRate, doLoop):\n        duration = self.getDuration()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2842
+  }
+}

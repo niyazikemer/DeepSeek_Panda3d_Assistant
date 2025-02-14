@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python script that constructs 3D geometric shapes using triangle strips and vertices. Specifically, it adds four vertices for one face of a box and defines how they are connected as triangular strips. The code is part of a larger function or method that builds a 3D box geometry with specific color attributes assigned to each vertex.\n\nThe context involves creating a left face of a 3D box using geometric primitives (triangle strips) with vertices at coordinates (-sX, sY, -sZ), (-sX, -sY, -sZ), (-sX, -sY, sZ), and (-sX, sY, sZ). The code defines the structure of the left face by adding these vertices and connecting them into a triangle strip primitive.\n\n#Left\n\n    boxVertexWriter.addData3f(-sX, sY, -sZ)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color2[0], color2[1], color2[2], color2[3])\n\n    boxVertexWriter.addData3f(-sX, -sY, -sZ)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color3[0], color3[1], color3[2], color3[3])\n\n    boxVertexWriter.addData3f(-sX, -sY, sZ)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color2[0], color2[1], color2[2], color2[3])\n\n    boxVertexWriter.addData3f(-sX, sY, sZ)\n    boxNormalWriter.addData3f(0, 0, 1)\n    boxColorWriter.addData4f(color2[0], color2[1], color2[2], color2[3])\n\n    boxTris = GeomTristrips(Geom.UHStatic) # trianglestrip obejcet\n    boxTris.addVertex(0)#(1)\n    boxTris.addVertex(1)#(2)\n    boxTris.addVertex(3)#(0)\n    boxTris.addVertex(2)#(3)\n    boxTris.closePrimitive()\n\n    boxTris.addVertex(5)\n    boxTris.addVertex(6)\n    boxTris.addVertex(4)\n    boxTris.addVertex(7)\n    boxTris.closePrimitive()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_173",
+    "parent": "processed_documents/context_documents/0c67dcbd_BuildGeometry.json",
+    "chunk_number": 3017
+  }
+}

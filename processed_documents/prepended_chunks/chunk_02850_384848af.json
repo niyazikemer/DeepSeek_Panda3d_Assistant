@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of two key methods within the Interval class: `privPostEvent` and `__spawnTask`. These methods are integral to managing task execution and event handling. \n\n- **`privPostEvent`**: This method is responsible for triggering any defined hooks after an event, such as updating a timeline slider in a control interface. It also manages performance statistics if enabled.\n\n- **`__spawnTask`**: This method schedules the interval's playback by creating and adding a task to the task manager, ensuring each interval has its own dedicated task execution context.\n\nThese methods enable intervals to execute their tasks efficiently while providing hooks for external monitoring or interaction, such as updating user interfaces in real-time.\n\n# The rest of these methods are duplicates of functions defined\n    # for the CInterval class via the file CInterval-extensions.py.\n\n    def privPostEvent(self):\n        # Call after calling any of the priv* methods to do any required\n        # Python finishing steps.\n        if self.pstats:\n            self.pstats.start()\n        t = self.getT()\n        if hasattr(self, \"setTHooks\"):\n            for func in self.setTHooks:\n                func(t)\n        if self.pstats:\n            self.pstats.stop()\n\n    def __spawnTask(self):\n        # Spawn task\n        self.__removeTask()\n        taskName = self.getName() + '-play'\n        task = Task(self.__playTask)\n        task.interval = self\n        taskMgr.add(task, taskName)\n        return task",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2850
+  }
+}

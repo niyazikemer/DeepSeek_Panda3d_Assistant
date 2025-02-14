@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `privFinalize` method within an animation interval handler. It ensures the final frame of an animation is correctly posed to avoid round-off errors when the duration was implicitly calculated and the animation isn't looping.\n\nself.controls.poseAll(frame)\n\n        self.state = CInterval.SStarted\n        self.currT = t\n\n    def privFinalize(self):\n        if self.implicitDuration and not self.loopAnim:\n            # As a special case, we ensure we end up posed to the last\n            # frame of the animation if the original duration was\n            # implicit.  This is necessary only to guard against\n            # possible roundoff error in computing the final frame\n            # from the duration.  We don't do this in the case of a\n            # looping animation, however, because this would introduce\n            # a hitch in the animation when it plays back-to-back with\n            # the next cycle.\n            if self.reverse:\n                self.controls.poseAll(self.startFrame)\n            else:\n                self.controls.poseAll(self.endFrame)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_165",
+    "parent": "processed_documents/context_documents/0899ec70_AnimControlInterval.json",
+    "chunk_number": 2865
+  }
+}

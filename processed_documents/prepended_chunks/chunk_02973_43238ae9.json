@@ -1,0 +1,9 @@
+{
+  "content": "The `reconfigureWindow` method is part of a class responsible for managing texture placement and display within a graphical application. It handles window resizing by adjusting UI elements such as the canvas, status bar, and background textures to fit the new window dimensions, ensuring proper scaling and layout updates. This method interacts with other components like MouseWatcherRegions to maintain user interaction capabilities during window reconfiguration.\n\ndef reconfigureWindow(self):\n        \"\"\" Resets everything for a new window size. \"\"\"\n\n        wx, wy = self.winSize\n        if wx <= 0 or wy <= 0:\n            return\n\n        self.aspect2d.setScale(float(wy) / float(wx), 1, 1)\n\n        # Reserve self.StatusHeight pixels for the status bar;\n        # everything else is for the canvas.\n\n        statusScale = float(self.StatusHeight) / float(wy)\n        self.statusBackground.setScale(1, 1, statusScale)\n        self.status.setScale(statusScale)\n        self.statusTextNP.setPos(self.statusBackground, 0, 0, 0.5)\n        self.sizeTextNP.setPos(self.statusBackground, 2, 0, 0.5)\n\n        self.canvasDR.setDimensions(0, 1, statusScale, 1)\n\n        w = self.canvasDR.getPixelWidth()\n        h = self.canvasDR.getPixelHeight()\n        self.canvasBackground.setTexScale(TextureStage.getDefault(),\n                                          w / 20.0, h / (20.0 * self.top))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2973
+  }
+}

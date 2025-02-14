@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines methods for managing object manipulation modes (world vs local space) and handling mouse interactions in a 3D manipulation system, including task management for selection and movement operations.\n\ndef switchToWorldSpaceMode(self):\n        self.worldSpaceManip = True\n\n    def switchToLocalSpaceMode(self):\n        self.worldSpaceManip = False\n\n    def switchToMoveMode(self, state):\n        taskMgr.remove('manip-watch-mouse')\n        self.mode = 'move'\n        self.manipulateObject()\n        return Task.done\n\n    def watchMouseTask(self, state):\n        if (abs(state.initX - ShowBaseGlobal.direct.dr.mouseX) > 0.01 or\n            abs(state.initY - ShowBaseGlobal.direct.dr.mouseY) > 0.01):\n            taskMgr.remove('manip-move-wait')\n            self.mode = 'move'\n            self.manipulateObject()\n            return Task.done\n        else:\n            return Task.cont\n\n    def watchMarqueeTask(self, state):\n        taskMgr.remove('manip-watch-mouse')\n        taskMgr.remove('manip-move-wait')\n        self.mode = 'select'\n        self.drawMarquee(state.initX, state.initY)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3198
+  }
+}

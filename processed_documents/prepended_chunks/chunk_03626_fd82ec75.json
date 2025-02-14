@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is integral to the `FloaterGroup` class within a Python script, managing user interface components called floaters. It handles initializing the group's state by setting initial values and processing input options. Additionally, it provides methods for retrieving stored values, updating labels on the floaters, and toggling balloon help visibility. This chunk is crucial for setting up the floater group correctly and enabling essential interactions with its elements.\n\n```plaintext\nThe code chunk contains initialization steps and method definitions within the FloaterGroup class. It ensures that floaters are initialized with provided values, processes input variables, and includes functionality to retrieve stored values, update labels on the floaters, and toggle balloon help visibility.\n```\n\n# Make sure floaters are initialized\n        self.set(self['value'])\n\n        # Make sure input variables processed\n        self.initialiseoptions(FloaterGroup)\n\n    def _updateLabels(self):\n        if self['labels']:\n            for index in range(self['dim']):\n                self.floaterList[index]['text'] = self['labels'][index]\n\n    def toggleBalloon(self):\n        if self.toggleBalloonVar.get():\n            self.balloon.configure(state = 'balloon')\n        else:\n            self.balloon.configure(state = 'none')\n\n    def get(self):\n        return self._value\n\n    def getAt(self, index):\n        return self._value[index]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3626
+  }
+}

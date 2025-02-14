@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk contains methods for managing tags and implementing grid-based positioning adjustments within a 3D manipulation framework.\n\ndef addTag(self, tag):\n        if tag not in self.unmovableTagList:\n            self.unmovableTagList.append(tag)\n\n    def removeTag(self, tag):\n        self.unmovableTagList.remove(tag)\n\n    def gridSnapping(self, nodePath, offset):\n        offsetX = nodePath.getX() + offset.getX()\n        offsetY = nodePath.getY() + offset.getY()\n        offsetZ = nodePath.getZ() + offset.getZ()\n\n        if offsetX < 0.0:\n            signX = -1.0\n        else:\n            signX = 1.0\n        modX = math.fabs(offsetX) % ShowBaseGlobal.direct.grid.gridSpacing\n        floorX = math.floor(math.fabs(offsetX) / ShowBaseGlobal.direct.grid.gridSpacing)\n        if modX < ShowBaseGlobal.direct.grid.gridSpacing / 2.0:\n            offsetX = signX * floorX * ShowBaseGlobal.direct.grid.gridSpacing\n        else:\n            offsetX = signX * (floorX + 1) * ShowBaseGlobal.direct.grid.gridSpacing",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3225
+  }
+}

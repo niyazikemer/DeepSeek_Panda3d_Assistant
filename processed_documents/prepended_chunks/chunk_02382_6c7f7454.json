@@ -1,0 +1,9 @@
+{
+  "content": "The chunk configures the `CompoundValue` message by associating its fields with specific message types and organizing them under a oneof group named 'value'. This setup allows only one field from the group to be set at any time, ensuring mutual exclusivity among different value types like attributes, styles, styleables, and arrays.\n\n_COMPOUNDVALUE.fields_by_name['array'].message_type = _ARRAY\n_COMPOUNDVALUE.fields_by_name['plural'].message_type = _PLURAL\n_COMPOUNDVALUE.fields_by_name['macro'].message_type = _MACROBODY\n_COMPOUNDVALUE.oneofs_by_name['value'].fields.append(\n  _COMPOUNDVALUE.fields_by_name['attr'])\n_COMPOUNDVALUE.fields_by_name['attr'].containing_oneof = _COMPOUNDVALUE.oneofs_by_name['value']\n_COMPOUNDVALUE.oneofs_by_name['value'].fields.append(\n  _COMPOUNDVALUE.fields_by_name['style'])\n_COMPOUNDVALUE.fields_by_name['style'].containing_oneof = _COMPOUNDVALUE.oneofs_by_name['value']\n_COMPOUNDVALUE.oneofs_by_name['value'].fields.append(\n  _COMPOUNDVALUE.fields_by_name['styleable'])\n_COMPOUNDVALUE.fields_by_name['styleable'].containing_oneof = _COMPOUNDVALUE.oneofs_by_name['value']\n_COMPOUNDVALUE.oneofs_by_name['value'].fields.append(\n  _COMPOUNDVALUE.fields_by_name['array'])\n_COMPOUNDVALUE.fields_by_name['array'].containing_oneof = _COMPOUNDVALUE.oneofs_by_name['value']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_138",
+    "parent": "processed_documents/context_documents/e963edbe_Resources_pb2.json",
+    "chunk_number": 2382
+  }
+}

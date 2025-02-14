@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within the definition of a Python class that manages interval-based operations or animations, likely extending functionality from `CInterval`. The code includes methods for handling interruptions during interval execution, string representation (`__repr__`), property definitions for key attributes (e.g., `t`, `play_rate`), and comments indicating duplication of functions from another file. This context is relevant for understanding how intervals are controlled and represented in the system.\n\nif (not shouldContinue and self.getState() == CInterval.SStarted):\n            self.privInterrupt()\n\n        return shouldContinue\n\n    def __repr__(self, indent=0):\n        space = ''\n        for l in range(indent):\n            space = space + ' '\n        return space + self.name + ' dur: %.2f' % self.duration\n\n    open_ended = property(getOpenEnded)\n    stopped = property(isStopped)\n    t = property(getT, setT)\n    play_rate = property(getPlayRate, setPlayRate)\n    done_event = property(getDoneEvent, setDoneEvent)\n\n    # The rest of these methods are duplicates of functions defined\n    # for the CInterval class via the file CInterval-extensions.py.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2849
+  }
+}

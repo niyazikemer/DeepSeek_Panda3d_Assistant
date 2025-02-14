@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `add` method in the `TaskManager` class, where it attempts to determine the name of a task being added by checking for either `__qualname__` or `__name__`. If neither attribute exists, it logs an error indicating that the addition was unsuccessful because the provided object isn't a valid Task or function.\n\n**Step-by-Step Explanation:**\n\n1. **Context**: The code is part of the `add` method in the `TaskManager` class.\n2. **Purpose**: It tries to extract the name of the task being added.\n3. **Mechanism**: Uses `getattr` to check for `__qualname__` or `__name__`.\n4. **Error Handling**: Logs an error if neither attribute is found, indicating an invalid task.\n\n**Answer:**\n\nThis code chunk is part of the `add` method in the `TaskManager` class, where it attempts to determine the name of a task being added by checking for either `__qualname__` or `__name__`. If neither attribute exists, it logs an error because the addition wasn't successful.\n\nname = getattr(funcOrTask, '__qualname__', None) or \\\n                       getattr(funcOrTask, '__name__', None)\n        else:\n            self.notify.error(\n                'add: Tried to add a task that was not a Task or a func')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3887
+  }
+}

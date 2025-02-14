@@ -1,0 +1,9 @@
+{
+  "content": "The `copy` method is a utility function within the `bdist_apps` command, designed to facilitate file copying during the distribution-building process for Panda3D applications. This method handles both regular filesystem paths and those located within `.whl` files, ensuring proper directory creation and providing informative logging output to track the copy operations. It serves as an essential tool for moving built application files into their final packaging locations during the execution of the `bdist_apps` command.\n\ndef copy(self, source_path, target_path):\n        \"\"\" Copies source_path to target_path.\n\n        source_path may be located inside a .whl file. \"\"\"\n\n        try:\n            self.announce('copying {0} -> {1}'.format(os.path.relpath(source_path, self.build_base), os.path.relpath(target_path, self.build_base)))\n        except ValueError:\n            # No relative path (e.g., files on different drives in Windows), just print absolute paths instead\n            self.announce('copying {0} -> {1}'.format(source_path, target_path))\n\n        # Make the directory if it does not yet exist.\n        target_dir = os.path.dirname(target_path)\n        if not os.path.isdir(target_dir):\n            os.makedirs(target_dir)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2003
+  }
+}

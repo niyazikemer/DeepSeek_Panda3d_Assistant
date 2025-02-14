@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code pertains to adjusting the scaling factor of widgets in Direct mode. When `fScaleWidgetByCam` is disabled, it sets the widget's scaling factor based on `dnp.getRadius()`, considering both single and multi-view setups.\n\n```python\n        # Adjust widget scaling based on distance when not using camera-based scaling\n        if not self.fScaleWidgetByCam:\n            for widget in self.widgetList:\n                widget.setScalingFactor(dnp.getRadius())\n```\n\n# shrink the widget\n            if not self.fScaleWidgetByCam: # [gjeon] for not scaling widget by distance from camera\n                if self.manipulationControl.fMultiView:\n                    for widget in self.manipulationControl.widgetList:\n                        widget.setScalingFactor(dnp.getRadius())\n                else:\n                    self.widget.setScalingFactor(dnp.getRadius())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3409
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes methods `sendState()`, `setIsOn()`, and `isOn()` which are part of a state machine implementation managing transitions between states 0-4 for an object. These methods handle communication of the current state (`sendState`), control the state transitions based on whether the object is \"on\" or not (`setIsOn`), and check if the object is currently in an \"on\" state (`isOn`). The `sendUpdate` method is used to notify observers about state changes, while `setIsOn` ensures state transitions only occur when necessary. These methods are central to the state management functionality of the class.\n\ndef sendState(self):\n        assert self.__debugPrint(\"sendState()\")\n        self.sendUpdate('setState', self.getState())\n\n    def setIsOn(self, isOn):\n        assert self.__debugPrint(\"setIsOn(isOn=%s)\"%(isOn,))\n        if isOn:\n            if self.stateIndex != 4:\n                # ...if it's not On; request turning on:\n                self.fsm.request(self.states[3])\n        else:\n            if self.stateIndex != 2:\n                # ...if it's not Off; request turning off:\n                self.fsm.request(self.states[1])\n        #if isOn:\n        #    nextState = (4, 3, 3, 4, None)[self.stateIndex]\n        #else:\n        #    nextState = (2, 2, None, 1, 1)[self.stateIndex]\n        #if nextState is not None:\n        #    self.fsm.request(self.states[nextState])\n\n    def isOn(self):\n        assert self.__debugPrint(\"isOn() returning %s (stateIndex=%s)\"%(self.stateIndex==4, self.stateIndex))\n        return self.stateIndex==4",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_148",
+    "parent": "processed_documents/context_documents/ee9f969a_FourStateAI.json",
+    "chunk_number": 2689
+  }
+}

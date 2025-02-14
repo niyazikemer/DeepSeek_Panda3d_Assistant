@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines key methods for initializing and managing a `ValuatorGroupPanel`, including creating the valuator group component, packing it within the interface, initializing input options, toggling balloon help, and updating labels. This forms part of the initialization process for creating color control panels used in both node and light control contexts as defined earlier in the document.\n\n# Create the valuator group\n        self.valuatorGroup = self.createcomponent(\n            'valuatorGroup',\n            (('valuator', 'valuatorGroup_valuator'),),\n            None, ValuatorGroup,\n            (interior,),\n            type = self['type'],\n            dim = self['dim'],\n            value = self['value'],\n            min = self['min'],\n            max = self['max'],\n            resolution = self['resolution'],\n            labels = self['labels'],\n            command = self['command'])\n        self.valuatorGroup.pack(expand = 1, fill = tk.X)\n\n        # Make sure input variables processed\n        self.initialiseoptions(ValuatorGroupPanel)\n\n    def toggleBalloon(self):\n        if self.toggleBalloonVar.get():\n            self.balloon.configure(state = 'balloon')\n        else:\n            self.balloon.configure(state = 'none')\n\n    def _updateLabels(self):\n        self.valuatorGroup['labels'] = self['labels']",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3661
+  }
+}

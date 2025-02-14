@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines a function `calcTimeOfLastImpactOnPlane` within a projectile physics simulation, calculating the later intersection time when a projectile impacts a plane (e.g., ground) during its parabolic trajectory. This function is part of the initialization process for setting up projectile motion intervals with collision detection in a 3D animation or simulation environment.\n\ndef calcTimeOfLastImpactOnPlane(startHeight, endHeight,\n                                        startVel, accel):\n            time = calcTimeOfImpactOnPlane(startHeight, endHeight,\n                                           startVel, accel)\n            if not time:\n                return None\n            if isinstance(time, list):\n                # projectile hits plane once going up, once going down\n                # assume they want the one on the way down\n                assert self.notify.debug('projectile hits plane twice at times: %s' %\n                                  time)\n                time = max(*time)\n            else:\n                assert self.notify.debug('projectile hits plane once at time: %s' %\n                                  time)\n            return time\n\n        # now all we need is startVel, duration, and endPos.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_168",
+    "parent": "processed_documents/context_documents/656cfe5f_ProjectileInterval.json",
+    "chunk_number": 2926
+  }
+}

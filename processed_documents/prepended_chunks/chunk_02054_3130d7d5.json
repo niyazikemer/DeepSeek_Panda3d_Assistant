@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears to be part of a Python import system's custom implementation, specifically related to module handling and frozen modules. The code extends the functionality of the `find_all_submodules` method to include dynamic extension of frozen modules using C glue code, enabling the addition of new frozen modules at runtime. This is useful for creating self-contained Python applications or extending the core module loading mechanism without external dependencies.\n\n```python\n\"\"\"\nCustom implementation of find_all_submodules and C glue code to extend \nPython's import system with dynamic handling of frozen modules.\n\"\"\"\n```\n\nint\nmain(int argc, char *argv[]) {\n  PyImport_FrozenModules = _PyImport_FrozenModules;\n  return Py_FrozenMain(argc, argv);\n}\n\"\"\"\n\n# Our own glue code to start up a Python shared library.\ndllInitCode = \"\"\"\n/*\n * Call this function to extend the frozen modules array with a new\n * array of frozen modules, provided in a C-style array, at runtime.\n * Returns the total number of frozen modules.\n */\nstatic int\nextend_frozen_modules(const struct _frozen *new_modules, int new_count) {\n  int orig_count;\n  struct _frozen *realloc_FrozenModules;\n\n  /* First, count the number of frozen modules we had originally. */\n  orig_count = 0;\n  while (PyImport_FrozenModules[orig_count].name != NULL) {\n    ++orig_count;\n  }\n\n  if (new_count == 0) {\n    /* Trivial no-op. */\n    return orig_count;\n  }",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2054
+  }
+}

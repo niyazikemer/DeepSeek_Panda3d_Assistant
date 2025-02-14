@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a custom module import mechanism that handles the discovery and loading of Python modules and packages, particularly those stored within zip files. The code checks if a given path corresponds to a valid directory or namespace package, which is essential for correctly resolving imports from both traditional file system directories and compressed archives. This functionality supports the accurate identification of package structures without requiring an `__init__.py` file.\n\n# (Most) zip files do not store directories; check instead for a\n                # file whose path starts with this directory name.\n                prefix = fn.replace(os.path.sep, '/') + '/'\n                for name in zip.namelist():\n                    if name.startswith(prefix):\n                        return True\n\n                return False\n\n            # Look at the parent directory.\n            dir, dirname = os.path.split(dir)\n            fn = os.path.join(dirname, fn)\n\n        return False\n\n    def _listdir(self, path):\n        \"\"\"Lists files in the given directory if it exists.\"\"\"\n\n        if os.path.isdir(path):\n            return os.listdir(path)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2159
+  }
+}

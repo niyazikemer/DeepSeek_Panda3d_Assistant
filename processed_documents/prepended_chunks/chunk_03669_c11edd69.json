@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines a function `printToLog()` that prints the current color of a light object in a formatted string, followed by initializing the color values for a ValuatorGroupPanel (a GUI panel for adjusting RGBA values) specific to controlling a light's color attributes. The surrounding code creates an interactive toolset for modifying lighting properties through sliders and menu options.\n\ndef printToLog():\n        n = light.getName()\n        c=light.getColor()\n        print(n + (\".setColor(Vec4(%.3f, %.3f, %.3f, %.3f))\" %\n                   (c[0], c[1], c[2], c[3])))\n    # Check init color\n    initColor = light.getColor() * 255.0\n    # Create entry scale group\n    vgp = ValuatorGroupPanel(title = 'RGBA Panel: ' + light.getName(),\n                             dim = 4,\n                             labels = ['R','G','B','A'],\n                             value = [int(initColor[0]),\n                                      int(initColor[1]),\n                                      int(initColor[2]),\n                                      int(initColor[3])],\n                             type = 'slider',\n                             valuator_style = style,\n                             valuator_min = 0,\n                             valuator_max = 255,\n                             valuator_resolution = 1,\n                             # Destroy not withdraw panel on dismiss",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_196",
+    "parent": "processed_documents/context_documents/8197ab73_Valuator.json",
+    "chunk_number": 3669
+  }
+}

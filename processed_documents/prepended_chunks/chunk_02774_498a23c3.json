@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces `LerpPosHprScaleShearInterval`, a class within an animation framework designed to interpolate position, rotation (HPR), scale, and shear properties of a node path over time. This class extends `LerpNodePathInterval` and handles the initialization of start and end values for these transformations using interpolation techniques, facilitating smooth animations in applications like games or 3D simulations.\n\nclass LerpPosHprScaleShearInterval(LerpNodePathInterval):\n    def __init__(self, nodePath, duration, pos, hpr, scale, shear,\n                 startPos = None, startHpr = None, startQuat = None,\n                 startScale = None, startShear = None,\n                 other = None, blendType = 'noBlend',\n                 bakeInStart = 1, fluid = 0, name = None):\n        LerpNodePathInterval.__init__(self, name, duration, blendType,\n                                      bakeInStart, fluid, nodePath, other)\n        # Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(pos, startPos, hpr, startHpr,\n                                           startQuat, scale, startScale,\n                                           shear, startShear)\n        if self.paramSetup:\n            self.endPos = pos\n            self.startPos = startPos\n            self.endHpr = hpr\n            self.startHpr = startHpr\n            self.startQuat = startQuat",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2774
+  }
+}

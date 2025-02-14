@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents exception handling logic within a thread's bootstrap process in Python's threading module. It ensures that any exceptions occurring during thread execution are properly logged and handled to maintain application stability.\n\n```plaintext\nContext: Exception Handling in Thread Execution\n\nThe code chunk is part of the __bootstrap() method within the Thread class, responsible for running the target function of a thread. The try-except block catches SystemExit and other exceptions, logging them and handling errors by writing details to stderr if possible.\n```\n\ntry:\n                self.run()\n            except SystemExit:\n                if __debug__:\n                    self._note(\"%s.__bootstrap(): raised SystemExit\", self)\n            except:\n                if __debug__:\n                    self._note(\"%s.__bootstrap(): unhandled exception\", self)\n                # If sys.stderr is no more (most likely from interpreter\n                # shutdown) use self.__stderr.  Otherwise still use sys (as in\n                # _sys) in case sys.stderr was redefined since the creation of\n                # self.\n                if _sys:\n                    _sys.stderr.write(\"Exception in thread %s:\\n%s\\n\" %\n                                      (self.getName(), _format_exc()))\n                else:\n                    # Do the best job possible w/o a huge amt. of code to\n                    # approximate a traceback (code ideas from\n                    # Lib/traceback.py)\n                    exc_type, exc_value, exc_tb = self.__exc_info()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_206",
+    "parent": "processed_documents/context_documents/7cee4064_threading2.json",
+    "chunk_number": 3830
+  }
+}

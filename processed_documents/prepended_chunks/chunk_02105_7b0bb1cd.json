@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods, `writeMultifile` and `writeCode`, which are part of a custom freezing tool that compiles accumulated Python code into distributable formats. These methods are called after processing (`done()`) to package the compiled code either into a compressed Multifile archive or as C source files for standalone distribution.\n\ndef writeMultifile(self, mfname):\n        \"\"\" After a call to done(), this stores all of the accumulated\n        python code into a Multifile with the indicated filename,\n        including the extension.  Additional extension modules are\n        listed in self.extras.\"\"\"\n\n        self.__replacePaths()\n\n        Filename(mfname).unlink()\n        multifile = Multifile()\n        if not multifile.openReadWrite(mfname):\n            raise Exception\n\n        self.addToMultifile(multifile)\n\n        multifile.flush()\n        multifile.repack()\n\n    def writeCode(self, filename, initCode = \"\"):\n        \"\"\" After a call to done(), this freezes all of the accumulated\n        Python code into a C source file. \"\"\"\n\n        self.__replacePaths()\n\n        # Now generate the actual export table.\n        moduleDefs = []\n        moduleList = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2105
+  }
+}

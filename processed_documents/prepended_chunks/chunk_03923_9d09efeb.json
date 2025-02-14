@@ -1,0 +1,9 @@
+{
+  "content": "The `_setEnabled` method in a profiling class manages the initialization and cleanup of profiling operations. When enabled, it initializes tracking variables and schedules periodic profile tasks using `taskMgr`. Upon disabling, it cleans up by removing scheduled tasks, releasing all sessions, and clearing associated dictionaries to prevent memory leaks. This method ensures that the profiler starts cleanly and terminates gracefully, maintaining resource efficiency.\n\ndef _setEnabled(self, enabled):\n        if enabled:\n            self.notify.info('frame profiler started')\n            self._startTime = ClockObject.getGlobalClock().getFrameTime()\n            self._profileCounter = 0\n            self._jitter = None\n            self._period2aggregateProfile = {}\n            self._id2session = {}\n            self._id2task = {}\n            # don't profile process startup\n            self._task = taskMgr.doMethodLater(self._period, self._scheduleNextProfileDoLater,\n                                               'FrameProfilerStart-%s' % serialNum())\n        else:\n            self._task.remove()\n            del self._task\n            for session in self._period2aggregateProfile.values():\n                session.release()\n            del self._period2aggregateProfile\n            for task in self._id2task.values():\n                task.remove()\n            del self._id2task\n            for session in self._id2session.values():",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_213",
+    "parent": "processed_documents/context_documents/7e5307ae_FrameProfiler.json",
+    "chunk_number": 3923
+  }
+}

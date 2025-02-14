@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `getPartBundles` method in the `Actor` class. This method determines which part bundle dictionaries to use based on whether a specific `lodName` is provided and if merging LOD bundles is enabled.\n\n```plaintext\nContext: The chunk is within the getPartBundles method, determining which part bundle dictionaries to retrieve based on the lodName parameter and mergeLODBundles flag.\n```\n\nif lodName is None and self.mergeLODBundles:\n            # Get the common bundle.\n            partBundleDicts = [self.__commonBundleHandles]\n\n        elif lodName is None:\n            # Get all LOD's.\n            partBundleDicts = self.__partBundleDict.values()\n        else:\n            # Get one LOD.\n            partBundleDict = self.__partBundleDict.get(lodName)\n            if not partBundleDict:\n                Actor.notify.warning(\"couldn't find lod: %s\" % (lodName))\n                return []\n            partBundleDicts = [partBundleDict]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3093
+  }
+}

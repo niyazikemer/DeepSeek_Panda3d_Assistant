@@ -1,0 +1,9 @@
+{
+  "content": "This code appears to be part of a larger Python script or class that manages compiling executables, likely within a cross-platform build system or packaging tool. The specific chunk contains OS-specific path configuration logic (adding `/usr/PCBSD/` library paths) and defines a method for compiling an executable using system commands with various compiler flags and configurations derived from the `sysconf` module.\n\nif os.path.isdir(\"/usr/PCBSD/local/lib\"):\n                self.linkExe += \" -L/usr/PCBSD/local/lib\"\n                self.linkDll += \" -L/usr/PCBSD/local/lib\"\n\n    def compileExe(self, filename, basename, extraLink=[]):\n        compile = self.compileObjExe % dict({\n            'python': self.Python,\n            'MSVC': self.MSVC,\n            'PSDK': self.PSDK,\n            'suffix64': self.suffix64,\n            'MD': self.MD,\n            'pythonIPath': self.PythonIPath,\n            'pythonVersion': self.PythonVersion,\n            'arch': self.arch,\n            'filename': filename,\n            'basename': basename,\n        }, **sysconf.get_config_vars())\n        sys.stderr.write(compile + '\\n')\n        if os.system(compile) != 0:\n            raise Exception('failed to compile %s.' % basename)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2043
+  }
+}

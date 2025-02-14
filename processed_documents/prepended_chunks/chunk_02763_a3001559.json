@@ -1,0 +1,9 @@
+{
+  "content": "This code is from the initialization method (`__init__`) of a Python class designed for creating LERP (Linear Interpolation) intervals. The specific code chunk checks if any parameters passed to the constructor are functors (callable objects). If so, it sets up the start and end values directly. Otherwise, it uses setter methods to configure these properties, ensuring proper initialization for interpolation operations.\n\nThe context involves setting up HPR (heading, pitch, roll) and scale parameters in a 3D graphics or animation system, allowing dynamic function-based parameter handling alongside static values.\n\n# Check for functors in the input parameters.\n        self.paramSetup = self.anyCallable(hpr, startHpr, startQuat, scale, startScale)\n        if self.paramSetup:\n            self.endHpr = hpr\n            self.startHpr = startHpr\n            self.startQuat = startQuat\n            self.endScale = scale\n            self.startScale = startScale\n            self.inPython = 1\n        else:\n            self.setEndHpr(hpr)\n            if startHpr is not None:\n                self.setStartHpr(startHpr)\n            if startQuat is not None:\n                self.setStartQuat(startQuat)\n            self.setEndScale(scale)\n            if startScale is not None:\n                self.setStartScale(startScale)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_156",
+    "parent": "processed_documents/context_documents/d377e678_LerpInterval.json",
+    "chunk_number": 2763
+  }
+}

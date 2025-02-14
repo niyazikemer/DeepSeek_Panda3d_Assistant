@@ -1,0 +1,9 @@
+{
+  "content": "The chunk belongs in the `MetaInterval` class implementation within the document, specifically between the initialization section and the subclass definitions. The code provides core functionality for adding sequences and parallels of intervals, which is fundamental to the composition of interval tracks in the MetaInterval system. This includes defining how intervals can be appended or combined into a sequence or parallel structure with specified timing relationships (e.g., start times relative to each other).\n\ndef __add__(self, other):\n        copy = self[:]\n        copy += other\n        return copy\n\n    # Functions to define sequence, parallel, and track behaviors:\n\n    def addSequence(self, list, name, relTime, relTo, duration):\n        # Adds the given list of intervals to the MetaInterval to be\n        # played one after the other.\n        self.pushLevel(name, relTime, relTo)\n        for ival in list:\n            self.addInterval(ival, 0.0, PREVIOUS_END)\n        self.popLevel(duration)\n\n    def addParallel(self, list, name, relTime, relTo, duration):\n        # Adds the given list of intervals to the MetaInterval to be\n        # played simultaneously; all will start at the same time.\n        self.pushLevel(name, relTime, relTo)\n        for ival in list:\n            self.addInterval(ival, 0.0, TRACK_START)\n        self.popLevel(duration)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_166",
+    "parent": "processed_documents/context_documents/4dc28cd4_MetaInterval.json",
+    "chunk_number": 2878
+  }
+}

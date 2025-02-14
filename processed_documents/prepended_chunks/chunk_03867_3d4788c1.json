@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces two utility functions (`sequence` and `loop`) for creating and managing asynchronous task sequences within the Direct task management system. These functions extend the `Task` class with static methods that simplify the creation of repeating or sequential task operations, enabling developers to organize and execute multiple asynchronous tasks in a structured manner.\n\ndef sequence(*taskList: AsyncTask) -> AsyncTaskSequence:\n    seq = AsyncTaskSequence('sequence')\n    for task in taskList:\n        seq.addTask(task)\n    return seq\n\n\nTask.DtoolClassDict['sequence'] = staticmethod(sequence)\n\n\ndef loop(*taskList: AsyncTask) -> AsyncTaskSequence:\n    seq = AsyncTaskSequence('loop')\n    for task in taskList:\n        seq.addTask(task)\n    seq.setRepeatCount(-1)\n    return seq\n\n\nTask.DtoolClassDict['loop'] = staticmethod(loop)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3867
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines essential methods (`set`, `get`) for individual floater widgets, enabling value assignment, command execution, and value retrieval while maintaining consistency with the overall FloaterGroup class that manages multiple floaters.\n\n# Make sure input variables processed\n        self.initialiseoptions(FloaterWidget)\n\n    def set(self, value, fCommand = 1):\n        \"\"\"\n        self.set(value, fCommand = 1)\n        Set floater to new value, execute command if fCommand == 1\n        \"\"\"\n        # Send command if any\n        if fCommand and (self['command'] is not None):\n            self['command'](*[value] + self['commandData'])\n        # Record value\n        self.value = value\n\n    def updateIndicator(self, value):\n        # Nothing visible to update on this type of widget\n        pass\n\n    def get(self):\n        \"\"\"\n        self.get()\n        Get current floater value\n        \"\"\"\n        return self.value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_195",
+    "parent": "processed_documents/context_documents/1702bab6_Floater.json",
+    "chunk_number": 3616
+  }
+}

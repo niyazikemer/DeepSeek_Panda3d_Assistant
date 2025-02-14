@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk introduces two classes: `EventArgument` and `AttrSetter`, which extend functionality within a state management framework. \n\n- **`EventArgument`** listens for specific messenger events and tracks a particular argument from the event's payload, converting it into a state variable.\n- **`AttrSetter`** acts as a bridge between state changes and object attributes by setting an attribute on a target object whenever its state updates.\n\nThese classes enhance integration between event-driven systems and stateful components.\n\nclass EventArgument(PushesStateChanges, DirectObject):\n    # tracks a particular argument to a particular messenger event\n    def __init__(self, event, index=0):\n        PushesStateChanges.__init__(self, None)\n        self._index = index\n        self.accept(event, self._handleEvent)\n\n    def destroy(self):\n        self.ignoreAll()\n        del self._index\n        PushesStateChanges.destroy(self)\n\n    def _handleEvent(self, *args):\n        self._handlePotentialStateChange(args[self._index])\n\n\nclass AttrSetter(StateChangeNode):\n    def __init__(self, source, object, attrName):\n        self._object = object\n        self._attrName = attrName\n        StateChangeNode.__init__(self, source)\n        self._handleStateChange()\n\n    def _handleStateChange(self):\n        setattr(self._object, self._attrName, self._value)\n        StateChangeNode._handleStateChange(self)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_146",
+    "parent": "processed_documents/context_documents/30ca380d_StatePush.json",
+    "chunk_number": 2668
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `setSubpartsComplete` method in an Actor class, which controls how animations are applied across subparts. The method sets a flag determining whether play(), loop(), and stop() commands target the overall Actor or individual subparts. When the flag is True, animations affect all subparts, allowing for independent animation control; when False (default), animations target the overall Actor part, which may blend or override subpart animations depending on mode. This method complements other subpart-related methods like `getSubpartsComplete`, enabling precise control over multi-part animations in complex actor setups.\n\ndef setSubpartsComplete(self, flag):\n\n        \"\"\"Sets the subpartsComplete flag.  This affects the behavior\n        of play(), loop(), stop(), etc., when no explicit parts are\n        specified.\n\n        When this flag is False (the default), play() with no parts\n        means to play the animation on the overall Actor, which is a\n        separate part that overlaps each of the subparts.  If you then\n        play a different animation on a subpart, it may stop the\n        overall animation (in non-blend mode) or blend with it (in\n        blend mode).\n\n        When this flag is True, play() with no parts means to play the\n        animation on each of the subparts--instead of on the overall\n        Actor.  In this case, you may then play a different animation\n        on a subpart, which replaces only that subpart's animation.\n\n        It makes sense to set this True when the union of all of your\n        subparts completely defines the entire Actor.\n        \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3146
+  }
+}

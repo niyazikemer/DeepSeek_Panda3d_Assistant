@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in a class that manages animations and parts of an actor. It handles retrieving animation controls based on whether `animName` is specified or not. If `animName` is None, it collects all playing animations; otherwise, it processes the named animation(s). This logic fits within a method responsible for gathering animation controls, considering different cases for `animName` to include specific or all animations.\n\nif animName is None:\n                # get all playing animations\n                for thisPart, animDict in animDictItems:\n                    for anim in animDict.values():\n                        if anim.animControl and (not onlyPlaying or anim.animControl.isPlaying()):\n                            controls.append(anim.animControl)\n            else:\n                # get the named animation(s) only.\n                if isinstance(animName, str):\n                    # A single animName\n                    animNameList = [animName]\n                else:\n                    # A list of animNames, or True to indicate all anims.\n                    animNameList = animName\n                for thisPart, animDict in animDictItems:\n                    names = animNameList\n                    if animNameList is True:\n                        names = animDict.keys()\n                    for animName in names:\n                        anim = animDict.get(animName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3132
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method responsible for loading animations (`loadAnims`) or initializing animations on an actor/node, handling different scenarios based on whether the model uses Level of Detail (LOD) or not, and whether it is single-part or multi-part. The code manages animation binding for various cases: models with LODs, multi-part models without LODs, and single-part models without LODs.\n\nanims[partName], partName, lodName)\n                            else:\n                                # then it must be multi-part w/o LOD\n                                for partName in anims:\n                                    self.loadAnims(anims[partName], partName)\n                    elif isinstance(models, dict):\n                        # then we have single-part w/ LOD\n                        for lodName in sorted(models):\n                            self.loadAnims(anims, lodName=lodName)\n                    else:\n                        # else it is single-part w/o LOD\n                        self.loadAnims(anims)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_177",
+    "parent": "processed_documents/context_documents/2763abe9_Actor.json",
+    "chunk_number": 3050
+  }
+}

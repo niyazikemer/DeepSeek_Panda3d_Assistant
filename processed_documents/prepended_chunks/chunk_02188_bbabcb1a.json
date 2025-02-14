@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a Python class (likely `Icon` or similar) responsible for managing and generating icon images in different resolutions. It includes methods for adding scaled images (`self.images[...] = image`), retrieving the largest available size (`getLargestSize()`), and automatically generating missing image sizes by scaling from larger or smaller source images (`generateMissingImages()`). The code focuses on ensuring that all required icon sizes (e.g., 256x256, 128x128) are present either by direct addition or by automatic scaling with appropriate warning notifications.\n\nself.images[image.getXSize()] = image\n\n        return True\n\n    def getLargestSize(self):\n        return max(self.images.keys())\n\n    def generateMissingImages(self):\n        \"\"\" Generates image sizes that should be present but aren't by scaling\n        from the next higher size. \"\"\"\n\n        for required_size in (256, 128, 48, 32, 16):\n            if required_size in self.images:\n                continue\n\n            sizes = sorted(self.images.keys())\n            if required_size * 2 in sizes:\n                from_size = required_size * 2\n            else:\n                from_size = 0\n                for from_size in sizes:\n                    if from_size > required_size:\n                        break\n\n            if from_size > required_size:\n                Icon.notify.warning(\"Generating %dx%d icon by scaling down %dx%d image\" % (required_size, required_size, from_size, from_size))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_135",
+    "parent": "processed_documents/context_documents/7b38a77d_icon.json",
+    "chunk_number": 2188
+  }
+}

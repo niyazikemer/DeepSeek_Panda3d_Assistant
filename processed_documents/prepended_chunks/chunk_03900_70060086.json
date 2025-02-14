@@ -1,0 +1,9 @@
+{
+  "content": "The `popupControls` method introduces a GUI panel for task management using Tkinter, enhancing user interaction. The `getProfileSession` method adds functionality to create customizable profiling sessions, integrating seamlessly with existing profiling tools in the TaskManager class.\n\n```python\n    def popupControls(self):\n        # Don't use a regular import to prevent ModuleFinder from detecting dependencies when building .p3d packages.\n        TaskManagerPanel = importlib.import_module('direct.tkpanels.TaskManagerPanel')\n        return TaskManagerPanel.TaskManagerPanel(self)\n\n    def getProfileSession(self, name=None):\n        # Creates and returns a ProfileSession instance for customization before profiling.\n        if name is None:\n            name = 'taskMgrFrameProfile'\n        PS = importlib.import_module('direct.showbase.ProfileSession')\n        return PS.ProfileSession(name)\n```\n\ndef popupControls(self):\n        # Don't use a regular import, to prevent ModuleFinder from picking\n        # it up as a dependency when building a .p3d package.\n        TaskManagerPanel = importlib.import_module('direct.tkpanels.TaskManagerPanel')\n        return TaskManagerPanel.TaskManagerPanel(self)\n\n    def getProfileSession(self, name=None):\n        # call to get a profile session that you can modify before passing to profileFrames()\n        if name is None:\n            name = 'taskMgrFrameProfile'\n\n        # Defer this import until we need it: some Python\n        # distributions don't provide the profile and pstats modules.\n        PS = importlib.import_module('direct.showbase.ProfileSession')\n        return PS.ProfileSession(name)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_210",
+    "parent": "processed_documents/context_documents/3377b266_Task.json",
+    "chunk_number": 3900
+  }
+}

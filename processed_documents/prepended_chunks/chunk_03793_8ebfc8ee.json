@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is located at the beginning of the document, introducing the module's purpose as a drop-in replacement for Python's native thread module using Panda's threading constructs. It includes the module's __all__ list, necessary imports, platform-specific timeout maximum calculation, and definitions for force_yield and consider_yield functions imported from Panda's core.\n\n\"\"\" This module reimplements Python's native thread module using Panda\nthreading constructs.  It's designed as a drop-in replacement for the\nthread module for code that works with Panda; it is necessary because\nin some compilation models, Panda's threading constructs are\nincompatible with the OS-provided threads used by Python's thread\nmodule. \"\"\"\n\n__all__ = [\n    'error', 'LockType',\n    'start_new_thread',\n    'interrupt_main',\n    'exit', 'allocate_lock', 'get_ident',\n    'stack_size',\n    'force_yield', 'consider_yield',\n    'forceYield', 'considerYield',\n    'TIMEOUT_MAX'\n]\n\nfrom panda3d import core\nimport sys\n\nif sys.platform == \"win32\":\n    TIMEOUT_MAX = float(0xffffffff // 1000)\nelse:\n    TIMEOUT_MAX = float(0x7fffffffffffffff // 1000000000)\n\n# These methods are defined in Panda, and are particularly useful if\n# you may be running in Panda's SIMPLE_THREADS compilation mode.\nforce_yield = core.Thread.force_yield\nconsider_yield = core.Thread.consider_yield",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_205",
+    "parent": "processed_documents/context_documents/c7f84a43_thread.json",
+    "chunk_number": 3793
+  }
+}

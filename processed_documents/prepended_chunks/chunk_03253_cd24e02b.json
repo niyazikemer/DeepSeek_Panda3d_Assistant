@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a utility function `plantSelectedNodePath` in a class that handles node path operations in a 3D modeling/animation tool. It enables users to move selected objects by clicking on the scene, ensuring precise placement based on cursor intersection.\n\n## Utility functions ##\n    def plantSelectedNodePath(self):\n        \"\"\" Move selected object to intersection point of cursor on scene \"\"\"\n        # Check for intersection\n        entry = ShowBaseGlobal.direct.iRay.pickGeom(\n            skipFlags = DG.SKIP_HIDDEN | DG.SKIP_BACKFACE | DG.SKIP_CAMERA)\n        # MRM: Need to handle moving COA\n        if entry is not None and ShowBaseGlobal.direct.selected.last is not None:\n            # Record undo point\n            ShowBaseGlobal.direct.pushUndo(ShowBaseGlobal.direct.selected)\n            # Record wrt matrix\n            ShowBaseGlobal.direct.selected.getWrtAll()\n            # Move selected\n            ShowBaseGlobal.direct.widget.setPos(\n                ShowBaseGlobal.direct.camera, entry.getSurfacePoint(entry.getFromNodePath()))\n            # Move all the selected objects with widget\n            # Move the objects with the widget\n            ShowBaseGlobal.direct.selected.moveWrtWidgetAll()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3253
+  }
+}

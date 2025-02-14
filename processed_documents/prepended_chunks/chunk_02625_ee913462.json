@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a detailed implementation of a Finite State Machine (FSM) in Python, specifically explaining the optional state-specific entry and exit functions that define behavior when transitioning into or out of a particular state within the FSM framework. The context explains how these functions can access previous and new state names during transitions and their optional nature.\n\ndef exitRed(self):\n            ... cleanup stuff ...\n\n        def enterYellow(self):\n            ... do stuff ...\n\n        def exitYellow(self):\n            ... cleanup stuff ...\n\n        def enterGreen(self):\n            ... do stuff ...\n\n        def exitGreen(self):\n            ... cleanup stuff ...\n\n    Both functions can access the previous state name as\n    self.oldState, and the new state name we are transitioning to as\n    self.newState.  (Of course, in enterRed(), self.newState will\n    always be \"Red\", and the in exitRed(), self.oldState will always\n    be \"Red\".)\n\n    Both functions are optional.  If either function is omitted, the\n    state is still defined, but nothing is done when transitioning\n    into (or out of) the state.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_144",
+    "parent": "processed_documents/context_documents/4baea650_FSM.json",
+    "chunk_number": 2625
+  }
+}

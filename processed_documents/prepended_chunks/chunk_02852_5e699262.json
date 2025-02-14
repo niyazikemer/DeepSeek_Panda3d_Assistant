@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of a method in a Python class that generates a graphical user interface (GUI) for controlling an animation or similar process. The method creates a Toplevel window with interactive controls including a slider (`EntryScale`) to adjust time, buttons to jump to the start and end of the timeline, play/pause functionality, and stop controls. The code sets up event handlers for these widgets and manages state updates using variables like `s` (self) for accessing class attributes and `es` for interacting with the EntryScale widget.\n\nif tl is None:\n            tl = tkinter.Toplevel()\n            tl.title('Interval Controls')\n        outerFrame = tkinter.Frame(tl)\n        def entryScaleCommand(t, s=self):\n            s.setT(t)\n            s.pause()\n        self.es = es = EntryScale.EntryScale(\n            outerFrame, text = self.getName(),\n            min = 0, max = math.floor(self.getDuration() * 100) / 100,\n            command = entryScaleCommand)\n        es.set(self.getT(), fCommand = 0)\n        es.pack(expand = 1, fill = tkinter.X)\n        bf = tkinter.Frame(outerFrame)\n        # Jump to start and end\n        def toStart(s=self, es=es):\n            s.clearToInitial()\n            es.set(0, fCommand = 0)\n        def toEnd(s=self):\n            s.pause()\n            s.setT(s.getDuration())\n            es.set(s.getDuration(), fCommand = 0)\n            s.pause()\n        jumpToStart = tkinter.Button(bf, text = '<<', command = toStart)\n        # Stop/play buttons\n        def doPlay(s=self, es=es):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_164",
+    "parent": "processed_documents/context_documents/2f6531c1_Interval.json",
+    "chunk_number": 2852
+  }
+}

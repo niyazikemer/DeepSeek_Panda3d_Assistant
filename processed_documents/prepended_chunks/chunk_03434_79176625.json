@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes display region contexts for each camera node in the scene graph by enumerating over `base.camList`, assigning names to unnamed cameras, and appending `DisplayRegionContext` instances to `displayRegionList`. The code is part of the initialization process for managing multiple display regions in a scene graph.\n\n# This is following the old way of setting up\n            # display regions.  A display region is set up for\n            # each camera node in the scene graph.  This was done\n            # so that only display regions in the scene graph are\n            # considered.  The right way to do this is to set up\n            # a display region for each real display region, and then\n            # keep track of which are currently active (e.g. use a flag)\n            # processing only them.\n            for camIndex, cam in enumerate(base.camList):\n                if cam.name == '<noname>':\n                    cam.name = f'Camera{camIndex}'\n                drc = DisplayRegionContext(cam)\n                self.displayRegionList.append(drc)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3434
+  }
+}

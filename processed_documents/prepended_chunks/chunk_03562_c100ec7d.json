@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines several methods (`_scaleCommand`, `_entryCommand`, `_setSigDigits`, `get`) within a class related to an EntryScaleGroup. These methods manage the interaction between scale widgets and entry fields, handle value updates, format numbers based on significant digits, validate input, and execute commands when values change. The code is part of a larger system for managing numerical input and display in GUI applications.\n\ndef _scaleCommand(self, strVal):\n        if not self.fScaleCommand:\n            return\n        # convert scale val to float\n        self.set(float(strVal))\n\n        # Update entry to reflect formatted value\n        #self.entryValue.set(self.entryFormat % self.value)\n        #self.entry.checkentry()\n        #if self['command']:\n        #    self['command'](self.value)\n\n    def _entryCommand(self, event = None):\n        try:\n            val = float(self.entryValue.get())\n            self.onReturn(*self['callbackData'])\n            self.set(val)\n            self.onReturnRelease(*self['callbackData'])\n        except ValueError:\n            pass\n\n    def _setSigDigits(self):\n        sd = self['numDigits']\n        self.entryFormat = '%.' + '%d' % sd + 'f'\n        # And reset value to reflect change\n        self.entryValue.set(self.entryFormat % self.value)\n\n    def get(self):\n        return self.value",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_192",
+    "parent": "processed_documents/context_documents/b9478be9_EntryScale.json",
+    "chunk_number": 3562
+  }
+}

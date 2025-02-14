@@ -1,0 +1,9 @@
+{
+  "content": "```python\nclass DisplayRegionList(ShowBaseGlobal.DirectObject):\n    \"\"\"\n    Manages display regions for the Direct module. Handles setting up and managing\n    display regions for various cameras in the scene.\n    \n    Initializes the list of display regions, checking if in out-of-bounds (oobe)\n    mode to add a single display region context or handle multiple camera groups.\n\n    ...\n    \"\"\"\n```\n\nclass DisplayRegionList(DirectObject):\n    def __init__(self):\n        self.displayRegionList = []\n        i = 0\n        # Things are funky if we are oobe\n        if getattr(base, 'oobeMode', False):\n            # assume we only have one cam at this point\n            drc = DisplayRegionContext(base.cam)\n            self.displayRegionList.append(drc)\n        else:\n            # MRM: Doesn't properly handle multiple camera groups anymore\n            # Assumes everything is under main camera",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_185",
+    "parent": "processed_documents/context_documents/4b554dbd_DirectSession.json",
+    "chunk_number": 3433
+  }
+}

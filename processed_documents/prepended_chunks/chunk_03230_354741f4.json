@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a 3D manipulation framework that handles object movement and constraints. It specifically manages grid-snapping for widgets during rotation or translation operations while handling multi-view camera perspectives to maintain accurate visual feedback.\n\nif hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView:\n                for widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    if self.fGridSnap:\n                        widget.setPos(self.gridSnapping(widget, offset))\n                    else:\n                        widget.setPos(widget, offset)\n                if ShowBaseGlobal.direct.camera.getName() != 'persp':\n                    self.prevHit.assign(self.hitPt)\n            else:\n                if self.fGridSnap:\n                    ShowBaseGlobal.direct.widget.setPos(self.gridSnapping(ShowBaseGlobal.direct.widget, offset))\n                else:\n                    ShowBaseGlobal.direct.widget.setPos(ShowBaseGlobal.direct.widget, offset)\n\n    def rotate1D(self, state):\n        assert self.constraint is not None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3230
+  }
+}

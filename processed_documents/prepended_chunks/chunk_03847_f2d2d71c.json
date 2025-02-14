@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the purpose of a custom pickle module designed to efficiently serialize and deserialize Python structures containing Panda objects, particularly NodePaths, by ensuring they reference the same scene graph. This avoids duplication and improves performance compared to standard pickling.\n\n\"\"\" This module extends standard Python's pickle module so that it is\ncapable of writing more efficient pickle files that contain Panda\nobjects with shared pointers.  In particular, a single Python\nstructure that contains many NodePaths into the same scene graph will\nwrite the NodePaths correctly when used with this pickle module, so\nthat when it is unpickled later, the NodePaths will still reference\ninto the same scene graph together.\n\nIf you use the standard pickle module instead, the NodePaths will each\nduplicate its own copy of its scene graph.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_207",
+    "parent": "processed_documents/context_documents/90f27aca_pickle.json",
+    "chunk_number": 3847
+  }
+}

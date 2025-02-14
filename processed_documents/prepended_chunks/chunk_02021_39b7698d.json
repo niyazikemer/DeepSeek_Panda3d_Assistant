@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is a section from the `run()` method of the `bdist_apps` command in a Python setuptools extension. It handles configuration, including code signing credentials and installer entry points, while initializing necessary variables for building application installers across different platforms.\n\nif self.signing_certificate:\n            assert self.signing_private_key, 'Missing signing_private_key'\n            self.signing_certificate = os.path.abspath(self.signing_certificate)\n            self.signing_private_key = os.path.abspath(self.signing_private_key)\n\n        eps = entry_points()\n        if isinstance(eps, dict): # Python 3.8 and 3.9\n            installer_eps = eps.get('panda3d.bdist_apps.installers', ())\n        else:\n            installer_eps = eps.select(group='panda3d.bdist_apps.installers')\n\n        tmp = self.DEFAULT_INSTALLER_FUNCS.copy()\n        tmp.update(self.installer_functions)\n        tmp.update({\n            entrypoint.name: entrypoint.load()\n            for entrypoint in installer_eps\n        })\n        self.installer_functions = tmp\n\n    def get_archive_basedir(self):\n        return self.distribution.get_name()\n\n    def get_current_platform(self):\n        return self._current_platform",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_132",
+    "parent": "processed_documents/context_documents/871bb042_commands.json",
+    "chunk_number": 2021
+  }
+}

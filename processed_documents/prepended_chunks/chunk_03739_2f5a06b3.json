@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a new method `newCreateCheckbutton` within an application shell class. This method creates and configures a Tkinter Checkbutton widget with specified parameters including initial state, anchor position, and variable handling. It is designed to integrate seamlessly with existing widget creation methods in the parent class, allowing for consistent management of variables and user interface components across the application.\n\ndef newCreateCheckbutton(self, parent, category, text,\n                             help = '', command = None,\n                             initialState = 0, anchor = tk.W,\n                             side = tk.LEFT, fill = tk.X, expand = 0, **kw):\n        \"\"\" createCheckbutton(parent, category, text, [options]) \"\"\"\n        # Create the widget\n        widget = self.createWidget(parent, category, text, tk.Checkbutton,\n                                   help, command, side, fill, expand, kw)\n        # Perform extra customization\n        widget['anchor'] = anchor\n        variable = tk.BooleanVar()\n        variable.set(initialState)\n        self.addVariable(category, text, variable)\n        widget['variable'] = variable\n        return widget",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_199",
+    "parent": "processed_documents/context_documents/342b5b21_AppShell.json",
+    "chunk_number": 3739
+  }
+}

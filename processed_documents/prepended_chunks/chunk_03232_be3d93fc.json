@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method in a class handling 3D manipulation widgets, specifically updating rotation based on cursor movement relative to an origin point.\n\n# Rotate widget based on how far cursor has swung around origin\n        newAngle = getCrankAngle(self.rotationCenter)\n        deltaAngle = self.lastCrankAngle - newAngle\n        if self.fWidgetTop:\n            deltaAngle = -1 * deltaAngle\n        if self.rotateAxis == 'x':\n            if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView:\n                for widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    widget.setP(widget, deltaAngle)\n            else:\n                ShowBaseGlobal.direct.widget.setP(ShowBaseGlobal.direct.widget, deltaAngle)\n        elif self.rotateAxis == 'y':\n            if hasattr(ShowBaseGlobal.direct, \"manipulationControl\") and ShowBaseGlobal.direct.manipulationControl.fMultiView:\n                for widget in ShowBaseGlobal.direct.manipulationControl.widgetList:\n                    widget.setR(widget, deltaAngle)\n            else:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_179",
+    "parent": "processed_documents/context_documents/4f678cc8_DirectManipulation.json",
+    "chunk_number": 3232
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears in a custom `find_all_submodules` method override, which manages how Python imports modules and handles packages. The specific code pertains to handling relative imports and setting star imports, specifically marking modules imported via `from ... import *`.\n\nelse:\n                        m.starimports[name] = 1\n            elif what == \"relative_import\":\n                level, fromlist, name = args\n                parent = self.determine_parent(m, level=level)\n                if name:\n                    self._safe_import_hook(name, m, fromlist, level=level)\n                else:\n                    self._safe_import_hook(parent.__name__, None, fromlist, level=0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2170
+  }
+}

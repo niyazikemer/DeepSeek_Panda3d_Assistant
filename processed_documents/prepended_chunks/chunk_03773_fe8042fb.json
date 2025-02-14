@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a Python module designed to reimplement the native `glob` functionality using Panda's virtual file system (vfs) constructs. This enables easier integration between Python and Panda's vfs, allowing for pattern-based file matching within the Panda environment. The chunk includes the initial documentation, imports, and the first function (`glob()`) which returns a list of paths matching a given pattern by leveraging an iterator (`iglob()`).\n\n\"\"\" This module reimplements Python's native glob module using Panda\nvfs constructs.  This enables Python to interface more easily with Panda's\nvirtual file system. \"\"\"\n\nimport os\nimport fnmatch\n\nfrom direct.stdpy import file\n\n__all__ = [\"glob\", \"iglob\"]\n\ndef glob(pathname):\n    \"\"\"Return a list of paths matching a pathname pattern.\n\n    The pattern may contain simple shell-style wildcards a la fnmatch.\n\n    \"\"\"\n    return list(iglob(pathname))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_203",
+    "parent": "processed_documents/context_documents/29a1b250_glob.json",
+    "chunk_number": 3773
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of an **internal support module** for Android builds. It includes functions to **compile string and integer resources** into the appropriate Protocol Buffer format. This module works with an XML parser that processes an `AndroidManifest.xml` file, constructing a structured representation using protocol buffer messages (`XmlNode`, `ResourceTable`). The code handles resource compilation for strings and integers, setting their respective IDs and compiled values in preparation for building Android packages (APKs or other formats).\n\n\"\"\"Internal support module for Android builds.\"\"\"\n\nimport xml.etree.ElementTree as ET\n\nfrom ._proto.targeting_pb2 import Abi\nfrom ._proto.config_pb2 import BundleConfig # pylint: disable=unused-import\nfrom ._proto.files_pb2 import NativeLibraries # pylint: disable=unused-import\nfrom ._proto.Resources_pb2 import ResourceTable # pylint: disable=unused-import\nfrom ._proto.Resources_pb2 import XmlNode\n\n\nAbiAlias = Abi.AbiAlias\n\n\ndef str_resource(id):\n    def compile(attrib, manifest):\n        attrib.resource_id = id\n    return compile\n\n\ndef int_resource(id):\n    def compile(attrib, manifest):\n        attrib.resource_id = id\n        if attrib.value.startswith('0x') or attrib.value.startswith('0X'):\n            attrib.compiled_item.prim.int_hexadecimal_value = int(attrib.value, 16)\n        else:\n            attrib.compiled_item.prim.int_decimal_value = int(attrib.value)\n    return compile",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_136",
+    "parent": "processed_documents/context_documents/d67df3a6__android.json",
+    "chunk_number": 2201
+  }
+}

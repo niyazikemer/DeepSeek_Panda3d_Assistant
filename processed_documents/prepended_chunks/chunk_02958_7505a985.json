@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk initializes core components of the `TexMemWatcher` class, setting up GUI structures, initializing state variables, scheduling periodic updates to monitor texture usage, and configuring display limits. It creates essential render nodes and prepares for handling texture memory visualization and management.\n\nself.setupGui()\n        self.setupCanvas()\n\n        # Now start handling up the actual stuff in the scene.\n\n        self.background = None\n        self.nextTexRecordKey = 0\n        self.rollover = None\n        self.isolate = None\n        self.isolated = None\n        self.needsRepack = False\n\n        # How frequently should the texture memory window check for\n        # state changes?\n        updateInterval = ConfigVariableDouble(\"tex-mem-update-interval\", 0.5).value\n        self.task = taskMgr.doMethodLater(updateInterval, self.updateTextures, 'TexMemWatcher')\n\n        self.setLimit(limit)\n\n    def setupGui(self):\n        \"\"\" Creates the gui elements and supporting structures. \"\"\"\n\n        self.render2d = NodePath('render2d')\n        self.render2d.setDepthTest(False)\n        self.render2d.setDepthWrite(False)\n        self.render2d.setTwoSided(True)\n        self.render2d.setBin('unsorted', 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_172",
+    "parent": "processed_documents/context_documents/7b312f5b_TexMemWatcher.json",
+    "chunk_number": 2958
+  }
+}

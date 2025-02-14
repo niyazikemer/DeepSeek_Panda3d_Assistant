@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet appears within a fragment shader processing section of a graphics rendering system. It handles gamma adjustment and sRGB encoding, applying specific transformations based on configuration settings. The gamma correction adjusts pixel colors using power functions for different gamma values (0.5, 2.0, or custom), while the sRGB encoding applies non-linear transformations to each color channel as per standard sRGB specifications. This code is part of a broader post-processing pipeline managed by the PostProcessManager class, which configures visual effects and rendering settings dynamically.\n\ntext += \"    o_color.rgb = lerp(o_color.rgb, new_peak * float3(1, 1, 1), g);\\n\"\n                    text += \"}\\n\"\n\n            if \"GammaAdjust\" in configuration:\n                gamma = configuration[\"GammaAdjust\"]\n                if gamma == 0.5:\n                    text += \"  o_color.rgb = sqrt(o_color.rgb);\\n\"\n                elif gamma == 2.0:\n                    text += \"  o_color.rgb *= o_color.rgb;\\n\"\n                elif gamma != 1.0:\n                    text += \"  o_color.rgb = pow(o_color.rgb, %ff);\\n\" % (gamma)\n\n            if \"SrgbEncode\" in configuration:\n                text += \"  o_color.r = (o_color.r < 0.0031308) ? (o_color.r * 12.92) : (1.055 * pow(o_color.r, 0.41666) - 0.055);\\n\"\n                text += \"  o_color.g = (o_color.g < 0.0031308) ? (o_color.g * 12.92) : (1.055 * pow(o_color.g, 0.41666) - 0.055);\\n\"\n                text += \"  o_color.b = (o_color.b < 0.0031308) ? (o_color.b * 12.92) : (1.055 * pow(o_color.b, 0.41666) - 0.055);\\n\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_218",
+    "parent": "processed_documents/context_documents/1aaad34b_CommonFilters.json",
+    "chunk_number": 3977
+  }
+}

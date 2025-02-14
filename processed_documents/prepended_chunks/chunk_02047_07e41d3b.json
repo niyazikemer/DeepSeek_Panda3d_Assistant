@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears to be a C header and initialization code related to Python's frozen module support. It sets up flags like `Py_FrozenFlag`, `Py_NoSiteFlag`, and `Py_NoUserSiteDirectory` which are used in the context of running standalone frozen Python applications that do not rely on external site-packages or user directories. This code is likely part of the initialization process for a Python interpreter that supports importing frozen modules, such as those mentioned in the `importlib` implementation above (`_PY_FROZEN`).\n\n#include <Python.h>\n\n#if PY_MAJOR_VERSION >= 3\n#include <locale.h>\n\n#if PY_MINOR_VERSION < 5\n#define Py_DecodeLocale _Py_char2wchar\n#endif\n#endif\n\n#ifdef MS_WINDOWS\nextern void PyWinFreeze_ExeInit(void);\nextern void PyWinFreeze_ExeTerm(void);\n\nextern PyAPI_FUNC(int) PyImport_ExtendInittab(struct _inittab *newtab);\n#endif\n\n/* Main program */\n\nEXTRA_INIT_FUNC_DECLS\n\nint\nPy_FrozenMain(int argc, char **argv)\n{\n    char *p;\n    int n, sts = 1;\n    int inspect = 0;\n    int unbuffered = 0;\n\n#if PY_MAJOR_VERSION >= 3\n    int i;\n    char *oldloc;\n    wchar_t **argv_copy = NULL;\n    /* We need a second copies, as Python might modify the first one. */\n    wchar_t **argv_copy2 = NULL;\n\n    if (argc > 0) {\n        argv_copy = (wchar_t **)alloca(sizeof(wchar_t *) * argc);\n        argv_copy2 = (wchar_t **)alloca(sizeof(wchar_t *) * argc);\n    }\n#endif\n\n    Py_FrozenFlag = 1; /* Suppress errors from getpath.c */\n    Py_NoSiteFlag = 1;\n    Py_NoUserSiteDirectory = 1;",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2047
+  }
+}

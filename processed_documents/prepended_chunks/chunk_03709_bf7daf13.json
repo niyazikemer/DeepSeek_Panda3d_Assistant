@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines event bindings for user interactions (mouse clicks, motion, etc.) on the dial and knob elements of the DialWidget, enabling functionality like dragging to adjust values. It also ensures initialization of input variables via `initialiseoptions`.\n\n# Add event bindings\n        self._widget.tag_bind('dial', '<ButtonPress-1>', self.mouseDown)\n        self._widget.tag_bind('dial', '<B1-Motion>', self.mouseMotion)\n        self._widget.tag_bind('dial', '<Shift-B1-Motion>',\n                              self.shiftMouseMotion)\n        self._widget.tag_bind('dial', '<ButtonRelease-1>', self.mouseUp)\n        self._widget.tag_bind('knob', '<ButtonPress-1>', self.knobMouseDown)\n        self._widget.tag_bind('knob', '<B1-Motion>', self.updateDialSF)\n        self._widget.tag_bind('knob', '<ButtonRelease-1>', self.knobMouseUp)\n        self._widget.tag_bind('knob', '<Enter>', self.highlightKnob)\n        self._widget.tag_bind('knob', '<Leave>', self.restoreKnob)\n\n        # Make sure input variables processed\n        self.initialiseoptions(DialWidget)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_198",
+    "parent": "processed_documents/context_documents/1ea25aa1_Dial.json",
+    "chunk_number": 3709
+  }
+}

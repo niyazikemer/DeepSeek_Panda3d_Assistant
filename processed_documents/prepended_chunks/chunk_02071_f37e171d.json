@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an `import` hook or finder implementation, specifically modifying the `suffixes` list to include platform-specific shared library file extensions (like `.so`, `.pyd`) based on the operating system. This is used during module resolution to correctly identify and load binary modules across different platforms.\n\nsuffixes += [\n                    ('.abi{0}.so'.format(sys.version_info[0]), 'rb', 3),\n                    ('.so', 'rb', 3),\n                ]\n            elif 'linux' in self.platform:\n                suffixes += [\n                    ('.cpython-{0}{1}-x86_64-linux-gnu.so'.format(abi_version, abi_flags), 'rb', 3),\n                    ('.cpython-{0}{1}-i686-linux-gnu.so'.format(abi_version, abi_flags), 'rb', 3),\n                    ('.abi{0}.so'.format(sys.version_info[0]), 'rb', 3),\n                    ('.so', 'rb', 3),\n                ]\n            elif 'win' in self.platform:\n                # ABI flags are not appended on Windows.\n                suffixes += [\n                    ('.cp{0}-win_amd64.pyd'.format(abi_version), 'rb', 3),\n                    ('.cp{0}-win32.pyd'.format(abi_version), 'rb', 3),\n                    ('.pyd', 'rb', 3),\n                ]\n            elif 'mac' in self.platform:\n                suffixes += [",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_133",
+    "parent": "processed_documents/context_documents/0e1163d5_FreezeTool.json",
+    "chunk_number": 2071
+  }
+}
