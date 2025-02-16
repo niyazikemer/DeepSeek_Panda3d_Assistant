@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines several utility methods for managing and querying distributed objects in a networked environment. These methods include `getDoIdList`, which retrieves lists of object identifiers based on parent ID, zone ID, and/or class type; `hasOwnerViewDoId` for checking ownership of specific objects; and two additional methods (`getOwnerViewDoList` and `getOwnerViewDoIdList`) that retrieve lists of objects or their IDs from an owner's perspective. These functions are part of a larger system for efficiently managing distributed object locations, ownership, and access across different zones or regions in the environment.\n\ndef getDoIdList(self, parentId, zoneId=None, classType=None):\n        return self._doHierarchy.getDoIds(self.getDo,\n                                          parentId, zoneId, classType)\n\n    def hasOwnerViewDoId(self, doId):\n        assert self.hasOwnerView()\n        return doId in self.doId2ownerView\n\n    def getOwnerViewDoList(self, classType):\n        assert self.hasOwnerView()\n        l = []\n        for obj in self.doId2ownerView.values():\n            if isinstance(obj, classType):\n                l.append(obj)\n        return l\n\n    def getOwnerViewDoIdList(self, classType):\n        assert self.hasOwnerView()\n        l = []\n        for doId, obj in self.doId2ownerView.items():\n            if isinstance(obj, classType):\n                l.append(doId)\n        return l",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5438
+  }
+}

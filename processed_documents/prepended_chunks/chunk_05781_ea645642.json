@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines methods for constructing collision trees in Panda3D, specifically `r_constructCollisionTree`, which recursively builds a hierarchy of collision nodes from a tree of solids. The code converts these functions into instance methods for the NodePath class and cleans up the global namespace by deleting the original function names.\n\ndef r_constructCollisionTree(self, solidTree, parentNode, colName):\n    from panda3d.core import CollisionNode\n    for item in solidTree:\n        if isinstance(item[0], list):\n            newNode = parentNode.attachNewNode(f'{colName}-branch')\n            self.r_constructCollisionTree(item, newNode, colName)\n        else:\n            cn = CollisionNode(f'{colName}-leaf')\n            for solid in item:\n                cn.addSolid(solid)\n            parentNode.attachNewNode(cn)\n\nDtool_funcToMethod(subdivideCollisions, NodePath)\nDtool_funcToMethod(r_subdivideCollisions, NodePath)\nDtool_funcToMethod(r_constructCollisionTree, NodePath)\ndel subdivideCollisions\ndel r_subdivideCollisions\ndel r_constructCollisionTree\n\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5781
+  }
+}

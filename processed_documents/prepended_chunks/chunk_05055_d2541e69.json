@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk is part of the `send` method in the `Messenger` class, where it handles asynchronous event processing by queuing events onto specified task chains or dispatching them immediately if no task chain is provided. This logic ensures that events are either processed right away or scheduled for later execution on a designated task chain.\n\nif taskChain:\n                # Queue the event onto the indicated task chain.\n                from direct.task.TaskManagerGlobal import taskMgr\n                queue = self._eventQueuesByTaskChain.setdefault(taskChain, [])\n                queue.append((acceptorDict, event, sentArgs, foundWatch))\n                if len(queue) == 1:\n                    # If this is the first (only) item on the queue,\n                    # spawn the task to empty it.\n                    taskMgr.add(self.__taskChainDispatch, name = 'Messenger-%s' % (taskChain),\n                                extraArgs = [taskChain], taskChain = taskChain,\n                                appendTask = True)\n            else:\n                # Handle the event immediately.\n                self.__dispatch(acceptorDict, event, sentArgs, foundWatch)\n        finally:\n            self.lock.release()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5055
+  }
+}

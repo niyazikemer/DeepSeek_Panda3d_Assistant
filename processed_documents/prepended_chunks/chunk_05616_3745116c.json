@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class managing networked object updates and disconnection handling in a distributed system. The `__doUpdateOwner` method handles owner-side updates for objects, while `handleGoGetLost` manages server-initiated disconnections by parsing boot reason and message information from incoming data.\n\ndef __doUpdateOwner(self, doId, di):\n        if not self.hasOwnerView():\n            return False\n\n        ovObj = self.doId2ownerView.get(doId)\n        if ovObj:\n            odg = Datagram(di.getDatagram())\n            odi = DatagramIterator(odg, di.getCurrentIndex())\n            ovObj.dclass.receiveUpdate(ovObj, odi)\n            return True\n        return False\n\n    def handleGoGetLost(self, di):\n        # The server told us it's about to drop the connection on us.\n        # Get ready!\n        if di.getRemainingSize() > 0:\n            self.bootedIndex = di.getUint16()\n            self.bootedText = di.getString()\n\n            self.notify.warning(\n                f\"Server is booting us out ({self.bootedIndex}): {self.bootedText}\")\n        else:\n            self.bootedIndex = None\n            self.bootedText = None\n            self.notify.warning(\n                \"Server is booting us out with no explanation.\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5616
+  }
+}

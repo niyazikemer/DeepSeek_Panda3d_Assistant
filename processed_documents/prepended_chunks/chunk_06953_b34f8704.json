@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how to enable or disable writes to individual color channels (Red, Green, Blue, Alpha) in the framebuffer by setting a color write mask, providing both Python and C++ code examples to demonstrate how to combine attributes for each channel.\n\nBy default, color write masks are off.\n\nTurning on the Color Mask\n\nTo enable writes to all the channels of the framebuffer, use this:\n\npython\n\nnodePath.setAttrib(ColorWriteAttrib.make(ColorWriteAttrib.CAll))\n\ncpp\n\nnodePath.set_attrib(ColorWriteAttrib::make(ColorWriteAttrib::C_all));\n\nThis can also be done by combining separate attributes for individual channels, like the following:\n\npython\n\nbits = ColorWriteAttrib.CAlpha\nbits |= ColorWriteAttrib.CRed\nbits |= ColorWriteAttrib.CGreen\nbits |= ColorWriteAttrib.CBlue\nnodePath.setAttrib(ColorWriteAttrib.make(bits))\n\ncpp\n\nint bits = ColorWriteAttrib::C_alpha;\nbits |= ColorWriteAttrib::C_red;\nbits |= ColorWriteAttrib::C_green;\nbits |= ColorWriteAttrib::C_blue;\nnodePath.set_attrib(ColorWriteAttrib::make(bits));\n\nTo disable writes to one or more channels, omit that bit in the code above.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_556",
+    "parent": "processed_documents/context_documents/d0e17217_7846c3d9_color-write-masks.json",
+    "chunk_number": 6953
+  }
+}

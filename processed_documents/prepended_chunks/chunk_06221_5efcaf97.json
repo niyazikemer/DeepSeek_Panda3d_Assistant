@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears within a discussion on generating and projecting texture coordinates in Panda3D. It follows an explanation of how to use `MWorldPosition` mode to compute texture coordinates in world space and then apply a relative transform back to object space using `.setTexProjector()`. The code demonstrates the setup needed to ensure that the texture pattern moves with the object as it transforms, rather than remaining stationary in world space. This approach is necessary because Panda3D does not provide an `MObjectPosition` mode by default, and the chunk raises a question about why this might be the case before addressing it in the following text.\n\npython\n\nteapot.setTexGen(TextureStage.getDefault(), TexGenAttrib.MWorldPosition)\nteapot.setTexProjector(TextureStage.getDefault(), render, teapot)\n\ncpp\n\nteapot.set_tex_gen(TextureStage::get_default(), TexGenAttrib::M_world_position);\nteapot.set_tex_projector(TextureStage::get_default(), render, teapot);\n\nIt may seem a little circuitous to convert the teapot vertices to world space to generate the texture coordinates, and then convert the texture coordinates back to teapot space again--after all, didn't they start out in teapot space? It would have saved a lot of effort just to keep them there! Why doesn't Panda just provide an MObjectPosition mode that would convert texture coordinates from the object's native position?",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_437",
+    "parent": "processed_documents/context_documents/aa36d59a_558ab811_automatic-texture-coordinates.json",
+    "chunk_number": 6221
+  }
+}

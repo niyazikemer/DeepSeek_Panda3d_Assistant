@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk contains three methods (`isAccepting`, `whoAccepts`, `isIgnoring`) that are part of an event management system, enabling objects to check their subscription status to events and identify subscribers for specific events.\n\ndef isAccepting(self, event, object):\n        \"\"\" isAccepting(self, string, DirectOject)\n        Is this object accepting this event?\n        \"\"\"\n        self.lock.acquire()\n        try:\n            acceptorDict = self.__callbacks.get(event)\n            id = self._getMessengerId(object)\n            if acceptorDict and id in acceptorDict:\n                # Found it, return true\n                return 1\n            # If we looked in both dictionaries and made it here\n            # that object must not be accepting that event.\n            return 0\n        finally:\n            self.lock.release()\n\n    def whoAccepts(self, event):\n        \"\"\"\n        Return objects accepting the given event\n        \"\"\"\n        return self.__callbacks.get(event)\n\n    def isIgnoring(self, event, object):\n        \"\"\" isIgnorning(self, string, DirectObject)\n        Is this object ignoring this event?\n        \"\"\"\n        return not self.isAccepting(event, object)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5051
+  }
+}

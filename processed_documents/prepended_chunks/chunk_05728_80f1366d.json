@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains the `destroy` and `setCachedData` methods of the `CRDataCache` class. This class manages cached data for DistributedObjects, ensuring efficient storage within a defined size limit by evicting older data when necessary. The `setCachedData` method handles adding new data while maintaining cache constraints, and `destroy` clears all stored data.\n\ndef destroy(self):\n        del self._doId2name2data\n\n    def setCachedData(self, doId, name, data):\n        # stores a set of named data for a DistributedObject\n        assert isinstance(data, CachedDOData)\n        if len(self._doId2name2data) >= self._size:\n            # cache is full, throw out a random doId's data\n            if self._junkIndex >= len(self._doId2name2data):\n                self._junkIndex = 0\n            junkDoId = list(self._doId2name2data.keys())[self._junkIndex]\n            self._junkIndex += 1\n            for name in self._doId2name2data[junkDoId]:\n                self._doId2name2data[junkDoId][name].flush()\n            del self._doId2name2data[junkDoId]\n\n        self._doId2name2data.setdefault(doId, {})\n        cachedData = self._doId2name2data[doId].get(name)\n        if cachedData:\n            cachedData.flush()\n            cachedData.destroy()\n        self._doId2name2data[doId][name] = data",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_338",
+    "parent": "processed_documents/context_documents/66cf91ba_CRDataCache.json",
+    "chunk_number": 5728
+  }
+}

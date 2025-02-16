@@ -1,0 +1,9 @@
+{
+  "content": "To create joints connecting two bodies using OdeBallJoint in Panda3D:\n\n1. **Attach smiley to environment**:\n   - Create `smileyJoint` as an OdeBallJoint.\n   - Use `attach(smileyBody, None)` to connect it to the environment.\n   - Set anchor at (0, 0, 0) using `setAnchor`.\n\n2. **Attach frowney to smiley**:\n   - Create `frowneyJoint` as another OdeBallJoint.\n   - Use `attach(smileyBody, frowneyBody)` to connect the two bodies.\n   - Set anchor at (-5, 0, -5) with `setAnchor`.\n\nThese steps link the models together in a way that allows for movement while maintaining their connection.\n\nThis creates two joints, the first to attach the smiley to the environment, and the second to attach the frowney to the smiley. The attach() method on the joint is used to set the two bodies that are attached; you can replace either argument with None to attach them to the environment. The setAnchor method is used to set the anchor point for the joints.\n\nIn this image you can see how the joints are set up:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_435",
+    "parent": "processed_documents/context_documents/0ec0b5a5_f9150a54_attaching-bodies-using-joints.json",
+    "chunk_number": 6213
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains two methods within a Python class that handle grid-based zone calculations: `getZoneCellOrigin` calculates the top-left corner coordinates of a given zone cell, while `getZoneCellOriginCenter` finds the center point of the same cell. Both methods are part of a larger system for managing spatial zones in a grid layout.\n\n# sphereRadius = max(sphereRadius, gridRadius*cellWidth)\n        return max(2 * (sphereRadius // cellWidth), 1)\n\n    def getZoneCellOrigin(self, zoneId):\n        # It returns the origin of the zoneCell\n        # Origin is the top-left corner of zoneCell\n        dx = self.cellWidth * self.gridSize * .5\n        zone = zoneId - self.startingZone\n        row = zone // self.gridSize\n        col = zone % self.gridSize\n        x = col * self.cellWidth - dx\n        y = row * self.cellWidth - dx\n\n        return (x, y, 0)\n\n    def getZoneCellOriginCenter(self, zoneId):\n        # Variant of the getZoneCellOrigin. It\n        # returns the center of the zoneCell\n        dx = self.cellWidth * self.gridSize * .5\n        center = self.cellWidth * 0.5\n        zone = zoneId - self.startingZone\n        row = zone // self.gridSize\n        col = zone % self.gridSize\n        x = col * self.cellWidth - dx + center\n        y = row * self.cellWidth - dx + center\n\n        return (x, y, 0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_298",
+    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
+    "chunk_number": 5256
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes methods for managing the deferred generation of objects. Specifically, it handles replaying generate messages when they are ready to be processed after being deferred, ensuring that necessary objects are properly created once dependencies or conditions are met. This is part of a larger system for efficiently managing object creation in a networked environment, with considerations for timing and resource management.\n\ntaskMgr.remove('deferredGenerate')\n\n    def replayDeferredGenerate(self, msgType, extra):\n        \"\"\" Override this to do something appropriate with deferred\n        \"generate\" messages when they are replayed().\n        \"\"\"\n\n        if msgType == CLIENT_ENTER_OBJECT_REQUIRED_OTHER:\n            # It's a generate message.\n            doId = extra\n            if doId in self.deferredDoIds:\n                args, deferrable, dg, updates = self.deferredDoIds[doId]\n                del self.deferredDoIds[doId]\n                self.doGenerate(*args)\n\n                if deferrable:\n                    self.lastGenerate = ClockObject.getGlobalClock().getFrameTime()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5597
+  }
+}

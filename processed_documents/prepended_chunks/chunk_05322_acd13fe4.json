@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears within a method responsible for importing distributed computing (DC) symbols from specified modules. The loop ensures that each symbol exists before adding it to the `dcImports` dictionary, raising an exception if any symbol is missing. If no specific symbols are requested, the root module is imported and added by following its dotted path. The final method retrieves the server address for network connections in a distributed system context.\n\n**Context:**  \nCode for importing DC symbols, handling exceptions for undefined symbols, and managing module hierarchy within a connection repository class used in networked applications.\n\nfor symbolName in importSymbols:\n                if hasattr(module, symbolName):\n                    dcImports[symbolName] = getattr(module, symbolName)\n                else:\n                    raise Exception('Symbol %s not defined in module %s.' % (symbolName, moduleName))\n        else:\n            # \"import moduleName\"\n\n            # Copy the root module name into the dictionary.\n\n            # Follow the dotted chain down to the actual module.\n            components = moduleName.split('.')\n            dcImports[components[0]] = module\n\n    def getServerAddress(self):\n        return self._serverAddress",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5322
+  }
+}

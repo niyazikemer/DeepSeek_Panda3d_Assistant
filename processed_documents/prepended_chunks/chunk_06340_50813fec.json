@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk explains how to handle multiple Maya animations of a single model by ensuring consistency across converted files using the `-cn` flag with `maya2egg`, situating within a technical document that provides solutions and tips for working with Panda3D, particularly addressing common issues related to animation, modeling, and scripting.\n\nAnother approach, that doesn't involve explicitly munging the clock, would be simply to wait to start the interval until the next frame, for instance with a doMethodLater().\n\ntaskMgr.doMethodLater(0, lambda task, posival=posival: posival.start(),\n                      'startInterval')\n\nI have a bunch of Maya Animations of one model in different mb files. I used maya2egg to port them into panda, but only one of the animations work.\n\nThe key is to use the -cn <character's name> flag in maya2egg for every file. This ensures that the files work together. Let's say you are making an animated dog. You have the following animations:\n\ndog-walk.mb\ndog-sit.mb\ndog-run.mb\n\nTo convert these into panda, you would call\n\nmaya2egg6 dog-walk.mb -a model -cn dog -o dog-model.egg\n\nNote, we can grab the model from any of the animations, as long as they are all using the exact same rig:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6340
+  }
+}

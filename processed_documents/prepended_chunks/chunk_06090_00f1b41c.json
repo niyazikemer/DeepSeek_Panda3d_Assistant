@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how to create a subclass of DirectObject to listen for events and introduces the concept of event handling using the `accept` function, while also describing the role of the Messenger system in processing events.\n\nWith DirectObject loaded, it is possible to create a subclass of DirectObject. This allows the class to inherit the messaging API and thus listen for events.\n\nclass myClassName(DirectObject.DirectObject):\n\nThe sample below creates a class that can listen for events. The \"accept\" function notifies panda that the printHello method is an event handler for the mouse1 event. The \"accept\" function and the various event names will be explained in detail later.\n\nclass Hello(DirectObject.DirectObject):\n    def __init__(self):\n        self.accept('mouse1', self.printHello)\n\n    def printHello(self):\n        print('Hello!')\n\nh = Hello()\n\nEvent Handling Functions\n\nEvents first go to a mechanism built into panda called the \"Messenger.\" The messenger may accept or ignore events that it receives. If it accepts an event, then an event handler will be called. If ignored, then no handler will be called.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_410",
+    "parent": "processed_documents/context_documents/26c3d669_149a857c_event-handlers.json",
+    "chunk_number": 6090
+  }
+}

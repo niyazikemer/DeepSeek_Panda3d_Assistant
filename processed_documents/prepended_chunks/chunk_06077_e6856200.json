@@ -1,0 +1,9 @@
+{
+  "content": "This section discusses optimizing text rendering performance in Panda3D by reducing unnecessary text updates and suggests modifying configuration settings like 'text-flatten 0' to balance update speed and rendering efficiency.\n\nToo Many Text Updates\n\nIf you are using the TextNode <text-node> or onscreentext (or similar) interfaces, and you have large chunks of text changing every frame, you might find it to be a big performance hit. Panda3D does a lot of work to assemble the text, so you will want to minimize unnecessary calls to ~.TextNode.set_text() or related functions that force the text to be recomputed.\n\nOn the other hand, if you really want to change your text frequently, you can try putting this in your Config.prc <configuring-panda3d> file:\n\ntext-flatten 0\n\nThis will remove the call to ~.NodePath.flatten_strong() within the text generation process. Changing the text may be a bit faster, but rendering the resulting text might be slower, since you will be dealing with more meshes <too-many-meshes> in your scene graph.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_407",
+    "parent": "processed_documents/context_documents/337005dd_7de849b3_too-many-text-updates.json",
+    "chunk_number": 6077
+  }
+}

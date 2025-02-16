@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method that recursively subdivides collision solids into smaller groups to optimize collision detection. It calculates spatial extents and averages for efficient distribution of collision geometry in 3D scenes.\n\ndef r_subdivideCollisions(self, solids, numSolidsInLeaves):\n    # takes a list of solids, returns a list containing some number of lists,\n    # with the solids evenly distributed between them (recursively nested until\n    # the lists at the leaves contain no more than numSolidsInLeaves)\n    # if solids is already small enough, returns solids unchanged\n    if len(solids) <= numSolidsInLeaves:\n        return solids\n    origins = []\n    avgX = 0\n    avgY = 0\n    avgZ = 0\n    minX = None\n    minY = None\n    minZ = None\n    maxX = None\n    maxY = None\n    maxZ = None\n    for solid in solids:\n        origin = solid.getCollisionOrigin()\n        origins.append(origin)\n        x = origin.getX()\n        y = origin.getY()\n        z = origin.getZ()\n        avgX += x\n        avgY += y\n        avgZ += z\n        if minX is None:\n            minX = x\n            minY = y\n            minZ = z\n            maxX = x\n            maxY = y\n            maxZ = z\n        else:\n            minX = min(x, minX)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5776
+  }
+}

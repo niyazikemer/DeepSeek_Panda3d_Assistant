@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `AsyncRequest` class, which facilitates asynchronous database reads and creates by managing multiple pending requests. The class tracks needed objects in `self.neededObjects`, waits for all requests to complete, then calls `self.finish()`. This context is essential for understanding how the class coordinates asynchronous operations across a distributed system.\n\nclass AsyncRequest(DirectObject):\n    \"\"\"\n    This class is used to make asynchronous reads and creates to a database.\n\n    You can create a list of self.neededObjects and then ask for each to be\n    read or created, or if you only have one object that you need you can\n    skip the self.neededObjects because calling askForObject or createObject\n    will set the self.neededObjects value for you.\n\n    Once all the objects have been read or created, the self.finish() method\n    will be called.  You may override this function to run your code in a\n    derived class.\n\n    If you wish to queue up several items that you all need before the finish\n    method is called, you can put items in self.neededObjects and then call\n    askForObject or createObject afterwards.  That way the _checkCompletion\n    will not call finish until after all the requests have been done.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5391
+  }
+}

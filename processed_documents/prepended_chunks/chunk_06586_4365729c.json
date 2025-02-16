@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to optimize font quality by adjusting pixels per unit and page size for DynamicTextFont objects in Panda3D, preceding a discussion on alternative render modes.\n\nPanda3D defaults to 40 pixels per unit and this is sufficient for small to normal sized on screen text. Should you wish to use higher values, you might need to increase the page size, normally set to 256 pixels in height and width. To do so you can use the method set_page_size(width, height) <.DynamicTextFont.set_page_size>, e.g.:\n\npython\n\nfont.setPageSize(512, 512)\n\ncpp\n\ndfont->set_page_size(512, 512);\n\nBeware however that this increases the size of the texture for each character, hence increasing memory consumption. I.e. all else being equal a page size of 256x256 (the default) will use a quarter of the memory used with a page size of 512x512 and 1/16th of the memory used by a page size of 1024x1024.\n\nAlternative Render Modes",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_514",
+    "parent": "processed_documents/context_documents/896bae18_c85845c1_text-fonts.json",
+    "chunk_number": 6586
+  }
+}

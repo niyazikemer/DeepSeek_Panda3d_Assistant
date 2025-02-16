@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides the foundational imports and setup for a Python class that subclasses `Datagram` from the `panda3d.core` module. It imports essential subatomic types (STInt8, STFloat64, etc.) from `panda3d.direct` to handle various data formats, along with specific control channel definitions like `CONTROL_CHANNEL` from `direct.distributed.MsgTypes`. This setup enables the class to manage complex data structures and communication channels effectively.\n\n# This is built as a subclass instead of an extension so we can define the\n# class variable FuncDict and so we can import DCSubatomicType at the top\n# of the file rather than every time we call the putArg function.\n\nfrom panda3d.core import Datagram\nfrom panda3d.direct import (\n    STInt8,\n    STInt16,\n    STInt32,\n    STInt64,\n    STUint8,\n    STUint16,\n    STUint32,\n    STUint64,\n    STFloat64,\n    STString,\n    STBlob,\n    STBlob32,\n    STInt16array,\n    STInt32array,\n    STUint16array,\n    STUint32array,\n    STInt8array,\n    STUint8array,\n    STUint32uint8array,\n)\n# Import the type numbers\n\nfrom direct.distributed.MsgTypes import CONTROL_CHANNEL",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_317",
+    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
+    "chunk_number": 5484
+  }
+}

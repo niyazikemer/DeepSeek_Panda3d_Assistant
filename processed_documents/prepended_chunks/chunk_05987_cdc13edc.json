@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides specific advice on optimizing collision solids by using quads and higher-order polygons, emphasizing the importance of planarity and convexity to avoid triangulation. It also touches on maintaining consistency in naming schemes to enhance programmer efficiency and workflow.\n\n\"Use quads, and higher-order polygons, for collision solids when possible, rather than triangles. But make sure your quads are planar.\"\n\nIn general, dividing a quad into two triangles doubles the time it takes to test a collision with it, so it is better to model collision polygons with quads when possible. The same goes for five-sided and higher-order polygons as well. However, there are two important requirements: (1) the collision polygons must be convex, not concave, and (2) they must be perfectly flat (all of the vertices must lie exactly in the same plane). If either of these is not met, Panda will triangulate the polygon anyway.\n\nThings that don't matter as much, but will give programmers warm-fuzzies\n\n\"Use a consistent naming scheme.\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_387",
+    "parent": "processed_documents/context_documents/44d63f5d_8771fba8_tips.json",
+    "chunk_number": 5987
+  }
+}

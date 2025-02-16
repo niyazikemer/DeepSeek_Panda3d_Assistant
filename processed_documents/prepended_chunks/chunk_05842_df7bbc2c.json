@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides specific C++ code examples and explanations about creating and positioning a `DisplayRegion` within a window in Panda3D, including details about coordinate ranges and associating it with a camera.\n\ncpp\n\nPT(DisplayRegion) region = win.make_display_region();\nPT(DisplayRegion) region = win.make_display_region(left, right, bottom, top);\n\nThe first example creates a DisplayRegion that fills the entire window, while the second example specifies the size and placement of the DisplayRegion within the window. The ranges of left, right, bottom, top are from 0 to 1, where 0 is the left and bottom of the window, and 1 is the right and top of the window. (Note that this is different from the range of the render2d screen coordinates, which ranges from -1 to 1 instead of 0 to 1.) For instance, the right panel of the second example above was created with the call win.makeDisplayRegion(0.5, 1, 0, 1).\n\nA new DisplayRegion won't render anything until it has been associated with a camera. Each DisplayRegion may have just one camera associated with it (although a particular camera may be associated with more than one DisplayRegion).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_358",
+    "parent": "processed_documents/context_documents/235f12e7_72c18777_display-regions.json",
+    "chunk_number": 5842
+  }
+}

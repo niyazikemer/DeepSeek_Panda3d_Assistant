@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk demonstrates a scenario where an event handler continues to trigger even after its associated object has been deleted. This occurs because the messenger retains references to the object's event handlers, leading to unexpected behavior. The example highlights the importance of properly unregistering event handlers when an object is no longer needed and suggests implementing a destroy method that calls `ignoreAll()` to prevent such issues.\n\nFor example, the following code may not do what you expect:\n\nimport direct.directbase.DirectStart\nfrom direct.showbase import DirectObject\nfrom panda3d.core import *\n\nclass Test(DirectObject.DirectObject):\n    def __init__(self):\n        self.accept(\"FireZeMissiles\", self._fireMissiles)\n\n    def _fireMissiles(self):\n        print(\"Missiles fired! Oh noes!\")\n\nfoo = Test() # create our test object\ndel foo      # get rid of our test object\n\nmessenger.send(\"FireZeMissiles\") # oops! Why did those missiles fire?\nbase.run()\n\nTry the example above, and you'll find that the missiles fire even though the object that would handle the event had been deleted.\n\nOne solution (patterned after other parts of the Panda3D architecture) is to define a \"destroy\" method for any custom classes you create, which calls \"ignoreAll\" to unregister from the event-handler system.\n\nimport direct.directbase.DirectStart\nfrom direct.showbase import DirectObject\nfrom panda3d.core import *",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_410",
+    "parent": "processed_documents/context_documents/26c3d669_149a857c_event-handlers.json",
+    "chunk_number": 6094
+  }
+}

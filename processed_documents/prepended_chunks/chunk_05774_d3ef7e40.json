@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a method `subdivideCollisions` within the NodePath class, which optimizes collision detection by recursively subdividing large CollisionNodes into a balanced spatial binary tree structure. This allows for efficient hierarchical organization of collision solids, reducing the number of collision tests required during runtime by grouping and testing against bounding volumes before individual collision solids.\n\ndef subdivideCollisions(self, numSolidsInLeaves):\n    \"\"\"\n    expand CollisionNodes out into balanced trees, with a particular number\n    of solids in the leaves\n    TODO: better splitting logic at each level of the tree wrt spatial separation\n    and cost of bounding volume tests vs. cost of collision solid tests\n    \"\"\"\n    colNps = self.findAllMatches('**/+CollisionNode')\n    for colNp in colNps:\n        node = colNp.node()\n        numSolids = node.getNumSolids()\n        if numSolids <= numSolidsInLeaves:\n            # this CollisionNode doesn't need to be split\n            continue\n        solids = []\n        for i in range(numSolids):\n            solids.append(node.getSolid(i))\n        # recursively subdivide the solids into a spatial binary tree\n        solidTree = self.r_subdivideCollisions(solids, numSolidsInLeaves)\n        root = colNp.getParent().attachNewNode('%s-subDivRoot' % colNp.getName())\n        self.r_constructCollisionTree(solidTree, root, colNp.getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5774
+  }
+}

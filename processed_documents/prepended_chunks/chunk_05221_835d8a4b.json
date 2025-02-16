@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method that handles altering interests in a client-server system, specifically within a class responsible for managing client subscriptions to game zones or areas. The code checks if a handle exists for an interest and logs debug information about the alteration, including parameters like parent ID, zone list, description, and event. If the handle is found, it sends an 'add interest' request with an action of 'modify'; otherwise, it logs a warning that the handle was not found. The context involves debugging and managing client subscriptions to specific zones in a game-like environment.\n\nif self.__verbose():\n                print('CR::INTEREST.alterInterest(handle=%s, parentId=%s, zoneIdList=%s, description=%s, event=%s)' % (\n                    handle, parentId, zoneIdList, description, event))\n            self._sendAddInterest(handle, contextId, parentId, zoneIdList, description, action='modify')\n            exists = True\n            assert self.printInterestsIfDebug()\n        else:\n            DoInterestManager.notify.warning(\n                \"alterInterest: handle not found: %s\" % (handle))\n        return exists",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5221
+  }
+}

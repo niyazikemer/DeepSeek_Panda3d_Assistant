@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides essential information about removing tasks and adjusting their delay parameters in both Python (`taskMgr.remove()`) and C++ (`task->remove()`). It explains how to stop task execution, efficiently manage delays for scheduling, and modify task timing by removing and re-adding tasks when necessary.\n\ntaskMgr.remove('MyTaskName')\n\ncpp\n\nTo remove the task and stop it from executing, you can call task->remove().\n\ntask->remove();\n\nA useful task method is task->set_delay(); it causes your task to be called after a certain amount of time (in seconds). You can, of course, implement this kind of functionality with an underlayed task that simply does nothing until a certain amount of time has elapsed (as in the above example), but using this method is a much more efficient way to achieve the same thing, especially if you will have many such tasks waiting around. Note that you need to set the delay before you add the task to the Task Manager, otherwise the call won't have an effect.\n\ntask->set_delay (60);\ntask_mgr->add(task);\n\nSimilarly, if you wish to change the delay time of a task, you have to remove the task and re-add it by hand. For instance:\n\ntask->remove();\ntask->set_delay(10);\ntask_mgr->add(task);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6512
+  }
+}

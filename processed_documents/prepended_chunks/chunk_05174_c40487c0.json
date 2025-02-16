@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the initialization process where the server imports modules and symbols specified in a Data Definition (DC) file. This step ensures that all required classes and functions are available for handling client connections, communication, and data management within the server repository.\n\n</answer>\n\nThe code chunk is used during the initialization phase to import necessary modules and symbols defined in a DC (Data Definition) file, ensuring all required definitions are available for handling client connections and communication in the ServerRepository.\n\n# Now import all of the modules required by the DC file.\n        for n in range(dcFile.getNumImportModules()):\n            moduleName = dcFile.getImportModule(n)\n\n            # Maybe the module name is represented as \"moduleName/AI\".\n            suffix = moduleName.split('/')\n            moduleName = suffix[0]\n            if self.dcSuffix and self.dcSuffix in suffix[1:]:\n                moduleName += self.dcSuffix\n\n            importSymbols = []\n            for i in range(dcFile.getNumImportSymbols(n)):\n                symbolName = dcFile.getImportSymbol(n, i)\n\n                # Maybe the symbol name is represented as \"symbolName/AI\".\n                suffix = symbolName.split('/')\n                symbolName = suffix[0]\n                if self.dcSuffix and self.dcSuffix in suffix[1:]:\n                    symbolName += self.dcSuffix\n\n                importSymbols.append(symbolName)\n\n            self.importModule(dcImports, moduleName, importSymbols)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5174
+  }
+}

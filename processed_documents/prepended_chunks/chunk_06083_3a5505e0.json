@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how the left and right eye DisplayRegions in Panda3D share the same Camera object and use stereo channel settings (SC_left, SC_right, or SC_mono) to create different viewpoints. It clarifies the role of StereoDisplayRegion and notes that manual management of display regions is also possible.\n\nBoth the left and the right eye DisplayRegions actually share the same Camera object. The thing that makes the view different for the left and the right eyes is the stereo channel setting, which you can set via dr.set_stereo_channel() <.DisplayRegion.set_stereo_channel>. (You can change this setting on any DisplayRegion you like; it doesn't have to be a special StereoDisplayRegion. The only thing that a StereoDisplayRegion does is it manages the internal left and right DisplayRegions automatically, but there's no reason you need to use a StereoDisplayRegion if you want to manage them yourself.)\n\nYou can set a DisplayRegion's stereo channel to one of Lens.SC_left, Lens.SC_right, or Lens.SC_mono. The default for a non-stereo DisplayRegion is Lens.SC_mono, which means the normal view from the center of the camera. If you set it to either left or right, then the point of view is slid automatically to the left or right, respectively, according to the stereo lens parameters.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_408",
+    "parent": "processed_documents/context_documents/e88f3c2e_debeeaea_stereo-display-regions.json",
+    "chunk_number": 6083
+  }
+}

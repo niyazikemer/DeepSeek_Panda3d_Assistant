@@ -1,0 +1,9 @@
+{
+  "content": "The `requestReparent` method is a critical component within a class designed to manage dynamic parent-child relationships in a distributed system. It allows child nodes (e.g., avatars or objects) to request reparenting under another node identified by a token. The method checks if the desired parent exists; if so, it immediately updates the child's parent and position using `wrtReparentTo`. If not, it cancels any pending requests and logs an error or debug message. This method works alongside `registerParent` to ensure children are correctly attached once their parent becomes available, maintaining accurate positioning within the system.\n\ndef requestReparent(self, child, parentToken):\n        if parentToken in self.token2nodepath:\n            # this parent has registered\n            # this child may already be waiting on a different parent;\n            # make sure they aren't any more\n            self.privRemoveReparentRequest(child)\n            self.notify.debug(\"performing wrtReparent of %s to '%s'\" %\n                              (repr(child), parentToken))\n            child.wrtReparentTo(self.token2nodepath[parentToken])\n        else:\n            if isDefaultValue(parentToken):\n                self.notify.error('child %s requested reparent to default-value token: %s' % (repr(child), parentToken))\n            self.notify.debug(\n                \"child %s requested reparent to parent '%s' that is not (yet) registered\" %\n                (repr(child), parentToken))\n            # cancel any pending reparent on behalf of this child\n            self.privRemoveReparentRequest(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_316",
+    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
+    "chunk_number": 5477
+  }
+}

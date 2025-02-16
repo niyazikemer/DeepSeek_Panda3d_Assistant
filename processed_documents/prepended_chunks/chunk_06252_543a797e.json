@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides an illustrative Python code example that demonstrates how to use collision filtering in Bullet Queries by setting specific collide masks for different objects and applying a mask when performing a ray test, which is situated within the Filtering section of the document.\n\n# These three bodies are in different groups\nobjA.setCollideMask(BitMask32.bit(0))\nobjB.setCollideMask(BitMask32.bit(1))\nobjC.setCollideMask(BitMask32.bit(2))\n\nfro = (0, 0, 0)\nto = (1, 0, 0)\nmask = BitMask32.bit(0) | BitMask32.bit(2)\nresult = world.rayTestClosest(fro, to, mask)\n\nOf particular note if you are using the groups-mask filter algorithm is that the mask matches directly against the collide mask of the bodies, ignoring the group matrix entirely. For example, if you specify BitMask32.bit(1), it will consider all bodies that have a collide mask with this bit enabled (ie. all bodies that are in group 1). It does not behave as though the ray itself were a body in group 1.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_444",
+    "parent": "processed_documents/context_documents/1bf2fda4_32b65eff_queries.json",
+    "chunk_number": 6252
+  }
+}

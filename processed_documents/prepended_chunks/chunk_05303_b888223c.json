@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sits within a class initialization section, where connection settings and core components are being configured. It establishes the connection method (HTTP, NET, or NATIVE), initializes essential variables like `private__di` for datagram processing, and sets up initial states for managing network communication and data handling in the overall codebase.\n\nself.connectMethod = connectMethod\n        if self.connectMethod == self.CM_HTTP:\n            self.notify.info(\"Using connect method 'http'\")\n        elif self.connectMethod == self.CM_NET:\n            self.notify.info(\"Using connect method 'net'\")\n        elif self.connectMethod == self.CM_NATIVE:\n            self.notify.info(\"Using connect method 'native'\")\n\n        self.connectHttp = None\n        self.http = None\n\n        # This DatagramIterator is constructed once, and then re-used\n        # each time we read a datagram.\n        self.private__di = PyDatagramIterator()\n\n        self.recorder = None\n        self.readerPollTaskObj = None\n\n        # This is the string that is appended to symbols read from the\n        # DC file.  The AIRepository will redefine this to 'AI'.\n        self.dcSuffix = ''\n\n        self._serverAddress = ''",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5303
+  }
+}

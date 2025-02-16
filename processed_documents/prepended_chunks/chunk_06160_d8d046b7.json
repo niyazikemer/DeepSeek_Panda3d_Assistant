@@ -1,0 +1,9 @@
+{
+  "content": "\"Understanding Stencil Comparison and Buffer Setup: Explains how StencilAttrib uses comparison functions during rendering, the importance of render order for correct results, and enabling the stencil buffer via config file settings to ensure proper functionality.\"\n\nDuring a stencil comparison, the StencilAttrib's reference value is compared against the value stored in the stencil buffer. The order matters here. For example, consider comparison function StencilAttrib.SCFGreaterThan with reference value r=1. A pixel passes the stencil test if r > Sp, where Sp is the value in the stencil buffer at pixel p. Objects contributing values to the stencil buffer that will be read by other StencilAttributes' comparison functions must be rendered first, or unexpected results will occur. See how-to-control-render-order.\n\nThe stencil buffer is disabled by default. In order to use StencilAttribs, you must add the following line to your config.prc file:\n\nframebuffer-stencil true",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_426",
+    "parent": "processed_documents/context_documents/110b2e47_d82698ba_stencil-attribute.json",
+    "chunk_number": 6160
+  }
+}

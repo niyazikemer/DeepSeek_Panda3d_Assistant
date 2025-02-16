@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the definition of arrays in .egg files, including fixed-size and dynamic arrays. It also explains how to specify allowed ranges for variable values, demonstrating this with an example using `setHam(int16(1-1000,2001-3000))`. Additionally, it covers the structure of distributed classes (`dclass`) in .egg files, such as `DistributedNode`, which inherits from `DistributedObject` and defines methods with specific parameters that are broadcasted as RAM messages.\n\nint8[16] foo\n\nand a dynamic array:\n\nint8[] foo\n\nAllowed range and list of ranges\n\nIf you want to only have a specified range of numbers that is allowed to be send or set on a value, you can use it like this:\n\ndclass Foo{\n  setHam(int16(1-1000,2001-3000))\n}\n\nThis will only allow numbers from 1-1000 and 2001-3000. This can also be used in array declarations.\n\ndclass\n\ndclass DistributedNode: DistributedObject {\n\nHere the methods to be mapped in .DistributedNode and .DistributedNodeAI are defined. Note that this inherits the definition of DistributedObject. Multiple inheritance is also allowed.\n\nsetX(int16 / 10) broadcast ram;\nsetY(int16 / 10) broadcast ram;\nsetZ(int16 / 10) broadcast ram;\n\nHere are three function definitions. When a DistributedNode receives a message with the name \"setX\", .DistributedNode.setX() will be called and the values passed to the function.\n\nSyntax: functionName(container variable1 <, container variable 2,...>) <parameters>;",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_411",
+    "parent": "processed_documents/context_documents/c7129d08_ae3cc5ca_dc-definition-files.json",
+    "chunk_number": 6102
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `transformTelemetry` method in `SmoothGridChild` updates the object's grid cell based on its current position, ensuring accurate positioning in distributed systems by leveraging grid parent relationships rather than traditional location updates.\n\n@report(types = ['args'], dConfigParam = 'smoothnode')\n    def transformTelemetry(self, x, y, z, h, p, r, e):\n        # We don't really need to transform telemetry, but\n        # we do update our grid cell such that the new\n        # telemetry is correct now.\n        # We do this instead of overriding setSmPosHprE()\n        # because we're a mixin class.\n        if self.isOnAGrid():\n            self.setGridCell(self.getGrid(), e) # causes a wrtReparent() which updates\n                                                # all previous smooth positions\n        return x, y, z, h, p, r",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_337",
+    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
+    "chunk_number": 5725
+  }
+}

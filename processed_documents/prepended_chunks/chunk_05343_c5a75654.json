@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the initialization process for a `DistributedSmoothNode` class, which manages networked avatars or objects with smooth motion. The chunk defines initial state variables (`localControl`, `stopped`) and initializes key components like the `smoother` object during the `generate()` method call, setting up the node's behavior for position control and smoothing based on global configuration settings.\n\n# Set this True to assert that the local process has\n            # complete authority over the position of this object when\n            # smoothing is not in effect.  When this is True, position\n            # reports received over the wire will not be applied to\n            # this node's position, unless those position reports are\n            # received between startSmooth() and endSmooth().\n            self.localControl = False\n\n            # flag set when we receive a stop message\n            self.stopped = False\n\n    def generate(self):\n        self.smoother = SmoothMover()\n        self.smoothStarted = 0\n        self.lastSuggestResync = 0\n        self._smoothWrtReparents = False\n\n        DistributedNode.DistributedNode.generate(self)\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.generate(self)\n        self.cnode.setRepository(self.cr, 0, 0)\n\n        self.activateSmoothing(GlobalSmoothing, GlobalPrediction)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5343
+  }
+}

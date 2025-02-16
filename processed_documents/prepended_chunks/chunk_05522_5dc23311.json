@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the functionality of the `serverTime` method within the `TimeManager` class, which handles client-server clock synchronization. It explains how the client initiates a time request, processes the server's response to calculate timing differences, and adjusts for uncertainties in synchronization.\n\nThe description is the string that will be written to the log\n        file regarding the reason for this synchronization attempt.\n\n        The return value is true if the attempt is made, or false if\n        it is too soon since the last attempt.\n        \"\"\"\n        now = ClockObject.getGlobalClock().getRealTime()\n\n        if now - self.lastAttempt < self.minWait:\n            self.notify.debug(\"Not resyncing (too soon): %s\" % (description))\n            return 0\n\n        self.talkResult = 0\n        self.thisContext = self.nextContext\n        self.attemptCount = 0\n        self.nextContext = (self.nextContext + 1) & 255\n        self.notify.info(\"Clock sync: %s\" % (description))\n        self.start = now\n        self.lastAttempt = now\n        self.sendUpdate(\"requestServerTime\", [self.thisContext])\n\n        return 1\n\n    def serverTime(self, context, timestamp):\n        \"\"\"serverTime(self, int8 context, int32 timestamp)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5522
+  }
+}

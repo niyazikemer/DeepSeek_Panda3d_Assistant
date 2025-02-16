@@ -1,0 +1,9 @@
+{
+  "content": "The `timeout` method within the `AsyncRequest` class is responsible for managing timeout scenarios during asynchronous request processing. When a timeout occurs, the method checks if there are remaining retries; if so, it decrements the retry count and reschedules the task. If no retries remain, it performs cleanup by deleting the request and returns as done. Additionally, in debug mode, it provides detailed information and sets a breakpoint for debugging purposes.\n\ndef timeout(self, task):\n        assert AsyncRequest.notify.debugCall(\n            \"neededObjects: %s\"%(self.neededObjects,))\n        if self.numRetries > 0:\n            assert AsyncRequest.notify.debug(\n                'Timed out. Trying %d more time(s) : %s' %\n                (self.numRetries + 1, repr(self.neededObjects)))\n            self.numRetries -= 1\n            return Task.again\n        else:\n            if __debug__:\n                if _breakOnTimeout:\n                    if hasattr(self, \"avatarId\"):\n                        print(\"\\n\\nself.avatarId =\", self.avatarId)\n                    print(\"\\nself.neededObjects =\", self.neededObjects)\n                    print(\"\\ntimed out after %s seconds.\\n\\n\"%(task.delayTime,))\n                    import pdb\n                    pdb.set_trace()\n            self.delete()\n            return Task.done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5404
+  }
+}

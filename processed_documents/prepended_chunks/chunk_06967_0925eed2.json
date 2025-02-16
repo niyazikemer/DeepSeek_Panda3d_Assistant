@@ -1,0 +1,9 @@
+{
+  "content": "This document provides an in-depth guide on efficiently managing 3D graphics data structures, focusing on vertex arrays and primitives. It explains how to create, modify, add, and remove geometry elements, utilizing Python's memoryview functionality for optimal performance. The example illustrates the foundational step of initializing a vertex array with basic coordinates using `GeomVertexFormat.get_v3()`, demonstrating how memoryviews enable direct assignment of float values. This serves as an introductory example within the broader context of advanced geometry data manipulation techniques.\n\nA memoryview can be used to change the values in a vertex array, but also to add values right after the creation of the array.\n\nCreating geometry\n\nLet's start with a very simple example, where a .GeomVertexData is created with the pre-defined format <pre-defined-vertex-formats> .GeomVertexFormat.get_v3(), such that the resulting data object will consist of only a single array, containing the model-space vertex coordinates. A memoryview of that array can be created as follows:\n\nv_format = GeomVertexFormat.get_v3()\nv_data = GeomVertexData('name', v_format, GeomEnums.UH_static)\nv_data.unclean_set_num_rows(4)\nv_array = v_data.modify_array(0)\n# create a memoryview that float values can be assigned to\nview = memoryview(v_array).cast('B').cast('f')",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_561",
+    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
+    "chunk_number": 6967
+  }
+}

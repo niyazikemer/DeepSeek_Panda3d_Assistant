@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a larger document that defines methods for a class related to grid visualization. The specific section, \"Visualization Tools,\" includes debugging-related functions. This particular method initializes visual elements for displaying grid lines in a 3D environment, setting up colors and line properties for minor grid lines.\n\n##################################################\n    # Visualization Tools\n    ##################################################\n\n    if __debug__:\n\n        def initializeGridLines(self):\n            # Grid Lines\n            self.gridColor = VBase4(0.4 + randFloat(0.4),\n                                    0.4 + randFloat(0.4),\n                                    0.4 + randFloat(0.4),\n                                    1)\n            # A Dark version of the grid color\n            color = self.gridColor * 0.5\n            color.setW(1)\n\n            self.lines = self.attachNewNode('gridLines')\n            self.minorLines = LineNodePath(self.lines)\n            self.minorLines.lineNode.setName('minorLines')\n            self.minorLines.setColor(color)\n            self.minorLines.setThickness(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5289
+  }
+}

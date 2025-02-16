@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears to be part of a larger system for handling distributed object class definitions, likely within a distributed computing or networking framework. The code iterates over classes defined in a distributed class (DC) file, retrieves class metadata, and attempts to locate corresponding class definitions in an imported namespace, with special handling for specific suffixes ('UD' vs 'AI'). This functionality is typically used in systems where object definitions are shared across different processes or nodes, such as in distributed computing environments.\n\nfor i in range(dcFile.getNumClasses()):\n            dclass = dcFile.getClass(i)\n            number = dclass.getNumber()\n            className = dclass.getName() + self.dcSuffix\n\n            # Does the class have a definition defined in the newly\n            # imported namespace?\n            classDef = dcImports.get(className)\n            if classDef is None and self.dcSuffix == 'UD': #HACK:\n                className = dclass.getName() + 'AI'\n                classDef = dcImports.get(className)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5315
+  }
+}

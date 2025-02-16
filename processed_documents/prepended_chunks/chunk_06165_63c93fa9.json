@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk demonstrates how to apply StencilAttrib attributes to nodes in a Panda3D scene. It creates two attributes: one that writes a value into the stencil buffer and another that reads from it, then uses these attributes on graphical objects to control their rendering based on the stencil buffer's state. This setup allows for precise control over which parts of the scene are rendered by leveraging the stencil buffer mechanism.\n\nNow we can add these attributes to nodes in the scene to exploit the effect. Here is the entire script.\n\nfrom panda3d.core import *\n\n# Do this before the next import:\nloadPrcFileData(\"\", \"framebuffer-stencil #t\")\n\nimport direct.directbase.DirectStart\n\nconstantOneStencil = StencilAttrib.make(1,StencilAttrib.SCFAlways,\nStencilAttrib.SOZero,StencilAttrib.SOReplace,\nStencilAttrib.SOReplace,1,0,1)\n\nstencilReader = StencilAttrib.make(1,StencilAttrib.SCFEqual,\nStencilAttrib.SOKeep, StencilAttrib.SOKeep,\nStencilAttrib.SOKeep,1,1,0)\n\ncm = CardMaker(\"cardmaker\")\ncm.setFrame(-.5,.5,-.5,.5)\n\n# To rotate the card to face the camera, we create\n# it and then parent it to the camera.\nviewingSquare = render.attachNewNode(cm.generate())\nviewingSquare.reparentTo(base.camera)\nviewingSquare.setPos(0, 5, 0)\n\nviewingSquare.node().setAttrib(constantOneStencil)\nviewingSquare.node().setAttrib(ColorWriteAttrib.make(0))\nviewingSquare.setBin('background',0)\nviewingSquare.setDepthWrite(0)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_426",
+    "parent": "processed_documents/context_documents/110b2e47_d82698ba_stencil-attribute.json",
+    "chunk_number": 6165
+  }
+}

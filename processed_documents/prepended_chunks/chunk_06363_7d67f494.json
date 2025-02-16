@@ -1,0 +1,9 @@
+{
+  "content": "```python\n\"\"\"\nContext:\nThe document discusses shader implementation in Panda3D, covering GLSL and Cg shaders. It explains creating single or multi-file shaders, compiling with specific directives, handling compilation errors, writing vertex and fragment shaders, using multi-file setups for complex projects, managing attributes and uniforms, and provides tips for Cg users.\n\nCg Shaders:\n- Support is deprecated.\n- Requires vshader(), fshader(), optionally gshader().\n- Single or multi-file options provided with examples.\n\"\"\"\n```\n\nCg Shaders\n\nCaution\n\nSupport for Cg shaders will be deprecated in an upcoming version of Panda3D.\n\nA Cg shader must contain procedures named vshader() and fshader(); the vertex shader and fragment shader respectively. If a geometry shader is used, then it must also contain a procedure named gshader().\n\nSingle-File Cg Shaders\n\nTo write a Cg shader in a single file, you must create a shader program that looks much like the one shown below. This example preserves position but switches the red and green channels of everything it is applied to:\n\n//Cg\n\nvoid vshader(float4 vtx_position : POSITION,\n             float4 vtx_color: COLOR,\n             out float4 l_position : POSITION,\n             out float4 l_color0 : COLOR0,\n             uniform float4x4 mat_modelproj)\n{\n  l_position = mul(mat_modelproj, vtx_position);\n  l_color0 = vtx_color;\n}\n\nvoid fshader(float4 l_color0 : COLOR0,\n             out float4 o_color : COLOR)\n{\n  o_color = l_color0.grba;\n}\n\nMulti-File Cg Shaders",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_462",
+    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
+    "chunk_number": 6363
+  }
+}

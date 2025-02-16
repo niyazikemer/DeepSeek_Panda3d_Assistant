@@ -1,0 +1,9 @@
+{
+  "content": "When initializing a `GeomVertexData` object in Panda3D, the second parameter specifies the `geomvertexformat`, defining how data is organized into arrays with named columns and row sizes. The third parameter provides a usage hint (`Geom.UHStatic` or similar), guiding Panda3D on how to optimize memory based on expected modifications.\n\nThe second parameter is the geomvertexformat to use for this GeomVertexData. The format specifies the number of arrays that will be created for the data, the names and formats of the columns in each array, and the number of bytes that need to be allocated for each row.\n\nThe third parameter is a usage hint, which tells Panda how often (if ever) you expect to be modifying these vertices, once you have filled them in the first time. If you will be filling in the vertices once (or only once in a while) and using them to render many frames without changing them, you should use Geom.UHStatic. The vast majority of vertex datas are of this form. Even GeomVertexDatas that include vertex animation tables should usually be declared Geom.UHStatic, since the vertex data itself will not be changing (even though the vertices might be animating).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_457",
+    "parent": "processed_documents/context_documents/8ea7083f_03f8bce3_creating-vertex-data.json",
+    "chunk_number": 6325
+  }
+}

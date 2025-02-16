@@ -1,0 +1,9 @@
+{
+  "content": "The `__repr__` method of the Messenger class generates a formatted string representation providing an overview of events and their acceptors, including event dictionaries and object associations for debugging purposes.\n\ndef __repr__(self):\n        \"\"\"\n        Compact version of event, acceptor pairs\n        \"\"\"\n        str = \"The messenger is currently handling:\\n\" + \"=\"*64 + \"\\n\"\n        for event in sorted(self.__callbacks):\n            str += self.__eventRepr(event)\n        # Print out the object: event dictionary too\n        str += \"=\"*64 + \"\\n\"\n        for key, eventDict in list(self.__objectEvents.items()):\n            object = self._getObject(key)\n            str += \"%s:\\n\" % repr(object)\n            for event in list(eventDict.keys()):\n                str += \"     %s\\n\" % repr(event)\n\n        str += \"=\"*64 + \"\\n\" + \"End of messenger info.\\n\"\n        return str",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5070
+  }
+}

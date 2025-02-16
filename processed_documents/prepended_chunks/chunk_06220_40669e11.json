@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides a solution for ensuring that texture patterns remain fixed relative to an object as it moves in 3D space within Panda3D by using MWorldPosition mode alongside the texture projector feature.\n\nIf you use only MWorldPosition, then when you change the teapot's position, for instance by parenting it to a moving node, the teapot will seem to move while its texture pattern stays in place--maybe not the effect you had in mind. What you probably intended was for the teapot to take its texture pattern along with it as it moves around. To do this, you will need to compute the texture coordinates in the space of the teapot node, rather than in world space.\n\nPanda3D provides the capability to generate texture coordinates in the coordinate space of any arbitrary node you like. To do this, use MWorldPosition in conjunction with Panda's \"texture projector\", which applies the relative transform between any two arbitrary NodePaths to the texture transform; you can use it to compute the relative transform from world space to teapot space, like this:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_437",
+    "parent": "processed_documents/context_documents/aa36d59a_558ab811_automatic-texture-coordinates.json",
+    "chunk_number": 6220
+  }
+}

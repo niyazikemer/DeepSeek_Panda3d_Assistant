@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines key initialization and lifecycle methods for the `Job` class, which is a base class for managing CPU-intensive tasks through a `JobManager`. The `_init_()` method initializes core attributes like name, ID, priority, and debug profiling. The `destroy()` method cleans up resources. The `getFinishedEvent()` generates an event string for job completion notifications. The abstract `run()` method enforces the requirement for subclasses to implement task logic using generators, enabling cooperative multitasking by yielding control between timeslices as managed by the `JobManager`.\n\ndef __init__(self, name):\n        self._name = name\n        self._generator = None\n        self._id = Job._SerialGen.next()\n        self._printing = False\n        self._priority = Job.Priorities.Normal\n        self._finished = False\n        if __debug__:\n            self._pstats = PStatCollector(\"App:Tasks:jobManager:%s\" % self._name)\n\n    def destroy(self):\n        del self._name\n        del self._generator\n        del self._printing\n\n    def getFinishedEvent(self):\n        return 'job-finished-%s' % self._id\n\n    def run(self):\n        \"\"\"This should be overridden with a generator that does the\n        needful processing.\n\n        yield `Job.Continue` when possible/reasonable, and try not to run\n        longer than the JobManager's timeslice between yields.\n\n        When done, yield `Job.Done`.\n        \"\"\"\n        raise NotImplementedError(\"don't call down\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_287",
+    "parent": "processed_documents/context_documents/c6235696_Job.json",
+    "chunk_number": 5076
+  }
+}

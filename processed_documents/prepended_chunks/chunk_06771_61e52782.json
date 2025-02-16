@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses configuration properties related to requesting a stereo-capable display and optimizing memory management through garbage collection of TransformState and RenderState objects.\n\nproperties, which requests a stereo-capable display, if supported by the\ngraphics driver. fullscreen bool #f (from Config.prc); 0 hardcoded game-server-timeout-ms int 20000 This represents the amount of time to block waiting for the TCP\nconnection to the game server. It is only used when the connection\nmethod is NSPR. garbage-collect-states bool 1 Set this true to defer destruction of TransformState and RenderState\nobjects until the end of the frame (or whenever\nTransformState::garbage_collect() and RenderState::garbage_collect() are\ncalled). This is a particularly useful thing to do when using multiple\nthreads, because it improves parallelization. garbage-collect-states-rate double 1.0 The fraction of the total number of TransformStates (or\nRenderStates, or whatever) that are processed with each garbage\ncollection step. Setting this smaller than 1.0 will collect fewer states\neach frame, which may require less processing time, but risks getting",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_543",
+    "parent": "processed_documents/context_documents/ff9c6499_876ce29a_list-of-all-config-variables.json",
+    "chunk_number": 6771
+  }
+}

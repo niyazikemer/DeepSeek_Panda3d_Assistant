@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk introduces two new methods: `getDeleteEvent` and `sendDeleteEvent`, which handle event notifications just before an object is deleted. It also includes a print statement that logs status information about the DistributedObject, including flags like \"generated\" or \"deleted\". These additions enhance debugging and lifecycle management by providing clearer visibility into object states and enabling proper cleanup notifications.\n\nThe chunk should be situated in the document near the existing `delete` method to maintain logical grouping of lifecycle-related functionality. This placement ensures that all methods related to object deletion, including event handling and status reporting, are located together for better code organization and readability.\n\nflags = []\n                if self.__generated:\n                    flags.append(\"generated\")\n                if self.air is None:\n                    flags.append(\"deleted\")\n\n                flagStr = \"\"\n                if len(flags) > 0:\n                    flagStr = \" (%s)\" % (\" \".join(flags))\n\n                print(\"%sfrom DistributedObject doId:%s, parent:%s, zone:%s%s\" % (\n                    spaces, self.doId, self.parentId, self.zoneId, flagStr))\n            except Exception as e:\n                print(\"%serror printing status %s\" % (spaces, e))\n\n    def getDeleteEvent(self):\n        # this is sent just before we get deleted\n        if hasattr(self, 'doId'):\n            return 'distObjDelete-%s' % self.doId\n        return None\n\n    def sendDeleteEvent(self):\n        # this is called just before we get deleted\n        delEvent = self.getDeleteEvent()\n        if delEvent:\n            messenger.send(delEvent)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5683
+  }
+}

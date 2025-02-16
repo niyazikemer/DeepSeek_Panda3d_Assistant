@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a specific implementation of lighting configuration in Panda3D, demonstrating how to create and position an ambient light and two directional lights within a 3D scene. It also illustrates attaching an additional green ambient light specifically to a named object (x), showcasing selective illumination techniques for individual objects.\n\n# Create Ambient Light\nambientLight = AmbientLight('ambientLight')\nambientLight.setColor((0.1, 0.1, 0.1, 1))\nambientLightNP = render.attachNewNode(ambientLight)\nrender.setLight(ambientLightNP)\n\n# Directional light 01\ndirectionalLight = DirectionalLight('directionalLight')\ndirectionalLight.setColor((0.8, 0.2, 0.2, 1))\ndirectionalLightNP = render.attachNewNode(directionalLight)\n# This light is facing backwards, towards the camera.\ndirectionalLightNP.setHpr(180, -20, 0)\nrender.setLight(directionalLightNP)\n\n# Directional light 02\ndirectionalLight = DirectionalLight('directionalLight')\ndirectionalLight.setColor((0.2, 0.2, 0.8, 1))\ndirectionalLightNP = render.attachNewNode(directionalLight)\n# This light is facing forwards, away from the camera.\ndirectionalLightNP.setHpr(0, -20, 0)\nrender.setLight(directionalLightNP)\n\n# Now attach a green light only to object x.\nambient = AmbientLight('ambient')\nambient.setColor((0.5, 1, 0.5, 1))\nambientNP = x.attachNewNode(ambient)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5883
+  }
+}

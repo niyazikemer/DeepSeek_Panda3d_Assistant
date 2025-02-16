@@ -1,0 +1,9 @@
+{
+  "content": "The Vertex Pool section describes how vertices are organized and referenced within an egg file to define polygonal geometry, fitting naturally after the introduction of groups and transform entries.\n\nVertex Pool\n\nA vertex pool is a set of vertices. All geometry is created by referring to vertices by number in a particular vertex pool. There may be one or several vertex pools in an egg file, but all vertices that make up a single polygon must come from the same vertex pool. The body of a <VertexPool> entry is simply a list of one or more <Vertex> entries, as follows:\n\n<VertexPool> name {\n  <Vertex> number1 {\n  }\n  <Vertex> numer2 {\n  }\n  ...\n}\n\nVertices\n\nA <Vertex> entry is only valid within a vertex pool definition. The number is the index by which this vertex will be referenced. It is optional; if it is omitted, the vertices are implicitly numbered consecutively beginning at one. If the number is supplied, the vertices need not be consecutive.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_400",
+    "parent": "processed_documents/context_documents/fe5417d7_2644dc0c_syntax.json",
+    "chunk_number": 6037
+  }
+}

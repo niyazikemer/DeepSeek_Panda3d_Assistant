@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is situated within the \"Contact Test\" section of the document, where it demonstrates how to retrieve and print details about contacts between collision objects. The subsequent part introduces filtering using BitMask32 to specify which collision groups are considered in tests.\n\nprint(result.getNumContacts())\n\nfor contact in result.getContacts():\n  print(contact.getNode0())\n  print(contact.getNode1())\n\n  mpoint = contact.getManifoldPoint()\n  print(mpoint.getDistance())\n  print(mpoint.getAppliedImpulse())\n  print(mpoint.getPositionWorldOnA())\n  print(mpoint.getPositionWorldOnB())\n  print(mpoint.getLocalPointA())\n  print(mpoint.getLocalPointB())\n\nFiltering\n\nThe test methods on BulletWorld also take an optional mask argument that can be used to limit which groups are matched against (see collision-filtering for information about collision groups). The default is BitMask32.allOn(), which indicates that bodies in all groups are considered for the test.\n\nFor example, the following query will consider object A and C, but ignore object B:\n\n# These three bodies are in different groups\nobjA.setCollideMask(BitMask32.bit(0))\nobjB.setCollideMask(BitMask32.bit(1))\nobjC.setCollideMask(BitMask32.bit(2))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_444",
+    "parent": "processed_documents/context_documents/1bf2fda4_32b65eff_queries.json",
+    "chunk_number": 6251
+  }
+}

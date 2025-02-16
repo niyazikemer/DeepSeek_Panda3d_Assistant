@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is situated within the `_connect` method of the `ConnectionRepository` class. This method manages network connections by first creating an HTTP channel and invoking a callback, then using NET interface for alternative server attempts.\n\n**Context:**\nThe chunk resides inside the `_connect()` method, handling HTTP connection setup and subsequent callbacks, followed by attempting connections via the NET interface across multiple servers.\n\nch = self.http.makeChannel(0)\n            self.httpConnectCallback(\n                    ch, serverList, 0,\n                    successCallback, successArgs,\n                    failureCallback, failureArgs)\n        elif self.connectMethod == self.CM_NET or (not hasattr(self,\"connectNative\")):\n            # Try each of the servers in turn.\n            for url in serverList:\n                self.notify.info(\"Connecting to %s via NET interface.\" % (url))\n                if self.tryConnectNet(url):\n                    self.startReaderPollTask()\n                    if successCallback:\n                        successCallback(*successArgs)\n                    return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5326
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet is part of a distributed object system's client implementation, focusing on managing \"ram\" fields that should persist even if not recently updated. It identifies non-required fields needing re-broadcasting to ensure new clients receive their latest values. This chunk is situated within a method responsible for gathering and preparing field data for transmission, ensuring state consistency across all connected clients.\n\n# get the list of \"ram\" fields that aren't\n        # required.  These are fields whose values should\n        # persist even if they haven't been received\n        # lately, so we have to re-broadcast these values\n        # in case the new client hasn't heard their latest\n        # values.\n        extraFields = []\n        for i in range(obj.dclass.getNumInheritedFields()):\n            field = obj.dclass.getInheritedField(i)\n            if field.hasKeyword('broadcast') and field.hasKeyword('ram') and not field.hasKeyword('required'):\n                if field.asMolecularField():\n                    # It's a molecular field; this means\n                    # we have to pack the components.\n                    # Fortunately, we'll find those\n                    # separately through the iteration, so\n                    # we can ignore this field itself.\n                    continue\n\n                extraFields.append(field.getName())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5661
+  }
+}

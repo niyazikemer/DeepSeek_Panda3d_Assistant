@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses managing the main loop in Panda3D applications when integrating with third-party Python modules that have their own event loops, such as Twisted or wxPython. It explains how to avoid calling `base.run()` directly and instead use `taskMgr.step()` for controlled execution within these frameworks. The chunk provides a solution for integrating Panda3D's task management into Twisted's event loop using `LoopingCall` and `reactor.run()`, ensuring proper frame rate handling without relying on Panda3D's main loop.\n\ntaskMgr.step() must be called quickly enough after the previous call to taskMgr.step(). This must be done quick enough to be faster than the frame rate.\n\nThis may useful when an imported third party python module that also has its own event loop wants and wants to be in control of program flow. A third party example may be Twisted, the event-driven networking framework.\n\nThe solution to this problem is to let Panda3D's loop be controlled entirely by twisted's event loop. You will need to use the LoopingCall method to add Panda's taskMgr.step() method to twisted's event loop. Then, you need to call reactor.run() instead of Panda3D's run() method to run twisted's event loop. Here's an example on how this will work:\n\nfrom twisted.internet.task import LoopingCall\nfrom twisted.internet import reactor\n\nLoopingCall(taskMgr.step).start(1 / Desired_FPS)\nreactor.run()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_404",
+    "parent": "processed_documents/context_documents/ba8da20a_c90a4174_main-loop.json",
+    "chunk_number": 6061
+  }
+}

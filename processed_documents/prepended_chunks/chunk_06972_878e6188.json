@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides an example of how to handle triangle primitives with vertex indices exceeding 65535, demonstrating the use of uint32 data type and array casting techniques.\n\n# use the 'I' format if values higher than 65535 are needed\nindices = array.array('I', [\n    0, 1, 2,  # the vertex indices of the 1st triangle\n    0, 2, 3   # the vertex indices of the 2nd triangle\n])\ntris_prim = GeomTriangles(GeomEnums.UH_static)\n# prepare the primitive to accept indices bigger than 65535, such that more\n# vertices can be added to the geometry later on\ntris_prim.set_index_type(GeomEnums.NT_uint32)\ntris_array = tris_prim.modify_vertices()\ntris_array.unclean_set_num_rows(len(indices))\n# cast to 'I' instead of 'H' if indices higher than 65535 are needed\nview = memoryview(tris_array).cast('B').cast('I')\nview[:] = indices",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_561",
+    "parent": "processed_documents/context_documents/17d3a4e2_f2db4098_using-memoryviews.json",
+    "chunk_number": 6972
+  }
+}

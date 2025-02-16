@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a conditional block within the `get` method of the PyDatagramIterator class, handling cases where a divisor is applied to various data types (STUint16array, STUint32array, STUint32uint8array) when parsing values from a datagram. It processes these types by reading their lengths and elements, dividing each element by the specified divisor, and appending the scaled results to the return list.\n\nretVal.append(self.getUint16()/float(divisor))\n            elif subatomicType == STUint32array:\n                len = self.getUint16() >> 2\n                retVal = []\n                for i in range(len):\n                    retVal.append(self.getUint32()/float(divisor))\n            elif subatomicType == STUint32uint8array:\n                len = self.getUint16() / 5\n                retVal = []\n                for i in range(len):\n                    a = self.getUint32()\n                    b = self.getUint8()\n                    retVal.append((a / float(divisor), b / float(divisor)))\n            else:\n                raise Exception(\"Error: No such type as: \" + str(subatomicType))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_330",
+    "parent": "processed_documents/context_documents/cf472b07_PyDatagramIterator.json",
+    "chunk_number": 5643
+  }
+}

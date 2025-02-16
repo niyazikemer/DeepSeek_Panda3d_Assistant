@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides important context about the use of the `requestObjects()` method's return value for managing and canceling pending requests. It explains how to handle cleanup by calling `abortRequest()`, ensuring proper resource management when an object is deleted or destroyed before its request completes. This section emphasizes the importance of careful handling to avoid issues like calling callbacks with None values.\n\nThe return value may be saved and passed to a future call to\n        abortRequest(), in order to abort a pending request before the\n        timeout expires.\n\n        Actually, you should be careful to call abortRequest() if you\n        have made a call to requestObjects() that has not been resolved.\n        To find examples, do a search for abortRequest() to find out\n        how other code is using it.  A common idiom is to store the\n        result from requestObjects() and call abortRequest() if delete()\n        or destroy() is called on the requesting object.\n\n        See Also: abortRequest()\n        \"\"\"\n        assert self.notify.debug(\"requestObjects(%s, timeout=%s)\" % (doIdList, timeout))\n\n        # First, see if we have all of the objects already.\n        objects, doIdsPending = self.__generateObjectList(doIdList)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5380
+  }
+}

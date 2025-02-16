@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `getConcentricZones` method in the `CartesianGridBase` class, which calculates zones surrounding a given center zone at a specific radius. The code iterates over columns and rows to identify zones within the defined boundaries based on left/right/top/bottom offsets, adding them to a list for processing.\n\n#print \"starting examination of grid circle of radius %s\"%radius\n        ulZone = zoneId - leftOffset - topOffset * self.gridSize\n        #print \"left offset is %s and radius is %s\"%(leftOffset,radius)\n        for currCol in range(int(rightOffset + leftOffset + 1)):\n            if ((currCol == 0 and leftOffset == radius) or (currCol == rightOffset + leftOffset and rightOffset == radius)):\n                # at either left or right edge of area, look at all rows\n                possibleRows = range(int(bottomOffset + topOffset + 1))\n            else:\n                # in a middle column, only look at top and bottom rows\n                possibleRows = []\n                if topOffset == radius:\n                    possibleRows.append(0)\n                if bottomOffset == radius:\n                    possibleRows.append(bottomOffset + topOffset)\n            #print \"on column %s and looking at rows %s\"%(currCol,possibleRows)\n            for currRow in possibleRows:",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_298",
+    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
+    "chunk_number": 5259
+  }
+}

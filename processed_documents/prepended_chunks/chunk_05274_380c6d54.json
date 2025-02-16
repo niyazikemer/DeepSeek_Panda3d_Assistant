@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk introduces a `DistributedCartesianGrid` class inheriting from `DistributedNode` and `CartesianGridBase`, which manages a distributed Cartesian grid system with visualization capabilities. This class handles initialization, generation, disabling, and deletion processes for a distributed environment, including avatar proximity management and grid context operations.\n\nclass DistributedCartesianGrid(DistributedNode, CartesianGridBase):\n    notify = directNotify.newCategory(\"DistributedCartesianGrid\")\n    notify.setDebug(False)\n\n    VisualizeGrid = ConfigVariableBool(\"visualize-cartesian-grid\", False)\n\n    RuleSeparator = \":\"\n\n    def __init__(self, cr):\n        DistributedNode.__init__(self, cr)\n        # Let the derived classes instantiate the NodePath\n        self.visAvatar = None\n        self.gridVisContext = None\n        # Do we have grid lines visualized?\n        self._onOffState = False\n        if __debug__:\n            self.haveGridLines = 0\n\n    def generate(self):\n        DistributedNode.generate(self)\n\n    def disable(self):\n        DistributedNode.disable(self)\n        self.stopProcessVisibility()\n\n    def delete(self):\n        DistributedNode.delete(self)\n        # TODO: when teleporting off an island...\n        taskMgr.remove(self.taskName(\"processVisibility\"))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5274
+  }
+}

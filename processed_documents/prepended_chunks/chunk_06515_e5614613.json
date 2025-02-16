@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how task ordering works in the task manager when using both `sort` and `priority` arguments to determine execution order. It includes a Python code sample demonstrating how tasks with different `sort` and `priority` values are executed in a specific sequence, clarifying the interaction between these two parameters for task scheduling.\n\nor\n\ntaskMgr.add(task2, \"second\", priority=2)\ntaskMgr.add(task1, \"first\", priority=1)\n\nIn both cases, task1 given name \"first\" will be executed before task2 (\"second\").\n\nIf you use both sort and priority arguments, tasks with lower sort value will be executed first. However, if there are several tasks which have same sort value, but different priority value then that tasks are going to be executed in a way that ones with HIGHER priority value will be executed first.\n\npython\n\nTo clarify it a bit, here is code sample, tasks are named in order in which they are executed.\n\ntaskMgr.add(task1, \"first\", sort=1, priority=2)\ntaskMgr.add(task2, \"second\", sort=1, priority=1)\ntaskMgr.add(task3, \"third\", sort=2, priority=1)\ntaskMgr.add(task4, \"fourth\", sort=3, priority=13)\ntaskMgr.add(task5, \"fifth\", sort=3, priority=4)\n\nTo print the list of tasks currently running, simply print out taskMgr. Among your own tasks, you may see the following system tasks listed:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6515
+  }
+}

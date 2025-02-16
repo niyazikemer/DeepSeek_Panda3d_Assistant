@@ -1,0 +1,9 @@
+{
+  "content": "When you execute a CPU-intensive task in the main thread before starting an animation interval in Panda3D, the heavy computation can block the main thread, preventing the interval from being processed in time. This results in skipped or delayed animations as the application's event loop is unable to handle the intervals while it's busy with the intensive task.\n\nTo resolve this issue, offload CPU-heavy operations to background threads using `threading.Thread`. This allows the main thread to remain responsive and ensures that animations are processed correctly without being blocked by long-running tasks. Be cautious with shared data between threads to avoid synchronization issues.\n\nWhy are my animations/intervals sometimes skipped when I run something heavy on the CPU before playing them?\n\nIf you'll run this example code you might not see the position interval.\n\nfrom panda3d.core import *\nimport direct.directbase.DirectStart\nfrom direct.interval.IntervalGlobal import *\n\nenv = loader.loadModel('environment')\nenv.reparentTo(render)\nenv.setZ(-4)\n\ndef func():\n    # something heavy on the CPU\n    for i in range(9999999):\n        pass\n    # run the interval after\n    posival.start()\n\nposival = LerpPosInterval(base.cam, 0.4, (0,base.cam.getY()-12,0), base.cam.getPos())\n\nfunc()\n\nbase.run()\n\nBut you will see the interval being played if you comment out the for-loop. What is going on? It looks like Panda3D had skipped the interval, even though it was after the loop, as if Panda3D had \"lost focus\" when running the loop and even after it had finished it needed some time to start running normally again.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6337
+  }
+}

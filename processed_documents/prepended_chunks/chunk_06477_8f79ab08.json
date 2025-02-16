@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is situated within the \"Too Many Fragment/Pixel Shader Instructions\" section of a document discussing common performance bottlenecks related to shader usage in Panda3D applications. The chunk offers advice on optimizing fragment shaders by offloading work to vertex shaders and provides a testing method to determine if the issue stems from the fragment shader or depth complexity.\n\nContext: This chunk is part of a discussion on diagnosing and addressing performance issues caused by overly complex fragment shaders, offering practical optimization tips and a simple test to isolate the problem.\n\nIf your fragment shader is self-made, then try to offload some work to your vertex shader.\n\nThere is a simple method to test your scene. Replace your whole fragment shader with the following snippet (if using GLSL):\n\ngl_FragColor = vec4(1.0, 0.0, 1.0, 0.0);\n\nOr the following (if using Cg):\n\no_color = float4(1.0, 0.0, 1.0, 0.0);\n\nIf the frame rate doesn't change, then it is the depth complexity. It if changes, it may be the depth complexity or the shader.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_492",
+    "parent": "processed_documents/context_documents/b285911f_be416a06_too-many-shader-instructions.json",
+    "chunk_number": 6477
+  }
+}

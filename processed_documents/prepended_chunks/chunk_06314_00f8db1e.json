@@ -1,0 +1,9 @@
+{
+  "content": "The RigidBodyCombiner is a tool in Panda3D designed to reduce the number of nodes sent to the graphics card while maintaining the original node structure for transformations. It allows combining multiple sub-nodes into one for rendering, accessible via `get_internal_scene()`. Nodes are added by wrapping the RigidBodyCombiner in a NodePath and using standard parenting methods.\n\nThe RigidBodyCombiner is designed to reduce the number of nodes actually sent to the graphics card, just like the flattening functions. But instead of flattening everything into one node immediately, the RigidBodyCombiner keeps your original node structure intact, still allowing you to apply transforms (e.g. moving around, rotating or scaling) sub-nodes. But what's actually sent to the graphics cards is just one node, a combined version of all these sub-nodes. If you want to see the combined version of these nodes (not likely), you can call ~.RigidBodyCombiner.get_internal_scene(), this function will return the NodePath that is actually sent to the graphics card.\n\nThe RigidBodyCombiner class is just another kind of .PandaNode. All of the standard node interfaces apply. Thus, the easiest way to add nodes to a RigidBodyCombiner is to wrap a .NodePath around it, and then use the standard ~.NodePath.reparent_to() interfaces to parent the nodes you want to combine to this NodePath.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_454",
+    "parent": "processed_documents/context_documents/63223705_5b100b10_rigid-body-combiner.json",
+    "chunk_number": 6314
+  }
+}

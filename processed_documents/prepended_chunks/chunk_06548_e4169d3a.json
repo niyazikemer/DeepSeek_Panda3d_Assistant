@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses optimizing animations in Panda3D, particularly focusing on enhancing smoothness through interpolation. It highlights the use of actor.setBlend() as a preferable method to avoid cache-related issues with global settings like interpolate-frames.\n\nFrom the FAQ:\n\n\"Interpolate-frames flag gets set in the PartBundle at the time it is first created, and then baked into the bam cache.\n\nThenceforth, later changes to the interpolate-frames variable mean nothing. If you changed interpolate-frames flag, you will also need to empty your model-cache folder.\n\nActually, it is not recommended to use interpolate-frames; it is a global setting. It's better to achieve the same effect via actor.setBlend(frameBlend=True) <direct.actor.Actor.Actor.setBlend>, which is a per-actor setting (and doesn't get baked into the model-cache).\"\n\nActor Intervals",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_505",
+    "parent": "processed_documents/context_documents/4f3e2d7a_0bcb2e3d_actor-animations.json",
+    "chunk_number": 6548
+  }
+}

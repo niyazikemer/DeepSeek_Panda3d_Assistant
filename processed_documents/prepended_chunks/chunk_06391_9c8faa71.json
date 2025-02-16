@@ -1,0 +1,9 @@
+{
+  "content": "The context describes two types of geometric primitives in Panda3D: **GeomTriangles** and **GeomTristrips**, explaining their structure and how they reference vertex indices stored elsewhere. It highlights that GeomTriangles are the most common primitive, storing triangles with vertices ordered counterclockwise as seen from the front.\n\nFor instance, a .GeomTriangles object containing three triangles, and a .GeomTristrips containing two triangle strips, might look like this:\n\nGeomTriangles GeomTristrips 0 0 1 2 2 3 5 2 6 1 1 3 5 0 1 5 3 6 2\n\nNote that the GeomPrimitive objects don't themselves contain any vertex data; they only contain a list of vertex index numbers, which is used to look up the actual vertex data in a GeomVertexData object, stored elsewhere.\n\nGeomTriangles\n\nThis is the most common kind of GeomPrimitive. This kind of primitive stores any number of connected or unconnected triangles. Each triangle must have exactly three vertices, of course. In each triangle, the vertices should be listed in counterclockwise order, as seen from the front of the triangle.\n\nGeomTristrips",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_469",
+    "parent": "processed_documents/context_documents/010f5f87_af5fea3c_geomprimitive.json",
+    "chunk_number": 6391
+  }
+}

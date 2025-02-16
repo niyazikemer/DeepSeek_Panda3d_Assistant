@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains how to set up a shadow camera in C++ code and use it in a shader to transform vertices into the clip space of the shadow camera. It demonstrates setting a custom node path (shadowcam) as a shader input and utilizing its transformation matrices for effects like shadow mapping, aligning with the broader discussion on coordinate spaces and shader inputs.\n\ncpp\n\nrender.set_shader_input(\"shadowcam\", shadowcam);\n\nNow you can transform vertices into the clip-space of the given camera using this notation:\n\nuniform float4x4 trans_model_to_clip_of_shadowcam\n\nIf you transform your model's vertices from model space into the clip space of a shadow camera, the resulting (X/W,Y/W) values can be used as texture coordinates to projectively texture the shadow map onto the scene (after rescaling them), and the (Z/W) value can be compared to the value stored in the depth map (again, after rescaling it).\n\nPanda does support the notation \"trans_x_to_apiclip_of_y\", but again, our recommendation is not to use it.\n\nYou can transform a vertex to the view space of an alternate camera, using \"view of x.\" In fact, this is exactly identical to \"model of x,\" but it's probably good form to use \"view of x\" when x is a camera.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_557",
+    "parent": "processed_documents/context_documents/84f019c6_7f49f363_coordinate-spaces.json",
+    "chunk_number": 6960
+  }
+}

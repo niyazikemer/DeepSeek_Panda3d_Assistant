@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses Panda3D instancing, including how it affects rendering performance and instance management. This section explains why a NodePath is necessary to uniquely identify node instances across multiple locations in the scene graph, providing context for the administrative information stored in NodePaths.\n\nEarlier, it was noted that a NodePath contains a pointer to a node, plus some administrative information. The purpose of that administrative information is to uniquely identify one of the instances. There is no method .PandaNode.get_net_transform(), but there is a method .NodePath.get_net_transform(). Now you know why.\n\nTo understand how NodePath got its name, think about what is necessary to uniquely identify an instance. Each of the 150 dancers in the graph above corresponds to a single path through the scene graph. For every possible path from root to dancer, there exists one dancer-instance in the scene. In other words, to uniquely identify an instance, you need a list of nodes that starts at the leaf and goes up to the root.\n\nThe administrative information in a NodePath is a list of nodes. You can fetch any node in the list, using the NodePath.node(i) method. The first one, node(0), is the node to which the NodePath points.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_565",
+    "parent": "processed_documents/context_documents/fd216bec_f62cc0c7_instancing.json",
+    "chunk_number": 6999
+  }
+}

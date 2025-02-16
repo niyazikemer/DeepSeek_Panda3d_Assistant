@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defining `iPosHprScale` is situated within the NodePath methods document as another deprecated utility function. It sets position, heading, pitch, roll, and scale to default values. This method is added towards the end of the existing functions, ensuring it's properly converted into a NodePath method using `Dtool_funcToMethod`. \n\nHere\u2019s how the chunk fits into the larger code structure:\n\n```python\ndef analyze(self):\n    # implementation\n\n# Convert analyze to a method\nDtool_funcToMethod(analyze, NodePath)\n\ndel analyze\n\ndef iPosHprScale(self):\n    \"\"\"Sets position, heading, pitch, roll, and scale to default values.\"\"\"\n    self.setPos(0, 0, 0)\n    self.setHpr(0, 0, 0)\n    self.setScale(1, 1, 1)\n\n# Convert iPosHprScale to a method\nDtool_funcToMethod(iPosHprScale, NodePath)\n\ndel iPosHprScale\n\nimport something_else\n```\n\nThis placement ensures `iPosHprScale` is correctly integrated and available as a NodePath method.\n\ndef iPosHprScale(self, other = None):\n    \"\"\" Deprecated.  Set node path's pos and hpr to 0, 0, 0 and scale to 1, 1, 1 \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.iPosHprScale() is deprecated.\", DeprecationWarning, stacklevel=2)\n    if other:\n        self.setPosHprScale(other, 0, 0, 0, 0, 0, 0, 1, 1, 1)\n    else:\n        self.setPosHprScale(0, 0, 0, 0, 0, 0, 1, 1, 1)\n\n    # private methods\nDtool_funcToMethod(iPosHprScale, NodePath)\ndel iPosHprScale\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5758
+  }
+}

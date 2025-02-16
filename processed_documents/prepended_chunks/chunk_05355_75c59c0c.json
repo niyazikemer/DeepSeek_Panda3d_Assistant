@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the `setComponentTLive` method within a class likely related to avatar or entity movement synchronization. This method handles live updates to position data received directly from another client, marking the most recent position in the smoother's sample points while ensuring the actual node path reflects this updated position immediately via `forceToTruePosition()`. The method is annotated with a reporting decorator for performance monitoring and logging purposes.\n\n# mark position only takes most recent position sent over the wire\n        # and applies it to the smoother's sample points, but we still\n        # need to make sure and apply that position to the actual node\n        # path\n        self.forceToTruePosition()\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def setComponentTLive(self, timestamp):\n        # This is the variant of setComponentT() that will be called\n        # whenever we receive a live update directly from the other\n        # client.  This is because the component functions, above,\n        # call this function explicitly instead of setComponentT().\n\n        #print 'setComponentTLive: %s' % timestamp",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5355
+  }
+}

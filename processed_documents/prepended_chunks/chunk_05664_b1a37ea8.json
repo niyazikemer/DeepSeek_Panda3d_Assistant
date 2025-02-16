@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk includes three functions related to managing distributed objects. `freeDoId` releases an object ID back into the pool for reuse. `storeObjectLocation` sets an object's parent and zone IDs. `createDistributedObject` is a versatile method for creating or reserving a distributed object, handling various parameters like class name, zone, optional fields, and specific or reserved object IDs. These methods are integral to object lifecycle management within the client-side distributed system.\n\ndef freeDoId(self, doId):\n        \"\"\" Returns a doId back into the free pool for re-use. \"\"\"\n\n        assert self.isLocalId(doId)\n        self.doIdAllocator.free(doId)\n\n    def storeObjectLocation(self, object, parentId, zoneId):\n        # The CMU implementation doesn't use the DoCollectionManager\n        # much.\n        object.parentId = parentId\n        object.zoneId = zoneId\n\n    def createDistributedObject(self, className = None, distObj = None,\n                                zoneId = 0, optionalFields = None,\n                                doId = None, reserveDoId = False):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5664
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk contains methods for managing a distributed teleportation grid system in a virtual environment. The `delete()` method handles cleanup of grid-related tasks. The `isGridParent()` method identifies if an object is a grid manager. The `setCellWidth()` and `setParentingRules()` methods configure grid properties including cell size, starting zone IDs, grid dimensions, and visibility range, while initializing visual debugging if enabled.\n\ndef delete(self):\n        DistributedNode.delete(self)\n        # TODO: when teleporting off an island...\n        taskMgr.remove(self.taskName(\"processVisibility\"))\n\n    def isGridParent(self):\n        # If this distributed object is a DistributedGrid return 1.  0 by default\n        return 1\n\n    def setCellWidth(self, width):\n        self.cellWidth = width\n\n    def setParentingRules(self, style, rule):\n        assert self.notify.debug(\"setParentingRules: style: %s, rule: %s\" % (style, rule))\n        rules = rule.split(self.RuleSeparator)\n        assert len(rules) == 3\n        self.style = style\n        self.startingZone = int(rules[0])\n        self.gridSize = int(rules[1])\n        self.viewingRadius = int(rules[2])\n\n        # Store the center of the grid\n        cx = self.cellWidth * self.gridSize/2.0\n        self.centerPos = Vec3(cx, cx, 0)\n\n        if __debug__:\n            if self.VisualizeGrid:\n                self.visualizeGrid()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5275
+  }
+}

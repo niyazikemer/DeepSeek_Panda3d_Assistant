@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method that manages interest alterations based on visibility context changes. When `visDirty` is true, it triggers an event to update the interest context for the grid zones.\n\n**Context:**  \nThis code sits within a class managing grid-based visibility and interests in a virtual environment. It checks if visibility data is dirty (needs updating), then creates a unique event name if necessary before altering the interest context using `cr.alterInterest()`, ensuring relevant zones are tracked appropriately.\n\nevent = None\n                if self.visDirty:\n                    event = self.uniqueName(\"visibility\")\n                self.cr.alterInterest(\n                    self.gridVisContext, self.getDoId(), self.visZone,\n                    event = event)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5285
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `removeNonCollisions` method is a utility function that extends the `NodePath` class to recursively remove nodes that are not involved in collision detection. It is placed in the context of other `NodePath` extension methods for scene graph analysis, optimization, and collision handling (e.g., `subdivideCollisions`, `r_constructCollisionTree`, and `analyze`).\n\ndef removeNonCollisions(self):\n    # remove anything that is not collision-related\n    print(\"NodePath.removeNonCollisions() is deprecated\")\n    stack = [self]\n    while len(stack) > 0:\n        np = stack.pop()\n        # if there are no CollisionNodes under this node, remove it\n        if np.find('**/+CollisionNode').isEmpty():\n            np.detachNode()\n        else:\n            stack.extend(np.getChildren())\nDtool_funcToMethod(removeNonCollisions, NodePath)\ndel removeNonCollisions\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5773
+  }
+}

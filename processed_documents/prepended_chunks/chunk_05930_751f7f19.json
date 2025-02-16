@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains how to examine vertex attributes using GeomVertexReader in both Python and C++, emphasizing creating readers per column and verifying column existence before data retrieval.\n\nYou can use the GeomVertexReader <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter> class to examine the vertex data. You should create a GeomVertexReader for each column of the data you intend to read. It is up to you to ensure that a given column exists in the vertex data before you attempt to read it (you can use vdata.hasColumn() to test this).\n\npython\n\ndef processVertexData(vdata):\n    vertex = GeomVertexReader(vdata, 'vertex')\n    texcoord = GeomVertexReader(vdata, 'texcoord')\n    while not vertex.isAtEnd():\n        v = vertex.getData3()\n        t = texcoord.getData2()\n        print(\"v = %s, t = %s\" % (repr(v), repr(t)))\n\ncpp\n\nvoid processVertexData(const GeomVertexData *vdata) {\n  GeomVertexReader vertex(vdata, \"vertex\");\n  GeomVertexReader texcoord(vdata, \"texcoord\");\n  while (!vertex.is_at_end()) {\n    LVector3 v = vertex.get_data3();\n    LVector3 t = texcoord.get_data2();\n    nout << \"V = \" << v << \"T = \" << t << endl;\n  }\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_373",
+    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
+    "chunk_number": 5930
+  }
+}

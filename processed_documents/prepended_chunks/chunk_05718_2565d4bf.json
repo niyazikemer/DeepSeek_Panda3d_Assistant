@@ -1,0 +1,9 @@
+{
+  "content": "The `GridChild` class in the provided document manages grid-based parent-child relationships within a scene graph hierarchy, enabling objects to be parented to grids and manage their spatial organization through grid cell assignments.\n\nclass GridChild:\n    \"\"\"\n    Any object that expects to be parented to a grid should inherit from this.\n    It works with GridParent to manage its grid cell hierarchy in the scenegraph.\n    \"\"\"\n    def __init__(self):\n        try:\n            self.__initiallized\n        except AttributeError:\n            self._gridParent = None\n\n            self._gridInterestEnabled = False\n            self._gridInterests = {}\n\n    def delete(self):\n        self.__setGridParent(None)\n        self.enableGridInterest(False)\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def setGridCell(self, grid, zoneId):\n        if not hasattr(self,'getParent'):\n            return\n        if grid is None:\n            self.__setGridParent(None)\n            self.__clearGridInterest()\n        else:\n            if not self._gridParent:\n                self.__setGridParent(GridParent(self))\n\n            # Does the (wrt)ReparentTo() operation\n            self._gridParent.setGridCell(grid, zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_337",
+    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
+    "chunk_number": 5718
+  }
+}

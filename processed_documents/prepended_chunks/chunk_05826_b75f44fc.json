@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sits within a section discussing methods for searching and navigating the scene graph hierarchy. Specifically, it provides practical code examples demonstrating the use of `myNodePath.find(\"<Path>\")` and `findAllMatches` (and their C++ equivalents) to search for nodes based on specific criteria such as name patterns or tag values. The examples illustrate how to find child nodes, nodes with wildcard names, and nodes tagged with particular attributes in a scene graph. This content follows an explanation of NodePath searching functionality and precedes additional methods like `get_parent()` and `get_children()`.\n\nmyNodePath.find(\"<Path>\")\nmyNodePath.findAllMatches(\"<Path>\")\n\ncpp\n\nmyNodePath.find(\"<Path>\");\nmyNodePath.find_all_matches(\"<Path>\");\n\nSome examples:\n\npython\n\nmyNodePath.find(\"house/door\")\n\ncpp\n\nmyNodePath.find(\"house/door\");\n\nThis will look for a node named \"door\", which is a child of a node named \"house\", which is a child of the starting path.\n\npython\n\nmyNodePath.find(\"**/red*\")\n\ncpp\n\nmyNodePath.find(\"**/red*\");\n\nThis will look for any node anywhere in the tree (below the starting path) with a name that begins with \"red\".\n\npython\n\nshipNP.findAllMatches(\"**/=type=weaponMount\")\n\ncpp\n\nshipNP.findAllMatches(\"**/=type=weaponMount\");\n\nThis will search shipNP recursively using tag/value. Tag name is \"type\" and tag value is \"weaponMount\". All matches found will be returned.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_352",
+    "parent": "processed_documents/context_documents/5c5edf9d_4e620445_searching-scene-graph.json",
+    "chunk_number": 5826
+  }
+}

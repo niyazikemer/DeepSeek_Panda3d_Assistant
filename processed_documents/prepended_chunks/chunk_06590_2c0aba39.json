@@ -1,0 +1,9 @@
+{
+  "content": "The Heightfield Tesselator processes height fields into GeomNodes using an LOD algorithm, with a focus on managing detail and performance. The provided chunk discusses the technical specifications for the heightfield image size and caching considerations, following an explanation of the tesselation process and preceding any further details on implementation or usage specifics.\n\nThe heightfield needs to be a multiple of 128 pixels in each dimension. It does not need to be square, and it does not need to be a power of two. For example, a 384 x 640 heightfield is fine. Be aware that tesselation time is proportional to heightfield area, so if you plan to use a size larger than about 512x512, it may be desirable to benchmark.\n\nAltering parameters, such as the poly count, the view radius, or the focal point, does not alter any GeomNodes already generated. Parameter changes only affect subsequently-generated GeomNodes. It is possible to cache many different tesselations of the same terrain.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_515",
+    "parent": "processed_documents/context_documents/a3af6dc4_c752ea1d_heightfield-tesselator.json",
+    "chunk_number": 6590
+  }
+}

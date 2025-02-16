@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `delete` method in the `ClientRepository` class, which manages the removal of distributed objects (DistObj) from the local system. This code handles the deletion process by removing the object from dictionaries and caches, freeing up IDs if necessary, while emphasizing that this action doesn't affect other clients or the server.\n\nThis is not a distributed message and does not delete the\n        object on the server or on any other client.\n        \"\"\"\n        if doId in self.doId2do:\n            # If it is in the dictionary, remove it.\n            obj = self.doId2do[doId]\n            # Remove it from the dictionary\n            del self.doId2do[doId]\n            # Disable, announce, and delete the object itself...\n            # unless delayDelete is on...\n            obj.deleteOrDelay()\n            if self.isLocalId(doId):\n                self.freeDoId(doId)\n        elif self.cache.contains(doId):\n            # If it is in the cache, remove it.\n            self.cache.delete(doId)\n            if self.isLocalId(doId):\n                self.freeDoId(doId)\n        else:\n            # Otherwise, ignore it\n            self.notify.warning(\n                \"Asked to delete non-existent DistObj \" + str(doId))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5676
+  }
+}

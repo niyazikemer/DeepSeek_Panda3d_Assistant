@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of a class managing distributed objects in a networked environment. The methods handle communication channels, readiness for creating new objects, and ensuring that newly connected clients receive necessary object information. Specifically, `createReady` initializes the system to allow object creation once IDs are assigned, while `handleRequestGenerates` and `resendGenerate` ensure that existing object states are communicated effectively when new clients join a zone.\n\n**Context:** This code chunk manages initial setup of communication channels and object distribution upon client connection or reconnection.\n\nself.ourChannel = self.doIdBase\n\n        self.createReady()\n\n    def createReady(self):\n        # Now that we've got a doId range, we can safely generate new\n        # distributed objects.\n        messenger.send('createReady', taskChain = 'default')\n        messenger.send(self.uniqueName('createReady'), taskChain = 'default')\n\n    def handleRequestGenerates(self, di):\n        # When new clients join the zone of an object, they need to hear\n        # about it, so we send out all of our information about objects in\n        # that particular zone.\n\n        zone = di.getUint32()\n        for obj in self.doId2do.values():\n            if obj.zoneId == zone:\n                if self.isLocalId(obj.doId):\n                    self.resendGenerate(obj)\n\n    def resendGenerate(self, obj):\n        \"\"\" Sends the generate message again for an already-generated\n        object, presumably to inform any newly-arrived clients of this\n        object's current state. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5660
+  }
+}

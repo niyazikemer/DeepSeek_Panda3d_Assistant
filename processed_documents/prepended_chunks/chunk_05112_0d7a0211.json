@@ -1,0 +1,9 @@
+{
+  "content": "The chunk initializes a `CMotionTrail` object and sets up instance variables. It also defines a `delete()` method that cleans up resources related to the motion trail. This chunk would be situated near the top of the class definition, likely in an initialization section or constructor, followed by other method definitions.\n\nself.cmotion_trail = CMotionTrail()\n        self.cmotion_trail.setGeomNode(self.geom_node)\n\n        self.modified_vertices = True\n        if _want_python_motion_trails:\n            self.use_python_version = True\n        else:\n            self.use_python_version = False\n\n    def delete(self):\n        \"\"\"Completely cleans up the motion trail object.\n        \"\"\"\n        self.reset_motion_trail()\n        self.reset_motion_trail_geometry()\n        self.cmotion_trail.resetVertexList()\n        self.removeNode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5112
+  }
+}

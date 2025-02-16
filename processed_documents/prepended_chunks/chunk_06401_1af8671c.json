@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is an introductory section of a comprehensive guide on working with Bullet Softbody Ropes in Panda3D. It includes the basic setup instructions for creating a soft body rope with specified parameters such as segments and initial node positions, followed by an introduction to visualization methods but stopping before detailed anchoring or attaching procedures. This context situates the chunk at the foundational stage of understanding how to implement and visualize soft body ropes in a 3D environment using Panda3D's Bullet physics engine.\n\nBullet Softbody Rope\n\nSoft body ropes are best compared to chains of interconnected nodes. This page deals with setup, visualization and attaching things to soft body ropes.\n\nSetup\n\nThe following code will create a soft body rope with 8 segments (variable res), and thus 8 + 2 = 10 nodes. p1 is the initial position of the first node, and p2 is the initial position of the last node. fixeds will be explained later on this page.\n\npython\n\nfrom panda3d.bullet import BulletSoftBodyNode\n\ninfo = self.world.getWorldInfo()\ninfo.setAirDensity(1.2)\ninfo.setWaterDensity(0)\ninfo.setWaterOffset(0)\ninfo.setWaterNormal(Vec3(0, 0, 0))\n\nres = 8\np1 = Point3(0, 0, 4)\np2 = Point3(10, 0, 4)\nfixeds = 0\n\nbodyNode = BulletSoftBodyNode.makeRope(info, p1, p2, res, fixeds)\nbodyNode.setTotalMass(50.0)\nbodyNP = worldNP.attachNewNode(bodyNode)\nworld.attachSoftBody(bodyNode)\n\ncpp\n\nTODO\n\nVisualisation",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_470",
+    "parent": "processed_documents/context_documents/ff1adceb_3635e1a0_softbody-rope.json",
+    "chunk_number": 6401
+  }
+}

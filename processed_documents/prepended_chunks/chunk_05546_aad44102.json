@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides the foundational import statements and state definitions for the `DistributedObject` class. It includes necessary modules like `DCPacker`, `messenger`, and `DirectNotifyGlobal`, along with constants defining active states (`ESNew`, `ESDeleted`, etc.) and their string mappings, essential for managing distributed object lifecycle states.\n\n\"\"\"DistributedObject module: contains the DistributedObject class\"\"\"\n\nfrom panda3d.direct import DCPacker\nfrom direct.showbase.MessengerGlobal import messenger\nfrom direct.directnotify.DirectNotifyGlobal import directNotify\nfrom direct.distributed.DistributedObjectBase import DistributedObjectBase\n#from PyDatagram import PyDatagram\n#from PyDatagramIterator import PyDatagramIterator\n\n# Values for DistributedObject.activeState\n\nESNew          = 1\nESDeleted      = 2\nESDisabling    = 3\nESDisabled     = 4  # values here and lower are considered \"disabled\"\nESGenerating   = 5  # values here and greater are considered \"generated\"\nESGenerated    = 6\n\n# update this table if the values above change\nESNum2Str = {\n    ESNew: 'ESNew',\n    ESDeleted: 'ESDeleted',\n    ESDisabling: 'ESDisabling',\n    ESDisabled: 'ESDisabled',\n    ESGenerating: 'ESGenerating',\n    ESGenerated: 'ESGenerated',\n}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5546
+  }
+}

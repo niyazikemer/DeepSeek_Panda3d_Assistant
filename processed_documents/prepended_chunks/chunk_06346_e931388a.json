@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides answers to two specific questions within a broader collection of troubleshooting guides and technical tips. It addresses issues related to animation interpolation settings and methods for redirecting command outputs in Python. The document as a whole offers solutions to common problems encountered in 3D modeling, programming, and software development, with each section providing practical advice or workarounds for specific challenges like model caching, output redirection, and other technical tasks.\n\nTo smooth my animations, I used the \"interpolate-frames 1\" option, but it doesn't work somehow. Why?\n\nInterpolate-frames flag gets set in the PartBundle at the time it is first created, and then baked into the model cache. Thenceforth, later changes to the interpolate-frames variable mean nothing. If you changed interpolate-frames flag, you will also need to empty your modelcache folder.\n\nActually, it is not recommended to use interpolate-frames; it is a global setting. It's better to achieve the same effect via actor.setBlend(frameBlend=True), which is a per-actor setting (and doesn't get baked into the model cache).\n\nI'm trying to redirect the output of some commands like myNode.ls() to a file, but the usual method python >> file, myNode.ls() doesn't work. What's the alternative?\n\nThere are several alternative approaches. One approach using StringStream is this:\n\nstrm = StringStream()\nrender.ls(strm)\nopen('out.txt', 'w').write(strm.getData())",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6346
+  }
+}

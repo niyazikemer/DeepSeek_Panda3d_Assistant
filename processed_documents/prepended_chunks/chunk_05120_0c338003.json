@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains additional functionality related to managing textures and vertices in the MotionTrail class. Specifically, `set_texture` allows users to define a texture for the trail's geometry and manage UV coordinates, while `update_vertices` is used to finalize vertex configurations after they have been added or modified. These methods are crucial for customizing the visual appearance of the motion trail.\n\n**Context:** The chunk adds texture management and vertex update capabilities to the MotionTrail class, enhancing its customization options.\n\nself.modified_vertices = True\n\n    def set_texture(self, texture):\n        \"\"\"Defines the texture that should be applied to the trail geometry.\n        This also enables generation of UV coordinates.\n        \"\"\"\n        self.texture = texture\n        if texture:\n            self.geom_node_path.setTexture(texture)\n#            texture.setWrapU(Texture.WMClamp)\n#            texture.setWrapV(Texture.WMClamp)\n        else:\n            self.geom_node_path.clearTexture()\n\n        self.modified_vertices = True\n\n    def update_vertices(self):\n        \"\"\"This must be called after the list of vertices defining the\n        cross-section shape of the motion trail has been defined by\n        `add_vertex()` and `set_vertex_color()`.\n        \"\"\"\n        total_vertices = len(self.vertex_list)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5120
+  }
+}

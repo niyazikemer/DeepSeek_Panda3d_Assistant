@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis section explains how to control the depth buffer's functionality by setting various DepthTestAttrib modes in Panda3D. It demonstrates how to alter the depth test behavior for specific rendering needs, such as controlling whether geometry is rendered based on its position relative to existing depth values in the buffer (e.g., always, never, less than, greater than, etc.). Additionally, it discusses alternative approaches like depth sorting when depth testing is disabled and how transparency settings can influence depth test outcomes.\n\"\"\"\n\ncpp\n\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_none));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_never));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_less));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_equal));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_less_equal));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_greater));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_greater_equal));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_not_equal));\nnodePath.set_attrib(DepthTestAttrib::make(RenderAttrib::M_always));\n\nDepth Sorting\n\nWhen turning depth test off, it is sometimes desirable to use depth sorting instead. Depth sorting is controlled by the culling system, which can be controlled by the .CullBinAttrib.\n\nTransparency\n\nCertain settings of the .TransparencyAttrib can also affect the depth-test.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_364",
+    "parent": "processed_documents/context_documents/7d23af5c_c2048452_depth-test-and-depth-write.json",
+    "chunk_number": 5868
+  }
+}

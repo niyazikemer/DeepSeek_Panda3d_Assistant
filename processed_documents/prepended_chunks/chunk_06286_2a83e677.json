@@ -1,0 +1,9 @@
+{
+  "content": "The document provides comprehensive guidance on using the MayaPandaTool for exporting models and textures, including details on creating glow maps to enhance brightness in dark areas, combining them with bloom effects through a sample program, setting up multitexturing using Maya's Layered Texture node, and merging textures for more complex visual effects.\n\nCreating a glow map will cause those parts of the model which are glowing to be bright even when the light is dark. However, it will not by itself create a full-featured bloom effect. To get that, you need to use a bloom filter in your Panda3D program in conjunction with the glow map. There is a sample program <glow-filter> that demonstrates this process.\n\nFinally, there is plain old multitexturing. Create this structure in the hypershade, using a \"Layered Texture\" (NOT a \"Layered Shader!\"):\n\nThis will cause the two textures to be multiplied, which is the simplest form of multitexturing. You can also obtain certain other effects by changing the settings of the Layered Texture, however, this functionality is very incomplete at this time. For the most part, you can only multiply.\n\nMerging Textures",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_452",
+    "parent": "processed_documents/context_documents/3f533d33_a979858b_converting-from-maya.json",
+    "chunk_number": 6286
+  }
+}

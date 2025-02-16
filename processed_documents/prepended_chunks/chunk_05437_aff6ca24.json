@@ -1,0 +1,9 @@
+{
+  "content": "The `getDoList` method is part of a class that manages distributed objects, providing functionality to retrieve lists of objects based on parent ID, zone ID, and/or class type. It leverages other methods within the same document, such as `getDoIdList`, to efficiently gather and return filtered object lists.\n\ndef getDoList(self, parentId, zoneId=None, classType=None):\n        \"\"\"\n        Args:\n            parentId: any distributed object id.\n            zoneId: a uint32, defaults to None (all zones).  Try zone 2 if\n                you're not sure which zone to use (0 is a bad/null zone and\n                1 has had reserved use in the past as a no messages zone, while\n                2 has traditionally been a global, uber, misc stuff zone).\n            dclassType: a distributed class type filter, defaults to None\n                (no filter).\n\n        If dclassName is None then all objects in the zone are returned;\n        otherwise the list is filtered to only include objects of that type.\n        \"\"\"\n        return [self.doId2do.get(i)\n            for i in self.getDoIdList(parentId, zoneId, classType)]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5437
+  }
+}

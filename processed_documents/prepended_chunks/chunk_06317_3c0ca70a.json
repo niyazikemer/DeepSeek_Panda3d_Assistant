@@ -1,0 +1,9 @@
+{
+  "content": "This section introduces the fundamental concept of backface and frontface culling in Panda3D, explaining how it optimizes rendering by default while highlighting its impact on performance and visual outcomes, such as seeing through closed models when the camera is inside.\n\nBackface Culling and Frontface Culling\n\nBackface and Frontface Culling\n\nBy default, Panda3D automatically culls (doesn't render) backfaces of polygons. In other words, the polygon acts like a one-way mirror: you can see it from one side, but from the other side, it's see-through. Backface culling is a very useful performance optimization. Without it, the 3D engine would have to render the inside surface of 3D models. Since this surface is not visible anyhow, this is entirely wasted work. Since the surface area of the inside is equal to the surface area of the outside, this would roughly double the amount of work the video card has to do. This is why backface culling is enabled by default.\n\nInterestingly, this means that if you move the camera inside of a closed 3D model, you can usually see out. This is actually pretty convenient most of the time.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_455",
+    "parent": "processed_documents/context_documents/1833e5fe_1401fe66_backface-culling-and-frontface-culling.json",
+    "chunk_number": 6317
+  }
+}

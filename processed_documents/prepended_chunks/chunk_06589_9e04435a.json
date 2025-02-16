@@ -1,0 +1,9 @@
+{
+  "content": "The Heightfield Tesselator is a system designed to convert a height field from a grayscale image into a 3D scene using an LOD (Level of Detail) algorithm. This chunk introduces the core functionality of the tesselator, explaining how it uses a \"focal point\" to concentrate detail where needed and describes parameters like polygon count and visibility radius that control its behavior. The text also provides guidance on optimizing performance by minimizing focal point changes to avoid visual artifacts like popping.\n\nThe Heightfield Tesselator\n\nThe HeightfieldTesselator converts a height field in the form of a greyscale image into a scene consisting of a number of GeomNodes. The tesselation uses an LOD algorithm. You supply a \"focal point\" (X,Y) which tells the tesselator where the bulk of the detail should be concentrated. The intent is that as the player walks around the terrain, you should occasionally move the focal point to wherever the player is. You should not move the focal point every frame: tesselation is not that fast. Also, changing the focal point may cause popping, so it is best to minimize the number of changes. There are a number of parameters that you can use to control tesselation, such as a target polygon count, and a visibility radius.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_515",
+    "parent": "processed_documents/context_documents/a3af6dc4_c752ea1d_heightfield-tesselator.json",
+    "chunk_number": 6589
+  }
+}

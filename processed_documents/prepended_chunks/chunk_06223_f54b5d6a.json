@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk explains how to take procedural control of a model's joint using Python or C++. In Python, it demonstrates using `actor.controlJoint()` with an example for controlling joints like the neck and head. For C++, it shows utilizing `bundle->control_oint()`. This is part of a comprehensive guide on procedural joint control, which also covers transform handling, relative positioning, and releasing controlled joints.\n\nControlling a Joint Procedurally\n\npython\n\nSometimes one wishes to procedurally take control of a model's joint. For example, if you wish to force a character model's eyes to follow the mouse, you will need to procedurally take control of the neck and head. To achieve this, use ~direct.actor.Actor.Actor.controlJoint().\n\ndummy = actor.controlJoint(None, \"modelRoot\", \"Joint Name\")\n\ncpp\n\nSometimes one wishes to procedurally take control of a model's joint. For example, if you wish to force a character model's eyes to follow the mouse, you will need to procedurally take control of the neck and head. To achieve this, use .PartBundle.control_joint().\n\nNodePath dummy = model.attach_new_node(\"dummy\");\nif (bundle->control_joint(\"Joint Name\", dummy)) {\n  std::cerr << \"Success!\\n\";\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_438",
+    "parent": "processed_documents/context_documents/af9e2093_889fa28f_controlling-joints.json",
+    "chunk_number": 6223
+  }
+}

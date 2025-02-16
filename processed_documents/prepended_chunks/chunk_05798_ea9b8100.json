@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains the transition from ray tracing's computational limitations to the practical use of reflection vectors in environment mapping. It introduces sphere mapping as a method to convert 3D reflection vectors into 2D texture coordinates via spherical distortion, creating environment maps that simulate reflections. This section highlights Panda3D's capability to generate these maps, providing foundational knowledge before applying them to objects like teapots and cars.\n\nRay tracing is still too computation-intensive to be done in real time. But a reflection vector is easy to calculate per-vertex, and if we could turn a reflection vector into a (u, v) texture coordinate pair, the graphics hardware is particularly good at looking up the color in a texture image that corresponds to that (u, v) pair. So all we need is an image that shows the objects in our environment.\n\nIn sphere mapping, the 3-D reflection vector is turned into a 2-D texture coordinate pair by mathematically applying a spherical distortion. This means the environment map should be a view of the world as seen through a 360-degree fisheye lens, or as reflected in a shiny ball like a holiday ornament. You can see why it is called sphere mapping.\n\nPanda3D can generate sphere maps for you. The above sphere map was generated with the following code:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_347",
+    "parent": "processed_documents/context_documents/a66d1af9_840bebd2_simple-environment-mapping.json",
+    "chunk_number": 5798
+  }
+}

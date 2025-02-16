@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `putArg` method in the `PyDatagram` class, which handles converting and packing data into network messages. Specifically, this section deals with processing an array of tuples where each tuple contains a 32-bit unsigned integer and an 8-bit unsigned integer (`STUint32uint8array`). The code applies rounding based on a provided divisor to both elements of each tuple in the array before adding them to the message buffer using `addUint32` and `addUint8`.\n\nfor i in arg:\n                    self.addUint32(int(round(i[0]*divisor)))\n                    self.addUint8(int(round(i[1]*divisor)))\n            else:\n                raise Exception(\"Error: type does not accept divisor: \" + str(subatomicType))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_317",
+    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
+    "chunk_number": 5491
+  }
+}

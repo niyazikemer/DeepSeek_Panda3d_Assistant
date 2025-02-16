@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a larger document implementing a grid-based system for managing avatar visibility in a game or simulation context. The document contains methods related to processing and stopping visibility for avatars within a grid, handling events, and managing parent-child relationships between grids. The specific chunk focuses on clearing all visibility interests for an avatar, particularly when the parent of the current grid is also a grid that manages visibility.\n\n# sometimes we also need to remove vis avatar from\n        # my parent if it is also a grid\n        if clearAll:\n            if event is not None:\n                parentEvent = eventGroup.newEvent('%s.parent.removeInterest' % self.doId)\n            else:\n                parentEvent = None\n\n            ##HACK BANDAID FOR PVP INSTANCES\n            if hasattr(self.cr.doId2do[self.parentId], \"worldGrid\"):\n                self.cr.doId2do[self.parentId].worldGrid.stopProcessVisibility(event=parentEvent)\n\n    def processVisibility(self, task):\n        if self.visAvatar is None:\n            # no avatar to process visibility for\n            return Task.done\n        if self.visAvatar.isDisabled():\n            self.visAvatar = None\n            return Task.done\n        if self.visAvatar.gameFSM.state == 'Cutscene':\n            return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5281
+  }
+}

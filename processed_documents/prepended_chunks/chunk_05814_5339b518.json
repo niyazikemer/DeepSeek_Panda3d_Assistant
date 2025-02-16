@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nPart of a comprehensive guide discussing model loading features in Panda3D, focusing on Assimp plug-in considerations. This section highlights limitations with morph targets despite supporting skeletal animations, warns about coordinate system differences causing model rotation, and explains essential Config.prc settings for loader control, emphasizing the need to clear cache after configuration changes.\n\"\"\"\n\nPlease note that while skeletal animations are supported, morph targets (also known as shape keys) are not currently supported by the Assimp plug-in, even if they are supported by the underlying format.\n\nCaution\n\nModels loaded with the Assimp plug-in may appear rotated around the X axis, due to the fact that Assimp uses a Y-up coordinate system whereas Panda3D uses a Z-up coordinate system. A future version of Panda3D will correct this automatically, but for now, you will need to manually rotate your models:\n\npython\n\nmodel.setP(90)\n\ncpp\n\nmodel.set_p(90);\n\nThe following Config.prc settings can be used to control the behavior of the Assimp loader. Note that you will need to clear the model cache after changing one of these variables for these changes to take effect.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_351",
+    "parent": "processed_documents/context_documents/c6d3d715_f1b1e378_model-file-formats.json",
+    "chunk_number": 5814
+  }
+}

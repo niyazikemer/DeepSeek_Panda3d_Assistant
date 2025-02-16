@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains advanced usage of the Patchfile object, specifically discussing memory efficiency when handling large multifiles versus generic binary files and providing recommendations for working with compressed or uncompressed source files to optimize patching results.\n\nThe Patchfile object works on any arbitrary binary files; you don't need to limit yourself to just patching multifiles. However, the Patchfile does recognize a multifile and treats it as a special case; it can build patches for large multifiles without running out of memory, while building a patch for a large generic binary file might require so much memory it brings your system to its knees. (Applying patches doesn't require much memory, however.)\n\nPatchfiles are not automatically compressed. You can do that yourself. Also, I recommend patching uncompressed source files for best results. (You can build patches against compressed source files, but the resulting patchfiles will tend to be much larger than the same patchfiles built against the original uncompressed files.)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_430",
+    "parent": "processed_documents/context_documents/e2d53ace_acd1df84_patching.json",
+    "chunk_number": 6188
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a Python class `DistributedCameraAI` that inherits from `DistributedObjectAI`. It initializes with attributes for camera parent and fixtures, and provides methods to retrieve them. This class appears to manage camera data within a distributed system.\n\n```python\nclass DistributedCameraAI(DistributedObjectAI):\n    \"\"\"Manages camera configuration in a distributed environment, handling parent hierarchy and fixture setup.\"\"\"\n    \n    def __init__(self, air):\n        \"\"\"Initializes the camera with default parent and empty fixtures list.\"\"\"\n        super().__init__(air)\n        self.parent = 0\n        self.fixtures = []\n\n    def getCamParent(self):\n        \"\"\"Returns the current parent ID of the camera.\"\"\"\n        return self.parent\n\n    def getFixtures(self):\n        \"\"\"Provides a list of attached camera fixtures.\"\"\"\n        return self.fixtures\n```\n\nfrom direct.distributed.DistributedObjectAI import DistributedObjectAI\n\n\nclass DistributedCameraAI(DistributedObjectAI):\n    def __init__(self, air):\n        DistributedObjectAI.__init__(self, air)\n        self.parent = 0\n        self.fixtures = []\n\n    def getCamParent(self):\n        return self.parent\n\n    def getFixtures(self):\n        return self.fixtures",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_295",
+    "parent": "processed_documents/context_documents/a9b634af_DistributedCameraAI.json",
+    "chunk_number": 5243
+  }
+}

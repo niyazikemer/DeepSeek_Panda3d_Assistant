@@ -1,0 +1,9 @@
+{
+  "content": "The `ProfileSession` class encapsulates profiling functionality for a single callable using Python's 'profile' module. It handles deferred formatting of profile results and efficiently manages output using RAM files to avoid memory leaks. The provided code initializes the class with a timing mechanism (`TrueClock`) and logging notifications (`notify`).\n\nclass ProfileSession:\n    # class that encapsulates a profile of a single callable using Python's standard\n    # 'profile' module\n    #\n    # defers formatting of profile results until they are requested\n    #\n    # implementation sidesteps memory leak in Python profile module,\n    # and redirects file output to RAM file for efficiency\n    TrueClock = TrueClock.getGlobalPtr()\n\n    notify = directNotify.newCategory(\"ProfileSession\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5084
+  }
+}

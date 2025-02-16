@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines three methods related to managing parent relationships for 3D objects: `setParentStr`, `setParent`, and `do_Repentant`. These methods are part of a larger class that handles position and orientation updates, ensuring proper parent-child object hierarchy management.\n\ndef setParentStr(self, parentTokenStr):\n        assert self.notify.debug('setParentStr: %s' % parentTokenStr)\n        assert self.notify.debug('isGenerated: %s' % self.isGenerated())\n        if len(parentTokenStr) > 0:\n            self.do_setParent(parentTokenStr)\n            self.gotStringParentToken = 1\n\n    def setParent(self, parentToken):\n        assert self.notify.debug('setParent: %s' % parentToken)\n        assert self.notify.debug('isGenerated: %s' % self.isGenerated())\n        # if we are not yet generated and we just got a parent token\n        # as a string, ignore whatever value comes in here\n        justGotRequiredParentAsStr = ((not self.isGenerated()) and\n                                      self.gotStringParentToken)\n        if not justGotRequiredParentAsStr:\n            if parentToken != 0:\n                self.do_setParent(parentToken)\n        self.gotStringParentToken = 0\n\n    def do_setParent(self, parentToken):\n        \"\"\"do_setParent(self, int parentToken)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_292",
+    "parent": "processed_documents/context_documents/de7f0b01_DistributedNode.json",
+    "chunk_number": 5155
+  }
+}

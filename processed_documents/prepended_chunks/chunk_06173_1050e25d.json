@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains the function and behavior of fragment shaders in contrast to vertex shaders, detailing how they process pixels and their computational impact relative to the size of objects on screen within a Cg shader tutorial.\n\nvoid fshader(\n    out float4 o_color : COLOR)\n{\n    o_color = float4(1.0, 0.0, 1.0, 1.0);\n}\n\nThe vshader function is called once for every processed vertex while fshader is called for every drawn pixel. Because our cube has 24 vertices, vshader is called 24 times per cube in this example. fshader is called for every visible pixel of this cube. The larger the cube on the screen, the more often fshader needs to be called. We cannot say if it is called 100 times or 1000 times per cube. If the cube is far away and we only see one pixel on the screen then vshader is still called 24 times while fshader may only be called once. The vertex shader is always called before the fragment shader. As mentioned in the previous tutorial, a vertex that is being processed knows nothing about the other vertices and this allows shader processing to be parallelized, that is the GPU can process multiple shader calls at the same time.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_428",
+    "parent": "processed_documents/context_documents/87cb3e24_4754c55c_part-3.json",
+    "chunk_number": 6173
+  }
+}

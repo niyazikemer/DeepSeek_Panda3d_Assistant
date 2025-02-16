@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method responsible for updating distributed objects. It attempts to identify an avatar by its `doId`, checks if the avatar exists, and then applies the update using the corresponding class. If the avatar isn't found or an error occurs, it logs a warning. This section deals with handling updates for avatars that might not be present in the main object list but could still exist as generated entities.\n\n# of a use for it. -JML\n            try:\n                handle = self.identifyAvatar(doId)\n                if handle:\n                    dclass = self.dclassesByName[handle.dclassName]\n                    dclass.receiveUpdate(handle, di)\n                else:\n                    self.notify.warning(\n                        f\"Asked to update non-existent DistObj {doId}\")\n            except Exception:\n                self.notify.warning(\n                    f\"Asked to update non-existent DistObj {doId} and failed to find it\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5615
+  }
+}

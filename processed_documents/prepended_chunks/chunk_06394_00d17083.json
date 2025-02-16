@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the performance considerations for using triangle strips versus individual triangles on modern PC graphics cards, emphasizing that triangle strips are less critical due to advancements in vertex cache technology. It also explains how Panda3D handles model loading from egg files, assembling polygons into triangle strips when beneficial and leaving them as individual triangles otherwise. This context is situated within the broader discussion of optimizing rendering performance using different GeomPrimitive types in Panda3D.\n\nFurthermore, since modern PC graphics cards incorporate a short vertex cache, they can generally render individual, indexed triangles as fast as triangle strips; so triangle strips are less important on PC hardware than they have been in the past. Unless you have a good reason to use a GeomTristrips, it may be easier just to use GeomTriangles.\n\nWhen loading a model from an egg file, Panda will assemble the polygons into triangle strips if it can do so without making other compromises; otherwise, it will leave the polygons as individual triangles.\n\nGeomTrifans",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_469",
+    "parent": "processed_documents/context_documents/010f5f87_af5fea3c_geomprimitive.json",
+    "chunk_number": 6394
+  }
+}

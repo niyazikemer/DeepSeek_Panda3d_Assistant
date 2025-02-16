@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of an `AsyncRequest` class designed to manage asynchronous operations for fetching or creating objects from a database. The specific chunk focuses on two key methods: `askForObject`, which retrieves an already created object using its ID and handles context management, and `createObject`, responsible for creating new database objects and retrieving their DOID upon successful creation. These methods are essential components of the asynchronous system, ensuring that all necessary operations are completed before proceeding further.\n\ndef askForObject(self, doId, context = None):\n        \"\"\"\n        Request an already created object, i.e. read from database.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        assert doId\n        if context is None:\n            context = self.air.allocateContext()\n        self.acceptOnce(\n            \"doRequestResponse-%s\"%(context,),\n            self._checkCompletion, [None])\n        self.air.queryObjectAll(doId, context)\n        self._resetTimeoutTask()\n\n    def createObject(self, name, className,\n            databaseId = None, values = None, context = None):\n        \"\"\"\n        Create a new database object.  You can get the doId from within\n        your self.finish() function.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5398
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines methods for handling parent-child relationships (`do_ersetParent`) and functions for setting and updating position-related attributes (e.g., `d_setX`, `d_setY`, etc.) in the context of a networked object management system. These methods are part of a class that inherits from both `DistributedObject` (for networking) and `NodePath` (for spatial representation), enabling synchronized manipulation of object positions, orientations, and hierarchy across distributed nodes.\n\ndef do_setParent(self, parentToken):\n        self.getParentMgr().requestReparent(self, parentToken)\n\n    ###### set pos and hpr functions #######\n\n    # setX provided by NodePath\n    def d_setX(self, x):\n        self.sendUpdate(\"setX\", [x])\n\n    # setY provided by NodePath\n    def d_setY(self, y):\n        self.sendUpdate(\"setY\", [y])\n\n    # setZ provided by NodePath\n    def d_setZ(self, z):\n        self.sendUpdate(\"setZ\", [z])\n\n    # setH provided by NodePath\n    def d_setH(self, h):\n        self.sendUpdate(\"setH\", [h])\n\n    # setP provided by NodePath\n    def d_setP(self, p):\n        self.sendUpdate(\"setP\", [p])\n\n    # setR provided by NodePath\n    def d_setR(self, r):\n        self.sendUpdate(\"setR\", [r])\n\n    def setXY(self, x, y):\n        self.setX(x)\n        self.setY(y)\n    def d_setXY(self, x, y):\n        self.sendUpdate(\"setXY\", [x, y])\n\n    # setPos provided by NodePath\n    def d_setPos(self, x, y, z):\n        self.sendUpdate(\"setPos\", [x, y, z])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_326",
+    "parent": "processed_documents/context_documents/e6633f02_DistributedNodeAI.json",
+    "chunk_number": 5586
+  }
+}

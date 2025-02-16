@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses optimizing graphics performance by managing video card fill rates and handling transparency modes effectively. The chunk explains how excessive fill rate consumption occurs due to occluded objects and particles, particularly when using transparency modes like M_alpha or M_dual, which require back-to-front sorting and can strain resources if many polygons are occluded.\n\nExcessive Fill\n\nThe fill rate of the video card is number of pixels it can render per second. Objects that are occluded (behind other objects) still consume fill rate. The total fill-consumption of the scene is the total screen real estate of all objects, including the occluded ones. Particles, in particular, can consume fill-rate like crazy, especially if the camera gets close to the particles.\n\nTransparency\n\nIn general, it is better for your graphics card to render the polygons front-to-back, because a depth test can be used to toss out the occluded fragments before they are written to the framebuffer.\n\nWhen enabling the M_alpha or M_dual transparency modes, however, Panda forces the nodes with this transparency mode to be sorted back-to-front. This is necessary for alpha blending to work correctly. If you have many occluded polygons in view, for example thousands of blades of grass that are positioned behind each other, this may quickly consume your fill rate.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_424",
+    "parent": "processed_documents/context_documents/faf067ac_b535200b_excessive-fill.json",
+    "chunk_number": 6155
+  }
+}

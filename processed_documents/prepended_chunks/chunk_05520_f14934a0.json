@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains initialization, cleanup, and task management methods for a time synchronization manager in a distributed system. The announceGenerate method initializes the TimeManager by setting itself as the current time manager and performing an initial clock sync. The disable method stops tasks and cleans up references when the time manager is deactivated, while delete releases resources when the manager is permanently removed. The startTask method schedules periodic server time requests to maintain clock synchronization. These methods are part of a class responsible for managing client-server time synchronization in a distributed system.\n\ndef announceGenerate(self):\n        DistributedObject.DistributedObject.announceGenerate(self)\n        self.cr.timeManager = self\n        self.synchronize(\"TimeManager.announceGenerate\")\n\n    def disable(self):\n        \"\"\"\n        This method is called when the DistributedObject is removed from\n        active duty and stored in a cache.\n        \"\"\"\n        self.ignore('clock_error')\n        self.stopTask()\n        taskMgr.remove('frameRateMonitor')\n        if self.cr.timeManager is self:\n            self.cr.timeManager = None\n        DistributedObject.DistributedObject.disable(self)\n\n    def delete(self):\n        \"\"\"\n        This method is called when the DistributedObject is permanently\n        removed from the world and deleted from the cache.\n        \"\"\"\n        DistributedObject.DistributedObject.delete(self)\n\n    ### Task management methods ###\n\n    def startTask(self):\n        self.stopTask()\n        taskMgr.doMethodLater(self.updateFreq, self.doUpdate, \"timeMgrTask\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5520
+  }
+}

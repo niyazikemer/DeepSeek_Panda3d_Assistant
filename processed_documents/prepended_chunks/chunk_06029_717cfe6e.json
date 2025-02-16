@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated in the section discussing state transitions, specifically addressing issues when attempting to call `fsm.request()` during an ongoing transition. It explains the exception raised and introduces `fsm.demand()` as a viable alternative. The mention of `forceTransition()` serves as an introduction to a subsequent section detailing this method's purpose and usage.\n\n**Context:**\n\nThe document explores Finite State Machine (FSM) operations, emphasizing correct state transition handling. This chunk is placed within the discussion on FSM.AlreadyInTransition exceptions, offering solutions like using `fsm.demand()`. It briefly introduces `forceTransition()` as another method for forced state changes, leading into its detailed explanation in a dedicated section.\n\nDuring this transition time, it is not legal to call fsm.request() to request a new state. If you try to do this, the FSM will raise the exception FSM.AlreadyInTransition <direct.fsm.FSM.AlreadyInTransition>. This is a particularly common error if some cleanup code that is called from the exitStateName method has a side-effect that triggers a transition to a new state.\n\nHowever, there's a simple solution to this problem: call fsm.demand() instead. Unlike request(), demand() can be called while the FSM is currently in transition. When this happens, the FSM will queue up the demand, and will carry it out as soon as it has fully transitioned into its new state.\n\nforceTransition()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_399",
+    "parent": "processed_documents/context_documents/aca109a0_8bcd09f5_advanced-fsm-tidbits.json",
+    "chunk_number": 6029
+  }
+}

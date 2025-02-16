@@ -1,0 +1,9 @@
+{
+  "content": "This chunk sits within a section discussing how to manage and modify tasks in both Python and C++. Specifically, it explains two methods for changing task delays: manually removing and re-adding the task or altering the delay inside the task function. The context also introduces cleanup functions for handling resource management when tasks finish or are explicitly removed.\n\nSimilarly, if you wish to change the delay time of a task, you have to remove the task and re-add it by hand. For instance:\n\ntask->remove();\ntask->set_delay(10);\ntask_mgr->add(task);\n\nYou can also alter the delay of the task inside the task function, but you will have to return AsyncTask::DS_again afterwards so that it takes effect.\n\npython\n\nYou may add a cleanup function to the task function with the uponDeath parameter. Similar to task functions, the uponDeath function has a task object as a parameter. The cleanup function is called whenever the task finishes, for instance by return Task.done, or when it is explicitly removed via taskMgr.remove().\n\ntaskMgr.add(exampleTask, 'TaskName', uponDeath=cleanupFunc)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6513
+  }
+}

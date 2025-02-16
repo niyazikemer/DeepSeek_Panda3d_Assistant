@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sits within the initialization and lifecycle management section of the `DistributedSmoothNodeBase` class. It initializes avatar movement smoothing using global settings and includes methods to disable and delete the node, ensuring proper resource cleanup.\n\nself.activateSmoothing(GlobalSmoothing, GlobalPrediction)\n\n        # clear stopped flag for re-generate\n        self.stopped = False\n\n    def disable(self):\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.disable(self)\n        DistributedNode.DistributedNode.disable(self)\n        del self.smoother\n\n    def delete(self):\n        DistributedSmoothNodeBase.DistributedSmoothNodeBase.delete(self)\n        DistributedNode.DistributedNode.delete(self)\n\n    ### Methods to handle computing and updating of the smoothed\n    ### position.\n\n    def smoothPosition(self):\n        \"\"\"\n        This function updates the position of the node to its computed\n        smoothed position.  This may be overridden by a derived class\n        to specialize the behavior.\n        \"\"\"\n        self.smoother.computeAndApplySmoothPosHpr(self, self)\n\n    def doSmoothTask(self, task):\n        self.smoothPosition()\n        return cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5344
+  }
+}

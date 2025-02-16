@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the \"Setup\" section within the document that explains how to create a soft body patch using Panda3D's Bullet module. This specific portion details the configuration settings after defining the resolution and corner points of the patch, including setting up materials, constraints, mass, margins, and attaching the soft body node to the world. It provides code examples and explanations for these configurations.\n\nmaterial = bodyNode.appendMaterial()\nmaterial.setLinearStiffness(0.4)\nbodyNode.generateBendingConstraints(2, material)\n\nbodyNode.setTotalMass(50.0)\nbodyNode.getShape(0).setMargin(0.5)\nbodyNP = self.worldNP.attachNewNode(bodyNode)\nworld.attachSoftBody(bodyNode)\n\ncpp\n\nTODO\n\nFirst we have to configure the soft body world properties, like we did for soft body ropes too. Next we define variables for the resolution in x- and y-direction, and for the four corner points of the patch.\n\nThe variable fixeds is set to the value 1+2+4+8=15, meaning that the patch should be attached to the world on all four corners. To attach it to the first and third corner (diagonal) we would set the value to 1+8=9, and to not attach it at all we would set it to 0.\n\nNow we can create the soft body node using the factory method makePatch. The following configuration differs from what we have seen for soft body ropes.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_427",
+    "parent": "processed_documents/context_documents/7f01e2c4_8fed4065_softbody-patch.json",
+    "chunk_number": 6168
+  }
+}

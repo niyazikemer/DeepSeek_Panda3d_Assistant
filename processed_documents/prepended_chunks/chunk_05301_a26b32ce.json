@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a comment that explains three different connection modes (`http`, `net`, `native`) used in the `ConnectionRepository` class. It describes when to use each mode based on factors like performance, proxy support, and simulated delay capabilities. This context is situated within the code that handles network connections, specifically where the connection type is being set or described.\n\nThe comment provides guidance for choosing between different networking interfaces in Panda3D, depending on specific requirements such as bandwidth usage, proxy configuration, or development needs.\n\n# Set this to 'http' to establish a connection to the server\n        # using the HTTPClient interface, which ultimately uses the\n        # OpenSSL socket library (even though SSL is not involved).\n        # This is not as robust a socket library as NET's, but the\n        # HTTPClient interface does a good job of negotiating the\n        # connection over an HTTP proxy if one is in use.\n        #\n        # Set it to 'net' to use Panda's net interface\n        # (e.g. QueuedConnectionManager, etc.) to establish the\n        # connection.  This is a higher-level layer build on top of\n        # the low-level \"native net\" library.  There is no support for\n        # proxies.  This is a good, general choice.\n        #\n        # Set it to 'native' to use Panda's low-level native net\n        # interface directly.  This is much faster than either http or\n        # net for high-bandwidth (e.g. server) applications, but it\n        # doesn't support the simulated delay via the start_delay()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5301
+  }
+}

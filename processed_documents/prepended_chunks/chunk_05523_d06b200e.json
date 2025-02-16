@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the `serverTime` function within the TimeManager class, detailing how it handles server responses during clock synchronization.\n\nreturn 1\n\n    def serverTime(self, context, timestamp):\n        \"\"\"serverTime(self, int8 context, int32 timestamp)\n\n        This message is sent from the AI to the client in response to\n        a previous requestServerTime.  It contains the time as\n        observed by the AI.\n\n        The client should use this, in conjunction with the time\n        measurement taken before calling requestServerTime (above), to\n        determine the clock delta between the AI and the client\n        machines.\n        \"\"\"\n        clock = ClockObject.getGlobalClock()\n        end = clock.getRealTime()\n\n        if context != self.thisContext:\n            self.notify.info(\"Ignoring TimeManager response for old context %d\" % (context))\n            return\n\n        elapsed = end - self.start\n        self.attemptCount += 1\n        self.notify.info(\"Clock sync roundtrip took %0.3f ms\" % (elapsed * 1000.0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5523
+  }
+}

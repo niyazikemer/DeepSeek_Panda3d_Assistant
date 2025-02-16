@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to implement thread-safe file operations using Panda3D's custom file module and how to compile Panda3D with threading support using specific flags.\n\nfrom direct.stdpy.file import *\n\nThis module reimplements Python's file I/O mechanisms using Panda constructs. This enables Python to interface more easily with Panda's virtual file system, and it also better-supports Panda's SIMPLE_THREADS model, by avoiding blocking all threads while waiting for I/O to complete.\n\nCompiling Panda3D with threading support\n\nThere are two different interfaces for threading which you can enable using the definitions HAVE_THREADS and SIMPLE_THREADS. The former is a full and heavy implementation of threading and compiling with that option will slow down the Panda3D build, unless you fully make use of the benefits that threading gives. The latter, however, is a more simple threading interface that doesn't give you the runtime overhead HAVE_THREADS gives you.\n\nNote that you will have to define both HAVE_THREADS and SIMPLE_THREADS at the same time to enable the simple interface, or you will not have threading.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_378",
+    "parent": "processed_documents/context_documents/e1cb27da_d50d13d2_threading.json",
+    "chunk_number": 5953
+  }
+}

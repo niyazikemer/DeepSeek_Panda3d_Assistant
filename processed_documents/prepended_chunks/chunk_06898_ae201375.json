@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses the functionality of the Shader Generator in Panda3D, detailing how it creates shaders based on object attributes such as materials, lights, and fog settings. It emphasizes efficient performance through a two-level caching system that minimizes shader recompilation by comparing new shaders to existing ones and optimizing the use of RenderStates. This helps developers reduce rendering costs by using similar or identical states across objects. The section also covers integrating custom shaders with the automatic system for specialized effects like water surfaces, ensuring flexibility while maintaining performance.\n\nThere is a second level of caching. If the system generates a shader, it will then compare that shader to the other shaders it has generated previously. If it matches a previously-generated shader, it will not need to compile the shader again.\n\nSo, to save the full cost, use the same RenderState. To save most of the cost, use two RenderStates that are similar. By \"similar,\" I mean having the same general structure: ie, two models that both have a texture and a normal map, and both have no vertex colors and neither has a material applied.\n\nCombining Automatic Shaders with Manual Shaders",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_545",
+    "parent": "processed_documents/context_documents/f47095f0_6d2d98fe_shader-generator.json",
+    "chunk_number": 6898
+  }
+}

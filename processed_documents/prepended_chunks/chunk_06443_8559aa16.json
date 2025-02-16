@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes how to process and manage collision events in Panda3D by iterating through collision entries in a queue, sorting them for order, and introducing the `CollisionHandlerEvent` class, which generates \"in\", \"out\", and \"again\" events during collision detection.\n\nfor (int i = 0; i < queue->get_num_entries(); ++i) {\n  CollisionEntry *entry = queue->get_entry(i);\n  std::cout << *entry << endl;\n}\n\nBy default, the collision-entries appear in the queue in no particular order. You can arrange them in order from nearest to furthest by calling queue.sort_entries() <.CollisionHandlerQueue.sort_entries> after the traversal.\n\nCollisionHandlerEvent\n\nThis is another simple kind of CollisionHandler. Rather than saving up the collisions, it generates a Panda event <tasks-and-event-handling> when collision events are detected.\n\nThere are three kinds of events that may be generated: the \"in\" event, when a particular object collides with another object that it didn't in the previous pass, the \"out\" event, when an object is no longer colliding with an object it collided with in the previous pass, and the \"again\" event, when an object is still colliding with the same object that it did in the previous pass.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6443
+  }
+}

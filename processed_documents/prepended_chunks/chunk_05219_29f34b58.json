@@ -1,0 +1,9 @@
+{
+  "content": "The `alterInterest` method is a helper function within the DoInterestManager class that allows modification of existing interests by updating their parent ID and zone list while maintaining context for improved search retrieval.\n\n```python\n    def alterInterest( self, handle, parentId, zoneIdList, description=None,\n                      event=None ):\n        \"\"\"Removes old interests and adds new interests. When an interest is altered, only the most recent change's event will be triggered.\"\"\"\n        # Implementation of alterInterest method\n```\n\nThis method sits within a class responsible for managing client-side interests, enabling dynamic updates to tracked zones or areas while handling event notifications efficiently.\n\ndef alterInterest(self, handle, parentId, zoneIdList, description=None,\n                      event=None):\n        \"\"\"\n        Removes old interests and adds new interests.\n\n        Note that when an interest is changed, only the most recent\n        change's event will be triggered. Previous events are abandoned.\n        If this is a problem, consider opening multiple interests.\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        assert isinstance(handle, InterestHandle)\n        #assert not self._noNewInterests\n        handle = handle.asInt()\n        if self._noNewInterests:\n            DoInterestManager.notify.warning(\n                \"alterInterest: addingInterests on delete: %s\" % (handle))\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5219
+  }
+}

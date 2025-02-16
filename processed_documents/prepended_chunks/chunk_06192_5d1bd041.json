@@ -1,0 +1,9 @@
+{
+  "content": "This chunk situates within a section explaining how to set up and configure a vehicle in the Bullet physics library using Panda3D. It follows the creation of the chassis and precedes detailed control implementation, focusing specifically on creating and configuring wheels, including setting their position, direction, radius, and suspension parameters.\n\n# Vehicle\nvehicle = BulletVehicle(world, chassisNP.node())\nvehicle.setCoordinateSystem(ZUp)\nworld.attachVehicle(vehicle)\n\nWheels\n\nOnce we have created the chassis and the vehicle we can add wheels to the vehicle. We can create a new wheel using the createWheel factory method of the previously created vehicle. Once created we still have to configure the wheel, that is set friction parameters, offset of the wheel hub with respect to the chassis, axle direction and so on.\n\npython\n\nThe following sample shows how to create and configure a wheel. In this case a front wheel is created. Front wheels are steerable.\n\nwheelNP = loader.loadModel('path/to/model')\nwheelNP.reparentTo(render)\n\nwheel = vehicle.createWheel()\n\nwheel.setNode(wheelNP.node())\nwheel.setChassisConnectionPointCs(Point3(0.8, 1.1, 0.3))\nwheel.setFrontWheel(True)\n\nwheel.setWheelDirectionCs(Vec3(0, 0, -1))\nwheel.setWheelAxleCs(Vec3(1, 0, 0))\nwheel.setWheelRadius(0.25)\nwheel.setMaxSuspensionTravelCm(40.0)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_432",
+    "parent": "processed_documents/context_documents/e8a9ae27_79b9f95b_vehicles.json",
+    "chunk_number": 6192
+  }
+}

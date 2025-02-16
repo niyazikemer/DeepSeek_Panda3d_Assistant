@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the \"Known Shader Bugs and Limitations\" document, addressing issues with shader compilation under ARB profiles due to variable loops and suggesting workarounds. It also introduces the problem of untested/unfinished DirectX support in shader development compared to OpenGL.\n\nWorkaround: The recommended approach is to first try and find out which instructions are causing it to fail to compile under the ARB profiles. The most common problem is when a loop is used with a variable length, which cannot be unrolled by the compiler:\n\nfor (i = 0; i < k_iterations.x; ++i)\n\nInstead, you should use a constant that is known at compile-time:\n\n#define ITERATIONS 10\nfor (i = 0; i < ITERATIONS; ++i)\n\nWorkaround: You need to disable the basic-shaders-only flag to allow Panda to translate the shaders into profiles that do support the used instructions:\n\nbasic-shaders-only false\n\nNote that by doing so you might run into the problem above, and it is not recommended to do so unless you really need it.\n\nProblem: Untested/Unfinished DirectX Support\n\nProblem: Shader development is currently being done in OpenGL. The DirectX support typically lags behind, and is often less fully-tested.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_401",
+    "parent": "processed_documents/context_documents/b94e6c02_f8c75e0b_known-shader-issues.json",
+    "chunk_number": 6054
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis section provides essential guidelines for ensuring proper garbage collection of custom class instances in Panda3D 1.6, specifically focusing on steps to remove references and clean up resources. The content emphasizes the importance of calling self.ignoreAll() when a class inherits from DirectObject to prevent message system references and removing all direct references to the instance, including those stored in PythonTags, to facilitate proper cleanup without relying solely on __del__ methods.\n\"\"\"\n\nIf the custom class inherits from DirectObject, call self.ignoreAll()\u2013 Panda3D\u2019s message system will also retain a reference to the custom class if it is set up to receive messages. To be on the safe side, every class that inherits from DirectObject and will be deleted during run time should call self.ignoreAll() to tell the message system that the class is no longer listening to messages. That will remove the reference.\n\nRemove all direct references to the custom class instance \u2013 Naturally, the custom class instance won\u2019t get cleaned up if something is referencing it directly, either through a circular self reference, or because it was created as a \u201cchild\u201d of another class and that other class has a reference to it stored as a variable. All of these references need to be removed. This also includes references to the custom class instance placed in PythonTags.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_493",
+    "parent": "processed_documents/context_documents/34bfddd9_5e9b18c7_removing-custom-class-instances.json",
+    "chunk_number": 6482
+  }
+}

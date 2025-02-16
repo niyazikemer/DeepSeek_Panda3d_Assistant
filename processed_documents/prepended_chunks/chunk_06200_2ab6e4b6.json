@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears within a section discussing advanced texture manipulation techniques in Panda3D, specifically focusing on how to implement projected textures using the TexProjector functionality. The context explains how developers can project textures onto 3D models as if they were emitted from a virtual projector or light source positioned anywhere in the scene, enabling effects like dynamic shadows or illuminated patterns.\n\nProjected Textures\n\nAnother useful application of the TexProjector is to implement projected textures--that is, a texture applied to geometry as if it has been projected from a lens somewhere in the world, something like a slide projector. You can use this to implement a flashlight effect, for instance, or simple projected shadows.\n\nThis works because the TexProjector effect does one additional trick: if the second NodePath in the ~.NodePath.set_tex_projector() call happens to be a .LensNode, then the TexProjector automatically applies the lens's projection matrix to the texture coordinates (in addition to applying the relative transform between the nodes).\n\nTo implement projected textures, you need to do three steps:\n\nApply the texture you want to the model you want to project it onto, usually on its own TextureStage, so that it is multitextured <multitexture-introduction>.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_433",
+    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
+    "chunk_number": 6200
+  }
+}

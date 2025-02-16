@@ -1,0 +1,9 @@
+{
+  "content": "The `detailedRepr` method is part of a comprehensive event management system implemented within the `Messenger` class. This method generates a verbose, structured string representation of all registered events and their corresponding acceptors, providing detailed insights into each function's properties, including its name, associated class, extra arguments, persistence status, and whether it operates as a class method. This functionality is essential for debugging, monitoring, or logging purposes, enabling developers to thoroughly inspect the event handling setup within the application.\n\ndef detailedRepr(self):\n        \"\"\"\n        Print out the table in a detailed readable format\n        \"\"\"\n        str = 'Messenger\\n'\n        str = str + '='*50 + '\\n'\n        for event in sorted(self.__callbacks):\n            acceptorDict = self.__callbacks[event]\n            str = str + 'Event: ' + event + '\\n'\n            for key in list(acceptorDict.keys()):\n                function, extraArgs, persistent = acceptorDict[key]\n                object = self._getObject(key)\n                objectClass = getattr(object, '__class__', None)\n                if objectClass:\n                    className = objectClass.__name__\n                else:\n                    className = \"Not a class\"\n                functionName = function.__name__\n                str = (str + '\\t' +\n                       'Acceptor:     ' + className + ' instance' + '\\n\\t' +\n                       'Function name:' + functionName + '\\n\\t' +\n                       'Extra Args:   ' + repr(extraArgs) + '\\n\\t' +",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5071
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to manipulate the render order of simple geometry by assigning nodes to specific bins with depth settings, providing Python and C++ code examples. It also discusses limitations for self-occluding models and suggests alternative methods involving display regions, appearing after explaining the bin assignment process in Panda's scene graph traversal.\n\nIf you want simple geometry that's in back of something to render in front of something that it logically shouldn't, add the following code to the model that you want in front:\n\npython\n\nmodel.setBin(\"fixed\", 0)\nmodel.setDepthTest(False)\nmodel.setDepthWrite(False)\n\ncpp\n\nmodel.set_bin(\"fixed\", 0);\nmodel.set_depth_test(false);\nmodel.set_depth_write(false);\n\nThe above code will only work for simple models. If your model self-occludes (parts of the model covers other parts of the model), the code will not work as expected. An alternative method is to use a display region <display-regions> with dr.set_clear_depth_active(True) <.DrawableRegion.set_clear_depth_active>.\n\nThe following bin types may be specified:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_447",
+    "parent": "processed_documents/context_documents/861b8e8f_31d3f668_controlling-render-order.json",
+    "chunk_number": 6267
+  }
+}

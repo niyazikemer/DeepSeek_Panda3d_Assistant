@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `CRCache` class in a document that describes how distributed objects are cached. Specifically, this section is within the `flush()` method of the `CRCache` class, which is responsible for clearing all items from the cache. The code handles objects that cannot be immediately deleted due to pending delay deletes, checks for any leaks or issues during deletion, and logs appropriate error messages if deletions fail. Finally, it clears all references to cached objects to ensure proper garbage collection.\n\nThe context of this code chunk is within the `CRCache` class, specifically in the `flush()` method, which manages the cleanup process by ensuring that all cached distributed objects are properly deleted or logged for further inspection.\n\ndelayDeleted.append(distObj)\n            if distObj.getDelayDeleteCount() <= 0:\n                # make sure we're not leaking\n                distObj.detectLeaks()\n        # now that all objects have had a chance to delete, are there any objects left\n        # that are still delayDeleted?\n        delayDeleteLeaks = []\n        for distObj in delayDeleted:\n            if distObj.getDelayDeleteCount() != 0:\n                delayDeleteLeaks.append(distObj)\n        if len(delayDeleteLeaks) > 0:\n            s = 'CRCache.flush:'\n            for obj in delayDeleteLeaks:\n                s += ('\\n  could not delete %s (%s), delayDeletes=%s' %\n                      (safeRepr(obj), itype(obj), obj.getDelayDeleteNames()))\n            self.notify.error(s)\n        # Null out all references to the objects so they will get gcd\n        self.dict = {}\n        self.fifo = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5264
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how the GraphicsPipe is used to create GraphicsWindow and GraphicsBuffer objects, provides an overview of these classes and their inheritance from GraphicsOutput, and introduces the concept of the GraphicsStateGuardian (GSG).\n\nThe GraphicsPipe object isn't often used directly, except to create the individual GraphicsWindow and GraphicsBuffer objects.\n\nGraphicsWindow and GraphicsBuffer\n\nThe .GraphicsWindow class is the class that represents a single onscreen window for rendering. Panda normally opens a default window for you at startup, which is available in base.win. You can create as many additional windows as you like. (Note, however, that some graphics drivers incur a performance penalty when multiple windows are open simultaneously.)\n\nSimilarly, .GraphicsBuffer is the class that represents a hidden, offscreen buffer for rendering special offscreen effects, such as render-to-texture. It is common for an application to have many offscreen buffers open at once.\n\nBoth classes inherit from the base class .GraphicsOutput, which contains all of the code common to rendering to a window or offscreen buffer.\n\nGraphicsStateGuardian",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_393",
+    "parent": "processed_documents/context_documents/b9b6eb63_1752f959_introducing-graphics-classes.json",
+    "chunk_number": 6009
+  }
+}

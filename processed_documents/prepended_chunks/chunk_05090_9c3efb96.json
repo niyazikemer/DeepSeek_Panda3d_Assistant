@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk contains several methods of a profiling or performance measurement class. These include:\n\n- `profileSucceeded()`: Checks if profiling was successful\n- Methods for managing temporary \"RAM files\" used during profiling (`_restoreRamFile()` and `_discardRamFile()`)\n- Property setters/getters for configuring the profiler (`setName()`, `setFunc()`, etc.)\n- Results handling after profiling completes\n\nThe chunk appears in a class that performs performance analysis, likely capturing execution statistics for later examination.\n\nself._successfulProfiles += 1\n\n            if self._logAfterProfile:\n                self.notify.info(self.getResults())\n\n        self.release()\n        return result\n\n    def getDuration(self):\n        return self._duration\n\n    def profileSucceeded(self):\n        return self._successfulProfiles > 0\n\n    def _restoreRamFile(self, filename):\n        # set up the RAM file\n        _installProfileCustomFuncs(filename)\n        # install the stored RAM file from self.run()\n        _setProfileResultsFileInfo(filename, self._filename2ramFile[filename])\n\n    def _discardRamFile(self, filename):\n        # take down the RAM file\n        _removeProfileCustomFuncs(filename)\n        # and discard it\n        del self._filename2ramFile[filename]\n\n    def setName(self, name):\n        self._name = name\n    def getName(self):\n        return self._name\n\n    def setFunc(self, func):\n        self._func = func\n    def getFunc(self):\n        return self._func",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5090
+  }
+}

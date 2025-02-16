@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the default camera driver in Panda, which enables mouse control of the camera and may conflict with user-written code. It explains how to disable this task using `base.disableMouse()` and introduces ShowBase methods like `useDrive()` for alternative controls that only affect x and y axes.\n\nThe Default Camera Driver\n\nBy default, panda runs a task that enables you to move the camera using the mouse. This task will conflict with any code you write to move the camera. The task controls the camera by updating the camera's position every frame to where the mouse thinks it should be. This means that any other code that directly controls the camera will not seem to work, because it will be fighting the mouse for control.\n\nIf you want to move the camera directly under show control, you must first disable the camera control task and then the camera will move as expected.\n\nbase.disableMouse()\n\nThe ShowBase class contains some handy methods to allow the user control over the camera. The ~direct.showbase.ShowBase.ShowBase.useDrive() command enables keyboard and mouse control. Both control systems move only on the x and y axes, so moving up and down along the z axis is impossible with these systems.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_564",
+    "parent": "processed_documents/context_documents/d8fc1bb0_f8c116c7_default-camera-driver.json",
+    "chunk_number": 6988
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines a `PercentStats` class derived from Python's `pstats.Stats`, which processes and displays profiling statistics. It enhances readability for durations shorter than a millisecond, manages filenames, and prints function names with appropriate indentation. This class is used within the larger profiling system to compile and present timing data effectively.\n\nclass PercentStats(pstats.Stats):\n    # prints more useful output when sampled durations are shorter than a millisecond\n    # lots of this is copied from Python's pstats.py\n    def setTotalTime(self, tt):\n        # use this to set 'total time' to base time percentages on\n        # allows profiles to show timing based on percentages of duration of another profile\n        self._totalTime = tt\n\n    def add(self, *args, **kArgs):\n        pstats.Stats.add(self, *args, **kArgs)\n        # DCR -- don't need to record filenames\n        self.files = []\n\n    def print_stats(self, *amount):\n        for filename in self.files:\n            print(filename)\n        if self.files:\n            print()\n        indent = ' ' * 8\n        for func in self.top_level:\n            print(indent, pstats.func_get_function_name(func))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5081
+  }
+}

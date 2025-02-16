@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger document implementing a camera fixture management system in Python. The `Fixture` class, inheriting from `NodePath` and `FSM`, handles camera placement, orientation, field-of-view settings, and state transitions. This specific chunk defines the initialization method and basic properties for each fixture, enabling precise positioning and configuration within a 3D environment.\n\n```context\nThe code defines a `Fixture` class that initializes camera fixtures with specified positions, orientations (hpr), and field of view parameters. It includes methods for string representation, data serialization (`pack`), and ID management, fitting into a system managing multiple camera states through FSM.\n```\n\nclass Fixture(NodePath, FSM):\n    def __init__(self, id, parent, pos, hpr, fov):\n        NodePath.__init__(self, 'cam-%s' % id)\n        FSM.__init__(self, '%s-fsm' % self.getName())\n        self.id = id\n        self.lens = PerspectiveLens()\n        self.lens.setFov(base.camLens.getFov())\n\n        model = base.loader.loadModel('models/misc/camera', okMissing = True)\n        model.reparentTo(self)\n\n        self.reparentTo(parent)\n        self.setPos(pos)\n        self.setHpr(hpr)\n        self.setFov(fov)\n        self.setLightOff(100)\n        self.hide()\n\n        self.scaleIval = None\n        self.recordingInProgress = False\n        self.dirty = False\n\n    def __str__(self):\n        return 'Fixture(%d, \\'%s\\', %s, %s, %s)' % (self.id, self.state, self.getPos(), self.getHpr(), self.getFov())\n\n    def pack(self):\n        return 'Camera(%s, %s, %s)' % (self.getPos(), self.getHpr(), self.getFov())\n\n    def setId(self, id):\n        self.id = id",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_329",
+    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
+    "chunk_number": 5627
+  }
+}

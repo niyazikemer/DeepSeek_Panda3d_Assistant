@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk discusses optimizing framebuffer data storage by avoiding explicit storage of light parameters (constants across pixels) and surface positions (inferred via depth buffer calculations), which is situated within a broader discussion about reconstructing view-space position from screen-space coordinates using depth values.\n\nOf course, that's a lot of data to store in the framebuffer. The first optimization is not to store the light parameters. It is not necessary to store light parameters because the light parameters don't vary from pixel to pixel ---they're constants.\n\nOur second optimization involves surface position. Surface position can be inferred by calculating backward from the depth buffer. Each pixel on the screen represents a ray from the camera into the scene, and the depth value in the pixel indicates a distance along the ray. Because of this, it is not actually necessary to store surface position explicitly - it is only necessary to store depth values. Of course, OpenGL does that for free.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_522",
+    "parent": "processed_documents/context_documents/7430db66_5763024b_fireflies.json",
+    "chunk_number": 6628
+  }
+}

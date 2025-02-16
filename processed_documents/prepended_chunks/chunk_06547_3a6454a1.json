@@ -1,0 +1,9 @@
+{
+  "content": "The chunk focuses on creating and animating actor subparts in Panda3D, such as defining body sections like legs or torso and playing animations on specific parts. It also covers enabling smooth frame interpolation through configuration settings and highlights the importance of model cache considerations for interpolation to take effect.\n\nactor.makeSubpart(\"legs\", [\"Left Thigh\", \"Right Thigh\"])\nactor.makeSubpart(\"torso\", [\"Head\"], [\"Left Thigh\", \"Right Thigh\"])\n\nIf you want to play an animation on a subpart make sure to pass the name.\n\nactor.loop(\"walk\", partName=\"legs\")\nactor.loop(\"reload\", partName=\"torso\")\n\nInterpolation\n\nIntra-frame interpolation is also supported. If you play an animation with only few frames per second you can see your model \"jump\" from one frame to the next. If you enable interpolation between frames, those \"jumps\" will be smoothed out. This allows smooth animations with framerates as low as one frame per second or even less. Intra-frame interpolation is disabled by default. To enable it, just add the following lines to your code\n\npython\n\nfrom panda3d.core import loadPrcFileData\nloadPrcFileData(\"\", \"interpolate-frames 1\")\n\nFrom the FAQ:\n\n\"Interpolate-frames flag gets set in the PartBundle at the time it is first created, and then baked into the bam cache.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_505",
+    "parent": "processed_documents/context_documents/4f3e2d7a_0bcb2e3d_actor-animations.json",
+    "chunk_number": 6547
+  }
+}

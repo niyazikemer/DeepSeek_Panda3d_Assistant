@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses techniques to manage shadow mapping in Panda3D, specifically how to exclude objects from casting shadows using camera masks for performance optimization and how to prevent self-shadowing on thin objects by applying a depth offset via NodePath methods or EGG file settings.\n\nAlso note that every Light is in fact also a Camera, so you can easily exclude objects from being shadowed (e.g. for performance reasons) by use of camera masks.\n\nIf you have very thin objects, you may run into self-shadowing issues if the backside of the object casts shadows on its frontside. You can easily fix this by applying a depth offset to the object in question. A depth offset of 1 means to use an offset as small as possible, but big enough to make a difference. This should generally be enough. You can call ~.NodePath.set_depth_offset() on the NodePath or use the depth-offset scalar in the .egg file.\n\npython\n\nleaves.setDepthOffset(1)\n\ncpp\n\nleaves.set_depth_offset(1);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5886
+  }
+}

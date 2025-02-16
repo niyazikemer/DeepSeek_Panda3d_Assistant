@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of a method within the `ServerRepository` class that handles how updates from clients are distributed to other clients. Specifically, it determines whether an update should be sent to a targeted client, only the owner of an object (using p2p), or broadcasted to all clients in the same zone except the sender.\n\nThis code is situated in the logic where the server processes incoming updates and decides how to propagate them based on specific keywords or conditions related to the data being updated. The method uses the `sendToZoneExcept` helper function for broadcasting, ensuring that messages are sent appropriately according to predefined distribution rules.\n\nif targeted:\n            # A targeted update: only to the indicated client.\n            target = self.clientsByDoIdBase.get(targetId)\n            if not target:\n                self.notify.warning(\n                    \"Ignoring targeted update to %s for %s.%s on object %s from client %s: target not known\" % (\n                    targetId,\n                    dclass.getName(), dcfield.getName(), doId, client.doIdBase))\n                return\n            self.cw.send(dg, target.connection)\n            self.needsFlush.add(target)\n\n        elif dcfield.hasKeyword('p2p'):\n            # p2p: to object owner only\n            self.cw.send(dg, owner.connection)\n            self.needsFlush.add(owner)\n\n        elif dcfield.hasKeyword('broadcast'):\n            # Broadcast: to everyone except orig sender\n            self.sendToZoneExcept(object.zoneId, dg, [client])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5187
+  }
+}

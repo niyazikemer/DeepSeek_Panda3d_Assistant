@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk introduces the concepts of converting between Panda's Egg and Bam file formats, discussing their characteristics and how texture paths are resolved in egg files.\n\nConverting Egg to Bam\n\nPanda's native egg file format is human-readable. This is convenient, but the files can get very large, and they can a little bit slow to load. To accelerate loading, Panda supports a second native format, bam. These files are smaller and are loaded very rapidly, but they cannot be viewed or edited in a text editor. Also, bam files are specific to the version of Panda they are created with, so they are not a good choice for long-term storage of your models.\n\nTexture pathnames in an egg file are first assumed to be relative to the egg file itself. If the texture is not found at that location, panda will search its model-path, which is specified in the panda config file. When doing this, panda concatenates the directory which is part of the model-path to the entire string in the egg-file. So if the model-path names the directory \"/d/stuff\", and the texture-path in the egg file is \"mytextures/tex.png\", then panda looks in \"/d/stuff/mytextures/tex.png.\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_458",
+    "parent": "processed_documents/context_documents/fba52071_72c710ab_converting-egg-to-bam.json",
+    "chunk_number": 6331
+  }
+}

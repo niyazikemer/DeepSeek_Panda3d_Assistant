@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a set of methods (`addServerHeader`, `addOldServerHeader`, `addServerControlHeader`) within the PyDatagram class that handle the creation and formatting of specific types of server-related headers. These methods use various data encoding functions (e.g., `addInt8`, `addUint16`, `addChannel`) to construct structured communication messages for network protocols, likely used in distributed systems or client-server applications to manage message routing and identification.\n\naddChannel = Datagram.addUint64\n\n    def addServerHeader(self, channel, sender, code):\n        self.addInt8(1)\n        self.addChannel(channel)\n        self.addChannel(sender)\n        self.addUint16(code)\n\n    def addOldServerHeader(self, channel, sender, code):\n        self.addChannel(channel)\n        self.addChannel(sender)\n        self.addChannel('A')\n        self.addUint16(code)\n\n    def addServerControlHeader(self, code):\n        self.addInt8(1)\n        self.addChannel(CONTROL_CHANNEL)\n        self.addUint16(code)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_317",
+    "parent": "processed_documents/context_documents/edf46f16_PyDatagram.json",
+    "chunk_number": 5486
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This document explains techniques for reconstructing view-space coordinates from screen-space data in computer graphics. The specific chunk derives the formula for calculating `y_view` by solving equations involving depth, clip-space transformations, and projection constants, which is part of a broader discussion on efficiently reconstructing vertex positions using precomputed constants to optimize shader operations.\n\n$$\\begin{aligned} \\begin{aligned} depth &= 0.5 \\cdot z_{screen} + 0.5 \\\\ depth &= \\frac{z_{clip}}{w_{clip}} \\cdot 0.5 + 0.5 \\\\ depth &= \\frac{y_{view} \\cdot B + D}{y_{view}} \\cdot 0.5 + 0.5 \\\\ depth - 0.5 &= \\frac{y_{view} \\cdot B + D}{y_{view}} \\cdot 0.5 \\\\ (2 \\cdot depth - 1.0) &= \\frac{y_{view} \\cdot B + D}{y_{view}} \\\\ (2 \\cdot depth - 1.0) \\cdot y_{view} &= y_{view} \\cdot B + D \\\\ (2 \\cdot depth - 1.0) \\cdot y_{view} + y_{view} \\cdot -B &= D \\\\ (2 \\cdot depth - 1.0 - B) \\cdot y_{view} &= D \\\\ y_{view} &= \\frac{0.5D}{depth - 0.5 - 0.5B} \\end{aligned} \\end{aligned}$$",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_522",
+    "parent": "processed_documents/context_documents/7430db66_5763024b_fireflies.json",
+    "chunk_number": 6633
+  }
+}

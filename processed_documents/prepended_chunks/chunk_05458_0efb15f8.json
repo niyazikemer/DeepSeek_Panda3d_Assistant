@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk belongs to a class named ClockDelta, which handles clock synchronization in networked applications. This section initializes the last synchronization time, sets up an event handler for resetting the clock, and provides methods to retrieve the current delta, uncertainty with drift, and the time of last resynchronization.\n\n# self.lastResync is the time at which self.uncertainty\n        # was measured.  It is important to remember because our\n        # uncertainty increases over time (due to relative clock\n        # drift).\n        self.lastResync = 0.0\n\n        self.accept(\"resetClock\", self.__resetClock)\n\n    def getDelta(self):\n        return self.delta\n\n    def getUncertainty(self):\n        # Returns our current uncertainty with our clock measurement,\n        # as a number of seconds plus or minus.  Returns None,\n        # representing infinite uncertainty, if we have never received\n        # a time measurement.\n\n        if self.uncertainty is None:\n            return None\n\n        now = self.globalClock.getRealTime()\n        elapsed = now - self.lastResync\n        return self.uncertainty + elapsed * ClockDriftPerSecond\n\n    def getLastResync(self):\n        # Returns the local time at which we last resynchronized the\n        # clock delta.\n        return self.lastResync",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_315",
+    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
+    "chunk_number": 5458
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a section discussing basic performance diagnostics in Panda3D, specifically focusing on tools to monitor and analyze application performance. It provides instructions for enabling the Frame-Rate Meter, which displays real-time frame rate information, discusses the limitations of measuring performance in FPS versus frame time in milliseconds, and introduces the Scene Graph Analyzer as a tool for inspecting scene complexity.\n\nshow-frame-rate-meter true\n\nOr, if you want to have it set at run-time:\n\npython\n\nbase.setFrameRateMeter(True)\n\ncpp\n\nPT(FrameRateMeter) meter;\nmeter = new FrameRateMeter(\"frame_rate_meter\");\nmeter->setup_window(graphics_window);\n\nHowever, keep in mind that measuring the frame rate in FPS gives a distorted view of the application performance. This is because FPS is not a linear scale: improving your frame rate from 500 to 1000 FPS sounds like a lot, but it represents a difference of only 1 millisecond, which is about the same as improving your frame rate from 29 to 30 FPS, and does therefore not actually represent a very significant optimization.\n\nIt is more meaningful to look at the reciprocal of this number, the frame time, usually measured in milliseconds. To see the frame rate in ms, put this in your config file:\n\nframe-rate-meter-milliseconds true\n\nThe Scene Graph Analyzer",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_550",
+    "parent": "processed_documents/context_documents/1b8754eb_00560618_basic-performance-diagnostics.json",
+    "chunk_number": 6924
+  }
+}

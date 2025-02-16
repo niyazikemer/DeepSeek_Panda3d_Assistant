@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an `update` method in a class managing a 3D motion trail effect. It handles the case when curves are not used (`self.use_curves` is False), processing each segment between frames to generate the motion trail geometry with specific time interpolation parameters.\n\nt0 = t1\n                            t2 = t3\n\n                            vertex_segment_index += 1\n\n                        curve_segment_index += 1.0\n\n                else:\n                    segment_index = 0\n                    while segment_index < total_segments:\n                        motion_trail_frame_start = self.frame_list[segment_index]\n                        motion_trail_frame_end = self.frame_list[segment_index + 1]\n\n                        start_t = (motion_trail_frame_start.time - minimum_time) / delta_time\n                        end_t = (motion_trail_frame_end.time - minimum_time) / delta_time\n\n                        st = start_t\n                        et = end_t\n\n                        if self.square_t:\n                            start_t *= start_t\n                            end_t *= end_t\n\n                        vertex_segment_index = 0\n                        total_vertex_segments = self.total_vertices - 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5141
+  }
+}

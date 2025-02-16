@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk appears to be part of a class initialization process where distributed object classes (dclasses) are being dynamically loaded from modules. The surrounding code is attempting to retrieve class definitions for each dclass using `dcImports` and handling cases where the class may or may not include a suffix like 'UD' (commonly used in UDP-based networking). It includes error checking to validate whether the retrieved symbol is actually a class, provides logging for debugging purposes, and stores the resolved class definitions in dictionaries (`dclassesByName` and `dclassesByNumber`) for later use.\n\n# Also try it without the dcSuffix.\n            if classDef is None:\n                className = dclass.getName()\n                classDef = dcImports.get(className)\n            if classDef is None:\n                self.notify.debug(\"No class definition for %s.\" % (className))\n            else:\n                if inspect.ismodule(classDef):\n                    if not hasattr(classDef, className):\n                        self.notify.warning(\"Module %s does not define class %s.\" % (className, className))\n                        continue\n                    classDef = getattr(classDef, className)\n\n                if not inspect.isclass(classDef):\n                    self.notify.error(\"Symbol %s is not a class name.\" % (className))\n                else:\n                    dclass.setClassDef(classDef)\n\n            self.dclassesByName[className] = dclass\n            if number >= 0:\n                self.dclassesByNumber[number] = dclass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5316
+  }
+}

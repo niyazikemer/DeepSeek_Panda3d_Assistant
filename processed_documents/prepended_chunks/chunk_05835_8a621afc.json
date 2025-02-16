@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses fundamental aspects of working with Panda3D's Egg files, covering both technical details about transforms and vertices as well as practical considerations for creating custom .egg readers/writers. This section provides essential information for anyone working with Egg file format in Panda3D, including how transformations are handled during animations and the importance of pre-transforming vertex coordinates to maintain global consistency.\n\nParsing and Generating Egg Files\n\nTransforms and Vertices\n\nThe egg syntax defines all transforms, including joint transforms, relative to the parent node only. When the animation is played, Panda accumulates the transforms for each joint.\n\nAlthough joints are defined using a local transform, vertices are defined in an egg file using global coordinates, which is irrespective of transforms appearing within the egg file. This means when Panda loads the egg file is loaded, the vertex coordinates given in the egg file must be pre-transformed by the appropriate inverse matrix to compensate.\n\nCustom .egg Readers/Writers\n\nWhen writing an importer or exporter for panda, you have two choices.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_356",
+    "parent": "processed_documents/context_documents/a2fa0ebe_78d62980_parsing-and-generating-egg-files.json",
+    "chunk_number": 5835
+  }
+}

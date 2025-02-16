@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the NodePath class in Panda3D, a set of utilities for manipulating 3D scenes. The specific method `hideCS` is deprecated and used to hide collision solids based on an optional bitmask, suggesting alternative methods for this functionality. This context fits within the section dealing with collision detection and scene manipulation utilities.\n\ndef hideCS(self, mask = None):\n    \"\"\"\n    Deprecated.\n    Hides the collision solids at or below this node.  If mask is\n    not None, it is a BitMask32 object (e.g. WallBitmask,\n    CameraBitmask) that indicates which particular collision\n    solids should be hidden; otherwise, all of them will be.\n    \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.hideCS() is deprecated.  Use findAllMatches('**/+CollisionNode').hide() instead.\", DeprecationWarning, stacklevel=2)\n    npc = self.findAllMatches('**/+CollisionNode')\n    for p in range(0, npc.getNumPaths()):\n        np = npc[p]\n        if mask is None or (np.node().getIntoCollideMask() & mask).getWord():\n            np.hide()\n\nDtool_funcToMethod(hideCS, NodePath)\ndel hideCS\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5763
+  }
+}

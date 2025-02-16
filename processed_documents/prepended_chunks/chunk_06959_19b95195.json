@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides examples in both Python and C++ on how to pass a NodePath (like a model or camera) into the shader subsystem, enabling transformations between coordinate spaces specific to that node. This is part of explaining how to access custom model or view spaces within shaders, which is useful for operations like shadow mapping or projecting vertices into different coordinate systems.\n\npython\n\nmyhouse = loader.loadModel(\"myhouse\")\nrender.setShaderInput(\"myhouse\", myhouse)\n\ncpp\n\nNodePath myhouse = window->load_model(framework.get_models(), \"myhouse\");\nwindow->get_render().set_shader_input(\"myhouse\", myhouse);\n\nThen, in the shader, you can convert coordinates to or from the model-space of this particular nodepath:\n\nuniform float4x4 trans_world_to_model_of_myhouse\n\nor, use the syntactic shorthand:\n\nuniform float4x4 trans_world_to_myhouse\n\nLikewise, you can create a camera and pass it into the shader subsystem. This is particularly useful when doing shadow mapping:\n\npython\n\nrender.setShaderInput(\"shadowcam\", shadowcam)\n\ncpp\n\nrender.set_shader_input(\"shadowcam\", shadowcam);\n\nNow you can transform vertices into the clip-space of the given camera using this notation:\n\nuniform float4x4 trans_model_to_clip_of_shadowcam",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_557",
+    "parent": "processed_documents/context_documents/84f019c6_7f49f363_coordinate-spaces.json",
+    "chunk_number": 6959
+  }
+}

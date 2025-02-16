@@ -1,0 +1,9 @@
+{
+  "content": "This section discusses techniques for optimizing model loading performance in Panda3D, including bypassing the cache using `noCache=True`, compressing EGG files with `pzip` to reduce file size, and loading models asynchronously to improve user experience when dealing with large models.\n\npython\n\nYou can alternatively force a model to bypass the model cache by passing the noCache=True argument to the loader.loadModel call.\n\nCompressed Models\n\nBecause EGG files are text-based, they can get rather large in size. It is often desirable to store them in a compressed fashion so that they take up less space. This can be done using the pzip utility that ships with Panda3D:\n\npzip model.egg\n\nThat will turn it into a file called \"model.egg.pz\", which will be considerably smaller. Panda3D will be able to load this model without any extra steps.\n\nTo undo this step and return it to its original form, just run it through the \"punzip\" utility.\n\nLoading Models Asynchronously\n\nWhen loading very large models, it can sometimes take some time before the model has finished loading. If this is done while the user is interacting with the program, it generates an undesirable lag. To alleviate this, Panda3D can load models in the background, without disrupting the user experience.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_375",
+    "parent": "processed_documents/context_documents/f90847cd_c3bbc946_model-files.json",
+    "chunk_number": 5942
+  }
+}

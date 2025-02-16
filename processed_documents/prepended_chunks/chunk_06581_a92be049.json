@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides an introduction to loading fonts in Panda3D, detailing how to directly load TTF files or pre-generate fonts using the egg- mkfont utility for rendering text.\n\nText Fonts\n\nLoading a Font\n\nPanda3D can render text using a variety of fonts. If your version of Panda3D has been compiled with support for the FreeType library (the default distribution of Panda3D has been), then you can load any TTF file, or any other font file type that is supported by FreeType, directly:\n\npython\n\nfont = loader.loadFont('arial.ttf')\n\ncpp\n\nPT(TextFont) font = FontPool::load_font(\"arial.ttf\");\n\nThe named file is searched for along the model-path, just like a regular egg file. You can also give the full path to the font file if you prefer (but remember to observe the filename-syntax).\n\nIt is also possible to pre-generate a font with the egg-mkfont command-line utility:\n\negg-mkfont -o arial.egg arial.ttf\n\nThis will generate an egg file (arial.egg in the above example) and an associated texture file that can then be loaded as if it were a font:\n\npython\n\nfont = loader.loadFont('arial.egg')\n\ncpp\n\nPT(TextFont) font = FontPool::load_font(\"arial.egg\");",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_514",
+    "parent": "processed_documents/context_documents/896bae18_c85845c1_text-fonts.json",
+    "chunk_number": 6581
+  }
+}

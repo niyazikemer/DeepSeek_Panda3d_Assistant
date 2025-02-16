@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code defines methods for managing distributed object locations and client interests within a distributed system. The code handles setting interest in specific zones, moving objects between zones, and sending location updates to clients to ensure they receive relevant information about object movements.\n\ndatagram = PyDatagram()\n        # Add message type\n        datagram.addUint16(CLIENT_SET_INTEREST_CMU)\n\n        for zoneId in interestZoneIds:\n            datagram.addUint32(zoneId)\n\n        # send the message\n        self.send(datagram)\n        self.interestZones = interestZoneIds[:]\n\n    def setObjectZone(self, distObj, zoneId):\n        \"\"\" Moves the object into the indicated zone. \"\"\"\n        distObj.b_setLocation(0, zoneId)\n        assert distObj.zoneId == zoneId\n\n        # Tell all of the clients monitoring the new zone that we've\n        # arrived.\n        self.resendGenerate(distObj)\n\n    def sendSetLocation(self, doId, parentId, zoneId):\n        datagram = PyDatagram()\n        datagram.addUint16(OBJECT_SET_ZONE_CMU)\n        datagram.addUint32(doId)\n        datagram.addUint32(zoneId)\n        self.send(datagram)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5670
+  }
+}

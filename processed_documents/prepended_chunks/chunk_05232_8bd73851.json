@@ -1,0 +1,9 @@
+{
+  "content": "The `_sendRemoveInterest` method within the `DoInterestManager` class is responsible for constructing and transmitting a datagram to remove a specific interest identified by a handle and context ID. This process involves verifying the handle's existence, assembling the necessary message components, and logging debug information if enabled. The method is part of a system that manages client-side interests efficiently, enabling clients to dynamically add or remove their\u5173\u6ce8\u70b9 within a distributed application.\n\ndef _sendRemoveInterest(self, handle, contextId):\n        \"\"\"\n        handle is a client-side created number that refers to\n                a set of interests.  The same handle number doesn't\n                necessarily have any relationship to the same handle\n                on another client.\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        assert handle in DoInterestManager._interests\n        datagram = PyDatagram()\n        # Add message type\n        datagram.addUint16(CLIENT_REMOVE_INTEREST)\n        datagram.addUint32(contextId)\n        datagram.addUint16(handle)\n        self.send(datagram)\n        if __debug__:\n            state = DoInterestManager._interests[handle]\n            self._addDebugInterestHistory(\n                \"remove\", state.desc, handle, contextId,\n                state.parentId, state.zoneIdList)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5232
+  }
+}

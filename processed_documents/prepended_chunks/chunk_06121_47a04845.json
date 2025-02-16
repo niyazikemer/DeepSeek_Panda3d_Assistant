@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis section explains how to create a visual representation of a soft body using a GeomNode in Panda3D. It provides Python code for generating the geometry from the soft body's faces and attaching it to the scene graph, noting that the created geometry does not need to be two-sided due to the closed mesh. The C++ implementation is pending.\n\"\"\"\n\nVisualisation\n\nAgain, in order to have a visual representation of the soft body we need a GeomNode. We can use almost the same code as we have been using for soft body patches. The only difference is that we don't need to make the created geometry two-sided, since the inside of the closed mesh is usually not visible.\n\npython\n\nfrom panda3d.core import GeomVertexFormat\nfrom panda3d.bullet import BulletHelper\n\nfmt = GeomVertexFormat.getV3n3t2()\ngeom = BulletHelper.makeGeomFromFaces(bodyNode, fmt)\nbodyNode.linkGeom(geom)\nvisNode = GeomNode('EllipsoidVisual')\nvisNode.addGeom(geom)\nvisNP = bodyNP.attachNewNode(visNode)\n\ncpp\n\nTODO",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_418",
+    "parent": "processed_documents/context_documents/64bc5cd8_ade68381_softbody-triangles.json",
+    "chunk_number": 6121
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `__init__` method initializes an instance of the `AsyncRequest` class, setting up parameters such as the AI repository (`air`), reply channel ID, timeout time, and number of retries. It also includes debugging features and registers the instance in a global list for cleanup. This setup is crucial for handling asynchronous operations in networked applications.\n\ndef __init__(self, air, replyToChannelId = None,\n                 timeoutTime = ASYNC_REQUEST_DEFAULT_TIMEOUT_IN_SECONDS,\n                 numRetries = ASYNC_REQUEST_DEFAULT_NUM_RETRIES):\n        \"\"\"\n        air is the AI Respository.\n        replyToChannelId may be an avatarId, an accountId, or a channelId.\n        timeoutTime is how many seconds to wait before aborting the request.\n        numRetries is the number of times to retry the request before giving up.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        if __debug__:\n            if _overrideTimeoutTimeForAllAsyncRequests.getValue() >= 0.0:\n                timeoutTime = _overrideTimeoutTimeForAllAsyncRequests.getValue()\n            if _overrideNumRetriesForAllAsyncRequests.getValue() >= 0:\n                numRetries = _overrideNumRetriesForAllAsyncRequests.getValue()\n        AsyncRequest._asyncRequests[id(self)] = self\n        self.deletingMessage = \"AsyncRequest-deleting-%s\"%(id(self,))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5393
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `cleanupAsyncRequests()` function is designed for shutting down the application by iterating through all pending `AsyncRequest` instances. It calls the `delete()` method on each instance to ensure proper cleanup, preventing resource leaks or lingering processes. This function ensures that no asynchronous requests remain after application shutdown, as indicated by the assertion checking an empty list of requests.\n\ndef cleanupAsyncRequests():\n    \"\"\"\n    Only call this when the application is shuting down.\n    \"\"\"\n    for asyncRequest in AsyncRequest._asyncRequests:\n        asyncRequest.delete()\n    assert not AsyncRequest._asyncRequests",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5405
+  }
+}

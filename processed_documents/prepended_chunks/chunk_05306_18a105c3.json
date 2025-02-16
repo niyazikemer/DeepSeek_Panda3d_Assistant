@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a garbage collection adjustment method intended to situate within a class that manages memory or performance optimization, likely as part of a larger system for handling datagrams or network connections. The method `_adjustGcThreshold` dynamically adjusts Python's garbage collection thresholds based on detected garbage leaks and logs the actions taken for debugging purposes.\n\ndef _adjustGcThreshold(self, task):\n        # do an unconditional collect to make sure gc.garbage has a chance to be\n        # populated before we start increasing the auto-collect threshold\n        # don't distribute the leak check from the client to the AI, they both\n        # do these garbage checks independently over time\n        numGarbage = GarbageReport.checkForGarbageLeaks()\n        if numGarbage == 0:\n            self.gcNotify.debug('no garbage found, doubling gc threshold')\n            a, b, c = gc.get_threshold()\n            gc.set_threshold(min(a * 2, 1 << 30), b, c)\n\n            task.delayTime = task.delayTime * 2\n            retVal = Task.again\n\n        else:\n            self.gcNotify.warning('garbage found, reverting gc threshold')\n            # the process is producing garbage, stick to the default collection threshold\n            gc.set_threshold(*self._gcDefaultThreshold)\n            retVal = Task.done\n\n        return retVal",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5306
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two methods, `markCells()` and `unmarkCells()`, which are part of a class responsible for visualizing and managing a grid system. These methods handle the creation and removal of visual markers on each cell of the grid to indicate specific zones or areas within the grid structure.\n\ndef markCells(self):\n            if self.markerParent:\n                self.markerParent.removeNode()\n            self.markerParent = self.attachNewNode('markers')\n            self.cellMarkers = []\n            dx = self.cellWidth * self.gridSize * .5\n            for i in range(self.gridSize):\n                for j in range(self.gridSize):\n                    marker = base.loader.loadModel(\"models/misc/smiley\")\n                    marker.reparentTo(self.markerParent)\n                    marker.setPos(i * self.cellWidth - dx,\n                                  j * self.cellWidth - dx,\n                                  GRID_Z_OFFSET + 1.0)\n                    marker.setScale(5)\n                    self.cellMarkers.append(marker)\n\n        def unmarkCells(self):\n            if self.markerParent:\n                self.markerParent.removeNode()\n            self.markerParent = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5295
+  }
+}

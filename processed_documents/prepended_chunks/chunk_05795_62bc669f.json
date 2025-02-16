@@ -1,0 +1,9 @@
+{
+  "content": "Mat3 extensions module: Adds pPrintValues method to Mat3 for pretty-printing matrix rows.\n\n####################################################################\n#Dtool_funcToMethod(func, class)\n#del func\n#####################################################################\n\n\"\"\"\nMat3-extensions module: contains methods to extend functionality\nof the LMatrix3f class.\n\"\"\"\n\nfrom panda3d.core import Mat3\nfrom .extension_native_helpers import Dtool_funcToMethod\n\ndef pPrintValues(self):\n    \"\"\"\n    Pretty print\n    \"\"\"\n    return \"\\n%s\\n%s\\n%s\" % (\n        self.getRow(0).pPrintValues(), self.getRow(1).pPrintValues(), self.getRow(2).pPrintValues())\nDtool_funcToMethod(pPrintValues, Mat3)\ndel pPrintValues\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_345",
+    "parent": "processed_documents/context_documents/4697015f_Mat3_extensions.json",
+    "chunk_number": 5795
+  }
+}

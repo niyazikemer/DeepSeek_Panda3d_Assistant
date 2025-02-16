@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code defines a method `removeAutoInterest` within a class responsible for managing client-side interests, likely in a networked game. The method handles removing an auto-generated interest by checking if it exists and whether it is already pending deletion, while also addressing any outstanding events associated with the interest. This functionality complements other interest management methods like `addInterest`, `removeInterest`, and event handling within the class.\n\ndef removeAutoInterest(self, handle):\n        \"\"\"\n        Stop looking in a (set of) zone(s)\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        assert isinstance(handle, InterestHandle)\n        existed = False\n        handle = handle.asInt()\n        if handle in DoInterestManager._interests:\n            existed = True\n            intState = DoInterestManager._interests[handle]\n            if intState.isPendingDelete():\n                self.notify.warning(\n                    'removeInterest: interest %s already pending removal' %\n                    handle)\n                # this interest is already pending delete, so let's just tack this\n                # callback onto the list\n            else:\n                if len(intState.events) > 0:\n                    # we're not pending a removal, but we have outstanding events?\n                    # probably we are waiting for an add/alter complete.\n                    # should we send those events now?",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5216
+  }
+}

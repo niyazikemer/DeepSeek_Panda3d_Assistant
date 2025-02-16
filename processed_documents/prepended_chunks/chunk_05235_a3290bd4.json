@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `queueAllInterestsCompleteEvent` method in the `DoInterestManager` class, which handles scheduling a delayed callback to send a global completion event after all interest operations have finished. The method uses `FrameDelayedCall` to delay sending the event for a specified number of frames, ensuring that any pending interest operations can complete first. After setting up the delayed call, the `checkMoreInterests` and `sendEvent` functions are set to `None` to clean up references.\n\nThis context is about managing asynchronous interest completions by scheduling a delayed global completion event and properly cleaning up resources after setup.\n\nself._completeDelayedCallback = FrameDelayedCall(\n            'waitForAllInterestCompletes',\n            callback=sendEvent,\n            frames=frames,\n            cancelFunc=checkMoreInterests)\n        checkMoreInterests = None\n        sendEvent = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5235
+  }
+}

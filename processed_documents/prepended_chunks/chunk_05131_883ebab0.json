@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within the `update()` method of the motion trail class, specifically handling the case where NURBS curves are enabled (`self.use_nurbs` is True) and there are enough frames (>=5) to form a meaningful curve. This section initializes NURBS curve evaluators for each vertex of the motion trail geometry, preparing to generate smooth curves based on the collected motion data.\n\nif self.use_nurbs and total_frames >= 5:\n\n                    total_distance = 0.0\n                    vector = Vec3()\n\n                    nurbs_curve_evaluator_list = []\n\n                    total_vertex_segments = self.total_vertices - 1\n\n                    # create a NurbsCurveEvaluator for each vertex(the starting point for the trail)\n                    index = 0\n                    while index < self.total_vertices:\n                        nurbs_curve_evaluator = NurbsCurveEvaluator()\n                        nurbs_curve_evaluator.reset(total_segments)\n                        nurbs_curve_evaluator_list = nurbs_curve_evaluator_list + [nurbs_curve_evaluator]\n                        index += 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5131
+  }
+}

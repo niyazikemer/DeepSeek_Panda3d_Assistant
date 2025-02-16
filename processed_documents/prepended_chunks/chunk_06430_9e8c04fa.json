@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides a concrete example illustrating the power of Sequences for coordinating visual and audio elements over time, demonstrating how to fade in an image, play sound, wait until the sound stops, then fade out, all with clean interval management.\n\nOne can do very powerful things with Sequences and Parallels. Examine this Sequence:\n\ns = OnscreenImage('wav_is_playing.png')\ns.reparentTo(aspect2d)\ns.setTransparency(1)\nfadeIn = s.colorScaleInterval(3, (1, 1, 1, 1), (1, 1, 1, 0))\nfadeOut = s.colorScaleInterval(3, (1, 1, 1, 0))\nsound = loader.loadSfx('sound.wav')\n\nSequence(\n    fadeIn,\n    SoundInterval(sound),\n    fadeOut\n).start()\n\nbase.run()\n\nIt fades an image in, plays a sound, waits till sounds stops and then fades the image out. Doing this conventional way would require a class to store state, a task to check timings, and produce messy code.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_480",
+    "parent": "processed_documents/context_documents/dda6cef5_6b3d692e_sequences-and-parallels.json",
+    "chunk_number": 6430
+  }
+}

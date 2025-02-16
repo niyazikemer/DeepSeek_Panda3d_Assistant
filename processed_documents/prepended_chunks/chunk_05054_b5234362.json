@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `Messenger` class's implementation, specifically within a method responsible for distributing events to registered acceptors. It handles core logic for checking if an event has any listeners, debug notifications when watched events are triggered without listeners, and ensures thread safety through locking mechanisms.\n\nself.lock.acquire()\n        try:\n            foundWatch = 0\n            if __debug__:\n                if self.__isWatching:\n                    for i in self.__watching:\n                        if str(event).find(i) >= 0:\n                            foundWatch = 1\n                            break\n            acceptorDict = self.__callbacks.get(event)\n            if not acceptorDict:\n                if __debug__:\n                    if foundWatch:\n                        print(\"Messenger: \\\"%s\\\" was sent, but no function in Python listened.\"%(event,))\n                return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5054
+  }
+}

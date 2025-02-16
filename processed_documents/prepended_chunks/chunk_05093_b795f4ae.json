@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `_compileStats` method in the `ProfileSession` class. It handles updating statistics when new profiling data is available by restoring and compiling RAM-based profile files into a unified stats object, stripping directory paths from filenames for consistency, and clearing any cached result strings to ensure fresh output generation.\n\nif statsChanged:\n            self._stats.strip_dirs()\n            # throw out any cached result strings\n            self._resultCache = {}\n\n        return statsChanged\n\n    def getResults(self,\n                   lines=Default,\n                   sorts=Default,\n                   callInfo=Default,\n                   totalTime=Default):\n        if not self.profileSucceeded():\n            output = '%s: profiler already running, could not profile' % self._name\n        else:\n            if lines is Default:\n                lines = self._lines\n            if sorts is Default:\n                sorts = self._sorts\n            if callInfo is Default:\n                callInfo = self._callInfo\n            if totalTime is Default:\n                totalTime = self._totalTime\n\n            self._compileStats()\n\n            if totalTime is None:\n                totalTime = self._stats.total_tt",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5093
+  }
+}

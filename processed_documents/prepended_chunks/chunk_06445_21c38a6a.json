@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes the configuration of event patterns in collision handlers, which is relevant to understanding how collision detection works across all types of collision handlers (e.g., CollisionHandlerPusher, Floor, Gravity). The patterns define when and under what conditions events are generated based on interactions between objects.\n\nhandler->add_in_pattern(\"%fn-into-%in\");\nhandler->add_again_pattern(\"%fn-into-%in\");\nhandler->add_out_pattern(\"%fn-into-%in\");\n\nIn the pattern string, the following sequences have special meaning:\n\n%fn the name of the \"from\" object's node %in the name of the \"into\" object's node %fs 't' if \"from\" is declared to be tangible, 'i' if intangible %is 't' if \"into\" is declared to be tangible, 'i' if intangible %ig 'c' if \"into\" is a CollisionNode, 'g' if it is an ordinary\nGeomNode %(tag)fh generate event only if \"from\" node has the indicated tag %(tag)fx generate event only if \"from\" node does not have the indicated\ntag %(tag)ih generate event only if \"into\" node has the indicated tag %(tag)ix generate event only if \"into\" node does not have the indicated\ntag %(tag)ft the indicated tag value of the \"from\" node. %(tag)it the indicated tag value of the \"into\" node.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6445
+  }
+}

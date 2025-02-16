@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `addAutoInterest` method in the InterestManager class, which is responsible for adding automatic interests to specific zones (zoneIdList) under a parent ID (parentId), assigning them a unique handle, and managing these auto-added interests. This method is part of the core interest management system that tracks and maintains application state related to zones of interest.\n\ndef addAutoInterest(self, parentId, zoneIdList, description):\n        \"\"\"\n        Look into a (set of) zone(s).\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        handle = self._getNextHandle()\n        if self._noNewInterests:\n            DoInterestManager.notify.warning(\n                \"addInterest: addingInterests on delete: %s\" % (handle))\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5210
+  }
+}

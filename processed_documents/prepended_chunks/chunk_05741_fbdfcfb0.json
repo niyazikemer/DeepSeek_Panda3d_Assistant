@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a deprecated method `reverseLsNames()` added to the `NodePath` class in Panda3D, which prints the path from a given node up to the root of the tree by traversing its ancestors. The method provides a hierarchical view for debugging purposes but is no longer recommended for use. It appears among other developer utility methods and scene graph analysis tools within the NodePath extension module.\n\ndef reverseLsNames(self):\n    \"\"\"Deprecated.  Walk up a tree and print out the path to the root\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.reverseLsNames() is deprecated.\", DeprecationWarning, stacklevel=2)\n    ancestors = list(self.getAncestors())\n    ancestry = ancestors.reverse()\n    indentString = \"\"\n    for nodePath in ancestry:\n        type = nodePath.node().getType().getName()\n        name = nodePath.getName()\n        print(indentString + type + \"  \" + name)\n        indentString = indentString + \" \"\n\nDtool_funcToMethod(reverseLsNames, NodePath)\ndel reverseLsNames\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5741
+  }
+}

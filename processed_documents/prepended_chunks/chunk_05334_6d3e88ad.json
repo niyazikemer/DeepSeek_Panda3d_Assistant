@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk contains debugging functions (`pullNetworkPlug`, `networkPlugPulled`, `restoreNetworkPlug`) for simulating network disconnections and the `uniqueName` method for generating unique identifiers. These methods are part of the `ConnectionRepository` class, which manages network connections, datagram handling, and simulating network disruptions for testing purposes.\n\nself.sendDatagram(datagram)\n\n    # debugging funcs for simulating a network-plug-pull\n    def pullNetworkPlug(self):\n        self.notify.warning('*** SIMULATING A NETWORK-PLUG-PULL ***')\n        self.setSimulatedDisconnect(1)\n\n    def networkPlugPulled(self):\n        return self.getSimulatedDisconnect()\n\n    def restoreNetworkPlug(self):\n        if self.networkPlugPulled():\n            self.notify.info('*** RESTORING SIMULATED PULLED-NETWORK-PLUG ***')\n            self.setSimulatedDisconnect(0)\n\n    def uniqueName(self, idString):\n        return \"%s-%s\" % (idString, self.uniqueId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5334
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThe CollisionHandlers section explains various types of collision handlers available in Panda3D for detecting and responding to object interactions. The specific chunk focuses on the simplest handler, CollisionHandlerQueue, which records detected collisions during traversal for later processing without immediate action.\n\nKeywords: collision handling, different types, recording collisions\n\"\"\"\n\nCollision Handlers\n\nYou will need to create a CollisionHandler that specifies what to do when a collision event is detected. Each object can only have one collision handler associated with it. There are several possible kinds of CollisionHandler available.\n\nCollisionHandlerQueue\n\nThe simplest kind of CollisionHandler, this object simply records the collisions that were detected during the most recent traversal. You can then iterate through the list using queue.entries <.CollisionHandlerQueue.entries>:\n\npython\n\nqueue = CollisionHandlerQueue()\ntraverser.addCollider(fromObject, queue)\ntraverser.traverse(render)\n\nfor entry in queue.entries:\n    print(entry)\n\ncpp\n\nPT(CollisionHandlerQueue) queue = new CollisionHandlerQueue;\nCollisionTraverser traverser;\ntraverser.add_collider(fromObject, queue);\ntraverser.traverse(get_render());\n\nfor (int i = 0; i < queue->get_num_entries(); ++i) {\n  CollisionEntry *entry = queue->get_entry(i);\n  std::cout << *entry << endl;\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6442
+  }
+}

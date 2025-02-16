@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the `reloadPosition()` method within a class likely responsible for managing avatar or node movement and synchronization in a networked environment. The method is designed to clear old position reports, update the smoother with the current node's position and heading/roll (HPR), set a phony timestamp, and mark the new position as valid. This ensures that any direct modifications made to the node's position are immediately reflected without interference from previous smoothing or prediction logic.\n\ndef reloadPosition(self):\n        \"\"\"\n        This function re-reads the position from the node itself and\n        clears any old position reports for the node.  This should be\n        used whenever show code bangs on the node position and expects\n        it to stick.\n        \"\"\"\n        self.smoother.clearPositions(0)\n        self.smoother.setPosHpr(self.getPos(), self.getHpr())\n        self.smoother.setPhonyTimestamp()\n        self.smoother.markPosition()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5347
+  }
+}

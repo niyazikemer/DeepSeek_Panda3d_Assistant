@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk discusses the basics of enabling or disabling the depth buffer in Panda3D, including its default behavior, exceptions for the render2d scene graph, and common adjustments like disabling depth-write to handle transparent objects.\n\nDepth Test and Depth Write\n\nEnabling or Disabling the Depth Buffer\n\nBy default, Panda3D renders the render scene graph with Z-buffering enabled. This technique makes it possible to render overlapping geometry in arbitrary order without having rear surfaces appear on top of front surfaces. It is possible to disable the depth buffer or alter its behavior.\n\nIn the 2D scene graph render2d, the depth buffer is disabled by default, because it is used for GUI and not for self-overlapping 3D models. But in rare cases, it is desirable to show 3D models in the 2D scene graph, so it is possible to enable the depth buffer for those models specifically.\n\nThe most common thing to want to do is to disable the depth-write. This means that geometry will still be tested against the depth buffer, but it will not affect the depth buffer. This is often used when rendering objects such as particles that are transparent. To disable or enable the depth-write, use:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_364",
+    "parent": "processed_documents/context_documents/7d23af5c_c2048452_depth-test-and-depth-write.json",
+    "chunk_number": 5864
+  }
+}

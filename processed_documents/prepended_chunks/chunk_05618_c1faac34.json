@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of utility methods for object management within a distributed object repository. These include `getObjectsOfClass` and `getObjectsOfExactClass`, which allow filtering and retrieving objects based on their class inheritance or exact type, respectively. Additionally, `considerHeartbeat` manages periodic communication checks to maintain system responsiveness.\n\ndef getObjectsOfClass(self, objClass):\n        \"\"\" returns dict of doId:object, containing all objects\n        that inherit from 'class'. returned dict is safely mutable. \"\"\"\n        doDict = {}\n        for doId, do in self.doId2do.items():\n            if isinstance(do, objClass):\n                doDict[doId] = do\n        return doDict\n\n    def getObjectsOfExactClass(self, objClass):\n        \"\"\" returns dict of doId:object, containing all objects that\n        are exactly of type 'class' (neglecting inheritance). returned\n        dict is safely mutable. \"\"\"\n        doDict = {}\n        for doId, do in self.doId2do.items():\n            if do.__class__ == objClass:\n                doDict[doId] = do\n        return doDict\n\n    def considerHeartbeat(self):\n        \"\"\"Send a heartbeat message if we haven't sent one recently.\"\"\"\n        if not self.heartbeatStarted:\n            self.notify.debug(\"Heartbeats not started; not sending.\")\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5618
+  }
+}

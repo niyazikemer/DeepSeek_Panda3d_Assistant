@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method in the ClockDelta class responsible for synchronizing client and server times. The code calculates confidence intervals for existing (old) and new time estimates, finds their intersection, and either updates the time estimate if they overlap or discards conflicting data based on a trust flag.\n\noldLow = self.delta - oldUncertainty\n            oldHigh = self.delta + oldUncertainty\n            newLow = newDelta - newUncertainty\n            newHigh = newDelta + newUncertainty\n\n            low = max(oldLow, newLow)\n            high = min(oldHigh, newHigh)\n\n            # If there is no intersection, whoops!  Either the old\n            # measurement or the new measurement is completely wrong.\n            if low > high:\n                if not trustNew:\n                    self.notify.info('discarding new delta.')\n                    return 0\n\n                self.notify.info('discarding previous delta.')\n            else:\n                newDelta = (low + high) / 2.0\n                newUncertainty = (high - low) / 2.0\n                self.notify.info(\n                    'intersection at %.3f s, +/- %.3f s.' %\n                    (newDelta, newUncertainty))\n\n        self.delta = newDelta\n        self.uncertainty = newUncertainty\n        self.lastResync = localTime",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_315",
+    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
+    "chunk_number": 5466
+  }
+}

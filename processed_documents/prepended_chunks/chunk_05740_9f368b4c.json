@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines a deprecated method `lsNamesRecurse()` for the `NodePath` class, which recursively prints the type and name of nodes in a scene graph tree, aiding in debugging or understanding node hierarchies. This method is added to `NodePath` using `Dtool_ funcToMethod()`, consistent with other methods in the document that extend NodePath functionality for collision handling and scene analysis.\n\ndef lsNamesRecurse(self, indentString=' '):\n    \"\"\"Deprecated.  Walk down a tree and print out the path\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.lsNamesRecurse() is deprecated.\", DeprecationWarning, stacklevel=2)\n    for nodePath in self.getChildren():\n        type = nodePath.node().getType().getName()\n        name = nodePath.getName()\n        print(indentString + type + \"  \" + name)\n        nodePath.lsNamesRecurse(indentString + \" \")\n\nDtool_funcToMethod(lsNamesRecurse, NodePath)\ndel lsNamesRecurse\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5740
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a guide explaining how to use the DirectSlider widget in Python. It covers essential parameters such as range, value, pageSize, command, and thumb styling options, along with an example implementation demonstrating slider setup and usage.\n\nIf you want to get (or modify) the current value of the slider (by default, the range is between 0 and 1), use mySlider['value'].\n\nKeyword Definition Value value Initial value of the slider Default is 0 range The (min, max) range of the slider Default is (0, 1) pageSize The amount to jump the slider when the user clicks left or right of\nthe thumb Default is 0.1 orientation The orientation of the slider HORIZONTAL or VERTICAL command Function called when the value of the slider changes (takes no\narguments) Function extraArgs Extra arguments to the function specified in command [Extra Arguments] thumb_geom, thumb_relief, thumb_text, thumb_frameSize, etc. Parameters to control the look of the thumb Any parameters appropriate to DirectButton\n\nExample\n\nimport direct.directbase.DirectStart\nfrom direct.gui.DirectGui import *\n\ndef showValue():\n    print(slider['value'])\n\nslider = DirectSlider(range=(0,100), value=50, pageSize=3, command=showValue)\n\nbase.run()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_414",
+    "parent": "processed_documents/context_documents/cc832f48_d98ac43d_directslider.json",
+    "chunk_number": 6108
+  }
+}

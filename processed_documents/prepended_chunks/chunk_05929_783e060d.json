@@ -1,0 +1,9 @@
+{
+  "content": "The `processGeom` function is a helper method used to examine and manipulate vertex data and primitives within a geometric model. It first retrieves the vertex data using `getVertexData()`, processes it with `processVertexData()`, then iterates over each primitive (e.g., triangles, lines) to process them individually. This code snippet is part of a larger guide on working with geometry in Panda3D, specifically detailing how to access and process geometric components for 3D models.\n\npython\n\ndef processGeom(geom):\n    vdata = geom.getVertexData()\n    print(vdata)\n    processVertexData(vdata)\n    for i in range(geom.getNumPrimitives()):\n        prim = geom.getPrimitive(i)\n        print(prim)\n        processPrimitive(prim, vdata)\n\ncpp\n\nvoid processGeom(Geom *geom) {\n  PT(GeomVertexData) vdata = geom->get_vertex_data();\n  vdata->write(nout);\n  processVertexData(vdata);\n  for (size_t i = 0; i < geom.get_num_primitives(); ++i) {\n    PT(GeomPrimitive) prim = geom->get_primitive(i);\n    prim->write(nout,0);\n    processPrimitive(prim, vdata);\n  }\n}\n\nAs above, get_vertex_data() is only appropriate if you will only be reading, but not modifying, the vertex data. Similarly, getPrimitive() is appropriate only if you will not be modifying the primitive index array. If you intend to modify either one, use modifyVertexData() or modifyPrimitive(), respectively.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_373",
+    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
+    "chunk_number": 5929
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces a method `attachCollisionSegment` to the NodePath class, allowing users to create and attach a CollisionSegment between two points in 3D space. This function facilitates collision detection along specific lines or paths by defining a segment with specified endpoints. The segment is encapsulated within a CollisionNode, which can be further customized using collide masks for precise collision control. This method complements other NodePath functions by offering another tool for setting up collision detection structures in Panda3D applications.\n\ndef attachCollisionSegment(self, name, ax, ay, az, bx, by, bz, fromCollide, intoCollide):\n    from panda3d.core import CollisionSegment\n    from panda3d.core import CollisionNode\n    coll = CollisionSegment(ax, ay, az, bx, by, bz)\n    collNode = CollisionNode(name)\n    collNode.addSolid(coll)\n    collNode.setFromCollideMask(fromCollide)\n    collNode.setIntoCollideMask(intoCollide)\n    collNodePath = self.attachNewNode(collNode)\n    return collNodePath\n\nDtool_funcToMethod(attachCollisionSegment, NodePath)\ndel attachCollisionSegment\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5770
+  }
+}

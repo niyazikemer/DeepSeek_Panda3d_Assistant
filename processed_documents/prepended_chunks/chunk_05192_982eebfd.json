@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `moveObject` method within a server repository implementation, specifically handling the notification process for clients when an object moves between zones. It ensures that clients who are no longer interested in the old zone receive disable messages for the object and shifts responsibility to the owner client to inform others about the object's new location.\n\n```plaintext\nContext: Part of the `moveObject` method responsible for updating client interest zones and sending disable messages when an object moves between zones, ensuring proper notification management.\n```\n\nThe chunk manages the transition of object locations by updating client subscriptions and notifying affected clients appropriately.\n\nself.updateClientInterestZones(owner)\n\n        # Any clients that are listening to oldZoneId but not zoneId\n        # should receive a disable message: this object has just gone\n        # out of scope for you.\n        datagram = PyDatagram()\n        datagram.addUint16(OBJECT_DISABLE_CMU)\n        datagram.addUint32(object.doId)\n        for client in self.zonesToClients[oldZoneId]:\n            if client != owner:\n                if zoneId not in client.currentInterestZoneIds:\n                    self.cw.send(datagram, client.connection)\n                    self.needsFlush.add(client)\n\n        # The client is now responsible for sending a generate for the\n        # object that just switched zones, to inform the clients that\n        # are listening to the new zoneId but not the old zoneId.\n\n    def sendDoIdRange(self, client):\n        \"\"\" sends the client the range of doid's that the client can\n        use \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5192
+  }
+}

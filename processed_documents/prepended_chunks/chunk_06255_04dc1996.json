@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the practical limitations imposed by graphics cards on the number of textures that can be applied to a single node in Panda3D.\n\nAlthough there is no limit to the number of TextureStages you assign this way, your graphics card will impose some limit on the number it can render on any one node. Modern graphics cards will typically have a limit of 4 or 8 textures at once; some older cards can only do 2, and some very old cards have a limit of 1 (only one texture at a time). You can find out the multitexture limit on your particular card with the call base.win.getGsg().get_max_texture_stages() <.GraphicsStateGuardian.get_max_texture_stages>.\n\nRemember, however, that this limit only restricts the number of different TextureStages you can have on any one particular node; you can still have as many different TextureStages as you like as long as they are all on different nodes.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_445",
+    "parent": "processed_documents/context_documents/6d54e5d2_ee375144_multitexture-introduction.json",
+    "chunk_number": 6255
+  }
+}

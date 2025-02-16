@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two key connection management methods (`disconnect()` and `shutdown()`) and part of an HTTP connection callback handler (`httpConnectCallback()`) within a network communication class. These methods manage closing connections, stopping tasks, handling successful HTTP connections, and notifying about server address changes.\n\ndef disconnect(self):\n        \"\"\"\n        Closes the previously-established connection.\n        \"\"\"\n        self.notify.info(\"Closing connection to server.\")\n        self._serverAddress = ''\n        CConnectionRepository.disconnect(self)\n        self.stopReaderPollTask()\n\n    def shutdown(self):\n        self.ignoreAll()\n        CConnectionRepository.shutdown(self)\n\n    def httpConnectCallback(self, ch, serverList, serverIndex,\n                            successCallback, successArgs,\n                            failureCallback, failureArgs):\n        if ch.isConnectionReady():\n            self.setConnectionHttp(ch)\n            self._serverAddress = serverList[serverIndex-1]\n            self.notify.info(\"Successfully connected to %s.\" % (self._serverAddress))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5328
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code belongs to a `ServerRepository` class in a Python-based network server implementation. It is part of the `handleClientDisconnect` method, which is responsible for cleaning up resources when a client disconnects from the server. The code iterates through all objects owned by the disconnecting client, sends delete notifications to other clients in the same zones, and cleans up internal data structures. This ensures that any objects created or managed by the disconnected client are properly removed from the system, preventing resource leaks and maintaining consistency across connected clients.\n\nfor object in client.objectsByDoId.values():\n            #create and send delete message\n            datagram = NetDatagram()\n            datagram.addUint16(OBJECT_DELETE_CMU)\n            datagram.addUint32(object.doId)\n            self.sendToZoneExcept(object.zoneId, datagram, [])\n            self.objectsByZoneId[object.zoneId].remove(object)\n            if not self.objectsByZoneId[object.zoneId]:\n                del self.objectsByZoneId[object.zoneId]\n\n        client.objectsByDoId = {}\n        client.objectsByZoneId = {}\n\n        del self.clientsByConnection[client.connection]\n        del self.clientsByDoIdBase[client.doIdBase]\n\n        id = client.doIdBase // self.doIdRange\n        self.idAllocator.free(id)\n\n        self.qcr.removeConnection(client.connection)\n        self.qcm.closeConnection(client.connection)\n\n\n    def handleClientSetInterest(self, client, dgi):\n        \"\"\" The client is specifying a particular set of zones it is\n        interested in. \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5194
+  }
+}

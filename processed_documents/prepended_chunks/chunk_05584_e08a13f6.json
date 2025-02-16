@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a method for managing the location and parent-child relationships of distributed nodes within a system, ensuring proper spatial organization and scene graph updates when an object is moved to or from an ocean grid.\n\ndef setLocation(self, parentId, zoneId, teleport=0):\n        # Redefine DistributedObject setLocation, so that when\n        # location is set to the ocean grid, we can update our parenting\n        # under gridParent\n        DistributedObjectAI.DistributedObjectAI.setLocation(self, parentId, zoneId)\n        parentObj = self.air.doId2do.get(parentId)\n        if parentObj:\n            if parentObj.isGridParent():\n                if not self.gridParent:\n                    self.gridParent = GridParent.GridParent(self)\n                self.gridParent.setGridParent(parentObj, zoneId)\n            else:\n                if self.gridParent:\n                    self.gridParent.delete()\n                    self.gridParent = None\n                    # NOTE: at this point the avatar has been detached from the scene\n                    # graph.  Someone else needs to reparent him to something in the scene graph\n            # TODO: handle DistributedNode parenting\n\n\n    ### setParent ###",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_326",
+    "parent": "processed_documents/context_documents/e6633f02_DistributedNodeAI.json",
+    "chunk_number": 5584
+  }
+}

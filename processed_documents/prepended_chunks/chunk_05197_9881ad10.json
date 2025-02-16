@@ -1,0 +1,9 @@
+{
+  "content": "The chunk belongs to the `sendToZoneExcept` function within the `ServerRepository` class, which handles sending messages to all clients interested in a specific zone, except for specified exceptions.\n\ndatagram = PyDatagram()\n        datagram.addUint16(OBJECT_DISABLE_CMU)\n        for zoneId in removedZoneIds:\n            self.zonesToClients[zoneId].remove(client)\n\n            # The client is abandoning interest in this zone.  Any\n            # objects in this zone should be disabled for the client.\n            for object in self.objectsByZoneId.get(zoneId, []):\n                datagram.addUint32(object.doId)\n        self.cw.send(datagram, client.connection)\n\n        self.needsFlush.add(client)\n\n\n    def clientHardDisconnectTask(self, task):\n        \"\"\" client did not tell us he was leaving but we lost connection to\n        him, so we need to update our data and tell others \"\"\"\n        for client in list(self.clientsByConnection.values()):\n            if not self.qcr.isConnectionOk(client.connection):\n                self.handleClientDisconnect(client)\n        return Task.cont",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5197
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears in a section discussing how to manipulate texture coordinates using transforms and projectors to achieve desired visual effects when working with automatic texture generation. It specifically addresses the transition from basic texture coordinate manipulation to more advanced techniques for maintaining consistent texturing relative to specific nodes, such as the teapot itself, rather than relying solely on world or eye space coordinates.\n\nYou can use this in conjunction with a texture transform to further manipulate the texture coordinates. For instance, to rotate the texture 90 degrees, you could do something like this:\n\npython\n\nteapot.setTexTransform(TextureStage.getDefault(), TransformState.makeHpr((0, 90, 0)))\n\ncpp\n\nteapot.set_tex_transform(TextureStage::get_default(), TransformState::make_hpr(LVecBase3(0, 90, 0)));\n\nFinally, consider that the only two choices for the coordinate frame of the texture coordinate generation are \"world\" and \"eye\", for the root NodePath and the camera NodePath, respectively. But what if you want to generate the texture coordinates relative to some other node, say the teapot itself? The above images are all well and good for a teapot that happens to be situated at the origin, but suppose we want the teapot to remain the same when we move it somewhere else in the world?",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_437",
+    "parent": "processed_documents/context_documents/aa36d59a_558ab811_automatic-texture-coordinates.json",
+    "chunk_number": 6219
+  }
+}

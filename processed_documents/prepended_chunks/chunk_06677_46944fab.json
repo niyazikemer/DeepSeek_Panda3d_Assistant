@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses applying angular forces using `AngularVectorForce` with examples in both Python and C++. It also explains the necessity of adding an `AngularIntegrator` to the physics manager for proper processing, providing code to attach it.\n\nExample:\n\npython\n\navf = AngularVectorForce(1, 0, 0) # Spin around the positive-x axis\nforceNode.addForce(avf) # Determine which positive-x axis we use for calculation\nactorNode.getPhysical(0).addAngularForce(avf) # Add the force to the object\n\ncpp\n\nPT(AngularForce) avf = new AngularVectorForce(1, 0, 0);  // Spin around the positive-x axis\nforce_node->add_force(avf);  // Determine which positive-x axis we use for calculation\nactor_node->get_physical(0)->add_angular_force(avf); // Add the force to the object\n\nOne additional caveat with ~panda3d.physics.AngularVectorForce: Angular forces will not be processed on your object until an ~panda3d.physics.AngularIntegrator is added to the ~panda3d.physics.PhysicsManager.\n\nExample:\n\npython\n\nfrom panda3d.physics import AngularEulerIntegrator\n\n# Instantiate an AngleIntegrator()\nangleInt = AngularEulerIntegrator()\n\n# Attach the AngleIntegrator to the PhysicsManager\nbase.physicsMgr.attachAngularIntegrator(angleInt)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_536",
+    "parent": "processed_documents/context_documents/d5ae41dd_f323a58b_types-of-forces.json",
+    "chunk_number": 6677
+  }
+}

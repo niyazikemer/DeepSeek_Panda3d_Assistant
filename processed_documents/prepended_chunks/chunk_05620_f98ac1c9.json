@@ -1,0 +1,9 @@
+{
+  "content": "This chunk contains methods related to object manipulation and environment checks:\n\n```python\ndef replaceMethod(self, oldMethod, newFunction):\n    \"\"\"Replaces an existing method with a new function implementation.\"\"\"\n    # ...\n\ndef getWorld(self, doId):\n    \"\"\"Retrieves the world node for a given object ID by traversing its parent hierarchy until render is found or no parents remain.\"\"\"\n    # ...\n\ndef isLive(self):\n    \"\"\"Checks if the environment is considered 'live' based on configuration and server type.\"\"\"\n    # ...\n\ndef isLocalId(self, id):\n    \"\"\"Determines whether an object ID is local to the current client instance.\"\"\"\n    # ...\n```\n\ndef replaceMethod(self, oldMethod, newFunction):\n        return 0\n\n    def getWorld(self, doId):\n        # Get the world node for this object\n        obj = self.doId2do[doId]\n\n        worldNP = obj.getParent()\n        while 1:\n            nextNP = worldNP.getParent()\n            if nextNP == render:\n                break\n            elif worldNP.isEmpty():\n                return None\n        return worldNP\n\n    def isLive(self):\n        if ConfigVariableBool('force-live', False):\n            return True\n        return not (__dev__ or launcher.isTestServer())\n\n    def isLocalId(self, id):\n        # By default, no ID's are local.  See also\n        # ClientRepository.isLocalId().\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5620
+  }
+}

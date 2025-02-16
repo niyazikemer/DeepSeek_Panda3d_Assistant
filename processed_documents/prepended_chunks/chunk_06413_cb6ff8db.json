@@ -1,0 +1,9 @@
+{
+  "content": "The document explains how to apply physics-based forces to objects using ForceNodes in a 3D programming framework. The chunk focuses on adding and removing linear and angular forces to actor nodes, enabling mass-dependent calculations for realistic force application, and demonstrates applying gravitational pull as an example of a global force affecting all objects through the PhysicsManager.\n\nactorNode.addLinearForce(pusherForce)\nactorNode.addAngularForce(spinnerForce)\n\nConversely, forces can be removed using the corresponding remove calls:\n\nactorNode.removeLinearForce(pusherForce)\nactorNode.removeAngularForce(spinnerForce)\n\nBy default, linear forces don't factor in the mass of the object upon which they act (meaning they are more like accelerations). To factor in the mass of the object when applying the linear force, use the following call to enable mass-dependent calculations:\n\npusherForce.setMassDependent(1)\n\nExample 1: Gravity\n\nTo apply a gravitational pull to the \"jetpack guy\" from the previous example:\n\ngravityFN=ForceNode('world-forces')\ngravityFNP=render.attachNewNode(gravityFN)\ngravityForce=LinearVectorForce(0,0,-9.81) #gravity acceleration\ngravityFN.addForce(gravityForce)\n\nbase.physicsMgr.addLinearForce(gravityForce)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_474",
+    "parent": "processed_documents/context_documents/8c4ba017_99cfb284_applying-physics-to-a-node.json",
+    "chunk_number": 6413
+  }
+}

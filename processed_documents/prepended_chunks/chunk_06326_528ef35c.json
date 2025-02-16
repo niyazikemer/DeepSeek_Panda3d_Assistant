@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is a section from a guide on creating GeomVertexData in Panda3D. It discusses choosing between UHStatic and UHDynamic usage hints based on whether vertices are updated frequently, emphasizing that it's a performance optimization rather than a strict requirement. The text then explains why setting the number of rows upfront improves efficiency by avoiding dynamic resizing during data addition.\n\nHowever, occasionally you might create a GeomVertexData whose vertices you intend to adjust in-place every frame, or every few frames; in this case, you can specify Geom.UHDynamic, to tell Panda not to make too much effort to cache the vertex data. This is just a performance hint; you're not required to adhere to the usage you specify, though you may get better render performance if you do.\n\nIf you are unsure about this third parameter, you should probably use Geom.UHStatic.\n\nNext, it is highly recommended that you set the number of rows you're going to write. This is an optional step; Panda will resize the underlying table appropriately as you are adding new data, but this will cause every add_dataXX() call to be much slower than if you had specified a number of rows.\n\npython\n\nvdata.setNumRows(4)\n\ncpp\n\nvdata->set_num_rows(4);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_457",
+    "parent": "processed_documents/context_documents/8ea7083f_03f8bce3_creating-vertex-data.json",
+    "chunk_number": 6326
+  }
+}

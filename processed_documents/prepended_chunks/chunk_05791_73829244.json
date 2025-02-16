@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two utility functions: `Dtool_ObjectToDict` for storing objects in a class dictionary, and `Dtool_funcToMethod` for converting functions into accessible methods within a class. These tools facilitate dynamic class management by enabling the addition of methods or objects to a class at runtime, with `__all__` specifying the exported functions.\n\n__all__ = [\"Dtool_ObjectToDict\", \"Dtool_funcToMethod\"]\n\n\ndef Dtool_ObjectToDict(cls, name, obj):\n    cls.DtoolClassDict[name] = obj\n\n\ndef Dtool_funcToMethod(func, cls, method_name=None):\n    \"\"\"Adds func to class so it is an accessible method; use method_name to specify the name to be used for calling the method.\n    The new method is accessible to any instance immediately.\"\"\"\n    func.__func__ = func\n    func.__self__ = None\n    if not method_name:\n        method_name = func.__name__\n    cls.DtoolClassDict[method_name] = func",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_343",
+    "parent": "processed_documents/context_documents/be929a47_extension_native_helpers.json",
+    "chunk_number": 5791
+  }
+}

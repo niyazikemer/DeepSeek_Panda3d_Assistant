@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a function responsible for creating a mirror effect in a 3D scene using Panda3D. The `moveCamera` task updates the position and orientation of a secondary camera placed on the opposite side of a mirror plane relative to the main camera. By reflecting the main camera's position across the mirror plane and adjusting the rotation, this function ensures that the mirror accurately displays the reflected view of the scene.\n\n# Create a visible representation of the camera so we can see it.\n    #cameraVis = base.loader.loadModel('camera.egg')\n    #if not cameraVis.isEmpty():\n    #    cameraVis.reparentTo(cameraNP)\n\n    # Spawn a task to keep that camera on the opposite side of the\n    # mirror.\n    def moveCamera(task, cameraNP = cameraNP, plane = plane,\n                   planeNP = planeNP, card = card, lens = lens,\n                   width = width, height = height, rootCamera = rootCamera):\n        # Set the camera to the mirror-image position of the main camera.\n        cameraNP.setMat(rootCamera.getMat(planeNP) * plane.getReflectionMat())\n\n        # Set the cameras roll to the roll of the mirror. Otherwise\n        # mirrored objects will be moved unexpectedly\n        cameraNP.setR(planeNP.getR()-180)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_285",
+    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
+    "chunk_number": 5032
+  }
+}

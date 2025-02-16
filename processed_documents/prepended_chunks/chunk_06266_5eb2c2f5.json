@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how Panda3D manages render order by assigning nodes to specific cull bins. It discusses the process of explicitly assigning nodes to bins using the `.NodePath::set_bin()` method and describes how nodes are automatically assigned to either the \"opaque\" or \"transparent\" bin based on their transparency settings. The explanation also covers how the rendering order is determined by the sort parameters and bin types, emphasizing the importance of proper bin management for achieving correct render order in complex scenes.\n\nYou may assign a node or nodes to an explicit bin using the .NodePath::set_bin() interface. It requires two parameters, the bin name and an integer sort parameter; the sort parameter is only meaningful if the bin type is BT_fixed (more on this below), but it must always be specified regardless.\n\nIf a node is not explicitly assigned to a particular bin, then Panda will assign it into either the \"opaque\" or the \"transparent\" bin, according to whether it has transparency enabled or not. (Note that the reverse is not true: explicitly assigning an object into the \"transparent\" bin does not automatically enable transparency for the object.)\n\nWhen the entire scene has been traversed and all objects have been assigned to bins, then the bins are rendered in order according to their sort parameter. Within each bin, the contents are sorted according to the bin type.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_447",
+    "parent": "processed_documents/context_documents/861b8e8f_31d3f668_controlling-render-order.json",
+    "chunk_number": 6266
+  }
+}

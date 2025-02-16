@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how Panda handles complex rendering requirements by organizing objects into cull bins. It introduces the CullBinManager, which manages these bins, detailing the default bins available and how they are ordered during rendering. This system allows for efficient state sorting, front-to-back or back-to-front ordering, and proper handling of transparent objects while providing flexibility to create additional bins as needed.\n\nPanda achieves these sometimes conflicting sorting requirements through the use of bins.\n\nCull Bins\n\nThe .CullBinManager is a global object that maintains a list of all of the cull bins in the world, and their properties. Initially, there are five default bins, and they will be rendered in the following order:\n\nBin Name Sort Type background 10 BT_fixed opaque 20 BT_state_sorted transparent 30 BT_back_to_front fixed 40 BT_fixed unsorted 50 BT_unsorted\n\nWhen Panda traverses the scene graph each frame for rendering, it assigns each Geom it encounters into one of the bins defined in the CullBinManager. (The above lists only the default bins. Additional bins may be created as needed, using either the .CullBinManager.add_bin() method, or the Config.prc cull-bin variable.)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_447",
+    "parent": "processed_documents/context_documents/861b8e8f_31d3f668_controlling-render-order.json",
+    "chunk_number": 6265
+  }
+}

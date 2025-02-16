@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk initializes the `MotionTrail` class by setting up essential geometry nodes and rendering attributes necessary for generating and displaying the motion trail effect.\n\nself.square_t = True\n\n#        self.task_transform = False\n        self.root_node_path = None\n\n        # node path states\n        self.reparentTo(parent_node_path)\n\n        #: A `.GeomNode` object containing the generated geometry.  By default\n        #: parented to the MotionTrail itself, but can be reparented elsewhere\n        #: if necessary.\n        self.geom_node = GeomNode(\"motion_trail\")\n        self.geom_node.setBoundsType(BoundingVolume.BT_box)\n        self.geom_node_path = self.attachNewNode(self.geom_node)\n        node_path = self.geom_node_path\n\n        ### set render states\n\n        node_path.setTwoSided(True)\n\n        # set additive blend effects\n        node_path.setTransparency(True)\n        node_path.setDepthWrite(False)\n        node_path.node().setAttrib(ColorBlendAttrib.make(ColorBlendAttrib.MAdd))\n\n        # do not light\n        node_path.setLightOff()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5110
+  }
+}

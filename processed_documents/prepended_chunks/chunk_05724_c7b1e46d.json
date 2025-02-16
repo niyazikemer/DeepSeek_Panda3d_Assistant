@@ -1,0 +1,9 @@
+{
+  "content": "The `SmoothGridChild` class is a subclass of `GridChild` designed to handle special requirements for smooth nodes that need to send their current grid cell along with their telemetry data stream. This allows distributed receiving objects to update their grid parent based on the transmitted cell value rather than relying solely on `setLocation()` data.\n\nclass SmoothGridChild(GridChild):\n    \"\"\"\n    SmoothNodes have a special requirement in that they need to send\n    their current cell along with their telemetry data stream. This\n    allows the distributed receiving objects to update their grid parent\n    according to this value, rather than the setLocation() data.\n\n    Use this instead of GridNode when you expect this object to send its\n    telemetry data out.\n    \"\"\"\n    def __init__(self):\n        GridChild.__init__(self)\n        assert isinstance(self, DistributedSmoothNodeBase), \\\n               'All GridChild objects must be instances of DistributedSmoothNodeBase'\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def setGridCell(self, grid, zoneId):\n        GridChild.setGridCell(self, grid, zoneId)\n        if grid and self.isGenerated(): # we get our cnode in DistributedSmoothNodeBase.generate()\n            self.cnode.setEmbeddedVal(zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_337",
+    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
+    "chunk_number": 5724
+  }
+}

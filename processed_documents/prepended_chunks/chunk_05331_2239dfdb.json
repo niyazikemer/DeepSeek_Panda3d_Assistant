@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a ConnectionRepository class responsible for managing network connections in a distributed application. The checkHttp() method initializes an HTTP client if one isn't already present, handling potential OpenSSL-related failures gracefully. The startReaderPollTask() method sets up task scheduling to efficiently handle incoming data, ensuring timely processing of datagrams while preventing overflow events.\n\ndef checkHttp(self):\n        # Creates an HTTPClient, if possible, if we don't have one\n        # already.  This might fail if the OpenSSL library isn't\n        # available.  Returns the HTTPClient (also self.http), or None\n        # if not set.\n\n        if self.http is None:\n            try:\n                self.http = HTTPClient()\n            except Exception:\n                pass\n\n        return self.http\n\n    def startReaderPollTask(self):\n        # Stop any tasks we are running now\n        self.stopReaderPollTask()\n        self.accept(CConnectionRepository.getOverflowEventName(),\n                    self.handleReaderOverflow)\n        self.readerPollTaskObj = taskMgr.add(\n            self.readerPollUntilEmpty, self.uniqueName(\"readerPollTask\"),\n            priority = self.taskPriority, taskChain = self.taskChain)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5331
+  }
+}

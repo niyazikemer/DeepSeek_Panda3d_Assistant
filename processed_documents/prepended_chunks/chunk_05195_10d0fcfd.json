@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk represents methods within a `ServerRepository` class that handle managing client-subscribed zones of interest. It includes functionality to read zone IDs from an input stream (`handleClientSetInterest`) and update the client's current set of tracked zones by checking for added or removed zone interests.\n\ndef handleClientSetInterest(self, client, dgi):\n        \"\"\" The client is specifying a particular set of zones it is\n        interested in. \"\"\"\n\n        zoneIds = set()\n        while dgi.getRemainingSize() > 0:\n            zoneId = dgi.getUint32()\n            zoneIds.add(zoneId)\n\n        client.explicitInterestZoneIds = zoneIds\n        self.updateClientInterestZones(client)\n\n    def updateClientInterestZones(self, client):\n        \"\"\" Something about the client has caused its set of interest\n        zones to potentially change.  Recompute them. \"\"\"\n\n        origZoneIds = client.currentInterestZoneIds\n        newZoneIds = client.explicitInterestZoneIds | set(client.objectsByZoneId.keys())\n        if origZoneIds == newZoneIds:\n            # No change.\n            return\n\n        client.currentInterestZoneIds = newZoneIds\n        addedZoneIds = newZoneIds - origZoneIds\n        removedZoneIds = origZoneIds - newZoneIds",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5195
+  }
+}

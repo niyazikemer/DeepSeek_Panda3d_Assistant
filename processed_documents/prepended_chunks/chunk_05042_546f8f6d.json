@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces two key functionalities in the `Messenger` class: creating a one-time future for event handling and accepting an event with specified method execution. These methods enhance the event management capabilities by enabling asynchronous responses and attaching specific behavior to events.\n\ndef future(self, event):\n        \"\"\" Returns a future that is triggered by the given event name.  This\n        will function only once. \"\"\"\n\n        from .EventManagerGlobal import eventMgr\n        return eventMgr.eventHandler.get_future(event)\n\n    def accept(self, event, object, method, extraArgs=[], persistent=1):\n        \"\"\" accept(self, string, DirectObject, Function, List, Boolean)\n\n        Make this object accept this event. When the event is\n        sent (using Messenger.send or from C++), method will be executed,\n        optionally passing in extraArgs.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5042
+  }
+}

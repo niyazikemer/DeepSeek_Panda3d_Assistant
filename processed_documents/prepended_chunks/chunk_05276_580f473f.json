@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk enhances the grid management system by adding debug visualization, center position retrieval, and handling child nodes entering zones. It sits within a class that manages distributed node grids, enabling developers to visualize the grid structure during debugging and properly assign grid parents to child nodes based on their zone IDs.\n\nif __debug__:\n            if self.VisualizeGrid:\n                self.visualizeGrid()\n\n    def getCenterPos(self):\n        return self.centerPos\n\n    def handleChildArrive(self, child, zoneId):\n        DistributedNode.handleChildArrive(self, child, zoneId)\n        if zoneId >= self.startingZone:\n            if not child.gridParent:\n                child.gridParent = GridParent(child)\n            child.gridParent.setGridParent(self, zoneId)\n        elif child.gridParent:\n            child.gridParent.delete()\n            child.gridParent = None\n\n    def handleChildArriveZone(self, child, zoneId):\n        DistributedNode.handleChildArrive(self, child, zoneId)\n        if zoneId >= self.startingZone:\n            if not child.gridParent:\n                child.gridParent = GridParent(child)\n            child.gridParent.setGridParent(self, zoneId)\n        elif child.gridParent:\n            child.gridParent.delete()\n            child.gridParent = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5276
+  }
+}

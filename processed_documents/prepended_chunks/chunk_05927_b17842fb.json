@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to find and process all geometric data in a 3D model by locating GeomNodes and iterating over their geometries and associated RenderStates.\n\npython\n\ngeomNodeCollection = model.findAllMatches('**/+GeomNode')\nfor nodePath in geomNodeCollection:\n    geomNode = nodePath.node()\n    processGeomNode(geomNode)\n\ncpp\n\nNodePathCollection geomNodeCollection = model.find_all_matches(\"**/+GeomNode\");\n\nfor (size_t i = 0; i < geomNodeCollection.get_num_paths(); ++i) {\n  PT(GeomNode) g = DCAST(GeomNode, geomNodeCollection.get_path(i).node());\n  processGeomNode(g);\n}\n\nOnce you have a particular GeomNode, you must walk through the list of Geoms <geom> stored on that node. Each Geom also has an associated RenderState, which controls the visible appearance of that Geom (e.g. texture, backfacing, etc.).\n\npython\n\ndef processGeomNode(geomNode):\n    for i in range(geomNode.getNumGeoms()):\n        geom = geomNode.getGeom(i)\n        state = geomNode.getGeomState(i)\n        print(geom)\n        print(state)\n        processGeom(geom)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_373",
+    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
+    "chunk_number": 5927
+  }
+}

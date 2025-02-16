@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses **GeomTrifans** (triangle fans), explaining their structure, functionality, and optimization potential, while cautioning against their use on modern PC hardware due to potential performance penalties. It suggests using **GeomTriangles** or **GeomTristrips** instead. The section then transitions into discussing **GeomLines**, providing context about line segments in rendering.\n\nContext: This chunk is part of a section explaining geometric primitives used for rendering, specifically focusing on triangle fans and their implications, followed by an introduction to line segments as another primitive type.\n\nGeomTrifans\n\nThis is similar to a GeomTristrips, in that the primitive can contain any number of triangle fans, each of which has an arbitrary number of vertices. Within each triangle fan, the first three vertices (in counterclockwise order) define a triangle, and each additional vertex defines a new triangle. However, instead of using the preceding two vertices to define each new triangle, a triangle fan uses the previous vertex and the first vertex, which means that all of the resulting triangles fan out from a single point, like this:\n\nLike the triangle strip, a triangle fan can be an important optimization on certain hardware. However, its use can actually incur a performance penalty on modern PC hardware, because it is impossible to send more than one triangle fan in one batch, so you probably shouldn't use triangle fans on a PC. Use GeomTriangles or GeomTristrips instead.\n\nGeomLines",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_469",
+    "parent": "processed_documents/context_documents/010f5f87_af5fea3c_geomprimitive.json",
+    "chunk_number": 6395
+  }
+}

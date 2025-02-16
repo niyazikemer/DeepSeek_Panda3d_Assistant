@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger document that describes methods for managing distributed objects in a system, specifically focusing on adding an object to a table, checking for duplicates, and storing its location if valid. The `add_object` method ensures uniqueness by verifying the presence of the object ID in the relevant table (either `doId2ownerView` or `doId2do`) and logs an error if it finds a duplicate. It then adds the object to the table and, if not operating in owner view mode, validates the object's location tuple before storing its position using `storeObjectLocation`.\n\ndoTable = self.getDoTable(ownerView)\n\n        # make sure the object is not already present\n        if do.doId in doTable:\n            if ownerView:\n                tableName = 'doId2ownerView'\n            else:\n                tableName = 'doId2do'\n            self.notify.error('doId %s already in %s [%s stomping %s]' % (\n                do.doId, tableName, do.__class__.__name__,\n                doTable[do.doId].__class__.__name__))\n\n        doTable[do.doId]=do\n\n        if not ownerView:\n            if self.isValidLocationTuple(location):\n                self.storeObjectLocation(do, location[0], location[1])\n                ##assert do.doId not in self.zoneId2doIds.get(location, {})\n                ##self.zoneId2doIds.setdefault(location, {})\n                ##self.zoneId2doIds[location][do.doId]=do\n\n    def isValidLocationTuple(self, location):\n        return (location is not None\n            and location != (0xffffffff, 0xffffffff)\n            and location != (0, 0))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5448
+  }
+}

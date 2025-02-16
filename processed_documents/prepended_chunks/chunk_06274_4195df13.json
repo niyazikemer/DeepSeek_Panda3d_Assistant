@@ -1,0 +1,9 @@
+{
+  "content": "The chunk addresses one of several strategies to handle transparency issues in Panda3D, specifically focusing on disabling depth write for transparent objects. This method is particularly useful for barely visible elements like glass or soap bubbles, as it reduces the visibility of incorrect sorting artifacts by modifying how these objects are rendered without improving the sorting process itself.\n\nContext: The chunk discusses a solution where disabling depth write on transparent objects can mitigate sorting issues, making artifacts less noticeable, though it doesn't resolve the underlying sorting problems.\n\nA fourth option is simply to disable the depth write on your transparent objects. This is most effective when you are trying to represent something that is barely visible, like glass or a soap bubble. Doing this doesn't improve the likelihood of correct sorting, but it will tend to make the artifacts of an incorrect sorting less obvious. You can achieve this by using the transparency option \"blend_no_occlude\" in an egg file, or by explicitly disabling the depth write on a loaded model with node_path.set_depth_write(false) <.NodePath.set_depth_write>. You should be careful only to disable depth write on the transparent pieces, and not on the opaque parts.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_448",
+    "parent": "processed_documents/context_documents/d4aa489f_64e02051_transparency-and-blending.json",
+    "chunk_number": 6274
+  }
+}

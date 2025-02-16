@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `remove` method for `NodePath`, which sends a pre-removal message and removes the node from the scene graph using `removeNode()`. This deprecated method is included for backward compatibility, advising developers to use `remove_node()` instead. The context situates this within methods that manage the NodePath's lifecycle, aiding in search retrieval for legacy code handling.\n\ndef remove(self):\n    \"\"\"Deprecated.  Remove a node path from the scene graph\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.remove() is deprecated.  Use remove_node() instead.\", DeprecationWarning, stacklevel=2)\n    # Send message in case anyone needs to do something\n    # before node is deleted\n    from direct.showbase.MessengerGlobal import messenger\n    messenger.send('preRemoveNodePath', [self])\n    # Remove nodePath\n    self.removeNode()\nDtool_funcToMethod(remove, NodePath)\ndel remove\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5738
+  }
+}

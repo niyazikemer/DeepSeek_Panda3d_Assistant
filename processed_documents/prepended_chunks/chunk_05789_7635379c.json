@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `popupControls` function within the CInterval class, which implements a control panel for manipulating intervals. The chunk specifically manages cleanup operations when the control panel window is destroyed, ensuring that event hooks related to T value updates are properly removed to prevent resource leaks and potential errors.\n\nContext: This code ensures proper cleanup of interval control callbacks upon destruction of the control panel window in the `popupControls` method.\n\nself.setWantsTCallback(1)\n    # Clear out function on destroy\n    def onDestroy(e, s=self, u=update):\n        if u in s.setTHooks:\n            s.setTHooks.remove(u)\n    tl.bind('<Destroy>', onDestroy)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_342",
+    "parent": "processed_documents/context_documents/f82a7e89_CInterval_extensions.json",
+    "chunk_number": 5789
+  }
+}

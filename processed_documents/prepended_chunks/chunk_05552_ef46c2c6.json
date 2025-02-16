@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a method that parses and processes \"AutoInterest\" zones for a distributed object class. It reads default values from a field named 'AutoInterest' in the Distributed Class (DC) definition using DCPacker to unpack raw data, extracts zone IDs, and stores them in a set called autoInterests. The code checks if multiple AutoInterest zones are defined and raises an error if more than one is found, ensuring only a single default interest per class. This functionality is used for managing automatic location interests when initializing distributed objects in the system.\n\ndclass = self.cr.dclassesByName[cls.__name__]\n                    field = dclass.getFieldByName('AutoInterest')\n                    if field is not None:\n                        p = DCPacker()\n                        p.setUnpackData(field.getDefaultValue())\n                        length = p.rawUnpackUint16() // 4\n                        for i in range(length):\n                            zone = int(p.rawUnpackUint32())\n                            autoInterests.add(zone)\n                    autoInterests.update(autoInterests)\n                    cls.autoInterests = autoInterests\n            return set(autoInterests)\n        autoInterests = _getAutoInterests(self.__class__)\n        # if the server starts supporting multiple auto-interest per class, this check\n        # should be removed\n        if len(autoInterests) > 1:\n            self.notify.error(\n                'only one auto-interest allowed per DC class, %s has %s autoInterests (%s)' %",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5552
+  }
+}

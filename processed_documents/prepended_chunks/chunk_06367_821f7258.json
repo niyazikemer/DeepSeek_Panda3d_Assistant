@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how Panda3D interprets shader parameter declarations to fetch runtime data from the application. It highlights the importance of correct parameter names and qualifiers in shaders, and how mismatches can cause errors, providing examples for both GLSL and Cg shaders.\n\nFetching Data from the Panda3D Runtime\n\nEach shader program contains a parameter list. Panda3D scans the parameter list and interprets each parameter name as a request to extract data from the panda runtime. For example, if the shader contains a parameter declaration p3d_Vertex (or for Cg, float3 vtx_position : POSITION), Panda3D will interpret that as a request for the vertex position, and it will satisfy the request. Panda3D will only allow parameter declarations that it recognizes and understands.\n\nPanda3D will generate an error if the parameter qualifiers do not match what Panda3D is expecting. For example, if you declare the parameter float3 vtx_position, then Panda3D will be happy. If, on the other hand, you were to declare uniform sampler2D vtx_position, then Panda3D would generate two separate errors: Panda3D knows that vtx_position is supposed to be a float-vector, not a texture, and that it is supposed to be varying, not uniform.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_462",
+    "parent": "processed_documents/context_documents/8ddfa146_94b58d23_shader-basics.json",
+    "chunk_number": 6367
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk belongs to the `ignoreAll` method in the Messenger class. This method is designed to stop a specified object from responding to any events it was previously accepting. The purpose of this method is to clean up event registrations associated with the object, ensuring that it no longer receives or processes any events it was handling before.\n\nself._releaseObject(object)\n        finally:\n            self.lock.release()\n\n    def ignoreAll(self, object):\n        \"\"\"\n        Make this object no longer respond to any events it was accepting\n        Useful for cleanup\n        \"\"\"\n        if Messenger.notify.getDebug():\n            Messenger.notify.debug(\n                safeRepr(object) + ' (%s)\\n now ignoring all events' % (self._getMessengerId(object), ))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5048
+  }
+}

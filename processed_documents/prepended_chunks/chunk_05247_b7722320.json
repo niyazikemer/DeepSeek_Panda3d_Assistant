@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two event handler methods (`handleChildArriveZone` and `handleChildLeave`) within the `DistributedObjectBase` class for managing child object location changes in a distributed networked environment. These methods allow objects to execute code when children change zones or leave their current zone, facilitating scene graph management and other parent-child interactions in a distributed system.\n\ndef handleChildArriveZone(self, childObj, zoneId):\n        \"\"\"\n        A child has just changed zones beneath us with setLocation.\n        Give us a chance to run code when an existing child sets\n        location to us. For example, we may want to scene graph\n        reparent the child to some subnode we own.\n        \"\"\"\n        assert self.notify.debugCall()\n        # Inheritors should override\n\n    def handleChildLeave(self, childObj, zoneId):\n        \"\"\"\n        A child is about to setLocation away from us.  Give us a\n        chance to run code just before a child sets location away from us.\n        \"\"\"\n        assert self.notify.debugCall()\n        # Inheritors should override",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_296",
+    "parent": "processed_documents/context_documents/084461fa_DistributedObjectBase.json",
+    "chunk_number": 5247
+  }
+}

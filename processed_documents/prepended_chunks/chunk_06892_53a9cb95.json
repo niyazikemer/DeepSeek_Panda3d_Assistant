@@ -1,0 +1,9 @@
+{
+  "content": "To enhance search retrieval, the chunk is situated within a section detailing how to activate Panda3D's shader generator. It explains enabling features via code examples, the importance of activation, game-wide enablement suggestions, sample programs demonstrating automatic and manual shaders, and introduces per-pixel lighting.\n\n```plaintext\nContext: This section explains how to enable Panda3D's shader generation with code examples in Python and C++. It highlights the necessity of enabling this feature for effects like normal maps and HDR. Enabling it game-wide is recommended, and sample programs are provided, each offering Basic (automatic) and Advanced (manual) versions. The section also introduces per-pixel lighting.\n```\n\npython\n\nnodepath.setShaderAuto()\n\ncpp\n\nnodepath.set_shader_auto();\n\nIf you don't do this, none of the features listed above will have any effect. Panda will simply ignore normal maps, HDR, and so forth if shader generation is not enabled. It would be reasonable to enable shader generation for the entire game, using this call:\n\npython\n\nrender.setShaderAuto()\n\ncpp\n\nwindow->get_render().set_shader_auto();\n\nSample Programs\n\nFour of the sample programs demonstrate the shader generator in action:\n\ncartoon-shader\n\nglow-filter\n\nbump-mapping\n\nshadows\n\nIn each case, the sample program provides two versions: Basic and Advanced. The Basic version relies on the shader generator to make everything automatic. The Advanced version involves writing shaders explicitly.\n\nPer-Pixel Lighting",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_545",
+    "parent": "processed_documents/context_documents/f47095f0_6d2d98fe_shader-generator.json",
+    "chunk_number": 6892
+  }
+}

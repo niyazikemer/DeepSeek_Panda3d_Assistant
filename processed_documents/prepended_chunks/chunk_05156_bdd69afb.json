@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides network synchronization methods for setting object positions (X, Y, Z) and rotations (H, P, R) in a distributed system, along with a core parent management method that allows inheritance for custom parent behavior in derived classes.\n\ndef do_setParent(self, parentToken):\n        \"\"\"do_setParent(self, int parentToken)\n\n        This function is defined simply to allow a derived class (like\n        DistributedAvatar) to override the behavior of setParent if\n        desired.\n        \"\"\"\n        if not self.isDisabled():\n            self.cr.parentMgr.requestReparent(self, parentToken)\n\n    ###### set pos and hpr functions #######\n\n    # setX provided by NodePath\n    def d_setX(self, x):\n        self.sendUpdate(\"setX\", [x])\n\n    # setY provided by NodePath\n    def d_setY(self, y):\n        self.sendUpdate(\"setY\", [y])\n\n    # setZ provided by NodePath\n    def d_setZ(self, z):\n        self.sendUpdate(\"setZ\", [z])\n\n    # setH provided by NodePath\n    def d_setH(self, h):\n        self.sendUpdate(\"setH\", [h])\n\n    # setP provided by NodePath\n    def d_setP(self, p):\n        self.sendUpdate(\"setP\", [p])\n\n    # setR provided by NodePath\n    def d_setR(self, r):\n        self.sendUpdate(\"setR\", [r])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_292",
+    "parent": "processed_documents/context_documents/de7f0b01_DistributedNode.json",
+    "chunk_number": 5156
+  }
+}

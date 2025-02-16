@@ -1,0 +1,9 @@
+{
+  "content": "The section describes how to remove a model from the scene graph using `detachNode()` in Python or `detach_node()` in C++, and introduces the concept of the Model Cache, explaining how Panda3D optimizes EGG files into BAM files for faster loading.\n\nThe converse is to remove a model from the scene graph, which can be done as follows:\n\npython\n\nmyModel.detachNode()\n\ncpp\n\nmyModel.detach_node();\n\nThe Model Cache\n\nThe first time you load an EGG file, it loads slowly. However, the second time you use that same EGG file, it loads fast. This is possible because Panda3D is quietly translating the EGG file into a performance-optimized BAM file. It stores these BAM files in a directory called the model cache. The next time you try to load the EGG file, if it has not been modified on disk, Panda3D will load the corresponding optimized BAM file from the model cache instead.\n\nWhere this cache is stored depends on your operating system. On Windows, it is usually in C:\\Users\\YourUser\\AppData\\Local\\Panda3D-|version|, whereas on Linux, it can be found in ~/.cache/panda3d. The location can be controlled using the model-cache-dir variable in your Config.prc <configuring-panda3d> file, or disabled by setting this variable to an empty string.\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_375",
+    "parent": "processed_documents/context_documents/f90847cd_c3bbc946_model-files.json",
+    "chunk_number": 5941
+  }
+}

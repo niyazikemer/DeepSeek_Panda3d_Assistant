@@ -1,0 +1,9 @@
+{
+  "content": "These functions add new animation interval methods to the NodePath class. They allow creating interpolation intervals for position, rotation (either HPR or quaternion), scaling, and shear transformations. The intervals enable smooth transitions between states in animations.\n\ndef posHprScaleInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpPosHprScaleInterval(self, *args, **kw)\n\nDtool_funcToMethod(posHprScaleInterval, NodePath)\ndel posHprScaleInterval\n#####################################################################\ndef posQuatScaleInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpPosQuatScaleInterval(self, *args, **kw)\n\nDtool_funcToMethod(posQuatScaleInterval, NodePath)\ndel posQuatScaleInterval\n#####################################################################\ndef posHprScaleShearInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpPosHprScaleShearInterval(self, *args, **kw)\n\nDtool_funcToMethod(posHprScaleShearInterval, NodePath)\ndel posHprScaleShearInterval\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5767
+  }
+}

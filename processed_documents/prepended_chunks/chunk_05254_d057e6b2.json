@@ -1,0 +1,9 @@
+{
+  "content": "The chunk calculates grid zones from 3D coordinates or determines grid dimensions using a sphere radius. It includes the `getZoneFromXYZ` return statement and the `getGridSizeFromSphereRadius` method which adjusts grid size based on given parameters to ensure sufficient coverage around a trigger sphere.\n\nif wantRowAndCol:\n            return (zoneId, col, row)\n        else:\n            return zoneId\n\n    def getGridSizeFromSphereRadius(self, sphereRadius, cellWidth, gridRadius):\n        # NOTE: This ensures that the grid is at least a \"gridRadius\" number\n        # of cells larger than the trigger sphere that loads the grid.  This\n        # gives us some room to start setting interest to the grid before we\n        # expect to see any objects on it.\n        sphereRadius = max(sphereRadius, gridRadius*cellWidth)\n        return 2 * (sphereRadius // cellWidth)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_298",
+    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
+    "chunk_number": 5254
+  }
+}

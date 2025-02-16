@@ -1,0 +1,9 @@
+{
+  "content": "The given code snippet demonstrates how to create a `LerpPosInterval` in Python, which is used to smoothly animate the position of a NodePath over time. The example illustrates the required parameters (nodePath, duration, pos) and optional parameters for customization, while also introducing convenience methods like `posInterval()` for easier interval creation within the broader context of animating NodePaths.\n\nfrom direct.interval.LerpInterval import LerpPosInterval\ni = LerpPosInterval(nodePath,\n                    duration,\n                    pos,\n                    startPos=None,\n                    other=None,\n                    blendType='noBlend',\n                    bakeInStart=1,\n                    fluid=0,\n                    name=None)\n\nThe only required parameters are the model whose position is being changed, the length of time to apply the move, and the model's new position. The remaining parameters are all optional and are often omitted. Here is a breakdown of what each parameter means:\n\nConvenience Short-Hands\n\nVarious convenience methods are defined on the NodePath class which provide a short-hand syntax for creating a LerpInterval for that NodePath. These are called posInterval(), hprInterval(), quatInterval, and so on. As an example:\n\n# This lets the actor move to point 10, 10, 10 in 1.0 second.\nmyInterval1 = myActor.posInterval(1.0, Point3(10, 10, 10))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_487",
+    "parent": "processed_documents/context_documents/68f307f6_72ea72c8_lerp-intervals.json",
+    "chunk_number": 6458
+  }
+}

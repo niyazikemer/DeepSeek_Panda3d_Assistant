@@ -1,0 +1,9 @@
+{
+  "content": "The `cache` method within the `CRCache` class handles the process of storing a distributed object (`distObj`) into the cache. It ensures that only valid distributed objects are cached by verifying their type and checking if they already exist in the cache using their unique `doId`. If successful, it disables the object, adds it to both the FIFO list and dictionary for tracking, and manages the cache size by removing older items if necessary. This method is crucial for maintaining an efficient and correct state of cached objects within the system.\n\ndef cache(self, distObj):\n        # Only distributed objects are allowed in the cache\n        assert isinstance(distObj, DistributedObject.DistributedObject)\n        assert self.checkCache()\n        # Get the doId\n        doId = distObj.getDoId()\n        # Error check\n        success = False\n        if doId in self.dict:\n            CRCache.notify.warning(\"Double cache attempted for distObj \"\n                                   + str(doId))\n        else:\n            # Call disable on the distObj\n            distObj.disableAndAnnounce()\n\n            # Put the distObj in the fifo and the dict\n            self.fifo.append(distObj)\n            self.dict[doId] = distObj\n\n            success = True",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5265
+  }
+}

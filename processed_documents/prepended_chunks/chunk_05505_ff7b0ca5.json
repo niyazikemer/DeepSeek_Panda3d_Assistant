@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces a method `generateWithRequired` that generates a Distributed Object in a specific zone with optional fields. It handles DO ID allocation, sets the parent and zone IDs, and delegates generation to the repository while ensuring proper state initialization.\n\ndef generateWithRequired(self, zoneId, optionalFields=[]):\n        assert self.notify.debugStateCall(self)\n        # have we already allocated a doId?\n        if self.__preallocDoId:\n            self.__preallocDoId = 0\n            return self.generateWithRequiredAndId(self.doId, zoneId,\n                                                  optionalFields)\n\n        # The repository is the one that really does the work\n        parentId = self.air.districtId\n        self.parentId = parentId\n        self.zoneId = zoneId\n        self.air.generateWithRequired(self, parentId, zoneId, optionalFields)\n        self.generate()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5505
+  }
+}

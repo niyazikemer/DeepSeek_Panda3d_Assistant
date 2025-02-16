@@ -1,0 +1,9 @@
+{
+  "content": "The `storeObjectLocation` method of the `DoHierarchy` class manages the storage of an object's location in a hierarchical structure, ensuring that each object ID is stored only once and tracking it across parent, zone, and child relationships.\n\ndef storeObjectLocation(self, do, parentId, zoneId):\n        doId = do.doId\n        if doId in self._allDoIds:\n            self.notify.error(\n                'storeObjectLocation(%s %s) already in _allDoIds; duplicate generate()? or didn\\'t clean up previous instance of DO?' % (\n                do.__class__.__name__, do.doId))\n        parentZoneDict = self._table.setdefault(parentId, {})\n        zoneDoSet = parentZoneDict.setdefault(zoneId, set())\n        zoneDoSet.add(doId)\n        self._allDoIds.add(doId)\n        self.notify.debug('storeObjectLocation: %s(%s) @ (%s, %s)' % (\n            do.__class__.__name__, doId, parentId, zoneId))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_320",
+    "parent": "processed_documents/context_documents/79f8b556_DoHierarchy.json",
+    "chunk_number": 5530
+  }
+}

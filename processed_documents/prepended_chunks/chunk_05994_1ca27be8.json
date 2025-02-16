@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk implements the initialization of 3D models in a Python-based simulation using PandAI, setting up a pursuer (seeker), target, and obstacles with specific positions, colors, scaling, and parenting to the render node.\n\ndef loadModels(self):\n        # Seeker\n        ralphStartPos = Vec3(-10, 0, 0)\n        self.pursuer = Actor(\"models/ralph\",\n                                 {\"run\":\"models/ralph-run\"})\n        self.pursuer.reparentTo(render)\n        self.pursuer.setScale(0.5)\n        self.pursuer.setPos(ralphStartPos)\n        # Target\n        self.target = loader.loadModel(\"models/arrow\")\n        self.target.setColor(1,0,0)\n        self.target.setPos(5,0,0)\n        self.target.setScale(1)\n        self.target.reparentTo(render)\n        # Obstacle 1\n        self.obstacle1 = loader.loadModel(\"models/arrow\")\n        self.obstacle1.setColor(0,0,1)\n        self.obstacle1.setPos(2,0,0)\n        self.obstacle1.setScale(1)\n        self.obstacle1.reparentTo(render)\n        # Obstacle 2\n        self.obstacle2 = loader.loadModel(\"models/arrow\")\n        self.obstacle2.setColor(0,0,1)\n        self.obstacle2.setPos(5,5,0)\n        self.obstacle2.setScale(1)\n        self.obstacle2.reparentTo(render)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_389",
+    "parent": "processed_documents/context_documents/a961692e_828c2d57_obstacle-avoidance.json",
+    "chunk_number": 5994
+  }
+}

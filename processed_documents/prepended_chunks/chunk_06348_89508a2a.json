@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a Python solution using Panda3D's `EggData` class to dynamically create a node from an EGG-formatted string.\n\negg = EggData()\negg.read(StringStream(eggText))\nmodel = NodePath(loadEggData(egg))\n\nHow can I know which letter is below the pointer when I click on a TextNode?\n\nUse the TextAssembler class.\n\ntn = TextNode('tn')\ntn.setText('abcdef\\nghi')\nta = TextAssembler(tn)\nta.setWtext(tn.getWtext())\nfor ri in range(ta.getNumRows()):\n    for ci in range(ta.getNumCols(ri)):\n        print(\"ri = %s, ci = %s, char = %s, pos = %s, %s\" %\n              (ri, ci, chr(ta.getCharacter(ri, ci)),\n                           ta.getXpos(ri, ci),\n                           ta.getYpos(ri, ci)))",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6348
+  }
+}

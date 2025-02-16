@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk contains three related methods within a Python class (`DistributedCameraOV`) that handle camera fixture configuration. The `unpackFixture` method parses camera data strings into position, rotation, and field-of-view values. The `loadFromFile` method reads camera configurations from a text file and adds them as fixtures using `addFixture`. Finally, the `refreshFixture` method updates an existing fixture's properties based on new data. These methods are essential for managing camera setups in a distributed environment.\n\ndef unpackFixture(self, data):\n        data = data.strip().replace('Camera','')\n        pos,hpr,fov = eval(data)\n        return pos,hpr,fov\n\n    def loadFromFile(self, name):\n        self.b_setFixtures([])\n        f = open('cameras-%s.txt' % name, 'r')\n        for line in f.readlines():\n            pos,hpr,fov = self.unpackFixture(line)\n            self.addFixture([pos[0],pos[1],pos[2],\n                             hpr[0],hpr[1],hpr[2],\n                             fov[0],fov[1],\n                             'Standby'])\n        f.close()\n\n    def refreshFixture(self, id, data):\n        pos,hpr,fov = self.unpackFixture(data)\n        fixture = self.fixtures[id]\n        fixture = [pos[0],pos[1],pos[2],\n                   hpr[0],hpr[1],hpr[2],\n                   fov[0],fov[1],\n                   fixture[8]]\n\n        # distributed only\n        self.d_setFixtures(self.fixtures)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_331",
+    "parent": "processed_documents/context_documents/3deb3265_DistributedCameraOV.json",
+    "chunk_number": 5647
+  }
+}

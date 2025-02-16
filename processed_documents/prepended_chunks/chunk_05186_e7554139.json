@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of the `ServerRepository` class, which manages client connections and object updates in a distributed system. The specific snippet is located within the `updateObject` method, responsible for handling field updates to objects. This section enforces ownership rules for object updates by checking if the updating client is the owner of the object or has permissions based on keywords like 'clsend' or 'p2p'. If not, it logs a warning and ignores the update.\n\nif client != owner:\n            # This message was not sent by the object's owner.\n            if not dcfield.hasKeyword('clsend') and not dcfield.hasKeyword('p2p'):\n                self.notify.warning(\n                    \"Ignoring update for %s.%s on object %s from client %s: not owner\" % (\n                    object.dclass.getName(), dcfield.getName(), doId, client.doIdBase))\n                return\n\n        # We reformat the message slightly to insert the sender's\n        # doIdBase.\n        dg = PyDatagram()\n        dg.addUint16(OBJECT_UPDATE_FIELD_CMU)\n        dg.addUint32(client.doIdBase)\n        dg.addUint32(doId)\n        dg.addUint16(fieldId)\n        dg.appendData(dgi.getRemainingBytes())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5186
+  }
+}

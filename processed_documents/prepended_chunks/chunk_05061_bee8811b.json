@@ -1,0 +1,9 @@
+{
+  "content": "This code is part of an event handling mechanism in a Messenger class. It securely calls methods attached to events, manages thread safety using a lock, and schedules coroutines for asynchronous execution.\n\n# It is important to make the actual call here, after\n                # we have cleaned up the accept hook, because the\n                # method itself might call accept() or acceptOnce()\n                # again.\n                assert hasattr(method, '__call__')\n\n                # Release the lock temporarily while we call the method.\n                self.lock.release()\n                try:\n                    result = method(*(extraArgs + sentArgs))\n                finally:\n                    self.lock.acquire()\n\n                if hasattr(result, 'cr_await'):\n                    # It's a coroutine, so schedule it with the task manager.\n                    from direct.task.TaskManagerGlobal import taskMgr\n                    taskMgr.add(result)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5061
+  }
+}

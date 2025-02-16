@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method responsible for managing client-side interests in a networked application. It handles the removal of an interest by sending a removal request to the server, managing event notifications for state changes, and ensuring proper cleanup if no further action is required. The method also includes logging for debugging purposes and validation checks to ensure the interest handle exists as expected.\n\nintState.addEvent(event)\n                self._sendRemoveInterest(handle, contextId)\n                if not event:\n                    self._considerRemoveInterest(handle)\n                if self.__verbose():\n                    print('CR::INTEREST.removeInterest(handle=%s, event=%s)' % (\n                        handle, event))\n        else:\n            DoInterestManager.notify.warning(\n                \"removeInterest: handle not found: %s\" % (handle))\n        assert self.printInterestsIfDebug()\n        return existed",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5215
+  }
+}

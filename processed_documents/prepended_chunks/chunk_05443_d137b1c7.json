@@ -1,0 +1,9 @@
+{
+  "content": "The `storeObjectLocation` method is part of a distributed object management system, specifically handling updates to object locations in zones. It ensures proper tracking by updating parent-child relationships and removing outdated location data when objects are moved or repositioned between zones.\n\ndef storeObjectLocation(self, object, parentId, zoneId):\n        oldParentId = object.parentId\n        oldZoneId = object.zoneId\n        if oldParentId != parentId:\n            # notify any existing parent that we're moving away\n            oldParentObj = self.doId2do.get(oldParentId)\n            if oldParentObj is not None:\n                oldParentObj.handleChildLeave(object, oldZoneId)\n            self.deleteObjectLocation(object, oldParentId, oldZoneId)\n\n        elif oldZoneId != zoneId:\n            # Remove old location\n            oldParentObj = self.doId2do.get(oldParentId)\n            if oldParentObj is not None:\n                oldParentObj.handleChildLeaveZone(object, oldZoneId)\n            self.deleteObjectLocation(object, oldParentId, oldZoneId)\n        else:\n            # object is already at that parent and zone\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5443
+  }
+}

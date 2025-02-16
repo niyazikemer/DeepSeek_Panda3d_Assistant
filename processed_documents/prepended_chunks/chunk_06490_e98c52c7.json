@@ -1,0 +1,9 @@
+{
+  "content": "In the document discussing collision system misuse in Panda3D, this chunk is situated within the \"Lack of Hierarchy\" section, where it addresses the inefficiency of unstructured collision solids and suggests organizing them into hierarchical structures like quadtrees or octrees for better performance. It introduces the `model.subdivideCollisions(4)` method to automate this process and transitions into discussing excessive detail in collision geometry as another potential issue.\n\nThe context situates the chunk within a discussion on improving collision detection efficiency by structuring collision nodes hierarchically, using methods like quadtrees or octrees, and automating the process with `subdivideCollisions()`, before moving on to the problem of excessive detail.\n\nThis is very inefficient for a large number of solids. Panda3D will need to test for collisions against every single object in a row.\n\nIt is far more efficient to structure your collision scene in the form of a quadtree or octree, or even a binary tree, grouping close collision nodes together under a common parent node. This allows Panda3D to test against the parent node, and only proceed to test the child nodes if this passes.\n\npython\n\nThere is a method on the .NodePath class to automate the process of partitioning the scene for optimal collision checking:\n\nmodel.subdivideCollisions(4)\n\nThe argument is the number of solids to put in the leaves of the hierarchy. You can experiment with this number to find the value that gives the best performance.\n\nExcessive Detail",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_495",
+    "parent": "processed_documents/context_documents/00501971_f13ba21a_collision-system-misuse.json",
+    "chunk_number": 6490
+  }
+}

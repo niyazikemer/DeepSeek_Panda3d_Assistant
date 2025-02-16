@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a guide explaining how to use `setup.py` for bundling Panda3D applications. It covers important notes about Python version compatibility with older operating systems like Windows 7 and macOS versions, as well as instructions on setting custom application icons for Windows and macOS in the compiled executable.\n\nNote\n\nPython 3.9 no longer supports Windows 7. If you need to target Windows 7 in your application, use Python 3.8, unless you also need to support macOS versions older than 10.9, in which case you should use Python 3.7 or older.\n\nIcons\n\nOn Windows and macOS, it is possible to change the icon that is shown in file browsers or the dock for the compiled executable. This feature requires Panda3D 1.10.4 or later. To use this feature, modify the setup.py file to something like the following:\n\n\"gui_apps\": {\n    \"asteroids\": \"src/main.py\",\n},\n\"icons\": {\n    # The key needs to match the key used in gui_apps/console_apps.\n    # Alternatively, use \"*\" to set the icon for all apps.\n    \"asteroids\": [\"icon-256.png\", \"icon-128.png\", \"icon-48.png\", \"icon-32.png\", \"icon-16.png\"],\n},",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_541",
+    "parent": "processed_documents/context_documents/c8ca6be0_d7215213_building-binaries.json",
+    "chunk_number": 6706
+  }
+}

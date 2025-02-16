@@ -1,0 +1,9 @@
+{
+  "content": "This chunk discusses solutions for addressing incorrect transparency rendering caused by depth sorting issues in 3D graphics. It specifically introduces M__dual transparency mode as the first solution, explaining its purpose, limitations, and integration with egg-_palettize to automatically handle cutout textures.\n\nNow, there are a number of solutions to this sort of problem. No one solution is right for every situation.\n\nFirst, the easiest thing to do is to use M_dual transparency. This is a special transparency mode in which the completely invisible parts of the object aren't drawn into the Z-buffer at all, so that they don't have any chance of obscuring things behind them. This only works well if the flats are typical cutouts, where there is a big solid part (alpha == 1.0) and a big transparent part (alpha == 0.0), and not a lot of semitransparent parts (0.0 < alpha < 1.0). It is also a slightly more expensive rendering mode than the default of M_alpha, so it's not enabled by default in Panda. But egg-palettize will turn it on automatically for a particular model if it detects textures that appear to be cutouts of the appropriate nature, which is another reason to use egg-palettize if you are not using it already.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_448",
+    "parent": "processed_documents/context_documents/d4aa489f_64e02051_transparency-and-blending.json",
+    "chunk_number": 6270
+  }
+}

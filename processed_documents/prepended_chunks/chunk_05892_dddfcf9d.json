@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is an example within the \"The Egg Interface\" section of the document. It demonstrates how to create and manipulate 3D geometry using the Panda3D egg library by programmatically defining vertices and polygons, then writing them to an .egg file and loading it into a scene for rendering.\n\nvp = EggVertexPool('fan')\n    data.addChild(vp)\n\n    poly = EggPolygon()\n    data.addChild(poly)\n\n    v = EggVertex()\n    v.setPos(Point3D(0, 0, 0))\n    poly.addVertex(vp.addVertex(v))\n\n    angleRadians = deg2Rad(angleDegrees)\n\n    for i in range(numSteps + 1):\n        a = angleRadians * i / numSteps\n        y = math.sin(a)\n        x = math.cos(a)\n\n        v = EggVertex()\n        v.setPos(Point3D(x, 0, y))\n        poly.addVertex(vp.addVertex(v))\n\n    return data\n...\n\n# Creating egg data\ndata = makeWedge()\n\n# To write the egg file to disk, use this:\ndata.writeEgg(Filename(\"wedge.egg\"))\n\n# To load the egg file and render it immediately, use this:\nmodel = NodePath(loadEggData(data))\nmodel.reparentTo(render)\n\nSee the generated API documentation of panda3d.egg for more complete information about the egg library.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_366",
+    "parent": "processed_documents/context_documents/d6c83d00_80ac7690_writing-models-to-disk.json",
+    "chunk_number": 5892
+  }
+}

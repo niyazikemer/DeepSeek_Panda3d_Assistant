@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method named `queueAllInterestsCompleteEvent` within an interest management system. This system handles adding, removing, and tracking interests, likely related to networked game objects or zones. The method schedules a callback after a specified number of frames to trigger an event when all current interests are complete, ensuring proper cleanup and coordination of operations.\n\ndef queueAllInterestsCompleteEvent(self, frames=5):\n        # wait for N frames, if no new interests, send out all-done event\n        # calling this is OK even if there are no pending interest completes\n        def checkMoreInterests():\n            # if there are new interests, cancel this delayed callback, another\n            # will automatically be scheduled when all interests complete\n            # print 'checkMoreInterests(',self._completeEventCount.num,'):',base.clock.getFrameCount()\n            return self._completeEventCount.num > 0\n        def sendEvent():\n            messenger.send(self.getAllInterestsCompleteEvent())\n            for callback in self._allInterestsCompleteCallbacks:\n                callback()\n            self._allInterestsCompleteCallbacks = []\n        self.cleanupWaitAllInterestsComplete()\n        self._completeDelayedCallback = FrameDelayedCall(\n            'waitForAllInterestCompletes',\n            callback=sendEvent,\n            frames=frames,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5234
+  }
+}

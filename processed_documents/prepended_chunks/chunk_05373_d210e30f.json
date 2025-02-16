@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `DistributedSmoothNodeAI` class, which manages networked smooth transformations for 3D objects or characters. The methods handle setting various combinations of position (`x`, `y`, `z`) and orientation (`h`, `p`, `r`) attributes through functions like `setSmHpr`, `setSmXYH`, and others. Additionally, it includes getter and setter methods for individual components, facilitating attribute manipulation in a distributed system.\n\ndef setSmHpr(self, h, p, r, t=None):\n        self.setHpr(h, p, r)\n\n    def setSmXYH(self, x, y, h, t=None):\n        self.setX(x)\n        self.setY(y)\n        self.setH(h)\n\n    def setSmXYZH(self, x, y, z, h, t=None):\n        self.setPos(x, y, z)\n        self.setH(h)\n\n    def setSmPosHpr(self, x, y, z, h, p, r, t=None):\n        self.setPosHpr(x, y, z, h, p, r)\n\n    def setSmPosHprL(self, l, x, y, z, h, p, r, t=None):\n        self.setPosHpr(x, y, z, h, p, r)\n\n    def clearSmoothing(self, bogus = None):\n        pass\n\n\n    # Do we use these on the AIx?\n    def setComponentX(self, x):\n        self.setX(x)\n    def setComponentY(self, y):\n        self.setY(y)\n    def setComponentZ(self, z):\n        self.setZ(z)\n    def setComponentH(self, h):\n        self.setH(h)\n    def setComponentP(self, p):\n        self.setP(p)\n    def setComponentR(self, r):\n        self.setR(r)\n    def setComponentL(self, l):\n        pass\n    def setComponentT(self, t):\n        pass",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_307",
+    "parent": "processed_documents/context_documents/6bdbd1f3_DistributedSmoothNodeAI.json",
+    "chunk_number": 5373
+  }
+}

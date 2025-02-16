@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within the `ShowBase` class, specifically in a method that handles window setup and rendering parameters. It adjusts the pixel2d scale based on the window's size and stereo configuration, ensuring proper display of 2D elements relative to the viewport dimensions during initialization or resizing events.\n\n# If we have not forced the aspect ratio, let's see if it has\n            # changed and update the camera lenses and aspect2d parameters\n            self.adjustWindowAspectRatio(self.getAspectRatio())\n\n            if win.hasSize() and win.getSbsLeftYSize() != 0:\n                self.pixel2d.setScale(2.0 / win.getSbsLeftXSize(), 1.0, 2.0 / win.getSbsLeftYSize())\n                if self.wantRender2dp:\n                    self.pixel2dp.setScale(2.0 / win.getSbsLeftXSize(), 1.0, 2.0 / win.getSbsLeftYSize())\n            else:\n                xsize, ysize = self.getSize()\n                if xsize > 0 and ysize > 0:\n                    self.pixel2d.setScale(2.0 / xsize, 1.0, 2.0 / ysize)\n                    if self.wantRender2dp:\n                        self.pixel2dp.setScale(2.0 / xsize, 1.0, 2.0 / ysize)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5003
+  }
+}

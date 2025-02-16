@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to implement CollisionHandlerPusher in Panda3D for handling collisions by attaching it to a moving node, demonstrated through Python and C++ code examples. It explains the necessary setup steps and configurations to ensure proper collision response within the game or simulation environment.\n\nThe CollisionHandlerPusher needs to have a handle to the NodePath that it will push back on, for each from object; you pass this information to pusher.add_collider() <.CollisionHandlerPusher.add_collider>. This should be the node that is actually moving. This is often, but not always, the same NodePath as the CollisionNode itself, but it might be different if the CollisionNode is set up as a child of the node that is actually moving.\n\npython\n\nsmiley = loader.loadModel('smiley.egg')\nfromObject = smiley.attachNewNode(CollisionNode('colNode'))\nfromObject.node().addSolid(CollisionSphere(0, 0, 0, 1))\n\npusher = CollisionHandlerPusher()\npusher.addCollider(fromObject, smiley)\n\ncpp\n\nsmiley = window->load_model(framework.get_models(), \"smiley.egg\");\nfromObject = smiley.attach_new_node(new CollisionNode(\"colNode\"));\nfromObject->add_solid(new CollisionSphere(0, 0, 0, 1));\n\nPT(CollisionHandlerPusher) pusher = new CollisionHandlerPusher;\npusher->add_collider(fromObject, smiley);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6448
+  }
+}

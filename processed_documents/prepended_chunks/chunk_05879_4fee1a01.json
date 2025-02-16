@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to configure point light attenuation for smooth intensity falloff based on distance and provides examples for setting up directional lights in Panda3D, including adjusting their color, direction, and attaching them to the scene graph.\n\npython\n\nplight.attenuation = (1, 0, 1)\n\ncpp\n\nplight->set_attenuation(LVecBase3(1, 0, 1));\n\nThis will make the light intensity smoothly reach 1 as the distance to the light source approaches zero.\n\nDirectional Lights\n\nA directional light is an infinite wave of light, always in the same direction, like sunlight. A directional light's position doesn't matter, but its orientation is important. The default directional light is shining down the forward (+Y) axis; you can use .NodePath.set_hpr() or ~.NodePath.set_light() to rotate it to face in a different direction.\n\npython\n\ndlight = DirectionalLight('dlight')\ndlight.setColor((0.8, 0.8, 0.5, 1))\ndlnp = render.attachNewNode(dlight)\ndlnp.setHpr(0, -60, 0)\nrender.setLight(dlnp)\n\ncpp\n\nPT(DirectionalLight) d_light;\nd_light = new DirectionalLight(\"my d_light\");\nd_light->set_color(LColor(0.8, 0.8, 0.5, 1));\nNodePath dlnp = window->get_render().attach_new_node(d_light);\ndlnp.set_hpr(-30, -60, 0);\nwindow->get_render().set_light(dlnp);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5879
+  }
+}

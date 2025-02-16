@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a section detailing the fundamental audio management operations in Panda3D, focusing on loading sounds via the AudioManager class and performing essential actions such as playing, stopping, checking status, adjusting volume, and panning. It provides code examples for both Python and C++ to illustrate these functionalities within the sound system architecture.\n\nPT(AudioManager) AM = AudioManager::create_AudioManager();\nPT(AudioSound) mySound = AM->get_sound(\"path/to/sound_file.ogg\") ;\n\nThese will return an object of the type .AudioSound. It is necessary to put the extension in the sound filename.\n\nPlaying/Stopping a Sound\n\nTo play sounds you can do the following:\n\npython\n\nmySound.play()\n\ncpp\n\nmySound->play();\n\nTo stop a sound:\n\npython\n\nmySound.stop()\n\ncpp\n\nmySound->stop();\n\nQuerying Sound Status\n\nTo check the status of a sound, call ~.AudioSound.status():\n\npython\n\nstatus = mySound.status()\n\ncpp\n\nmySound->status();\n\n~.AudioSound.status() returns a constant depending on the status of the sound:\n\nConstant Status AudioSound.BAD The sound is not working properly. AudioSound.READY The sound is not currently playing and is ready to be played on\ncommand. AudioSound.PLAYING The sound is currently playing.\n\npython\n\nExample usage of this would be to stop a sound from playing only if it's currently playing.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_510",
+    "parent": "processed_documents/context_documents/fc972193_a35dd850_loading-playing-sounds-music.json",
+    "chunk_number": 6565
+  }
+}

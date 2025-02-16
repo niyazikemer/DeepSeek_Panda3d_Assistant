@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two critical methods within an `AsyncRequest` class: `finish()` and `_doCreateObject()`. These methods are part of a system designed to manage asynchronous operations for fetching or creating distributed objects in a networked environment. \n\n- The `finish()` method is responsible for finalizing the request once all required objects have been successfully retrieved, ensuring proper cleanup by deleting the request instance.\n\n- The `_doCreateObject()` method handles the creation of a distributed object and ensures it is properly registered without duplication, particularly avoiding issues when running on UberDog. This method then triggers the completion check to verify if all requested objects are in place.\n\ndef finish(self):\n        \"\"\"\n        This is the function that gets called when all of the needed objects\n        are in (i.e. all the askForObject and createObject requests have\n        been satisfied).\n        If the other requests timeout, finish will not be called.\n        \"\"\"\n        assert self.notify.debugCall()\n        self.delete()\n\n    def _doCreateObject(self, name, className, values, doId):\n        isInDoId2do = doId in self.air.doId2do\n        distObj = self.air.generateGlobalObject(doId, className, values)\n        if not isInDoId2do and game.name == 'uberDog':\n            # only remove doId if this is the uberdog?, in pirates this was\n            # causing traded inventory objects to be generated twice, once\n            # here and again later when it was noticed the doId was not in\n            # the doId2do list yet.\n            self.air.doId2do.pop(doId, None)\n        self._checkCompletion(name, None, distObj)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5402
+  }
+}

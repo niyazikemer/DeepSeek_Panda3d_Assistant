@@ -1,0 +1,9 @@
+{
+  "content": "The document contains several utility methods added to the NodePath class in Panda3D for managing scene graph structures and analyzing geometry. These include functions for constructing and subdividing collision trees, analyzing vertex and triangle counts, and deprecation warnings for legacy collision visualization functionality like showCS(). The showCS() method is part of a collection of tools for working with collision nodes and debugging scene graph structure, though it has been deprecated in favor of more modern approaches.\n\ndef showCS(self, mask = None):\n    \"\"\"\n    Deprecated.\n    Shows the collision solids at or below this node.  If mask is\n    not None, it is a BitMask32 object (e.g. WallBitmask,\n    CameraBitmask) that indicates which particular collision\n    solids should be made visible; otherwise, all of them will be.\n    \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.showCS() is deprecated.  Use findAllMatches('**/+CollisionNode').show() instead.\", DeprecationWarning, stacklevel=2)\n    npc = self.findAllMatches('**/+CollisionNode')\n    for p in range(0, npc.getNumPaths()):\n        np = npc[p]\n        if mask is None or (np.node().getIntoCollideMask() & mask).getWord():\n            np.show()\n\nDtool_funcToMethod(showCS, NodePath)\ndel showCS\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5762
+  }
+}

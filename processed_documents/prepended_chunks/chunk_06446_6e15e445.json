@@ -1,0 +1,9 @@
+{
+  "content": "The document explains various collision handling mechanisms and their implementation in both Python and C++. The chunk situates within a discussion about event handling and collision detection, specifically introducing `CollisionHandlerPusher` as one of several specialized handlers derived from `CollisionHandlerEvent`, which enables objects to respond to collisions by adjusting their positions (e.g., keeping an object out of walls).\n\nYou may use as many of the above sequences as you like, or none, in the pattern string. In the tag-based sequences, the parentheses around (tag) are literal; the idea is to write the name of the tag you want to look up, surrounded by parentheses. The tag is consulted using the nodePath.get_net_tag() <.NodePath.get_net_tag> interface.\n\nIn any case, the event handler function that you write to service the event should receive one parameter (in addition to self, if it is a method): the CollisionEntry <collision-entries>. For example:\n\npython\n\nclass MyObject(DirectObject.DirectObject):\n    def __init__(self):\n        self.accept('car-into-rail', handleRailCollision)\n\n    def handleRailCollision(self, entry):\n        print(entry)\n\nNote that all of the following versions of CollisionHandler also inherit from CollisionHandlerEvent, so any of them can be set up to throw events in the same way.\n\nCollisionHandlerPusher",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6446
+  }
+}

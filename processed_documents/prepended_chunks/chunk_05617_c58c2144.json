@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk consists of methods for handling server heartbeats and system messages within a client-server communication context. These methods extract message information, log events, and notify relevant systems to ensure proper message processing and connection management.\n\n# disconnect now, don't wait for send/recv to fail\n        self.stopReaderPollTask()\n        self.lostConnection()\n\n    def handleServerHeartbeat(self, di):\n        # Got a heartbeat message from the server.\n        if ConfigVariableBool('server-heartbeat-info', True):\n            self.notify.info(\"Server heartbeat.\")\n\n    def handleSystemMessage(self, di):\n        # Got a system message from the server.\n        message = di.getString()\n        self.notify.info('Message from server: %s' % (message))\n        return message\n\n    def handleSystemMessageAknowledge(self, di):\n        # Got a system message from the server.\n        message = di.getString()\n        self.notify.info('Message with aknowledge from server: %s' % (message))\n        messenger.send(\"system message aknowledge\", [message])\n        return message",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5617
+  }
+}

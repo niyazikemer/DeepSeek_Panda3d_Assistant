@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods in a `DistributedObject` class that manage camera parent relationships (`setCamParent`, `getCamParent`) and handle fixture configuration updates (`setFixtures`). These methods are responsible for maintaining the scene graph structure by ensuring fixtures are properly reparented, processing fixture data arrays to update or remove existing fixtures, and setting their properties such as position, HPR (heading, pitch, roll), FOV (field of view), and operational state. The `setFixtures` method also tracks whether any fixture is in a \"recording\" state for system-wide awareness.\n\nDistributedObject.disable(self)\n\n    def getOV(self):\n        return self.cr.doId2ownerView.get(self.getDoId())\n\n    def setCamParent(self, doId):\n        if doId != self.parent:\n            if not doId:\n                self.parent = render\n            else:\n                self.parent = self.cr.getDo(doId)\n\n            for fix in self.fixtures.values():\n                fix.reparentTo(self.parent)\n\n    def getCamParent(self):\n        return self.parent\n\n    def setFixtures(self, fixtures):\n        for x in range(len(fixtures), len(self.fixtures)):\n            fixture = self.fixtures.pop(x)\n            fixture.cleanup()\n            fixture.detachNode()\n\n        recordingInProgress = False\n        for x,fixture in enumerate(fixtures):\n            pos = Point3(*(fixture[:3]))\n            hpr = Point3(*(fixture[3:6]))\n            fov = VBase2(*(fixture[6:8]))\n            state = fixture[8]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_329",
+    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
+    "chunk_number": 5634
+  }
+}

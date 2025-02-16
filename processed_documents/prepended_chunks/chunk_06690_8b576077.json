@@ -1,0 +1,9 @@
+{
+  "content": "This chunk discusses different HDR tone mapping operators (HDR0, HDR1, HDR2) and their effects on contrast in scenes, followed by an explanation of Cartoon Shading using quantized lighting.\n\nThe HDR2 tone mapping operator is a familiar operator that is used in many systems. It has the downside that it tends to reduce contrast a lot:\n\nFINAL_RGB = (RGB) / (RGB + 1)\n\nThe HDR1 tone mapping operator is similar, but it allocates more of the contrast range to brightnesses in the range 0-1, and less to brightnesses in the range 1-infinity. This yields a higher-contrast scene, but with more washout:\n\nFINAL_RGB = (RGB^2 + RGB) / (RGB^2 + RGB + 1)\n\nThe HDR0 tone mapping operator allocates even more of the available contrast range to brightnesses in the range 0-1. This is even more contrasty, but with even more washout:\n\nFINAL_RGB = (RGB^3 + RGB^2 + RGB) / (RGB^3 + RGB^2 + RGB + 1)\n\nCartoon Shading (Quantized Lighting)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_539",
+    "parent": "processed_documents/context_documents/173324ae_13bf8ef2_light-ramps.json",
+    "chunk_number": 6690
+  }
+}

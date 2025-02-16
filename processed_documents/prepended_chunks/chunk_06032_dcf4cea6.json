@@ -1,0 +1,9 @@
+{
+  "content": "The chunk about \"Filtering the optional arguments\" is situated within the Python-specific section of the document, following discussions on FSM state transitions and control methods like `request()`, `demand()`, and `forceTransition()`. This part explains how filter functions handle optional arguments during state transitions, providing insight into modifying or filtering data passed to enter functions.\n\nFiltering the optional arguments\n\nThe filterStateName method receives two parameters: the string request, and a tuple, which contains the additional arguments passed to the request (or demand) call. It then normally returns the state name the FSM should transition to, or it returns None to indicate the transition is denied.\n\nHowever, the filter function can also return a tuple. If it returns a tuple, it should be of the form ('StateName', arg1, arg2, ...), where arg1, arg2, ... represent the optional arguments that should be passed to the enterStateName method. Usually, these are the same arguments that were passed to the filterStateName method (in this case, you can generate the return value tuple with the python syntax ('StateName',) + args).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_399",
+    "parent": "processed_documents/context_documents/aca109a0_8bcd09f5_advanced-fsm-tidbits.json",
+    "chunk_number": 6032
+  }
+}

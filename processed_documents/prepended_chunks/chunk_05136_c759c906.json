@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk appears within the `update_motion_trail` method of a motion trail system. This section handles the generation of geometry for the motion trail by iterating through curve segments, interpolating vertices, and adjusting times when the square_t option is enabled. The helper function `one_minus_x` supports B\u00e9zier or spline calculations for smooth transitions between control points.\n\n**Succinct Context:**\n\nThis code chunk is part of the `update_motion_trail` method in a motion trail system, where it calculates geometry by iterating through curve segments, interpolating vertices based on time values (potentially squared), and using helper functions for B\u00e9zier or spline algorithms.\n\nv0 = Vec3()\n                    v1 = Vec3()\n                    v2 = Vec3()\n                    v3 = Vec3()\n\n                    def one_minus_x(x):\n                        x = 1.0 - x\n                        if x < 0.0:\n                            x = 0.0\n                        return x\n\n                    curve_segment_index = 0.0\n                    while curve_segment_index < total_curve_segments:\n\n                        vertex_segment_index = 0\n\n                        st = curve_segment_index / total_curve_segments\n                        et = (curve_segment_index + 1.0) / total_curve_segments\n                        #st = curve_segment_index / total_segments\n                        #et = (curve_segment_index + 1.0) / total_segments\n\n                        start_t = st\n                        end_t = et\n\n                        if self.square_t:\n                            start_t *= start_t\n                            end_t *= end_t",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5136
+  }
+}

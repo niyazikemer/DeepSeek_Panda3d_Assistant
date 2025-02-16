@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains additional interval methods (posQuatInterval, hprScaleInterval, quatScaleInterval) that extend NodePath functionality with Direct's Lerp intervals. These should be placed within the existing method additions to NodePath, specifically after the analyze function and before any other major sections.\n\nHere is the succinct context:\n\n\"\"\"\nThe following functions add interval-based animation capabilities to NodePath by incorporating methods from Direct's LerpInterval module. These methods enable smooth transitions of position-rotation, heading-pitch-roll scaling, and quaternion-scaling over time.\n\"\"\"\n\nThis context situates the chunk as a logical extension of NodePath with animation features, fitting within the existing code structure that adds various utility methods to NodePath.\n\ndef posQuatInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpPosQuatInterval(self, *args, **kw)\n\nDtool_funcToMethod(posQuatInterval, NodePath)\ndel posQuatInterval\n#####################################################################\ndef hprScaleInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpHprScaleInterval(self, *args, **kw)\n\nDtool_funcToMethod(hprScaleInterval, NodePath)\ndel hprScaleInterval\n#####################################################################\ndef quatScaleInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpQuatScaleInterval(self, *args, **kw)\n\nDtool_funcToMethod(quatScaleInterval, NodePath)\ndel quatScaleInterval\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5766
+  }
+}

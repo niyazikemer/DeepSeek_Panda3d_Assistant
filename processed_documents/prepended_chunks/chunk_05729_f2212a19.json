@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements methods for managing cached data in the `CRDataCache` class. The `hasCachedData` method checks if data exists for a specific Distributed Object ID (`doId`). The `popCachedData` method retrieves and removes all cached data associated with a given `doId`. The `flush` method clears all cached data by flushing each entry and resetting the cache. Debugging methods `_startMemLeakCheck`, `_stopMemLeakCheck`, and `_checkMemLeaks` are included to prevent memory leaks during testing.\n\ndef hasCachedData(self, doId):\n        return doId in self._doId2name2data\n\n    def popCachedData(self, doId):\n        # retrieves all cached data for a DistributedObject and removes it from the cache\n        data = self._doId2name2data[doId]\n        del self._doId2name2data[doId]\n        return data\n\n    def flush(self):\n        # get rid of all cached data\n        for doId in self._doId2name2data:\n            for name in self._doId2name2data[doId]:\n                self._doId2name2data[doId][name].flush()\n        self._doId2name2data = {}\n\n    if __debug__:\n        def _startMemLeakCheck(self):\n            self._len = len(self._doId2name2data)\n\n        def _stopMemLeakCheck(self):\n            del self._len\n\n        def _checkMemLeaks(self):\n            assert self._len == len(self._doId2name2data)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_338",
+    "parent": "processed_documents/context_documents/66cf91ba_CRDataCache.json",
+    "chunk_number": 5729
+  }
+}

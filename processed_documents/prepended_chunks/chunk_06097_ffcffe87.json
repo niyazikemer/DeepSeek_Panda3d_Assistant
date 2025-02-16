@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk explains the role of keywords in defining data propagation rules within .dc files, specifically detailing how each keyword affects data transmission. This section is crucial for understanding how to enforce constraints like required fields during object creation. It is situated under the \"Keywords\" section, which comes early in the document to establish fundamental concepts before delving into more complex structures like structs and dclasses.\n\nKeywords\n\nKeywords define the circumstances for propagating the data. They must be defined at the start of the file.\n\nPossible keywords are shown below:\n\nkeyword required;\nkeyword broadcast;\nkeyword ram;\nkeyword p2p;\nkeyword clsend;\n\nThe keywords are used for the following\n\nThe required statement at the end of a field determines that this field has to be set at the generation of the object. These fields have to be called set* as a convention as in the python representation of that class the set gets taken away at generation time and will be replaced with a get to call the set value with the get functions return value.\n\nFor example, taking the dc representation of an Avatar class as defined here\u2026\n\nimport Avatar\ndclass Avatar {\n  setName(string n) required;\n}\n\n\u2026we get this Python class:\n\nclass Avatar:\n    def getName(self):\n        return self.name\n\n    def setName(self, name):\n        self.name = name\n\n    def d_setName(self, name):\n        self.sendUpdate(\"setName\", [name])",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_411",
+    "parent": "processed_documents/context_documents/c7129d08_ae3cc5ca_dc-definition-files.json",
+    "chunk_number": 6097
+  }
+}

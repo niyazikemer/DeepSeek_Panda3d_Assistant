@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method called `getConcentricZones` within the `CartesianGridBase` class, which calculates zones surrounding a given central zone within a specified radius on a 2D grid. The chunk specifically handles appending rows to the list of possible rows when not at the edges (left or right) of the grid area being examined, and then iterates through these rows to compute and collect new surrounding zone IDs. This logic is used to gather all zones exactly `radius` grids away from a given central zone for spatial calculations or proximity analysis on a grid-based system.\n\npossibleRows.append(bottomOffset + topOffset)\n            #print \"on column %s and looking at rows %s\"%(currCol,possibleRows)\n            for currRow in possibleRows:\n                newZone = ulZone + (currRow * self.gridSize) + currCol\n                zones.append(int(newZone))\n                #print \"   examining zone %s\"%newZone\n        return zones",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_298",
+    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
+    "chunk_number": 5260
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code examples demonstrate modifications to a vertex shader in Cg, showcasing different ways to assign values to `l_position` including direct assignment of a float3, array assignment using a fixed-length array, and performing mathematical operations on arrays. These modifications are part of a tutorial explaining the basics of writing shaders in Cg within the context of a Panda3D graphics engine tutorial.\n\nvoid vshader(\n    out float4 l_position : POSITION)\n{\n    l_position = float3(0.0, 0.0, 0.0, 1.0);\n}\n\nNow this next vertex shader does exactly the same thing as the original shader but shows how you can assign fixed length arrays to other fixed length arrays in Cg.\n\nvoid vshader(\n    out float4 l_position : POSITION)\n{\n    float4 zero = float4(0.0, 0.0, 0.0, 1.0);\n    l_position = zero;\n}\n\nFinally lets do some useless maths in the vertex shader. Also note how you can assign a value to l_position more than once. You should try making your own modifications to the shader and see if it can compile\n\nvoid vshader(\n    out float4 l_position : POSITION)\n{\n    float4 zero = float4(0.0, 0.0, 0.0, 1.0);\n    zero = zero * float4(1.0, 2.0, 3.0, 4.0);\n    zero = zero * 5.0;\n    l_position = zero;\n    l_position = float4(0.0, 0.0, 0.0, 1.0);\n}\n\nAfter modifying the vertex shader, try to modify the fragment shader on your own. In the next tutorial, we will improve the shader's usefulness.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_552",
+    "parent": "processed_documents/context_documents/c21812f2_917f801a_part-2.json",
+    "chunk_number": 6937
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the initialization and parent management methods for the `DistributedNodeUD` class. The initialization method ensures only one NodePath object is created and sets the default name based on the class type if not provided. The `b_`, `d_`, `setParentStr`, and `do_setParent` methods manage setting the parent of a distributed node, ensuring proper network communication when reparenting occurs.\n\nclass DistributedNodeUD(DistributedObjectUD):\n    def __init__(self, air, name=None):\n        # Be careful not to create multiple NodePath objects\n        if not hasattr(self, 'DistributedNodeUD_initialized'):\n            self.DistributedNodeUD_initialized = 1\n            DistributedObjectUD.__init__(self, air)\n            if name is None:\n                name = self.__class__.__name__\n\n    def b_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.setParentStr(parentToken)\n        else:\n            self.setParent(parentToken)\n        self.d_setParent(parentToken)\n\n    def d_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.sendUpdate(\"setParentStr\", [parentToken])\n        else:\n            self.sendUpdate(\"setParent\", [parentToken])\n\n    def setParentStr(self, parentToken):\n        self.notify.debugCall()\n        if len(parentToken) > 0:\n            self.do_setParent(parentToken)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_310",
+    "parent": "processed_documents/context_documents/3403f4ab_DistributedNodeUD.json",
+    "chunk_number": 5407
+  }
+}

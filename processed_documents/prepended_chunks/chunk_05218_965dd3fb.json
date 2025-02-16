@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of an interest management system in a client repository (ClientRepository) class. The methods `removeAIInterest` and `alterInterest` are used to handle dynamic changes to interests, which likely represent zones or areas being monitored by the client in a game context. These methods allow adding, removing, altering, and responding to interests, ensuring that clients accurately track relevant parts of the game world, including special cases like AI-managed interests.\n\n@report(types = ['args'], dConfigParam = 'guildmgr')\n    def removeAIInterest(self, handle):\n        \"\"\"\n        handle is NOT an InterestHandle.  It's just a bare integer representing an\n        AI opened interest. We're making the client close down this interest since\n        the AI has trouble removing interests(that its opened) when the avatar goes\n        offline.  See GuildManager(UD) for how it's being used.\n        \"\"\"\n        self._sendRemoveAIInterest(handle)\n\n    def alterInterest(self, handle, parentId, zoneIdList, description=None,\n                      event=None):\n        \"\"\"\n        Removes old interests and adds new interests.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5218
+  }
+}

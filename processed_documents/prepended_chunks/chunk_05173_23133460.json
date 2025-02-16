@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the initialization process for the `ServerRepository` class, where it handles reading Distributed Computing (DC) files to import necessary modules. The code initializes `dcImports`, reads either a single DC file or multiple ones specified by `dcFileNames`, and calculates a hash for the loaded content. This setup is crucial for setting up the server's environment with required distributed computing definitions and modules.\n\ndcImports = {}\n        if dcFileNames is None:\n            readResult = dcFile.readAll()\n            if not readResult:\n                self.notify.error(\"Could not read dc file.\")\n        else:\n            searchPath = getModelPath().getValue()\n            for dcFileName in dcFileNames:\n                pathname = Filename(dcFileName)\n                vfs = VirtualFileSystem.getGlobalPtr()\n                vfs.resolveFilename(pathname, searchPath)\n                readResult = dcFile.read(pathname)\n                if not readResult:\n                    self.notify.error(\"Could not read dc file: %s\" % (pathname))\n\n        self.hashVal = dcFile.getHash()\n\n        # Now import all of the modules required by the DC file.\n        for n in range(dcFile.getNumImportModules()):\n            moduleName = dcFile.getImportModule(n)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5173
+  }
+}

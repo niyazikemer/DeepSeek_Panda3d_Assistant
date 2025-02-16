@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a document discussing antialiasing options for rendering in a programming context, specifically focusing on selecting appropriate antialiasing modes for different types of geometry (polygonal models, lines, points). It provides guidance on using `MAuto` to automatically select optimal antialiasing modes and includes code examples for enabling antialiasing across an entire scene. The section also notes potential driver-related issues with certain antialiasing modes and references specific configurations or troubleshooting considerations (e.g., issue #993).\n\nIn general, when rendering polygonal models, multisample antialiasing looks best. However, when rendering lines and points, it usually looks better to choose one of the specialized antialiasing modes. The MAuto setting automatically selects the kind that usually works best for the geometry in question. Thus, if you want to enable antialiasing on the whole scene, just use:\n\npython\n\nrender.setAntialias(AntialiasAttrib.MAuto)\n\ncpp\n\nwindow->get_render().set_antialias(AntialiasAttrib::M_auto);\n\nNote\n\nOn some drivers, using the polygon smoothing mode (MPolygon, or MAuto with multisampling disabled) does not produce reliable results, or may have additional requirements to work properly, such as front-to-back sorting or a special alpha blend function. For optimal compatibility, it is recommended to either explicitly specify multisample antialiasing or leave antialiasing off.\n\nAlso see issue #993.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_355",
+    "parent": "processed_documents/context_documents/6b2c8752_1f3894be_antialiasing.json",
+    "chunk_number": 5832
+  }
+}

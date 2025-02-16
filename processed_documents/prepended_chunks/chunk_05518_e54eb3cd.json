@@ -1,0 +1,9 @@
+{
+  "content": "\"Initialization of TimeManager class with configuration variables and instance attributes.\"\n\n# The maximum number of seconds of uncertainty to tolerate in\n    # the clock delta without trying again.\n    maxUncertainty = ConfigVariableDouble('time-manager-max-uncertainty', 1).getValue()\n\n    # The maximum number of attempts to try to get a low-latency\n    # time measurement before giving up and accepting whatever we\n    # get.\n    maxAttempts = ConfigVariableInt('time-manager-max-attempts', 5).getValue()\n\n    # A simulated clock skew for debugging, in seconds.\n    extraSkew = ConfigVariableInt('time-manager-extra-skew', 0).getValue()\n\n    if extraSkew != 0:\n        notify.info(\"Simulating clock skew of %0.3f s\" % extraSkew)\n\n    reportFrameRateInterval = ConfigVariableDouble('report-frame-rate-interval', 300.0).getValue()\n\n    def __init__(self, cr):\n        DistributedObject.DistributedObject.__init__(self, cr)\n\n        self.thisContext = -1\n        self.nextContext = 0\n        self.attemptCount = 0\n        self.start = 0\n        self.lastAttempt = -self.minWait*2",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5518
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines a test class `TestInterestAddRemove` inheriting from `AsyncTestCase` and `DirectObject`, designed to asynchronously verify adding and removing an interest using unique events. It includes methods for setting up tests, handling responses, and completing the test suite.\n\nclass TestInterestAddRemove(AsyncTestCase, DirectObject.DirectObject):\n        def testInterestAdd(self):\n            event = uniqueName('InterestAdd')\n            self.acceptOnce(event, self.gotInterestAddResponse)\n            self.handle = base.cr.addInterest(base.cr.GameGlobalsId, 100, 'TestInterest', event=event)\n        def gotInterestAddResponse(self):\n            event = uniqueName('InterestRemove')\n            self.acceptOnce(event, self.gotInterestRemoveResponse)\n            base.cr.removeInterest(self.handle, event=event)\n        def gotInterestRemoveResponse(self):\n            self.setCompleted()\n\n    def runTests():\n        suite = unittest.makeSuite(TestInterestAddRemove)\n        unittest.AsyncTextTestRunner(verbosity=2).run(suite)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5242
+  }
+}

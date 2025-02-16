@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines three convenience methods (`getRealNetworkTime`, `getFrameNetworkTime`, and `localElapsedTime`) in the `ClockDelta` class for converting real time, frame time, and network timestamps to corresponding network times or local elapsed times. These utility functions simplify common operations related to time conversion between client and server clocks.\n\n**Context:** The chunk is part of the `ClockDelta` class implementation that handles time synchronization between client and server clocks in networked applications, providing methods for converting real frame times to network timestamps and calculating elapsed local time from a network timestamp.\n\n### Convenience functions ###\n\n    def getRealNetworkTime(self, bits=16,\n                           ticksPerSec=NetworkTimePrecision):\n        \"\"\"\n        Returns the current getRealTime() expressed as a network time.\n        \"\"\"\n        return self.localToNetworkTime(self.globalClock.getRealTime(),\n                                       bits=bits,\n                                       ticksPerSec=ticksPerSec)\n\n    def getFrameNetworkTime(self, bits=16,\n                            ticksPerSec=NetworkTimePrecision):\n        \"\"\"\n        Returns the current getFrameTime() expressed as a network time.\n        \"\"\"\n        return self.localToNetworkTime(self.globalClock.getFrameTime(),\n                                       bits=bits,\n                                       ticksPerSec=ticksPerSec)\n\n    def localElapsedTime(self, networkTime, bits=16,\n                         ticksPerSec=NetworkTimePrecision):\n        \"\"\"localElapsedTime(self, int networkTime)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_315",
+    "parent": "processed_documents/context_documents/dae38d8d_ClockDelta.json",
+    "chunk_number": 5470
+  }
+}

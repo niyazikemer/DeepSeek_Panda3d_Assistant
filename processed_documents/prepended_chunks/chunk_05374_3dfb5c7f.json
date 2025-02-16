@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of getter methods for accessing various components (X, Y, Z, H, P, R, L, T) in the `DistributedSmoothNodeAI` class. These methods retrieve position, orientation, and other properties of the node, with special handling for zoneId in `getComponentL()`.\n\ndef getComponentX(self):\n        return self.getX()\n    def getComponentY(self):\n        return self.getY()\n    def getComponentZ(self):\n        return self.getZ()\n    def getComponentH(self):\n        return self.getH()\n    def getComponentP(self):\n        return self.getP()\n    def getComponentR(self):\n        return self.getR()\n    def getComponentL(self):\n        if self.zoneId:\n            return self.zoneId\n        else:\n            # we can't send None over the wire which self.zoneId can sometimes be\n            return 0\n    def getComponentT(self):\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_307",
+    "parent": "processed_documents/context_documents/6bdbd1f3_DistributedSmoothNodeAI.json",
+    "chunk_number": 5374
+  }
+}

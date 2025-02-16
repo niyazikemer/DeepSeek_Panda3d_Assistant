@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a discussion on implementing Finite State Machines (FSMs) in Python to manage AI states by processing input requests. It specifically illustrates how to define custom filter functions for each state, using examples like handling 'left' or 'straight' inputs to transition between compass directions (North, West, South, East).\n\nA filter function is created by defining a python method named filterStateName(), where StateName is the name of the FSM state to which this filter function applies. The filterStateName method receives two parameters, a string and a tuple of arguments (the arguments contain the optional additional arguments that might have been passed to the fsm.request() call; it's usually an empty tuple). The filter function should return the name of the state to transition to. If the transition should be disallowed, the filter function can either return None to quietly ignore it, or it can raise an exception. For example:\n\nclass CompassDir(FSM):\n\n    def filterNorth(self, request, args):\n        if request == 'straight':\n            return 'North'\n        elif request == 'left':\n            return 'West'\n        else:\n            return None",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_528",
+    "parent": "processed_documents/context_documents/72c7beb9_6de13beb_fsm-with-input.json",
+    "chunk_number": 6649
+  }
+}

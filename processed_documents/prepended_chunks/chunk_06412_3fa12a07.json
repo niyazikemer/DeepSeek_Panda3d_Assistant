@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides an introductory explanation on how to apply physics to a node by utilizing ForceNodes to specify force contexts and apply translational or rotational forces through specific methods.\n\nApplying physics to a node\n\nTo apply forces to a physical object, collect them into a ForceNode and then apply them to the object. The ForceNode is a node that specifies the \"context\" of the force; i.e. the local coordinate transform that determines the direction of the force. Because ForceNodes are separate from ActorNodes, a ForceNode can be placed in a different portion of the model tree from the ActorNode to which the forces applies. This allows for forces to be applied indirectly to a model (such as wind sweeping across the scene, or a mechanical impulse from an appendage of the model) without having to do the calculations necessary to transform from the ActorNode's coordinates to the coordinates of the force's source.\n\nTo add a force to a physical object, add the force using either the addLinearForce method (for translational forces) or the addAngularForce method (for rotational forces):\n\nactorNode.addLinearForce(pusherForce)\nactorNode.addAngularForce(spinnerForce)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_474",
+    "parent": "processed_documents/context_documents/8c4ba017_99cfb284_applying-physics-to-a-node.json",
+    "chunk_number": 6412
+  }
+}

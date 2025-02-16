@@ -1,0 +1,9 @@
+{
+  "content": "The chunk situates within a section discussing advanced usage of the FilterManager class in C++, specifically focusing on extracting additional scene information (depth buffer, auxiliary buffer) and implementing intermediate stages for complex image post-processing tasks.\n\n// basic black and white effet\n    float moyenne = (c.x + c.y + c.z)/3;\n    o_color = float4(moyenne, moyenne, moyenne, 1);\n}\n\nExtracting More Information from the Scene\n\nIn addition to fetching the color buffer of the scene, you can also fetch the depth buffer:\n\nmanager = FilterManager(base.win, base.cam)\ntex = Texture()\ndtex = Texture()\nquad = manager.renderSceneInto(colortex=tex, depthtex=dtex)\n\nThe depth buffer is particularly useful for filters like depth-of-field. You can pass the depth-texture to the shader too.\n\nSometimes, scene rendering may generate not just a color buffer and a depth buffer, but also an auxiliary buffer. If so, you can fetch that too:\n\nmanager = FilterManager(base.win, base.cam)\ntex = Texture()\natex = Texture()\nquad = manager.renderSceneInto(colortex=tex, auxtex=atex)\n\nDoing this would really only make sense if you've asked the renderer to put something of interest into the auxiliary buffer. To do this, see AuxBitplaneAttrib.\n\nUsing Intermediate Stages",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_392",
+    "parent": "processed_documents/context_documents/abbc8ed0_b80495da_generalized-image-filters.json",
+    "chunk_number": 6004
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to create a new MouseWatcher tied to a specific display region in Panda3D, allowing for accurate mouse interaction within that region while enabling other display regions (like menus) to function independently. It outlines the three-step process: creating a new MouseWatcher instance, attaching it to MouseAndKeyboard, and setting its target display region.\n\nCreating a new MouseWatcher and tying it to a display region is a three step process. First, the new MouseWatcher has to be created.\n\nmyMouseWatcher = MouseWatcher()\n# Creates a new mouse watcher\n\nIn order for the new MouseWatcher to do its job, it needs to receive information about the mouse from the system. This information comes from the MouseAndKeyboard object. To get the information, our new MouseWatcher needs to be a child of MouseAndKeyboard. We know that base.mouseWatcherNode is already a child of MouseAndKeyboard, so we can use that to our advantage to make our new MouseWatcher a child of it as well.\n\nbase.mouseWatcher.getParent().attachNewNode(myMouseWatcher)\n# Gets MouseAndKeyboard, the parent of base.mouseWatcherNode\n# that passes mouse data into MouseWatchers,\n# and attaches myMouseWatcher to it.\n\nNow that our MouseWatcher is getting mouse information from the system, we just need to set it to the display region we want it to monitor.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_464",
+    "parent": "processed_documents/context_documents/0b03c102_f3c3ec03_creating-mouse-watchers.json",
+    "chunk_number": 6378
+  }
+}

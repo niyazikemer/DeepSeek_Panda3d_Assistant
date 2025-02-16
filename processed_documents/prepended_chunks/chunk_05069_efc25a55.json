@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains two helper functions, `__methodRepr` and `__eventRepr`, within a Python class. These methods generate string representations for methods and events respectively, aiding in debugging and logging.\n\ndef __methodRepr(self, method):\n        \"\"\"\n        return string version of class.method or method.\n        \"\"\"\n        if isinstance(method, types.MethodType):\n            functionName = method.__self__.__class__.__name__ + '.' + \\\n                method.__func__.__name__\n        else:\n            if hasattr(method, \"__name__\"):\n                functionName = method.__name__\n            else:\n                return \"\"\n        return functionName\n\n    def __eventRepr(self, event):\n        \"\"\"\n        Compact version of event, acceptor pairs\n        \"\"\"\n        str = event.ljust(32) + '\\t'\n        acceptorDict = self.__callbacks[event]\n        for key, (method, extraArgs, persistent) in list(acceptorDict.items()):\n            str = str + self.__methodRepr(method) + ' '\n        str = str + '\\n'\n        return str",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5069
+  }
+}

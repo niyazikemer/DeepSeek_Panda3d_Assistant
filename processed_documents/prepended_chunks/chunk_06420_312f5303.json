@@ -1,0 +1,9 @@
+{
+  "content": "To create a dynamic cube map in Panda3D that reflects real-time changes in the scene, follow these steps:\n\n1. **Set Up Dynamic Cube Map Rendering**: Use Panda3D's rendering capabilities to capture six views of the environment from different angles (like a cube's faces) at regular intervals or whenever the scene changes.\n\n2. **Optimize Updates**: Implement efficient updates by only re-rendering parts of the scene that have changed, reducing unnecessary computations and improving performance.\n\n3. **Use Buffer Textures**: Utilize buffer textures to store the dynamically rendered cube map faces, allowing for quick updates without full scene re-renders.\n\n4. **Handle Performance Considerations**: Balance update frequency and resolution to maintain smooth rendering. Explore asynchronous methods or multi-threading to minimize impact on frame rate.\n\n5. **Apply Dynamic Cube Map**: Use `loader.loadCubeMap` with the updated dynamic textures, setting the appropriate texture stage attributes (e.g., MWorldCubeMap) to ensure reflections respond to real-time camera movements and scene changes.\n\nBy dynamically updating the cube map, you enable accurate reflection of moving objects in real-time, enhancing interactivity and realism in your scenes.\n\nHowever, you can make a cube map that truly does reflect dynamic objects in the scene, by rendering a dynamic cube map <dynamic-cube-maps>. This will be discussed in the next section.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_475",
+    "parent": "processed_documents/context_documents/948b4838_20446138_environment-mapping-with-cube-maps.json",
+    "chunk_number": 6420
+  }
+}

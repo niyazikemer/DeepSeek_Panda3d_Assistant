@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is located within the `__generated` method of the class, which is responsible for handling the generation of distributed objects. It is called whenever an object is generated.\n\nif eachCallback:\n                eachCallback(object)\n\n            if len(doIdsPending) == 0:\n                # That was the last doId on the list.  Call the\n                # allCallback!\n                assert self.notify.debug(\"All objects generated on list: %s\" % (doIdList,))\n                if doLaterName:\n                    taskMgr.remove(doLaterName)\n\n                objects, doIdsPending = self.__generateObjectList(doIdList)\n                if None in objects:\n                    assert self.notify.warning('calling %s with None.\\n objects=%s\\n doIdsPending=%s\\n doIdList=%s\\n' % (allCallback,objects,doIdsPending,doIdList))\n                if allCallback:\n                    allCallback(objects)\n\n            else:\n                assert self.notify.debug(\"Objects still pending: %s\" % (doIdsPending))\n\n    def __generateObjectList(self, doIdList):\n        objects = []\n        doIdsPending = []",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5388
+  }
+}

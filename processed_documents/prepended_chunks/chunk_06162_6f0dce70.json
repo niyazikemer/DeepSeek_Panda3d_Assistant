@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to create a `StencilReader` attribute in Panda3D using the `StencilAttrib.make()` method. It demonstrates how to configure a stencil test that reads from the stencil buffer without modifying it, setting up comparison operations, masks, and reference values for reading. This example is part of a tutorial on using the stencil buffer for selective rendering in graphics applications.\n\nstencilReader =\n    StencilAttrib.make(1, StencilAttrib.SCFEqual,StencilAttrib.SOKeep,\n                          StencilAttrib.SOKeep,StencilAttrib.SOKeep,1,1,0)\n\nThe first parameter is a boolean. If this parameter is zero, the StencilAttrib is not processed. Next is the comparison function this attribute uses, in this case Equal. The next three parameters determine what happens to the stencil buffer depending on the result of the comparison. We'll get to these in a minute. The three Keep values tell this attribute never to modify the values in the buffer. Next is the reference value for the comparison function. Before the reference value is passed to the comparison function, however, it is bitwise ANDed with a mask. In our case, we're interested in reading but not in writing to the stencil buffer, so we pass 1 and 0 for the read and write masks, respectively. These masks are the last two parameters for the StencilAttrib.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_426",
+    "parent": "processed_documents/context_documents/110b2e47_d82698ba_stencil-attribute.json",
+    "chunk_number": 6162
+  }
+}

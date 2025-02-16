@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of a method that handles time synchronization between a client and a server. It calculates the time taken for a roundtrip to get the server's timestamp, computes an average clock value and uncertainty range, updates the global clock delta with this information, and checks if further attempts are needed to achieve acceptable accuracy.\n\nelapsed = end - self.start\n        self.attemptCount += 1\n        self.notify.info(\"Clock sync roundtrip took %0.3f ms\" % (elapsed * 1000.0))\n\n        average = (self.start + end) / 2.0 - self.extraSkew\n        uncertainty = (end - self.start) / 2.0 + abs(self.extraSkew)\n\n        globalClockDelta.resynchronize(average, timestamp, uncertainty)\n\n        self.notify.info(\"Local clock uncertainty +/- %.3f s\" % (globalClockDelta.getUncertainty()))\n\n        if globalClockDelta.getUncertainty() > self.maxUncertainty:\n            if self.attemptCount < self.maxAttempts:\n                self.notify.info(\"Uncertainty is too high, trying again.\")\n                self.start = clock.getRealTime()\n                self.sendUpdate(\"requestServerTime\", [self.thisContext])\n                return\n            self.notify.info(\"Giving up on uncertainty requirement.\")",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_319",
+    "parent": "processed_documents/context_documents/66ea5c2b_TimeManager.json",
+    "chunk_number": 5524
+  }
+}

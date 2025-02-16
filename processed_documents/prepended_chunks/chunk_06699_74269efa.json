@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to include specific files and directories in a Panda3D project's build configuration using setup.py. It explains the use of `include_patterns` with examples for individual files, directory contents, and wildcard extensions, along with an alternative approach via `exclude_patterns`. Additionally, it highlights special handling for `.egg` files, which are automatically converted to `.bam` format for efficiency.\n\n'include_patterns': [\n    # Path to a specific file\n    'CREDITS.txt',\n\n    # All files in the assets/textures/ directory, but not in subdirectories\n    # (use ** instead of * if that is desirable)\n    'assets/textures/*',\n\n    # All files with the .jpg extension in any subdirectory under assets/,\n    # even if nested under multiple directories\n    'assets/**/*.jpg',\n\n    # A file with the .egg extension anywhere in the hierarchy\n    '**/*.egg',\n],\n\nSimilarly, you can define an exclude_patterns set with the same format containing files to exclude from the set above. An alternative approach is to create a pattern that includes all files, and only specify extensions to exclude using exclude_patterns.\n\nSome extensions, such as .egg, have special handlers associated with them. The handler for .egg will automatically run egg2bam to compile it into a .bam file. BAM files are smaller and load more efficiently, and allow the EGG loading plug-in to be excluded from the Panda3D build.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_541",
+    "parent": "processed_documents/context_documents/c8ca6be0_d7215213_building-binaries.json",
+    "chunk_number": 6699
+  }
+}

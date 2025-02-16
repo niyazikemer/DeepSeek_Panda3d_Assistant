@@ -1,0 +1,9 @@
+{
+  "content": "These methods manage zone-specific resource management and access to zone-related rendering and parent node structures in the AI environment, ensuring proper handling of zone data and its associated components.\n\ndef releaseZoneData(self):\n        # You can call this to release any AIZoneData object that we might be\n        # holding onto. If we're the last one for the current zone, the data\n        # will be destroyed (render, collision traverser, etc.)\n        # Note that the AIZoneData object that we're holding will be destroyed\n        # automatically when we move away or are destroyed.\n        if self._zoneData is not None:\n            self._zoneData.destroy()\n            self._zoneData = None\n\n    def getRender(self):\n        # note that this will return a different node if we change zones\n        #return self.air.getRender(self.zoneId)\n        return self.getZoneData().getRender()\n\n    def getNonCollidableParent(self):\n        return self.getZoneData().getNonCollidableParent()\n\n    def getParentMgr(self):\n        #return self.air.getParentMgr(self.zoneId)\n        return self.getZoneData().getParentMgr()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5695
+  }
+}

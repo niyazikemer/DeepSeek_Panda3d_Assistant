@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `startProcessVisibility` method in a class related to managing avatars' visibility states. This method sets up the initial process to track an avatar's visibility, including task management, event handling, and state initialization.\n\n```context\n# Method to start processing the visibility of an avatar by initializing tasks and state variables.\ndef startProcessVisibility(self, avatar):\n    \"\"\"Initialize or restart the visibility tracking for a given avatar.\"\"\"\n    # Check if new interests are allowed and handle accordingly.\n    # Set up necessary task management and event handling.\n    # Initialize state variables related to visibility processing.\n```\n\nassert not self.cr._noNewInterests\n        if self.cr.noNewInterests():\n            self.notify.warning(\n                'startProcessVisibility(%s): tried to open a new interest during logout'\n                % self.doId)\n            return\n        taskMgr.remove(self.taskName(\"processVisibility\"))\n        self.acceptOnce(self.cr.StopVisibilityEvent, self.stopProcessVisibility)\n        self.visAvatar = avatar\n        self.visZone = None\n        self.visDirty = True\n        taskMgr.add(\n            self.processVisibility, self.taskName(\"processVisibility\"))\n        self.processVisibility(0)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5278
+  }
+}

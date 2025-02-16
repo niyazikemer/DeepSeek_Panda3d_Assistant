@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines two methods: `getServerAddress()` which returns the current server address, and `connect()`, a method responsible for establishing a connection to a server from a provided list of servers. The `connect()` method supports asynchronous operation by taking success and failure callbacks with optional arguments, making it suitable for handling network connections in a non-blocking manner.\n\ndef getServerAddress(self):\n        return self._serverAddress\n\n    def connect(self, serverList,\n                successCallback = None, successArgs = [],\n                failureCallback = None, failureArgs = []):\n        \"\"\"\n        Attempts to establish a connection to the server.  May return\n        before the connection is established.  The two callbacks\n        represent the two functions to call (and their arguments) on\n        success or failure, respectively.  The failure callback also\n        gets one additional parameter, which will be passed in first:\n        the return status code giving reason for failure, if it is\n        known.\n        \"\"\"\n\n        ## if self.recorder and self.recorder.isPlaying():",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5323
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `startUpdateGridTask` and `stopUpdateGridTask` functions manage the scheduling of grid updates. They ensure regular checks (every second) to update the parent zone information for avatars or objects moving across cells within the Cartesian grid system. This mechanism helps maintain accurate location tracking on the server without continuous frame-by-frame processing, optimizing performance while ensuring proper grid management.\n\ndef startUpdateGridTask(self):\n        self.stopUpdateGridTask()\n        self.updateTaskStarted = 1\n        taskMgr.add(self.updateGridTask, self.taskName(\"updateGridTask\"))\n\n    def stopUpdateGridTask(self):\n        taskMgr.remove(self.taskName(\"updateGridTask\"))\n        self.updateTaskStarted = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_325",
+    "parent": "processed_documents/context_documents/7ef9e01d_DistributedCartesianGridAI.json",
+    "chunk_number": 5578
+  }
+}

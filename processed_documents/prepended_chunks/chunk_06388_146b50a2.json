@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears in the section explaining how to use the WindowFramework class in C++ to open a blank window. It situates after the main loop execution and before concluding the program, detailing additional functionalities provided by WindowFramework such as rendering nodes, camera management, and graphics settings.\n\n// Do the main loop\n    framework.main_loop();\n  } else {\n    nout << \"Could not load the window!\\n\";\n  }\n  // Close the framework\n  framework.close_framework();\n  return (0);\n}\n\nThe WindowFramework class also provides all the basic things that the Python equivalent ShowBase would normally take care of:\n\nconst NodePath &get_render();\nconst NodePath &get_render_2d();\nconst NodePath &get_aspect_2d();\n\nvoid set_wireframe(bool enable);\nvoid set_texture(bool enable);\nvoid set_two_sided(bool enable);\nvoid set_one_sided_reverse(bool enable);\nvoid set_lighting(bool enable);\n\nconst NodePath &get_camera_group();\n\nint get_num_cameras() const;\nCamera *get_camera(int n) const;\n\n// WindowFramework also provides access to the GraphicsWindow.\n// for example, to set the background color to black, you can do this:\nwindow->get_graphics_window()->set_clear_color(LColor(0, 0, 0, 1));\n\nIt's very useful to study the file panda/src/framework/windowFramework.h, since you will need to use it often.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_467",
+    "parent": "processed_documents/context_documents/252e272f_aebd239e_window-framework.json",
+    "chunk_number": 6388
+  }
+}

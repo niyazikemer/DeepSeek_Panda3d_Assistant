@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a document introducing the use of image filters in Python through the `FilterManager` class. It explains the basics of setting up and applying custom image processing filters by managing offscreen buffers and quads, with an example demonstrating how to load a filter shader onto a rendered scene quad.\n\nGeneralized Image Filters\n\ncpp\n\nNote\n\nSorry, but the CommonFilters and FilterManager classes are implemented in Python and will not be of much use to C++ users.\n\nThe Filter Manager\n\nClass FilterManager is designed to make it easier to apply filters to your scene. Of course, the easiest way to apply filters to your scene is to use class CommonFilters <common-image-filters>. But if that utility does not contain the filters you need, then the FilterManager is your next best choice. The main function of the FilterManager is to help you set up the offscreen buffers, the quads, and the textures.\n\nImport the class like this:\n\nfrom direct.filter.FilterManager import FilterManager\n\nThe Simplest Filter\n\nThe simplest possible code that uses the FilterManager looks like this:\n\nmanager = FilterManager(base.win, base.cam)\ntex = Texture()\nquad = manager.renderSceneInto(colortex=tex)\nquad.setShader(Shader.load(\"myfilter.sha\"))\nquad.setShaderInput(\"tex\", tex)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_392",
+    "parent": "processed_documents/context_documents/abbc8ed0_b80495da_generalized-image-filters.json",
+    "chunk_number": 6000
+  }
+}

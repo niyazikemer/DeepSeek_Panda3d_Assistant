@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated in a section explaining various command-line options and flags used when invoking the interrogate tool to generate bindings between C++ and scripting languages like Python. The context discusses special flags such as `-string`, `-refcount`, and `-assert` that customize how the generated wrappers behave, followed by an introduction to different interface makers that determine the calling convention and structure of the generated code.\n\nFurthermore, there are a few special flags that you most likely want to include. There is the -string option, which treats the C++ char* and STL strings as special cases, and maps them to the scripting language's string equivalent, instead of a wrapper to basic_string<char>. The option -refcount makes the wrappers compatible with Panda3D's smart reference counting system, if your library depends on Panda3D you will want to include it too. The -assert option is just used for Python wrappers and specifies that when the C++ code throws an assert, this will be translated to an AssertionError exception in python.\n\nInterface Makers\n\nInterrogate provides a selection of several interface makers:\n\nThe -c option will generate function wrappers using the C calling convention. Any scripting language that can call a C function should be able to make advantage of the interrogate database.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_423",
+    "parent": "processed_documents/context_documents/2e2b4b89_ca6cf7a0_interrogate.json",
+    "chunk_number": 6152
+  }
+}

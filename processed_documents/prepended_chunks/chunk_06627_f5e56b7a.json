@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains the fundamental concept of deferred shading in graphics programming, comparing it to ordinary OpenGL shading. It describes how deferred shading\u63a8\u8fdf lighting computations until after geometry rendering by storing necessary surface properties and light parameters in a framebuffer, enabling more efficient post-processing for final color computation.\n\nContext: This section provides an overview of deferred shading techniques, focusing on how they differ from traditional shading methods and the role of intermediate data storage in optimizing rendering processes.\n\nTo understand how deferred shading works, first consider how ordinary shading works in plain OpenGL. In most fairly simple cases, the lighting equation boils down to:\n\nfinal = diffuse color * dot(light vector, surface normal) * attenuation(surface position, light position and orientation)\n\nWhere the attenuation function depends on the type of light. So anyhow, this equation has four inputs:\n\nThe diffuse color.\n\nThe surface normal.\n\nThe surface position.\n\nThe light parameters.\n\nThe idea behind deferred shading is that during the rendering process, you don't compute the final color. Instead, you store the values listed above in the framebuffer itself. Of course, you need a \"fat framebuffer\" to store all that data. In an image postprocessing step you scan the framebuffer and compute the final color.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_522",
+    "parent": "processed_documents/context_documents/7430db66_5763024b_fireflies.json",
+    "chunk_number": 6627
+  }
+}

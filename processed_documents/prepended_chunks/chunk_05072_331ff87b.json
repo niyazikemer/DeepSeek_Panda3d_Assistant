@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `detailedRepr` method within the Messenger class. This method generates a detailed string representation of the object's state, specifically focusing on describing each event's acceptors with their associated functions, arguments, and persistence status. The chunk in question adds information about the function name, extra arguments, and whether the function is persistent. It also handles both regular functions and class methods by including additional details such as the method's underlying function when applicable. This section contributes to building a comprehensive and readable string that helps in debugging or understanding the internal state of the Messenger object.\n\n'Function name:' + functionName + '\\n\\t' +\n                       'Extra Args:   ' + repr(extraArgs) + '\\n\\t' +\n                       'Persistent:   ' + repr(persistent) + '\\n')\n                # If this is a class method, get its actual function\n                if isinstance(function, types.MethodType):\n                    str = (str + '\\t' +\n                           'Method:       ' + repr(function) + '\\n\\t' +\n                           'Function:     ' + repr(function.__func__) + '\\n')\n                else:\n                    str = (str + '\\t' +\n                           'Function:     ' + repr(function) + '\\n')\n        str = str + '='*50 + '\\n'\n        return str",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5072
+  }
+}

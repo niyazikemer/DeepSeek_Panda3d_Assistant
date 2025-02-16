@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class `DistributedObjectOV` which manages the lifecycle of distributed objects, including their generation, update handling, and deletion. The specific methods in this chunk (`getDelayDeleteCount`, `deleteOrDelay`, `disableAnnounceAndDelete`, `disableAndAnnounce`) are responsible for managing the deletion process by ensuring proper cleanup and state transitions before final object deletion.\n\ndef getDelayDeleteCount(self):\n        # OV objects cannot be delayDeleted\n        return 0\n\n    def deleteOrDelay(self):\n        self.disableAnnounceAndDelete()\n\n    def disableAnnounceAndDelete(self):\n        self.disableAndAnnounce()\n        self.delete()\n\n    def disableAndAnnounce(self):\n        # We must send the disable announce message *before* we\n        # actually disable the object.  That way, the various cleanup\n        # tasks can run first and take care of restoring the object to\n        # a normal, nondisabled state; and *then* the disable function\n        # can properly disable it (for instance, by parenting it to\n        # hidden).\n        if self.activeState != ESDisabled:\n            self.activeState = ESDisabling\n            messenger.send(self.uniqueName(\"disable\"))\n            self.disable()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_336",
+    "parent": "processed_documents/context_documents/c0800c7e_DistributedObjectOV.json",
+    "chunk_number": 5711
+  }
+}

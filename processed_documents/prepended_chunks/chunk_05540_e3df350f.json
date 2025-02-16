@@ -1,0 +1,9 @@
+{
+  "content": "The chunk implements the `releaseCellOrigin` static method in the `GridParent` class, which manages grid cell origins and their usage counts. This method decrements the count for a given grid and zone ID. If the count reaches zero, it removes the associated node from memory to clean up resources.\n\n@staticmethod\n    def releaseCellOrigin(grid, zoneId):\n        tup = (grid, zoneId)\n        GridParent.GridZone2count[tup] -= 1\n        if GridParent.GridZone2count[tup] == 0:\n            del GridParent.GridZone2count[tup]\n            GridParent.GridZone2CellOrigin[tup].removeNode()\n            del GridParent.GridZone2CellOrigin[tup]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_322",
+    "parent": "processed_documents/context_documents/ac8cc70f_GridParent.json",
+    "chunk_number": 5540
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk sits within a section explaining how to apply image post-processing filters using the FilterManager. It follows an example of rendering a scene into a texture and then applying a shader to produce a filtered output on screen. The context highlights handling window-to-texture resolution mismatches (e.g., non-power-of-two window sizes) in shaders to avoid visual artifacts, followed by a Cg shader example for a black-and-white effect.\n\nFinally, we apply a shader to the quad, and pass the scene texture to the shader. Presumably, the shader is rendering the scene onto the quad, which covers the window. Presto, filtered scene.\n\nThere's one tricky aspect of all this. Usually, the window is usually not a power of two. The texture will end up being bigger than the window: for instance, if the window is 800x600, then the texture will be 1024x1024. The scene will be rendered into the lower-left 800x600 pixels of the texture. The shader needs to compensate for this. If you forget this, you will see an empty band above and to the right of the texture.\n\nHere is a basic shader code example, it applies a simple black and white effect:\n\n//Cg",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_392",
+    "parent": "processed_documents/context_documents/abbc8ed0_b80495da_generalized-image-filters.json",
+    "chunk_number": 6002
+  }
+}

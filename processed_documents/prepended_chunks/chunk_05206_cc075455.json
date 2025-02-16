@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk introduces several key methods for controlling interest management and handling interest completion events in a client-server application. The methods include:\n\n- `setNoNewInterests()` - Allows disabling of new interest subscriptions\n- `noNewInterests()` - Checks if new interest subscriptions are disabled\n- `setAllInterestsCompleteCallback()` - Registers callbacks for when all interests complete\n- `getAllInterestsCompleteEvent()` - Returns the global completion event name\n- `resetInterestStateForConnectionLoss()` - Clears all interest state on connection loss\n\nThe methods manage subscription state, handle completion events, and provide mechanisms for resetting interest tracking.\n\ndef setNoNewInterests(self, flag):\n        self._noNewInterests = flag\n\n    def noNewInterests(self):\n        return self._noNewInterests\n\n    def setAllInterestsCompleteCallback(self, callback):\n        if ((self._completeEventCount.num == 0) and\n            (self._completeDelayedCallback is None)):\n            callback()\n        else:\n            self._allInterestsCompleteCallbacks.append(callback)\n\n    def getAllInterestsCompleteEvent(self):\n        return 'allInterestsComplete-%s' % DoInterestManager._SerialNum\n\n    def resetInterestStateForConnectionLoss(self):\n        DoInterestManager._interests.clear()\n        self._completeEventCount = ScratchPad(num=0)\n        if __debug__:\n            self._addDebugInterestHistory(\"RESET\", \"\", 0, 0, 0, [])",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5206
+  }
+}

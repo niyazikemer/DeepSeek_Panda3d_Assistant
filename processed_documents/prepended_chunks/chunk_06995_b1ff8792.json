@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk discusses advanced techniques in Panda3D's instancing mechanism, building on earlier explanations about rendering multiple model instances efficiently. It demonstrates how to create a hierarchical structure of placeholders to render numerous object instances without duplicating data, thereby optimizing memory and CPU usage.\n\nIn this way, it is possible to render a model multiple times without storing and animating it multiple times.\n\nAdvanced Instancing\n\nNow, let's go a step further:\n\ndancer = Actor.Actor(\"chorus-line-dancer.egg\", {\"kick\":\"kick.egg\"})\ndancer.loop(\"kick\")\ndancer.setPos(0,0,0)\nchorusline = NodePath('chorusline')\nfor i in range(50):\n    placeholder = chorusline.attachNewNode(\"Dancer-Placeholder\")\n    placeholder.setPos(i*5,0,0)\n    dancer.instanceTo(placeholder)\n\nThis is the exact same code as before, except that instead of putting the 50 placeholders beneath render, I put them beneath a dummy node called chorusline. So my line of dancers is not part of the scene graph yet. Now, I can do this:\n\nfor i in range(3):\n    placeholder = render.attachNewNode(\"Line-Placeholder\")\n    placeholder.setPos(0,i*10,0)\n    chorusline.instanceTo(placeholder)\n\nHere is the scene graph I just created:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_565",
+    "parent": "processed_documents/context_documents/fd216bec_f62cc0c7_instancing.json",
+    "chunk_number": 6995
+  }
+}

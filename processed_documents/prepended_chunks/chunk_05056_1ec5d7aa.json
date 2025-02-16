@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the `__taskChainDispatch` method within a multi-threaded event distribution system, responsible for processing events in order across task chains using locks to ensure thread safety. It handles event queues, cleans up empty queues, and ensures ordered delivery of events without missing any.\n\ndef __taskChainDispatch(self, taskChain, task):\n        \"\"\" This task is spawned each time an event is sent across\n        task chains.  Its job is to empty the task events on the queue\n        for this particular task chain.  This guarantees that events\n        are still delivered in the same order they were sent. \"\"\"\n\n        while True:\n            eventTuple = None\n            self.lock.acquire()\n            try:\n                queue = self._eventQueuesByTaskChain.get(taskChain, None)\n                if queue:\n                    eventTuple = queue[0]\n                    del queue[0]\n                if not queue:\n                    # The queue is empty, we're done.\n                    if queue is not None:\n                        del self._eventQueuesByTaskChain[taskChain]\n\n                if not eventTuple:\n                    # No event; we're done.\n                    return task.done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5056
+  }
+}

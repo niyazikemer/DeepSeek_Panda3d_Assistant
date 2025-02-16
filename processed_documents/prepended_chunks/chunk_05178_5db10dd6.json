@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces new client connection handling within the server repository. It logs new clients, initializes their state, and sets up communication channels. The readerPollOnce method is part of the server's continuous message processing loop, ensuring timely response to client requests and updates.\n\nself.notify.info(\n                \"Got client %s from %s\" % (doIdBase, netAddress))\n\n            client = self.Client(newConnection, netAddress, doIdBase)\n            self.clientsByConnection[client.connection] = client\n            self.clientsByDoIdBase[client.doIdBase] = client\n\n            # Now we can start listening to that new connection.\n            self.qcr.addConnection(newConnection)\n\n            self.lastConnection = newConnection\n            self.sendDoIdRange(client)\n\n        return Task.cont\n\n    def readerPollUntilEmpty(self, task):\n        \"\"\" continuously polls for new messages on the server \"\"\"\n        while self.readerPollOnce():\n            pass\n        return Task.cont\n\n    def readerPollOnce(self):\n        \"\"\" checks for available messages to the server \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5178
+  }
+}

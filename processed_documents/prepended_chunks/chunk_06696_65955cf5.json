@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides a concise example of a `setup.py` configuration for a GUI application built with Panda3D. It demonstrates how to set up logging, specify file inclusion patterns, select necessary plugins (OpenGL renderer and OpenAL audio), and compile the executable. The context is situated within a guide that explains building cross-platform applications with Panda3D, including topics such as file distribution, plugin selection, platform targeting, and GUI customization.\n\n# Set up output logging, important for GUI apps!\n            'log_filename': '$USER_APPDATA/Asteroids/output.log',\n            'log_append': False,\n\n            # Specify which files are included with the distribution\n            'include_patterns': [\n                '**/*.png',\n                '**/*.jpg',\n                '**/*.egg',\n            ],\n\n            # Include the OpenGL renderer and OpenAL audio plug-in\n            'plugins': [\n                'pandagl',\n                'p3openal_audio',\n            ],\n        }\n    }\n)\n\nTo compile the executable, run the following command:\n\npython setup.py build_apps\n\nThe resulting binaries will be stored in the build folder with one sub-folder per targeted platform, together with all the requisite files needed to run the application.\n\nGUI and Console Apps",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_541",
+    "parent": "processed_documents/context_documents/c8ca6be0_d7215213_building-binaries.json",
+    "chunk_number": 6696
+  }
+}

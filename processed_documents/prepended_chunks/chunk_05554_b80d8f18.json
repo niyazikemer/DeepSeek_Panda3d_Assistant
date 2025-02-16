@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces methods for managing caching and disabling behavior of a distributed object. These methods enable objects to retain certain states between sessions, control their persistence, and retrieve cached data efficiently. This functionality is crucial for optimizing performance in distributed systems where objects may need to maintain specific attributes or avoid being disabled under certain conditions.\n\n**Context:**  \nThe code chunk sits within the section managing distributed object state, caching, and lifecycle controls. It provides mechanisms for objects to persistently manage their presence (never disable) and cache data across sessions, enhancing system efficiency and responsiveness.\n\ndef setNeverDisable(self, boolean):\n        assert boolean == 1 or boolean == 0\n        self.neverDisable = boolean\n\n    def getNeverDisable(self):\n        return self.neverDisable\n\n    def _retrieveCachedData(self):\n        # once we know our doId, grab any data that might be stored in the data cache\n        # from the last time we were on the client\n        if self.cr.doDataCache.hasCachedData(self.doId):\n            self._cachedData = self.cr.doDataCache.popCachedData(self.doId)\n\n    def setCachedData(self, name, data):\n        assert isinstance(name, str)\n        # ownership of the data passes to the repository data cache\n        self.cr.doDataCache.setCachedData(self.doId, name, data)\n\n    def hasCachedData(self, name):\n        assert isinstance(name, str)\n        if not hasattr(self, '_cachedData'):\n            return False\n        return name in self._cachedData",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5554
+  }
+}

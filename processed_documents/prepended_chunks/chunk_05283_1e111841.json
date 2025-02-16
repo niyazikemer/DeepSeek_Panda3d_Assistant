@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a `processVisibility` method in a ZoneManager class that tracks visibility and zones in a virtual world. The code computes which grid-based zone an object is currently in based on row/column indices, checks if this new zone ID differs from the current visible zone (`visZone`), logs debug information, and updates interest context accordingly if there's a change. This is used to manage what objects or areas are actively being tracked by the virtual world client/server system for rendering or interaction purposes.\n\nself.gridVisContext = None\n            return Task.cont\n        # Compute which zone we are in\n        zoneId = int(self.startingZone + ((row * self.gridSize) + col))\n        assert self.notify.debug(\"processVisibility: %s: row: %s col: %s zoneId: %s\" %\n                                 (self.doId, row, col, zoneId))\n        if zoneId == self.visZone:\n            assert self.notify.debug(\n                \"processVisibility: %s: interest did not change\" % (self.doId))\n            if self.visDirty:\n                messenger.send(self.uniqueName(\"visibility\"))\n                self.visDirty = False\n            return Task.cont\n        else:\n            assert self.notify.debug(\n                \"processVisibility: %s: new interest\" % (self.doId))\n            self.visZone = zoneId\n            if not self.gridVisContext:\n                self.gridVisContext = self.cr.addInterest(\n                    self.getDoId(), self.visZone,",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5283
+  }
+}

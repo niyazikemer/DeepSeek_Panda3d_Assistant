@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods related to initializing and managing distributed object states in `DistributedObjectOV`, including generating initial states, retrieving object IDs, posting generation messages, and handling field updates.\n\ndef generateInit(self):\n        \"\"\"\n        This method is called when the DistributedObjectOV is first introduced\n        to the world... Not when it is pulled from the cache.\n        \"\"\"\n        self.activeState = ESGenerating\n\n    def getDoId(self):\n        \"\"\"\n        Return the distributed object id\n        \"\"\"\n        return self.doId\n\n    def postGenerateMessage(self):\n        if self.activeState != ESGenerated:\n            self.activeState = ESGenerated\n            messenger.send(self.uniqueName(\"generate\"), [self])\n\n\n    def updateRequiredFields(self, dclass, di):\n        dclass.receiveUpdateBroadcastRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateAllRequiredFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_336",
+    "parent": "processed_documents/context_documents/c0800c7e_DistributedObjectOV.json",
+    "chunk_number": 5714
+  }
+}

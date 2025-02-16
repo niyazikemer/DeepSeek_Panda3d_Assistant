@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a class `ThreeUpShow` that inherits from `ShowBase`, implementing a layout with three separate camera views (camRS, camLL, camUR) positioned in different regions of the window for visualization or rendering tasks.\n\n\"\"\"ThreeUpShow is a variant of ShowBase that defines three cameras covering\ndifferent parts of the window.\"\"\"\n\n__all__ = ['ThreeUpShow']\n\nfrom .ShowBase import ShowBase\n\n\nclass ThreeUpShow(ShowBase):\n    def __init__(self):\n        ShowBase.__init__(self)\n\n    def makeCamera(self, win, sort = 0, scene = None,\n                   displayRegion = (0, 1, 0, 1), stereo = None,\n                   aspectRatio = None, clearDepth = 0, clearColor = None,\n                   lens = None, camName = 'cam', mask = None,\n                   useCamera = None):\n        self.camRS = ShowBase.makeCamera(\n                self, win, displayRegion = (.5, 1, 0, 1), aspectRatio=.67, camName='camRS')\n        self.camLL = ShowBase.makeCamera(\n                self, win, displayRegion = (0, .5, 0, .5), camName='camLL')\n        self.camUR = ShowBase.makeCamera(\n                self, win, displayRegion = (0, .5, .5, 1), camName='camUR')\n        return self.camUR",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_284",
+    "parent": "processed_documents/context_documents/8bab355a_ThreeUpShow.json",
+    "chunk_number": 5026
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a method (`labelCells()`) that creates and positions numerical labels for each cell in a grid visualization. The code generates text nodes for zone IDs, positions them at the center of each cell with specific transformations, and flattens the resulting scene graph for rendering efficiency.\n\ntextNode.setAlign(TextNode.ACenter)\n                    genTextNode = textNode.generate()\n                    textNodePath = self.cellLabelParent.attachNewNode(genTextNode)\n                    # Place the text node in the center of the cell\n                    textNodePath.setPosHprScale((i * cw - dx) + (cw * 0.5), # x\n                                                (j * cw - dx) + (cw * 0.5), # y\n                                                GRID_Z_OFFSET+3.0, # z\n                                                # Lay them down flat\n                                                0, -90, 0, # hpr\n                                                scale, scale, scale)\n            self.cellLabelParent.flattenLight()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5294
+  }
+}

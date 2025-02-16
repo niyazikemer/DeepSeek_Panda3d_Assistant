@@ -1,0 +1,9 @@
+{
+  "content": "The given code chunk belongs to a class `DistributedObjectAI` which manages distributed objects in an AI (Artificial Intelligence) context. The chunk includes two methods:\n\n1. `getDelayDeleteCount()`: A default method that returns 0, likely intended to be overridden by subclasses for specific delay delete functionality.\n2. `delete()`: Handles object deletion logic, including reference counting with a `__generates` counter to prevent multiple deletions, and cleanup of the object's AI context.\n\nThis code chunk is situated within the context of managing distributed objects' lifecycle in an AI environment, ensuring proper cleanup and deletion handling when objects are no longer needed.\n\ndef getDelayDeleteCount(self):\n        return 0\n\n    def delete(self):\n        \"\"\"\n        Inheritors should redefine this to take appropriate action on delete\n        Note that this may be called multiple times if a class inherits\n        from DistributedObjectAI more than once.\n        \"\"\"\n        self.__generates -= 1\n        if self.__generates < 0:\n            self.notify.debug('DistributedObjectAI: delete() called more times than generate()')\n        if self.__generates == 0:\n            # prevent this code from executing multiple times\n            if self.air is not None:\n                # self.doId may not exist.  The __dict__ syntax works around that.\n                assert self.notify.debug('delete(): %s' % (self.__dict__.get(\"doId\")))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5685
+  }
+}

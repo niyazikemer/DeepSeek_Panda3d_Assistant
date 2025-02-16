@@ -1,0 +1,9 @@
+{
+  "content": "The `replaceMethod` function is part of a Python class designed for managing events and event handlers. This method allows dynamically replacing an old method with a new function within the registered callbacks, enabling runtime behavior changes without restarting the application. It's specifically utilized by another module (`Finder.py`) to facilitate function redefinition through keyboard shortcuts.\n\ndef replaceMethod(self, oldMethod, newFunction):\n        \"\"\"\n        This is only used by Finder.py - the module that lets\n        you redefine functions with Control-c-Control-v\n        \"\"\"\n        retFlag = 0\n        for entry in list(self.__callbacks.items()):\n            event, objectDict = entry\n            for objectEntry in list(objectDict.items()):\n                object, params = objectEntry\n                method = params[0]\n                if isinstance(method, types.MethodType):\n                    function = method.__func__\n                else:\n                    function = method\n                #print ('function: ' + repr(function) + '\\n' +\n                #       'method: ' + repr(method) + '\\n' +\n                #       'oldMethod: ' + repr(oldMethod) + '\\n' +\n                #       'newFunction: ' + repr(newFunction) + '\\n')\n                if function == oldMethod:\n                    newMethod = types.MethodType(newFunction, method.__self__)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5063
+  }
+}

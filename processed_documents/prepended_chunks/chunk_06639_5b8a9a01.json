@@ -1,0 +1,9 @@
+{
+  "content": "To create a window or buffer in Panda3D using low-level methods:\n\n1. **Use existing `GraphicsEngine` and `GraphicsPipe`:**\n   - Access via `base.graphicsEngine` and `base.pipe`.\n\n2. **Set up properties:**\n   - Use `FrameBufferProperties.get_default()` for framebuffer settings.\n   - Configure window details with `WindowProperties`, such as size, title, or position.\n\n3. **Create the output:**\n   - Call `GraphicsEngine.make_output()` to generate a `GraphicsOutput` (either window or buffer).\n\nThis approach offers more control compared to the convenience function `base.openWindow()`.\n\nOnce you have all of these objects, you can create a new window or buffer using the call .GraphicsEngine.make_output(). This is the fundamental method for creating a new .GraphicsOutput; all of the other convenience functions like base.openWindow() or win.make_texture_buffer() <.GraphicsOutput.make_texture_buffer> eventually funnel down into this call. This method accepts several parameters:\n\npython\n\nbase.graphicsEngine.makeOutput(pipe, name, sort, fb_prop, win_prop, flags, gsg, host)\n\ncpp\n\nGraphicsEngine *engine = GraphicsEngine::get_global_ptr();\nengine->make_output(pipe, name, sort, fb_prop, win_prop, flags, gsg, host);\n\nThe return value of ~.GraphicsEngine.make_output() is either the new .GraphicsWindow or .GraphicsBuffer object, or None if it failed for some reason.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_523",
+    "parent": "processed_documents/context_documents/55089669_ddc644c3_creating-windows-and-buffers.json",
+    "chunk_number": 6639
+  }
+}

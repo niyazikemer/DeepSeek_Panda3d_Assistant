@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `updateClientInterest` method in the ServerRepository class, which manages a client's interest in specific zones. The code handles updating the client's current zones of interest by adding new zones, requesting data from other clients for these new zones, and disabling objects in zones where the client has removed their interest.\n\nclient.currentInterestZoneIds = newZoneIds\n        addedZoneIds = newZoneIds - origZoneIds\n        removedZoneIds = origZoneIds - newZoneIds\n\n        for zoneId in addedZoneIds:\n            self.zonesToClients.setdefault(zoneId, set()).add(client)\n\n            # The client is opening interest in this zone. Need to get\n            # all of the data from clients who may have objects in\n            # this zone\n            datagram = NetDatagram()\n            datagram.addUint16(REQUEST_GENERATES_CMU)\n            datagram.addUint32(zoneId)\n            self.sendToZoneExcept(zoneId, datagram, [client])\n\n        datagram = PyDatagram()\n        datagram.addUint16(OBJECT_DISABLE_CMU)\n        for zoneId in removedZoneIds:\n            self.zonesToClients[zoneId].remove(client)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5196
+  }
+}

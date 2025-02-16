@@ -1,0 +1,9 @@
+{
+  "content": "The `handleAvatarZoneChange` method in the `DistributedCartesianGridAI` class manages the process of updating an avatar's zone within a grid-based AI system. It calculates or uses a provided zone ID based on the avatar's position, validates it, and updates their server-side location to ensure accurate positioning.\n\ndef handleAvatarZoneChange(self, av, useZoneId=-1):\n        # Calculate zone id\n        # Get position of av relative to this grid\n        if useZoneId == -1:\n            pos = av.getPos(self)\n            zoneId = self.getZoneFromXYZ(pos)\n        else:\n            # zone already calculated, position of object might not\n            # give the correct zone\n            pos = None\n            zoneId = useZoneId\n\n        if not self.isValidZone(zoneId):\n            self.notify.warning(\n                \"%s handleAvatarZoneChange %s: not a valid zone (%s) for pos %s\" %(self.doId, av.doId, zoneId, pos))\n            return\n\n        # Set the location on the server.\n        # setLocation will update the gridParent\n        av.b_setLocation(self.doId, zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_325",
+    "parent": "processed_documents/context_documents/7ef9e01d_DistributedCartesianGridAI.json",
+    "chunk_number": 5580
+  }
+}

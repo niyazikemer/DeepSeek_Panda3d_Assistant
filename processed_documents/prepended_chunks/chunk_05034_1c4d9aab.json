@@ -1,0 +1,9 @@
+{
+  "content": "The highlighted code chunk is part of a function that dynamically adjusts the camera's frustum for a mirror effect in a 3D environment. The code calculates the distance between the mirror and its virtual camera, then uses this distance to adjust the corners of the frustum. This ensures that mirrored objects appear correctly scaled relative to their actual positions, maintaining accurate perspective in the reflection.\n\n# get the distance from the mirrors camera to the mirror plane\n        camvec = planeNP.getPos() - cameraNP.getPos()\n        camdist = camvec.length()\n\n        # set the discance on the mirrors corners so it will keep correct\n        # sizes of the mirrored objects\n        ul.setY(camdist)\n        ur.setY(camdist)\n        ll.setY(camdist)\n        lr.setY(camdist)\n\n        lens.setFrustumFromCorners(ul, ur, ll, lr, Lens.FCCameraPlane | Lens.FCOffAxis | Lens.FCAspectRatio)\n\n        return Task.cont\n\n    # Add it with a fairly high priority to make it happen late in the\n    # frame, after the avatar controls (or whatever) have been applied\n    # but before we render.\n    taskMgr.add(moveCamera, name, priority = 40)\n\n    # Now apply the output of this camera as a texture on the mirror's\n    # visible representation.\n    card.setTexture(buffer.getTexture())\n\n    return root",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_285",
+    "parent": "processed_documents/context_documents/efe18eed_MirrorDemo.json",
+    "chunk_number": 5034
+  }
+}

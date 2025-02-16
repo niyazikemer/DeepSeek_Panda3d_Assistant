@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a class called `StagedObject`, which serves as a mixin for managing visibility states in distributed objects. The chunk includes methods (`goOnStage`, `handleOnStage`, `goOffStage`, `handleOffStage`, `isOnStage`) that handle transitioning an object between active (\"on stage\") and inactive (\"off stage\") states, allowing subclasses to customize the behavior while maintaining a consistent state management interface.\n\nif not self.isOnStage():\n            self.handleOnStage(*args, **kw)\n\n    def handleOnStage(self):\n        \"\"\"\n        Override this function to provide your on/off stage funcitionality.\n\n        Don't forget to call down to this one, though.\n        \"\"\"\n        self.__state = StagedObject.ON\n\n    def goOffStage(self, *args, **kw):\n        \"\"\"\n        If a stage switch is needed, the correct \"handle\" function\n        will be called.  Otherwise, nothing happens.\n        \"\"\"\n        # This is the high level function that clients of\n        # your class should call to set the on/off stage state.\n\n        if not self.isOffStage():\n            self.handleOffStage(*args, **kw)\n\n    def handleOffStage(self):\n        \"\"\"\n        Override this function to provide your on/off stage funcitionality.\n\n        Don't forget to call down to this one, though.\n        \"\"\"\n        self.__state = StagedObject.OFF\n\n    def isOnStage(self):\n        return self.__state == StagedObject.ON",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_304",
+    "parent": "processed_documents/context_documents/9b325622_StagedObject.json",
+    "chunk_number": 5337
+  }
+}

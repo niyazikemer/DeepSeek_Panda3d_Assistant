@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains how to implement projected textures in Panda3D by applying a texture to a model using the `projectTexture` method. It is situated under the **Projected Textures** subsection of the document, which demonstrates projecting images onto 3D models with lens-based projection, as shown in the bamboo example.\n\nApply the texture you want to the model you want to project it onto, usually on its own TextureStage, so that it is multitextured <multitexture-introduction>.\n\nPut the MWorldPosition TexGen mode on the model. This copies the model's vertex positions into its texture coordinates, for your texture's TextureStage.\n\nCall model.set_tex_projector(textureStage, NodePath(), projector) <.NodePath.set_tex_projector>, where projector is the NodePath to the LensNode you want to project from.\n\nFor your convenience, the NodePath class defines the following method that performs these three steps at once:\n\npython\n\nnodePath.projectTexture(textureStage, texture, lensNodePath)\n\ncpp\n\nnodePath.project_texture(textureStage, texture, lensNodePath);\n\nFor instance, we could use it to project the bamboo texture (\"envir-reeds.png\") onto the ripple.egg model, like this:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_433",
+    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
+    "chunk_number": 6201
+  }
+}

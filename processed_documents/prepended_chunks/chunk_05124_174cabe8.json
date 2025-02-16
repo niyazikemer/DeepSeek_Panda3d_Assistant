@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces two new methods to the `MotionTrail` class: `unregister_otion_trail` and `begin_geometry`. These methods are essential for managing the lifecycle and geometric data of the motion trail. \n\n- **unregister_otion_trail**: This method removes the instance from a global list, ensuring it's no longer automatically updated each frame.\n  \n- **begin_geometry**: Prepares vertex data structures for rendering, setting up formats based on whether a texture is used and initializing necessary writers and primitives.\n\nThese methods fit within the overall context of managing motion trails, focusing on registration and geometric setup to ensure proper display in a graphical application.\n\ndef unregister_motion_trail(self):\n        \"\"\"Removes this motion trail from the list of trails that are updated\n        automatically every frame.  If it is not on that list, does nothing.\n        \"\"\"\n        if self in MotionTrail.motion_trail_list:\n            MotionTrail.motion_trail_list.remove(self)\n\n    def begin_geometry(self):\n        self.vertex_index = 0\n\n        if self.texture is not None:\n            self.format = GeomVertexFormat.getV3c4t2()\n        else:\n            self.format = GeomVertexFormat.getV3c4()\n\n        self.vertex_data = GeomVertexData(\"vertices\", self.format, Geom.UHStatic)\n\n        self.vertex_writer = GeomVertexWriter(self.vertex_data, \"vertex\")\n        self.color_writer = GeomVertexWriter(self.vertex_data, \"color\")\n        if self.texture is not None:\n            self.texture_writer = GeomVertexWriter(self.vertex_data, \"texcoord\")\n\n        self.triangles = GeomTriangles(Geom.UHStatic)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5124
+  }
+}

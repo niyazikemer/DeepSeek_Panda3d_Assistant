@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a class responsible for managing the movement and rendering of avatars in a 3D environment. The methods `getComponentP`, `getComponentR`, and `getComponentT` retrieve specific attributes (Pitch, Roll, and potentially Translation or another parameter) needed for rendering smooth motion. The `clearSmoothing` method resets the smoother's state to invalidate old position reports, ensuring no visual artifacts when an avatar moves abruptly. This functionality is crucial for maintaining smooth and lag-free animations in real-time environments.\n\ndef getComponentP(self):\n        return self.getP()\n\n    def getComponentR(self):\n        return self.getR()\n\n    def getComponentT(self):\n        return 0\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def clearSmoothing(self, bogus = None):\n        # Call this to invalidate all the old position reports\n        # (e.g. just before popping to a new position).\n        #printStack()\n        self.smoother.clearPositions(1)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5360
+  }
+}

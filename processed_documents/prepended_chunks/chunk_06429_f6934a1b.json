@@ -1,0 +1,9 @@
+{
+  "content": "\"Advanced usage of Sequences and Parallels in Panda3D to combine intervals for complex timing control, including appending functions and using wait intervals for delays, demonstrated through examples like fading images, playing sounds, and function calls.\"\n\nSequences and Parallels may also be combined for even greater control. Also, there is a wait interval that can add a delay to Sequences. While it can be defined beforehand, it does not have to be.\n\ndelay = Wait(2.5)\npandaWalkSeq =\n    Sequence(\n        Parallel(pandaWalk, pandaWalkAnim),\n        delay,\n        Parallel(pandaWalkBack, pandaWalkAnim),\n        Wait(1.0),\n        Func(myFunction, arg1)\n    )\n\nIn the above example, a wait interval is generated. After that, a Sequence is made that uses a Parallel, the defined wait interval, another Parallel, and a wait interval, and a call to the function function myFunction is generated in the Sequence. Such Sequences can get very long very quick, so it may be prudent to define the internal Parallels and Sequences before creating the master Sequence.\n\nOne can do very powerful things with Sequences and Parallels. Examine this Sequence:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_480",
+    "parent": "processed_documents/context_documents/dda6cef5_6b3d692e_sequences-and-parallels.json",
+    "chunk_number": 6429
+  }
+}

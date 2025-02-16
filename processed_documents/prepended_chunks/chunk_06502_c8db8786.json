@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides a concise explanation of how task functions operate in both Python (using Direct's Task module) and C++ (using AsyncTaskManager), focusing on the return values that control task continuation or termination, as well as monitoring task execution time and frame counts.\n\npython\n\nThe task function may return either Task.cont to indicate that the task should be called again next frame, or Task.done to indicate that it should not be called again. If it returns None (which is to say, it does not return anything), then the default behavior is to stop.\n\nYou can check how long your task has been running by checking task.time in your task function. You can also check how many times the task function has been run by using task.frame.\n\nThe below example imports the Task module and shows a function used as task.\n\nfrom direct.task import Task\n\n# This task runs for two seconds, then prints done\ndef exampleTask(task):\n    if task.time < 2.0:\n        return Task.cont\n\n    print('Done')\n    return Task.done\n\ncpp\n\nThe task function may return either AsyncTask::DS_cont to indicate that the task should be called again next frame, or AsyncTask::DS_done to indicate that it should not be called again.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6502
+  }
+}

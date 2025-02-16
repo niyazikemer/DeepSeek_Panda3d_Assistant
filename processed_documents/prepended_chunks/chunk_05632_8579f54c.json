@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk of code belongs to the `Fixture` class within a document that implements 3D scene management functionality. The code handles cleanup operations after exiting a \"Using\" state, including resetting camera settings, stopping event listening, restoring default game states, and triggering refresh events for dirty fixture configurations.\n\n# Could be toggled on/off on a fixture by fixture basis\n        # if added to the dc definition of the Fixture struct and\n        # saved out to the Camera file.\n        lodNodes = render.findAllMatches('**/+LODNode')\n        for lodNode in lodNodes:\n            lodNode.node().forceSwitch(lodNode.node().getHighestSwitch())\n\n\n    def exitUsing(self):\n        self.ignore('arrow_left')\n        self.ignore('arrow_left-repeat')\n        self.ignore('arrow_right')\n        self.ignore('arrow_right-repeat')\n        self.ignore('arrow_down')\n        self.ignore('arrow_down-repeat')\n        self.ignore('arrow_up')\n        self.ignore('arrow_up-repeat')\n\n        base.cam.node().setLens(base.camLens)\n        localAvatar.b_setGameState('LandRoam')\n        self.show()\n\n        if self.dirty:\n            messenger.send('refresh-fixture', [self.id, self.pack()])\n            self.dirty = False",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_329",
+    "parent": "processed_documents/context_documents/e876bd8c_DistributedCamera.json",
+    "chunk_number": 5632
+  }
+}

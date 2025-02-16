@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines the `Messenger` class, which manages event-driven communication in a system. The `__init__` method sets up two key dictionaries: one maps events to their acceptors (methods tied to specific objects) and extra arguments, while another tracks object-event relationships for efficient ignoring of all events. This structure is crucial for enabling efficient event callbacks and management within the Messenger class's functionality.\n\nclass Messenger:\n\n    notify = DirectNotifyGlobal.directNotify.newCategory(\"Messenger\")\n\n    def __init__(self):\n        \"\"\"\n        One is keyed off the event name. It has the following structure::\n\n            {event1: {object1: [method, extraArgs, persistent],\n                       object2: [method, extraArgs, persistent]},\n             event2: {object1: [method, extraArgs, persistent],\n                       object2: [method, extraArgs, persistent]}}\n\n        This dictionary allows for efficient callbacks when the\n        messenger hears an event.\n\n        A second dictionary remembers which objects are accepting which\n        events. This allows for efficient ignoreAll commands.\n\n        Or, for an example with more real data::",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5037
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines core data structures in the Messenger class used for managing events. These include dictionaries tracking event callbacks and object subscriptions, an ID generator, mappings between IDs and objects, and event queues for task chains, along with a lock for thread safety.\n\nThis setup efficiently handles event subscriptions, dispatching across threads, and ensuring concurrent access is protected.\n\nA second dictionary remembers which objects are accepting which\n        events. This allows for efficient ignoreAll commands.\n\n        Or, for an example with more real data::\n\n            {'mouseDown': {avatar: [avatar.jump, [2.0], 1]}}\n        \"\"\"\n        # eventName->objMsgrId->callbackInfo\n        self.__callbacks = {}\n        # objMsgrId->set(eventName)\n        self.__objectEvents = {}\n        self._messengerIdGen = 0\n        # objMsgrId->listenerObject\n        self._id2object = {}\n\n        # A mapping of taskChain -> eventList, used for sending events\n        # across task chains (and therefore across threads).\n        self._eventQueuesByTaskChain = {}\n\n        # This protects the data structures within this object from\n        # multithreaded access.\n        self.lock = Lock()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5038
+  }
+}

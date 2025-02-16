@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to control the order of multiple textures being applied to a model, emphasizing the importance of texture ordering depending on the Texture Blend Mode.\n\nTexture Order\n\nWhen there are multiple textures in effect, depending on the Texture Blend Mode <texture-modes> in use, it may be important to control the order in which the textures apply. For instance, although Modulate mode and Add mode are order-independent, texture order makes a big difference to Decal mode, Replace mode, and Blend mode.\n\nTo specify the texture order, use .TextureStage.set_sort() on one or more of your TextureStages. If you do not specify a sort value, the default sort value is 0. When the geometry is rendered, all of the textures are rendered in increasing order of sort value, such that the largest sort value is rendered on top. Thus, if you want to use Decal mode, for instance, to apply a texture on top of a lower texture, it would be a good idea to use ~.TextureStage.set_sort() to give a higher sort value to your decal texture.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_486",
+    "parent": "processed_documents/context_documents/ae2c7fe6_85c3f1d7_texture-order.json",
+    "chunk_number": 6455
+  }
+}

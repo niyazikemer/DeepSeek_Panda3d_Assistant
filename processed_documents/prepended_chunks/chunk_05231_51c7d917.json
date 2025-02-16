@@ -1,0 +1,9 @@
+{
+  "content": "This chunk modifies the `addInterest` method to handle adding multiple zones of interest by sorting and deduplicating zone IDs before sending a request to the server using the `CLIENT_ADD_INTEREST_ULTIPLE` command.\n\nvzl = sorted(zoneIdList)\n            uniqueElements(vzl)\n            datagram.addUint16(CLIENT_ADD_INTEREST_MULTIPLE)\n            datagram.addUint32(contextId)\n            datagram.addUint16(handle)\n            datagram.addUint32(parentId)\n            datagram.addUint16(len(vzl))\n            for zone in vzl:\n                datagram.addUint32(zone)\n        else:\n            datagram.addUint16(CLIENT_ADD_INTEREST)\n            datagram.addUint32(contextId)\n            datagram.addUint16(handle)\n            datagram.addUint32(parentId)\n            datagram.addUint32(zoneIdList)\n        self.send(datagram)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5231
+  }
+}

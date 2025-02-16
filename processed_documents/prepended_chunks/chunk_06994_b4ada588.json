@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how Panda3D's instancing mechanism allows a single actor (e.g., a dancer) to appear in multiple locations within a scene by using placeholder nodes as parents. The explanation follows an example where 50 placeholders are used, demonstrating how the dancer's position is treated relative to each parent node, enabling the same model to appear in different locations without duplicating data.\n\nIn other words, the renderer visits the dancer actor 50 times. It doesn't even notice that it's visiting the same actor 50 times, rather than visiting 50 different actors. It's all the same to the renderer.\n\nThere are 50 placeholder nodes, lined up across the stage. These are called dummy nodes. They don't contain any polygons, they're little tiny objects used mainly for organization. In this case, I'm using each placeholder as a platform on which a dancer can stand.\n\nThe position of the dancer is (0,0,0). But that's relative to the position of the parent. When the renderer is traversing placeholder 1's subtree, the dancer's position is treated as relative to placeholder 1. When the renderer is traversing placeholder 2's subtree, the dancer's position is treated as relative to placeholder 2. So although the position of the dancer is fixed at (0,0,0), it appears in multiple locations in the scene (on top of each placeholder).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_565",
+    "parent": "processed_documents/context_documents/fd216bec_f62cc0c7_instancing.json",
+    "chunk_number": 6994
+  }
+}

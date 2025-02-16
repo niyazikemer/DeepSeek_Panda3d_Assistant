@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of the initialization section of the `DoInterestManager` class, which manages networked interests in a game or application. It sets up event handling, tracks interest completion states, and initializes serial numbers for unique event identification. This foundational setup ensures proper management of interests throughout the application's lifecycle.\n\n**Succinct Context:**\nThis code initializes the `DoInterestManager` class by setting up essential components like event handlers, completion tracking, and serialization for unique event identifiers, crucial for managing networked interests effectively.\n\n_SerialGen = SerialNumGen()\n    _SerialNum = serialNum()\n\n    def __init__(self):\n        assert DoInterestManager.notify.debugCall()\n        DirectObject.DirectObject.__init__(self)\n        self._addInterestEvent = uniqueName('DoInterestManager-Add')\n        self._removeInterestEvent = uniqueName('DoInterestManager-Remove')\n        self._noNewInterests = False\n        self._completeDelayedCallback = None\n        # keep track of request contexts that have not completed\n        self._completeEventCount = ScratchPad(num=0)\n        self._allInterestsCompleteCallbacks = []\n\n    def __verbose(self):\n        return self.InterestDebug.getValue() or self.getVerbose()\n\n    def _getAnonymousEvent(self, desc):\n        return 'anonymous-%s-%s' % (desc, DoInterestManager._SerialGen.next())\n\n    def setNoNewInterests(self, flag):\n        self._noNewInterests = flag\n\n    def noNewInterests(self):\n        return self._noNewInterests",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5205
+  }
+}

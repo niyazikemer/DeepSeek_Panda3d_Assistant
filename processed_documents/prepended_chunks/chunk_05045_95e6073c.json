@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk appears in the `Messenger` class method responsible for adding or replacing an object's callback for a specific event. It checks if the object already has a registered callback for the event, issues warnings when a new callback replaces an existing one, and ensures proper event management and notification.\n\nid = self._getMessengerId(object)\n\n            # Make sure we are not inadvertently overwriting an existing event\n            # on this particular object.\n            if id in acceptorDict:\n                # TODO: we're replacing the existing callback. should this be an error?\n                if notifyDebug:\n                    oldMethod = acceptorDict[id][0]\n                    if oldMethod == method:\n                        self.notify.warning(\n                            \"object: %s was already accepting: \\\"%s\\\" with same callback: %s()\" %\n                            (object.__class__.__name__, safeRepr(event), method.__name__))\n                    else:\n                        self.notify.warning(\n                            \"object: %s accept: \\\"%s\\\" new callback: %s() supplanting old callback: %s()\" %\n                            (object.__class__.__name__, safeRepr(event), method.__name__, oldMethod.__name__))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5045
+  }
+}

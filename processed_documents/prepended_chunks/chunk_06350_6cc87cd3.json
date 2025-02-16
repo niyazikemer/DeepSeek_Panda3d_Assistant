@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses how to use MeshDrawer for efficient geometry drawing. The chunk situates within the section detailing node configuration steps after creating a MeshDrawer instance, specifically about setting properties like transparency, depth write, and binning on the generatorNode to prepare it for special effects or UI elements without lights.\n\nYou might also disable depth write, enable transparency, set two sided, add a texture and re parent the geom to a fixed bin and render without lights. What this code does is outside the mesh drawer and is done strictly to the node and you probably had to do this to the special FX node's you have any ways.\n\npython\n\ngeneratorNode.setDepthWrite(False)\ngeneratorNode.setTransparency(True)\ngeneratorNode.setTwoSided(True)\ngeneratorNode.setTexture(loader.loadTexture(\"radarplate.png\"))\ngeneratorNode.setBin(\"fixed\",0)\ngeneratorNode.setLightOff(True)\n\ncpp\n\ngeneratorNode.set_depth_write(false);\ngeneratorNode.set_transparency(TransparencyAttrib::M_alpha);\ngeneratorNode.set_two_sided(true);\ngeneratorNode.set_texture(TexturePool::load_texture(\"radarplate.png\"));\ngeneratorNode.set_bin(\"fixed\",0);\ngeneratorNode.set_light_off();",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_460",
+    "parent": "processed_documents/context_documents/97490678_7fe92637_meshdrawer.json",
+    "chunk_number": 6350
+  }
+}

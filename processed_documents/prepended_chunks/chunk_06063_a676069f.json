@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses integrating different third-party libraries with Panda3D's main loop. The chunk focuses on handling wxPython GUI integration by adding a task to process wx events within Panda3D's main loop instead of running wx's own main loop, ensuring smoother operation for 3-D applications.\n\nwxPython also supplies a method that can be called occasionally, instead of a function that never returns. In wx's case, it's app.Dispatch().\n\nA choice can be made whether or not to make wx handle the main loop, and call taskMgr.step() intermittently, or whether or not to make Panda handle the main loop, and call app.Dispatch() intermittently. The better performance choice is to have Panda handle the main loop.\n\nIn the case that Panda handles the main loop, a task needs to be started to call app.Dispatch() every frame, if needed. Instead of calling wxPython's app.MainLoop(), do something like the following:\n\napp = wx.App(0)\n\ndef handleWxEvents(task):\n    while app.Pending():\n        app.Dispatch()\n\n    return Task.cont\n\ntaskMgr.add(handleWxEvents, 'handleWxEvents')\nbase.run()  # Panda handles the main loop",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_404",
+    "parent": "processed_documents/context_documents/ba8da20a_c90a4174_main-loop.json",
+    "chunk_number": 6063
+  }
+}

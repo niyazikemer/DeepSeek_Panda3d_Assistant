@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated in a section discussing `CollisionHandlerEvent`, explaining how to customize event naming patterns when handling collision events between objects. It provides examples for both Python and C++ implementations, detailing how the patterns work and which special sequences are used to construct meaningful event names based on colliding object names.\n\nFor each kind of event, the CollisionHandlerEvent will construct an event name out of the names of the from and into objects that were involved in the collision. The exact event name is controlled by a pattern string that you specify. For instance:\n\npython\n\nhandler.addInPattern('%fn-into-%in')\nhandler.addAgainPattern('%fn-again-%in')\nhandler.addOutPattern('%fn-out-%in')\n\ncpp\n\nhandler->add_in_pattern(\"%fn-into-%in\");\nhandler->add_again_pattern(\"%fn-into-%in\");\nhandler->add_out_pattern(\"%fn-into-%in\");\n\nIn the pattern string, the following sequences have special meaning:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_485",
+    "parent": "processed_documents/context_documents/43230ff3_7853f9ff_collision-handlers.json",
+    "chunk_number": 6444
+  }
+}

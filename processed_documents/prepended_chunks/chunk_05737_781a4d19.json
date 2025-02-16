@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk defines two deprecated methods `showAllDescendants` and `isolate` that are added to the NodePath class using Dtool_ funcToMethod. These methods are related to visibility management in the scene graph. The context situates these deprecated functions within a larger collection of utility methods for NodePath, including geometry analysis and collision tree construction, which are also implemented as extension methods via Dtool_ funcToMethod.\n\ndef showAllDescendants(self):\n    \"\"\"Deprecated.  Show the node path and all its children\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.showAllDescendants() is deprecated.\", DeprecationWarning, stacklevel=2)\n    self.show()\n    for child in self.getChildren():\n        child.showAllDescendants()\nDtool_funcToMethod(showAllDescendants, NodePath)\ndel showAllDescendants\n#####################################################################\n\ndef isolate(self):\n    \"\"\"Deprecated.  Show the node path and hide its siblings\"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.isolate() is deprecated.\", DeprecationWarning, stacklevel=2)\n    self.showAllDescendants()\n    for sib in self.getParent().getChildren():\n        if sib.node() != self.node():\n            sib.hide()\nDtool_funcToMethod(isolate, NodePath)\ndel isolate\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5737
+  }
+}

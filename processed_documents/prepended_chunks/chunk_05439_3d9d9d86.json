@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class that manages a repository of distributed objects in a networked environment. The functions provided are utility methods for querying and counting objects within this repository:\n\n- `countObjects(classType)` counts how many objects of a specific type exist in the repository\n- `getAllOfType(type)` returns all objects of a given type \n- `findAnyOfType(type)` searches for any object of a specified type\n\nThese utility functions provide introspection capabilities into the collection of managed distributed objects.\n\ndef countObjects(self, classType):\n        \"\"\"\n        Counts the number of objects of the given type in the\n        repository (for testing purposes)\n        \"\"\"\n        count = 0\n        for dobj in self.doId2do.values():\n            if isinstance(dobj, classType):\n                count += 1\n        return count\n\n\n    def getAllOfType(self, type):\n        # Returns a list of all DistributedObjects in the repository\n        # of a particular type.\n        result = []\n        for obj in self.doId2do.values():\n            if isinstance(obj, type):\n                result.append(obj)\n        return result\n\n    def findAnyOfType(self, type):\n        # Searches the repository for any object of the given type.\n        for obj in self.doId2do.values():\n            if isinstance(obj, type):\n                return obj\n        return None\n\n    #----------------------------------",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5439
+  }
+}

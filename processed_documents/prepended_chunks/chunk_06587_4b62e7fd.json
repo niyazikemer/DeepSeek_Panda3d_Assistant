@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses alternative render modes for fonts loaded through the FreeType library, focusing on how changing the render mode affects character generation (e.g., RM_Texture vs. RMSolid, RMWireframe, etc.). This section appears after discussing font customization options like page size and pixels per unit in the \"Alternative Render Modes\" subsection of the document.\n\nAlternative Render Modes\n\nFonts loaded through the FreeType library (resulting in a DynamicTextFont object) are normally rasterized into textures and mapped onto polygons, due to the default Render Mode being set to RM_texture. The render mode however can be changed using the method ~.DynamicTextFont.set_render_mode(), to allow for radically different generated characters. For example, the following statement ensures that generated characters will be fully three-dimensional, thick, polygonal characters.\n\npython\n\nfont.setRenderMode(TextFont.RMSolid)\n\ncpp\n\ndfont->set_render_mode(TexFont::RM_solid);\n\npython\n\nOther available modes are TextFont.RMWireframe, generating characters as polylines, TextFont.RMPolygon, generating characters as flat polygonal objects, and TextFont.RMExtruded, generating characters as extruded polygonal surfaces.\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_514",
+    "parent": "processed_documents/context_documents/896bae18_c85845c1_text-fonts.json",
+    "chunk_number": 6587
+  }
+}

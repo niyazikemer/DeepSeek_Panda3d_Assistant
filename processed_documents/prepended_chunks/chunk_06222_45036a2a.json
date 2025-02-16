@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses why Panda3D does not provide an MObjectPosition mode for texture generation and emphasizes the importance of allowing users to specify their own coordinate spaces explicitly using `setTexProjector()`. This occurs after explaining how to maintain consistent texture patterns relative to a moving object by projecting world-space coordinates back into the object's local space. The context clarifies when it is appropriate to use `setTexProjector()` and why such flexibility is preferable for complex models with multiple sub-nodes, enhancing control over texture transformations in various coordinate systems.\n\nThat's a fair question, and MObjectPosition would be a fine idea for a model as simple as the teapot, which is after all just one node. But for more sophisticated models, which can contain multiple sub-nodes each with their own coordinate space, the idea of MObjectPosition is less useful, unless you truly wanted each sub-node to be re-textured within its own coordinate space. Rather than provide this feature of questionable value, Panda3D prefers to give you the ability to specify the particular coordinate space you had in mind, unambiguously.\n\nNote that you only want to call .NodePath.set_tex_projector() when you are using mode MWorldPosition. The other modes are generally computed from vectors (for instance, normals), not positions, and it usually doesn't make sense to apply a relative transform to a vector.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_437",
+    "parent": "processed_documents/context_documents/aa36d59a_558ab811_automatic-texture-coordinates.json",
+    "chunk_number": 6222
+  }
+}

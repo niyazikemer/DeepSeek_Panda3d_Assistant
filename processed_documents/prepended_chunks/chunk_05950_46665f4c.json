@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses various aspects of threading in Panda3D, including support for asynchronous loading, task chains, and safe implementation methods. This chunk situates within the section explaining how to use threading safely in Panda3D, after discussing higher-level features like async loading and task chains, providing guidance on importing and using Panda3D's optimized thread modules.\n\nSee async-loading for more information about these features.\n\nTask Chains\n\nTask chains provide a high-level interface for automatically running tasks on separate threads. See the task-chains page for more information.\n\nThreading\n\nIf you want to use threading with Panda3D, it's not recommended to use Python's built-in threading modules, since you will most likely run into issues (for Panda3D is written in C++ and thus does not use the Python threading modules). However, Panda3D offers a threading implementation that is safe to use, by reimplementing Python's \"thread\" and \"threading\" modules, these work the same as the Python built-in threading modules but are actually safe to use with Panda3D.\n\nYou can get access to Panda3D's implementation of Python's thread module by importing the ~direct.stdpy.thread module from direct.stdpy:\n\n# WRONG:\nimport thread\n# RIGHT:\nfrom direct.stdpy import thread",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_378",
+    "parent": "processed_documents/context_documents/e1cb27da_d50d13d2_threading.json",
+    "chunk_number": 5950
+  }
+}

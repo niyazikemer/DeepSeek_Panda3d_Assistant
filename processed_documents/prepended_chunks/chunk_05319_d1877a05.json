@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is situated within a class method responsible for importing modules and handling Distributed Class (DC) file definitions. The code iterates over classes defined in a DC file, checking if each class's name (with an owner suffix) exists in a list of symbols to import. If so, it captures the class number and full name for further processing. This context is part of a broader system managing network connections and distributed objects, as evidenced by the surrounding code dealing with datagrams, connection handling, and task management.\n\nself.importModule(dcImports, moduleName, importSymbols)\n\n            # Now get the class definition for the owner classes named\n            # in the DC file.\n            for i in range(dcFile.getNumClasses()):\n                dclass = dcFile.getClass(i)\n                if dclass.getName() + ownerDcSuffix in ownerImportSymbols:\n                    number = dclass.getNumber()\n                    className = dclass.getName() + ownerDcSuffix",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5319
+  }
+}

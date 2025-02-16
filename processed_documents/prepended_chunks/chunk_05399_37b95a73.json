@@ -1,0 +1,9 @@
+{
+  "content": "The given code is part of the `AsyncRequest` class, specifically the `createObject` method. This method handles generating global objects when responses are received from the database, ensuring these objects are properly added to the system for use in applications like AI where direct object management is required.\n\nThis functions is different from createObjectId in that it does\n        generate the object when the response comes back.  The object is\n        added to the doId2do and so forth and treated as a full regular\n        object (which it is).  This is useful on the AI where we really\n        do want the object on the AI.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        assert name\n        assert className\n        self.neededObjects[name] = None\n        if context is None:\n            context = self.air.allocateContext()\n        self.accept(\n            self.air.getDatabaseGenerateResponseEvent(context),\n            self._doCreateObject, [name, className, values])\n        self.air.requestDatabaseGenerate(\n            className, context, databaseId = databaseId, values = values)\n        self._resetTimeoutTask()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5399
+  }
+}

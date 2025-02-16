@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a section discussing how to process vertex data in geometric primitives using `GeomVertexReader` and `setRow()`, specifically highlighting the importance of decomposing complex primitive types into simpler forms to accurately access vertices as referenced by each primitive.\n\nEach GeomPrimitive may be any of a handful of different classes, according to the primitive type it is; but all GeomPrimitive classes have the same common interface to walk through the list of vertices referenced by the primitives stored within the class.\n\nYou can use the setRow() method of GeomVertexReader to set the reader to a particular vertex. This affects the next call to getData(). In this way, you can extract the vertex data for the vertices in the order that the primitive references them (instead of in order from the beginning to the end of the vertex table, as above).\n\npython\n\ndef processPrimitive(prim, vdata):\n    vertex = GeomVertexReader(vdata, 'vertex')\n\n    prim = prim.decompose()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_373",
+    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
+    "chunk_number": 5931
+  }
+}

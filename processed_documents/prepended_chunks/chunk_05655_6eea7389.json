@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `startPosHprBroadcast` method within the `DistributedSmoothNodeBase` class. It handles setting up periodic broadcasting of position and heading data by initializing necessary components, managing task execution timing, and ensuring initial data transmission before scheduling subsequent broadcasts.\n\n# Set stagger to non-zero to randomly delay the initial task execution\n        # over 'period' seconds, to spread out task processing over time\n        # when a large number of SmoothNodes are created simultaneously.\n        taskName = self.getPosHprBroadcastTaskName()\n\n        # Set up telemetry optimization variables\n        self.cnode.initialize(self, self.dclass, self.doId)\n\n        self.setPosHprBroadcastPeriod(period)\n        # Broadcast our initial position\n        self.b_clearSmoothing()\n        self.cnode.sendEverything()\n\n        # remove any old tasks\n        taskMgr.remove(taskName)\n        # spawn the new task\n        delay = 0.\n        if stagger:\n            delay = randFloat(period)\n        if self.wantSmoothPosBroadcastTask():\n            taskMgr.doMethodLater(self.__broadcastPeriod + delay,\n                                  self._posHprBroadcast, taskName)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_332",
+    "parent": "processed_documents/context_documents/8613714e_DistributedSmoothNodeBase.json",
+    "chunk_number": 5655
+  }
+}

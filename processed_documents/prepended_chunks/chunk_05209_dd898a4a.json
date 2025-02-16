@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `addInterest` method in the InterestManager class. It handles setting up a new interest by assigning a context ID, creating an InterestState object, sending an add interest request, and notifying listeners if an event is specified.\n\nThe code:\n- Assigns a context ID based on whether an event is provided.\n- Creates an InterestState instance to track the interest's details.\n- Logs the addition of the interest with relevant parameters.\n- Sends an add interest network message.\n- Triggers a messenger notification if an event is defined.\n- Returns an InterestHandle for managing the added interest.\n\nThis process enables tracking and responding to interest additions within the application.\n\nif event:\n            contextId = self._getNextContextId()\n        else:\n            contextId = 0\n            # event = self._getAnonymousEvent('addInterest')\n\n        DoInterestManager._interests[handle] = InterestState(\n            description, InterestState.StateActive, contextId, event, parentId, zoneIdList, self._completeEventCount)\n        if self.__verbose():\n            print('CR::INTEREST.addInterest(handle=%s, parentId=%s, zoneIdList=%s, description=%s, event=%s)' % (\n                handle, parentId, zoneIdList, description, event))\n        self._sendAddInterest(handle, contextId, parentId, zoneIdList, description)\n        if event:\n            messenger.send(self._getAddInterestEvent(), [event])\n        assert self.printInterestsIfDebug()\n        return InterestHandle(handle)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5209
+  }
+}

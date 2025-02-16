@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains important requirements and considerations for using GeomVertexWriter to modify vertex data in-place within a GeomVertexData object. It appears in the section discussing the second option of modifying existing geometry data directly through vertex operations, following the code examples that demonstrate copying vertex positions to texture coordinates. The context highlights the necessity of ensuring proper column definitions and formats before writing new data, while also noting limitations such as attempting to write higher-dimensional data into lower-dimensional columns. This section precedes a discussion on how to modify or add new columns by defining a new GeomVertexFormat.\n\nWriting to a column with a GeomVertexWriter does require that the GeomVertexData's format already has the appropriate columns to handle the data you are writing (in the above example, for instance, the format must already have a 'texcoord' column, or the above code will fail). Furthermore, the columns must have the appropriate format. For instance, if you wanted to upgrade a model's texture coordinates from 2-D texture coordinates to 3-D texture coordinates, simply calling texcoord.set_data3(u, v, w) <.GeomVertexWriter.set_data3> wouldn't change the fact that the existing texcoord column is a 2-component format; you would just be trying to stuff a 3-component value into a 2-component column.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_362",
+    "parent": "processed_documents/context_documents/367417a0_6ffafe16_modifying-existing-geometry.json",
+    "chunk_number": 5858
+  }
+}

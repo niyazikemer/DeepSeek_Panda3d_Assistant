@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\n### setParent ###\n\nA set of methods to handle parent-child relationships for distributed objects. The `b_setParent` method bridges setting a parent token (either string or integer) and propagating this change via network updates. It uses either `setParentStr` or `setParent` based on the input type, then calls `d_setParent` to send the update. The `d_setParent` method dispatches the appropriate remote procedure call (`sendUpdate`) for either string or numeric parent tokens. Both `setParentStr` and `setParent` methods log debug information about the operation and validate the parent token (checking for empty strings or suspicious zero values before calling the actual parent setting method `do_setParent`.\n\"\"\"\n\n### setParent ###\n\n    def b_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.setParentStr(parentToken)\n        else:\n            self.setParent(parentToken)\n        self.d_setParent(parentToken)\n\n    def d_setParent(self, parentToken):\n        if isinstance(parentToken, str):\n            self.sendUpdate(\"setParentStr\", [parentToken])\n        else:\n            self.sendUpdate(\"setParent\", [parentToken])\n\n    def setParentStr(self, parentToken):\n        self.notify.debug('setParentStr(%s): %s' % (self.doId, parentToken))\n        if len(parentToken) > 0:\n            self.do_setParent(parentToken)\n\n    def setParent(self, parentToken):\n        self.notify.debug('setParent(%s): %s' % (self.doId, parentToken))\n        if parentToken == 0:\n            senderId = self.air.getAvatarIdFromSender()\n            self.air.writeServerEvent('suspicious', senderId, 'setParent(0)')\n        else:\n            self.do_setParent(parentToken)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_326",
+    "parent": "processed_documents/context_documents/e6633f02_DistributedNodeAI.json",
+    "chunk_number": 5585
+  }
+}

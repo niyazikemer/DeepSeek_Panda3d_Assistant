@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides solutions to several programming-related tasks: redirecting command outputs to files using StringStream and MultiplexStream, creating nodes from egg source strings, and determining which character is under the mouse pointer in a TextNode.\n\nThere are several alternative approaches. One approach using StringStream is this:\n\nstrm = StringStream()\nrender.ls(strm)\nopen('out.txt', 'w').write(strm.getData())\n\nThe following is another approach using StringStream:\n\nstrm = StringStream()\ncvMgr.write(strm)\nopen('out.txt', 'w').write(strm.getData())\n\nIf you don't want to use a StringStream you can do this:\n\nstrm = MultiplexStream()\nstrm.addFile(Filename('out.txt'))\nrender.ls(strm)\n\nThere is also a way to specify the output file in the config file.\n\nnotify-output out.txt\n\nHow do I create a node from a string containing a .egg source?\n\nUse the EggData class.\n\negg = EggData()\negg.read(StringStream(eggText))\nmodel = NodePath(loadEggData(egg))\n\nHow can I know which letter is below the pointer when I click on a TextNode?\n\nUse the TextAssembler class.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6347
+  }
+}

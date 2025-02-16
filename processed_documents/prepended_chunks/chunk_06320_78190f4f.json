@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides guidance on controlling backface and frontface culling in Panda3D, advising against unnecessary changes unless required by specific algorithms like stencil shadows. It introduces methods to render objects double-sided without culling and offers advanced control options through CullFaceAttrib settings.\n\nIn other words, don't alter the backface or frontface culling unless you're using an algorithm that requires it, such as stencil shadows.\n\nRendering Double-Sided\n\nThere is a quick way to render a certain NodePath <the-scene-graph> in your scene double-sided, which means no culling is performed at all and both sides are visible, without hassling with attribs:\n\npython\n\nnodePath.setTwoSided(True)\n\ncpp\n\nnodePath.set_two_sided(true);\n\nIf you want more advanced control over the culling you might want to look at the .CullFaceAttrib:\n\nControlling Backface and Frontface Culling\n\nThere are three valid settings for culling:\n\npython\n\nnodePath.setAttrib(CullFaceAttrib.make(CullFaceAttrib.MCullNone))\nnodePath.setAttrib(CullFaceAttrib.make(CullFaceAttrib.MCullClockwise))\nnodePath.setAttrib(CullFaceAttrib.make(CullFaceAttrib.MCullCounterClockwise))\n\ncpp\n\n// Includes: \"cullFaceAttrib.h\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_455",
+    "parent": "processed_documents/context_documents/1833e5fe_1401fe66_backface-culling-and-frontface-culling.json",
+    "chunk_number": 6320
+  }
+}

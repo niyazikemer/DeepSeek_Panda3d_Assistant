@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk adds animation functionality to NodePath by introducing interval-based methods for position, rotation (HPR), and quaternion interpolations. These methods enable smooth animations in Panda3D applications.\n\ndef posInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpPosInterval(self, *args, **kw)\n\nDtool_funcToMethod(posInterval, NodePath)\ndel posInterval\n#####################################################################\ndef hprInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpHprInterval(self, *args, **kw)\n\nDtool_funcToMethod(hprInterval, NodePath)\ndel hprInterval\n#####################################################################\ndef quatInterval(self, *args, **kw):\n    from direct.interval import LerpInterval\n    return LerpInterval.LerpQuatInterval(self, *args, **kw)\n\nDtool_funcToMethod(quatInterval, NodePath)\ndel quatInterval\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5764
+  }
+}

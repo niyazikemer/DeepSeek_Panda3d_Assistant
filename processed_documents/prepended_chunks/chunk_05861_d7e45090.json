@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes creating and configuring `.TextProperties` objects (e.g., `tpRed`, `tpSlant`, `tpRoman`) to define specific text attributes, registering them globally via `.TextPropertiesManager`, enabling dynamic mid-text property changes. This is part of a guide on embedding text properties in text strings using special characters.\n\ntpRed = TextProperties()\ntpRed.setTextColor(1, 0, 0, 1)\ntpSlant = TextProperties()\ntpSlant.setSlant(0.3)\ntpRoman = TextProperties()\ntpRoman.setFont(cmr12)\n\nYou can set as many or as few different attributes on any one TextProperties object as you like. Only the attributes you specify will be applied to the text string; any attributes you don't mention will remain unchanged when you apply the TextProperties. In the above example, applying the tpRed structure to a particular text string will only change the text color to red; other properties, such as slant, shadow, and font, will remain whatever they were previously. Similarly for tpSlant, which only changes the slant, and tpRoman, which only changes the font.\n\nRegistering the new TextProperties objects\n\nYou will need a pointer to the global .TextPropertiesManager object:\n\ntpMgr = TextPropertiesManager.getGlobalPtr()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_363",
+    "parent": "processed_documents/context_documents/caa9a80b_8a9f6671_embedded-text-properties.json",
+    "chunk_number": 5861
+  }
+}

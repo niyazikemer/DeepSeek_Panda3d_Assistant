@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces the fundamental aspects of task management in Panda3D, specifically focusing on initializing tasks when starting the application using WindowFramework. It explains that default tasks are automatically created and describes how to define task functions, emphasizing their role in processing per frame and the importance of quick execution to maintain application responsiveness.\n\ncpp\n\nWhen you start Panda3D by initializing WindowFramework, a handful of tasks are created by default, but you are free to add as many additional tasks as you like.\n\nThe Task Function\n\nA task is defined with a function or class method; this function is the main entry point for the task and will be called once per frame while the task is running. By default, the function receives one parameter, which is the task object; the task object carries information about the task itself, such as the amount of time that the task has been running.\n\nYour task function should return when it has finished processing for the frame. Because all tasks are run in the same thread, you must not spend too much time processing any one task function; the entire application will be locked up until the function returns.\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6501
+  }
+}

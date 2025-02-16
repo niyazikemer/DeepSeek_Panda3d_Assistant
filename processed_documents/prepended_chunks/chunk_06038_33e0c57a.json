@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how vertices are defined in an egg file, including their coordinates, attributes like normals and UVs, and how they are used to create renderable geometry such as polygons. It clarifies how vertex positions are handled in world space or under specific nodes like <Instance>, and how these definitions contribute to the overall structure of 3D models in Panda3D.\n\nThe vertex's coordinates are always given in world space, regardless of any transforms before the vertex pool or before the referencing geometry. If the vertex is referenced by geometry under a transform, the egg loader will do an inverse transform to move the vertex into the proper coordinate space without changing its position in world space. One exception is geometry under an <Instance> node; in this case the vertex coordinates are given in the space of the <Instance> node. (Another exception is a <DynamicVertexPool>; see below.)\n\n<Vertex> number {\n  x y z [w]\n  [attributes]\n}\n\nVertex Attributes\n\n<Normal>\u00a0{\u00a0x\u00a0y\u00a0z\u00a0[morph-list]\u00a0}\n<RGBA>\u00a0{\u00a0r\u00a0g\u00a0b\u00a0a\u00a0[morph-list]\u00a0}\n<UV>\u00a0[name]\u00a0{\u00a0u\u00a0v\u00a0[w]\u00a0[tangent]\u00a0[binormal]\u00a0[morph-list]\u00a0}\n<Dxyz>\u00a0target\u00a0{\u00a0x\u00a0y\u00a0z\u00a0}\n\nGeometry Entries\n\nGeometry entries reference Vertex pool entries to generate renderable geometry for Panda to use.\n\nPolygons",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_400",
+    "parent": "processed_documents/context_documents/fe5417d7_2644dc0c_syntax.json",
+    "chunk_number": 6038
+  }
+}

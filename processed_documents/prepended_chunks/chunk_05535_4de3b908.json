@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is a segment from the `InterestWatcher` class within a Python module, designed to monitor and manage interest operations (additions/removals) in a system. The chunk specifically includes two methods: `startCollect()` which initializes event listeners for tracking interests, and `stopCollect()` which terminates these listeners, handles cases where no events were collected, logs appropriate warnings or errors, and manages the cleanup process by destroying the object and sending completion notifications.\n\ndef startCollect(self, mustCollect=False):\n        self._mustCollect = mustCollect\n\n        self.accept(self._interestMgr._getAddInterestEvent(), self._handleInterestOpenEvent)\n        self.accept(self._interestMgr._getRemoveInterestEvent(), self._handleInterestCloseEvent)\n\n    def stopCollect(self):\n        self.ignore(self._interestMgr._getAddInterestEvent())\n        self.ignore(self._interestMgr._getRemoveInterestEvent())\n\n        mustCollect = self._mustCollect\n        del self._mustCollect\n        if not self._gotEvent:\n            if mustCollect:\n                logFunc = self.notify.error\n            else:\n                logFunc = self.notify.warning\n            logFunc('%s: empty interest-complete set' % self.getName())\n            self.destroy()\n            messenger.send(self.getDoneEvent())\n        else:\n            self.accept(self.getDoneEvent(), self.destroy)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_321",
+    "parent": "processed_documents/context_documents/a87e46e1_InterestWatcher.json",
+    "chunk_number": 5535
+  }
+}

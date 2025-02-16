@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `cache` method in the CRCache class. This method manages adding distributed objects to the cache by storing them in both a FIFO list and a dictionary. When the cache reaches its maximum capacity, it removes and deletes the oldest object to maintain space constraints while ensuring no memory leaks occur through delay delete checks.\n\n# Put the distObj in the fifo and the dict\n            self.fifo.append(distObj)\n            self.dict[doId] = distObj\n\n            success = True\n\n            if len(self.fifo) > self.maxCacheItems:\n                # if the cache is full, pop the oldest item\n                oldestDistObj = self.fifo.pop(0)\n                # and remove it from the dictionary\n                del self.dict[oldestDistObj.getDoId()]\n                # and delete it\n                oldestDistObj.deleteOrDelay()\n                if oldestDistObj.getDelayDeleteCount() <= 0:\n                    # make sure we're not leaking\n                    oldestDistObj.detectLeaks()\n\n        # Make sure that the fifo and the dictionary are sane\n        assert len(self.dict) == len(self.fifo)\n        return success",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5266
+  }
+}

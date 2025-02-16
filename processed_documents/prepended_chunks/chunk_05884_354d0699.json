@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to attach a green ambient light specifically to an object and enable shadow mapping in Panda3D, covering techniques for customizing object-specific lighting and enhancing visual realism through shadows.\n\n# Now attach a green light only to object x.\nambient = AmbientLight('ambient')\nambient.setColor((0.5, 1, 0.5, 1))\nambientNP = x.attachNewNode(ambient)\n\n# If we did not call setLightOff() first, the green light would add to\n# the total set of lights on this object. Since we do call\n# setLightOff(), we are turning off all the other lights on this\n# object first, and then turning on only the green light.\nx.setLightOff()\nx.setLight(ambientNP)\n\nbase.run()\n\nShadow Mapping\n\nPanda3D offers fully automatic shadow mapping support for spotlights, directional lights and point lights. You can enable shadows by calling ~.LightLensNode.set_shadow_caster(). The nodes that receive shadows will need to have the Shader Generator <the-shader-generator> enabled, otherwise no shadows will appear.\n\npython\n\n# Use a 512x512 resolution shadow map\nlight.setShadowCaster(True, 512, 512)\n# Enable the shader generator for the receiving nodes\nrender.setShaderAuto()\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5884
+  }
+}

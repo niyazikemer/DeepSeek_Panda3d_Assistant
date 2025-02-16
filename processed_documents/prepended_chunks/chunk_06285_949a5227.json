@@ -1,0 +1,9 @@
+{
+  "content": "This chunk about creating transparency maps, gloss maps, and glow maps provides essential information on setting up specific material properties in Maya for use with Panda3D. It fits within a section discussing how to utilize the MayaPandaTool or Maya exporter, particularly when configuring materials and textures to achieve desired visual effects such as transparency, specular highlights, and self-illumination in models exported to Panda3D.\n\nYou may wish for parts of your model to be transparent. This is a little tricky, because Panda3D understands \"opacity maps,\" and maya understands \"transparency maps,\" which are opposites of each other. (In an opacity map, white is opaque, in a transparency map, black is opaque.) To set it up, you will need to create a reverser-object:\n\nYou may also wish to control which areas of the model are glossy, and which are not. Panda3D calls this a \"gloss map.\" To do this, create a black-and-white image and connect it to the \"specularColor\" input of the phong shader. Note that it must be black-and-white, or Panda3D won't understand it.\n\nYou may also want to create glowing areas on your model. Panda3D calls this a \"glow map.\" I have also heard it called a \"self-illumination map\" or an \"incandescence map.\" Create a black-and-white image and connect it to the \"incandescence\" input of the phong shader:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_452",
+    "parent": "processed_documents/context_documents/3f533d33_a979858b_converting-from-maya.json",
+    "chunk_number": 6285
+  }
+}

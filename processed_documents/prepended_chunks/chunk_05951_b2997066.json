@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a section providing guidance on correctly importing and using specific modules (threading-related) in Python when working with Panda3D's threading support, emphasizing the importance of using the correct imports to leverage Panda3D's optimized and thread-safe implementations.\n\n# WRONG:\nimport thread\n# RIGHT:\nfrom direct.stdpy import thread\n\nFor the Python module threading, Panda3D offers two equivalents, ~direct.stdpy.threading and ~direct.stdpy.threading2, which you can find both in direct.stdpy also. The ~direct.stdpy.threading module implements the threading module with a thin layer over Panda's threading constructs. As such, the semantics are close to, but not precisely, the semantics documented for Python's standard threading module. If you really do require strict adherence to Python's semantics, see the ~direct.stdpy.threading2 module instead.\n\nIn fact, the ~direct.stdpy.threading2 module is a bald-face copy of Python's threading module from Python 2.5, with a few lines at the top to import Panda's thread reimplementation instead of the system thread module, and so it is therefore layered on top of Panda's thread implementation.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_378",
+    "parent": "processed_documents/context_documents/e1cb27da_d50d13d2_threading.json",
+    "chunk_number": 5951
+  }
+}

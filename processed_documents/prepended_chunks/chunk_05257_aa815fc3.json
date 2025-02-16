@@ -1,0 +1,9 @@
+{
+  "content": "The `getConcentricZones` method is part of the `CartesianGridBase` class, which provides various utility functions for grid-based operations such as zone validation, position-to-zone conversion, and zone proximity calculations. This specific function calculates and returns all zones located at a specified radius from a given central zone ID.\n\nreturn (x, y, 0)\n\n    #--------------------------------------------------------------------------\n    # Function:   utility function to get all zones in a ring of given radius\n    #               around the given zoneId (so if given a zoneId 34342 and a\n    #               radius of 3, a list of all zones exactly 3 grids away from\n    #               zone 34342 will be returned)\n    # Parameters: zoneId, center zone to find surrounding zones of\n    #             radius, how far from zoneId to find zones of for it them\n    # Changes:\n    # Returns:\n    #--------------------------------------------------------------------------\n    def getConcentricZones(self, zoneId, radius):\n        zones = []\n        #currZone = zoneId + radius\n        #numZones = (2 * radius * 8) + 2\n        # start at upper left\n        zone = zoneId - self.startingZone\n        row = zone // self.gridSize\n        col = zone % self.gridSize",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_298",
+    "parent": "processed_documents/context_documents/8bef0ac2_CartesianGridBase.json",
+    "chunk_number": 5257
+  }
+}

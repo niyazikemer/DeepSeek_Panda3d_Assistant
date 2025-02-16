@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is a Python script that sets up a basic 3D scene using Panda3D, including camera placement, cube creation, and shader assignment. It serves as an essential component of the tutorial, demonstrating how to integrate custom shaders into a Panda3D application.\n\n#Lesson2.py\n\nimport sys\nimport direct.directbase.DirectStart\n\nbase.setBackgroundColor(0.0, 0.0, 0.0)\nbase.disableMouse()\n\nbase.camLens.setNearFar(1.0, 50.0)\nbase.camLens.setFov(45.0)\n\ncamera.setPos(0.0, -20.0, 10.0)\ncamera.lookAt(0.0, 0.0, 0.0)\n\nroot = render.attachNewNode(\"Root\")\n\nmodelCube = loader.loadModel(\"cube.egg\")\n\ncubes = []\nfor x in [-3.0, 0.0, 3.0]:\n    cube = modelCube.copyTo(root)\n    cube.setPos(x, 0.0, 0.0)\n    cubes += [ cube ]\n\n# Load the shader from the file.\nshader = loader.loadShader(\"lesson2.sha\")\n# Assign the shader to work on the root node\n# If you remove the line below, you will see\n# that panda is actually rendering our scene.\nroot.setShader(shader)\n\nbase.accept(\"escape\", sys.exit)\nbase.accept(\"o\", base.oobe)\n\ndef move(x, y, z):\n    root.setX(root.getX() + x)\n    root.setY(root.getY() + y)\n    root.setZ(root.getZ() + z)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_552",
+    "parent": "processed_documents/context_documents/c21812f2_917f801a_part-2.json",
+    "chunk_number": 6935
+  }
+}

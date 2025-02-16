@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of the `popupControls` method in the CInterval class, which creates a graphical user interface (GUI) window for controlling interval playback. The code sets up the basic structure of the control panel, including buttons for jumping to the start and end of the interval, and an EntryScale widget for adjusting the current time within the interval.\n\nif tl is None:\n        tl = tkinter.Toplevel()\n        tl.title('Interval Controls')\n    outerFrame = tkinter.Frame(tl)\n    def entryScaleCommand(t, s=self):\n        s.setT(t)\n        s.pause()\n    self.es = es = EntryScale.EntryScale(\n        outerFrame, text = self.getName(),\n        min = 0, max = math.floor(self.getDuration() * 100) / 100,\n        command = entryScaleCommand)\n    es.set(self.getT(), fCommand = 0)\n    es.pack(expand = 1, fill = tkinter.X)\n    bf = tkinter.Frame(outerFrame)\n    # Jump to start and end\n    def toStart(s=self, es=es):\n        s.setT(0.0)\n        s.pause()\n    def toEnd(s=self):\n        s.setT(s.getDuration())\n        s.pause()\n    jumpToStart = tkinter.Button(bf, text = '<<', command = toStart)\n    # Stop/play buttons\n    def doPlay(s=self, es=es):\n        s.resume(es.get())",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_342",
+    "parent": "processed_documents/context_documents/f82a7e89_CInterval_extensions.json",
+    "chunk_number": 5787
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `_destroyDO` method is a crucial lifecycle management function in the `DistributedObject` class, responsible for safely destroying an instance by cleaning up cached data, logging warnings for any unretrieved data, and releasing references to critical components like the client repository (`cr`) and distributed class (`dclass`). This ensures proper resource cleanup and prevents potential memory leaks or unintended usage of the object after its destruction.\n\ndef _destroyDO(self):\n        # after this is called, the object is no longer a DistributedObject\n        # but may still be used as a DelayDeleted object\n        if __debug__:\n            # StackTrace is omitted in packed versions\n            from direct.showbase.PythonUtil import StackTrace\n            self.destroyDoStackTrace = StackTrace()\n        # check for leftover cached data that was not retrieved or flushed by this object\n        # this will catch typos in the data name in calls to get/setCachedData\n        if hasattr(self, '_cachedData'):\n            for name, cachedData in self._cachedData.items():\n                self.notify.warning('flushing unretrieved cached data: %s' % name)\n                cachedData.flush()\n            del self._cachedData\n        self.cr = None\n        self.dclass = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5560
+  }
+}

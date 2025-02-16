@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of the `CRCache` class implementation, which manages a cache for distributed objects in a Python module. The methods shown (`cache`, `retrieve`, `contains`) handle adding objects to the cache, retrieving cached objects by their unique identifier (`doId`), and checking if an object exists in the cache. These operations maintain consistency between a dictionary of objects and a FIFO list that tracks the order of insertion, ensuring efficient caching and memory management for distributed objects.\n\n# Make sure that the fifo and the dictionary are sane\n        assert len(self.dict) == len(self.fifo)\n        return success\n\n    def retrieve(self, doId):\n        assert self.checkCache()\n        if doId in self.dict:\n            # Find the object\n            distObj = self.dict[doId]\n            # Remove it from the dictionary\n            del self.dict[doId]\n            # Remove it from the fifo\n            self.fifo.remove(distObj)\n            # return the distObj\n            return distObj\n        else:\n            # If you can't find it, return None\n            return None\n\n    def contains(self, doId):\n        return doId in self.dict",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_299",
+    "parent": "processed_documents/context_documents/76f65742_CRCache.json",
+    "chunk_number": 5267
+  }
+}

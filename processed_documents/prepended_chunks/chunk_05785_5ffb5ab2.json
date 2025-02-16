@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk consists of two methods (`setFinalT` and `privPostEvent`) that are part of a larger codebase extending the functionality of the `CInterval` class in Panda3D. The `setFinalT` method issues a deprecation warning and calls `finish()`, while `privPostEvent` handles Python finishing steps after certain operations, including invoking any registered hooks tied to `setTHooks`. Both methods are converted into instance methods for `CInterval` using `Dtool_funcToMethod` and then deleted from the global namespace.\n\ndef setFinalT(self):\n    if __debug__:\n        warnings.warn(\"CInterval.setFinalT() is deprecated, use finish() instead\", DeprecationWarning, stacklevel=2)\n    self.finish()\n\nDtool_funcToMethod(setFinalT, CInterval)\ndel setFinalT\n#####################################################################\n\ndef privPostEvent(self):\n    # Call after calling any of the priv* methods to do any required\n    # Python finishing steps.\n    t = self.getT()\n    if hasattr(self, \"setTHooks\"):\n        for func in self.setTHooks:\n            func(t)\n\nDtool_funcToMethod(privPostEvent, CInterval)\ndel privPostEvent\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_342",
+    "parent": "processed_documents/context_documents/f82a7e89_CInterval_extensions.json",
+    "chunk_number": 5785
+  }
+}

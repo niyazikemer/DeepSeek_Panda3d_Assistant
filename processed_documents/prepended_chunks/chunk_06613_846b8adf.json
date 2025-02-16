@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a section discussing the implications and considerations of enabling the multithreaded render pipeline in Panda3D. It comes after explaining different threading models and before detailing how to configure them. The context highlights the trade-offs between frame throughput improvements and potential latency issues, emphasizing that while the approach enhances rendering speed, it doesn't reduce display delay below 100ms, which is acceptable for most applications.\n\n**Context:**\n\nThe chunk discusses the limitations of the multithreaded render pipeline regarding frame latency, balancing the earlier discussion on increased frame throughput. It serves as a cautionary note about performance metrics before explaining how to enable this feature in Config.prc.\n\nIt's worth pointing out that the only thing we have improved here is frame throughput--the total number of frames per second that the system can render. This approach does nothing to improve frame latency, or the total time that elapses between the time some change happens in the game, and the time it appears onscreen. This might be one reason to avoid this approach, if latency is more important than throughput. However, we're still talking about a total latency that's usually less than 100ms or so, which is faster than human response time anyway; and most applications (including games) can tolerate a small amount of latency like this in exchange for a smooth, fast frame rate.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_519",
+    "parent": "processed_documents/context_documents/0cd108d5_dab687d3_multithreaded-render-pipeline.json",
+    "chunk_number": 6613
+  }
+}

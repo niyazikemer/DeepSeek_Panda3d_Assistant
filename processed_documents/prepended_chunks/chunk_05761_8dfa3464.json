@@ -1,0 +1,9 @@
+{
+  "content": "This chunk defines a `deselect` method for the `NodePath` class that handles deselection of nodes in a graphical interface by interacting with the base ShowBase instance. It is situated among other utility methods added to NodePath for scene graph management and analysis, such as collision detection (`subdivideCollisions`, `r_subdivideCollisions`, `r_constructCollisionTree`) and scene statistics reporting (`analyze`).\n\ndef deselect(self):\n    from direct.showbase import ShowBaseGlobal\n    base = ShowBaseGlobal.base\n    base.startDirect(fWantTk = 0)\n    base.direct.deselect(self)\n\nDtool_funcToMethod(deselect, NodePath)\ndel deselect\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5761
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a section explaining how to enable auxiliary bitplanes in a framebuffer for storing additional per-pixel data. It includes code examples for setting attributes in Python and C++, explains that `bits` specifies what data goes into the auxiliary planes, notes that the alpha channel isn't an auxiliary plane but can be treated similarly, and mentions that these settings only work when the shader generator is enabled. The section also introduces a list of possible values for `AuxBitplaneAttrib.make()`, though specific options aren\u2019t listed here.\n\npython\n\nnp.setAttrib(AuxBitplaneAttrib.make(bits))\n\ncpp\n\nnp.set_attrib(AuxBitplaneAttrib::make(bits));\n\nWhere bits is a set of bits indicating what should be written into the auxiliary bitplanes.\n\nAlthough the framebuffer's alpha channel is not technically an auxiliary bitplane, it can be thought of as such, since it is not generally used to store any data of value, since alpha blending has already occurred before the values are written to the framebuffer.\n\nWhen the shader generator is not enabled, this attrib has no effect.\n\nValues That Can be Requested\n\nThe following is a list of bits that can be passed to .AuxBitplaneAttrib.make():\n\npython\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_456",
+    "parent": "processed_documents/context_documents/2fd4e877_bb797688_auxiliary-bitplane-control.json",
+    "chunk_number": 6323
+  }
+}

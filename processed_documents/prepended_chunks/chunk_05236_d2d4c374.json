@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the `handleInterestDoneMessage` method of the `DirectObject` class, which processes completion messages for interests. The method checks if an interest handle exists, verifies its context ID, updates the context to indicate completion, and prepares to dispatch related events.\n\ndef handleInterestDoneMessage(self, di):\n        \"\"\"\n        This handles the interest done messages and may dispatch an event\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        contextId = di.getUint32()\n        handle = di.getUint16()\n        if self.__verbose():\n            print('CR::INTEREST.interestDone(handle=%s)' % handle)\n        DoInterestManager.notify.debug(\n            \"handleInterestDoneMessage--> Received handle %s, context %s\" % (\n            handle, contextId))\n        if handle in DoInterestManager._interests:\n            eventsToSend = []\n            # if the context matches, send out the event\n            if contextId == DoInterestManager._interests[handle].context:\n                DoInterestManager._interests[handle].context = NO_CONTEXT\n                # the event handlers may call back into the interest manager. Send out\n                # the events after we're once again in a stable state.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5236
+  }
+}

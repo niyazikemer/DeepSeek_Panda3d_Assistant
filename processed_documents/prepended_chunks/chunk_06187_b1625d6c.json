@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the concept of patching using the Patchfile class to generate differences between two files, with examples demonstrating how to build and apply patches. It also touches on Panda's Multifile format, which allows storing various resources and is efficiently handled during patching.\n\nPatching\n\nPatching is a process of generating the difference between 2 files:\n\np = Patchfile()\np.build('version_1.mf', 'version_2.mf', 'v1_to_v2.patch')\n\nThis will generate the file v1_to_v2.patch based on the differences between version_1.mf and version_2.mf. Then when you have version_1.mf and v1_to_v2.patch, you can produce version_2.mf with:\n\np = Patchfile()\np.apply(Filename('v1_to_v2.patch'), Filename('version_1.mf'))\n\nThere are other, more esoteric options, for limiting memory usage during patching, or for patching in increments instead of all at once so you can update a progress bar.\n\nIn the example above the files are named *.mf. This example suggests that you might be patching files in Panda's Multifile format (*.mf). The multifiles can store multiple resources like bams, textures, mp3's, and so on, and Panda can load them from directly from the multifiles without having to unpack them first.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_430",
+    "parent": "processed_documents/context_documents/e2d53ace_acd1df84_patching.json",
+    "chunk_number": 6187
+  }
+}

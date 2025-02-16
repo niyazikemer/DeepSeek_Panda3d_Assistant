@@ -1,0 +1,9 @@
+{
+  "content": "The `InterestState` class encapsulates the state management of interests within a client-server application, tracking their lifecycle through states such as active or pending deletion. It handles event notifications for interest operations and maintains contextual information like parent and zone IDs, crucial for efficient network communication and updates.\n\n**Context:** The `InterestState` class is integral to an interest management system that facilitates the addition, removal, and monitoring of interests in a client-server setup, such as in a game or simulation. It ensures proper handling of events related to interest operations and maintains necessary contextual data for accurate state tracking.\n\nclass InterestState:\n    StateActive = 'Active'\n    StatePendingDel = 'PendingDel'\n    def __init__(self, desc, state, context, event, parentId, zoneIdList,\n                 eventCounter, auto=False):\n        self.desc = desc\n        self.state = state\n        self.context = context\n        # We must be ready to keep track of multiple events. If somebody\n        # requested an interest to be removed and we get a second request\n        # for removal of the same interest before we get a response for the\n        # first interest removal, we now have two parts of the codebase\n        # waiting for a response on the removal of a single interest.\n        self.events = []\n        self.eventCounter = eventCounter\n        if event:\n            self.addEvent(event)\n        self.parentId = parentId\n        self.zoneIdList = zoneIdList\n        self.auto = auto\n    def addEvent(self, event):\n        self.events.append(event)\n        self.eventCounter.num += 1\n    def getEvents(self):",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5201
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk focuses on the \"Distributed Class Definition\" section of a .dc file, explaining how these files define distributed objects and their network communication functions in Panda3D using C++-Python syntax, including struct definitions for data embedding.\n\nDistributed Class Definition\n\nThe .dc file defines what distributed objects, and their functions, are communicated across the network.\n\nA direct.dc file is shipped with the engine and placed in the direct/distributed/ path, which defines the necessary functionality for the distributed objects bundled with Panda3D. You may want to copy this file to a more convenient location related to your game to simplify the loading with the lists used in the repositories shown before.\n\nThe syntax is a mix of C++ and python.\n\nA simple example of such a dc file may look as follows.\n\nimport DGameObject/AI\nimport AIDGameObject/AI\n\nstruct gameDataModel {\n  string value_a;\n  uint8 value_b;\n  int8 value_c/100;\n}\n\ndclass DGameObject: DistributedObject {\n  sendGameData(gameDataModel data) p2p;\n};\n\ndclass AIDGameObject: DistributedObject {\n  setAnounceGenerate(string helloMsg) broadcast ram;\n  messageRoundtripToAI(gameDataModel data) p2p;\n  messageRoundtripToClient(gameDataModel data) p2p;\n}\n\nKeywords",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_411",
+    "parent": "processed_documents/context_documents/c7129d08_ae3cc5ca_dc-definition-files.json",
+    "chunk_number": 6096
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk defines methods for handling field updates in a distributed object, ensuring consistency across clients by broadcasting state changes through `announceGenerate()` and `postGenerateMessage()`.\n\ndef updateRequiredFields(self, dclass, di):\n        dclass.receiveUpdateBroadcastRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateAllRequiredFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n    def updateRequiredOtherFields(self, dclass, di):\n        dclass.receiveUpdateBroadcastRequired(self, di)\n        # Announce generate after updating all the required fields,\n        # but before we update the non-required fields.\n        self.announceGenerate()\n        self.postGenerateMessage()\n\n        dclass.receiveUpdateOther(self, di)\n\n    def updateAllRequiredOtherFields(self, dclass, di):\n        dclass.receiveUpdateAllRequired(self, di)\n        # Announce generate after updating all the required fields,\n        # but before we update the non-required fields.\n        self.announceGenerate()\n        self.postGenerateMessage()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_318",
+    "parent": "processed_documents/context_documents/9063c21b_DistributedObjectUD.json",
+    "chunk_number": 5501
+  }
+}

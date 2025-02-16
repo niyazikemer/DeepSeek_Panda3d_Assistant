@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk defines methods for setting position and heading components (X, Y, Z, H, P, R) in a SmoothNode class, which handles avatar movement smoothing and prediction. The setSmPosHprL method updates all position and rotation components along with a timestamp, while the individual setComponentX/Y/Z methods update specific spatial coordinates using a smoother to achieve smooth motion interpolation. These functions are part of the system for managing avatar movement synchronization and prediction in a distributed environment, contributing to lag compensation and smooth visual representation of moving objects.\n\ndef setSmPosHprL(self, l, x, y, z, h, p, r, timestamp=None):\n        self._checkResume(timestamp)\n        self.setComponentL(l)\n        self.setComponentX(x)\n        self.setComponentY(y)\n        self.setComponentZ(z)\n        self.setComponentH(h)\n        self.setComponentP(p)\n        self.setComponentR(r)\n        self.setComponentTLive(timestamp)\n\n    ### component set pos and hpr functions ###\n\n    ### These are the component functions that are invoked\n    ### remotely by the above composite functions.\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def setComponentX(self, x):\n        self.smoother.setX(x)\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def setComponentY(self, y):\n        self.smoother.setY(y)\n\n    @report(types = ['args'], dConfigParam = 'smoothnode')\n    def setComponentZ(self, z):\n        self.smoother.setZ(z)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5352
+  }
+}

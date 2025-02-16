@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Python profiler class designed to generate detailed, human-readable statistics from profiling data. It includes functionality for displaying function call counts, CPU time measurements, and formatted percentages relative to total execution time, with special handling for cases where timing might be too quick to measure accurately.\n\nprint(indent, self.total_calls, \"function calls\", end=' ')\n        if self.total_calls != self.prim_calls:\n            print(\"(%d primitive calls)\" % self.prim_calls, end=' ')\n        # DCR\n        #print \"in %.3f CPU seconds\" % self.total_tt\n        print(\"in %s CPU milliseconds\" % (self.total_tt * 1000.))\n        if self._totalTime != self.total_tt:\n            print(indent, 'percentages are of %s CPU milliseconds' % (self._totalTime * 1000))\n        print()\n        width, list = self.get_print_list(amount)\n        if list:\n            self.print_title()\n            for func in list:\n                self.print_line(func)\n            print()\n            # DCR\n            #print\n        return self\n\n    def f8(self, x):\n        if self._totalTime == 0.:\n            # profiling was too quick for clock resolution...\n            return '    Inf%'\n        return \"%7.2f%%\" % ((x*100.) / self._totalTime)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_288",
+    "parent": "processed_documents/context_documents/1629146a_ProfileSession.json",
+    "chunk_number": 5082
+  }
+}

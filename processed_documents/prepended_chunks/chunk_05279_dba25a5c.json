@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a `DistCartesianGrid` class responsible for managing a grid-based system in a distributed environment (likely in a Panda3D-based project). The specific method `stopProcessVisibility` handles stopping visibility processing tasks, removing interests from the client repository (`cr`), and sending cleanup events. It interacts with other methods like `processVisibility`, `setWorldContext`, and `clearWorldContext`. This code is used to manage avatars or objects within a grid system, particularly in distributed environments where interest management and event-driven programming are essential.\n\n@report(types = ['deltaStamp', 'avLocation', 'args'], dConfigParam = ['connector','shipboard'])\n    def stopProcessVisibility(self, clearAll=False, event=None):\n        self.ignore(self.cr.StopVisibilityEvent)\n        taskMgr.remove(self.taskName(\"processVisibility\"))\n        if event is not None:\n            eventGroup = EventGroup('DistCartesianGrid.stopProcessVis',\n                                    doneEvent=event)\n        if self.gridVisContext is not None:\n            if event is not None:\n                removeEvent = eventGroup.newEvent('%s.removeInterest' % self.doId)\n            else:\n                removeEvent = None\n            self.cr.removeInterest(self.gridVisContext, removeEvent)\n            self.gridVisContext = None\n        else:\n            # if we were given an event but we have not interest open,\n            # just send the event right away\n            if event is not None:\n                messenger.send(event)\n        self.visAvatar = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5279
+  }
+}

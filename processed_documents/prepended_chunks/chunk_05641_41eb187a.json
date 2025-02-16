@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `get` method in the `PyGetFloat` class, which handles reading various data types from a buffer. Specifically, this chunk deals with reading scaled values for array types, such as `STUint32uint8array`, where each element consists of a uint32 and a uint8 value divided by a specified divisor.\n\nlen = self.getUint16() / 5\n                retVal = []\n                for i in range(len):\n                    a = self.getUint32()\n                    b = self.getUint8()\n                    retVal.append((a, b))\n            else:\n                raise Exception(\"Error: No such type as: \" + str(subatomicType))\n        else:\n            # See if it is in the handy dict\n            getFunc = self.FuncDict.get(subatomicType)\n            if getFunc:\n                retVal = (getFunc(self)/float(divisor))\n            elif subatomicType == STInt8array:\n                len = self.getUint8() >> 1\n                retVal = []\n                for i in range(len):\n                    retVal.append(self.getInt8()/float(divisor))\n            elif subatomicType == STInt16array:\n                len = self.getUint16() >> 1\n                retVal = []\n                for i in range(len):\n                    retVal.append(self.getInt16()/float(divisor))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_330",
+    "parent": "processed_documents/context_documents/cf472b07_PyDatagramIterator.json",
+    "chunk_number": 5641
+  }
+}

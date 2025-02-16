@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk introduces methods for finding, comparing, and sorting distributed objects in a zone based on their proximity to the local avatar (LA), enhancing object management capabilities by adding spatial awareness features.\n\n</context>\n\nThe methods introduced in the code chunk are designed to facilitate finding, sorting, and managing distributed objects based on their distance from the local avatar. These functions extend the class's ability to handle spatial relationships and queries among distributed objects within zones.\n\n</context>\n\ndef doFindAllInstances(self, cls):\n        matches = []\n        for value in self.doId2do.values():\n            if isinstance(value, cls):\n                matches.append(value)\n        return matches\n\n    def _getDistanceFromLA(self, do):\n        if hasattr(do, 'getPos'):\n            return do.getPos(localAvatar).length()\n        return None\n\n    def _compareDistance(self, do1, do2):\n        dist1 = self._getDistanceFromLA(do1)\n        dist2 = self._getDistanceFromLA(do2)\n        if dist1 is None and dist2 is None:\n            return 0\n        if dist1 is None:\n            return 1\n        if dist2 is None:\n            return -1\n        if dist1 < dist2:\n            return -1\n        return 1\n\n    def dosByDistance(self):\n        objs = list(self.doId2do.values())\n        objs.sort(cmp=self._compareDistance)\n        return objs",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5432
+  }
+}

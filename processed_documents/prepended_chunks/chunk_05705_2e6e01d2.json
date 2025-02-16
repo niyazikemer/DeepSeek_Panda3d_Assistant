@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of methods related to barrier management in a distributed object on the AI side, including creating, retrieving, and ignoring barriers used to synchronize client actions.\n\nreturn context\n\n    def getBarrierData(self):\n        # Returns the barrier data formatted for sending to the\n        # clients.  This lists all of the current outstanding barriers\n        # and the avIds waiting for them.\n        data = []\n        for context, barrier in self.__barriers.items():\n            avatars = barrier.pendingAvatars\n            if avatars:\n                data.append((context, barrier.name, avatars))\n        return data\n\n    def ignoreBarrier(self, context):\n        # Aborts a previously-set barrier.  The context is the return\n        # value from the previous call to beginBarrier().\n        barrier = self.__barriers.get(context)\n        if barrier:\n            barrier.cleanup()\n            del self.__barriers[context]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5705
+  }
+}

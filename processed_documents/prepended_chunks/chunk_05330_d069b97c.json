@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the `httpConnectCallback` method in the `ConnectionRepository` class. This method manages the process of establishing an HTTP connection to a game server. It handles successful connections by initiating data reading tasks and invoking success callbacks. If the connection attempt fails, it retries with other servers or triggers failure handling when all options are exhausted.\n\n**Context:** The chunk is part of the `httpConnectCallback` method in `ConnectionRepository`, which manages HTTP connection attempts to a game server. It starts data reading on success, retries connections if needed, and handles failures by invoking appropriate callbacks.\n\nself.startReaderPollTask()\n            if successCallback:\n                successCallback(*successArgs)\n        elif serverIndex < len(serverList):\n            # No connection yet, but keep trying.\n\n            url = serverList[serverIndex]\n            self.notify.info(\"Connecting to %s via HTTP interface.\" % (url))\n            ch.preserveStatus()\n\n            ch.beginConnectTo(DocumentSpec(url))\n            ch.spawnTask(name = 'connect-to-server',\n                         callback = self.httpConnectCallback,\n                         extraArgs = [ch, serverList, serverIndex + 1,\n                                      successCallback, successArgs,\n                                      failureCallback, failureArgs])\n        else:\n            # No more servers to try; we have to give up now.\n            if failureCallback:\n                failureCallback(ch.getStatusCode(), ch.getStatusString(),\n                                *failureArgs)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5330
+  }
+}

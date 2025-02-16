@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is part of the `ConnectionRepository` class's initialization process. It checks if the HTTP connection uses a proxy and logs this information. This setup occurs before attempting any server connections, preparing necessary variables for handling different boot servers or connection attempts.\n\n</answer>\n\nThe chunk is situated within the initialization section of the ConnectionRepository class, specifically where it determines whether to use a proxy for HTTP connections and sets up related flags and variables.\n\nhasProxy = 0\n        if self.checkHttp():\n            proxies = self.http.getProxiesForUrl(serverList[0])\n            hasProxy = proxies != 'DIRECT'\n\n        if hasProxy:\n            self.notify.info(\"Connecting to gameserver via proxy list: %s\" % (proxies))\n        else:\n            self.notify.info(\"Connecting to gameserver directly (no proxy).\")\n\n        #Redefine the connection to http or net in the default case\n\n        self.bootedIndex = None\n        self.bootedText = None\n        if self.connectMethod == self.CM_HTTP:\n            # In the HTTP case, we can't just iterate through the list\n            # of servers, because each server attempt requires\n            # spawning a request and then coming back later to check\n            # the success or failure.  Instead, we start the ball\n            # rolling by calling the connect callback, which will call\n            # itself repeatedly until we establish a connection (or\n            # run out of servers).",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_303",
+    "parent": "processed_documents/context_documents/04ce7bd8_ConnectionRepository.json",
+    "chunk_number": 5325
+  }
+}

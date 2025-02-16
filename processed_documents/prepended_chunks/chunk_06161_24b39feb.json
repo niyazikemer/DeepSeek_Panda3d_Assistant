@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses the use of StencilAttrib in Panda3D for manipulating the stencil buffer. The specific chunk describes how to enable the stencil buffer by modifying the config file and defines a `StencilReader` attribute that reads from the stencil buffer without modifying it, using the `StencilAttrib.make()` constructor with detailed parameter explanations.\n\nThe stencil buffer is disabled by default. In order to use StencilAttribs, you must add the following line to your config.prc file:\n\nframebuffer-stencil true\n\nStencilAttribs are defined exclusively by their constructor functions, so let's examine one to understand what each part does. The following code creates an attribute which tells an object to render only if the stencil buffer is exactly 1, and does not itself modify the stencil buffer.\n\nstencilReader =\n    StencilAttrib.make(1, StencilAttrib.SCFEqual,StencilAttrib.SOKeep,\n                          StencilAttrib.SOKeep,StencilAttrib.SOKeep,1,1,0)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_426",
+    "parent": "processed_documents/context_documents/110b2e47_d82698ba_stencil-attribute.json",
+    "chunk_number": 6161
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of two methods, `startRecording` and `stopRecording`, in the `DistributedCameraOV` class. These methods manage the recording state of camera fixtures by setting their status to 'Recording' or 'Standby', respectively, and handle escape key event bindings for toggling between these states.\n\ndef startRecording(self):\n        self.accept('escape', self.stopRecording)\n        for fixture in self.fixtures:\n            fixture[6] = 'Recording'\n        self.b_setFixtures(self.fixtures)\n\n    def stopRecording(self):\n        self.ignore('escape')\n        for fixture in self.fixtures:\n            fixture[6] = 'Standby'\n        self.b_setFixtures(self.fixtures)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_331",
+    "parent": "processed_documents/context_documents/3deb3265_DistributedCameraOV.json",
+    "chunk_number": 5650
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines a class responsible for managing callbacks related to object generation in a distributed system. The `__init__` method initializes the necessary components, while the `destroy` method cleans up resources. The `requestObjects` method is central, enabling asynchronous handling of object generation notifications with support for individual and batch processing, including timeout management. This class efficiently coordinates the lifecycle of pending objects, ensuring appropriate callbacks are triggered as each object becomes available or when all requested objects have been generated.\n\ndef __init__(self, cr):\n        self.cr = cr\n        self.pendingObjects = {}\n\n    def destroy(self):\n        self.abortAllRequests()\n        del self.cr\n        del self.pendingObjects\n\n    def requestObjects(self, doIdList, allCallback = None, eachCallback = None,\n                       timeout = None, timeoutCallback = None):\n        \"\"\"\n        Requests a callback to be called when the objects in the\n        doIdList are generated.  The allCallback will be called only\n        when all the objects have been generated (and it receives a\n        list of objects, in the order given in doIdList).  The\n        eachCallback is called as each object is generated, and\n        receives only the object itself.\n\n        If the objects already exist, the appropriate callback is\n        called immediately.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5378
+  }
+}

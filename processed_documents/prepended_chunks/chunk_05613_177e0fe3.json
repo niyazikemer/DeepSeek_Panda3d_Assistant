@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code sits within a conditional block that determines how to handle updates for distributed objects. If an object hasn't been generated yet, its update is delayed; once it's fully generated, the code creates a copy of the datagram and processes the update using the new iterator, allowing the object to be updated correctly. This ensures that updates are handled appropriately whether the object exists or not.\n\n**Context:**  \nThe code handles updating distributed objects by copying the datagram when the object is ready for processing, ensuring smooth updates in a networking or distributed system context.\n\n# Keep a copy of the datagram, and move the di to the copy\n            dg = Datagram(di.getDatagram())\n            di = DatagramIterator(dg, di.getCurrentIndex())\n\n            updates.append((dg, di))\n        else:\n            # This object has been fully generated.  It's OK to update.\n            self.__doUpdate(doId, di, ovUpdated)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5613
+  }
+}

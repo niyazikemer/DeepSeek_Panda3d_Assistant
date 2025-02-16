@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the `RelatedObjectMgr` class, which manages relationships between DistributedObjects to ensure they are generated together and handles cases where objects may not be generated in the expected order as defined by the toon.dc file.\n\nclass RelatedObjectMgr(DirectObject.DirectObject):\n    \"\"\"\n    This class manages a relationship between DistributedObjects that\n    know about each other, and are expected to be generated together.\n    Ideally, we should be able to guarantee the ordering of the\n    generate calls, but there are certain cases in which the objects\n    may not be generated in the correct order as defined by the\n    toon.dc file.\n\n    To handle cases like these robustly, it is necessary for each\n    object to deal with the possibility that its companion object has\n    not yet been generated.  This may mean deferring some operations\n    until the expected companion object has been generated.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5376
+  }
+}

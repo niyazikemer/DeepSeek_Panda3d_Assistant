@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses performance optimization for video playback using ffmpeg, including settings related to seeking behavior (`ffmpeg-show-seek-frames`), real-time frame decoding efficiency, and thread priority for the ffmpeg decoder. This section is crucial for improving smoothness during video seeking and handling computationally expensive video decodes.\n\nis important for performance. A typical size is that of a cache page,\ne.g. 4kb. ffmpeg-show-seek-frames bool 1 Set this true to allow showing the intermediate results of seeking\nthrough the ffmpeg stream to a target frame, or false to hold the\ncurrent frame until the target frame is achieved. This has the biggest\neffect on videos that are too expensive to decode in real time: when\nthis is true, the video can be seen to animate at least a little bit;\nwhen it is false, you may get long periods of one held frame. ffmpeg-support-seek bool 1 True to use the av_seek_frame() function to seek within ffmpeg video\nfiles. If this is false, Panda will only seek within a file by reading\nit from the beginning until the desired point, which can be much slower.\nSet this false only if you suspect a problem with av_seek_frame(). ffmpeg-thread-priority enum normal The default thread priority at which to start ffmpeg decoder",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_543",
+    "parent": "processed_documents/context_documents/ff9c6499_876ce29a_list-of-all-config-variables.json",
+    "chunk_number": 6763
+  }
+}

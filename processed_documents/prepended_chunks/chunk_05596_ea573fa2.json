@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes two methods, `doGenerate` and `flushGenerates`, which are part of a class responsible for managing distributed objects within a system. The `doGenerate` method is used to create a new distributed object by looking up the appropriate class based on a given ID, validating parent object references, and initializing the object with provided data. The `flushGenerates` method processes any pending object generation tasks immediately, ensuring that all deferred operations are completed without delay. These methods are essential for efficiently managing the lifecycle of networked or distributed objects within the system.\n\ndef doGenerate(self, parentId, zoneId, classId, doId, di):\n        # Look up the dclass\n        assert parentId == self.GameGlobalsId or parentId in self.doId2do\n        dclass = self.dclassesByNumber[classId]\n        assert self.notify.debug(f\"performing generate for {dclass.getName()} {doId}\")\n        dclass.startGenerate()\n        # Create a new distributed object, and put it in the dictionary\n        distObj = self.generateWithRequiredOtherFields(dclass, doId, di, parentId, zoneId)\n        dclass.stopGenerate()\n\n    def flushGenerates(self):\n        \"\"\" Forces all pending generates to be performed immediately. \"\"\"\n        while self.deferredGenerates:\n            msgType, extra = self.deferredGenerates[0]\n            del self.deferredGenerates[0]\n            self.replayDeferredGenerate(msgType, extra)\n\n        taskMgr.remove('deferredGenerate')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5596
+  }
+}

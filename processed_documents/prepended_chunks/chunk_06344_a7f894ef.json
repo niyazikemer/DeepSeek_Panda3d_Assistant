@@ -1,0 +1,9 @@
+{
+  "content": "The document is a comprehensive collection of technical troubleshooting and guidance for common issues encountered in Panda3D development. It serves as a resource hub addressing specific challenges such as texture application, animation sequencing, unit conversions, and lighting effects on 3D models. Each section provides clear explanations and solutions, making it an invaluable tool for developers seeking to resolve these technical problems efficiently.\n\nsetTexture('tex.png', 1)\n\nWhy do I get sometimes get an AssertionError when instantiating Sequence?\n\nSpecifically, I get the following error:\n\nassert(self.validateComponents(self.ivals))\nAssertionError\n\nIt happens at this line of code:\n\nmove = Sequence(obj.setX(5))\n\nSequences and Parallels are a way to combine intervals. You can't put anything inside them that isn't an interval. The following would have the same effect and work:\n\nmove = Sequence(Func(obj.setX, 5))\n\nThis will start the execution of the function, but not wait for it to finish.\n\nDoes Panda3D use degrees or radians?\n\nDegrees, but see also the deg2Rad() and rad2Deg() functions. But note that functions like math.sin(), math.cos(), math.tan() are calculated in radians. Don't forget to convert the values!\n\nWhy do all my flat objects look weird when lit?",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_459",
+    "parent": "processed_documents/context_documents/ee381fc4_01b9b4da_faq.json",
+    "chunk_number": 6344
+  }
+}

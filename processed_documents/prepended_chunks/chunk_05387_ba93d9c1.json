@@ -1,0 +1,9 @@
+{
+  "content": "The `__noListenFor` method stops listening for an object's generation event by ignoring the corresponding announce message. The `__generated` method processes callbacks when an object is generated, updating pending lists and invoking appropriate actions.\n\n**Context:**\nThese methods manage event subscriptions and responses, ensuring proper handling of object generation notifications within the system.\n\ndef __noListenFor(self, doId):\n        # Stop listening for the indicated object to be generated.\n        assert self.notify.debug(\"No longer listening for generate from %s\" % (doId))\n        announceGenerateName = \"generate-%s\" % (doId)\n        self.ignore(announceGenerateName)\n\n    def __generated(self, object):\n        # The indicated object has been generated.\n        doId = object.doId\n        assert self.notify.debug(\"Got generate from %s\" % (doId))\n        pendingList = self.pendingObjects[doId]\n        del self.pendingObjects[doId]\n\n        for tuple in pendingList:\n            allCallback, eachCallback, timeoutCallback, doIdsPending, doIdList, doLaterName = tuple\n\n            # Here we are depending on Python to unify this one list\n            # across all objects that share it.  When we remove our\n            # doId from our reference to the list, it is also removed\n            # from all the other references.\n            doIdsPending.remove(doId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_308",
+    "parent": "processed_documents/context_documents/31b2f9c4_RelatedObjectMgr.json",
+    "chunk_number": 5387
+  }
+}

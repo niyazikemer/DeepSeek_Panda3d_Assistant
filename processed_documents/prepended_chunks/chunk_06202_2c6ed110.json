@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of an example demonstrating how to project a texture onto a 3D object in Panda3D. It sets up a scene with a ripple model, applies directional lighting, and prepares for the projection of a bamboo texture using a lens node. This chunk comes after explaining how to create a projector node and before applying the projected texture to the model.\n\ncpp\n\nnodePath.project_texture(textureStage, texture, lensNodePath);\n\nFor instance, we could use it to project the bamboo texture (\"envir-reeds.png\") onto the ripple.egg model, like this:\n\nYou could move around the projector in the world, or even change the lens field of view, and the bamboo image would follow it. (In the above image, the camera model and the projection lines are made visible only for illustration purposes; normally you wouldn't see them.)\n\nThis image was generated with the following code:\n\nfrom direct.directbase.DirectStart import *\nfrom direct.actor import Actor\nfrom panda3d.core import *\n\nbase.setBackgroundColor(1, 1, 1, 1)\n\nripple = Actor.Actor('ripple.egg')\nripple.reparentTo(render)\nripple.setScale(10)\nripple.pose('animation', 17)\n\ndl = DirectionalLight('dl')\ndlnp = camera.attachNewNode(dl)\nripple.setLight(dlnp)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_433",
+    "parent": "processed_documents/context_documents/bfad65d1_ce5c5443_projected-textures.json",
+    "chunk_number": 6202
+  }
+}

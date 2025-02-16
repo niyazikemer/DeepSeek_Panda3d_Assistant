@@ -1,0 +1,9 @@
+{
+  "content": "This chunk appears in a section explaining how to configure the threading model for optimizing the rendering pipeline, providing alternative ways to assign the three phases (App, Cull, Draw) across threads beyond the default setup.\n\nThe above string defines a different thread for each of App, Cull, and Draw. You can also assign these three phases to threads in different ways:\n\nthreading-model /Draw\n\nCreates a two-thread model: assigns App and Cull together on the main thread, and puts Draw on its own thread. This is most appropriate when the total amount of time for App + Cull in your application is similar to the total amount of time for Draw.\n\nthreading-model Cull/Cull\nthreading-model Cull\n\nThese two are equivalent and create a different two-thread model: App is on its own thread, and Cull and Draw are together on a separate thread. This is most appropriate when the total amount of time for App in your application is similar to the total amount of time for Cull + Draw.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_519",
+    "parent": "processed_documents/context_documents/0cd108d5_dab687d3_multithreaded-render-pipeline.json",
+    "chunk_number": 6618
+  }
+}

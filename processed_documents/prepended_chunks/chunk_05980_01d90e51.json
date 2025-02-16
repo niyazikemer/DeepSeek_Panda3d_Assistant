@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a C++ implementation example for multi-pass rendering in Panda3D. It demonstrates setting up multiple cameras with different visual effects using shader-based RenderStates. The code creates temporary nodes to apply specific shaders (toon and blur), sets tag state keys for each camera, and applies these states to node paths so they render differently when viewed by each camera. This example illustrates how to achieve different rendering effects in multi-pass scenarios by assigning custom tags and states to objects in the scene graph.\n\ncpp\n\n// Assume we have Shader instances toon_shader and blur_shader\n// and we have a Camera whose NodePath is myCamera\n\n// Create a temporary node in order to create a usable RenderState.\nNodePath tempnode(\"temp node\");\ntempnode.set_shader(toon_shader);\nwindow->get_camera(0)->set_tag_state_key(\"Toon Shading\");\nwindow->get_camera(0)->set_tag_state(\"True\", tempnode.get_state());\n\nNodePath tempnode(\"temp node\");\ntempnode.set_shader(blur_shader);\n((Camera *)myCamera.node())->set_tag_state_key(\"Blur Shading\");\n((Camera *)myCamera.node())->set_tag_state(\"True\", tempnode.get_state());\n\n// this makes myNodePath and its children get toonShaded\n// when rendered by the default camera\nmyNodePath.set_tag(\"Toon Shading\", \"True\");\n// ....\n// now if you want myNodePath to be blurred when seen by myCamera,\n// it's as easy as adding a tag\nmyNodePath.set_tag(\"Blur Shading\", \"True\");",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_386",
+    "parent": "processed_documents/context_documents/64e38fe4_b8963543_multi-pass-rendering.json",
+    "chunk_number": 5980
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk situates within the document's section on setting up a character controller using Bullet in Panda3D. It demonstrates creating a capsule-shaped collision model, attaching it as a character node to the physics world, and positioning it in the scene. The code snippet shows both Python and C++ implementations for initializing the character controller, followed by moving the character via keyboard input.\n\nSuccinct context: This chunk explains how to create and position a capsule-shaped character controller in Panda3D using Bullet physics, including attaching it to the physics world and handling movement inputs.\n\nworld.attachCharacter(playerNP.node())\n\ncpp\n\nfloat height = 1.75;\nfloat radius = 0.4;\n\nPT(BulletCapsuleShape) c_shape = new BulletCapsuleShape(radius, height -2 * radius);\nPT(BulletCharacterControllerNode) controller;\ncontroller = new BulletCharacterControllerNode(c_shape, 0.4f, name.c_str());\nphysicsWorld->attach_character(controller);\n\nNodePath cha_np = window->get_render().attach_new_node(controller);\ncha_np.set_pos(-2, 0, 14);\ncha_np.set_h(45);\ncha_np.set_collide_mask(mask1);\n\nMoving\n\nNow that we have a character controller within our scene we need to control it's movement. The following code snippet shows one way of moving the character controller by keyboard input. Of course a character controller representing a NPC (non-player character) would not read the keyboard state but have the linear velocity (speed) and the angular velocity (omega) computed by some kind of AI algorithm.\n\npython\n\ndef processInput(self):\n    speed = Vec3(0, 0, 0)\n    omega = 0.0",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_554",
+    "parent": "processed_documents/context_documents/7d1f7487_d82f40be_character-controller.json",
+    "chunk_number": 6945
+  }
+}

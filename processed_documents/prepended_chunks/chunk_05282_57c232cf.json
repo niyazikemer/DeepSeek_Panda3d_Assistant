@@ -1,0 +1,9 @@
+{
+  "content": "To situate the given code chunk within the overall document, here is a succinct context provided through a docstring:\n\n```python\ndef determineAvatarGridPosition(self):\n    \"\"\"\n    Calculate the avatar's position relative to the grid and determine the zone ID. \n    This method checks if the avatar is on the grid and computes their corresponding \n    visibility zone based on their current position.\n    \"\"\"\n```\n\nThis context succinctly describes the purpose of the code chunk within the overall document, aiding in search retrieval by clearly indicating its function related to grid-based positioning and zone determination for avatars.\n\npos = self.visAvatar.getPos(self)\n        # Check to make sure our x and y are positive\n        dx = self.cellWidth * self.gridSize * .5\n        x = pos[0] + dx\n        y = pos[1] + dx\n        col = x // self.cellWidth\n        row = y // self.cellWidth\n        assert self.notify.debug(\n            \"processVisibility: %s: avatar pos: %s %s\" % (self.doId, x, y))\n        if (row < 0) or (col < 0) or (row > self.gridSize) or (col > self.gridSize):\n            assert self.notify.debug(\"processVisibility: %s: not on the grid\" % (self.doId))\n            # If we are viewingRadius away from this entire grid,\n            # remove interest in any current visZone we may have\n            if self.gridVisContext:\n                self.cr.removeInterest(self.gridVisContext)\n                self.visZone = None\n                self.gridVisContext = None\n            return Task.cont\n        # Compute which zone we are in\n        zoneId = int(self.startingZone + ((row * self.gridSize) + col))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_302",
+    "parent": "processed_documents/context_documents/84842a15_DistributedCartesianGrid.json",
+    "chunk_number": 5282
+  }
+}

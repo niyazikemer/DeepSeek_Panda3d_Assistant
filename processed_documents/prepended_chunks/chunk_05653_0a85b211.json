@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the `DistributedSmoothNodeBase` class implementation, focusing on managing position and heading (posHpr) data distribution. The included methods control the periodic broadcasting of posHpr information between client and server nodes, including task management for broadcast scheduling, period adjustment, and status checks to ensure smooth synchronization across a distributed environment. These methods are essential for maintaining coherent node movement updates in a networked application.\n\nThe chunk contains functions related to setting up, starting, stopping, and managing the broadcasting of position and heading data for distributed nodes.\n\n### posHprBroadcast ###\n\n    def getPosHprBroadcastTaskName(self):\n        # presumably, we have a doId at this point\n        return \"sendPosHpr-%s\" % self.doId\n\n    def setPosHprBroadcastPeriod(self, period):\n        # call this at any time to change the delay between broadcasts\n        self.__broadcastPeriod = period\n\n    def getPosHprBroadcastPeriod(self):\n        # query the current delay between broadcasts\n        return self.__broadcastPeriod\n\n    def stopPosHprBroadcast(self):\n        taskMgr.remove(self.getPosHprBroadcastTaskName())\n        # Delete this callback because it maintains a reference to self\n        self.d_broadcastPosHpr = None\n\n    def posHprBroadcastStarted(self):\n        return self.d_broadcastPosHpr is not None\n\n    def wantSmoothPosBroadcastTask(self):\n        return True\n\n    def startPosHprBroadcast(self, period=.2, stagger=0, type=None):\n        if self.cnode is None:\n            self.initializeCnode()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_332",
+    "parent": "processed_documents/context_documents/8613714e_DistributedSmoothNodeBase.json",
+    "chunk_number": 5653
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk handles window state changes in the `ShowBase` class, updating internal flags and sending events for foreground and minimized states.\n\nif properties.getForeground() and not self.mainWinForeground:\n                self.mainWinForeground = 1\n            elif not properties.getForeground() and self.mainWinForeground:\n                self.mainWinForeground = 0\n                if __debug__:\n                    if self.__autoGarbageLogging:\n                        GarbageReport.b_checkForGarbageLeaks()\n\n            if properties.getMinimized() and not self.mainWinMinimized:\n                # If the main window is minimized, throw an event to\n                # stop the music.\n                self.mainWinMinimized = 1\n                messenger.send('PandaPaused')\n            elif not properties.getMinimized() and self.mainWinMinimized:\n                # If the main window is restored, throw an event to\n                # restart the music.\n                self.mainWinMinimized = 0\n                messenger.send('PandaRestarted')",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_283",
+    "parent": "processed_documents/context_documents/be1afc59_ShowBase.json",
+    "chunk_number": 5002
+  }
+}

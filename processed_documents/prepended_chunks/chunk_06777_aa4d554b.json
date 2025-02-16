@@ -1,0 +1,9 @@
+{
+  "content": "```python\n\"\"\"\nChunk Context: OpenGL Configuration Settings\n\nThis section contains configuration variables related to OpenGL graphics \nrendering, including options for managing texture memory barriers and forcing \nglFinish() calls. These settings primarily affect rendering performance and \nsynchronization behavior in Panda3D applications.\n\ngl-enable-memory-barriers:\n    Controls whether memory barriers are issued after image writes to ensure proper\n    synchronization of texture reads/writes.\n\ngl-finish:\n    Forces a call to glFinish() after major graphics operations, improving PStats \n    accuracy at the cost of rendering performance.\n\"\"\"\n```\n\ndisk with a filename like glsl_program0.dump into the current\ndirectory. gl-enable-memory-barriers bool 1 If this is set, Panda will make sure that every write to an image\nusing an image2D (et al) binding will cause Panda to issue a memory\nbarrier before the next use of said texture, to ensure that all reads\nand writes are properly synchronized. This may not be strictly necessary\nwhen using the 'coherent' qualifier, but Panda has no way to detect\nwhether you are using those. Turning this off may give a slight\nperformance increase, but you have to know what you're doing. gl-finish bool 0 Set this true to force a call to glFinish() after every major\ngraphics operation. This is likely to slow down rendering performance\nsubstantially, but it will make PStats graphs more accurately reflect\nwhere the graphics bottlenecks are, although it is better to use timer\nqueries when available. This variable is enabled only if PStats is",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_543",
+    "parent": "processed_documents/context_documents/ff9c6499_876ce29a_list-of-all-config-variables.json",
+    "chunk_number": 6777
+  }
+}

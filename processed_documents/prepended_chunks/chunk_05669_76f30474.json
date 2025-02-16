@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk contains three methods (`sendDeleteMsg`, `sendDisconnect`, and `setInterestZones`) within a Python class that manages client-server communication. These methods handle sending messages to the server regarding object deletion, disconnecting from the server, and setting zones of interest for receiving updates.\n\ndef sendDeleteMsg(self, doId):\n        datagram = PyDatagram()\n        datagram.addUint16(OBJECT_DELETE_CMU)\n        datagram.addUint32(doId)\n        self.send(datagram)\n\n    def sendDisconnect(self):\n        if self.isConnected():\n            # Tell the game server that we're going:\n            datagram = PyDatagram()\n            # Add message type\n            datagram.addUint16(CLIENT_DISCONNECT_CMU)\n            # Send the message\n            self.send(datagram)\n            self.notify.info(\"Sent disconnect message to server\")\n            self.disconnect()\n        self.stopHeartbeat()\n\n    def setInterestZones(self, interestZoneIds):\n        \"\"\" Changes the set of zones that this particular client is\n        interested in hearing about. \"\"\"\n\n        datagram = PyDatagram()\n        # Add message type\n        datagram.addUint16(CLIENT_SET_INTEREST_CMU)\n\n        for zoneId in interestZoneIds:\n            datagram.addUint32(zoneId)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5669
+  }
+}

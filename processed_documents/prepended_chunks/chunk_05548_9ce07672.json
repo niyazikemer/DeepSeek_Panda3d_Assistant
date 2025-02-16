@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a DistributedObject class initialization, introducing cacheability optimization flags and state management variables for tracking an object's lifecycle status.\n\n# Most DistributedObjects are simple and require no real\n            # effort to load.  Some, particularly actors, may take\n            # some significant time to load; these we can optimize by\n            # caching them when they go away instead of necessarily\n            # deleting them.  The object should set cacheable to 1 if\n            # it needs to be optimized in this way.\n            self.setCacheable(0)\n\n            # this is for Toontown only, see toontown.distributed.DelayDeletable\n            self._token2delayDeleteName = {}\n            self._delayDeleteForceAllow = False\n            self._delayDeleted = 0\n\n            # Keep track of our state as a distributed object.  This\n            # is only trustworthy if the inheriting class properly\n            # calls up the chain for disable() and generate().\n            self.activeState = ESNew",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_324",
+    "parent": "processed_documents/context_documents/def4fbaa_DistributedObject.json",
+    "chunk_number": 5548
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk demonstrates how to manually replace textures on specific parts of a 3D model in C++ by finding each relevant node and setting the new texture individually. This approach is shown as an older or more manual method compared to the newer `replace_texture` function, which simplifies replacing all instances of one texture with another across an entire model since Panda3D version 1.10.4.\n\ncpp\n\nNodePath car = window->load_model(window->get_render(), \"bvw-f2004--carnsx/carnsx.egg\");\nPT(Texture) blue = TexturePool::load_texture(\"bvw-f2004--carnsx/carnsx-blue.png\");\ncar.find('**/body/body').set_texture(blue, 1);\ncar.find('**/body/polySurface1').set_texture(blue, 1);\ncar.find('**/body/polySurface2').set_texture(blue, 1);\n\nAnd the result is this:\n\nAs of Panda3D 1.10.4, there is an easier way to do this as well, by allowing you to tell Panda3D to replace the texture on all parts where a particular existing texture is applied:\n\npython\n\ncar = loader.loadModel('bvw-f2004--carnsx/carnsx.egg')\nred = loader.loadTexture('bvw-f2004--carnsx/carnsx.png')\nblue = loader.loadTexture('bvw-f2004--carnsx/carnsx-blue.png')\ncar.replaceTexture(red, blue)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_439",
+    "parent": "processed_documents/context_documents/86c0a6eb_814d539f_simple-texture-replacement.json",
+    "chunk_number": 6234
+  }
+}

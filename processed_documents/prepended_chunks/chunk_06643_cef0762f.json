@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how to manually adjust a node's bounding volume in cases where more precise control is needed over the automatically generated bounds, providing code examples for Python and C++.\n\nFurther tweaking of the bounding volume used must be done manually\n\nIf all you care about is Panda's usage of bounding boxes, you can create a BoundingVolume for the node you want and tell Panda to use that one with set_final(1) <.PandaNode.set_final>.\n\npython\n\nnode.setBounds(BoundingVolume(...))\nnode.final = True\n\ncpp\n\nnode->set_bounds(new BoundingVolume(...));\nnode->set_final(true);\n\nThis will tell Panda to stop calculating bounds and use the one you gave it instead.\n\nIf you want to have a node with a manual bounding box set for your own nefarious purposes, set the bounds at the bottom: on the .Geom within a .GeomNode. This will propagate upwards, assuming there are no other nodes with bounding volumes above it.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_525",
+    "parent": "processed_documents/context_documents/c0467cd6_5512a776_boundingvolume.json",
+    "chunk_number": 6643
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides essential code snippets for managing obstacles in a 3D environment using PandAI. It includes methods `addObstacle` and `removeObstacle` to dynamically control obstacles and a complete working example demonstrating an AI's pursuit behavior while avoiding these obstacles. This code showcases how to integrate obstacle management into an AI steering behavior framework, highlighting dynamic obstacle handling in real-time environments.\n\naiWorld.addObstacle(NodePath  obstacle)\n\nAlso you can remove an obstacle at any time needed by using\n\naiWorld.removeObstacle(NodePath obstacle)\n\nThe full working code in Panda3D is :\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import *\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.task import Task\nfrom direct.actor.Actor import Actor\n#for Pandai\nfrom panda3d.ai import *\n#for Onscreen GUI\nfrom direct.gui.OnscreenText import OnscreenText\n\n# Globals\nspeed = 0.75\n\n# Function to put instructions on the screen.\nfont = loader.loadFont(\"cmss12\")\ndef addInstructions(pos, msg):\n    return OnscreenText(text=msg, style=1, fg=(1,1,1,1), font = font,\n                        pos=(-1.3, pos), align=TextNode.ALeft, scale = .05)\n\nclass World(DirectObject):\n\n    def __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0,0,55,0,-90,0)\n\n        self.loadModels()\n        self.setAI()\n        self.setMovement()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_389",
+    "parent": "processed_documents/context_documents/a961692e_828c2d57_obstacle-avoidance.json",
+    "chunk_number": 5993
+  }
+}

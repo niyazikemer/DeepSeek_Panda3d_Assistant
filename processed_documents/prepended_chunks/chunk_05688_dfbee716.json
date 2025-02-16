@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet initializes key attributes (`parentId`, `zoneId`, `__generated`) for a distributed object, implements methods to check if the object is deleted or generated, retrieves its DoId, and allows pre-allocation of a DoId. This chunk sits within a class that manages the lifecycle and identification of distributed objects in a networked environment, handling their initialization, status tracking, and unique ID management.\n\nself.parentId = None\n                self.zoneId = None\n                self.__generated = False\n\n    def isDeleted(self):\n        \"\"\"\n        Returns true if the object has been deleted,\n        or if it is brand new and hasnt yet been generated.\n        \"\"\"\n        return self.air is None\n\n    def isGenerated(self):\n        \"\"\"\n        Returns true if the object has been generated\n        \"\"\"\n        return self.__generated\n\n    def getDoId(self):\n        \"\"\"\n        Return the distributed object id\n        \"\"\"\n        return self.doId\n\n    def preAllocateDoId(self):\n        \"\"\"\n        objects that need to have a doId before they are generated\n        can call this to pre-allocate a doId for the object\n        \"\"\"\n        assert not self.__preallocDoId\n        self.doId = self.air.allocateChannel()\n        self.__preallocDoId = 1",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5688
+  }
+}

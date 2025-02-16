@@ -1,0 +1,9 @@
+{
+  "content": "In the section discussing how cells and portals are managed in Panda3D, the document explains that while cells are represented by NodePaths and portals are created as one-way connections between cells, application-level code is required to control the visibility of these cells. This includes showing the current cell the camera is in, hiding other cells, enabling visible portals during culling, rendering through them into their respective \"out\" cells, and handling multiple cameras using masks for split-screen functionality.\n\n```plaintext\nThe chunk describes the necessary application-level code for managing cell visibility, including how to show the current cell, hide others, enable portals, render through them, and handle multiple cameras with masks.\n```\n\nApplication-level code is needed to show the cell the camera is currently in and hide the rest. During the culling stage any portal visible to the camera will be enabled, and render the objects that can be seen through the portal into its specified \"out\" cell. If another portal is visible through the previous one, the process continues. If multiple cameras are used, for example to do split screen play, hide the cells using the same mask set on the camera using camera.setCameraMask(mask).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_406",
+    "parent": "processed_documents/context_documents/a91ce29d_29ed6181_portal-culling.json",
+    "chunk_number": 6076
+  }
+}

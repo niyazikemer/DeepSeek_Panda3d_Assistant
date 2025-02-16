@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces two methods within the `MotionTrail` class. The `print_matrix` function is a utility method for displaying matrix values, aiding in debugging or logging. The `motion_trail_task` is a task function designed to periodically update all motion trail instances, ensuring each trail's frames are processed and maintained correctly over time. These additions enhance the functionality of the `MotionTrail` class by providing debugging capabilities and enabling continuous updates through Panda3D's task system.\n\n```python\n    def print_ordinal(self, value):\n        \"\"\"Returns an ordinal string representation (like '1st', '2nd', etc.) for a given integer.\"\"\"\n        if 10 <= abs(value) % 100 <= 20:\n            suffix = 'th'\n        else:\n            suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(abs(value) % 10, 'th')\n        return f\"{value}{suffix}\"\n```\n\ndef print_matrix(self, matrix):\n        separator = ' '\n        print(matrix.getCell(0, 0), separator, matrix.getCell(0, 1), separator, matrix.getCell(0, 2), separator, matrix.getCell(0, 3))\n        print(matrix.getCell(1, 0), separator, matrix.getCell(1, 1), separator, matrix.getCell(1, 2), separator, matrix.getCell(1, 3))\n        print(matrix.getCell(2, 0), separator, matrix.getCell(2, 1), separator, matrix.getCell(2, 2), separator, matrix.getCell(2, 3))\n        print(matrix.getCell(3, 0), separator, matrix.getCell(3, 1), separator, matrix.getCell(3, 2), separator, matrix.getCell(3, 3))\n\n    def motion_trail_task(self, task):\n\n        current_time = task.time\n        total_motion_trails = len(MotionTrail.motion_trail_list)\n\n        index = 0\n        while index < total_motion_trails:\n            motion_trail = MotionTrail.motion_trail_list[index]",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5113
+  }
+}

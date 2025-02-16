@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk demonstrates how to create a `YesNoDialog` using DirectGUI in Panda3D, set up the camera position, and run the application. It also includes a note addressing potential issues with dialog management, specifically resolving errors when re-creating dialogs after destruction by using `.cleanup()` instead of `.destroy()`.\n\n# Create a frame\ndialog = YesNoDialog(dialogName=\"YesNoCancelDialog\", text=\"Please choose:\",\n                     command=itemSel)\n\nbase.camera.setPos(0, -20, 0)\nbase.run()\n\nNote\n\nThe OkDialog causes an error if being created a second time after destroying it with myOkDialog.destroy(). To solve this you can use:\n\nmyOkDialog.cleanup()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_422",
+    "parent": "processed_documents/context_documents/497a67d6_9ff6be58_directdialog.json",
+    "chunk_number": 6143
+  }
+}

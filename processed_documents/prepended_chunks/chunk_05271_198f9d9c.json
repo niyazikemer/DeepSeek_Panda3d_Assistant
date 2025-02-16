@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated at the end of the `MsgTypesCMU` module, where it defines a specific message type code (`CLIENT_OBJECT_UPDATE_FIELD = 120`) and creates two dictionaries: `MsgName2Id`, which maps message name strings to their corresponding integer values, and `MsgId2Names`, which inverts this mapping for debugging purposes.\n\nCLIENT_OBJECT_UPDATE_FIELD = 120  # Matches MsgTypes.CLIENT_OBJECT_SET_FIELD\n\nMsgName2Id = {name: value for name, value in globals().items() if isinstance(value, int)}\n\n# create id->name table for debugging\nMsgId2Names = invertDictLossless(MsgName2Id)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_300",
+    "parent": "processed_documents/context_documents/38f654da_MsgTypesCMU.json",
+    "chunk_number": 5271
+  }
+}

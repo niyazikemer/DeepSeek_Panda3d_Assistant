@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a concise overview of the two main steps involved in lighting a scene in Panda3D: creating lights with appropriate position and orientation within the scene graph, and enabling their effect on other objects. It introduces the four types of lights available (point, directional, ambient, and spotlight) and notes that\u706f\u5149 nodes can be positioned using standard scene graph operations. For C++ users, it also mentions necessary header inclusions for working with different light types.\n\nSo to reiterate, lighting a scene in Panda3D consists of two steps:\n\nCreating lights, and positioning them within the scene.\n\nTelling the other objects to be illuminated by the lights.\n\nPanda3D defines four different kinds of light objects: point, directional, ambient, and spotlight. Each of these is a node that should be attached somewhere within the scene graph. Like anything you put into the scene, lights have a position and orientation, which is determined by the basic scene graph operations like ~.NodePath.set_pos(), ~.NodePath.set_hpr(), etc. The ~.NodePath.look_at() method is particularly useful for pointing spotlights and directional lights at a particular object.\n\ncpp\n\nNote that you will need to include the following headers according to the type of lights you are going to use:\n\n#include \"ambientLight.h\"\n#include \"directionalLight.h\"\n#include \"pointLight.h\"\n#include \"spotlight.h\"\n\nThe following code inserts a directional light into the scene:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5870
+  }
+}

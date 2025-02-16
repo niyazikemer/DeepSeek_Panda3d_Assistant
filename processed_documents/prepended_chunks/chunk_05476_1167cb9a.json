@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk includes two methods from a class designed to manage parent-child relationships between nodes. The `destroy()` method deletes all stored references, while `privRemoveReparentRequest(child)` cancels any pending reparent requests for a specific child node. These methods are part of a larger system for handling node hierarchy and state management in a distributed computing environment.\n\ndef destroy(self):\n        del self.token2nodepath\n        del self.pendingParentToken2children\n        del self.pendingChild2parentToken\n\n    def privRemoveReparentRequest(self, child):\n        \"\"\" this internal function removes any currently-pending reparent\n        request for the given child nodepath \"\"\"\n        if child in self.pendingChild2parentToken:\n            self.notify.debug(\"cancelling pending reparent of %s to '%s'\" %\n                              (repr(child),\n                               self.pendingChild2parentToken[child]))\n            parentToken = self.pendingChild2parentToken[child]\n            del self.pendingChild2parentToken[child]\n            self.pendingParentToken2children[parentToken].remove(child)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_316",
+    "parent": "processed_documents/context_documents/b7c366d2_ParentMgr.json",
+    "chunk_number": 5476
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces additional methods for managing object lifecycle and deletion in a DistributedObject AI implementation.\n\ndef sendDeleteEvent(self):\n        # this is called just before we get deleted\n        delEvent = self.getDeleteEvent()\n        if delEvent:\n            messenger.send(delEvent)\n\n    def getCacheable(self):\n        \"\"\" This method exists only to mirror the similar method on\n        DistributedObject.  AI objects aren't cacheable. \"\"\"\n        return False\n\n    def deleteOrDelay(self):\n        \"\"\" This method exists only to mirror the similar method on\n        DistributedObject.  AI objects don't have delayDelete, they\n        just get deleted immediately. \"\"\"\n        self.delete()\n\n    def getDelayDeleteCount(self):\n        return 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_335",
+    "parent": "processed_documents/context_documents/475c6ed3_DistributedObjectAI.json",
+    "chunk_number": 5684
+  }
+}

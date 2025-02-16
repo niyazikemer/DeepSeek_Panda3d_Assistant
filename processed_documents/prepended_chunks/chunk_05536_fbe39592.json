@@ -1,0 +1,9 @@
+{
+  "content": "The provided code defines an `InterestWatcher` class that manages event handling for interest opens/closes. The chunk contains methods for object destruction (`destroy()`), retrieving the watcher's name and done event, and handling interest open/close events by adding them to an event group. These methods are critical for managing event collection and cleanup processes in the context of interest tracking.\n\ndef destroy(self):\n        if hasattr(self, '_eGroup'):\n            self._eGroup.destroy()\n            del self._eGroup\n            del self._gotEvent\n            del self._interestMgr\n            self.ignoreAll()\n\n    def getName(self):\n        return self._eGroup.getName()\n    def getDoneEvent(self):\n        return self._doneEvent\n\n    def _handleInterestOpenEvent(self, event):\n        self._gotEvent = True\n        self._eGroup.addEvent(event)\n    def _handleInterestCloseEvent(self, event, parentId, zoneIdList):\n        self._gotEvent = True\n        self._eGroup.addEvent(event)\n        #if self._recurse:\n        #    # this interest is in the process of closing. If an interest\n        #    # underneath any objects in that interest close, we need to know\n        #    # about it.\n        #    self.closingParent2zones.setdefault(parentId, set())\n        #    self.closingParent2zones[parentId].union(set(zoneIdList))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_321",
+    "parent": "processed_documents/context_documents/a87e46e1_InterestWatcher.json",
+    "chunk_number": 5536
+  }
+}

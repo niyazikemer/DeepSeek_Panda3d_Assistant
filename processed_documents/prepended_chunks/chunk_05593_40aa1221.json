@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a method within a repository class responsible for managing object generation delays and handling special name creation. It sets a deferred interval for object generation tasks, schedules or reschedules these tasks based on the interval, and creates unique names for specific purposes.\n\nself.deferInterval = deferInterval\n        self.setHandleCUpdates(self.deferInterval == 0)\n\n        if self.deferredGenerates:\n            taskMgr.remove('deferredGenerate')\n            taskMgr.doMethodLater(self.deferInterval, self.doDeferredGenerate, 'deferredGenerate')\n\n    ## def queryObjectAll(self, doID, context=0):\n        ## \"\"\"\n        ## Get a one-time snapshot look at the object.\n        ## \"\"\"\n        ## assert self.notify.debugStateCall(self)\n        ## # Create a message\n        ## datagram = PyDatagram()\n        ## datagram.addServerHeader(\n            ## doID, localAvatar.getDoId(), 2020)\n        ## # A context that can be used to index the response if needed\n        ## datagram.addUint32(context)\n        ## self.send(datagram)\n        ## # Make sure the message gets there.\n        ## self.flush()\n\n    def specialName(self, label):\n        name = f\"SpecialName {self.specialNameNumber} {label}\"\n        self.specialNameNumber += 1\n        return name",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5593
+  }
+}

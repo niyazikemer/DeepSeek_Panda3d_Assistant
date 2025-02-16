@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides important notes about GLSL inputs in Panda3D shaders, specifically discussing how certain matrices behave by default and offering recommendations for optimizing coordinate space transformations. This context is essential for understanding how to work with modelview and projection matrices while developing shader-based applications.\n\nA note about GLSL inputs\n\nThe p3d_ModelViewMatrix and p3d_ProjectionMatrix by default transform to and from \"apiview\" space, in order to match the behavior of the equivalent gl_-prefixed inputs from earlier GLSL versions. Panda3D traditionally uses a right-handed Y-up coordinate space for all OpenGL operations because some OpenGL fixed-function features rely on this space in order to produce the correct results.\n\nHowever, if you develop a largely shader-based application and/or don't really use features like fixed-function sphere mapping, you may choose to disable this conversion to Y-up space. This will define \"apiview\" space to be equivalent to \"view\" space, which simplifies many things, and will reduce overhead due to unnecessary coordinate space conversion, especially as \"apiclip\" and \"clip\" are already equivalent in OpenGL as well.\n\nTo do this, place gl-coordinate-system default in your Config.prc file.\n\nRecommendation: Don't use API View Space or API Clip Space",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_557",
+    "parent": "processed_documents/context_documents/84f019c6_7f49f363_coordinate-spaces.json",
+    "chunk_number": 6957
+  }
+}

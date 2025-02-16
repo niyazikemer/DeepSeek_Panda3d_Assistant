@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk discusses a workaround for issues related to shader target languages, specifically advising the use of ARBvp1/ARBfp1 profiles and introducing a config variable to manage shader translation. It also addresses problems with ATI/AMD cards, situating this within the broader context of shader bugs and limitations in Panda3D's shader system.\n\nWorkaround: We have discovered that translation into ARBvp1/ARBvp1 seems to work reliably. Since that language is supported on essentially every video card, it is usually safe to translate into that language. We have provided a config variable that you can use to suppress bleeding edge stuff:\n\nbasic-shaders-only true\n\nThis variable is disabled by default, though on most non-NVIDIA cards, the ARBvp1/ARBfp1 profiles are still used by default in light of the problem above.\n\nAt some point, when functionality that is currently flaky becomes reliable, we may expand the definition of what constitutes 'basic' shaders.\n\nProblem: Invalid output when using ATI/AMD cards",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_401",
+    "parent": "processed_documents/context_documents/b94e6c02_f8c75e0b_known-shader-issues.json",
+    "chunk_number": 6052
+  }
+}

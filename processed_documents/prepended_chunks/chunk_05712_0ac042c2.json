@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of three methods (`announceGenerate`, `disable`, and `isDisabled`) from the `DistributedObjectOV` class in a Python file handling distributed object management. These methods are used for announcing when an object has been generated, managing its disabling state, and checking if it is disabled or not yet generated.\n\ndef announceGenerate(self):\n        \"\"\"\n        Sends a message to the world after the object has been\n        generated and all of its required fields filled in.\n        \"\"\"\n        assert self.notify.debug('announceGenerate(): %s' % (self.doId))\n\n    def disable(self):\n        \"\"\"\n        Inheritors should redefine this to take appropriate action on disable\n        \"\"\"\n        assert self.notify.debug('disable(): %s' % (self.doId))\n        if self.activeState != ESDisabled:\n            self.activeState = ESDisabled\n\n    def isDisabled(self):\n        \"\"\"\n        Returns true if the object has been disabled and/or deleted,\n        or if it is brand new and hasn't yet been generated.\n        \"\"\"\n        return self.activeState < ESGenerating",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_336",
+    "parent": "processed_documents/context_documents/c0800c7e_DistributedObjectOV.json",
+    "chunk_number": 5712
+  }
+}

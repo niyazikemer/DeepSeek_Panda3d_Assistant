@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods for managing interest handles in a client-server application, specifically for adding, validating, and updating descriptions of interests, which are used to monitor specific zones or areas relevant to gameplay.\n\ndef isValidInterestHandle(self, handle):\n        # pass in a handle (or anything else) and this will return true if it is\n        # still a valid interest handle\n        if not isinstance(handle, InterestHandle):\n            return False\n        return handle.asInt() in DoInterestManager._interests\n\n    def updateInterestDescription(self, handle, desc):\n        iState = DoInterestManager._interests.get(handle.asInt())\n        if iState:\n            iState.setDesc(desc)\n\n    def addInterest(self, parentId, zoneIdList, description, event=None):\n        \"\"\"\n        Look into a (set of) zone(s).\n        \"\"\"\n        assert DoInterestManager.notify.debugCall()\n        handle = self._getNextHandle()\n        # print 'base.cr.addInterest(',description,',',handle,'):',base.clock.getFrameCount()\n        if self._noNewInterests:\n            DoInterestManager.notify.warning(\n                \"addInterest: addingInterests on delete: %s\" % (handle))\n            return",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5207
+  }
+}

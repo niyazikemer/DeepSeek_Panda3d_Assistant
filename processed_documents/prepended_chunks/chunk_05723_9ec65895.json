@@ -1,0 +1,9 @@
+{
+  "content": "The chunk consists of three methods (`getGridInterestIds`, `getGridInterestZoneId`, and `__clearGridInterest`) from the `GridChild` class, which are used to manage and retrieve information about grid-based interests. These methods help track and update grid-related interests for objects that require location updates based on grid cells, facilitating efficient interest management within a distributed system.\n\n**Context:** Methods for managing grid-based interests in the `GridChild` class, enabling tracking and retrieval of grid interest IDs and zone IDs, while also providing functionality to clear all grid interests.\n\ndef getGridInterestIds(self):\n        return list(self._gridInterests.keys())\n\n    def getGridInterestZoneId(self,gridDoId):\n        return self._gridInterests.get(gridDoId,[None,None])[1]\n\n    def __clearGridInterest(self):\n        if self._gridInterestEnabled:\n            for currGridId, interestInfo in self._gridInterests.items():\n                self.cr.removeTaggedInterest(interestInfo[0])\n        self._gridInterests = {}",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_337",
+    "parent": "processed_documents/context_documents/0857bf44_GridChild.json",
+    "chunk_number": 5723
+  }
+}

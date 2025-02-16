@@ -1,0 +1,9 @@
+{
+  "content": "This section introduces multi-part actors, explaining how to create complex character models by combining multiple separate pieces (e.g., legs, torso) into a single Actor. Each piece must have compatible bones for attachment, loaded from egg files, with corresponding animation files needed for each part when playing animations.\n\nMulti-Part Actors\n\nIt is possible to assemble a character model out of several separate pieces (separate models). If this is the case, then the pieces must contain bones that can be attached to each other. For example, if you have a robot consisting of a set of legs and a swappable torso, and if you want to glue them together at the waist, then the legs model should contain a bone \"waist\", and the torso model should also contain a bone \"waist\". You can then attach them together:\n\nnodePath = Actor.Actor(\n    {\n        'legs':'RobotLegs.egg',\n        'torso':'RobotTorso1.egg',\n    }, {\n        'legs':{'dance':'RobotLegs-Dance.egg'},\n        'torso':{'dance':'RobotTorso1-Dance.egg'},\n    })\nnodePath.attach('torso','legs','waist')\n\nMulti-part actors are fairly complicated. Each part is loaded from a separate egg file, and each part has its own set of animations that are applied to it. For each animation you want to play, you will need to have a corresponding egg file for each part.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_512",
+    "parent": "processed_documents/context_documents/cf700b32_707eb733_multi-part-actors.json",
+    "chunk_number": 6572
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a method that sets an object's location within a hierarchical structure. The method handles cases where either the parent ID or zone ID is invalid (null or zero) by clearing the object's location. Otherwise, it updates the object's parent and zone IDs and stores this new location in a tracking data structure. This functionality is crucial for maintaining accurate location information for distributed objects within the system.\n\nif parentId is None or zoneId is None or (parentId == zoneId == 0):\n            # Do not store null values\n            object.parentId = None\n            object.zoneId = None\n        else:\n            # Add to new location\n            self._doHierarchy.storeObjectLocation(object, parentId, zoneId)\n            # this check doesn't work because of global UD objects;\n            # should they have a location?\n            #assert len(self._doHierarchy) == len(self.doId2do)\n\n            # Set the new parent and zone on the object\n            object.parentId = parentId\n            object.zoneId = zoneId",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_314",
+    "parent": "processed_documents/context_documents/e16b9605_DoCollectionManager.json",
+    "chunk_number": 5444
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of an `AsyncRequest` class implementation managing asynchronous operations for distributed objects, particularly handling database reads and deletions. The included methods handle cleanup (`delete()`) and initiating requests for specific object fields (`askForObjectField()`).\n\ndef delete(self):\n        assert AsyncRequest.notify.debugCall()\n        del AsyncRequest._asyncRequests[id(self)]\n        self.ignoreAll()\n        self._resetTimeoutTask(False)\n        messenger.send(self.deletingMessage, [])\n        del self.neededObjects\n        del self.air\n        del self.replyToChannelId\n\n    def askForObjectField(\n            self, dclassName, fieldName, doId, key = None, context = None):\n        \"\"\"\n        Request an already created object, i.e. read from database.\n        \"\"\"\n        assert AsyncRequest.notify.debugCall()\n        if key is None:\n            # default the dictionary key to the fieldName\n            key = fieldName\n        assert doId\n        if context is None:\n            context = self.air.allocateContext()\n        self.air.contextToClassName[context] = dclassName\n        self.acceptOnce(\n            \"doFieldResponse-%s\"%(context,),\n            self._checkCompletion, [key])\n\n        self.neededObjects[key] = None",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_309",
+    "parent": "processed_documents/context_documents/713fac09_AsyncRequest.json",
+    "chunk_number": 5395
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is a deprecated method `printScale` that adds functionality to the NodePath class in Panda3D for printing scale information with specified decimal precision. It is wrapped with `Dtool_funcToMethod` to attach it as a method of NodePath and then deleted from the module namespace, consistent with other utility methods defined in this document.\n\ndef printScale(self, other = None, sd = 2):\n    \"\"\" Deprecated.  Pretty print a node path's scale \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.printScale() is deprecated.\", DeprecationWarning, stacklevel=2)\n    formatString = '%0.' + '%d' % sd + 'f'\n    if other:\n        scale = self.getScale(other)\n        otherString = other.getName() + ', '\n    else:\n        scale = self.getScale()\n        otherString = ''\n    print((self.getName() + '.setScale(' + otherString +\n           formatString % scale[0] + ', ' +\n           formatString % scale[1] + ', ' +\n           formatString % scale[2] +\n           ')\\n'))\n\nDtool_funcToMethod(printScale, NodePath)\ndel printScale\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5748
+  }
+}

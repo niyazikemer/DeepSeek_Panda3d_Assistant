@@ -1,0 +1,9 @@
+{
+  "content": "This chunk implements a vertex coordinate calculation for motion trail texturing and parameters transfer to a C++ module in a motion trail system, ensuring proper vertex indexing and efficient data synchronization.\n\n# calculate v coordinate\n            # this is based on the number of vertices only and not on the relative positions of the vertices\n            vertex_index = 0\n            float_vertex_index = 0.0\n            float_total_vertices = 0.0\n            float_total_vertices = total_vertices - 1.0\n            while vertex_index < total_vertices:\n                motion_trail_vertex = self.vertex_list[vertex_index]\n                motion_trail_vertex.v = float_vertex_index / float_total_vertices\n                vertex_index += 1\n                float_vertex_index += 1.0\n\n#                print \"motion_trail_vertex.v\", motion_trail_vertex.v\n\n        self.modified_vertices = True\n\n    def transferVertices(self):\n\n        # transfer only on modification\n        if self.modified_vertices:\n            self.cmotion_trail.setParameters(self.sampling_time, self.time_window, self.texture is not None, self.calculate_relative_matrix, self.use_nurbs, self.resolution_distance)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_290",
+    "parent": "processed_documents/context_documents/38565614_MotionTrail.json",
+    "chunk_number": 5122
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk contains methods related to updating distributed objects and sending targeted updates between clients. These methods are part of a class responsible for managing distributed object communications, including handling normal updates, targeted updates, and placeholder operations for deleted objects.\n\ndef stopTrackRequestDeletedDO(self, *args):\n        # No-op.  Not entirely sure what this does on the VR Studio side.\n        pass\n\n    def sendUpdate(self, distObj, fieldName, args):\n        \"\"\" Sends a normal update for a single field. \"\"\"\n        dg = distObj.dclass.clientFormatUpdate(\n            fieldName, distObj.doId, args)\n        self.send(dg)\n\n    def sendUpdateToChannel(self, distObj, channelId, fieldName, args):\n\n        \"\"\" Sends a targeted update of a single field to a particular\n        client.  The top 32 bits of channelId is ignored; the lower 32\n        bits should be the client Id of the recipient (i.e. the\n        client's doIdbase).  The field update will be sent to the\n        indicated client only.  The field must be marked clsend or\n        p2p, and may not be marked broadcast. \"\"\"\n\n        datagram = distObj.dclass.clientFormatUpdate(\n            fieldName, distObj.doId, args)\n        dgi = PyDatagramIterator(datagram)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5677
+  }
+}

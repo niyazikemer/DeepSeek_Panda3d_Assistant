@@ -1,0 +1,9 @@
+{
+  "content": "The chunk fits within the document's explanation on applying lights to specific objects and understanding NodePath relationships. It should be placed after discussing how to attach a light to an object, such as the example with the green ambient light on object x. This context clarifies how to use `setLight` or `set_light` methods and explains the roles of different NodePaths in lighting setup.\n\nContext:\nThe chunk illustrates applying a point light to a 'sofa' object using NodePath methods in Python and C++. It follows the explanation of attaching lights to specific nodes, emphasizing the distinction between NodePaths defining light placement and those determining illuminated areas.\n\npython\n\nsofa.setLight(plnp)\n\ncpp\n\nsofa.set_light(plnp)\n\nNote that there are two (or more) different NodePaths involved here: the NodePath of the light itself, which defines the position and/or orientation of the light, and the NodePath(s) on which you call ~.NodePath.set_light(), which determines what subset of the scene graph the light illuminates. There's no requirement for these two NodePaths to be related in any way.\n\nLots of Lights: Performance Implications\n\nEach light slows down rendering a little. Using a half-dozen lights to illuminate an object is no problem at all. However, if you were to use a hundred lights to illuminate an object, that object would render slowly.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_365",
+    "parent": "processed_documents/context_documents/2104fbbc_293663ad_lighting.json",
+    "chunk_number": 5873
+  }
+}

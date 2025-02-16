@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to manage 3D models in Panda3D by reparenting them to the scene graph using `render` and detaching them when necessary, followed by an explanation of the Model Cache mechanism for optimizing performance.\n\nThe default 3D scene graph is called ~builtins.render, and this is how to reparent the model to this scene graph:\n\npython\n\nmyModel.reparentTo(render)\n\ncpp\n\nmyModel.reparent_to(window->get_render());\n\nIt is possible to reparent the model to any node (even to another model, or to a sub-part of a different model), not just to ~builtins.render! What's important is that it is parented to a node that is itself parented to a scene graph, so that Panda3D can find it. Otherwise, the model will remain invisible.\n\nThe converse is to remove a model from the scene graph, which can be done as follows:\n\npython\n\nmyModel.detachNode()\n\ncpp\n\nmyModel.detach_node();\n\nThe Model Cache",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_375",
+    "parent": "processed_documents/context_documents/f90847cd_c3bbc946_model-files.json",
+    "chunk_number": 5940
+  }
+}

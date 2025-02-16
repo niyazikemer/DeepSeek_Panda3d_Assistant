@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces a deprecated function `printPos` to the NodePath class, which provides debugging output for node positions. It fits within the document as a utility method alongside other NodePath extensions like collision management and analysis tools.\n\ndef printPos(self, other = None, sd = 2):\n    \"\"\" Deprecated.  Pretty print a node path's pos \"\"\"\n    if __debug__:\n        warnings.warn(\"NodePath.printPos() is deprecated.\", DeprecationWarning, stacklevel=2)\n    formatString = '%0.' + '%d' % sd + 'f'\n    if other:\n        pos = self.getPos(other)\n        otherString = other.getName() + ', '\n    else:\n        pos = self.getPos()\n        otherString = ''\n    print((self.getName() + '.setPos(' + otherString +\n           formatString % pos[0] + ', ' +\n           formatString % pos[1] + ', ' +\n           formatString % pos[2] +\n           ')\\n'))\nDtool_funcToMethod(printPos, NodePath)\ndel printPos\n#####################################################################",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_341",
+    "parent": "processed_documents/context_documents/14919c38_NodePath_extensions.json",
+    "chunk_number": 5746
+  }
+}

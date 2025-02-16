@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk describes the Python code snippet used to set up an ellipsoid-shaped soft body in a 3D environment using Bullet physics, emphasizing configuration settings like material properties, pressure coefficients, and pose initialization. This setup differs from previous implementations by introducing specific dynamic and damping parameters and utilizing the `setPose` method for defining the default state of the soft body.\n\npython\n\n# Soft body world information\ninfo = world.getWorldInfo()\ninfo.setAirDensity(1.2)\ninfo.setWaterDensity(0)\ninfo.setWaterOffset(0)\ninfo.setWaterNormal(Vec3(0, 0, 0))\n\n# Softbody\ncenter = Point3(0, 0, 0)\nradius = Vec3(1, 1, 1) * 1.5\n\nbodyNode = BulletSoftBodyNode.makeEllipsoid(info, center, radius, 128)\nbodyNode.setName('Ellipsoid')\nbodyNode.getMaterial(0).setLinearStiffness(0.1)\nbodyNode.getCfg().setDynamicFrictionCoefficient(1)\nbodyNode.getCfg().setDampingCoefficient(0.001)\nbodyNode.getCfg().setPressureCoefficient(1500)\nbodyNode.setTotalMass(30, True)\nbodyNode.setPose(True, False)\n\nbodyNP = render.attachNewNode(bodyNode)\nbodyNP.setPos(15, 0, 12)\nbodyNP.setH(90.0)\nworld.attachSoftBody(bodyNP.node())\n\ncpp\n\nTODO\n\nWhen comparing the soft body setup with the previous page, the soft body patch setup, we will find that there are two differences:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_418",
+    "parent": "processed_documents/context_documents/64bc5cd8_ade68381_softbody-triangles.json",
+    "chunk_number": 6119
+  }
+}

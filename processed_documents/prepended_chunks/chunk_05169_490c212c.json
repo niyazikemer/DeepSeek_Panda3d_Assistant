@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces foundational components of a distributed object management system, including:\n\n1. `objectsByZoneId`: A global mapping of zones to their associated objects\n2. `doIdRange`: Fixed range of unique identifiers assigned per client connection\n3. `idAllocator`: Manages assignment of unique identifier blocks to clients\n4. DC file handling: Parses distributed class definitions for object templates\n5. Flush task: Periodic message flushing mechanism for efficient communication\n\nThe code initializes these core structures and parameters necessary for managing distributed objects across zones and maintaining client connections in a networked environment.\n\n# A dictionary of zoneId -> set([Object]), listing the\n        # distributed objects assigned to each zone, globally.\n        self.objectsByZoneId = {}\n\n        # The number of doId's to assign to each client.  Must remain\n        # constant during server lifetime.\n        self.doIdRange = _server_doid_range.value\n\n        # An allocator object that assigns the next doIdBase to each\n        # client.\n        self.idAllocator = UniqueIdAllocator(0, 0xffffffff // self.doIdRange)\n\n        self.dcFile = DCFile()\n        self.dcSuffix = ''\n        self.readDCFile(dcFileNames)\n\n    def flushTask(self, task):\n        \"\"\" This task is run periodically to flush any connections\n        that might need it.  It's only necessary in cases where\n        collect-tcp is set true (if this is false, messages are sent\n        immediately and do not require periodic flushing). \"\"\"",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5169
+  }
+}

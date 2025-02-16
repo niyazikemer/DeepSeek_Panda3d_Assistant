@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk implements the `disableDoId` method in a class managing distributed objects. This method removes an object identified by `doId` from either the main or owner-view table. It caches the object if it meets specific criteria (cacheable and not marked for delayed deletion), otherwise, it deletes the object after ensuring no memory leaks occur through leak detection. The method integrates with other lifecycle management features like delay delete tracking.\n\ndef disableDoId(self, doId, ownerView=False):\n        table, cache = self.getTables(ownerView)\n        # Make sure the object exists\n        if doId in table:\n            # Look up the object\n            distObj = table[doId]\n            # remove the object from the dictionary\n            del table[doId]\n\n            # Only cache the object if it is a \"cacheable\" type\n            # object; this way we don't clutter up the caches with\n            # trivial objects that don't benefit from caching.\n            # also don't try to cache an object that is delayDeleted\n            cached = False\n            if distObj.getCacheable() and distObj.getDelayDeleteCount() <= 0:\n                cached = cache.cache(distObj)\n            if not cached:\n                distObj.deleteOrDelay()\n                if distObj.getDelayDeleteCount() <= 0:\n                    # make sure we're not leaking\n                    distObj.detectLeaks()",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_327",
+    "parent": "processed_documents/context_documents/b80b02a3_ClientRepositoryBase.json",
+    "chunk_number": 5609
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a mechanism for maintaining clock synchronization between avatars in a networked environment. It performs a sanity check on timestamps received from other avatars to ensure they are within an acceptable range relative to the local time. If a significant discrepancy is detected, it initiates a resynchronization process by sending a `suggestResync` message to the other client. This helps maintain accurate timing across all clients, which is crucial for smooth avatar movements and consistent gameplay.\n\n# Sanity check the timestamp from the other avatar.  It should\n            # be just slightly in the past, but it might be off by as much\n            # as this frame's amount of time forward or back.\n            howFarFuture = local - now\n            if howFarFuture - chug >= MaxFuture.value:\n                # Too far off; advise the other client of our clock information.\n                if globalClockDelta.getUncertainty() is not None and \\\n                   realTime - self.lastSuggestResync >= MinSuggestResync.value and \\\n                   hasattr(self.cr, 'localAvatarDoId'):\n                    self.lastSuggestResync = realTime\n                    timestampB = globalClockDelta.localToNetworkTime(realTime)\n                    serverTime = realTime - globalClockDelta.getDelta()\n                    assert self.notify.info(\n                        \"Suggesting resync for %s, with discrepency %s; local time is %s and server time is %s.\" % (",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5357
+  }
+}

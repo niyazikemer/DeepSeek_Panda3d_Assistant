@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides the initial setup of the `DistributedObjectOV` class, which serves as the 'owner view' for managing distributed objects. This includes essential initialization steps and state management that are foundational for handling object lifecycle and communication within a distributed system.\n\nclass DistributedObjectOV(DistributedObjectBase):\n    \"\"\"\n    Implementation of the 'owner view' (OV) of a distributed object;\n    \"\"\"\n    notify = directNotify.newCategory(\"DistributedObjectOV\")\n\n    def __init__(self, cr):\n        assert self.notify.debugStateCall(self)\n        if not hasattr(self, 'DistributedObjectOV_initialized'):\n            self.DistributedObjectOV_initialized = 1\n            DistributedObjectBase.__init__(self, cr)\n\n            # Keep track of our state as a distributed object.  This\n            # is only trustworthy if the inheriting class properly\n            # calls up the chain for disable() and generate().\n            self.activeState = ESNew",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_336",
+    "parent": "processed_documents/context_documents/c0800c7e_DistributedObjectOV.json",
+    "chunk_number": 5709
+  }
+}

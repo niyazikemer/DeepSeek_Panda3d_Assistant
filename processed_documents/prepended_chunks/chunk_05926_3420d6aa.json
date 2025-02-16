@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated in a section that introduces accessing and examining vertex data from 3D models. It explains how to navigate from the root node to GeomNodes, setting the stage for subsequent operations like using readers and decomposing primitives.\n\nContext: Introducing how to access GeomNodes under the root node when loading a model, essential for examining or modifying vertex data.\n\nThis does make certain kinds of vertex operations difficult; if you plan to write code that expects to encounter the vertices of a model in a particular order, we recommend you build up those vertices yourself using a GeomVertexWriter <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter> (as described in creating-and-filling-a-geomvertexdata), so that you have explicit control over the vertex order.\n\nHowever, if you have no need to operate on the vertices in any particular order, or if you just want to casually browse the vertices in a model, feel free to use the following instructions to read the data.\n\nWhen you load a model, you have a handle to the root node of the model, which is usually a ModelRoot node. The geometry itself will be stored in a series of GeomNodes <geomnode>, which will be children of the root node. In order to examine the vertex data, you must visit the GeomNodes in the model. One way to do this is to walk through all the GeomNodes like this:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_373",
+    "parent": "processed_documents/context_documents/4cbfd15d_71ed822e_reading-existing-geometry.json",
+    "chunk_number": 5926
+  }
+}

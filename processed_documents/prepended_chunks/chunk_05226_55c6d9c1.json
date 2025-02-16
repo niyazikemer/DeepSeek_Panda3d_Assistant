@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk consists of two methods, `printInterestsIfDebug` and `_addDebugInterestHistory`, added to the `DoInterestManager` class within an `if __debug__:` block. These methods are used to debug interest management by printing interest details and logging actions when debugging is enabled.\n\nif __debug__:\n        def printInterestsIfDebug(self):\n            if DoInterestManager.notify.getDebug():\n                self.printInterests()\n            return 1 # for assert\n\n        def _addDebugInterestHistory(self, action, description, handle,\n                                     contextId, parentId, zoneIdList):\n            if description is None:\n                description = ''\n            DoInterestManager._debug_interestHistory.append(\n                (action, description, handle, contextId, parentId, zoneIdList))\n            DoInterestManager._debug_maxDescriptionLen = max(\n                DoInterestManager._debug_maxDescriptionLen, len(description))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5226
+  }
+}

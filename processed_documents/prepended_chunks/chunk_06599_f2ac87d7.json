@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how `GeomVertexReader` manages its current read row, retrieves the current value using `getReadRow()`, and increments the row after each `getData()` call. It explains that attempting to read past the end of the data results in an error but can be safely checked using `isAtEnd()`. This section provides guidance on iterating through all rows of a vertex table by repeatedly calling `getData` until `isAtEnd()` returns true, ensuring proper traversal and termination during data retrieval.\n\nEach GeomVertexReader keeps track of the current read row, which is initially 0; the current value can be retrieved by getReadRow(). Each call to a getData function returns the value of the column at the current read row, and then increments the current read row. It is an error to call getData when the read row has reached the end of the data, but you can call isAtEnd(), which returns true when the reader has reached the end. Thus, you can iterate through all the rows of a vertex table by repeatedly calling getData until isAtEnd() returns true.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_517",
+    "parent": "processed_documents/context_documents/0c23aa57_d4dd2496_more-about-reader-writer-rewriter.json",
+    "chunk_number": 6599
+  }
+}

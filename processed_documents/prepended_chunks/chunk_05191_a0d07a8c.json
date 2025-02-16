@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk represents a method `setObjectZone` within a larger class that manages objects' locations (zones) in a distributed system or multiplayer environment. The method updates an object's zone assignment in both global server-side tracking (`self.objectsByZoneId`) and client-specific ownership records (`owner.objectsByZoneId`), ensuring consistency when moving objects between zones.\n\nself.setObjectZone(client, object, zoneId)\n\n    def setObjectZone(self, owner, object, zoneId):\n        if object.zoneId == zoneId:\n            # No change.\n            return\n\n        oldZoneId = object.zoneId\n        self.objectsByZoneId[object.zoneId].remove(object)\n        if not self.objectsByZoneId[object.zoneId]:\n            del self.objectsByZoneId[object.zoneId]\n        owner.objectsByZoneId[object.zoneId].remove(object)\n        if not owner.objectsByZoneId[object.zoneId]:\n            del owner.objectsByZoneId[object.zoneId]\n\n        object.zoneId = zoneId\n        self.objectsByZoneId.setdefault(zoneId, set()).add(object)\n        owner.objectsByZoneId.setdefault(zoneId, set()).add(object)\n\n        self.updateClientInterestZones(owner)",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_293",
+    "parent": "processed_documents/context_documents/081ab7e4_ServerRepository.json",
+    "chunk_number": 5191
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code sits in a class related to client repositories or avatars, focusing on networked applications where smooth movement prediction and time synchronization are critical. The `peerToPeerResync` method handles clock synchronization between clients, while `activateSmoothing` manages avatar motion smoothing for visual consistency, with options for predictive or lagged rendering based on system configuration. Together, these methods ensure avatars move smoothly and server-client time remains synchronized for a cohesive experience.\n\ndef peerToPeerResync(self, avId, timestamp, serverTime, uncertainty):\n        gotSync = globalClockDelta.peerToPeerResync(\n            avId, timestamp, serverTime, uncertainty)\n\n        # If we didn't get anything useful from the other client,\n        # maybe our clock is just completely hosed.  Go ask the AI.\n        if not gotSync:\n            if self.cr.timeManager is not None:\n                self.cr.timeManager.synchronize(\"suggested by %d\" % (avId))\n\n        return gotSync\n\n    def activateSmoothing(self, smoothing, prediction):\n        \"\"\"\n        Enables or disables the smoothing of other avatars' motion.\n        This used to be a global flag, but now it is specific to each\n        avatar instance.  However, see globalActivateSmoothing() in\n        this module.\n\n        If smoothing is off, no kind of smoothing will be performed,\n        regardless of the setting of prediction.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_305",
+    "parent": "processed_documents/context_documents/3cb775cb_DistributedSmoothNode.json",
+    "chunk_number": 5366
+  }
+}

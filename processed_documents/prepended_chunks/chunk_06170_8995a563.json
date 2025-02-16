@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of the \"Visualisation\" section in the document about setting up and visualizing a soft body patch using Panda3D's Bullet module. The chunk focuses on creating a visual representation of the soft body patch by generating geometry from the faces of the soft body node, linking it to the soft body node, and attaching it to the scene for rendering. Additionally, it demonstrates how to apply a texture to the generated geometry by loading a texture file and using a helper function to generate appropriate texture coordinates. This section follows the setup of the soft body patch and is essential for rendering the patch in the 3D scene.\n\npython\n\nfrom panda3d.core import GeomVertexFormat\nfrom panda3d.bulletimport BulletHelper\n\nfmt = GeomVertexFormat.getV3n3t2()\ngeom = BulletHelper.makeGeomFromFaces(bodyNode, fmt, True)\nbodyNode.linkGeom(geom)\nvisNode = GeomNode('')\nvisNode.addGeom(geom)\nvisNP = bodyNP.attachNewNode(visNode)\n\ncpp\n\nTODO\n\nThe third parameter to makeGeomFromFaces is set to True, making the created geometry be two-sided. If set to False we would get a one-sided geometry, which might be enough, depending on your requirements.\n\nSo far the generated geometry has no texture and no texture coordinates. But the texture has already a column for texcoords, so we just need to write texcoords using a GeomVertexRewriter. The following code shows a convenience method which will do this for us.\n\npython\n\ntex = loader.loadTexture('models/panda.jpg')\nvisNP.setTexture(tex)\nBulletHelper.makeTexcoordsForPatch(geom, resx, resy)\n\ncpp\n\nTODO",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_427",
+    "parent": "processed_documents/context_documents/7f01e2c4_8fed4065_softbody-patch.json",
+    "chunk_number": 6170
+  }
+}

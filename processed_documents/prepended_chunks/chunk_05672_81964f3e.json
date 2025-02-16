@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a Python class that manages distributed objects in a networked environment. It includes methods for checking available DO IDs (`hasDoIdsAvailable()`), retrieving the sender's ID from an update message (`getAvatarIdFromSender()`), and processing incoming datagrams (`handleDatagram()`). These functions are essential for managing object lifecycles, routing updates, and handling network communication in a distributed system.\n\nreturn self.doIdLast > self.doIdBase\n\n    def getAvatarIdFromSender(self):\n        \"\"\" Returns the doIdBase of the client that originally sent\n        the current update message.  This is only defined when\n        processing an update message or a generate message. \"\"\"\n        return self.currentSenderId\n\n    def handleDatagram(self, di):\n        if self.notify.getDebug():\n            print(\"ClientRepository received datagram:\")\n            di.getDatagram().dumpHex(Notify.out())\n\n        msgType = self.getMsgType()\n        self.currentSenderId = None\n\n        # These are the sort of messages we may expect from the public\n        # Panda server.",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_333",
+    "parent": "processed_documents/context_documents/9374675e_ClientRepository.json",
+    "chunk_number": 5672
+  }
+}

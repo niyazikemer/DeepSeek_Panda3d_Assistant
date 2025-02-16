@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes several image processing filters in Panda3D, including the decay and exposure parameters of a tonemapping or HDR-related filter, followed by an explanation of the Inverted Filter, which inverts colors, the Blur/Sharpen Filter, which adjusts image sharpness, and the Ambient Occlusion Filter.\n\ndecay - Decay makes rays gradually decrease in brightness. The default value of 0.1 is not well chosen and makes the rays very short! Usually, this a value close to 1.0, like 0.98. Default: 0.1\n\nexposure - Defines the brightness of the rays. Default: 0.1\n\nThe Inverted Filter\n\nThis filter simply inverts the colors of the image.\n\nfilters.setInverted()\nfilters.delInverted()\n\nThis filter has no parameters.\n\nThe Blur / Sharpen Filter\n\nThis filter can apply a blur or sharpen effect to the image.\n\nfilters.setBlurSharpen( ... options ...)\nfilters.delBlurSharpen()\n\nThe filter has the following keyword parameters:\n\namount - The amount of blurring, this is usually a value between 0.0 and 2.0. You can take values smaller than 0.0 or larger than 2.0, but this usually gives ugly artifacts. A value of 0.0 means maximum blur. A value of 1.0 does nothing, and if you go past 1.0, the image will be sharpened instead of blurred. Default: 0.0\n\nThe Ambient Occlusion Filter",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_419",
+    "parent": "processed_documents/context_documents/8f076aff_14d9d4de_common-image-filters.json",
+    "chunk_number": 6130
+  }
+}

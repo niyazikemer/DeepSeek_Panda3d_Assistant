@@ -1,0 +1,9 @@
+{
+  "content": "The provided code is part of the `replaceMethod` function in the Messenger class, which replaces old method references with new ones in event callbacks. The snippet checks if a function matches an old method, binds the new function to the same instance, updates the callback parameters, and signals successful replacement.\n\n**Succinct Context:**\nThe code is from the `replaceMethod` function in the Messenger class, where it replaces old methods with new ones within event callbacks by binding the new function to the existing instance context.\n\n#       'newFunction: ' + repr(newFunction) + '\\n')\n                if function == oldMethod:\n                    newMethod = types.MethodType(newFunction, method.__self__)\n                    params[0] = newMethod\n                    # Found it retrun true\n                    retFlag += 1\n        # didn't find that method, return false\n        return retFlag",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5064
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the method for enabling automatic texture coordinate generation in Panda3D, detailing the `setTexGen` (Python) or `set_tex_gen` (C++) methods used to specify how texture coordinates are computed.\n\npython\n\nnodePath.setTexGen(textureStage, texGenMode)\n\ncpp\n\nnodePath.set_tex_gen(textureStage, texGenMode);\n\nThe texGenMode parameter specifies how the texture coordinates are to be computed, and may be any of the following options. In the list below, \"eye\" means the coordinate space of the observing camera, and \"world\" means world coordinates, e.g. the coordinate space of render, the root of the scene graph.\n\nNote that several of the above options generate 3-D texture coordinates: (u, v, w) instead of just (u, v). The third coordinate may be important if you have a 3-D texture or a cube map (described later), but if you just have an ordinary 2-D texture the extra coordinate is ignored. (However, even with a 2-D texture, you might apply a 3-D transform to the texture coordinates, which would bring the third coordinate back into the equation.)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_437",
+    "parent": "processed_documents/context_documents/aa36d59a_558ab811_automatic-texture-coordinates.json",
+    "chunk_number": 6216
+  }
+}

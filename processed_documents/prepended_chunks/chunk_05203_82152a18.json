@@ -1,0 +1,9 @@
+{
+  "content": "The `InterestHandle` class encapsulates unique identifiers for managing client-side interests in the `DoInterestManager`, ensuring type safety and proper handle validation. The `NO__CONTEXT` constant represents a default value used when tracking interest operations without an associated completion event, aiding in event management and response handling within the interest system.\n\nclass InterestHandle:\n    \"\"\"This class helps to ensure that valid handles get passed in to DoInterestManager funcs\"\"\"\n    def __init__(self, id):\n        self._id = id\n    def asInt(self):\n        return self._id\n    def __eq__(self, other):\n        if type(self) == type(other):\n            return self._id == other._id\n        return self._id == other\n    def __repr__(self):\n        return '%s(%s)' % (self.__class__.__name__, self._id)\n\n# context value for interest changes that have no complete event\nNO_CONTEXT = 0",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5203
+  }
+}

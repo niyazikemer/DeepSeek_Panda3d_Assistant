@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to add a task to the Task Manager in both Python and C++. It describes creating a named task function, adding it to the manager, and optionally including extra arguments. In Python, `taskMgr.add()` is used, while in C++, a task object is created and added via `task_mgr->add()`. This is part of managing tasks, which includes adding, removing, timing, and controlling them through the Task Manager.\n\nPT(AsyncTaskManager) task_mgr = AsyncTaskManager::get_global_ptr();\n\nThe Task Manager keeps a list of all currently-running tasks.\n\npython\n\nTo add your task function to the task list, call taskMgr.add() with your function and an arbitrary name for the task. taskMgr.add() returns a Task which can be used to remove the task later on.\n\ntaskMgr.add(exampleTask, 'MyTaskName')\n\nYou can add extra arguments to the call through the extraArgs parameter. When you do this, the task parameter is no longer sent to your function by default. If you still want it, make sure to set appendTask=True, which makes the task the last argument sent to the function.\n\ntaskMgr.add(exampleTask, 'MyTaskName', extraArgs=[a,b,c], appendTask=True)\n\ncpp\n\nTo add a task to the Task Manager, first create a task object by indicating your function and an arbitrary name, and then add it to the task list by calling task_mgr->add() with a pointer to your task.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_499",
+    "parent": "processed_documents/context_documents/6c715f42_5c9f8c24_tasks.json",
+    "chunk_number": 6510
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk describes how to implement path following behavior in PandAI using Panda3D, specifically focusing on setting up a Path Follow behavior where the order of adding path positions is reversed. This section explains that the last position added to the path will be the first one the AI character visits and provides the complete code for creating a rectangular patrolling path by adding positions in reverse order.\n\nNote: the addToPath works backwards. So, your last call to addToPath will be your first position your AICharacter will go to.\n\nThe full working code in Panda3D is :\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import *\nfrom direct.task import Task\nfrom direct.actor.Actor import Actor\nfrom panda3d.ai import *\n\nclass World(object):\n\n    def __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0, 0, 55, 0, -90, 0)\n\n        self.loadModels()\n        self.setAI()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_490",
+    "parent": "processed_documents/context_documents/b574a7d5_53624206_path-follow.json",
+    "chunk_number": 6469
+  }
+}

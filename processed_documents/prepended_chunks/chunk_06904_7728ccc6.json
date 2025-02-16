@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how multiple textures applied to a single node can have different texture transforms by associating each with its own TextureStage. The example demonstrates using `setTexScale` and `setTexOffset` to position a pattern texture relative to another texture on a model, illustrating the ability to independently adjust the placement of each texture.\n\nNote that the texture transform is associated with a particular TextureStage; it is not a fixed property of the model or its texture coordinates. You can therefore apply a different texture transform to each different TextureStage, so that if you have multiple textures in effect on a particular node, they need not all be in the same place, even if they all use the same texture coordinates. For instance, this technique was used to generate the sample images in the Texture Blend Modes <texture-modes> section. In fact, the following code was used to place this sample texture (excerpted):\n\nsmiley = loader.loadModel('smiley.egg')\nts = TextureStage('ts')\npattern = loader.loadTexture('color_pattern.png')\nsmiley.setTexture(ts, pattern)\nsmiley.setTexScale(ts, 8, 4)\nsmiley.setTexOffset(ts, -4, -2)\n\nand the resulting texture:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_546",
+    "parent": "processed_documents/context_documents/e7c8839c_acc9476d_texture-transforms.json",
+    "chunk_number": 6904
+  }
+}

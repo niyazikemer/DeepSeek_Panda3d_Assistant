@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the \"Draw\" phase of the rendering process, emphasizing its role in issuing graphics commands, and mentions using PStats to measure time spent across the three phases (App, Cull, and Draw). This information precedes a discussion on enabling the multithreaded render pipeline through configuration.\n\n\"Draw\" is the final phase of the rendering process, which is nothing more than walking through the list of objects output by Cull, and sending them one at a time to the graphics card. Draw is designed to be as lightweight as possible on the CPU; the idea is to keep the graphics command pipe filled with as many rendering commands as it will hold. Draw is the only phase of the process during which graphics commands are actually being issued.\n\nYou can see the actual time spent within these three phases if you inspect your program's execution via the PStats tool. Every application is different, of course, but in many moderately complex applications, the time spent in each of these three phases is similar to the others, so that the three phases roughly divide the total frame time into thirds.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_519",
+    "parent": "processed_documents/context_documents/0cd108d5_dab687d3_multithreaded-render-pipeline.json",
+    "chunk_number": 6609
+  }
+}

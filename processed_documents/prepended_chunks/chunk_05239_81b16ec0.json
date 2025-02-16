@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a debugging setup for unit testing within an interest management system. It defines custom asynchronous test classes to facilitate testing of interest addition and removal operations.\n\nif __debug__:\n    import unittest\n    import time\n\n    class AsyncTestCase(unittest.TestCase):\n        def setCompleted(self):\n            self._async_completed = True\n        def isCompleted(self):\n            return getattr(self, '_async_completed', False)\n\n    class AsyncTestSuite(unittest.TestSuite):\n        pass\n\n    class AsyncTestLoader(unittest.TestLoader):\n        suiteClass = AsyncTestSuite",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_294",
+    "parent": "processed_documents/context_documents/a1e60f74_DoInterestManager.json",
+    "chunk_number": 5239
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk of code is part of a method within the `Messenger` class that handles event dispatching. The method uses locks to ensure thread safety while processing events, checking for an event tuple, and dispatching it if present before releasing the lock.\n\n**Context:** This code snippet is found in a method within the `Messenger` class, which manages event handling with thread-safe operations. It checks for an event tuple, processes it using `__dispatch`, and ensures the lock is released after processing to maintain concurrency safety.\n\nif not eventTuple:\n                    # No event; we're done.\n                    return task.done\n\n                self.__dispatch(*eventTuple)\n            finally:\n                self.lock.release()\n\n        return task.done",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_286",
+    "parent": "processed_documents/context_documents/370368dd_Messenger.json",
+    "chunk_number": 5057
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The `status()` method is part of the `DistributedObjectOV` class and serves as a diagnostic tool during debugging. It provides detailed information about the object's current state by printing out its unique identifier (`doId`), parent ID (`parentId`), zone ID (`zoneId`), and flags indicating if it's generated or disabled. This method aids developers in tracking the lifecycle and operational status of distributed objects within the system, facilitating effective troubleshooting and debugging efforts.\n\nif __debug__:\n        def status(self, indent=0):\n            \"\"\"\n            print out \"doId(parentId, zoneId) className\"\n                and conditionally show generated, disabled\n            \"\"\"\n            spaces = ' ' * (indent + 2)\n            try:\n                print(\"%s%s:\" % (' ' * indent, self.__class__.__name__))\n\n                flags = []\n                if self.activeState == ESGenerated:\n                    flags.append(\"generated\")\n                if self.activeState < ESGenerating:\n                    flags.append(\"disabled\")\n\n                flagStr = \"\"\n                if len(flags) > 0:\n                    flagStr = \" (%s)\" % (\" \".join(flags))\n\n                print(\"%sfrom DistributedObjectOV doId:%s, parent:%s, zone:%s%s\" % (\n                    spaces, self.doId, self.parentId, self.zoneId, flagStr))\n            except Exception as e:\n                print(\"%serror printing status %s\" % (spaces, e))",
+  "metadata": {
+    "doc_type": "python",
+    "doc_id": "doc_336",
+    "parent": "processed_documents/context_documents/c0800c7e_DistributedObjectOV.json",
+    "chunk_number": 5710
+  }
+}
