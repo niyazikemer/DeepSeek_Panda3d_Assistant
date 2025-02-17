@@ -36,7 +36,7 @@ context_explanation = "some of the Documents could be relevant, some of them mig
 def get_ai_response(query):
     # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
-    initial_docs = hybrid_retriever.hybrid_search(query, k=30)  # Get 30 docs
+    initial_docs = hybrid_retriever.hybrid_search(query, k=100)
     
     # Stage 2: Reranking
     reranked_docs = reranker.rerank(query, initial_docs, top_k=20)
@@ -45,7 +45,7 @@ def get_ai_response(query):
     with st.sidebar:
         st.markdown("### Reranked Documents")
         for i, doc in enumerate(reranked_docs, start=1):
-            st.markdown(f"**Document {i}:**\n{doc.page_content[:200]}...")  # Show preview
+            st.markdown(f"**Document {i}:**\n{doc.page_content[:200]}...")
             st.divider()
     
     # Prepare context
@@ -56,20 +56,34 @@ def get_ai_response(query):
     augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
-    response = chat(
+    # Create placeholder for streaming response
+    response_placeholder = st.empty()
+    full_response = ""
+    
+    # Stream the response
+    stream = chat(
         model='deepseek-r1:32b',
         messages=st.session_state.messages,
-        #https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
-        options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50,'num_ctx': 15000}
+        options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50, 'num_ctx': 15000},
+        stream=True
     )
     
+    # Process streaming chunks
+    for chunk in stream:
+        if chunk.message.content:
+            full_response += chunk.message.content
+            response_placeholder.markdown(full_response + "▌")
+    
+    # Final update without cursor
+    response_placeholder.markdown(full_response)
+    
+    # Add to chat history
     st.session_state.messages.append({
-        'role': 'assistant', 
-        'content': response.message.content
-
+        'role': 'assistant',
+        'content': full_response
     })
     
-    return response.message.content
+    return full_response
 
 # Main chat area (full width)
 for message in st.session_state.messages[1:]:
@@ -79,6 +93,4 @@ for message in st.session_state.messages[1:]:
 if prompt := st.chat_input("Ask me anything!"):
     st.chat_message("user").markdown(prompt)
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            response = get_ai_response(prompt)
-            st.markdown(response)
+        response = get_ai_response(prompt)
