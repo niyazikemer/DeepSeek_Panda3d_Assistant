@@ -1,0 +1,9 @@
+{
+  "content": "The provided code snippet illustrates a server-side implementation of a distributed object, specifically `DGameObjectAI`, which inherits from `DistributedObjectAI`. This class demonstrates how methods can be defined to handle data sent from clients, such as processing update messages. The example highlights the structure and functionality of distributed objects in a client-server architecture, focusing on server-side logic and communication mechanisms.\n\nclass DGameObjectAI(DistributedObjectAI):\n    def __init__(self, aiRepository):\n        DistributedObjectAI.__init__(self, aiRepository)\n\n    def sendGameData(self, data):\n        \"\"\" Method that can be called from the clients with an sendUpdate call \"\"\"\n        print(data)\n\nHere we see that a new object derives from .DistributedObject and .DistributedObjectAI respectively. Usually those classes will be filled with methods that follow the form of foo, d_foo and b_foo.\n\nThe foo method is the one that will have an effect locally.\n\nThe d_foo (d_ stands for distributed) method will send a message to the server and hence to other clients as needed and will update them. As you see, you can simply send data to the server with a self.sendUpdate call. There is also another method called .DistributedObjectAI.sendUpdateToAvatarId which accepts a doId of a client and will send the message directly to it. This method is only available on the AI and UD side.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_699",
+    "parent": "processed_documents/context_documents/f83ba817_17e60af4_distributed-object.json",
+    "chunk_number": 7718
+  }
+}

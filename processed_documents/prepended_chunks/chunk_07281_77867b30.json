@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to create a triangle mesh collision shape in Panda3D using `BulletTriangleMesh` and `BulletTriangleMeshShape`, demonstrating with code examples for both Python and C++. The context involves setting up points, adding triangles, and specifying whether the shape is dynamic or static.\n\nSuccinct Context:\nThis section explains creating triangle mesh collision shapes in Panda3D's Bullet physics engine by defining vertices and triangles, then constructing a `BulletTriangleMeshShape`, with code examples for both Python and C++.\n\nTriangle Mesh Shape\n\nAnother non-primitive collision shape. A triangle mesh shape is similar to the convex hull shape, except that it is not restricted to convex geometry; it can contain concave parts. A typical use case for triangle mesh shapes is the static geometry of a game level. However, it is possible to use triangle mesh shapes for dynamic objects too. We have to explicitly tell Bullet if we want a static or dynamic triangle mesh shape at the time the shape is created.\n\nTo create a triangle mesh shape, we first have to create a triangle mesh object. The following example will create a simple quad composed of two triangles.\n\npython\n\nfrom panda3d.bullet import BulletTriangleMeshShape\np0 = Point3(-10, -10, 0)\np1 = Point3(-10, 10, 0)\np2 = Point3(10, -10, 0)\np3 = Point3(10, 10, 0)\nmesh = BulletTriangleMesh()\nmesh.addTriangle(p0, p1, p2)\nmesh.addTriangle(p1, p2, p3)\nshape = BulletTriangleMeshShape(mesh, dynamic=False)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7281
+  }
+}

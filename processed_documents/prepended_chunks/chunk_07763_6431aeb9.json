@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to handle keystroke events in Panda3D for text input. It allows developers to capture all key presses and process them as needed, particularly useful when creating custom GUI widgets that require text entry. The example shows setting a custom event name and defining a callback function to handle each keystroke.\n\nTherefore, Panda3D has a concept of a keystroke event, which is used for text input. Panda3D uses this under the hood for all GUI text entry. If you are writing your own GUI widgets, it may be desirable for you to catch your own keystroke events. To do this, it is first necessary to inform Panda3D which event name should be sent when a keystroke occurs, after which you can accept it as you would with any other event:\n\nbase.buttonThrowers[0].node().setKeystrokeEvent('keystroke')\nself.accept('keystroke', self.myFunc)\n\ndef myFunc(self, keyname):\n    print(keyname)\n\nRaw keyboard events",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_711",
+    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
+    "chunk_number": 7763
+  }
+}

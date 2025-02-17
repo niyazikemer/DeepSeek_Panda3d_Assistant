@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a section discussing advanced texture blending options, specifically detailing C++ implementations for setting alpha combine modes on TextureStage. It provides code examples for various alpha blending operations (replace, modulate, add, add_signed, subtract, interpolate) using source operands to control texture interactions. The chunk also introduces tables for legal source and operand values used in these operations.\n\ncpp\n\nts->set_combine_alpha(TextureStage::CM_replace, source, operand);\nts->set_combine_alpha(TextureStage::CM_modulate, source0, operand0, source1, operand1);\nts->set_combine_alpha(TextureStage::CM_add, source0, operand0, source1, operand1);\nts->set_combine_alpha(TextureStage::CM_add_signed, source0, operand0, source1, operand1);\nts->set_combine_alpha(TextureStage::CM_subtract, source0, operand0, source1, operand1);\nts->set_combine_alpha(TextureStage::CM_interpolate, source0, operand0, source1, operand1,\n                      source2, operand2);\n\nSource values\n\nThis table lists the legal values for any of source, source0, source1, or source2, in the above calls. This broadly gives you control over which two (or three) textures are used as inputs to the above combine modes.\n\npython\n\ncpp\n\nOperands\n\nThis table lists the legal values for any of operand, operand0, operand1, or operand2, in the above calls. This fine-tunes the channel data that is used from each texture input.\n\npython\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_627",
+    "parent": "processed_documents/context_documents/6a616989_84f48978_texture-combine-modes.json",
+    "chunk_number": 7332
+  }
+}

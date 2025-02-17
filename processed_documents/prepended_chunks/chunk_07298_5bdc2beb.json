@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk initializes a 3D simulation demonstrating flocking behavior using Panda3D and the PandAIFramework. The `__init__` method sets up the scene by disabling mouse control, positioning the camera for a top-down view, loading flocking agent models (10 agents), and a target arrow. It then configures AI components for handling steering behaviors and movement controls for interaction. This setup showcases how agents can move cohesively while pursuing a user-controlled target.\n\ndef __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0, 0, 85, 0, -90, 0)\n\n        self.loadModels()\n        self.setAI()\n        self.setMovement()\n\n    def loadModels(self):\n        # Seeker\n        self.flockers = []\n        for i in range(10):\n            ralphStartPos = Vec3(-10+i, 0, 0)\n            self.flockers.append(Actor(\"models/ralph\",\n                                     {\"run\": \"models/ralph-run\"}))\n            self.flockers[i].reparentTo(render)\n            self.flockers[i].setScale(0.5)\n            self.flockers[i].setPos(ralphStartPos)\n            self.flockers[i].loop(\"run\")\n\n        # Target\n        self.target = loader.loadModel(\"models/arrow\")\n        self.target.setColor(1,0,0)\n        self.target.setPos(0,20,0)\n        self.target.setScale(1)\n        self.target.reparentTo(render)\n\n    def setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_623",
+    "parent": "processed_documents/context_documents/01e4e6ec_34c908c7_flock.json",
+    "chunk_number": 7298
+  }
+}

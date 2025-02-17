@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes how to use the Panda3D FSM by showing an example of requesting a state transition with arguments, noting the importance of argument handling in enter/exit methods, and explaining how to restrict state transitions using allowed/default transitions.\n\nmyfsm = AvatarFSM('myAvatar')\nmyfsm.request('Walk', 1.0, BitMask32.bit(2))\n\nNote that the exitStateName method must always take no arguments.\n\nAllowed and disallowed state transitions\n\nBy default, every state transition request is allowed: the call fsm.request('StateName') will always succeed, and the the FSM will be left in the new state. You may wish to make your FSM more robust by disallowing certain transitions that you don't want to happen.\n\nFor instance, consider the example FSM described previously, which had the following state diagram:\n\ntransitions\n\nrankdir=LR node [style=rounded, shape=box]\n\nWalk -> Walk2Swim; Walk2Swim -> Swim; Swim -> Swim2Walk; Swim2Walk -> Walk; Swim -> Drowning;\n\n{ rank=same; Walk2Swim; Swim2Walk; }",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_604",
+    "parent": "processed_documents/context_documents/787f0d21_8c41fb3c_simple-fsm-usage.json",
+    "chunk_number": 7207
+  }
+}

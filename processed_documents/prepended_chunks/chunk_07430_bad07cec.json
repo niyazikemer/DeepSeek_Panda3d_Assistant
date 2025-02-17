@@ -1,0 +1,9 @@
+{
+  "content": "The document explains how to implement positional audio effects using the `Audio3DManager` class in Panda3D, including loading sounds, attaching them to objects for spatialized audio, and managing sound source and listener velocities for Doppler pitch shifting. The provided code snippet demonstrates how to load an SFX file, attach it to a 3D object so its position affects the sound output, set velocity parameters manually or enable automatic updates using collision detection for realistic movement-based audio effects.\n\nmySound = audio3d.loadSfx('blue.wav')\n\nSounds can be attached to objects such that when they move, the sound source will move along with them.\n\naudio3d.attachSoundToObject(mySound, teapot)\n\nYou can use the manager's ~direct.showbase.Audio3DManager.Audio3DManager.setSoundVelocity() and ~direct.showbase.Audio3DManager.Audio3DManager.setListenerVelocity() to set the velocity of sounds or the listener to get the doppler pitch shifting of moving objects. If you would like the ~direct.showbase.Audio3DManager to help you adjust the velocity of moving objects automatically like it does with their position, you can call ~direct.showbase.Audio3DManager.Audio3DManager.setSoundVelocityAuto() or ~direct.showbase.Audio3DManager.Audio3DManager.setListenerVelocityAuto() like this:\n\naudio3d.setSoundVelocity(sound, velocityVector)\naudio3d.setListenerVelocity(velocityVector)\n\nbase.cTrav = CollisionTraverser()\naudio3d.setSoundVelocityAuto(sound)\naudio3d.setListenerVelocityAuto()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_644",
+    "parent": "processed_documents/context_documents/3e30e0d3_68e87296_3d-audio.json",
+    "chunk_number": 7430
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The document provides an in-depth explanation of the PStats system, detailing how to collect and analyze performance data from applications. It explains the use of `.PStatCollector` to time specific regions of code by calling `start()` and `stop()`, emphasizing correct pairing and the impact on existing paused collectors. The section also highlights language-specific considerations, such as manual start/stop calls in Python versus automated handling in C++ using `.PStatTimer`.\n\nOnce you have a collector, simply bracket the region of code you wish to time with collector.start() <.PStatCollector.start> and collector.stop() <.PStatCollector.stop>. It is important to ensure that each call to start() is matched by exactly one call to stop(). If you are programming in C++, it is highly recommended that you use the .PStatTimer class to make these calls automatically, which guarantees the correct pairing; the PStatTimer's constructor calls start() and its destructor calls stop(), so you may simply define a PStatTimer object at the beginning of the block of code you wish to time. If you are programming in Python, you must call start() and stop() explicitly.\n\nWhen you call start() and there was another collector already started, that previous collector is paused until you call the matching stop() (at which time the previous collector is resumed). That is, time is accumulated only towards the collector indicated by the innermost start() .. stop() pair.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7486
+  }
+}

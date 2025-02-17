@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated in a section discussing multiview textures in Panda, focusing on how cube maps can be loaded as multiview textures. It explains that while a standard cube map uses six images for the six faces of a cube, a stereo cube map doubles this to twelve images (six for each eye). The code examples demonstrate loading these textures in both Python and C++. This section follows an introduction to stereo textures and precedes information on 3D multiview textures.\n\nYou can also load cube maps in the same way. A cube map consists of six independently loaded texture images numbered 0 through 5, which define the six faces of a cube. With a stereo cube map, there are twelve texture images numbered 0 through 11. The first six images define the six faces of the cube in the left view, and the next six images define the six faces of the cube in the right view.\n\npython\n\ntex = loader.loadCubeMap('cubemap_##.png', multiview=True)\n\ncpp\n\nLoaderOptions options;\noptions.set_texture_flags(LoaderOptions::TF_multiview);\nPT(Texture) tex = TexturePool::load_texture(\"cubemap_##.png\", 0, false, options);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_724",
+    "parent": "processed_documents/context_documents/aa701a99_1e518caa_multiview-textures.json",
+    "chunk_number": 7834
+  }
+}

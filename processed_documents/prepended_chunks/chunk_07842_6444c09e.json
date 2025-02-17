@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides an example demonstrating how to configure selective object interactions using collision bitmasks. By targeting specific child nodes via `NodePath.find()`, it illustrates controlling which entities can collide with a model, such as enabling only \"ralph\" to interact with a box. This practical application shows how to modify collision masks in loaded models to achieve precise interaction control.\n\nContext: The chunk explains using NodePath.find() to adjust collision masks on specific child nodes within a model's egg file, allowing selective interactions between entities.\n\nThe above code actually calculates the collide mask for its children, and sets all of its children to that same collide mask, wiping out what was there before.\n\nIf you need to have only entities with a certain collision mask to be able to collide with a model, it is helpful to open the model's egg file and see where the collisions are enabled (see Egg Syntax <egg-syntax>). Then you would set the collide mask for only that child node, using .NodePath.find() (see NodePath <the-scene-graph>). For example, to create a box into only \"ralph\" can collide:\n\npython\n\nralph = loader.loadModel(\"ralph\")\nralph.setCollideMask(BitMask32.bit(0))\n\nbox = loader.loadModel(\"box\")\nbox.find(\"**/Cube;+h\").setCollideMask(BitMask32.bit(0))\n\ncpp\n\nNodePath ralph = window->load_model(render, \"ralph\");\nralph.set_collide_mask(BitMask32::bit(0));\n\nNodePath box = window->load_model(render, \"box\");\nbox.find(\"**/Cube;+h\").set_collide_mask(BitMask32::bit(0));",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_725",
+    "parent": "processed_documents/context_documents/8c4f78b1_4a8f1002_collision-bitmasks.json",
+    "chunk_number": 7842
+  }
+}

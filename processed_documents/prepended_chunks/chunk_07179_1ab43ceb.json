@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides guidance on correctly setting up texture formats and shader inputs for both Python and C++ implementations. It emphasizes the importance of using specific texture formats (e.g., `F_rgba8`) over incorrect alternatives, discusses limitations related to mipmap levels and depth textures, and highlights atomic image access support for certain integer formats like `F_r32i`. This section is critical for understanding proper texture handling and shader input configuration in graphics programming.\n\nnode_path.set_shader_input('fromTex', tex)\n\ncpp\n\n// WRONG\ntex->set_format(Texture::F_rgba);\n\n// RIGHT\ntex->set_format(Texture::F_rgba8);\n\nnode_path.set_shader_input(\"fromTex\", tex);\n\nAt time of writing, it is only possible to access the first mipmap level. It is not possible to automatically generate the other mipmap levels at the time of writing, so it is advised to turn mipmap filtering off for the relevant textures. This is a feature we still mean to add.\n\nAccessing depth textures is impossible via this interface. It is not possible to write to them, and reading from them has to be done using a sampler2D or sampler2DShadow object. You can use the texelFetch function with samplers so that you can still use integer texel coordinates.\n\nAtomic image access is only supported for textures with the integer F_r32i format. Atomic image operations are slower, but they come with an extra guarantee that no two invocations write or read from the image texel at the same time.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7179
+  }
+}

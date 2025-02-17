@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides an explanation of how Panda3D handles color attributes in 3D models, including methods such as `.ColorAttrib.make_vertex()`, `.ColorAttrib.make_flat()`, and `.ColorAttrib.make_off()`, which are used by the model loader to indicate vertex colors, flat colors, or no specific color. It also discusses how these color attributes interact with textures, treating the model's color as a base layer similar to Photoshop, and introduces manual recoloring of models using `NodePath.setColor()` or `NodePath.set_color()`. This information is located under the sections \"Color Attributes\" and \"Recoloring the Model.\"\n\nMethod Explanation .ColorAttrib.make_vertex() Used by the model loader to indicate that the model has vertex\ncolors stored in its vertex arrays. .ColorAttrib.make_flat() Used by the model loader to indicate that the model has a single\nflat color. .ColorAttrib.make_off() Used by the model loader to indicate that no particular color was\nspecified. Essentially the same as flat white, but possibly a little\nfaster to render.\n\nPanda combines these color attributes with the textures. If you are accustomed to Photoshop, you should think of the model's color as the bottom (background) layer, and the textures go above that. By default, each texture is modulated (multiplied) with the previous layer, but as in Photoshop, that can be changed.\n\nRecoloring the Model\n\nIf you wish, you can manually override the color attribute which has been specified by the model loader.\n\npython\n\nnodePath.setColor(r, g, b, a)\n\ncpp\n\nnodePath.set_color(r, g, b, a);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_658",
+    "parent": "processed_documents/context_documents/3c995b04_158a20ee_tinting-and-recoloring.json",
+    "chunk_number": 7510
+  }
+}

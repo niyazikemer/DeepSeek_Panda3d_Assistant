@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to terminate connections on the server side by removing clients from the QueuedConnectionReader and closing down the listener, followed by the process a client undertakes to connect to a server using the same port address and IP address.\n\nfor aClient in activeConnections:\n    cReader.removeConnection(aClient)\nactiveConnections = []\n\n# close down our listener\ncManager.closeConnection(tcpSocket)\n\nConnecting with a client\n\nThe process the client undertakes to connect to a server is extremely similar to the process the server undertakes to receive connections. Like the server, a client instantiates a QueuedConnectionManager, QueuedConnectionReader, and ConnectionWriter. However, there are some differences in the process. In general, a client has no need to open a rendezvous socket or create a QueuedConnectionListener, since it will be doing the connecting itself. Instead, the client connects to a specific server by specifying the server's IP address and the correct socket ID.\n\nport_address = 9099  # same for client and server\n\n# A valid server URL. You can also use a DNS name\n# if the server has one, such as \"localhost\" or \"panda3d.org\"\nip_address = \"192.168.0.50\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_579",
+    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
+    "chunk_number": 7069
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces the foundational setup for a Bullet Physics simulation in Panda3D, demonstrating the creation of a physics world, camera positioning, and ground plane implementation.\n\nThe model cube.egg used in this hello word sample can be found in the following archive: https://www.panda3d.org/download/noversion/bullet-samples.zip\n\ncpp\n\nNote\n\nSamples are currently available in Python code only.\n\npython\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import Vec3\nfrom panda3d.bullet import BulletWorld\nfrom panda3d.bullet import BulletPlaneShape\nfrom panda3d.bullet import BulletRigidBodyNode\nfrom panda3d.bullet import BulletBoxShape\n\nbase.cam.setPos(0, -10, 0)\nbase.cam.lookAt(0, 0, 0)\n\n# World\nworld = BulletWorld()\nworld.setGravity(Vec3(0, 0, -9.81))\n\n# Plane\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\nworld.attachRigidBody(node)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7102
+  }
+}

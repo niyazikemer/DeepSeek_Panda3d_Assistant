@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides essential information on configuring mouse behavior in Panda3D applications, including hiding the cursor, re-enabling camera control, and an overview of absolute mouse mode.\n\nIf you want to hide the mouse cursor, you want the line: cursor-hidden true in your Config.prc <configuring-panda3d> or this section of code:\n\npython\n\nfrom pandac.PandaModules import WindowProperties\nprops = WindowProperties()\nprops.setCursorHidden(True)\nbase.win.requestProperties(props)\n\nRe-enabling mouse control\n\nIf you need to re-enable the mouse control of the camera, you have to adjust mouseInterfaceNode to the current camera transformation:\n\npython\n\nmat = Mat4(camera.getMat())\nmat.invertInPlace()\nbase.mouseInterfaceNode.setMat(mat)\nbase.enableMouse()\n\nOtherwise the camera would be placed back to the last position when the mouse control was enabled.\n\nMouse modes\n\nYou may configure the mouse mode, which controls how the mouse cursor operates in the window.\n\nAbsolute mouse mode\n\nBy default, the mouse is in \"absolute\" mode, meaning the cursor can freely move outside the window. This mode is typical for desktop applications.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_615",
+    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
+    "chunk_number": 7250
+  }
+}

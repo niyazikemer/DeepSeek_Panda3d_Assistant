@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk demonstrates how to configure and dispatch a compute shader in Panda3D, including specifying work groups based on image dimensions. It's part of a section explaining how to execute GPU-based computations efficiently after setting up textures and before discussing image access methods like `image2D` uniforms.\n\n// Our image has 32x32 tiles\nLVecBase3i work_groups(512/16, 512/16, 1);\n\n// Dispatch the compute shader, right now!\nGraphicsEngine *engine = GraphicsEngine::get_global_ptr();\nengine->dispatch_compute(work_groups, sattr, win->get_gsg());\n\nKeep in mind that each call to ~.GraphicsEngine.dispatch_compute() causes Panda3D to wait for the current frame to finish rendering. This can be a very inefficient process, and you are not advised to use this method for operations that happen on a regular basis.\n\nImage access\n\nThough it is still possible to use regular texture samplers, these aren't very well suited for many types of image processing. Regular samplers take texture coordinates in a [0, 1] range, the extra filtering processes add an unnecessary overhead, and it is not possible to write back to textures using this interface.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7177
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code sets up a basic environment using the PandAI library within Panda3D. It defines a `World` class that initializes the game's camera, loads necessary models (a seeker and a target), and configures AI components. The `loadModels()` method creates a seeker character named Ralph and a target arrow, positioning them in the scene. The `setAI()` method initializes an `AIWorld`, adds an `AICharacter` with specified movement parameters, and retrieves its behaviors for future actions. This setup is essential for implementing AI functionalities like seeking or wandering later on.\n\nclass World(DirectObject):\n\n    def __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0, 0, 55, 0, -90, 0)\n\n        self.loadModels()\n        self.setAI()\n\n    def loadModels(self):\n        # Seeker\n        ralphStartPos = Vec3(-10, 0, 0)\n        self.seeker = Actor(\"models/ralph\",\n                            {\"run\":\"models/ralph-run\"})\n        self.seeker.reparentTo(render)\n        self.seeker.setScale(0.5)\n        self.seeker.setPos(ralphStartPos)\n        # Target\n        self.target = loader.loadModel(\"models/arrow\")\n        self.target.setColor(1, 0, 0)\n        self.target.setPos(5, 0, 0)\n        self.target.setScale(1)\n        self.target.reparentTo(render)\n\n    def setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"seeker\",self.seeker, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_589",
+    "parent": "processed_documents/context_documents/3d40f64e_a5e34e22_getting-started.json",
+    "chunk_number": 7126
+  }
+}

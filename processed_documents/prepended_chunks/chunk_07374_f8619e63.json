@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides detailed documentation on implementing a slider bar using `PGSliderBar` in Panda3D's PG (Panda GUI) system. It is situated within a comprehensive guide covering various UI components, including buttons, sliders, entry fields, frames, and more, with specific focus on PG-based implementations as an alternative to higher-level Direct GUI elements.\n\n[PGSliderBar]\n\n#include \"pgSliderBar.h\"\n\nA simple sliderbar.\n\nThis slider basically has four components:\n\nThe thumb button. This is the sliding part.\n\nThe slider. This is the 'rail' the thumb button slides along.\n\nThe left button. User can click on it to slide the thumb button to the left.\n\nThe right button. User can click on it to slide the thumb button to the right.\n\nUsing default initialisation, none of these components are textured.\n\nPT(PGSliderBar) slider = new PGSliderBar(\"MySliderBar\");\n\n// Setup, feeding the constructor with (bool vertical,float length,float width,float bevel)\nslider->setup_slider(false, 0.1, 0.1, 0); // 'rail' properties\nslider->set_range(0,1);\nslider->set_value(0.5);\n\n// Setup scroll bar (the 'moving thumb button' including left and right button)\nslider->setup_scroll_bar(false, 0.35, 0.05, false);\nNodePath slider_np = window->get_aspect_2d().attach_new_node(Slider);\nslider_np.set_pos(0, 0, 0);\n\n(work in progress, more to come soon.)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_631",
+    "parent": "processed_documents/context_documents/5bc2b973_67d10b58_index.json",
+    "chunk_number": 7374
+  }
+}

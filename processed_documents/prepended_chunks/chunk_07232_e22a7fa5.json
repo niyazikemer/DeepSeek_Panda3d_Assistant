@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the concept of Client Repositories in a distributed system, explaining their role in managing connections to servers. It provides an initial code example demonstrating the setup of a basic client repository class, setting the stage for further details on connection handling and object management that follow in the document. This section is foundational for understanding how clients interact with servers in a distributed environment, particularly relevant for applications like games using Panda3D.\n\nClient Repositories\n\nSimilar to the server repositories, client repositories are there to handle the lower-level connection code to the server. As seen earlier in the ai-repositories chapter, client repositories doesn\u2019t necessarily have to be on end-user machines but can also be used on servers. A basic client repository implementation may look as follows or should at least implement the following set of functions to work properly.\n\nfrom direct.distributed.ClientRepository import ClientRepository\nfrom panda3d.core import URLSpec, ConfigVariableInt, ConfigVariableString\nfrom DGameObject import DGameObject\n\nclass GameClientRepository(ClientRepository):\n\n    def __init__(self):\n        dcFileNames = ['direct.dc', 'yourOwnDCFile.dc']\n\n        # a distributed object of our game.\n        self.distributedObject = None\n        self.aiDGameObect = None\n\n        ClientRepository.__init__(\n            self,\n            dcFileNames = dcFileNames,\n            threadedNet = True)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_613",
+    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
+    "chunk_number": 7232
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the limitations of directly subclassing C++ classes in Python and introduces the use of `setPythonTag`, `getPythonTag`, and `hasPythonTag` methods to bridge this gap. This technique allows attaching Python objects to C++ nodes, enabling effective subclassing through tagging rather than direct inheritance.\n\n```python\n# Context: Bridging Python and C++ Subclassing in Panda3D\n\n\"\"\"\nThis section explains the workaround for subclassing C++ classes like `PandaNode` from Python. Instead of true subclassing, it demonstrates using special methods to attach Python objects to C++ nodes via tags.\n\"\"\"\n```\n\nThe Practice\n\nWith most C++ classes the only way forward is to create a new C++ subclass and the related Python wrapper around it. However, there is a work-around for classes such as PandaNode and NodePath. Both these C++ classes have in fact been designed with functionality to store and retrieve python objects on them. Specifically, the methods ~.NodePath.set_python_tag(), ~.NodePath.get_python_tag() and ~.NodePath.has_python_tag() are available to respectively store, retrieve and check for the existence of a pointer to an arbitrary Python object on these C++ objects.\n\nThis allows us to subclass from the Python wrapper class around the C++ object and store, on the C++ object, a pointer to the new sub class.\n\nLet's first see an example of what doesn't work:\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import PandaNode",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_628",
+    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
+    "chunk_number": 7336
+  }
+}

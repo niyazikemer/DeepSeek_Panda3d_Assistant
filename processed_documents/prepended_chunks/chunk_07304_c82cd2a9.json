@@ -1,0 +1,9 @@
+{
+  "content": "This section provides an overview of alternative collision detection spaces available in Panda3D, such as the OdeQuadTreeSpace and OdeHashSpace. These options are particularly useful for managing collisions in scenarios with a high number of objects or extensive scenes, offering optimized performance through hierarchical structures like AABB trees (for OdeQuadTreeSpace) or multiple grids (for OdeHashSpace).\n\nIf you have more objects and a larger scene, you will want to use the OdeQuadTreeSpace. This uses a pre-allocated hierarchical grid-based AABB tree to quickly cull collision checks. It's exceptionally quick for large amounts of objects in landscape-shaped worlds.\n\nFinally, there's the OdeHashSpace, which uses an internal data structure that records how each geom overlaps cells in one of several three dimensional grids. Each grid has cubical cells of side lengths 2**i, where i is an integer that ranges from a minimum to a maximum value. You can set this minimum and maximum value using the setMinLevel and setMaxLevel functions respectively, or you can use setLevels to set them all in one call.\n\nGeometry",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_624",
+    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
+    "chunk_number": 7304
+  }
+}

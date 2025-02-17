@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses texture stage modes, specifically modulate and add modes, which are fundamental blend operations in Panda3D.\n\nContext: This section explains two essential texture blending modes\u2014modulate (default) and add\u2014providing code examples for both Python and C++. It is situated within the broader document that covers various texture stage modes, including more specialized maps like gloss and glow. These basic modes are presented early to establish foundational knowledge before delving into advanced features.\n\nAnswer:\n\nThis chunk explains the modulate and add blend modes in Panda3D's texture stages, providing code examples for both Python and C++. It is placed within a section discussing various texture blending operations.\n\nModulate mode\n\nThis is the default blend mode. In this mode, the top texture color is multiplied by the bottom texture color to produce the result. This means the resulting texture color will be darker (or at least, no brighter) than both of the original texture colors.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MModulate)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_modulate);\nsmiley.set_texture(ts, tex);\n\nNote that in this mode, an alpha cutout in the top texture produces an alpha cutout in the resulting image.\n\nAdd mode\n\nIn this mode, the top texture color is added to the bottom texture color, and clamped to 1 (white). This means the resulting texture color will be brighter (or at least, no darker) than both of the original texture colors.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MAdd)\nsmiley.setTexture(ts, tex)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7028
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides the initial setup steps for implementing click detection on 3D objects in Panda3D by setting up collision detection and attaching a ray-casting mechanism to the camera.\n\nContext: The code demonstrates how to initialize the necessary components (CollisionTraverser, CollisionHandler) and attach a CollisionRay node to the camera for detecting mouse clicks on 3D objects. This is a fundamental step in enabling interactive object selection in Panda3D applications.\n\n```plaintext\nThis section explains the essential setup for clicking on 3D objects in Panda3D by configuring collision detection with a ray-casting mechanism attached to the camera.\n```\n\nClicking on 3D Objects\n\nThe simplest way to click on 3D objects in Panda3D is to use very simplistic collision detection coupled with event processing. First, after a .CollisionTraverser and a .CollisionHandler have been set up, attach a .CollisionRay node to the camera. This node will have its \"from\" collision mask set to .GeomNode.get_default_collide_mask() in order to be as general as possible.\n\npython\n\npickerNode = CollisionNode('mouseRay')\npickerNP = camera.attachNewNode(pickerNode)\npickerNode.setFromCollideMask(GeomNode.getDefaultCollideMask())\npickerRay = CollisionRay()\npickerNode.addSolid(pickerRay)\nmyTraverser.addCollider(pickerNP, myHandler)\n\ncpp\n\nPT(MouseWatcher) mouseWatcher;\nPT(CollisionRay) pickerRay;\nCollisionTraverser myTraverser = CollisionTraverser(\"ctraverser\");\nPT(CollisionHandlerQueue) myHandler;\nPT(CollisionNode) pickerNode;\nNodePath pickerNP;",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_642",
+    "parent": "processed_documents/context_documents/89de807b_91a421cd_clicking-on-3d-objects.json",
+    "chunk_number": 7418
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis section provides code examples in Python and C++ demonstrating how to load custom Panda3D configuration files before creating a window or ShowBase instance. It emphasizes the importance of timing when loading configurations to ensure settings are applied correctly and introduces using `loadPrcFileData()` for string-based configuration loading.\n\nContext: The chunk explains loading custom PRC files in Python and C++ before critical operations like instantiating ShowBase or opening windows, highlighting necessary steps for proper configuration application. It also showcases how to dynamically load configurations from strings.\n\"\"\"\n\npython\n\nYou should load your own PRC file before instantiating ShowBase. Changing certain configuration variables later on may not affect the window/environment that has already been created.\n\ncpp\n\nYou should load your own PRC file before opening the window. Changing certain configuration variables later on may not affect the window/environment that has already been created.\n\nYou can also use .load_prc_file_data() to load a string that you define in your code, as if it were the contents read from a disk file. The .load_prc_file_data() call requires two parameters. The first parameter is an arbitrary string name to assign to this \"file\" (and it can be the empty string if you don't care), while the second parameter is the contents of the file itself. This second parameter should contain newlines between variable definitions if you want to set the value of more than one variable.\n\nFor example, let's say that Panda3D's configuration file contains this line:\n\nfullscreen #f",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_626",
+    "parent": "processed_documents/context_documents/9165eb63_bae543ea_accessing-config-vars-in-a-program.json",
+    "chunk_number": 7324
+  }
+}

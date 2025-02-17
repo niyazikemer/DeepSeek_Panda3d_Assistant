@@ -1,0 +1,9 @@
+{
+  "content": "To create a 2D DisplayRegion in Panda3D for a secondary window or buffer, follow these steps:\n\n1. **Create a new DisplayRegion**: Use `win.makeDisplayRegion()` to create the region and set its sort value to ensure it renders after the main 3D content (e.g., `dr.sort = 20`).\n\n2. **Set up an Orthographic camera**: Create a camera node with an OrthographicLens, adjusting film size and near/far clipping planes as needed.\n\n3. **Attach camera to scene graph**: Parent the camera to a render node (like `myRender2d`), disable depth testing/writing for 2D rendering.\n\n4. **Handle GUI elements**: Attach them to a PGTop node (`aspect2d`) scaled by window aspect ratio, and configure mouse interaction with a MouseWatcher.\n\nThis setup allows overlaying 2D elements on top of your 3D scene in a secondary window or buffer.\n\nThe 2D Display Region\n\nThere is one more DisplayRegion that Panda normally creates automatically for the main window. This is the 2-D DisplayRegion that renders the onscreen GUI or heads-up display. It is simply another DisplayRegion that covers the entire screen, like the 3-D DisplayRegion it layers on top of, except that its camera has an Orthographic Lens <orthographic-lenses> instead of a normal Perspective Lens <lenses-and-field-of-view>.\n\nThis is the DisplayRegion associated with render2d, and is normally used to render all of the gui elements and onscreen text items you may lay on top of the screen.\n\nIf you are creating a secondary window or buffer, and you would like to layer 2-D elements on top of the screen, you can do so by simply creating a 2-D scene similar to render2d. Some sample code to do so is shown here:\n\npython\n\ndr = win.makeDisplayRegion()\ndr.sort = 20",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_571",
+    "parent": "processed_documents/context_documents/baabada6_80cd6c1e_2d-display-region.json",
+    "chunk_number": 7043
+  }
+}

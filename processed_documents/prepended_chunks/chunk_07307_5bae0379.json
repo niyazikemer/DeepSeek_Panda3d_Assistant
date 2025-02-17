@@ -1,0 +1,9 @@
+{
+  "content": "The document covers creating dynamic physics simulations in Panda3D using Ode bodies, including setting up collision detection between objects. The code chunk focuses on defining a triangle mesh geometry for physical objects and configuring material properties through the surface table in Ode physics.\n\ncpp\n\nPT(OdeTriMeshData) modelTrimesh = new OdeTriMeshData(modelNodePath, true);\nOdeTriMeshGeom modelGeom (space, modelTrimesh);\n\nIf a geometry represents a physically dynamic object you can associate it with the dynamic body using odeGeom.setBody(body). This will automatically reposition the geometry with regard to the position of the related body in the OdeWorld.\n\nSurfaces\n\nSufaces define the material a geometry is made of and the Surface Table defines how materials react with each other setting the bounce, friction etc. To set up the surface system, you must first initialize the surface table which is done with odeWorld.initSurfaceTable(numberOfSurfaces)\n\nOnce you have done that, you have to setup the parameters for collisions between two surfaces using odeWorld.setSurfaceEntry(surfaceId1, surfaceId2, mu, bounce, bounce_vel, soft_erp, soft_cfm, slip, dampen). The surface identifiers start from 0 so if you initialized your surface table with 3 surfaces, the surface IDs are 0, 1, 2.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_624",
+    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
+    "chunk_number": 7307
+  }
+}

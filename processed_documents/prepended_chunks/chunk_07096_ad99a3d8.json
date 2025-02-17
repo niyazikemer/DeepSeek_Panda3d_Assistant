@@ -1,0 +1,9 @@
+{
+  "content": "This code illustrates how to implement an update loop for a physics simulation using Bullet Physics in both Python and C++. The `update` function (Python) or `update_scene` method (C++) retrieves the time delta since the last frame, advances the physics simulation with `doPhysics`, and returns control to the task manager. In C++, additional parameters specify maximum substeps and fixed timestep size for finer simulation control.\n\npython\n\ndef update(task):\n    dt = globalClock.getDt()\n    world.doPhysics(dt)\n    return task.cont\n\ntaskMgr.add(update, 'update')\n\ncpp\n\n...\nAsyncTask::DoneStatus update_scene(GenericAsyncTask* task, void* data) {\n    // Get dt (from Python example) and apply to do_physics(float, int, int);\n    ClockObject *co = ClockObject::get_global_clock();\n    physics_world->do_physics(co->get_dt(), 10, 1.0 / 180.0);\n\n    return AsyncTask::DS_cont;\n}\n...\nPT(GenericAsyncTask) task;\ntask = new GenericAsyncTask(\"Scene update\", &update_scene, nullptr);\ntask_mgr->add(task); // Note: task_mgr = AsyncTaskManager::get_global_ptr();\n...\n\nThe doPhysics method allows finer control on the way the simulation state is advanced. Internally Bullet splits a timestep into several substeps. We can pass a maximum number of substeps and the size of each substep, like show in the following code.\n\npython\n\nworld.doPhysics(dt, 10, 1.0/180.0)\n\ncpp\n\nphysics_world->do_physics(co->get_dt(), 10, 1.0 / 180.0);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7096
+  }
+}

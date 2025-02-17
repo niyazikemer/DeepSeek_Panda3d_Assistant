@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a section explaining how to manipulate image data using the PNMImage class in Panda3D, specifically focusing on setting pixel colors, using Vec3 for grayscaling, filling images with specific colors, and managing alpha channels.\n\npython\n\nmyImage.setGreenVal(0, 0, 255) # If pixel (0, 0) was red before, now it is yellow\nmyImage.setBlue(0, 0, 1) # Pixel (0, 0) is now white\n\ngray = Vec3(0.5, 0.5, 0.5)\n\n# Both of these set the origin to gray\nmyImage.setXelVal(0, 0, gray * 255)\nmyImage.setXel(0, 0, gray)\n\n# Makes every pixel red\nmyImage.fillVal(255, 0, 0)\n# Makes every pixel green\nmyImage.fill(0, 1, 0)\n\nThere are also gets and sets for the alpha channel using the same interface as above. However, if you use them on an image that doesn't have an alpha channel you will cause a crash. To see if an image has an alpha channel use ~.PNMImage.has_alpha() which returns True if there is an alpha channel and False otherwise. You can add an alpha channel using ~.PNMImage.add_alpha(). You can also remove it using ~.PNMImage.remove_alpha().",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_647",
+    "parent": "processed_documents/context_documents/c417f3fc_7487dfe5_creating-textures.json",
+    "chunk_number": 7444
+  }
+}

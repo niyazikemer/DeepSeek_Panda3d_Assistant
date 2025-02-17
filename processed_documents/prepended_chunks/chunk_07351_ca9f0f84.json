@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a discussion about loading 3D models asynchronously using callbacks in Panda3D. It provides an example of processing loaded models by reparenting them to the scene graph and handling program termination gracefully by canceling pending load requests. This section highlights the complexity of this approach compared to alternative methods like coroutines.\n\n# Process the models that finished loading\n        self.terrainModel, self.cityModel = models\n\n        self.terrainModel.reparentTo(render)\n        self.cityModel.reparentTo(render)\n\n    def quit(self):\n        if self.loadRequest:\n            self.loadRequest.cancel()\n\n        sys.exit()\n\nLoading in a coroutine\n\npython\n\nAs you can see, the previous approach made the code quite a bit more convoluted. We had to split up the load process into two methods, and also take special care to ensure that the load request was cancelled when necessary, and take care of where the intermediate variables were stored during the load operation. If we also wanted to handle exceptions in the load operation properly, it would get more complicated still!",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7351
+  }
+}

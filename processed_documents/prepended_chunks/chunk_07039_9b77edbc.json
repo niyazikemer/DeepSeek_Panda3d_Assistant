@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a comprehensive guide on texture mapping in Panda3D, specifically addressing limitations and usage details for gloss maps and introducing the concept of glow maps. The context explains how these texture types enhance visual effects by modifying material properties, with a focus on their functionality, limitations (e.g., single map per polygon), and dependency on shader generation.\n\nCurrently, Panda3D only allows one gloss map per polygon, additional gloss maps will be ignored.\n\nGloss maps only function when shader generation <the-shader-generator> is enabled.\n\nGlow Map Mode\n\nA glow map is a black-and-white texture which indicates that a model should be glowing in certain areas. More specifically, the contents of the glow map are added to the material emission. This causes those parts of the model to be lit even when the lights are otherwise off.\n\nIn practice, though, things don't really look like they're glowing unless you apply a bloom filter to your scene. Panda can be made to copy the contents of your glow map into the framebuffer alpha, from which it can be read by the bloom filter. The bloom filter then really creates a dramatic glow effect. All of this is documented in the chapter on the bloom filter.\n\nA glow map must be an alpha-texture:\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MGlow)\nsmiley.setTexture(ts, tex)\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7039
+  }
+}

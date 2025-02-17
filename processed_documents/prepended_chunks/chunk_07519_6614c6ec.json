@@ -1,0 +1,9 @@
+{
+  "content": "The chunk situates the discussion of `p3d_Color` vertex attribute handling within the broader context of shader inputs, transitioning into an explanation of uniform shader inputs.\n\nIn 1.10, p3d_Color respects the ColorAttrib rules that also applied to the fixed-function pipeline: p3d_Color will contain a white color if the vertex colors are absent or if colors are disabled using ~.NodePath.set_color_off(), and a flat color if one is applied using ~.NodePath.set_color(), even if vertex colors are present.\n\nIf you are absolutely certain that the model does not have vertex colors, you may also declare p3d_Color as a uniform instead of a vertex attribute.\n\nIf you would like to treat the color column as a generic vertex attribute with no special handling, you should use the name \"color\" instead of \"p3d_Color\", which will bind it without any special handling.\n\nUniform shader inputs\n\nThe following shader inputs are uniform, which means that they are constant across the entire piece of geometry, rather than changing from vertex to vertex. They have to be declared with the uniform qualifier, and may be accessed in any shader stage.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_659",
+    "parent": "processed_documents/context_documents/f02f1382_244963d7_list-of-glsl-inputs.json",
+    "chunk_number": 7519
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk describes how to create a recurring coroutine task using the `async def` syntax in Panda3D. It explains that while regular tasks are functions that take a `Task` object as an argument and can be added to the task manager with `taskMgr.add()`, coroutines add the ability to use the `await` keyword, allowing them to pause execution until some condition is met or another operation completes. This chunk also mentions that C++20 coroutines are not yet supported in Panda3D but provides a link for experimental usage and introduces the concept of Awaitables, which are objects that can be awaited within coroutines.\n\nfrom direct.task.Task import Task\n\n\nasync def damageTask(task):\n    if player just collided with invincibility item:\n        # Suspend damage task until invincibility is no longer active\n        await Task.pause(10.0)\n\n    return task.cont\n\n# Note the lack of parentheses here!\ntaskMgr.add(damageTask)\n\nThis behaves identically to a regular task, except that it permits use of the await keyword.\n\ncpp\n\nCoroutines are a feature introduced in C++20 that allow a function to be temporarily suspended, pending the completion of an asynchronous operation.\n\nAt the time of writing, Panda3D does not yet integrate support for the C++20 coroutine feature into the library. If you are feeling adventurous, see this forum thread for a way to use C++20 coroutines with the Panda3D task system:\n\nhttps://discourse.panda3d.org/t/using-c-20-coroutines-with-panda3d/27323\n\nAwaitables\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_689",
+    "parent": "processed_documents/context_documents/0a46205a_9afad06b_coroutines.json",
+    "chunk_number": 7671
+  }
+}

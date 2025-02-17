@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes additional TextureStage modes (`MAdd`, `MReplace`) and introduces the `Decal` mode, providing code examples in both Python and C++. These modes control how textures combine with underlying geometry.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MAdd)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_add);\nsmiley.set_texture(ts, tex);\n\nNote that in this mode, as in modulate mode, an alpha cutout in the top texture produces an alpha cutout in the resulting image. Also note that, unless one or both of your source textures was rather dark, there is a tendency for the colors to get washed out at white where everything clamps to 1.\n\nReplace mode\n\nIn this mode the top texture completely replaces the bottom texture. This mode is not often used.\n\npython\n\nts = TextureStage('ts')\nts.setMode(TextureStage.MReplace)\nsmiley.setTexture(ts, tex)\n\ncpp\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_replace);\nsmiley.set_texture(ts, tex);\n\nNote that the alpha cutout is preserved, but the effects of lighting (which are considered part of the underlying texture) have been lost.\n\nDecal mode",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7029
+  }
+}

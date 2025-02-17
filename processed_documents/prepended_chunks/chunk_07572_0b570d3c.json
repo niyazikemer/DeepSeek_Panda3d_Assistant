@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses implementing specific texture wrap modes in C++, including setting border colors for WM_border_color, handling fallback behavior for older drivers, and using WM_mirror and WM_mirror_once.\n\ncpp\n\ntexture->set_wrap_u(Texture::WM_border_color);\ntexture->set_wrap_v(Texture::WM_border_color);\ntexture->set_border_color(LColor(1, 1, 1, 1));\n\nSome very old graphics drivers don't support WM_border_color. In this case, Panda3D will fall back to WM_clamp, which will look similar as long as there is a sufficient margin of background color around the edge of your texture (unlike our sample texture, which goes all the way out the edge).\n\nWM_mirror\n\npython\n\ntexture.setWrapU(Texture.WM_mirror)\ntexture.setWrapV(Texture.WM_mirror)\n\ncpp\n\ntexture->set_wrap_u(Texture::WM_mirror);\ntexture->set_wrap_v(Texture::WM_mirror);\n\nMany older graphics drivers do not support WM_mirror. In this case, Panda3D will fall back to WM_repeat.\n\nWM_mirror_once\n\npython\n\ntexture.setWrapU(Texture.WM_mirror_once)\ntexture.setWrapV(Texture.WM_mirror_once)\ntexture.setBorderColor((0.4, 0.5, 1, 1))\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_668",
+    "parent": "processed_documents/context_documents/46006720_0b25daa5_texture-wrap-modes.json",
+    "chunk_number": 7572
+  }
+}

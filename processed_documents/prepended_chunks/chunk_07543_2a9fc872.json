@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a detailed example of setting up scene-wide exponential fog in both Python and C++ using Panda3D. It explains how to use the `set_ExpDensity()` method, demonstrates applying fog to the entire scene by calling `setFog()` on the render node, and suggests matching the background color to the fog for aesthetic consistency. The example also notes that while the fog is typically applied globally, it can be limited to specific nodes as needed.\n\nThe .Fog.set_exp_density() method determines the density value used for exponential fog calculations. The below example uses it to set up some scene-wide exponential fog:\n\npython\n\ncolor = (0.5, 0.8, 0.8)\nexpfog = Fog(\"Scene-wide exponential Fog object\")\nexpfog.setColor(*color)\nexpfog.setExpDensity(0.005)\nrender.setFog(expfog)\nbase.setBackgroundColor(*color)\n\ncpp\n\nLColor color(0.5, 0.8, 0.8, 1); PT(Fog) expfog = Fog(\"Scene-wide exponential Fog object\"); expfog->set_color(color); expfog->set_exp_density(0.005); window->get_render().set_fog(expfog); window->get_display_region_3d()->set_clear_color(color);\n\nThe last line in the sample above doesn't actually affect the fog, however, it generally looks better if the scene background color matches the color of the fog.\n\nSince ~.NodePath.set_fog() is called on render it affects the entire scene. ~.NodePath.set_fog() can just as easily be called on some other .NodePath and will affect only that .NodePath and its children.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_663",
+    "parent": "processed_documents/context_documents/92b9a0c0_2014d82f_fog.json",
+    "chunk_number": 7543
+  }
+}

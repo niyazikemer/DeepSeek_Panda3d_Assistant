@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a 3D steering behavior demonstration in Panda3D using PandAI's Pursue behavior. It implements keyboard controls for moving a target object (red cube) and displays instruction text on screen. The `setKey` method handles input state updates, while the `Mover` task updates the target position based on arrow key presses. These functions are part of the World class that sets up the scene and manages interactions between the pursuing agent and the user-controlled target.\n\naddInstructions(0.9, \"Use the Arrow keys to move the Red Target\")\n\n    def setKey(self, key, value):\n        self.keyMap[key] = value\n\n    def Mover(self, task):\n        startPos = self.target.getPos()\n        if self.keyMap[\"left\"] != 0:\n            self.target.setPos(startPos + Point3(-speed, 0, 0))\n        if self.keyMap[\"right\"] != 0:\n            self.target.setPos(startPos + Point3(speed, 0, 0))\n        if self.keyMap[\"up\"] != 0:\n            self.target.setPos(startPos + Point3(0, speed, 0))\n        if self.keyMap[\"down\"] != 0:\n            self.target.setPos(startPos + Point3(0, -speed, 0))\n\n        return Task.cont\n\nw = World()\nbase.run()\n\nTo get the full working demo, please visit:\n\nhttps://sites.google.com/site/etcpandai/documentation/steering-behaviors/pursue/PandAIPursueExample.zip?attredirects=0&d=1",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_698",
+    "parent": "processed_documents/context_documents/7378c868_0548f935_pursue.json",
+    "chunk_number": 7715
+  }
+}

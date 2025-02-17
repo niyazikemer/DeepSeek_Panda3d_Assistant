@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes how to create basic collision shapes like boxes and cylinders using Python and C++ in Panda3D's Bullet physics engine, with examples of how to define their dimensions and orientations.\n\npython\n\nfrom panda3d.bullet import BulletBoxShape\ndx = 0.5\ndy = 0.5\ndz = 1.0\nshape = BulletBoxShape(Vec3(dx, dy, dz))\n\ncpp\n\n#include \"bulletBoxShape.h\"\n...\ndouble dx = 0.5;\ndouble dy = 0.5;\ndouble dz = 0.5;\nPT(BulletBoxShape) box_shape = new BulletBoxShape(LVecBase3(dx, dy, dz));\n\nCylinder Shape\n\nA primitive collision shape which is represents a cylinder. We can create a cylinder shape by either passing it's radius, height and cylinder axis, or by passing a vector with half extents and the cylinder axis. The following example creates two cylinder shapes, both with radius 0.5 and height 1.4.\n\npython\n\nfrom panda3d.bullet import BulletCylinderShape\nradius = 0.5\nheight = 1.4\nshape1 = BulletCylinderShape(radius, height, ZUp)\nshape2 = BulletCylinderShape(Vec3(radius, 0, 0.5 * height), ZUp)\n\ncpp\n\n#include \"bulletCylinderShape.h\"\n...\ndouble radius = 0.5;\ndouble height = 1.4;\nPT(BulletCylinderShape) cylinder_shape_one = new BulletCylinderShape(radius, height);\n\nCapsule Shape",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7274
+  }
+}

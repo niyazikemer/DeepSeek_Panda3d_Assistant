@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides essential information on how to bridge the functionalities of Panda3D's `Texture` class with the pixel manipulation capabilities of the `PNMImage` class. It explains the process of transferring texture data into a `PNMImage` object for modification, and then reloading the modified image back into a texture, which is crucial for applying custom image changes to rendered scenes in Panda3D applications.\n\nThere are several other useful functions in the class, which are described on the ~panda3d.core.PNMImage page in the API Reference.\n\nStoring a Texture into an Image\n\nThe Panda .Texture class does not allow for pixel manipulation. But the .PNMImage class does. Therefore, if you want to change the image in a .Texture object you must call store(image) <.Texture.store>, which saves the image of the texture into the given image object.\n\npython\n\nmyImage = PNMImage()\nmyTexture = loader.loadTexture(\"myTex.jpg\")\n\n# After this call, myImage now holds the same image as the texture\nmyTexture.store(myImage)\n\nLoading a PNMImage into a Texture\n\nOnce you have changed all the data in the image you can now load it into a texture using the texture's load(myImage) <.Texture.load> method, where myImage is the PNMImage to make the texture from.\n\npython\n\n# Assume we already have myImage which is our modified PNMImage\nmyTexture = Texture(\"texture name\")",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_647",
+    "parent": "processed_documents/context_documents/c417f3fc_7487dfe5_creating-textures.json",
+    "chunk_number": 7446
+  }
+}

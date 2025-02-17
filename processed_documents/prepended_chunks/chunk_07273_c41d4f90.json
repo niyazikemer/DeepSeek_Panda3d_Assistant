@@ -1,0 +1,9 @@
+{
+  "content": "This chunk introduces two types of collision shapes: Plane and Box. The Plane Shape section explains how to create an infinite plane using a normal vector and distance, noting it's only for static objects, with examples in both Python and C++. The Box Shape section begins, detailing its creation through half-extents but isn't fully elaborated here.\n\ncpp\n\n#include \"bulletSphereShape.h\"\n...\ndouble radius = 0.5;\nPT(BulletSphereShape) sphere_shape = new BulletSphereShape(radius);\n\nPlane Shape\n\nAnother primitive collision shape, an infinite plane. To create a plane you have to pass both the plane's normal vector (Vec3(nx, ny, nz)) and the plane constant (d, which is the distance of the plane's origin. Planes can only be used for static objects.\n\npython\n\nfrom panda3d.bullet import BulletPlaneShape\nnormal = Vec3(0, 0, 1)\nd = 0\nshape = BulletPlaneShape(normal, d)\n\ncpp\n\n#include \"bulletPlaneShape.h\"\n...\nLVecBase3 normal(0, 0, 1);\ndouble d = 1;\nPT(BulletPlaneShape) floor_shape = new BulletPlaneShape(normal, d);\n...\n\nBox Shape\n\nA box-shaped primitive collision shape. To create a box you have to pass a vector with the half-extents (Vec3(dx, dx, dx)). The full extents of the box will be twice the half extents, e. g. from -dx to +dx on the local x-axis.\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7273
+  }
+}

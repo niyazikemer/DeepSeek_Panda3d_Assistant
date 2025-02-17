@@ -1,0 +1,9 @@
+{
+  "content": "To add a \"from\" object to a CollisionTraverser in Panda3D:\n\n1. **Create a CollisionHandler**: This defines the action when a collision is detected.\n\n2. **Add the From Object**:\n   - Use `traverser.addCollider(fromObject, handler)`, where `fromObject` is the NodePath of your object and `handler` is the CollisionHandler you created.\n   \n3. **Important Notes**:\n   - Only add \"from\" objects to the traverser; \"into\" objects are automatically handled as they exist in the scene graph.\n   - By default, \"from\" objects are also \"into\" objects unless their CollideMask is set to zero.\n\nThis setup ensures that collisions between your specified \"from\" object and other scene objects (including other \"from\" objects) are detected efficiently.\n\nIn order to add a from object to the CollisionTraverser, you must first create a CollisionHandler that defines the action to take when the collision is detected; then you pass the NodePath for your from object, and its CollisionHandler, to ~.CollisionTraverser.add_collider().\n\npython\n\ntraverser = CollisionTraverser('traverser name')\nbase.cTrav = traverser\ntraverser.addCollider(fromObject, handler)\n\nYou only need to add the \"from\" objects to your traverser! Don't try to add the \"into\" objects to the CollisionTraverser. Adding an object to a CollisionTraverser makes it a \"from\" object. On the other hand, every object that you put in the scene graph, whether it is added to a CollisionTraverser or not, is automatically an \"into\" object.\n\nNote that all of your \"from\" objects are typically \"into\" objects too (because they are in the scene graph), although you may choose to make them not behave as into objects by setting their CollideMask <collision-bitmasks> to zero.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_648",
+    "parent": "processed_documents/context_documents/8f6a9f50_903add0c_collision-traversers.json",
+    "chunk_number": 7450
+  }
+}

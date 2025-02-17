@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses various techniques for asynchronously loading models and textures in Panda3D to maintain smooth rendering and user experience during resource-intensive operations. This specific section addresses a common issue where the \"Loading\" screen fails to display because the application doesn't render frames while loading, leading to a black screen or unresponsive appearance. It introduces asynchronous model loading using callbacks as a solution to prevent such problems and ensure responsiveness.\n\ntext.destroy()\n\nYou may notice that the \"Loading\" screen will never appear, because Panda3D never gets a chance to render it! We could force Panda3D to render a frame after creating the text object, but still, any operation that requires a re-render (such as resizing the window, or alt-tabbing to another application) would cause the window to become black and may even prompt the operating system to warn that the application is not responding.\n\nClearly, this does not provide a good user experience. Therefore, it is recommended that models are loaded in an asynchronous manner, in a separate thread of execution, so that the application can continue rendering while the load operation occurs in the background. Panda3D provides several ways of doing so.\n\npython\n\nLoading with callback",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7348
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a section discussing performance considerations related to polygon usage in Panda3D applications. It explores additional factors affecting performance beyond polygon count and offers optimization strategies such as low-polygon modeling, level-of-detail (LOD) implementation, and normal mapping to enhance rendering efficiency.\n\nOther factors might affect the performance which are not solely based on the polygon count. Is your mesh textured? is it shaded? Does it have the ShaderGenerator enabled on it or does it use custom shaders? Does it have normal/gloss/glow maps? Is backface culling enabled? These all can affect the performance. If you are sure that your performance issue is caused by too many polygons, there are few optimizations you can do.\n\nThe first obvious solution is to just make your models low-poly or not use two polygons where you can use one. However, you should also note that per-vertex lightning uses vertices to shade the mesh, so a wall consisting of one single quad won't shade the same way as a wall consisting of multiple quads. You'll need to find a balance or use per-pixel lightning.\n\nYou can have multiple levels of detail <level-of-detail> for your mesh.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_629",
+    "parent": "processed_documents/context_documents/13580783_b1cf344d_too-many-polygons.json",
+    "chunk_number": 7344
+  }
+}

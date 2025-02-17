@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses various techniques for compressing textures to optimize memory usage in graphics applications. The specified chunk explains how to enable runtime texture compression by modifying configuration settings and introduces the TXO file format as a method for storing pre-compressed textures, providing flexibility and efficiency in managing texture data.\n\nRuntime texture compression\n\nThe easiest way to enable compressed texture images is to put the following in your Config.prc file:\n\ncompressed-textures 1\n\nThis will ask your graphics driver to compress each texture as it loads. This means it takes a tiny bit longer to load each texture, but the resulting texture will take up much less space in texture memory.\n\nThere's one important advantage to compressing the textures at runtime this way: the graphics driver will be able to compress all the textures using whatever texture compression algorithm it understands, DXT or otherwise. Not all graphics cards support all compression algorithms, so using this option allows the driver to choose the best algorithm it supports. If the graphics driver doesn't support any compression algorithms at all, it will simply load the textures uncompressed. Either way, your application will still run and all of your textures will be visible.\n\nTXO file format",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_591",
+    "parent": "processed_documents/context_documents/e855bf7e_76bdc2be_texture-compression.json",
+    "chunk_number": 7137
+  }
+}

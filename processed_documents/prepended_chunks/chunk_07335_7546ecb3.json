@@ -1,0 +1,9 @@
+{
+  "content": "This chunk discusses the limitations of subclassing C++ classes from Python within the context of the Panda framework, specifically how instances are managed and accessed in the scene graph. It highlights the behavior of instance storage, emphasizing that only the underlying C++ object is retained while the Python-specific components are not preserved when retrieving nodes from the scene graph.\n\nThis means that whenever you create an instance of your new inherited class, you're creating an instance of the C++ class, the Python wrapper, and your Python inherited class. But then if you pass a pointer of your instance to some C++ method, all it receives is a pointer to the C++ class.\n\nIn the context of Panda, if you create an instance of a new \"node\" class and store it in the scene graph, you are really only storing the underlying C++ object in the scene graph--the Python part of the object gets left behind. This makes sense, because the C++ structures can only store pointers to C++ objects, not Python objects.\n\nSo, when you pull the node out of the scene graph later, it creates a new Python wrapper around it and returns that new wrapper. Now all you have is the original C++ node--it's not your new node class anymore, it's just the Python wrapper to the C++ class.\n\nThe Practice",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_628",
+    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
+    "chunk_number": 7335
+  }
+}

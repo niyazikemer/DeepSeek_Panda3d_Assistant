@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nThis chunk defines the `setAI` method within a class, responsible for initializing and configuring artificial intelligence components in a simulation. The method creates an `AIWorld`, establishes a `Flock` with specific parameters (neighborhood radius, max speed, etc.), adds multiple AI characters to both the world and flock, assigns steering behaviors (flocking and pursuit), and schedules periodic updates for the AI system. This setup is part of a larger example demonstrating steering behaviors in the PandAIFlockExample project.\n\"\"\"\n\ndef setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        #Flock functions\n        self.MyFlock = Flock(1, 270, 10, 2, 4, 0.2)\n        self.AIworld.addFlock(self.MyFlock)\n        self.AIworld.flockOn(1)\n\n        self.AIchar = []\n        self.AIbehaviors = []\n        for i in range(10):\n            char = AICharacter(\"flockers\" + str(i), self.flockers[i], 100, 0.05, 5)\n            self.AIchar.append(char)\n            self.AIworld.addAiChar(char)\n            self.AIbehaviors.append(char.getAiBehaviors())\n            self.MyFlock.addAiChar(char)\n            self.AIbehaviors[i].flock(0.5)\n            self.AIbehaviors[i].pursue(self.target, 0.5)\n\n        #AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n    #to update the AIWorld\n    def AIUpdate(self, task):\n        self.AIworld.update()\n        return Task.cont",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_623",
+    "parent": "processed_documents/context_documents/01e4e6ec_34c908c7_flock.json",
+    "chunk_number": 7299
+  }
+}

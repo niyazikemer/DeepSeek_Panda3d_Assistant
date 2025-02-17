@@ -1,0 +1,9 @@
+{
+  "content": "This chunk discusses the `direct. directbase.DirectStart` module in Python, providing an overview of its purpose as a shortcut for initializing Panda3D applications, including its functionality, usage examples, and deprecation details in favor of using `ShowBase`.\n\ndirect.directbase.DirectStart\n\npython\n\ndirect.directbase.DirectStart\n\nThis is a shortcut, instantiating ~direct.showbase.ShowBase.ShowBase automatically on import. Doing so opens a graphical window, sets up the scene graph <the-scene-graph>, and many other subsystems of Panda3D. This example demonstrates its use:\n\nimport direct.directbase.DirectStart\nbase.run()\n\nWhile it may be considered useful for quick prototyping in the interactive Python shell, using it in applications is not considered good style. As such, it has been deprecated starting with Panda3D 1.9. Any import to DirectStart is equivalent to and may be replaced with the following code:\n\nfrom direct.showbase.ShowBase import ShowBase\nbase = ShowBase()\n\nThe ~builtins.base variable is automatically written to the built-in scope, so that it can be directly accessed anywhere in any Python module. Various other variables are written to the global scope as well, see builtins for a listing.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_574",
+    "parent": "processed_documents/context_documents/3a2e40e5_0c39735b_direct.directbase.DirectStart.json",
+    "chunk_number": 7054
+  }
+}

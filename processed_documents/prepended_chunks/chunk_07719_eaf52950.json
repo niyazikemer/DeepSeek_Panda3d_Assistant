@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk discusses the implementation of `b_` methods in distributed objects, which update both local objects and send data to the server. It also introduces special lifecycle methods like `.DistributedObject.announceGenerate`, explaining their role in object generation and manifestation, particularly for AI-created objects on the client side.\n\nthe b_foo (b_ stands for both) method will update both, the local object as well as send the data to the server. This can usually easily be achieved by simply calling both, the foo and d_foo method within the b_foo method.\n\nSpecial Methods\n\nAside of your own methods for sending and receiving messages between the client and server-side objects, there are some methods worth knowing which are implemented by the .DistributedObject class. Those methods will usually be overwritten when creating a distributed object class and fitted to your own needs.\n\n~.DistributedObject.announceGenerate: This method will be called as soon as the object has been manifested. On the client side, you may want to use this for AI-created objects. For example:\n\ndef announceGenerate(self):\n\n    base.messenger.send(self.cr.uniqueName('myObject-generated'), [self.doId])\n\n    # call the base class method\n    DistributedObject.announceGenerate(self)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_699",
+    "parent": "processed_documents/context_documents/f83ba817_17e60af4_distributed-object.json",
+    "chunk_number": 7719
+  }
+}

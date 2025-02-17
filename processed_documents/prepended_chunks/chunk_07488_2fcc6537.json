@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a section discussing how PStats tracks time spent in different tasks or functions using collectors, specifically focusing on the behavior of pausing one collector to start another nested collector. The context explains how time accumulation works when nesting collectors and introduces a decorator pattern for function profiling.\n\nFor example, suppose you are in the middle of processing the \"Draw\" task and have therefore called start() on the \"Draw\" collector. While in the middle of processing this block of code, you call a function that has its own collector called \"Cull:Sort\". As soon as you start the new collector, you have paused the \"Draw\" collector and are now accumulating time in the \"Cull:Sort\" collector. Once this new collector stops, you will automatically return to accumulating time in the \"Draw\" collector. The time spent within the nested \"Cull:Sort\" collector will be counted towards the \"Cull\" total time, not the \"Draw\" total time.\n\nIf you wish to collect the time data for functions, a simple decorator pattern can be used below, as below:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7488
+  }
+}

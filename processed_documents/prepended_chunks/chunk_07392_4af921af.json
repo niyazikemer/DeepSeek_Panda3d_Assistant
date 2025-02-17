@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes the steps involved in creating a cartoon shader using Panda3D, focusing on rendering surface normals into a texture, detecting edges to form lines around models, and using vertex coloring.\n\nEvery frame, the scene is also rendered into an offscreen buffer using a shader that stores the surface normals into the buffer. Every frame, the contents of this buffer are copied to a texture. The result is a \"surface normals texture.\" The lower-right corner of the screen contains a small quad showing the contents of the \"surface normals texture.\"\n\nThe surface normals texture is applied to the main window using a fullscreen quad. A shader that detects edges is run on this quad. Wherever there is a discontinuity in the normals, the shader outputs black. Otherwise, it outputs a transparent pixel. This creates the lines around the model.\n\nThe model itself isn't even textured - it's vertex colored. Untextured models often look great in cartoon-shaded worlds.\n\nThe image above shows the tutorial in action.\n\nBack to the List of Sample Programs:\n\nsamples",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_634",
+    "parent": "processed_documents/context_documents/5a819c6b_bf8756ff_cartoon-shader.json",
+    "chunk_number": 7392
+  }
+}

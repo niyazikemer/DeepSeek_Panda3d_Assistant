@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to load a combined normal map and height map texture in C++, set up parallax mapping parameters, and transition into discussing gloss map mode.\n\ncpp\n\n# The second parameter to load_texture will be stored in the texture's alpha channel.\nPT(Texture) tex = TexturePool::load_texture(\"normalmap.png\", \"heightmap.png\");\n\nPT(TextureStage) ts = new TextureStage(\"ts\");\nts->set_mode(TextureStage::M_normal_height);\nsmiley.set_texture(ts, tex);\n\nBy default, the parallax mapping algorithm will use 3 samples, and the effect will be scaled by 0.1. To change these parameters, use the following Config.prc lines:\n\nparallax-mapping-samples 3\nparallax-mapping-scale 0.1\n\nThe amount of samples is how accurate the parallax mapping will be. Lower values are cheaper, but the result will be less accurate. The scale is the magnitude of the effect - with a lower value the effect decreases, with a higher value the surface will have more apparent depth (although the artifacts due to lack of occlusion will be more visible). Use a negative value to invert the effect (this has the same effect as inverting the heightmap).\n\nGloss Map Mode",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_569",
+    "parent": "processed_documents/context_documents/064a31f5_5e5e8900_texture-modes.json",
+    "chunk_number": 7036
+  }
+}

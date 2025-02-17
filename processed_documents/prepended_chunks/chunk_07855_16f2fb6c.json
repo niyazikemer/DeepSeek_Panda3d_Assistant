@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a document discussing Panda3D's terrain generation capabilities. It focuses on three key classes: HeightfieldTesselator, GeoMipTerrain, and ShaderTerrainMesh, each offering different approaches to rendering terrains efficiently with varying levels of detail (LOD). The section highlights GeoMipTerrain's method of splitting terrain into chunks for performance optimization and introduces the GPU-based ShaderTerrainMesh. Additionally, it mentions community-contributed terrain generators like SoarX and chombee's renderer.\n\nThe GeoMipTerrain <geometrical-mipmapping>. This algorithm takes a height field and also converts it into geometry, but it splits the terrain up in smaller chunks, so when the focal point changes, not all chunks have to be regenerated. This is to prevent lagging when the focal point moves. For smaller terrains, however, you might not need such extensive terrain calculations, and use the HeightfieldTesselator instead.\n\nThe .ShaderTerrainMesh. This algorithm relies on a shader to deform the terrain on the GPU, making it more efficient at the expense of requiring newer hardware. A usage example for this class is included in the sample programs.\n\nThe GeoMipTerrain also provides a way to generate terrain bruteforce, that means without LOD and at full quality.\n\nVarious other terrain generators have been contributed by the community:\n\nSoarX\n\nchombee's terrain renderer\n\nsnaptotheterrain\n\nheightfield-tesselator geometrical-mipmapping",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_729",
+    "parent": "processed_documents/context_documents/ef23ea5c_166dfa16_index.json",
+    "chunk_number": 7855
+  }
+}

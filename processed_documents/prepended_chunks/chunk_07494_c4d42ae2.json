@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how the PStats client manages data transmission rates to prevent network overload, followed by an overview of the PStats Server's role in processing and analyzing the collected data.\n\nAlso, to prevent flooding the network and/or overwhelming the PStats server, only so many frames of data will be sent per second. This parameter is controlled by the pstats-max-rate Config.prc variable and is set to 30 by default. (If the packets are larger than 1K, the max transmission rate is also automatically reduced further in proportion.) If the frame rate is higher than this limit, some frames will simply not be transmitted. The server is designed to cope with missing frames and will assume missing frames are similar to their neighbors.\n\nThe server does all the work of analyzing the data after that. The client's next job is simply to clear its array and prepare itself for the next frame.\n\nThe PStats Server",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7494
+  }
+}

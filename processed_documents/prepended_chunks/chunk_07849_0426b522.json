@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk sits within the **Group Assignment** section of the document, explaining how to assign a NodePath to a specific collision group using `set_collide_mask` or by setting the \"into\" collide mask directly on the node. This is crucial when working with Bullet physics in Panda3D for categorizing objects into collision groups and handling interactions between them.\n\n```context\nThe code chunk demonstrates assigning a rigid body node to a collision group (group 0) using `set_collide_mask` or setting the \"into\" collide mask directly, which is essential for managing object interactions in Bullet physics within Panda3D.\n```\n\nNodePath np_body = window->get_render().attach_new_node(box_rigid_node);\nnp_body.set_pos(0, 0, 2);\n\n// Set it to be a part of group 0\nnp_body.set_collide_mask(BitMask32::bit(0));\n\nPandaNodes have two kinds of collide masks, a \"from\" collide mask and an \"into\" collide mask. Panda3D's internal collision system requires both masks set, but when using Bullet physics only the \"into\" collide mask is used. The following line is an alternate way to set the collide mask:\n\npython\n\nbodyNP.node().setIntoCollideMask(mask)\n\ncpp\n\nnp_box.node()->set_into_collide_mask(mask);\n\nThis way of setting collide masks can be used for rigid bodies and ghost objects. Soft body collisions (and soft body vs. rigid body collisions) are more complex. Please see the manual pages about soft body configuration for details.\n\nMultiple Group Assignment",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_726",
+    "parent": "processed_documents/context_documents/d4378174_cadceabb_collision-filtering.json",
+    "chunk_number": 7849
+  }
+}

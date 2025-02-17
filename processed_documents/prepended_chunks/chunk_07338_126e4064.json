@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk demonstrates how to store an instance of a newly created node class (MyNewNode) as a Python tag on a PandaNode, enabling retrieval later when accessing nodes in the scene graph. This approach provides a workaround for limitations in subclassing C++ classes directly from Python and is part of broader discussions about handling such scenarios effectively within the document.\n\nThe workaround is for an instance of the new node class to store itself on the PandaNode, as a Python tag:\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import PandaNode\n\n# Here we define the new class, subclassing PandaNode\n# storing its own instance as a python tag and\n# initializing a new variable.\nclass MyNewNode(PandaNode):\n    def __init__(self, aName):\n        PandaNode.__init__(self, aName)\n        PandaNode.setPythonTag(self, \"subclass\", self)\n        self.aVariable = \"A value\"\n\n# Here we create a new node and we are aware we are\n# placing its -PandaNode- in the scene graph.\nmyNewNode = MyNewNode(\"MyNewNode\")\naNodePath = aspect2d.attachNewNode(myNewNode)\n\n# Now, first we fetch the panda node:\nthePandaNode = aNodePath.node()\n\n# then we fetch the instance of MyNewNode stored on it:\ntheInstanceOfMyNewNode = thePandaNode.getPythonTag(\"subclass\")\n\n# and finally we fetch the variable we were\n# interested in all along:\nprint(theInstanceOfMyNewNode.aVariable)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_628",
+    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
+    "chunk_number": 7338
+  }
+}

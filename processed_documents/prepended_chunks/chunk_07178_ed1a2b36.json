@@ -1,0 +1,9 @@
+{
+  "content": "This section discusses how to read from and write to texture images in GLSL shaders by using `image2D` instead of `sampler2D`, along with the necessary steps on the application side to ensure textures have the correct format for these operations. It emphasizes the importance of setting a sized format (e.g., `rgba8`) rather than a generic format (e.g., `rgba`) when working with texture images in shaders.\n\nHowever, there is a lower level method to read from and write to texture images. As you have already seen in the example above, this can be done by using an image2D declaration instead of sampler2D, and instead of using the texture family of functions to sample them, you would use imageLoad and imageStore, which now take integer texel coordinates.\n\nOn the application side, however, telling the shader which image to use still happens in the same way as usual, using the ~.NodePath.set_shader_input() function. However, it is very important that the texture has a sized format, rather than a regular format:\n\npython\n\n# WRONG\ntex.set_format(Texture.F_rgba)\n\n# RIGHT\ntex.set_format(Texture.F_rgba8)\n\nnode_path.set_shader_input('fromTex', tex)\n\ncpp\n\n// WRONG\ntex->set_format(Texture::F_rgba);\n\n// RIGHT\ntex->set_format(Texture::F_rgba8);\n\nnode_path.set_shader_input(\"fromTex\", tex);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7178
+  }
+}

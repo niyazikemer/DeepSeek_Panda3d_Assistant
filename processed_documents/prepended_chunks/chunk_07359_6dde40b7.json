@@ -1,0 +1,9 @@
+{
+  "content": "The configuration settings `allow-async-bind 1` and `restore-initial-pose 0` are crucial for enabling asynchronous animation loading in Panda3D, allowing actors to load large numbers of animations on-demand. This is part of the broader discussion on how various asynchronous operations, including model and texture loading, are managed through a separate task chain created by `.Loader`. The chunk situates these settings within the overall configuration context, explaining how they can be adjusted along with other variables like `loader-num-threads` and `loader-thread-priority` to optimize performance.\n\nallow-async-bind 1\nrestore-initial-pose 0\n\nConfiguration\n\nAll of the above asynchronous operations will take place on a separate task chain <task-chains>, automatically created by .Loader. By default, one low-priority thread is created to serve these requests. To increase the number of available threads, or to increase their priority, these configuration variables can be changed:\n\n# default is 1\nloader-num-threads 2\n# default is low\nloader-thread-priority normal",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7359
+  }
+}

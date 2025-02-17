@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the importance of node ordering and control mechanisms when using compute shaders in Panda3D, particularly focusing on scenarios where procedural textures or computations need to be executed before rendering. It highlights the use of cull bins, display regions, and custom bounding volumes for controlling execution order, while also introducing an alternative approach for one-off operations through direct compute shader dispatch without adding/removing nodes from the scene graph each frame.\n\nThe ordering of nodes becomes especially important; you may not want a procedural texture to be rendered on another node before it is first generated using a compute shader, for example. You may have to use cull bins or display regions in order to explicitly control when the .ComputeNode is encountered during the draw process.\n\nKeep in mind that a .ComputeNode is never culled away by default, since it is not associated with any geometry. You may override this behaviour by assigning a custom .BoundingVolume.\n\nHowever, whereas the .ComputeNode interface is useful for operations that are done every frame, it is not very useful for one-off calls, since it is cumbersome to add a node to the scene graph only to remove it again in the next frame. For these use cases, there is a more lower-level operation to dispatch a compute shader:\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7175
+  }
+}

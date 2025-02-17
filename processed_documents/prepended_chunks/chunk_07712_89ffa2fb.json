@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a Python class `World` that sets up a 3D environment for demonstrating the 'Pursue' behavior in PandAI. It initializes the scene by disabling mouse controls, setting camera position, loading 3D models (a pursuer character and a target arrow), and configuring basic AI behavior using the PandAI library to demonstrate steering behaviors.\n\ndef __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0, 0, 55, 0, -90, 0)\n\n        self.loadModels()\n        self.setAI()\n        self.setMovement()\n\n    def loadModels(self):\n        # Seeker\n        ralphStartPos = Vec3(-10, 0, 0)\n        self.pursuer = Actor(\"models/ralph\",\n                             {\"run\":\"models/ralph-run\"})\n        self.pursuer.reparentTo(render)\n        self.pursuer.setScale(0.5)\n        self.pursuer.setPos(ralphStartPos)\n        # Target\n        self.target = loader.loadModel(\"models/arrow\")\n        self.target.setColor(1, 0, 0)\n        self.target.setPos(5, 0, 0)\n        self.target.setScale(1)\n        self.target.reparentTo(render)\n\n    def setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"pursuer\",self.pursuer, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_698",
+    "parent": "processed_documents/context_documents/7378c868_0548f935_pursue.json",
+    "chunk_number": 7712
+  }
+}

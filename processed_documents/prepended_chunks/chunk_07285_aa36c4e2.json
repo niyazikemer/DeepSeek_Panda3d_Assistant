@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses setting up terrain using a Texture object as a height map to align the physical body with visible geometry in both Python and C++, and introduces soft body shapes for further discussion.\n\nIf you are using ShaderTerrainMesh, then you need to use a Texture object as a height map. This will ensure that the shape of the physical body corresponds to the visible geometry.\n\npython\n\nfrom panda3d.core import Filename\noffset = img.getXSize() / 2.0 - 0.5\nterrain = GeoMipTerrain('terrain')\nterrain.setHeightfield(img)\nterrainNP = terrain.getRoot()\nterrainNP.setSz(height)\nterrainNP.setPos(-offset, -offset, -height / 2.0)\n\ncpp\n\nGeoMipTerrain *terrain = get_geomip_terrain();\nterrain->set_heightfield(*pnm_image);\nterrain->set_block_size(32);\nterrain->set_near(50);\nterrain->set_far(100);\nterrain->set_focal_point(window->get_camera_group());\n\nNodePath terrain_root = terrain->get_root();\n\nfloat offset = pnm_image->get_x_size() / 2.0 - 0.5;\nterrain_root.set_pos(-offset, -offset, -height / 2.0);\n\nterrain_root.set_scale(terrain_root.get_scale().get_x(), terrain_root.get_scale().get_y(), height);\nterrain_root.reparent_to(window->get_render());\n\nSoft Body Shape",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7285
+  }
+}

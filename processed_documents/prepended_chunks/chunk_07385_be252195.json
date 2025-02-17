@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated in a section discussing various collision solids, specifically detailing properties of `CollisionPolygon` (infinitely thin and requiring overlap for collisions) and introducing `CollisionRay`, which serves as a directional \"from\" object without volume.\n\nUnlike a plane, a CollisionPolygon is infinitely thin; an object is only considered to be colliding with the polygon while it is overlapping it.\n\nWhen you create a CollisionPolygon interactively, you can only create triangles or quads (the higher-order polygons can only be loaded from an egg file). Simply specify the three or four points to the constructor, in counter-clockwise order.\n\nquad = CollisionPolygon(Point3(0, 0, 0), Point3(0, 0, 1),\n                        Point3(0, 1, 1), Point3(0, 1, 0))\n\nCollisionRay\n\nThe ray is a special collision solid that is useful only as a \"from\" object; since the object has no volume, nothing will collide \"into\" a ray. The same is true for line, parabola, and segment listed below.\n\nThe CollisionRay represents an infinite ray that begins at a specific point, and stretches in one direction to infinity.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_633",
+    "parent": "processed_documents/context_documents/62537003_cc9627be_collision-solids.json",
+    "chunk_number": 7385
+  }
+}

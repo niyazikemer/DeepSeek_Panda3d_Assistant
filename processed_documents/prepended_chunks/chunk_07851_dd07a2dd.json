@@ -1,0 +1,9 @@
+{
+  "content": "The document explains how to attach an object to a joint in an actor's skeleton using the `exposeJoint()` method, describing parameters like \"modelRoot\" and \"Joint Name,\" and noting that joint names can be determined by examining modeling files or egg files.\n\nAttaching an Object to a Joint\n\nIf an actor has a skeleton, then it is possible to locate one of the joints, and attach an object to that joint:\n\nmyNodePath = actorNodePath.exposeJoint(None, \"modelRoot\", \"Joint Name\")\n\nThis function returns a nodepath which is attached to the joint. By reparenting any object to this nodepath, you can cause it to follow the movement of the joint.\n\nThe string \"modelRoot\" represents the name of the model node - the string \"modelRoot\" is usually the correct value.\n\nThe string \"Joint Name\" represents the name of the joint. Typically it would be something like \"Femur\", or \"Neck\", or \"L Finger1\". This is usually set inside the modeling package. For example, in MAX, each object in the scene has a name, including the bones. If necessary, you can determine the joint names by scanning the egg file for strings like <Joint> Femur.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_727",
+    "parent": "processed_documents/context_documents/9d121650_16971cdc_attaching-objects-to-joints.json",
+    "chunk_number": 7851
+  }
+}

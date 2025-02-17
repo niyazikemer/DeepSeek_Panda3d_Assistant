@@ -1,0 +1,9 @@
+{
+  "content": "This chunk discusses Panda3D's configuration variable types and their constructors, as well as methods for interactively displaying variable values and viewing loaded PRC files.\n\nConfigVariableString ConfigVariableInt ConfigVariableBool ConfigVariableColor ConfigVariableDouble ConfigVariableFilename ConfigVariableList ConfigVariableSearchPath\n\nMost of these follow the same form as ConfigVariableString, above, except that the value is of the indicated type, rather than a string. The two exceptions are ConfigVariableList and ConfigVariableSearchPath. These types of variables do not accept a default value to the constructor since the default value in both cases is always the empty list or search path.\n\npython\n\nTo display the current value of a particular variable interactively (for a string-type variable in this example), type the following:\n\nprint(ConfigVariableString(\"my-game-server\"))\n\nPanda3D will automatically load any PRC files it finds in its standard config directory at start-up.\n\npython\n\nYou can view a list of the files it has actually loaded with the following command:\n\nprint(cpMgr)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_626",
+    "parent": "processed_documents/context_documents/9165eb63_bae543ea_accessing-config-vars-in-a-program.json",
+    "chunk_number": 7322
+  }
+}

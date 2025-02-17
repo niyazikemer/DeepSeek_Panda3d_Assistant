@@ -1,0 +1,9 @@
+{
+  "content": "The chunk introduces the concept of texture wrap modes in computer graphics, explaining how these modes determine how textures appear beyond their defined [0,1] coordinate range. It outlines the purpose of wrap modes and provides code examples for setting them in Python and C++, while also noting that different modes can be applied to the u and v directions separately. The chunk serves as an introduction to the topic, with subsequent sections detailing specific wrap modes and their applications.\n\nTexture Wrap Modes\n\nAs described earlier, the (u, v) texture coordinates that you assign to your vertices are what determines how the texture fits on your geometry. Often, you will use texture coordinates that always fall within the range [0, 1], which is the complete range of the pixels of your texture image. However, it is also legal to use texture coordinates that go outside this range; you can have negative values, for instance, or numbers higher than 1.\n\nSo if the texture image is only defined over the range [0, 1], what does the texture look like outside this range? You can specify this with the texture wrap mode.\n\npython\n\ntexture.setWrapU(wrap_mode)\ntexture.setWrapV(wrap_mode)\n\ncpp\n\ntexture->set_wrap_u(wrap_mode);\ntexture->set_wrap_w(wrap_mode);\n\nThe wrap_mode parameter is specified separately for the u and v directions (there is also a .Texture.set_wrap_w() for 3-D textures <3d-textures>, but that's an advanced topic). The wrap mode may be any of the following values:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_668",
+    "parent": "processed_documents/context_documents/46006720_0b25daa5_texture-wrap-modes.json",
+    "chunk_number": 7569
+  }
+}

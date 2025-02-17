@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to use `NodePath` functions to store custom key-value pairs using `set_tag()` and `get_tag()`, including storing Python-specific data with `set_python_tag()`. It also explains how to permanently remove nodes from the scene graph using `remove_node()` or `removeNode()`, noting considerations for memory management.\n\nStoring Custom Information\n\nAlso, by using the functions ~.NodePath.set_tag() and ~.NodePath.get_tag() you can store your own information in key-value pairs. For example:\n\npython\n\nmyNodePath.setTag(\"Key\", \"value\")\n\ncpp\n\nmyNodePath.set_tag(\"Key\", \"value\");\n\npython\n\nYou can also store Python objects as tags by using the ~.NodePath.set_python_tag() function with the same arguments.\n\nRemoving Nodes\n\nTo completely remove a node from the scene graph you can call the following, which has the effect of emptying the node and releasing the memory taken up by the node. Use it only when you have no further use for the node:\n\npython\n\nmyModel.removeNode()\n\ncpp\n\nmyModel.remove_node();",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_568",
+    "parent": "processed_documents/context_documents/029b082e_cabddac1_common-state-changes.json",
+    "chunk_number": 7024
+  }
+}

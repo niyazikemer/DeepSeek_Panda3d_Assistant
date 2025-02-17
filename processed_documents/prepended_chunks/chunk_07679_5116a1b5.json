@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk demonstrates a basic Panda3D physics simulation using ODE. It sets up a simple scene with a cube platform and an iron ball (sphere), positions them in 3D space, configures the physics world with gravitational forces, and orients the camera for viewing the simulation. The example illustrates how to integrate physical objects into a 3D environment while maintaining visual consistency.\n\nHere's a small example showing a simple simulation showing an iron ball falling from a ridge:\n\npython\n\nfrom direct.directbase import DirectStart\nfrom panda3d.ode import OdeWorld, OdeBody, OdeMass\nfrom panda3d.core import Quat\n\n# Load the cube where the ball will fall from\ncube = loader.loadModel(\"box.egg\")\ncube.reparentTo(render)\ncube.setColor(0.2, 0, 0.7)\ncube.setScale(20)\n\n# Load the smiley model which will act as our iron ball\nsphere = loader.loadModel(\"smiley.egg\")\nsphere.reparentTo(render)\nsphere.setPos(10, 1, 21)\nsphere.setColor(0.7, 0.4, 0.4)\n\n# Setup our physics world and the body\nworld = OdeWorld()\nworld.setGravity(0, 0, -9.81)\nbody = OdeBody(world)\nM = OdeMass()\nM.setSphere(7874, 1.0)\nbody.setMass(M)\nbody.setPosition(sphere.getPos(render))\nbody.setQuaternion(sphere.getQuat(render))\n\n# Set the camera position\nbase.disableMouse()\nbase.camera.setPos(80, -20, 40)\nbase.camera.lookAt(0, 0, 10)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_691",
+    "parent": "processed_documents/context_documents/19b1c5f9_f606c2b9_simulating-physics-world.json",
+    "chunk_number": 7679
+  }
+}

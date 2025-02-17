@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides essential code snippets for implementing mouse interaction with 3D objects in Panda3D, demonstrating how to set up collision detection using a ray from the camera through the mouse position. The Python and C++ examples illustrate core concepts for detecting and handling picked objects in a 3D environment, making it a fundamental part of object-picking functionality within the document's broader guide on interacting with virtual 3D scenes.\n\n# This makes the ray's origin the camera and makes the ray point\n    # to the screen coordinates of the mouse.\n    pickerRay.setFromLens(base.camNode, mpos.x, mpos.y)\n\ncpp\n\nvoid myFunction() {\n  if (!mouseWatcher->has_mouse()) {\n    // The mouse is probably outside the screen.\n    return;\n  }\n\n  // This gives up the screen coordinates of the mouse.\n  LPoint2 mpos = mouseWatcher->get_mouse();\n\n  // This makes the ray's origin the camera and makes the ray point\n  // to the screen coordinates of the mouse.\n  pickerRay->set_from_lens(window->get_camera(0), mpos.get_x(), mpos.get_y());\n}\n\nAfter this, you now call the traverser like any other collision, get the closest object and \"pick\" it.\n\npython\n\ndef myFunction():\n    mpos = base.mouseWatcherNode.getMouse()\n    pickerRay.setFromLens(base.camNode, mpos.getX(), mpos.getY())",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_642",
+    "parent": "processed_documents/context_documents/89de807b_91a421cd_clicking-on-3d-objects.json",
+    "chunk_number": 7421
+  }
+}

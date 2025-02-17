@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the limited use of padded textures in specific scenarios, such as playing non-power-of-two movies or using render-to-texture with non-power-of-two buffers, before introducing the capability of newer graphics cards to handle non-standard texture sizes. It explains how to configure Panda3D to enable support for non-power-of-two textures through specific settings, allowing developers to optimize rendering efficiency without unnecessary padding.\n\nPanda3D only uses padded textures in a few very special cases: 1. When playing a non-power-of-two movie. 2. When using render-to-texture, and a non-power-of-two buffer.\n\nNonstandard Texture Sizes\n\nSome newer graphics cards can render textures that are not a power of two. This is generally not very useful for loading art from disk: after all, game art is usually created in power-of-two sizes no matter what. However, it is useful to avoid wasteful movie padding of the kind described above. If you have one of these cards and you want to enable the use of non-power-of-two textures, you can put the following line in your Config.prc:\n\ntextures-power-2 none\n\nYou can also attempt to have panda detect your video card's capabilities automatically, using this command:\n\ntextures-auto-power-2 #t",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_581",
+    "parent": "processed_documents/context_documents/6afe5652_4e56d207_choosing-a-texture-size.json",
+    "chunk_number": 7079
+  }
+}

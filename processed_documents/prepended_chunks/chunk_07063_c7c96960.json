@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes the initial steps required to set up a server for client-server communication in Panda3D. It involves instantiating four key classes (`QueuedConnectionManager`, `QueuedConnectionListener`, `QueuedConnectionReader`, and `ConnectionWriter`) in single-thread mode, which ensures that these components can handle network operations efficiently by requiring periodic polling. This setup is essential for managing connections, listening for incoming client requests, reading data from clients, and sending responses back to them using PyDatagrams.\n\nA .ConnectionWriter, which allows PyDatagrams to be transmitted out along an active connection\n\nThe first step is to instantiate these four classes.\n\nfrom panda3d.core import QueuedConnectionManager\nfrom panda3d.core import QueuedConnectionListener\nfrom panda3d.core import QueuedConnectionReader\nfrom panda3d.core import ConnectionWriter\n\ncManager = QueuedConnectionManager()\ncListener = QueuedConnectionListener(cManager, 0)\ncReader = QueuedConnectionReader(cManager, 0)\ncWriter = ConnectionWriter(cManager, 0)\n\nactiveConnections = [] # We'll want to keep track of these later\n\nThis method of instantiation prepares the classes in single-thread mode, which that realtime communication requires them to be polled periodically.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_579",
+    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
+    "chunk_number": 7063
+  }
+}

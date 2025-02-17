@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk discusses advanced techniques for accurately applying colors when working with linear workflows in Panda3D. It introduces the use of sRGB conversion functions to ensure correct color representation, particularly when rendering in a gamma-correct environment. This method is presented as an improvement over simple gamma adjustments, offering precise control over color application. The examples provided demonstrate how to implement this using Python and C++, leveraging Panda3D's built-in decoding functions for accurate color mapping.\n\nA better method is to use the sRGB conversion functions that Panda3D provides. For example, to apply the #51C2C6 color, you can do as follows:\n\npython\n\nfrom panda3d.core import decode_sRGB_float\n\nmodel1.setColor(\n   decode_sRGB_float(0x51),\n   decode_sRGB_float(0xC2),\n   decode_sRGB_float(0xC6),\n)\n\ncpp\n\n#include \"convert_srgb.h\"\n\nmodel1.set_color(\n   decode_sRGB_float(0x51),\n   decode_sRGB_float(0xC2),\n   decode_sRGB_float(0xC6),\n);\n\nIf you are not using a linear workflow, or don't know what that is, you don't need to worry about this for now.\n\nRelated Classes\n\npanda3d.core.ColorScaleAttrib\n\npanda3d.core.ColorAttrib\n\npanda3d.core.NodePath",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_658",
+    "parent": "processed_documents/context_documents/3c995b04_158a20ee_tinting-and-recoloring.json",
+    "chunk_number": 7515
+  }
+}

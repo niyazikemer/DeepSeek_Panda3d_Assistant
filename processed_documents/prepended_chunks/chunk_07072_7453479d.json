@@ -1,0 +1,9 @@
+{
+  "content": "The provided document discusses support for Cg shaders in Panda3D and how to use custom shader inputs, including various data types such as Vec4, Mat4, PTALMatrix4f, and others. The specific chunk focuses on the list of possible Cg shader input types supported by Panda3D, explaining their definitions and how they can be used with examples of `setShaderInput()` function calls to map these inputs correctly for Cg shaders. This section is crucial for developers working with custom shaders in Panda3D to ensure proper data handling between the application and shader programs.\n\nVec4\n- Vec3\n- Vec2\n- Point4\n- Point3\n- Point2\n- Mat4\n- Mat3\n- PTALMatrix4f\n- PTALMatrix3f\n- PTALVecBase4f\n- PTALVecBase3f\n- PTALVecBase2f\n- PTAFloat\n- PTADouble\n\nFor definition let us consider the shader parameter float3. It's type is float and format is Vec3 (meaning it can hold 3 elements) and a float3x3 input is of type float and format Mat3 (meaning it can hold 9 elements)\n\nThe main concept of the shader inputs is that the Cg input format and type is independent to the Panda3D input. The only condition is that the number of elements passed by the user through the setShaderInput() function of Panda3D and the number of elements expected by the shader input should be the same. For example, a parameter uniform float4x4 mat[4] (total of 16*4 elements) could be set with: (the below list is just a sample and there are more ways to represent it)\n\nsetShaderInput(\"input_name\",PTALMat4f[4])\nsetShaderInput(PTALVecBase4f[16])\nsetShaderInput(PTAFloat[16*4])\nsetShaderInput(PTADouble[16*4])",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_580",
+    "parent": "processed_documents/context_documents/12435e02_adad09f5_list-of-cg-inputs.json",
+    "chunk_number": 7072
+  }
+}

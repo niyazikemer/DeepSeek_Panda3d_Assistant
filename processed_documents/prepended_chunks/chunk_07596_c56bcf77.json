@@ -1,0 +1,9 @@
+{
+  "content": "The chunk about using multify as an archive tool and mounting Multifiles into Panda3D's VirtualFileSystem appears early in the document, following the introduction of Multifiles. It provides foundational information on how to store, extract, and access files within a Multifile, including code examples for both Python and C++. This section is situated before more advanced topics like encryption and command-line options, serving as an essential starting point for understanding Multifile usage in Panda3D.\n\nmultify is used to store and extract files from a Panda Multifile. This is similar to a tar or zip file in that it is an archive file that contains a number of subfiles that may later be extracted.\n\nPanda's VirtualFileSystem is capable of mounting Multifiles for direct access to the subfiles contained within without having to extract them out to independent files first.\n\nThe command-line options for multify are designed to be similar to those for tar, the traditional Unix archiver utility.\n\nRead Assets\n\nIf you want to prepare to read assets from a Multifile directly, you can \"mount\" it into the virtual file system:\n\npython\n\nfrom panda3d.core import VirtualFileSystem\nfrom panda3d.core import Multifile\nfrom panda3d.core import Filename\nvfs = VirtualFileSystem.getGlobalPtr()\nvfs.mount(Filename(\"foo.mf\"), \".\", VirtualFileSystem.MFReadOnly)\n\ncpp\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nvfs->mount(\"./foo.mf\", \".\", VirtualFileSystem::MF_read_only);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7596
+  }
+}

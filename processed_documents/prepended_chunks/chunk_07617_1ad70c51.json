@@ -1,0 +1,9 @@
+{
+  "content": "This section discusses addressing color discrepancies in Panda3D by using the simplepbr package to approximate Blender's Principled BSDF shading model, while also explaining the impact of linear workflows and gamma encoding on rendering results.\n\nFor best reproduction of the Blender materials, you can use the simplepbr package, which provides a set of shaders that are designed to approximate the Principled BSDF shading model used in Blender:\n\nhttps://github.com/Moguri/panda3d-simplepbr\n\nWhy do my colors look different in Panda3D?\n\nIt is important to note that Blender uses a linear workflow, meaning all colors sampled from textures are converted from the sRGB gamma encoding to the \"linearized sRGB\" color space before being used for lighting and blending. After the render process, the colors in the framebuffer are converted back to gamma-encoded sRGB for display on the screen. This results in more natural lighting and blending, because these calculations happen in a linear domain. For more reading about this topic, see this article from \"GPU Gems\".",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_676",
+    "parent": "processed_documents/context_documents/7aeb9fb6_56e00594_converting-from-blender.json",
+    "chunk_number": 7617
+  }
+}

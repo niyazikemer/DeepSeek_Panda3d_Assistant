@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a comprehensive guide on configuring TextNodes, detailing how to add shadows to improve text visibility. This section explains the use of `setShadow` and `setShadowColor` methods, highlighting their impact on rendering efficiency.\n\nShadow\n\npython\n\ntext.setShadow(0.05, 0.05)\ntext.setShadowColor(0, 0, 0, 1)\n\ncpp\n\ntext->set_shadow(0.05, 0.05);\ntext->set_shadow_color(0, 0, 0, 1);\n\nA shadow is another copy of the text, drawn behind the original text and offset slightly to the right and down. It can help make the text stand out from its background, especially when there is not a high contrast between the text color and the background color. (The text color in this example is exactly the same pink color used in the example above, but note how much clearer it is with the shadow.) The downside of a shadow is that it doubles the number of polygons required to render the text.\n\nSetting a shadow requires two calls: setShadow() accepts a pair of numbers indicating the distance to shift the shadow right and down, respectively, in screen units; these are usually very small numbers like 0.05. setShadowColor() accepts the r, g, b, a color of the shadow; the default is black.\n\nWordwrap",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_723",
+    "parent": "processed_documents/context_documents/1b6ddfee_8dcb8f12_rendering-text.json",
+    "chunk_number": 7825
+  }
+}

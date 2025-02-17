@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides code examples for creating an LODNode and adding multiple levels of detail to optimize model rendering based on distance from the camera.\n\ncpp\n\nInclude file:\n\n#include \"lodNode.h\"\n\nTo create an .LODNode and .NodePath:\n\npython\n\nlod = LODNode('my LOD node')\nlod_np = NodePath(lod)\nlod_np.reparentTo(render)\n\ncpp\n\nPT(LODNode) lod = new LODNode(\"my LOD node\");\nNodePath lod_np (lod);\nlod_np.reparent_to(render);\n\nTo add a level of detail to the LODNode:\n\npython\n\nlod.addSwitch(50.0, 0.0)\nmy_model.reparentTo(lod_np)\n\ncpp\n\nlod->add_switch(50.0, 0.0);\nmy_model.reparent_to(lod_np);\n\nmy_model can be any NodePath you like.\n\nNote that the first argument is the \"far\" distance after which this LOD will disappear, and the second argument is the \"near\" distance at which it will appear.\n\nContinue this pattern to add as many levels of detail as you like. For your lowest level of detail the far distance will be where the model will disappear. If you would prefer it to stay visible even when very far away then use a sufficiently large number for the far distance.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_686",
+    "parent": "processed_documents/context_documents/b4eae141_02aa7181_level-of-detail.json",
+    "chunk_number": 7657
+  }
+}

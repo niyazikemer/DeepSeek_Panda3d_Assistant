@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains how to pass arguments when transitioning between states in an FSM and how to restrict allowed transitions for robustness, building on the initial explanation of FSM implementation in Panda3D.\n\nArguments to enterStateName methods\n\nNormally, both enterStateName() and exitStateName() take no arguments (other than self). However, if your FSM requires some information before it can transition to a particular state, you can define any arguments you like to the enterStateName method for that state; these arguments should be passed in to the request() call, following the state name.\n\nfrom direct.fsm.FSM import FSM\n\nclass AvatarFSM(FSM):\n\n    def enterWalk(self, speed, doorMask):\n        avatar.setPlayRate(speed, 'walk')\n        avatar.loop('walk')\n        footstepsSound.play()\n        enableDoorCollisions(doorMask)\n\n    def exitWalk(self):\n        avatar.stop()\n        footstepsSound.stop()\n        disableDoorCollisions()\n\nmyfsm = AvatarFSM('myAvatar')\nmyfsm.request('Walk', 1.0, BitMask32.bit(2))\n\nNote that the exitStateName method must always take no arguments.\n\nAllowed and disallowed state transitions",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_604",
+    "parent": "processed_documents/context_documents/787f0d21_8c41fb3c_simple-fsm-usage.json",
+    "chunk_number": 7206
+  }
+}

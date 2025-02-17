@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses effective strategies for managing graphics memory to prevent issues like memory exhaustion or driver bugs on various hardware. This section outlines specific tools provided by Panda to limit texture memory usage, including automatically scaling textures down during loading and enabling texture compression.\n\nFor these reasons, it may be useful to limit the amount of graphics memory your application uses. Panda provides several tools to help with this.\n\nAutomatically reducing textures\n\nYou can reduce textures automatically as they are loaded. The easiest way to do this is to put a line like: texture-scale 0.5 in your Config.prc file. The above example will scale all textures by a factor of 0.5 in each dimension (for an overall reduction to 1/4 of the total memory requirement). If there are certain textures that should not be scaled, for instance GUI textures, you can exclude them with lines like:\n\nexclude-texture-scale digits_*.png\nexclude-texture-scale gui*.jpg\n\nEnabling texture compression",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_680",
+    "parent": "processed_documents/context_documents/ce84f0cc_97c5dd71_texture-management.json",
+    "chunk_number": 7627
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided chunk is part of a larger tutorial or guide on setting up and running a physics simulation using the ODE (Open Dynamics Engine) library with Panda3D, focusing specifically on scheduling the physics simulation task and initializing the application. The code demonstrates how to use `taskMgr` to schedule the `simulationTask` function for periodic execution at 1-second intervals, ensuring consistent physics updates and visual sync.\n\ntaskMgr.doMethodLater(1.0, simulationTask, \"Physics Simulation\")\n\nbase.run()\n\ncpp\n\n// To keep the C++ samples short, we assume a running Panda environment,\n// with \"framework\", \"window\", \"camera\" and \"taskMgr\" variables in the\n// global scope. Likewise, only the includes relevant to this chapter\n// are shown. Check the beginning of the manual for a tutorial on making\n// a full Panda3D C++ app.\n// Sample entry point: simulation()\n\n#include \"odeWorld.h\"\n#include \"odeBody.h\"\n#include \"odeMass.h\"\n\nOdeBody *body;\nOdeWorld world;\nNodePath sphere;\nPT(ClockObject) globalClock = ClockObject::get_global_clock();\n\n// Create an accumulator to track the time since the sim\n// has been running\nfloat deltaTimeAccumulator = 0.0f;\n\n// This stepSize makes the simulation run at 90 frames per second\nfloat stepSize = 1.0f / 90.0f;\n\nAsyncTask::DoneStatus simulationTask(GenericAsyncTask *task, void *data);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_691",
+    "parent": "processed_documents/context_documents/19b1c5f9_f606c2b9_simulating-physics-world.json",
+    "chunk_number": 7681
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses absolute and relative mouse modes in Panda3D, providing an introduction to their use cases and configuration examples. This section is part of a larger document explaining different mouse modes and configurations, including code snippets for implementing relative mode with hidden cursors, which is particularly useful for applications like first-person games where precise mouse control is essential.\n\nAbsolute mouse mode\n\nBy default, the mouse is in \"absolute\" mode, meaning the cursor can freely move outside the window. This mode is typical for desktop applications.\n\nIn a first person game where the mouse controls the camera (\"mouselook\"), however, you usually want the mouse cursor to stay inside the window, so you can get movement events no matter how far the user moves the mouse.\n\nTwo other mouse modes can help with this.\n\nRelative mouse mode\n\nIn relative mode, the mouse cursor is kept at the center of the window, and only relative movement events are reported.\n\nTypically you want to hide the mouse cursor in this case, since otherwise it distractingly \"sticks\" to the center of the window.\n\ncpp\n\n// To set relative mode and hide the cursor:\nWindowProperties props = window->get_graphics_window()->get_properties();\nprops.set_cursor_hidden(true);\nprops.set_mouse_mode(WindowProperties::M_relative);\nwindow->get_graphics_window()->request_properties(props);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_615",
+    "parent": "processed_documents/context_documents/3cd15a53_530afc8e_mouse-support.json",
+    "chunk_number": 7251
+  }
+}

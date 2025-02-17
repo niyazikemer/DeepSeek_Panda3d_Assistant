@@ -1,0 +1,9 @@
+{
+  "content": "This section provides a code example demonstrating how to configure group-based collision flags in Python and C++ using Bullet physics within Panda3D. It illustrates setting up collision rules between different groups (Group 0, Group 1, and Group 2) and notes that these group settings are ignored by certain types of collision queries.\n\npython\n\n# Group 0 never collides\nworld.setGroupCollisionFlag(0, 0, False)\nworld.setGroupCollisionFlag(0, 1, False)\nworld.setGroupCollisionFlag(0, 2, False)\n\n# Group 1 only collides with Group 2\nworld.setGroupCollisionFlag(1, 1, False)\nworld.setGroupCollisionFlag(1, 2, True)\n\n# Group 2 only collides with itself\nworld.setGroupCollisionFlag(2, 2, True)\n\ncpp\n\n// Group 0 never collides\nphysics_world->set_group_collision_flag(0, 0, false);\nphysics_world->set_group_collision_flag(0, 1, false);\nphysics_world->set_group_collision_flag(0, 2, false);\n\n// Group 1 only collides with Group 2\nphysics_world->set_group_collision_flag(1, 1, false);\nphysics_world->set_group_collision_flag(1, 2, true);\n\n// Group 2 only collides with itself\nphysics_world->set_group_collision_flag(2, 2, true);\n\nPlease note that this group matrix is ignored by queries <queries>, which take a mask that directly indicates which groups to match against.\n\nGroup Assignment",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_726",
+    "parent": "processed_documents/context_documents/d4378174_cadceabb_collision-filtering.json",
+    "chunk_number": 7847
+  }
+}

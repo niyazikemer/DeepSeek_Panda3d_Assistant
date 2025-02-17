@@ -1,0 +1,9 @@
+{
+  "content": "The shortcuts `add_consecutive_vertices`, `add_next_vertices` allow efficient addition of multiple vertices in sequence without manual index management, but manual `close_primitive()` is still required for variable-length primitives like GeomTristrips.\n\n# Add numVertices consecutive vertices, beginning at vertex \"start\".\n# For instance, add_consecutive_vertices(5, 3) adds vertices 5, 6, 7.\nadd_consecutive_vertices(start, numVertices)\n\n# Adds numVertices consecutive vertices, beginning with the next vertex\n# after the last vertex you added, or beginning at vertex 0 if these are\n# the first vertices.\nadd_next_vertices(numVertices)\n\nNone of the above shortcut methods calls ~.GeomPrimitive.close_primitive() for you; it is still your responsibility to call ~.GeomPrimitive.close_primitive() each time you add the appropriate number of vertices to a primitive that requires it.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_665",
+    "parent": "processed_documents/context_documents/ac32205b_13f08c03_creating-primitives.json",
+    "chunk_number": 7562
+  }
+}

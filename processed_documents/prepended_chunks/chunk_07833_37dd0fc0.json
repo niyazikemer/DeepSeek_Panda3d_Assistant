@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to load a multiview texture by specifying a series of numbered images with consistent filenames.\n\nA multiview texture is loaded as a series of independent texture images (similar to the way a cube map or 3-D texture is loaded). Each image is numbered, and the first image (or left image) is image number 0. The right image is image number 1. If there are additional views, they are numbered consecutively from there. All of the images in the series must have the same filename, except for the image sequence number.\n\nTo load a multiview texture, use:\n\npython\n\ntex = loader.loadTexture('filename_#.png', multiview=True)\n\ncpp\n\nLoaderOptions options;\noptions.set_texture_flags(LoaderOptions::TF_multiview);\nPT(Texture) tex = TexturePool::load_texture(\"filename_#.png\", 0, false, options);\n\nwhere the hash mark in the filename is replaced with the digit (or digits) that correspond to the image sequence number. For instance, the above example would load image files named filename_0.png and filename_1.png.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_724",
+    "parent": "processed_documents/context_documents/aa701a99_1e518caa_multiview-textures.json",
+    "chunk_number": 7833
+  }
+}

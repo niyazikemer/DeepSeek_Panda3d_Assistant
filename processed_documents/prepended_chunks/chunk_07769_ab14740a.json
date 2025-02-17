@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk demonstrates registering event handlers in a C++ framework for handling key presses and releases, following discussions on obtaining button mappings and labels for cross-platform compatibility. It illustrates setting up event-driven controls using `framework->define_key()`.\n\n// ...or register event handlers\nframework->define_key(w_button.get_name(), start_moving_forward, nullptr);\nframework->define_key(w_button.get_name() + \"-up\", stop_moving_forward, nullptr);\n\nThe above code example also illustrates the use of the ~.ButtonMap.get_mapped_button_label() function to get a textual representation for the button, if the operating system provides it. This is most useful for keys like \"shift\" or \"enter\", which may be called differently on different keyboards or in different languages. However, this is both system-dependent and locale-dependent. You should not rely on it being present, and if it is, you should not rely on consistent formatting or capitalization.\n\nOf course, it is always advisable to still add in a configuration screen so that users can customize key bindings in case they find a particular control scheme difficult to use.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_711",
+    "parent": "processed_documents/context_documents/66219fe4_571e1192_keyboard-support.json",
+    "chunk_number": 7769
+  }
+}

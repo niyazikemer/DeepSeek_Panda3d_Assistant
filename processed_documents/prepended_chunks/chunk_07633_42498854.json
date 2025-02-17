@@ -1,0 +1,9 @@
+{
+  "content": "The provided C++ code chunk is part of an advanced guide on how to create buffers or windows with specific properties using Panda3D's low-level API. It demonstrates how to set up a buffer with custom frame buffer properties (e.g., RGB bits, alpha bits, and depth bits) and window properties (e.g., size), while also utilizing flags to control whether the output is a visible window or an offscreen buffer. The code showcases how to create such outputs using `GraphicsEngine::make_output()`, which allows for more fine-grained control over buffer creation compared to higher-level APIs.\n\ncpp\n\nPT(GraphicsOutput) mybuffer;\nPT(Texture) mytexture;\nPT(Camera) mycamera;\nPT(DisplayRegion) region;\nNodePath mycameraNP;\nNodePath myscene;\n\nmybuffer = window->get_graphics_output()->make_texture_buffer(\"My Buffer\", 512, 512);\nmytexture = mybuffer->get_texture();\nmybuffer->set_sort(-100);\nmycamera = new Camera(\"my camera\");\nmycameraNP = window->get_render().attach_new_node(mycamera);\nregion = mybuffer->make_display_region();\nregion->set_camera(mycameraNP);\nmyscene = NodePath(\"My Scene\");\nmycameraNP.reparent_to(myscene)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_681",
+    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
+    "chunk_number": 7633
+  }
+}

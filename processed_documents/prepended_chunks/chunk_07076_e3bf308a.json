@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of a guide on texture handling in computer graphics and specifically discusses configuring Panda3D for managing non-power-of-two textures through rescaling and padding options like 'up', 'down', or 'pad' modes, with considerations for GUI use cases.\n\nIf you would like Panda3D to rescale your images up to the next larger power of two instead of down to the next smaller power of two, use:\n\ntextures-power-2 up\n\nin your config file. The default is:\n\ntextures-power-2 down\n\nAs of version 1.8.0, another mode was added which adds black borders as needed to frame the texture within a larger power-two texture. To enable this mode instead, use:\n\ntextures-power-2 pad\n\nin your config file.\n\nIt will then be up to your code to apply texture.getTexScale() where needed. This mode does, of course, prevent using repeated textures.\n\nAlthough you usually shouldn't use non power-of-two textures, for some things like GUI graphics it is not very uncommon to have them like that and let the game engine scale or pad them automatically.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_581",
+    "parent": "processed_documents/context_documents/6afe5652_4e56d207_choosing-a-texture-size.json",
+    "chunk_number": 7076
+  }
+}

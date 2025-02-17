@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a guide explaining how to create a basic 3D physics simulation using Bullet in Panda3D. It demonstrates attaching a model as a rigid body node, positioning it in space, and leveraging Bullet's automatic updates for the visual representation without manual synchronization. The example illustrates a box falling onto an invisible plane.\n\nNodePath np_box = window->get_render().attach_new_node(box_rigid_node);\nnp_box.set_pos(0, 0, 2);\nphysics_world->attach(box_rigid_node);\n...\n\nBullet will automatically update a rigid body node's position and orientation if is has changed after advancing the simulation state. So, if you have a GeomNode- e. g. a textured box - and reparent this geom node below the rigid body node, then the geom node will move around together with the rigid body. You don't have to synchronize the visual world with the physics world.\n\nThe Program\n\nLet's put everything learned on this page together into a single script, which is shown below. It assumes that you have an .egg model of a 1 by 1 by 1 box.\n\nwhen running the script you will see a box falling down onto an invisible plane. The plane is invisible simply because we didn't parent a visual mode below the plane's rigid body node. Of course we could have done so.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7101
+  }
+}

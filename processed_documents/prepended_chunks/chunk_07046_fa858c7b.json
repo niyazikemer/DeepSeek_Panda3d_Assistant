@@ -1,0 +1,9 @@
+{
+  "content": "To create a 2D scene graph in Panda3D for rendering GUI elements on top of a secondary window or buffer:\n\n1. **Create a DisplayRegion**:\n   - Use `win.makeDisplayRegion()` to create a new region.\n   - Set the sort value (e.g., 20) so it layers above the main content.\n\n2. **Set Up an Orthographic Camera**:\n   - Create a camera node with an `OrthographicLens`.\n   - Configure lens properties like film size and near/far clipping planes.\n\n3. **Attach Camera to Render Node**:\n   - Create a render node (`myRender2d`).\n   - Disable depth testing and writing for proper UI layering.\n   - Attach the camera to this node.\n\n4. **Handle DirectGui Elements**:\n   - For interactive elements, create a `PGTop` node (e.g., `myAspect2d`).\n   - Scale it based on window aspect ratio for correct rendering.\n   - Attach mouse watcher if needed for secondary windows.\n\nThis setup allows rendering 2D GUI elements above a secondary window, ensuring proper interaction and visual presentation.\n\nThe third group of commands sets up the myRender2d scene graph. It is just an ordinary node, with a few properties set on it, and the 2-D camera we have just created attached to it. We turn off the depth test and depth write properties because these are not important for a 2-D scene graph, and we don't want them to get in the way of our gui elements.\n\npython\n\nDirectGui in your new window",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_571",
+    "parent": "processed_documents/context_documents/baabada6_80cd6c1e_2d-display-region.json",
+    "chunk_number": 7046
+  }
+}

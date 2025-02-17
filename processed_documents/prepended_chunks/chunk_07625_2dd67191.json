@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains how to implement DSP effects in Panda3D by switching from OpenAL to FMOD and applying reverb using `FilterProperties`. It provides a code example that demonstrates loading an audio file, setting it to loop, creating and configuring the filter properties with reverb settings, and applying these filters to the sound manager. This allows users to enhance their audio output with effects like reverb.\n\n```plaintext\nThis section explains how to add DSP effects using FMOD in Panda3D by modifying the audio library configuration. It demonstrates adding a reverb effect through the FilterProperties class, providing sample code that sets up the audio and applies the filter.\n```\n\nYou can add more than just reverb to your sound. The full list of available filters is here:\n\npanda3d.core.FilterProperties\n\nBelow is a sample program for adding a reverb effect:\n\n# This is just to ensure that we are using FMOD. In your application,\n# please edit the Config.prc file that you distribute\nfrom panda3d.core import loadPrcFileData\nloadPrcFileData(\"\", \"audio-library-name p3fmod_audio\")\n\nfrom direct.showbase.ShowBase import ShowBase\nfrom panda3d.core import FilterProperties\n\nbase = ShowBase()\n\nmySound = loader.loadSfx(\"models/audio/sfx/GUI_rollover.wav\")\nmySound.setLoop(True)\nmySound.play()\n\nfp = FilterProperties()\nfp.addReverb(0.6, 0.5, 0.1, 0.1, 0.1)\nbase.sfxManagerList[0].configureFilters(fp)\n\nbase.run()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_679",
+    "parent": "processed_documents/context_documents/15e5330a_629172ef_dsp-effects.json",
+    "chunk_number": 7625
+  }
+}

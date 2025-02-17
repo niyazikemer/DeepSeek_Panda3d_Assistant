@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides examples in both Python and C++ demonstrating how to use the `PNMImage` class to load an image, resize it using a Gaussian filter, and store the filtered result into another image object. This is particularly useful when preparing images for textures or other graphics operations where downsampling with a Gaussian blur is required.\n\n**Context:**  \nThis code demonstrates resizing an image using a Gaussian filter in both Python and C++, which is essential before loading the modified image into a texture, especially since many GPUs require texture dimensions to be powers of two.\n\npython\n\nfullSize = PNMImage(Filename(\"testImg.png\"))\nreduced = PNMImage(256, 256)\nreduced.gaussianFilterFrom(1.0, fullSize)\n\ncpp\n\nPNMImage full_size(Filename(\"testImg.png\"));\nPNMImage reduced(256, 256);\nreduced.gaussian_filter_from(1.0, full_size);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_647",
+    "parent": "processed_documents/context_documents/c417f3fc_7487dfe5_creating-textures.json",
+    "chunk_number": 7440
+  }
+}

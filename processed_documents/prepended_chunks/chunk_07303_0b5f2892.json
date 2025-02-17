@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a section that explains how to set up and configure the physics simulation environment in Panda3D using ODE. It focuses on essential steps such as configuring the surface table for collision detection, creating collision geometries for bodies, setting up category and collide bitmasks, integrating these components into the simulation loop, and choosing appropriate space types for different scenarios.\n\nConfigure the surface table for the world.\n\nCreate ODE collision geometry for your bodies, e.g. OdeBoxGeom, OdePlaneGeom, etc. Be sure to set collide and category bitmasks <collision-bitmasks> on it using the setCollideBits and setCategoryBits methods. Assign it to your body using geom.setBody(body).\n\nIn your simulation loop, call space.autoCollide() before you call world.quickStep.\n\nAfter using quickStep, you need to empty your OdeJointGroup using the empty() method.\n\nSpaces\n\nTo be able to use collision detection, you will need to create an OdeSpace. There are three different kinds of space types you have to choose from, any one will work but each one is more optimized for a special kind of simulation.\n\nOdeSimpleSpace. This is the most simple kind of space available. This does not perform any collision culling at all, that's why it is not preferred for a large number of objects. If you have a small amount of objects, however, you will most likely prefer an OdeSimpleSpace.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_624",
+    "parent": "processed_documents/context_documents/cde8e306_e796df8b_collision-detection.json",
+    "chunk_number": 7303
+  }
+}

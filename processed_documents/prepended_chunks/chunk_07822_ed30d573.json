@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how to create a TextNode object in both Python and C++, set its text content, attach it to the scene graph, scale it appropriately, and customize its properties such as font.\n\npython\n\ntext = TextNode('node name')\ntext.setText(\"Every day in every way I'm getting better and better.\")\ntextNodePath = aspect2d.attachNewNode(text)\ntextNodePath.setScale(0.07)\n\ncpp\n\nPT(TextNode) text;\ntext = new TextNode(\"node name\");\ntext->set_text(\"Every day in every way I'm getting better and better.\");\nNodePath textNodePath = window->get_aspect_2d().attach_new_node(text);\ntextNodePath.set_scale(0.07);\n\nNote that the TextNode constructor takes a string name, which is not related to the text that is to be displayed. Also note that the default text color is white; we show it as black in these examples to make it easier to see on the white background.\n\nThere are a large number of properties that you can specify on the TextNode to control the appearance of your text.\n\nFont\n\npython\n\ncmr12 = loader.loadFont('cmr12.egg')\ntext.setFont(cmr12)\n\ncpp\n\nPT(TextFont) cmr12=FontPool::load_font(\"cmss12.egg\");\ntext->set_font(cmr12);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_723",
+    "parent": "processed_documents/context_documents/1b6ddfee_8dcb8f12_rendering-text.json",
+    "chunk_number": 7822
+  }
+}

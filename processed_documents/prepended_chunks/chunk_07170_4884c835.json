@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a discussion about setting up and executing compute shaders in Panda3D, specifically focusing on how to specify the size and count of work groups for different types of data processing tasks. The context explains the relationship between local work group sizes defined in the shader and the global work group counts specified in the application, using an example of image processing to illustrate the concept.\n\nThe work group size and count are specified using a three-dimensional size value, so that it is conveniently possible to use compute shaders on sets of data with up to three physical dimensions, such as 3-D textures or cube maps. However, the Z component of these values may be set to 1 if the shader is designed to operate on a 2-D set of data, and the Y component may be 1 if the shader is designed to work on a one-dimensional array. The way this is specified merely determines how the coordinates are provided to the shader; in the end, what counts is the total number of invocations in the work group, which is equal to the product of these three numbers.\n\nSo, if you have an image processing shader that operates on a 512x512 image, you may set the local work group size in your shader to 16x16x1, whereas in your application, you would specify a work group count of 32x32x1 since there are 32 of these tiles in each of the X and Y directions.\n\nExample shader",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7170
+  }
+}

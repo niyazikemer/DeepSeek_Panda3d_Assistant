@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses creating a Panda3D Multifile from C++ code, loading contained models in Python, stream-based access versus random access methods (e.g., avoiding .rgb files in favor of .ttf), and provides an example workflow.\n\nos.write((char*)&stuff, sizeof(stuff));\n\nPT(Multifile) mf = new Multifile();\nmf->open_write(fileName);\nmf->add_subfile(\"foo.mf\", &is,6);\nmf->flush();\nmf->close();\n\nIf the foo.mf file were to have a contained bar.egg.pz file, load the egg and use it similar to other model loading methods.\n\npython\n\nnodepath = loader.loadModel(\"foo/bar\")\n\nStream-Based\n\nMultifile algorithms are stream-based and not random-based. In a running game, from the output, if a message is received saying something similar to the words seek error for offset then a file in the multifile is trying to be accessed by a random-based method. For multifiles and fonts, an example of a random-based file is an .rgb file. An alternative different from the use of an .rgb file is the use of a .ttf instead. An example follows.\n\n# models is the original directory\n# models.mf it the new target multifile\nmultify -c -f models.mf -v models\n\nIn the game, from the multifile models.mf, load the .ttf file.\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7605
+  }
+}

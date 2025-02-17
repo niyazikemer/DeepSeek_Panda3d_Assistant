@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains how to create a cone/twist constraint between two rigid bodies in Bullet physics using Panda3D. Body A is dynamic, allowing movement and affected by gravity, while body B is static, remaining stationary. The cone/twist constraint enables body A to move within a conical boundary relative to body B and rotate around an axis connecting them. This example is part of the section detailing constraints between two rigid bodies, demonstrating how to define such movements with specified limits.\n\n**Context:**  \nThis chunk is situated in the document's explanation of creating a cone/twist constraint between two rigid bodies. It follows the setup of dynamic (A) and static (B) bodies and precedes the code for defining the constraint with specific movement limits, illustrating how to connect these bodies within Bullet physics.\n\nNodePath np_b = world.attach_new_node(new BulletRigidBodyNode(\"B\");\nnp_b.node()->add_shape(shape);\nnp_b.set_pos(10, 0, -5);\nworld->attach_rigid_body(np_b.node());\n\nIn the above example body A is dynamic, and body B is static. This means body A will fall down since it is affected by gravity, but body B will always stay where it is. Neither can body B be pushed by dynamic bodies.\n\nUsing a cone/twist constraint we can connect body A to body B. The cone/twist constraint will allow body A to move within a cone fixed to body B. Body A will also be able to rotate around the axis from the cone's vertex point to body A ('twist' around this axis).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_685",
+    "parent": "processed_documents/context_documents/57dfcc59_ec61c3af_constraints.json",
+    "chunk_number": 7652
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The code chunk is a Python function that handles 3D object selection via mouse clicks in a Panda3D application. It follows setting up pickable objects with tags and precedes processing the selected object using `findNetTag()`. The function retrieves the closest clicked object after performing collision detection, making it essential for implementing interactive 3D object selection.\n\npython\n\ndef myFunction():\n    mpos = base.mouseWatcherNode.getMouse()\n    pickerRay.setFromLens(base.camNode, mpos.getX(), mpos.getY())\n\n    myTraverser.traverse(render)\n    # Assume for simplicity's sake that myHandler is a CollisionHandlerQueue.\n    if myHandler.getNumEntries() > 0:\n        # This is so we get the closest object\n        myHandler.sortEntries()\n        pickedObj = myHandler.getEntry(0).getIntoNodePath()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_642",
+    "parent": "processed_documents/context_documents/89de807b_91a421cd_clicking-on-3d-objects.json",
+    "chunk_number": 7422
+  }
+}

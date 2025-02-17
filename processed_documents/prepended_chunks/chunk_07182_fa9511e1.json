@@ -1,0 +1,9 @@
+{
+  "content": "This chunk discusses setting a texture's clear color and explicitly clearing its image in C++, enabling efficient initial clears with immutable texture storage. It also introduces memory barriers to synchronize reads/writes across shaders in Panda3D.\n\ncpp\n\n// Tell Panda to fill the texture with a red color on the GPU.\nLColor clear_color(1.0f, 0.0f, 0.0f, 0.0f);\ntex->set_clear_color(clear_color);\ntex->clear_image();\n\nWhen doing this, it is recommended that you enable the use of immutable texture storage, which is an experimental feature that allows Panda3D to allocate the texture memory beforehand and perform more efficient initial clears. It can be activated using the following configuration variable:\n\ngl-immutable-texture-storage true\n\nMemory barriers\n\nWhenever you write to an image using an image2D uniform, Panda3D assumes that the image has been modified by the shader. Panda3D will automatically issue a memory barrier when the texture is used in a following operation, such as when the texture is used for rendering or bound to a different shader, to make sure that the reads and writes are synchronized.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7182
+  }
+}

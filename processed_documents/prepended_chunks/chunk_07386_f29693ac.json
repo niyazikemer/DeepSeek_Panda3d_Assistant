@@ -1,0 +1,9 @@
+{
+  "content": "The section discusses the **CollisionRay** as an infinite directional ray in 3D space, created with an origin and direction vector. It explains how CollisionRay is used for screen object picking (e.g., camera viewpoint interaction) via `setFromLens()`, and in conjunction with CollisionHandlerFloor.\n\nThe CollisionRay represents an infinite ray that begins at a specific point, and stretches in one direction to infinity.\n\nIt is particularly useful for picking objects from the screen, since you can create a ray that starts at the camera's point of view and extends into the screen, and then determine which objects that ray is intersecting. (In fact, there is a method on CollisionRay called setFromLens() that automatically sets up the ray based on a 2-d onscreen coordinate; this is used by the \"picker\". See clicking-on-3d-objects.)\n\nThe CollisionRay is also useful in conjunction with the CollisionHandlerFloor; see collision-handlers.\n\nA CollisionRay is created by specifing an origin point, and a direction vector. The direction vector need not be normalized.\n\nray = CollisionRay(ox, oy, oz, dx, dy, dz)\n\nCollisionLine",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_633",
+    "parent": "processed_documents/context_documents/62537003_cc9627be_collision-solids.json",
+    "chunk_number": 7386
+  }
+}

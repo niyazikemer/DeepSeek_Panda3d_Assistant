@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is part of a tutorial on 3D graphics hardware and shaders, focusing on modifying a script to apply textures to cubes using Panda. It discusses how vertex colors blend with textures and demonstrates applying specific textures ('arrow.png' and 'circle.png') to individual or all cubes in the scene.\n\nA blur filter (like in the glow example) is an example of such a setup. You need at least two passes to create such an effect.\n\nModifying the Script\n\nWe will now modify the script to see how the normal 3D pipeline blends the vertex colors with textures. In the tutorial media, there are two textures, 'arrow.png' and 'circle.png'. We will apply these to the cubes using only Panda.\n\nPlace one of the following lines in the script after the cubes are placed in the scenegraph:\n\nroot.setTexture(stageArrow, textureArrow)\nroot.setTexture(stageCircle, textureCircle)\n\nYou will notice that the textures get applied to all of the cubes. Now try placing the textures on individual cubes:\n\ncubes[0].setTexture(stageArrow, textureArrow)\ncubes[1].setTexture(stageCircle, textureCircle)\ncubes[2].setTexture(stageArrow, textureArrow)\ncubes[2].setTexture(stageCircle, textureCircle)\n\nNow that we have a general idea of how 3D hardware and models work, lets move on to using shaders.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_664",
+    "parent": "processed_documents/context_documents/84ac09f0_3f7e393a_part-1.json",
+    "chunk_number": 7555
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides a detailed explanation of how to use `GraphicsOutput.make_texture_buffer()` in Panda3D for render-to-texture functionality. It explains the purpose of this method, including creating a hidden window, setting up a texture buffer, and ensuring proper rendering order through sorting.\n\nThe ~.GraphicsOutput.make_texture_buffer() is the simple interface to the render-to-texture functionality. It creates a new hidden window (usually a .GraphicsBuffer), creates a texture to render into, and connects the texture to the hidden window. The (512, 512) in the function call specifies the size of the hidden window and texture. Of course, you need to use a power-of-two size. You can specify (0, 0) to automatically inherit the size of the parent window. The ~.GraphicsOutput.get_texture() method retrieves the texture, which will be rendered into every frame.\n\nThe ~.GraphicsOutput.set_sort() method sets a window's sort order. This controls the order in which panda renders the various windows. The main window's sort order is zero. By setting the sort order of mybuffer to a negative number, we ensure that mybuffer will be rendered first. That, in turn, ensures that mytexture will be ready to use by the time that the main window is rendered.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_681",
+    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
+    "chunk_number": 7634
+  }
+}

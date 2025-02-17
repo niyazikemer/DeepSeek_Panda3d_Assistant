@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides essential steps for initializing and configuring the physics simulation world and debug node within the BulletPhysics framework in a C++ application using Panda3D. It demonstrates how to set up the gravity, attach a debug node for visualizing physics objects, and ensure that the debug visualization is visible at runtime. The context is crucial for understanding how to properly initialize a physics simulation with debugging capabilities in a 3D application.\n\nworld = BulletWorld()\nworld.setGravity(Vec3(0, 0, -9.81))\nworld.setDebugNode(debugNP.node())\n\ncpp\n\n#include \"panda3d/bulletDebugNode.h\"\n...\nPT(BulletDebugNode) bullet_dbg_node;\nbullet_dbg_node = new BulletDebugNode(\"Debug\");\nbullet_dbg_node->show_bounding_boxes(true);\nbullet_dbg_node->show_constraints(true);\nbullet_dbg_node->show_normals(true);\nbullet_dbg_node->show_wireframe(true);\n\nNodePath np_dbg_node = window->get_render().attach_new_node(get_physics_debug_node());\nnp_dbg_node.show();\n\nphysics_world->set_debug_node(get_physics_debug_node());\n...\n\nWe can control the amount of information rendered using the following methods:\n\nThere is one thing to pay attention to: By default the .BulletDebugNode is hidden right after creation. If we want to see the debug visualisation from the first frame on we have to unhide it, using ~.NodePath.show().",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_603",
+    "parent": "processed_documents/context_documents/5e747db8_2c6507d0_debug-renderer.json",
+    "chunk_number": 7196
+  }
+}

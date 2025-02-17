@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes advanced techniques for working with multiview textures in Panda, specifically focusing on loading cube maps as stereo textures and configuring 3-D textures with multiple views. The provided code snippets demonstrate how to load a multiview cube map (with two sets of six faces) and a stereo 3-D texture that requires explicitly specifying the number of views due to its layered structure.\n\ncpp\n\nLoaderOptions options;\noptions.set_texture_flags(LoaderOptions::TF_multiview);\nPT(Texture) tex = TexturePool::load_texture(\"cubemap_##.png\", 0, false, options);\n\nFinally, 3-D textures work this way as well. (Note that here by 3-D texture we mean one that contains height, width, and depth; this is not to be confused with a stereo texture, which contains a left and a right view. It is possible to have a stereo 3-D texture, which contains a left and a right view that both contain height, width, and depth.) When loading a multiview 3-D texture, you must specify the number of views explicitly, because Panda won't be able to figure that out based on the number of image files alone.\n\npython\n\ntex = loader.load3DTexture('tex3d_#.png', multiview=True, numViews=2)\n\ncpp\n\nLoaderOptions options;\noptions.set_texture_flags(LoaderOptions::TF_multiview);\noptions.set_texture_num_views(2);\nPT(Texture) tex = TexturePool::load_3d_texture(\"tex3d_#.png\", 0, false, options);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_724",
+    "parent": "processed_documents/context_documents/aa701a99_1e518caa_multiview-textures.json",
+    "chunk_number": 7835
+  }
+}

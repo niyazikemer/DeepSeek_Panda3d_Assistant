@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses various techniques for optimizing model and animation loading in Panda3D, including asynchronous and on-demand loading strategies. This chunk specifically situates within a section explaining how textures can be loaded asynchronously to improve rendering performance, allowing models to appear quickly with placeholder textures while high-resolution versions load in the background.\n\nOn-demand texture loading\n\nIn addition, you can further ask textures to be loaded to the graphics card asynchronously. This means that the first time you look at a particular model, the texture might not be available; but instead of holding up the frame while we wait for it to be loaded, Panda can render the model immediately, with a very low-resolution version of the texture or even a flat color, and start loading of the full-resolution version in the background. When the texture is eventually loaded, it will be applied. This results in fewer frame-rate chugs, but it means that the model looks a little weird at first. It has the greatest advantage when you are using lazy-load textures as well as texture compression, because it means these things will happen in the background. Use these configuration options to enable this behavior:\n\npreload-textures 0\npreload-simple-textures 1\nsimple-image-size 16 16\ncompressed-textures 1\nallow-incomplete-render 1",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7356
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This section demonstrates how to enable and configure physics for a node in Panda3D using the ActorNode component. It provides code examples in both Python and C++ to create an ActorNode, attach it to a scene, load a model into it, and then modify its physical properties (e.g., mass) via the getPhysicsObject method. This is essential for integrating physics-based interactions into your 3D scenes.\n\npython\n\nnode = NodePath(\"PhysicsNode\")\nnode.reparentTo(render)\nan = ActorNode(\"jetpack-guy-physics\")\nanp = node.attachNewNode(an)\nbase.physicsMgr.attachPhysicalNode(an)\njetpackGuy = loader.loadModel(\"models/jetpack_guy\")\njetpackGuy.reparentTo(anp)\n\ncpp\n\nNodePath node(\"PhysicsNode\");\nnode.reparent_to(render);\nPT(ActorNode) an = new ActorNode(\"jetpack-guy-physics\");\nNodePath anp = node.attach_new_node(an);\nphysics_mgr->attach_physical_node(an);\nNodePath jetpackGuy = window->load_model(anp, \"models/jetpack_guy\");\n\nNow, the \"jetpackGuy\" model will be updated every frame with the physics applied to it.\n\nThe ActorNode also serves as a repository for the PhysicsObject that describes the physical properties (i.e. mass) of the object. To modify these properties, use the getPhysicsObject call.\n\npython\n\nan.getPhysicsObject().setMass(136.077)   # about 300 lbs\n\ncpp\n\nan->get_physics_object()->set_mass(136.077);   // about 300 lbs",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_594",
+    "parent": "processed_documents/context_documents/23949b43_81d07e18_enabling-physics-on-a-node.json",
+    "chunk_number": 7150
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk explains how to set up and update a Bullet physics world in Panda3D, including creating a new `BulletWorld`, setting its gravity to Earth's standard gravity (9.81 m/s\u00b2), and advancing the simulation state each frame using a task. The code demonstrates this process in both Python and C++ implementations of Panda3D's Bullet bindings.\n\npython\n\nfrom panda3d.bullet import BulletWorld\nworld = BulletWorld()\nworld.setGravity(Vec3(0, 0, -9.81))\n\ncpp\n\nFirst, include Panda3D bullet binding headers.\n\n#include \"bulletWorld.h\"\n#include \"bulletPlaneShape.h\"\n#include \"bulletBoxShape.h\"\n...\nPT(BulletWorld) physics_world;\nphysics_world = new BulletWorld();\nphysics_world->set_gravity(0, 0, -9.81f);\n...\n\nThe above code creates a new world, and it sets the worlds gravity to a downward vector with length 9.81. While Bullet is in theory independent from any particular units it is recommended to stick with SI units (kilogram, meter, second). In SI units 9.81 m/s\u00b2 is the gravity on Earth's surface.\n\nNext we need to advance the simulation state. This is best done by a task which gets called each frame. We find out about the elapsed time (dt), and pass this value to the do_physics() method.\n\npython\n\ndef update(task):\n    dt = globalClock.getDt()\n    world.doPhysics(dt)\n    return task.cont\n\ntaskMgr.add(update, 'update')\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7095
+  }
+}

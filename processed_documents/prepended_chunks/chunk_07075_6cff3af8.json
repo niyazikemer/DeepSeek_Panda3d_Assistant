@@ -1,0 +1,9 @@
+{
+  "content": "The chunk explains the basics of choosing texture sizes in Panda3D, focusing on power-of-two dimensions, non-square textures, and default scaling behavior.\n\nChoosing a Texture Size\n\nStandard Texture Sizes\n\nMost graphics hardware requires that your texture images always be a size that is a power of two in each dimension. That means you can use any of the following choices for a texture size: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, or so on (but unless you have a really high-end card, you'll probably need to stop there).\n\nThe textures don't usually have to be square: they don't have to have the same size in both dimensions. But each dimension does usually have to be a power of two. So 64 \u00d7 128 is all right, for instance, or 512 \u00d7 32, or 256 \u00d7 256. But you can't make a texture image that is 200 \u00d7 200 pixels, since 200 isn't a power of two.\n\nBy default, Panda3D will automatically rescale any texture image down to the nearest smaller power of two when you read it from disk, so you usually don't have to think about this--but your application will load faster if you scale your textures properly in the first place.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_581",
+    "parent": "processed_documents/context_documents/6afe5652_4e56d207_choosing-a-texture-size.json",
+    "chunk_number": 7075
+  }
+}

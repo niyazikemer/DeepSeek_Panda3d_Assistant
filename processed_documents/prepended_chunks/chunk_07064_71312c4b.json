@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is part of the server setup process in the document, explaining how the server initializes its network components by opening a rendezvous socket with a specified port and backlog. It describes setting up the server to listen for incoming connections and prepare for handling them through periodic polling tasks.\n\nThis method of instantiation prepares the classes in single-thread mode, which that realtime communication requires them to be polled periodically.\n\nTo accept client connections, the server opens a special \"rendezvous\" socket at a specific port address. This port address must be known by both the client and the server. Additionally, a backlog is specified; this is the number of incoming connection requests that the connection will track before it starts rejecting connection attempts. The responsibility for managing the rendezvous socket is passed to the QueuedConnectionListener, and a task is spawned to periodically poll the listener.\n\nport_address = 9099 #No-other TCP/IP services are using this port\nbacklog = 1000 #If we ignore 1,000 connection attempts, something is wrong!\ntcpSocket = cManager.openTCPServerRendezvous(port_address,backlog)\n\ncListener.addConnection(tcpSocket)\n\nSince the network handlers we instantiated are polled, we'll create some tasks to do the polling.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_579",
+    "parent": "processed_documents/context_documents/88ca9d10_4d684580_client-server-connection.json",
+    "chunk_number": 7064
+  }
+}

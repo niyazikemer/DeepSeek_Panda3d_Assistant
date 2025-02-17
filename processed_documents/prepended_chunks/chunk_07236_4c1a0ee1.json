@@ -1,0 +1,9 @@
+{
+  "content": "The `gotCreateReady` method is part of the `GameClientRepository` class within a document explaining how to set up a client repository for connecting to a server using Panda3D's distributed object system. This method checks if the client has the authority to create distributed objects (DOs) by verifying `haveCreateAuthority()`. If successful, it proceeds, allowing DO creation and interaction with the server; otherwise, it exits. The method is crucial after establishing connection success, setting zone interests, and synchronizing time, ensuring reliable object creation once ready.\n\ndef gotCreateReady(self):\n        \"\"\" Ready to enter the world.  Expand our interest to include\n        any other zones \"\"\"\n\n        # This method checks whether we actually have a valid doID range\n        # to create distributed objects yet\n        if not self.haveCreateAuthority():\n            # Not ready yet.\n            return\n\n        # we are ready now, so ignore further createReady events\n        self.ignore(self.uniqueName('createReady'))\n\n        # Now the client is ready to create DOs and send and receive data\n        # to and from the server\n\nFirst of all, we need to initialize the .ClientRepository. This will handle the connection code to the server. We pass it our dc files as well as the threadedNet parameter which will have the same effect as described in the server repositories.\n\nClientRepository.__init__(\n    self,\n    dcFileNames = dcFileNames,\n    threadedNet = True)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_613",
+    "parent": "processed_documents/context_documents/64e9d680_48c65d6c_client-repositories.json",
+    "chunk_number": 7236
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the limitations and considerations when using TXO files for pre-compressed textures in Panda3D, including version-specific issues, potential decompression on older graphics cards, and dependency on libsquish. It then introduces the DDS file format as an alternative with its own set of advantages and compatibility concerns.\n\nTXO files have the same drawbacks as BAM files: they are tied to a particular version of Panda, so you may need to regenerate them when you next upgrade your Panda version.\n\nA bigger drawback to storing pre-compressed texture images this way is that not all graphics cards support all kinds of DXT compression, and if you try to load a TXO file that a graphics card doesn't understand, Panda3D will decompress the texture on the CPU before uploading it to the graphics card. Thus, pre-compressing all of your textures may cause a loss of texture quality on older cards.\n\nNote that decompression is only available if Panda3D has been compiled with support for the libsquish library; if not, the texture will fail to load entirely if the driver does not support the requested compression mode.\n\nDDS file format",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_591",
+    "parent": "processed_documents/context_documents/e855bf7e_76bdc2be_texture-compression.json",
+    "chunk_number": 7139
+  }
+}

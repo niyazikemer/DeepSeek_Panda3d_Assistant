@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes the implementation of a physics simulation task using ODE (Open Dynamics Engine) in C++. It demonstrates how to set up and manage asynchronous tasks for simulating object physics, including applying forces, accumulating time deltas, and updating object positions. The code integrates with a task management system to ensure consistent physics calculations regardless of frame rate variations.\n\nPT(GenericAsyncTask) simulationTaskObject =\n    new GenericAsyncTask(\"startup task\", &simulationTask, nullptr);\n  simulationTaskObject->set_delay(2);\n  taskMgr->add(simulationTaskObject);\n}\n\n// The task for our simulation\nAsyncTask::DoneStatus simulationTask (GenericAsyncTask *task, void *data) {\n  // Set the force on the body to push it off the ridge\n  body->set_force(0, min(pow(task->get_elapsed_time(),4) * 500000 - 500000, 0), 0);\n  // Add the deltaTime for the task to the accumulator\n  deltaTimeAccumulator += globalClock->get_dt();\n  while (deltaTimeAccumulator > stepSize ) {\n    // Remove a stepSize from the accumulator until\n    // the accumulated time is less than the stepsize\n    deltaTimeAccumulator -= stepSize;\n    // Step the simulation\n    world.quick_step(stepSize);\n  }\n  // set the new positions\n  sphere.set_pos_quat(window->get_render(),\n    body->get_position(), body->get_quaternion());\n  return AsyncTask::DS_cont;\n}",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_691",
+    "parent": "processed_documents/context_documents/19b1c5f9_f606c2b9_simulating-physics-world.json",
+    "chunk_number": 7684
+  }
+}

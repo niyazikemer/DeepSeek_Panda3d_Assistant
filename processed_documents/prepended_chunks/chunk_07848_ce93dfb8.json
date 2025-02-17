@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a practical example of how to assign an object to a specific collision group within the Bullet physics engine using both Python and C++. It demonstrates setting the collide mask for a rigid body node to define its participation in collision detection, specifically assigning it to group 0. The note about queries highlights that query operations use their own masking system, independent of the group matrix defined earlier. This example is part of the broader discussion on configuring collision groups and masks in Panda3D's Bullet physics implementation.\n\nPlease note that this group matrix is ignored by queries <queries>, which take a mask that directly indicates which groups to match against.\n\nGroup Assignment\n\nThe example below shows a typical setup for a rigid body. Only the last line of the code block is new. Here we set the collide mask which specifies which collision groups the object belongs to.\n\npython\n\nshape = shape = BulletBoxShape(Vec3(0.5, 0.5, 0.5))\n\nbody = BulletRigidBodyNode('Body')\nbody.addShape(shape)\n\nworld.attachRigidBody(body)\n\nbodyNP = self.worldNP.attachNewNode(body)\nbodyNP.setPos(0, 0, -1)\n\n# Set it to be a part of group 0\nbodyNP.setCollideMask(BitMask32.bit(0))\n\ncpp\n\nBulletBoxShape *box_shape = new BulletBoxShape(LVecBase3(0.5, 0.5, 0.5));\nBulletRigidBodyNode *body_rigid_node = new BulletRigidBodyNode(\"Body\");\nbody_rigid_node->add_shape(box_shape);\nphysics_world->attach(box_rigid_node);\n\nNodePath np_body = window->get_render().attach_new_node(box_rigid_node);\nnp_body.set_pos(0, 0, 2);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_726",
+    "parent": "processed_documents/context_documents/d4378174_cadceabb_collision-filtering.json",
+    "chunk_number": 7848
+  }
+}

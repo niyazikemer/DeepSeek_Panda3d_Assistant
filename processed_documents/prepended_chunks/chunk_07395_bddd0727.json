@@ -1,0 +1,9 @@
+{
+  "content": "This code chunk is part of a PandAI implementation demonstrating the 'seek' behavior. It includes the setup for an AI world, initialization of an AI character with specified parameters (mass, max force, max speed), addition of the character to the AI world, assignment of seek behavior towards a target, and the loop for continuously updating the AI world to execute the seek behavior. The code also sets up the necessary tasks to ensure continuous AI updates during runtime.\n\nContext:\nThe chunk defines essential methods in a Panda3D application to implement 'seek' using PandAI, including AIWorld creation, AICharacter setup with movement parameters, assigning seek behavior towards a target NodePath, and setting up a task to continuously update the AI simulation.\n\ndef setAI(self):\n        #Creating AI World\n        self.AIworld = AIWorld(render)\n\n        self.AIchar = AICharacter(\"seeker\",self.seeker, 100, 0.05, 5)\n        self.AIworld.addAiChar(self.AIchar)\n        self.AIbehaviors = self.AIchar.getAiBehaviors()\n\n        self.AIbehaviors.seek(self.target)\n        self.seeker.loop(\"run\")\n\n        #AI World update\n        taskMgr.add(self.AIUpdate, \"AIUpdate\")\n\n    #to update the AIWorld\n    def AIUpdate(self, task):\n        self.AIworld.update()\n        return Task.cont\n\nw = World()\nbase.run()\n\nTo get the full working demo for this, please visit:\n\nhttps://sites.google.com/site/etcpandai/documentation/steering-behaviors/seek/PandAISeekExample.zip?attredirects=0&d=1",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_635",
+    "parent": "processed_documents/context_documents/bc4be142_b2c2c08d_seek.json",
+    "chunk_number": 7395
+  }
+}

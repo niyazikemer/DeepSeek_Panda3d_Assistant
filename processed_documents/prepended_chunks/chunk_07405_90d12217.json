@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated in a section discussing how to convert file paths between Windows-style and Panda3D-style syntax, providing code examples in Python and C++.\n\nNormally, you can just use forward slashes in your paths and don't need to worry about anything else, since absolute paths should not be used in the program. However, when converting paths from the Python standard library or other libraries, special care is required to ensure that the application will continue to work on Windows correctly.\n\nTo convert a Windows filename to a Panda pathname, use code similar to the following:\n\npython\n\nfrom panda3d.core import Filename\nwinfile = \"c:\\\\MyGame\\\\Model1.egg\"\npandafile = Filename.fromOsSpecific(winfile)\nprint(pandafile)\n\ncpp\n\n#include \"filename.h\"\n\nconst std::string winfile = \"c:\\\\MyGame\\\\Model1.egg\";\nFilename pandafile = Filename::from_os_specific(winfile);\nstd::cout << pandafile.get_fullpath() << \"\\n\";\n\nTo convert a Panda filename into a Windows filename, use code like this:\n\npython\n\nfrom panda3d.core import Filename\npandafile = Filename(\"/c/MyGame/Model1.egg\")\nwinfile = pandafile.toOsSpecific()\nprint(winfile)\n\ncpp\n\n#include \"filename.h\"",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_638",
+    "parent": "processed_documents/context_documents/ff34a7e6_33cbbc72_filename-syntax.json",
+    "chunk_number": 7405
+  }
+}

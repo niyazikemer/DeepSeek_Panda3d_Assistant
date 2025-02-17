@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides instructions on installing and using the `panda3d-gltf` plugin, including notes about compatibility with Python applications versus C++ applications requiring the use of the `gltf2bam` utility.\n\npython -m pip install -U panda3d-gltf\n\npython\n\nAfter installing this plug-in, no extra steps are needed. You can simply pass any filename with a .gltf extension to the loader.loadModel() <direct.showbase.Loader.Loader.loadModel> call and it will be loaded using this plug-in. Of course, Panda's model cache ensures that the conversion step is only run the first time a particular model is loaded, or whenever it is modified on disk.\n\ncpp\n\nThe plug-in can register itself with Panda's loader system, but since it is written in Python, this functionality is not available to C++ applications. You will need to use the included gltf2bam utility to convert the glTF models to .bam first.\n\nPreviewing glTF Models\n\nSince the pview <pview> utility is written in C++, it cannot take advantage of the panda3d-gltf plug-in. If you try to load a glTF model in pview, it will always be loaded via the Assimp plug-in, which is usually not what you want.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_610",
+    "parent": "processed_documents/context_documents/e7861abe_e146aead_gltf-files.json",
+    "chunk_number": 7224
+  }
+}

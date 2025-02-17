@@ -1,0 +1,9 @@
+{
+  "content": "The provided code chunk is part of a larger document that demonstrates how to set up a basic physics simulation using the Bullet physics engine in both Python and C++. Specifically, this chunk focuses on creating and configuring a static ground plane within the physics simulation. The process involves defining a collision shape for the ground (using `BulletPlaneShape`), attaching it to a rigid body node (`BulletRigidBodyNode`), positioning the node in 3D space, and finally adding it to the physics world. This is a fundamental step in setting up any physics-based environment where gravity and object interactions with the ground are required.\n\nshape = BulletPlaneShape(Vec3(0, 0, 1), 1)\n\nnode = BulletRigidBodyNode('Ground')\nnode.addShape(shape)\n\nnp = render.attachNewNode(node)\nnp.setPos(0, 0, -2)\n\nworld.attachRigidBody(node)\n\ncpp\n\n...\nPT(BulletPlaneShape) floor_shape = new BulletPlaneShape(LVecBase3(0, 0, 1), 1);\nPT(BulletRigidBodyNode) floor_rigid_node = new BulletRigidBodyNode(\"Ground\");\n\nfloor_rigid_node->add_shape(floor_shape);\n\nNodePath np_ground = window->get_render().attach_new_node(floor_rigid_node);\nnp_ground.set_pos(0, 0, -2);\nphysics_world->attach(floor_rigid_node);\n...\n\nFirst we create a collision shape, in the case a BulletPlaneShape. We pass the plane's constant and normal vector within the shape's constructor. There is a separate page about setting up the various collision shapes offered by Bullet, so we won't go into more detail here.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_584",
+    "parent": "processed_documents/context_documents/b9e9e720_9e249116_hello-world.json",
+    "chunk_number": 7098
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The provided code illustrates an example from a guide on subclassing C++ classes in Python within Panda3D. It demonstrates how directly subclassing a C++ class like `PandaNode` in Python can lead to issues when interacting with the scene graph, which returns the base C++ node rather than the subclassed Python node. The code shows both an unsuccessful attempt and a workaround using Python tags to store and retrieve the subclass instance on the C++ node.\n\n```plaintext\nThe chunk illustrates an example from a guide on subclassing C++ classes in Python, showing how direct subclassing of `PandaNode` fails due to scene graph behavior returning the base node. The code demonstrates both the problem and its solution using Python tags.\n```\n\nLet's first see an example of what doesn't work:\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import PandaNode\n\n# Here we define the new class, subclassing PandaNode\n# and adding a new variable to it.\nclass MyNewNode(PandaNode):\n    def __init__(self, aName):\n        PandaNode.__init__(self, aName)\n        self.aVariable = \"A value\"\n\n# Here we are creating a new node and we -think-\n# we are placing it in the scene graph:\nmyNewNode = MyNewNode(\"MyNewNode\")\naNodePath = aspect2d.attachNewNode(myNewNode)\n\n# Here we -attempt- to fetch the stored variable,\n# but we'll get an error because aNodePath.node()\n# returns a PandaNode, not myNewNode!\nprint(aNodePath.node().aVariable)\n\nThe workaround is for an instance of the new node class to store itself on the PandaNode, as a Python tag:\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import PandaNode",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_628",
+    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
+    "chunk_number": 7337
+  }
+}

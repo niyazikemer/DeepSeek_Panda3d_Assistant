@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides code examples (in Python and C++) for scaling a terrain root node (`setSz`/`set_sz`) and setting up a dynamically updated terrain with Level of Detail (LOD) using `GeoMipTerrain`. The example demonstrates how to configure terrain properties like block size, near/far distances, and focal point, which are essential for optimizing performance while maintaining visual quality in Panda3D applications.\n\npython\n\nterrain.getRoot().setSz(100)\n\ncpp\n\nterrain.get_root().set_sz(100);\n\nDynamic Terrains\n\nThis code shows a dynamically updated terrain with LOD:\n\npython\n\n# Set up the GeoMipTerrain\nterrain = GeoMipTerrain(\"myDynamicTerrain\")\nterrain.setHeightfield(\"yourHeightField.png\")\n\n# Set terrain properties\nterrain.setBlockSize(32)\nterrain.setNear(40)\nterrain.setFar(100)\nterrain.setFocalPoint(base.camera)\n\n# Store the root NodePath for convenience\nroot = terrain.getRoot()\nroot.reparentTo(render)\nroot.setSz(100)\n\n# Generate it.\nterrain.generate()\n\n# Add a task to keep updating the terrain\ndef updateTask(task):\n    terrain.update()\n    return task.cont\n\ntaskMgr.add(updateTask, \"update\")\n\ncpp\n\n// Set up the GeoMipTerrain\nGeoMipTerrain terrain(\"myDynamicTerrain\");\nterrain.set_heightfield(Filename(\"maps/yourHeightField.png\"));\n\n// Set terrain properties\nterrain.set_block_size(32);\nterrain.set_near(40);\nterrain.set_far(100);\nterrain.set_focal_point(camera);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_707",
+    "parent": "processed_documents/context_documents/6da47c38_34a01633_geometrical-mipmapping.json",
+    "chunk_number": 7739
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "To profile GPU time in your Panda3D project accurately, follow these steps:\n\n1. **Enable GPU Timing**: Set `pstats-gpu-timing 1` to activate new graphs using timer queries for precise GPU task timing.\n\n2. **Check Version Compatibility**: Ensure you are using Panda3D version 1.10.12 or newer to avoid known bugs affecting GPU timing accuracy.\n\n3. **Workaround for Unreliable Timing**: If your graphics card doesn't support reliable timer queries, set `gl-finish 1` to synchronize OpenGL commands, though this may introduce performance overhead.\n\nBy following these steps, you can effectively profile GPU operations and identify rendering bottlenecks in your application.\n\nProfiling GPU Time\n\nOpenGL is asynchronous, which means that function calls aren't guaranteed to execute right away. This can make performance analysis of OpenGL operations difficult, as the graphs may not accurately reflect the actual time that the GPU spends doing a certain operation. However, if you wish to more accurately track down rendering bottlenecks, you may set the following configuration variable:\n\npstats-gpu-timing 1\n\nThis will enable a new set of graphs that use timer queries to measure how much time each task is actually taking on the GPU.\n\nNote\n\nPlease make sure you are at least using Panda3D 1.10.12 when trying to use this feature. Older versions had a bug that made GPU timing not work correctly with some graphics cards.\n\nIf your card does not support it or does not give reliable timer query information, a crude way of working around this and getting more accurate timing breakdown, you can set this:\n\ngl-finish 1",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7471
+  }
+}

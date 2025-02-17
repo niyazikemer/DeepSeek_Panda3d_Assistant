@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"\nContext: This section explains how to create triangle mesh collision shapes in Panda3D using both Python and C++ implementations. It demonstrates constructing a BulletTriangleMesh by adding triangles from vertex points, followed by creating a BulletTriangleMeshShape for attaching to physics bodies. Additionally, it shows how to use a convenience method for decomposing a Geom object into triangle meshes, which is useful for handling complex geometries beyond simple triangle definitions.\n\"\"\"\n\ncpp\n\n#include \"bulletTriangleMesh.h\"\n...\nLPoint3 points_array[4] = {\n    LPoint3(-10, -10, 0),\n    LPoint3(-10, 10, 0),\n    LPoint3(10, -10, 0),\n    LPoint3(10, 10, 0),\n};\n\nPT(BulletTriangleMesh) triangle_mesh = new BulletTriangleMesh;\ntriangle_mesh->add_triangle(points_array[0], points_array[1], points_array[2]);\ntriangle_mesh->add_triangle(points_array[1], points_array[2], points_array[3]);\n\nPT(BulletTriangleMeshShape) triangle_mesh_shape = new BulletTriangleMeshShape(triangle_mesh, false);\n\nWe can use a convenience method to add all triangles from a Geom object with one method call. The geom will be decomposed first, so it does not have to contain only triangles; for example, it can contain triangle strips too.\n\npython\n\nfrom panda3d.bullet import BulletTriangleMesh\nmesh = BulletTriangleMesh()\nmesh.addGeom(geom)\n\ncpp\n\n#include \"bulletTriangleMesh.h\"\n...\nPT(BulletTriangleMesh) triangle_mesh = new BulletTriangleMesh();\ntriangle_mesh->add_geom(geom);\n\nHeightfield Shape",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_620",
+    "parent": "processed_documents/context_documents/7f3fb0c5_06f2dc6d_collision-shapes.json",
+    "chunk_number": 7282
+  }
+}

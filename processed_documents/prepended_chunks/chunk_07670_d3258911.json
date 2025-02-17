@@ -1,0 +1,9 @@
+{
+  "content": "The given chunk explains how to implement a coroutine in Python using `async` and `await` keywords within the context of Panda3D's task system. It demonstrates turning a synchronous function into an asynchronous one by replacing blocking operations with non-blocking pauses using `Task.pause()`, allowing other tasks like rendering to continue running smoothly. The example shows how coroutines can eliminate lag in applications, making them more responsive and efficient compared to traditional synchronous code.\n\nfrom direct.task.Task import Task\n\n\nasync def launchRocket(countdown):\n    print(\"Beginning countdown\u2026\")\n\n    while countdown > 0:\n       print(countdown)\n\n       # Suspend the task for a second\n       await Task.pause(1.0)\n       countdown -= 1\n\n    print(\"Launch!\")\n\ntaskMgr.add(launchRocket(countdown=3))\n\nThe moment we use await in the above code, the function is paused until the given operation completes. We use Task.pause(1.0) here, which creates a task that simply finishes after 1 second. In the meantime, other tasks can continue to run, including Panda3D's render loop, so the lag is eliminated.\n\nCoroutine Tasks\n\nPlease note that even though the coroutine is added to the task manager, it is not the same thing as a task, since it is invoked only once and it does not receive the task argument. We can in fact create a recurring task that is also a coroutine by simply prepending the async keyword to a regular task, as demonstrated by this pseudo-code:",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_689",
+    "parent": "processed_documents/context_documents/0a46205a_9afad06b_coroutines.json",
+    "chunk_number": 7670
+  }
+}

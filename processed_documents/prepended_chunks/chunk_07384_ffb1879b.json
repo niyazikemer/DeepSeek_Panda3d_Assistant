@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides detailed information about CollisionPolygon within the broader discussion of various collision solids in a system. It explains that CollisionPolygon is best used as an \"into\" object, offers tips for optimizing performance by using quads over triangles, and highlights important considerations regarding polygon types and properties to ensure accurate collision detection. This context situates the chunk within the overall document's focus on explaining different collision solid characteristics and their practical applications.\n\nLike a plane and a capsule, a CollisionPolygon is only a good choice as an \"into\" object. It doesn't support collision tests as a \"from\" object.\n\nIn general, if you must use CollisionPolygons to model your shape, you should use as few polygons as possible. Use quads instead of triangles if possible, since two triangles take twice as much time to compute as a single quad. This does mean that you need to ensure that your quads are perfectly coplanar.\n\nYou can also make higher-order polygons like five-sided and six-sided polygons or more, but you cannot make concave polygons. If you create a concave or non-coplanar CollisionPolygon in your modeling package, Panda will automatically triangulate it for you (but this might result in a suboptimal representation, so it is usually better to subdivide a concave polygon by hand).\n\nUnlike a plane, a CollisionPolygon is infinitely thin; an object is only considered to be colliding with the polygon while it is overlapping it.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_633",
+    "parent": "processed_documents/context_documents/62537003_cc9627be_collision-solids.json",
+    "chunk_number": 7384
+  }
+}

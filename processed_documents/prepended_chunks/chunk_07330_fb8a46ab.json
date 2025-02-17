@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses the advanced texture blending options available through the TextureStage interface, specifically focusing on the `CMInterpolate` mode for RGB values in C++ and introducing Alpha modes with corresponding Python examples.\n\ncpp\n\nts->set_combine_rgb(TextureStage::CM_interpolate,\n                    source0, operand0, source1, operand1, source2, operand2);\n\nThis is the only mode that uses three sources. The color value of source2/operand2 is used to select between source0/operand0 and source1/operand1. When source2 is 0, source1 is selected, and when source2 is 1, source0 is selected. When source2 is between 0 and 1, the color is smoothly blended between source0 and source1.\n\nAlpha modes\n\nThe following methods more-or-less duplicate the functionality of the above, but they control what happens to the alpha channel. Thus, you have explicit control over whether an alpha cutout in the top texture should produce an alpha cutout in the resulting object.\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_627",
+    "parent": "processed_documents/context_documents/6a616989_84f48978_texture-combine-modes.json",
+    "chunk_number": 7330
+  }
+}

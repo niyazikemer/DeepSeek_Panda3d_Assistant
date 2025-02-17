@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to test the functionality of reading and mounting a password-protected multifile in both Python and C++ using the VirtualFileSystem. It provides practical code examples for verifying successful encryption handling and file access.\n\nAt the OS prompt, to see the contents of a password protected multifile perform multify -tvf models.mf -p \"mypass\"\n\nYou can test the reading in a of password-protected multifile, followed by the mounting of the file using the following code.\n\npython\n\nfrom panda3d.core import Multifile\nmf = Multifile()\nmf.openRead(\"models.mf\")\nmf.setEncryptionFlag(True)\nmf.setEncryptionPassword(\"mypass\")\n\nfrom panda3d.core import VirtualFileSystem\nvfs = VirtualFileSystem.getGlobalPtr()\nif vfs.mount(mf, \".\", VirtualFileSystem.MFReadOnly):\n    print('mounted')\n\ncpp\n\nPT(Multifile) mf = new Multifile;\nmf->open_read(\"models.mf\");\nmf->set_encryption_flag(true);\nmf->set_encryption_password(\"mypass\");\n\nVirtualFileSystem *vfs = VirtualFileSystem::get_global_ptr();\nif (vfs->mount(mf, \".\", VirtualFileSystem::MF_read_only)) {\n    std::cerr << \"mounted\\n\";\n}\n\nWhen running the application, the following should be seen:\n\nmounted",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7608
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides a concise example of how to integrate compute shaders into a Panda3D application by creating and configuring a ComputeNode. It demonstrates essential steps such as defining the node, setting up dispatch parameters for work groups, attaching the node to the scene graph, loading the shader, and assigning necessary shader inputs. This is crucial for performing GPU-based computations within a 3D rendering pipeline.\n\nSuccinct Context: The chunk illustrates the creation of a ComputeNode in Panda3D, including setup for work group dispatch, shader assignment, and input binding, essential for implementing compute shaders in a graphics application.\n\n# Put the node into the scene graph.\nnode_path = render.attach_new_node(node)\n\n# Assign the shader and the shader inputs.\nshader = Shader.load_compute(Shader.SL_GLSL, \"compute_shader.glsl\")\nnode_path.set_shader(shader)\nnode_path.set_shader_input(\"fromTex\", myTex1)\nnode_path.set_shader_input(\"toTex\", myTex2)\n\ncpp\n\nPT(ComputeNode) node = new ComputeNode(\"compute\");\n\n// We want to call it on a 512x512 image, keeping in\n// mind that the shader has a work group size of 16x16.\nnode->add_dispatch(512 / 16, 512 / 16, 1);\n\n// Put the node into the scene graph.\nNodePath node_path = render.attach_new_node(node);\n\n// Assign the shader and the shader inputs.\nPT(Shader) shader = Shader::load_compute(Shader::SL_GLSL, \"compute_shader.glsl\");\nnode_path.set_shader(shader);\nnode_path.set_shader_input(\"fromTex\", myTex1);\nnode_path.set_shader_input(\"toTex\", myTex2);",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7174
+  }
+}

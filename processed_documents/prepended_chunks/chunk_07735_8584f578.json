@@ -1,0 +1,9 @@
+{
+  "content": "This chunk of code demonstrates how to configure a CollisionHandlerPusher with two colliding spheres in Panda3D. It shows adding collider nodes to the collision traverser, setting up their interactions, and implementing motion to visualize the avoidance behavior.\n\n# Add the Pusher collision handler to the collision traverser.\nbase.cTrav.addCollider(frowneyC, pusher)\n# Add the 'frowney' collision node to the Pusher collision handler.\npusher.addCollider(frowneyC, frowney, base.drive.node())\n\n# Have the 'smiley' sphere moving to help show what is happening.\nfrowney.posInterval(5, Point3(5, 25, 0), startPos=Point3(-5, 25, 0), fluid=1).loop()\n\n# Run the scene. Move around with the mouse to see how the moving sphere changes\n# course to avoid the one attached to the camera.\nrun()\n\ncpp",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_706",
+    "parent": "processed_documents/context_documents/f0812be4_feda7002_pusher-example.json",
+    "chunk_number": 7735
+  }
+}

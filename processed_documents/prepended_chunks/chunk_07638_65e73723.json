@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides details on enabling debugging mode for creating visible windows instead of hidden buffers, outlines limitations of the simple API for buffer operations, and introduces the use of a lower-level API (`GraphicsEngine.make_output()`) for advanced buffer management. It is situated within a guide or documentation explaining buffer handling and window creation in Panda3D.\n\npython\n\nThere is a debugging mode in which ~.GraphicsOutput.make_texture_buffer() will create a visible window (class .GraphicsWindow) instead of a hidden one (class .GraphicsBuffer). To enable this debugging mode, set the boolean variable \"show-buffers #t\" in your panda configuration file.\n\nThe Advanced API\n\nThe simple API is convenient, but there are a few things it can not do. For instance, it can not:\n\nCopy the main window into a texture.\n\nCopy the Z-buffer into a depth texture.\n\nCopy the window into a texture, but not every frame.\n\nLimit or force the use of Parasite buffers.\n\nIf you need this level of control, you need to use a lower-level API. The low-level function that is called for the creation of all buffers and windows is ~.GraphicsEngine.make_output() on the .GraphicsEngine class.\n\npython\n\n# Request 8 RGB bits, no alpha bits, and a depth buffer.\nfb_prop = FrameBufferProperties()\nfb_prop.setRgbColor(True)\nfb_prop.setRgbaBits(8, 8, 8, 0)\nfb_prop.setDepthBits(16)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_681",
+    "parent": "processed_documents/context_documents/ae63d583_6da000bc_low-level-render-to-texture.json",
+    "chunk_number": 7638
+  }
+}

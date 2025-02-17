@@ -1,0 +1,9 @@
+{
+  "content": "The chunk is situated within a discussion about creating and managing GeomPrimitive objects in Panda3D. Specifically, it comes after an explanation of how to create primitives with vertices and before a detailed breakdown of shortcuts for adding multiple vertices at once. The chunk provides examples and usage hints related to the creation of a `GeomTriangles` object, explaining its structure and vertex dependencies, as well as introducing various utility methods for efficient vertex addition.\n\nIf you are unsure about this parameter, you should use Geom.UH_static.\n\nThe above sample code defines a GeomTriangles object that looks like this:\n\n0 1 2  2 1 3  0 5 6\n\nThe actual positions of the vertices depends on the values of the vertices numbered 0, 1, 2, 3, and 5 in the associated geomvertexdata (you will associate your GeomPrimitives with a GeomVertexData in the next step <putting-your-new-geometry-in-the-scene-graph>, when you attach the GeomPrimitives to a geom).\n\nFinally, there are a few handy shortcuts for adding multiple vertices at once:\n\n# Add 2, 3, or 4 vertices in a single call.\nadd_vertices(v1, v2)\nadd_vertices(v1, v2, v3)\nadd_vertices(v1, v2, v3, v4)\n\n# Add numVertices consecutive vertices, beginning at vertex \"start\".\n# For instance, add_consecutive_vertices(5, 3) adds vertices 5, 6, 7.\nadd_consecutive_vertices(start, numVertices)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_665",
+    "parent": "processed_documents/context_documents/ac32205b_13f08c03_creating-primitives.json",
+    "chunk_number": 7561
+  }
+}

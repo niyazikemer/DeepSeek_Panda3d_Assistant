@@ -1,0 +1,9 @@
+{
+  "content": "This section explains how to create and configure task chains in Panda's TaskManager. It describes the process of setting up a new task chain with a unique name, either in C++ or Python, configuring its parameters such as thread count and priority, and reconfiguring existing chains. The section precedes detailed usage instructions for adding tasks to these chains.\n\nTo set up a new task chain, you simply call:\n\ncpp\n\nAsyncTaskManager *task_mgr = AsyncTaskManager::get_global_ptr();\nAsyncTaskChain *chain = task_mgr->make_task_chain(\"chain_name\");\n\nEach task chain must have a unique name. If you pass a name to make_task_chain() that has already been used, it will return the same pointer that was returned previously.\n\nOnce you have a task chain pointer, you may then set parameters on that instance to configure the chain according to your needs.\n\npython\n\ntaskMgr.setupTaskChain('chain_name', numThreads = None, tickClock = None,\n                       threadPriority = None, frameBudget = None,\n                       frameSync = None, timeslicePriority = None)\n\nTask chains are identified by their unique name. Repeated calls to setupTaskChain() with the same task chain name will reconfigure the same task chain.\n\nThe task chain parameters are:\n\npython\n\ncpp\n\nUsing task chains\n\npython",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_602",
+    "parent": "processed_documents/context_documents/85c9384f_6df8f2d1_task-chains.json",
+    "chunk_number": 7192
+  }
+}

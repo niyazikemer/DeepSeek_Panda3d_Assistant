@@ -1,0 +1,9 @@
+{
+  "content": "\"\"\"This chunk provides a practical example of interacting with Panda3D nodes in a real-world application. It illustrates how to loop through child nodes, check for custom Python tags (like 'subclass'), and modify attributes based on type or attribute presence. The example demonstrates two approaches: checking for specific types using `type()` for safety, or checking for compatible attributes using `hasattr()` for flexibility and extensibility.\"\"\"\n\nFor example:\n\n# here we setup the scene\naNodePath = render.attachNewNode(anInstanceOfMyNewSubclass)\naPandaNode = aNodePath.node()\n\n# here we loop over all nodes under render,\n# to find the one we are interested in:\nfor child in render.getChildren()\n    if child.hasPythonTag(\"subclass\"):\n        theInstanceOfASubclass = child.getPythonTag(\"subclass\")\n\n        # here we test for its type, which is safe\n        # but doesn't catch subclasses of the subclass\n        # or simply other objects that have the same\n        # interface and would work just as well:\n        if type(theInstanceOfASubclass) == type(MyNewSubclass):\n            theInstanceOfASubclass.aVariable = \"a new value\"\n            continue\n\n        # here instead we test for the presence of an\n        # attribute, which mean that all compatible\n        # objects get modified:\n        if hasattr(theInstanceOfASubclass, \"aVariable\"):\n            theInstanceOfASubclass.aVariable = \"a new value\"\n            continue\n\nConclusion",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_628",
+    "parent": "processed_documents/context_documents/0cbeff75_8d61bbfe_subclassing.json",
+    "chunk_number": 7340
+  }
+}

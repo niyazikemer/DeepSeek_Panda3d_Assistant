@@ -1,0 +1,9 @@
+{
+  "content": "This chunk describes the initial behavior of the PStatClient before establishing a connection with the PStatServer. It explains how calls to start() and stop() are handled when no connection is established and outlines the process of connecting via TCP using specified hostname and port settings, including how collector information is sent upon successful handshake.\n\nInitially, before the PStatClient has established a connection, calls to start() and stop() simply return immediately.\n\nWhen you call .PStatClient.connect(), the client attempts to contact the PStatServer via a TCP connection to the hostname and port named in the pstats-host and pstats-port Config.prc variables, respectively. (The default hostname and port are localhost and 5185.) You can also pass in a specific hostname and/or port to the connect() call. Upon successful connection and handshake with the server, the PStatClient sends a list of the available collectors, along with their names, colors, and hierarchical relationships, on the TCP channel.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7492
+  }
+}

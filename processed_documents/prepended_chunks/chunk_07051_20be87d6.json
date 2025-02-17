@@ -1,0 +1,9 @@
+{
+  "content": "The chunk describes how to use Panda3D's task manager to add a camera control task that updates the camera's position and orientation every frame. It explains both Python and C++ implementations, emphasizing the role of returning specific constants to continue or stop the task.\n\nContext: This section details adding a task for explicit camera control in both Python and C++, explaining how tasks are scheduled and continued using Task.cont or AsyncTask.DS_cont.\n\npython\n\ncontrolling-the-camera.py\n\ncpp\n\ncontrolling-the-camera.cxx\n\npython\n\nThe procedure taskMgr.add() tells Panda3D's task manager to call the procedure spinCameraTask() every frame. This is a procedure that we have written to control the camera. As long as the procedure spinCameraTask() returns the constant Task.cont, the task manager will continue to call it every frame.\n\ncpp\n\nThe procedure taskMgr->add() <.AsyncTaskManager.add> tells Panda3D's task manager to call the procedure spinCameraTask() every frame. This is a procedure that we have written to control the camera. As long as the procedure spinCameraTask() returns the constant AsyncTask.DS_cont, the task manager will continue to call it every frame.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_573",
+    "parent": "processed_documents/context_documents/b65a5ded_bdbb3389_controlling-the-camera.json",
+    "chunk_number": 7051
+  }
+}

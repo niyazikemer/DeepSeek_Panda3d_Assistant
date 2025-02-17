@@ -1,0 +1,9 @@
+{
+  "content": "This section provides detailed instructions on configuring Python-specific profiling in Panda3D applications. It explains how to enable options in Config.prc files to monitor time spent in Python tasks, modules, classes, and functions using PStats. This feature is particularly useful for developers optimizing Python-based applications within the Panda3D framework.\n\npstats-host profiling-machine-ip-or-hostname\n\npython\n\nProfiling Python Code\n\nIf you are developing Python code, you may be interested in reporting the relative time spent within each Python task (by subdividing the total time spent in Python, as reported under \"Show Code\"). To do this, add the following line to your Config.prc file before you start ShowBase:\n\npstats-tasks 1\n\nAs of Panda3D 1.10.13 and Python 3.6 or higher, it is also possible to get a more detailed view of which specific Python modules, classes and functions are taking up time in the application. Note that this may slow down your application somewhat due to the fact that information is collected each time a function is called. To enable this, add the following line:\n\npstats-python-profiler 1\n\nTo access this view, in the Frame strip chart, double-click the App collector on the left side, then double-click the Python collector. Then, you can drill down further into the packages, modules, classes and functions.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_653",
+    "parent": "processed_documents/context_documents/778374a5_284cb360_using-pstats.json",
+    "chunk_number": 7470
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides an overview of how to inspect and open Multifile objects in Panda3D using command-line tools and API methods, serving as a foundational starting point for working with multifiles in both Python and C++ environments.\n\nmultify -tvf mymultifile.mf\n\nDoing a sanity inspection like this can be useful to ensure that your assets are in the right place within the multifile.\n\nMultifile objects\n\nThe ~panda3d.core.Multifile class is designed for opening, reading and writing multifiles. You can open a new multifile by creating an instance of the class and calling the ~.Multifile.open_read() method:\n\npython\n\nfrom panda3d.core import Multifile\n\nmf = Multifile()\nmf.openRead(\"foo.mf\")\n\ncpp\n\nPT(Multifile) mf = new Multifile;\nmf->open_read(\"foo.mf\");\n\nThe ~.Multifile.open_read() method opens the multifile as read-only. If you want to make changes to it and write it back to disk, you will need to use the ~.Multifile.open_read_write() method. Also, there exists ~.Multifile.open_write() to create a new multifile.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7600
+  }
+}

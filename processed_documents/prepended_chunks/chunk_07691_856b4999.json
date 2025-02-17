@@ -1,0 +1,9 @@
+{
+  "content": "The given chunk is situated in the **Using Actors** section under the **Python** subsection of the document. This section explains how to create an Actor instance, load animations, and properly clean up actors when removing them from a scene.\n\nContext: The chunk provides examples for constructing an Actor with model and animation files, notes on storing animations within models (e.g., in glTF format), and emphasizes the importance of using the `cleanup()` method over `removeNode()` to ensure proper destruction of all Actor-related data.\n\nAll of the above can be written as a single statement:\n\nactor = Actor('hero.egg', {\n    'walk': 'hero-walk.egg',\n    'swim': 'hero-swim.egg',\n})\n\nNote that it is also possible to store the animations and model in the same file. This is preferred in some other model formats, such as glTF. In that case, just create the Actor with just the model as parameter, without specifying a separate dictionary for the animations.\n\nWhen you wish to remove the actor from the scene, you need to call the ~direct.actor.Actor.Actor.cleanup() method. Note that calling ~direct.actor.Actor.Actor.removeNode() is not sufficient. This is due to the fact that Actor is a Python class containing additional data that can not be destroyed by the C++ ~.NodePath.remove_node() method.\n\nNote",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_694",
+    "parent": "processed_documents/context_documents/604afc7a_b9f103d9_loading-actors-and-animations.json",
+    "chunk_number": 7691
+  }
+}

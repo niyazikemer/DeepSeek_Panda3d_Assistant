@@ -1,0 +1,9 @@
+{
+  "content": "This chunk is situated within a discussion about how Panda3D handles non-power-of-two textures, specifically addressing the technique of \"padded textures\" used to accommodate movie playback and render-to-texture scenarios where non-standard dimensions are required. It bridges the explanation of padded texture handling with an upcoming discussion on enabling nonstandard texture sizes through configuration settings.\n\nInstead, panda pads the data. Panda creates a 1024x512 texture, which is the smallest power-of-two size that can hold a 640x480 movie. It sticks the 640x480 movie into the lower-left corner of the texture. Then, it adds a black border to the right edge and top edge of the movie, padding it out to 1024x512.\n\nFrom that point forward, it's just a texture with a movie in the lower-left corner, and black bars on the upper and right sides. However, if you use UV coordinates carefully, you can cause just the movie to be displayed. To do this, you need to know how big those black bars are:\n\npadx = texture.getPadXSize()\npady = texture.getPadYSize()\n\nPanda3D only uses padded textures in a few very special cases: 1. When playing a non-power-of-two movie. 2. When using render-to-texture, and a non-power-of-two buffer.\n\nNonstandard Texture Sizes",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_581",
+    "parent": "processed_documents/context_documents/6afe5652_4e56d207_choosing-a-texture-size.json",
+    "chunk_number": 7078
+  }
+}

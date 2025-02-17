@@ -1,0 +1,9 @@
+{
+  "content": "The document discusses various techniques for asynchronous loading in Panda3D, including callbacks, coroutines, threading, and on-demand texture and animation loading. The chunk focuses specifically on using the `callback` argument with `loader.loadModel()` to perform asynchronous model loading, explaining how it enables background loading and allows for priority management of asynchronous requests.\n\npython\n\nLoading with callback\n\nOne of the ways to achieve asynchronous loading is with the callback argument to loader.loadModel() <direct.showbase.Loader.Loader.loadModel>. If callback is not None, then the model load will be performed asynchronously. In this case, ~direct.showbase.Loader.Loader.loadModel() will initiate a background load and return immediately. The return value will be an object that you may call .cancel() on to cancel the asynchronous request. At some later point, when the requested model(s) have finished loading, the callback function will be invoked with the n loaded models passed as its parameter list. It is possible that the callback will be invoked immediately, even before ~direct.showbase.Loader.Loader.loadModel() returns.\n\nIf you use a callback, you may also specify a priority, which specifies the relative importance over this model over all of the other asynchronous load requests (higher numbers are loaded first).",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_630",
+    "parent": "processed_documents/context_documents/1f644252_f4a210d4_async.json",
+    "chunk_number": 7349
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "The chunk discusses how to set up meshes in 3ds Max for proper bone-based animation when exporting to Panda3D, emphasizing the use of skin or physique modifiers and avoiding linking tools. This is crucial for creating functional animations.\n\nConverting from 3ds Max\n\nSkinning\n\nThe Max exporter understands only bone-based animation. In other words, all animation must be done by moving bones around. If you move anything else, the Max exporter may not notice! Character studio bipeds work too --- they are indeed collections of bones.\n\nMeshes must be connected to the bones using either the skin or physique modifiers. Any other way of attaching the mesh to the bones will not work. In particular, simply linking the mesh to the bone using the link tool will not work correctly. Do not use the link tool to connect your meshes to your bones. Use the physique or skin modifiers.\n\nIf all you want to do is drag a mesh around, then use the following method. Create a single bone - it will look like a small diamond. Put it in the middle of the mesh. Skin the mesh, and connect it to the one bone. Now you can drag the one bone around and the mesh will follow.",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_722",
+    "parent": "processed_documents/context_documents/2c8ce7fc_28d6614f_converting-from-3ds-max.json",
+    "chunk_number": 7811
+  }
+}

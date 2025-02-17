@@ -1,0 +1,9 @@
+{
+  "content": "The chunk appears in a section explaining how to load compute shaders using specific Python and C++ functions, mentioning the use of `Shader.load_compute()` and `Shader.make_compute()`. This section is situated within a broader discussion about GLSL compute shaders, their functionality, and integration into applications.\n\nThis page does not attempt to teach how to make GLSL compute shaders - please refer to the GLSL documentation for that information.\n\nLoading a compute shader\n\nA compute shader is typically never combined with other types of shaders, and therefore, loading a compute shader happens via a special call. At present, only GLSL compute shaders may be loaded.\n\npython\n\nshader = Shader.load_compute(Shader.SL_GLSL, \"compute_shader.glsl\")\n\ncpp\n\nPT(Shader) shader;\nshader = Shader::load_compute(Shader::SL_GLSL, \"compute_shader.glsl\");\n\nThe .Shader.make_compute() call can be used to load the shader from a string instead of a filename.\n\nDispatching a compute shader",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_599",
+    "parent": "processed_documents/context_documents/98f01149_902376c6_compute-shaders.json",
+    "chunk_number": 7172
+  }
+}

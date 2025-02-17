@@ -1,0 +1,9 @@
+{
+  "content": "This chunk provides practical Python code examples demonstrating several methods related to working with `Multifile` in Panda3D, such as opening, adding, repacking, and updating subfiles within a multifile archive. The examples illustrate common operations for managing files and directories within a multifile.\n\nThere are several other methods which operate on subfiles, which you can find on the ~panda3d.core.Multifile page in the API Reference. Here are a few examples of working with subfiles:\n\npython\n\nfrom panda3d.core import VirtualFileSystem\nfrom panda3d.core import Multifile\nfrom panda3d.core import Filename\n\nm = Multifile()\n\n# Add an existing real os file with compression level 6\nm.openReadWrite(\"foo.mf\")\nm.addSubfile(\"bar.txt\", Filename(\"/tmp/bar.txt\"), 6)\nm.flush()\n\n# Destroy the contents of the multifile\n# Add an existing real os file to be the first multifile\nm.openWrite(\"foo.mf\")\nm.addSubfile(\"bar.txt\", Filename(\"/tmp/bar.txt\"), 6)\nm.flush()\n\n# Permanently re-order in ascending order the\n# directories and files in the multifile\nm.openReadWrite(\"foo.mf\")\nm.repack()\nm.flush()\n\n# Open a multifile and replace the contents of the mulifile file\n# with new contents\nm = Multifile()\nm.openReadWrite(\"foo.mf\")\nm.updateSubfile(\"bar.txt\", Filename(\"/tmp/bar2.txt\"), 9)\nm.flush()",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_675",
+    "parent": "processed_documents/context_documents/e9ac7d45_67ff2f05_multifiles.json",
+    "chunk_number": 7603
+  }
+}

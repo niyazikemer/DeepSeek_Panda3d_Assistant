@@ -1,0 +1,9 @@
+{
+  "content": "The chunk provides code for setting up models in a Panda3D environment to demonstrate the 'seek' behavior using PandAI. The code initializes a seeker (Ralph) and a target (arrow), positioning them at specific coordinates, scaling, coloring, and loading their respective models into the scene. This is part of a larger example illustrating how AI characters can be programmed to seek a target node in a 3D environment.\n\nHere is a full program written implementing 'seek' using PandAI :\n\nimport direct.directbase.DirectStart\nfrom panda3d.core import *\nfrom direct.showbase.DirectObject import DirectObject\nfrom direct.task import Task\nfrom direct.actor.Actor import Actor\n\nfrom panda3d.ai import *\n\nclass World(DirectObject):\n\n    def __init__(self):\n        base.disableMouse()\n        base.cam.setPosHpr(0, 0, 55, 0, -90, 0)\n\n        self.loadModels()\n        self.setAI()\n\n    def loadModels(self):\n        # Seeker\n        ralphStartPos = Vec3(-10, 0, 0)\n        self.seeker = Actor(\"models/ralph\",\n                            {\"run\": \"models/ralph-run\"})\n        self.seeker.reparentTo(render)\n        self.seeker.setScale(0.5)\n        self.seeker.setPos(ralphStartPos)\n        # Target\n        self.target = loader.loadModel(\"models/arrow\")\n        self.target.setColor(1,0,0)\n        self.target.setPos(5,0,0)\n        self.target.setScale(1)\n        self.target.reparentTo(render)",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_635",
+    "parent": "processed_documents/context_documents/bc4be142_b2c2c08d_seek.json",
+    "chunk_number": 7394
+  }
+}

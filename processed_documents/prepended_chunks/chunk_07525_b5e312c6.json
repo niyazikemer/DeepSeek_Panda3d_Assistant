@@ -1,0 +1,9 @@
+{
+  "content": "The chunk defines the structure of `p3d_LightSource` and `p3d_FogParameters` within the context of predefined uniform inputs in GLSL shaders. It specifies properties related to light sources, including color components, position, spotlight settings, attenuation, shadow maps, and fog state parameters such as density and range. This section is part of a larger document detailing various shader inputs and their usage in rendering pipelines.\n\n// Light color broken up into components, for compatibility with legacy\n  // shaders.  These are now deprecated.\n  vec4 ambient;\n  vec4 diffuse;\n  vec4 specular;\n\n  // View-space position.  If w=0, this is a directional light, with the xyz\n  // being -direction.\n  vec4 position;\n\n  // Spotlight-only settings\n  vec3 spotDirection;\n  float spotExponent;\n  float spotCutoff;\n  float spotCosCutoff;\n\n  // Individual attenuation constants\n  float constantAttenuation;\n  float linearAttenuation;\n  float quadraticAttenuation;\n\n  // constant, linear, quadratic attenuation in one vector\n  vec3 attenuation;\n\n  // Shadow map for this light source\n  sampler2DShadow shadowMap;\n\n  // Transforms view-space coordinates to shadow map coordinates\n  mat4 shadowViewMatrix;\n} p3d_LightSource[...];\n\n// New in 1.10.  Contains fog state.\nuniform struct p3d_FogParameters {\n  vec4 color;\n  float density;\n  float start;\n  float end;\n  float scale; // 1.0 / (end - start)\n} p3d_Fog;",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_659",
+    "parent": "processed_documents/context_documents/f02f1382_244963d7_list-of-glsl-inputs.json",
+    "chunk_number": 7525
+  }
+}

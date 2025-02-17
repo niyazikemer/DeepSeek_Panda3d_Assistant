@@ -1,0 +1,9 @@
+{
+  "content": "```python\n\"\"\"\nDocument discusses fundamental concepts in 3D graphics, including color handling,\ntextures, and an introduction to shaders. Highlights GPU's ability to process R, G,\nB components independently enabling parallel computing advantages over CPUs,\nand challenges in tasks requiring neighboring pixel/vertex information.\nPart 2 focuses on shader basics.\n\"\"\"\n```\n\nWe've already seen that the graphic card does not care about the fact that a color consists of the three parts R, G and B. The good thing about this is that the graphic card can do the calculations for R independent of the other parts, as is the case for G and B. You may ask, \"why should I care\"? The advantage is that the graphic card can do calculations for each part in parallel. A graphic card is in general extremely specialized in parallel computing. This is also true for vertex shaders and pixel shaders. Each calculation for a vertex or pixel is done individually. A vertex never knows how what his neighbor looks like and a pixel never knows what his neighbor's color is. This is a reason why graphic card vendors can improve the performance of GPUs faster then CPUs. Vertex and pixel shaders are inherently parallel. The disadvantage of this is that if you need to do some calculations with respect to the neighboring pixel or vertex, you have to create a complex setup that often (but",
+  "metadata": {
+    "doc_type": "rst",
+    "doc_id": "doc_664",
+    "parent": "processed_documents/context_documents/84ac09f0_3f7e393a_part-1.json",
+    "chunk_number": 7553
+  }
+}
