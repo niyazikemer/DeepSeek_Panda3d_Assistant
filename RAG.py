@@ -43,10 +43,19 @@ def get_ai_response(query):
     
     # Display in sidebar
     with st.sidebar:
-        st.markdown("### Reranked Documents")
+        st.markdown("### Retrieved Documents")
         for i, doc in enumerate(reranked_docs, start=1):
-            st.markdown(f"**Document {i}:**\n{doc.page_content[:200]}...")
-            st.divider()
+            with st.expander(f"Document {i}"):
+                # Show preview first
+                st.markdown("**Preview:**")
+                st.markdown(f"{doc.page_content[:200]}...")
+                st.divider()
+                # Show full content when expanded
+                st.markdown("**Full Content:**")
+                st.markdown(doc.page_content)
+                # Show metadata if needed
+                if st.checkbox("Show Metadata", key=f"meta_{i}"):
+                    st.json(doc.metadata)
     
     # Prepare context
     context = "\n\n".join([
