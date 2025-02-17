@@ -32,7 +32,8 @@ with col2:
         st.session_state.messages = []
 
 reranker = OptimizedReranker()
-context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 5 documents that might help you:"
+
+context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 20 documents that might help you:"
 def get_ai_response(query):
     # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
@@ -40,6 +41,7 @@ def get_ai_response(query):
     
     # Stage 2: Reranking
     reranked_docs = reranker.rerank(query, initial_docs, top_k=20)
+    
     
     # Display in sidebar
     with st.sidebar:
@@ -50,19 +52,20 @@ def get_ai_response(query):
                 st.markdown("**Preview:**")
                 st.markdown(f"{doc.page_content[:200]}...")
                 st.divider()
-                # Show full content when expanded
+                # Show full content
                 st.markdown("**Full Content:**")
                 st.markdown(doc.page_content)
-                # Show metadata if needed
-                if st.checkbox("Show Metadata", key=f"meta_{i}"):
-                    st.json(doc.metadata)
+                st.divider()
+                # Show metadata without nested expander
+                st.markdown("**Metadata:**")
+                st.json(doc.metadata)
     
     # Prepare context
     context = "\n\n".join([
         f"Document {i+1}:\n{doc.page_content}" 
         for i, doc in enumerate(reranked_docs)
     ])
-    augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query}"
+    augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query} Note: after reading the context documents if you do not satisfied with the relevance of them, ask me about rephrase my question with some additional context. For example you give me some context from the documents you like at hand or keywords:"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
     # Create placeholder for streaming response
