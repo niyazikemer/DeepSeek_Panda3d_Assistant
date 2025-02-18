@@ -65,7 +65,7 @@ def get_ai_response(query):
         f"Document {i+1}:\n{doc.page_content}" 
         for i, doc in enumerate(reranked_docs)
     ])
-    augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query} Note: after reading the context documents if you do not satisfied with the relevance of them, ask me about rephrase my question with some additional context. For example you give me some context from the documents you like at hand or keywords:"
+    augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
     # Create placeholder for streaming response
@@ -76,7 +76,7 @@ def get_ai_response(query):
     stream = chat(
         model='deepseek-r1:32b',
         messages=st.session_state.messages,
-        options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50, 'num_ctx': 15000},
+        options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50, 'num_ctx': 30000},
         stream=True
     )
     
