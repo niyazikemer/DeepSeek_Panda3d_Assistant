@@ -33,7 +33,18 @@ with col2:
 
 reranker = OptimizedReranker()
 
-context_explanation = "some of the Documents could be relevant, some of them might not be. Please use them considering my question below. Here are the top 20 documents that might help you:"
+context_explanation = """
+Please analyze these documents and:
+1. Identify the most relevant sections
+2. Provide a brief summary of each relevant section
+3. Explain why they are relevant
+4. Suggest a refined query that includes:
+   - Key content from relevant sections
+   - Important technical terms
+   - Contextual information
+
+If you find relevant information, include the actual content in your response, not just document numbers.
+"""
 def get_ai_response(query):
     # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
