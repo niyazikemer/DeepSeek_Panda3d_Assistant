@@ -33,18 +33,19 @@ with col2:
 
 reranker = OptimizedReranker()
 
-context_explanation = """
-Please analyze these documents and:
-1. Identify the most relevant sections
-2. Provide a brief summary of each relevant section
-3. Explain why they are relevant
-4. Suggest a refined query that includes:
-   - Key content from relevant sections
-   - Important technical terms
-   - Contextual information
-
-If you find relevant information, include the actual content in your response, not just document numbers.
-"""
+# context_explanation = """
+# Please analyze these documents and:
+# 1. Identify the most relevant sections
+# 2. Provide a brief summary of each relevant section
+# 3. Explain why they are relevant
+# 4.If they are enough to answer the question, provide the answer
+# 5. If not, suggest a refined query that includes the key content from the relevant sections
+# 6. Suggest a refined query that includes:
+#    - Key content from relevant sections
+#    - Important technical terms
+#    - Contextual information
+# 7. Tell me make a new query (rephrased) that includes the key content from the relevant sections
+# """
 def get_ai_response(query):
     # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
@@ -76,7 +77,7 @@ def get_ai_response(query):
         f"Document {i+1}:\n{doc.page_content}" 
         for i, doc in enumerate(reranked_docs)
     ])
-    augmented_query = f"Context:{context_explanation} {context}\n\nQuestion: {query}"
+    augmented_query = f"{context}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
     # Create placeholder for streaming response
