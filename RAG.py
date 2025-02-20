@@ -4,6 +4,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from hybrid_retriever import HybridRetriever
 from re_ranker import OptimizedReranker
+from agent import Agent  # Import the Agent class
 
 # Custom CSS to move sidebar to the right
 #put the combined documnet at the right side of the screen
@@ -32,20 +33,8 @@ with col2:
         st.session_state.messages = []
 
 reranker = OptimizedReranker()
+agent = Agent()  # Initialize the Agent
 
-# context_explanation = """
-# Please analyze these documents and:
-# 1. Identify the most relevant sections
-# 2. Provide a brief summary of each relevant section
-# 3. Explain why they are relevant
-# 4.If they are enough to answer the question, provide the answer
-# 5. If not, suggest a refined query that includes the key content from the relevant sections
-# 6. Suggest a refined query that includes:
-#    - Key content from relevant sections
-#    - Important technical terms
-#    - Contextual information
-# 7. Tell me make a new query (rephrased) that includes the key content from the relevant sections
-# """
 def get_ai_response(query):
     # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
@@ -54,6 +43,12 @@ def get_ai_response(query):
     # Stage 2: Reranking
     reranked_docs = reranker.rerank(query, initial_docs, top_k=20)
     
+    # Analyze documents using the agent
+    if not agent.analyze_documents(reranked_docs):
+        improved_query = agent.generate_improved_query(query, reranked_docs)
+        st.warning("Document analysis found insufficient information. Suggested improved query:")
+        st.markdown(f"**{improved_query}**")
+        return improved_query
     
     # Display in sidebar
     with st.sidebar:
