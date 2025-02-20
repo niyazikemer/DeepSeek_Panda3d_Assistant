@@ -7,7 +7,6 @@ from re_ranker import OptimizedReranker
 from agent import Agent  # Import the Agent class
 
 # Custom CSS to move sidebar to the right
-#put the combined documnet at the right side of the screen
 st.markdown("""
     <style>
         [data-testid="stSidebar"] {
@@ -43,12 +42,7 @@ def get_ai_response(query):
     # Stage 2: Reranking
     reranked_docs = reranker.rerank(query, initial_docs, top_k=20)
     
-    # Analyze documents using the agent
-    if not agent.analyze_documents(reranked_docs):
-        improved_query = agent.generate_improved_query(query, reranked_docs)
-        st.warning("Document analysis found insufficient information. Suggested improved query:")
-        st.markdown(f"**{improved_query}**")
-        return improved_query
+
     
     # Display in sidebar
     with st.sidebar:
@@ -66,7 +60,14 @@ def get_ai_response(query):
                 # Show metadata without nested expander
                 st.markdown("**Metadata:**")
                 st.json(doc.metadata)
-    
+                
+    # Analyze documents using the agent
+    if not agent.analyze_documents(reranked_docs):
+        improved_query = agent.generate_improved_query(query, reranked_docs)
+        st.warning("Document analysis found insufficient information. Suggested improved query:")
+        st.markdown(f"**{improved_query}**")
+        return improved_query
+        
     # Prepare context
     context = "\n\n".join([
         f"Document {i+1}:\n{doc.page_content}" 
