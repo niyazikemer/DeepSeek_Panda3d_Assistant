@@ -19,7 +19,7 @@ class Agent:
             }
         }
 
-    def analyze_documents(self, documents):
+    def analyze_documents(self, query, documents):  # Added query parameter
         context = "\n\n".join([
             f"Document {i+1}:\n{doc.page_content}" 
             for i, doc in enumerate(documents)
@@ -31,7 +31,9 @@ class Agent:
         Tool specification:
         {self.document_analysis_tool}
         
-        Task: Analyze these documents and identify the most relevant ones:
+        Query to evaluate against: {query}
+        
+        Task: Analyze these documents and identify the ones most relevant to the query:
         {context}
         
         Respond only with the tool output in JSON format.
