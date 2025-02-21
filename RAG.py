@@ -60,12 +60,14 @@ def get_ai_response(query):
                 # Show metadata without nested expander
                 st.markdown("**Metadata:**")
                 st.json(doc.metadata)
-                
-    # Analyze documents using the agent
-    if not agent.analyze_documents(reranked_docs):
+
+    is_enough,related_docs = agent.analyze_documents(query, reranked_docs)
+    if not is_enough:           
+    # Analyze documents using the agent    :
         improved_query = agent.generate_improved_query(query, reranked_docs)
         st.warning("Document analysis found insufficient information. Suggested improved query:")
         st.markdown(f"**{improved_query}**")
+        print("Improved query:", improved_query)
         return improved_query
         
     # Prepare context

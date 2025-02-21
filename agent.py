@@ -1,8 +1,9 @@
+import os
 from anthropic import Anthropic
-
+from ollama import generate
 class Agent:
     def __init__(self):
-        self.client = Anthropic(api_key="your-api-key")
+        self.client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
         self.document_analysis_tool = {
             "name": "analyze_relevance",
             "description": "Analyzes documents and returns relevant document numbers",
@@ -19,7 +20,9 @@ class Agent:
             }
         }
 
-    def analyze_documents(self, query, documents):  # Added query parameter
+    def analyze_documents(self, query, documents):
+        import json
+        
         context = "\n\n".join([
             f"Document {i+1}:\n{doc.page_content}" 
             for i, doc in enumerate(documents)
@@ -39,25 +42,70 @@ class Agent:
         Respond only with the tool output in JSON format.
         """
         
-        response = self.client.messages.create(
-            model="claude-3-sonnet-20240229",
-            max_tokens=1024,
-            temperature=0.0,
-            messages=[{"role": "user", "content": prompt}]
-        )
+        # Call Claude using the new method
+        response = self.call_claude(prompt)
         
         # For debugging
-        print("Analysis response:", response.content)
+        print("Analysis response:", response)
         
-        return False
+        try:
+            # Extract JSON part from the response
+            json_str = response[0].text.split('\n\nReasoning:')[0].strip()
+            result = json.loads(json_str)
+            
+            # get the number of relevant documents
+            relevant_docs = result.get("relevant_docs", [])
+            is_enough = len(relevant_docs) > 6 
+            
+            # content of the relevant documents
+            related_docs_content = [documents[i-1] for i in relevant_docs]
+            context_related_docs = "\n\n".join([
+                f"Document {i+1}:\n{doc.page_content}" 
+                for i, doc in enumerate(related_docs_content)
+            ])
+            print("Related documents content:", context_related_docs)
+
+            return is_enough, context_related_docs
+            
+        except (json.JSONDecodeError, IndexError, KeyError) as e:
+            print(f"Error processing response: {e}")
+            return False, ""
 
     def generate_improved_query(self, query, documents):
         # Combine the query and documents to generate an improved query
-        context = documents[0]
-        prompt = f"Generate an improved query based on the  useful document and the question. Do not try to answer the question. This is the context:\n{context} and this is the question you need to improve \n {query}\n Please improve the question in a way that it is more likely to return useful documents."
-        improved_query = self.call_ollama_generate(prompt)
+        context = documents
+        prompt = f"""Generate an improved search query based on this context and question.
+        Do not try to answer the question, only improve the search query.
+        
+        Context:
+        {context}
+        
+        Original Question:
+        {query}
+        
+        Task: Generate a modified version of the question that would help find more relevant documents.
+        Return only the improved query text, no explanations.
+        """
+        
+        # Call Claude instead of Ollama
+        improved_query = self.call_claude(prompt)
+        
+        # Keep the Ollama call as a comment for reference
+        # improved_query = self.call_ollama_generate(prompt)
+        # return the content of the response
         return improved_query
-
+        
+    
+    def call_claude(self, prompt, max_tokens=500, temperature=0.0):
+        """Make a call to Claude API with given prompt and parameters."""
+        response = self.client.messages.create(
+            model="claude-3-5-haiku-20241022",
+            max_tokens=max_tokens,
+            temperature=temperature,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.content
+    
     def call_ollama_generate(self, text):
         response = generate(
             model='deepseek-r1:32b',
