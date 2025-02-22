@@ -1,6 +1,7 @@
 import os
 from anthropic import Anthropic
 from ollama import generate
+import json
 class Agent:
     def __init__(self):
         self.client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -21,50 +22,52 @@ class Agent:
         }
 
     def analyze_documents(self, query, documents):
-        import json
-        
         context = "\n\n".join([
             f"Document {i+1}:\n{doc.page_content}" 
             for i, doc in enumerate(documents)
         ])
         
-        prompt = f"""You are an AI assistant that analyzes documents for relevance.
-        You must use the provided tool to return your analysis.
+        prompt = f"""You are a document relevance analyzer.
+
+Tool specification:
+{self.document_analysis_tool}
+
+Query: {query}
+
+Task: Identify document numbers that:
+- Contain direct answers or code examples
+- Provide technical explanations
+- Include implementation details
+- Offer essential context
+- Supporting context that helps understand the solution
+
+Consider both:
+- Individual document relevance
+- How documents complement each other
+- Technical accuracy and completeness
+Documents to analyze:
+{context}
+
+IMPORTANT: Return ONLY a JSON object with relevant document numbers. No explanations or reasoning needed.
+Example response format:
+{{"relevant_docs": [1, 4, 7]}}
+"""
         
-        Tool specification:
-        {self.document_analysis_tool}
-        
-        Query to evaluate against: {query}
-        
-        Task: Analyze these documents and identify the ones most relevant to the query:
-        {context}
-        
-        Respond only with the tool output in JSON format.
-        """
-        
-        # Call Claude using the new method
         response = self.call_claude(prompt)
         
-        # For debugging
-        print("Analysis response:", response)
-        
         try:
-            # Extract JSON part from the response
-            json_str = response[0].text.split('\n\nReasoning:')[0].strip()
-            result = json.loads(json_str)
-            
-            # get the number of relevant documents
+            # Parse the JSON directly - no splitting needed
+            result = json.loads(response[0].text)
             relevant_docs = result.get("relevant_docs", [])
-            is_enough = len(relevant_docs) > 6 
+            is_enough = len(relevant_docs) > 4 
             
-            # content of the relevant documents
+            # Get content of relevant documents
             related_docs_content = [documents[i-1] for i in relevant_docs]
             context_related_docs = "\n\n".join([
                 f"Document {i+1}:\n{doc.page_content}" 
                 for i, doc in enumerate(related_docs_content)
             ])
-            print("Related documents content:", context_related_docs)
-
+            print(f"Relevant documents: {relevant_docs}")
             return is_enough, context_related_docs
             
         except (json.JSONDecodeError, IndexError, KeyError) as e:
@@ -72,29 +75,48 @@ class Agent:
             return False, ""
 
     def generate_improved_query(self, query, documents):
-        # Combine the query and documents to generate an improved query
         context = documents
-        prompt = f"""Generate an improved search query based on this context and question.
-        Do not try to answer the question, only improve the search query.
-        
-        Context:
-        {context}
-        
-        Original Question:
-        {query}
-        
-        Task: Generate a modified version of the question that would help find more relevant documents.
-        Return only the improved query text, no explanations.
-        """
-        
-        # Call Claude instead of Ollama
+        prompt = f"""You are a search query optimization specialist. Your task is to improve technical documentation queries.
+
+Original Question: {query}
+
+Context from current search:
+{context}
+
+Your task is to generate an improved search query that will yield better results. Consider:
+
+1. TECHNICAL PRECISION
+- Add specific technical terms found in the context
+- Include relevant programming concepts
+- Specify exact framework or library names
+
+2. SCOPE ADJUSTMENT
+- Broaden if too specific and missing context
+- Narrow down if too general
+- Focus on implementation details if needed
+
+3. QUERY STRUCTURE
+- Use proper technical terminology
+- Include key programming concepts
+- Maintain search relevance
+
+4. SEARCH OPTIMIZATION
+- Consider main components in the code examples, imported libraries, or functions
+
+
+Examples of improvements:
+❌ "How to use Bullet?" 
+✅ "Bullet physics library in panda3d controls bullet physics engine and uses Bullet Nodes"
+
+❌ "Simple Scene implementation" 
+✅ "a Panda3D Scene includes NodePath, Nodes, lighting, and camera setup for a 3D environment"
+
+Return only the improved query without explanations or additional text.
+"""
+
         improved_query = self.call_claude(prompt)
-        
-        # Keep the Ollama call as a comment for reference
-        # improved_query = self.call_ollama_generate(prompt)
-        # return the content of the response
+        print(f"Improved query: {improved_query}")
         return improved_query
-        
     
     def call_claude(self, prompt, max_tokens=500, temperature=0.0):
         """Make a call to Claude API with given prompt and parameters."""

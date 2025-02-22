@@ -26,7 +26,7 @@ if "messages" not in st.session_state:
 # Title and reset button
 col1, col2 = st.columns([4, 1])
 with col1:
-    st.title("Chatbot with DeepSeek")
+    st.title("The HH Guide")
 with col2:
     if st.button("New Chat"):
         st.session_state.messages = []
@@ -69,12 +69,15 @@ def get_ai_response(query):
         st.markdown(f"**{improved_query}**")
         print("Improved query:", improved_query)
         return improved_query
+    else:
+        context = related_docs
+
         
     # Prepare context
-    context = "\n\n".join([
-        f"Document {i+1}:\n{doc.page_content}" 
-        for i, doc in enumerate(reranked_docs)
-    ])
+    # context = "\n\n".join([
+    #     f"Document {i+1}:\n{doc.page_content}" 
+    #     for i, doc in enumerate(reranked_docs)
+    # ])
     augmented_query = f"{context}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
