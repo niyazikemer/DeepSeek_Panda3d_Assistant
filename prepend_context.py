@@ -11,6 +11,11 @@ import datetime
 import ollama
 from typing import Dict, List
 import hashlib
+import google.generativeai as genai
+
+
+from langchain_core.embeddings import Embeddings
+
 
 class DocumentIndexer:
     def __init__(self, output_dir: str = "processed_documents/prepended_chunks", 
@@ -98,12 +103,12 @@ class DocumentIndexer:
         print(f"Loaded {len(chunks)} chunks")
 
         print("Creating embeddings...")
-        embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-mpnet-base-v2",  # Add model name
-            model_kwargs={'device': 'cuda'},
-            encode_kwargs={'batch_size': 8}
-        )
-
+        embeddings = GeminiEmbeddings()
+    #     embeddings = HuggingFaceEmbeddings(
+    #     model_name="sentence-transformers/all-mpnet-base-v2",  # Add model name
+    #     model_kwargs={'device': 'cuda'},
+    #     encode_kwargs={'batch_size': 8}
+    # )
         batch_size = 20
         for i in range(0, len(chunks), batch_size):
             batch = chunks[i:i + batch_size]
@@ -118,22 +123,47 @@ class DocumentIndexer:
         
         return self.vectorstore
 
+class GeminiEmbeddings(Embeddings):
+    def __init__(self, model: str = "models/text-embedding-004"):
+        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+        self.model = model
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed a list of documents"""
+        result = genai.embed_content(
+            model=self.model,
+            content=texts
+        )
+        #print(result['embedding'])
+        return result['embedding']
+
+    def embed_query(self, text: str) -> List[float]:
+        """Embed a single text query"""
+        result = genai.embed_content(
+            model=self.model,
+            content=[text]
+        )
+        #print(result['embedding'][0])
+        return result['embedding'][0]
+
 indexer = DocumentIndexer(    
     output_dir="processed_documents/prepended_chunks",
     index_path="faiss_index",
     chunk_size=1000,
     chunk_overlap=200
 )
-# raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_0')
 
-context_documents = indexer.load_json_docs('processed_documents/context_documents')
-# # #print(raw_chunks[0])
-# indexer.process_and_save_chunks(raw_chunks, context_documents)
-#chunks_dir = indexer.process_and_save_chunks(raw_chunks, context_documents)
-#indexer.create_index()
-raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_1')
-indexer.process_and_save_chunks(raw_chunks, context_documents)
-# raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_2')
-# indexer.process_and_save_chunks(raw_chunks, context_documents)
-# raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_3')
-# indexer.process_and_save_chunks(raw_chunks, context_documents)
+if __name__ == "__main__":
+    # raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_0')
+    indexer.create_index()
+    # context_documents = indexer.load_json_docs('processed_documents/context_documents')
+    # # #print(raw_chunks[0])
+    # indexer.process_and_save_chunks(raw_chunks, context_documents)
+    #chunks_dir = indexer.process_and_save_chunks(raw_chunks, context_documents)
+
+    # raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_1')
+    # indexer.process_and_save_chunks(raw_chunks, context_documents)
+    # raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_2')
+    # indexer.process_and_save_chunks(raw_chunks, context_documents)
+    # raw_chunks = indexer.load_json_docs('processed_documents/chunks/set_3')
+    # indexer.process_and_save_chunks(raw_chunks, context_documents)

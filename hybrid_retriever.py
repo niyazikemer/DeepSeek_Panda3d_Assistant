@@ -1,13 +1,15 @@
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+from prepend_context import GeminiEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from rank_bm25 import BM25Okapi
 import numpy as np
 from typing import List, Tuple
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-mpnet-base-v2"
-)
+# embeddings = HuggingFaceEmbeddings(
+#     model_name="sentence-transformers/all-mpnet-base-v2"
+# )
+embeddings = GeminiEmbeddings()
 faiss_index = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
 class HybridRetriever:

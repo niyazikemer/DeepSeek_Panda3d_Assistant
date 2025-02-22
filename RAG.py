@@ -1,6 +1,7 @@
 import streamlit as st
 from ollama import chat
-from langchain.embeddings import HuggingFaceEmbeddings
+from prepend_context import GeminiEmbeddings
+# from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from hybrid_retriever import HybridRetriever
 from re_ranker import OptimizedReranker
@@ -16,7 +17,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-embeddings = HuggingFaceEmbeddings()
+# embeddings = HuggingFaceEmbeddings()
+embeddings = GeminiEmbeddings()
 faiss_index = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
 # Initialize chat history
