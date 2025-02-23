@@ -76,18 +76,18 @@ def get_claude_response(messages, context, query):
                 {"role": "user", "content": formatted_prompt}
             ]
         ) as stream:
-            print("Stream created successfully")
+            #print("Stream created successfully")
             for chunk in stream:
-                print(f"\n=== Chunk Type: {chunk.type} ===")
+                #print(f"\n=== Chunk Type: {chunk.type} ===")
                 
                 if hasattr(chunk, 'delta') and hasattr(chunk.delta, 'text'):
                     new_text = chunk.delta.text
-                    print(f"New text received: {new_text[:50]}..." if len(new_text) > 50 else new_text)
+                    #print(f"New text received: {new_text[:50]}..." if len(new_text) > 50 else new_text)
                     full_response += new_text
                     response_placeholder.markdown(full_response + "▌")
                 
                 elif hasattr(chunk, 'message'):
-                    print("Complete message received")
+                    #print("Complete message received")
                     if hasattr(chunk.message, 'content'):
                         for block in chunk.message.content:
                             if block.type == 'text':
@@ -95,9 +95,9 @@ def get_claude_response(messages, context, query):
                                 response_placeholder.markdown(full_response + "▌")
     
     except Exception as e:
-        print(f"\n=== Error in Claude Stream ===")
-        print(f"Error type: {type(e)}")
-        print(f"Error details: {str(e)}")
+        # print(f"\n=== Error in Claude Stream ===")
+        # print(f"Error type: {type(e)}")
+        # print(f"Error details: {str(e)}")
         st.error(f"Error calling Claude API: {str(e)}")
         return "I apologize, but I encountered an error while processing your request."
     
