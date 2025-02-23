@@ -1,7 +1,8 @@
 import streamlit as st
-from ollama import chat
+from ollama import chat as ollama_chat
+from anthropic import Anthropic
+import os
 from prepend_context import GeminiEmbeddings
-# from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from hybrid_retriever import HybridRetriever
 from re_ranker import OptimizedReranker
@@ -36,6 +37,81 @@ with col2:
 reranker = OptimizedReranker()
 agent = Agent()  # Initialize the Agent
 
+# Add model selection in sidebar
+with st.sidebar:
+    model_choice = st.selectbox(
+        "Select Model",
+        ["Claude Sonnet", "Deepseek Ollama"],
+        index=1  # Default to Deepseek
+    )
+
+def get_claude_response(messages, context, query):
+    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    
+    # Debug input state
+    print("\n=== Claude Response Debug ===")
+    print(f"Messages count: {len(messages)}")
+    print(f"Context length: {len(context)}")
+    print(f"Query: {query}")
+    
+    # System message to set context
+    system_message = "You are a helpful AI assistant. Use the provided context to answer questions accurately and concisely."
+    
+    # Convert context and query to Claude format with system message
+    formatted_prompt = f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer based on the provided context."
+    
+    # Create placeholder for streaming response
+    response_placeholder = st.empty()
+    full_response = ""
+    
+    try:
+        print("\n=== Starting Claude Stream ===")
+        with client.messages.stream(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=4096,
+            temperature=0.7,
+            system=system_message,
+            messages=[
+                *[{"role": m["role"], "content": m["content"]} for m in messages[:-1]],
+                {"role": "user", "content": formatted_prompt}
+            ]
+        ) as stream:
+            print("Stream created successfully")
+            for chunk in stream:
+                print(f"\n=== Chunk Type: {chunk.type} ===")
+                
+                if hasattr(chunk, 'delta') and hasattr(chunk.delta, 'text'):
+                    new_text = chunk.delta.text
+                    print(f"New text received: {new_text[:50]}..." if len(new_text) > 50 else new_text)
+                    full_response += new_text
+                    response_placeholder.markdown(full_response + "▌")
+                
+                elif hasattr(chunk, 'message'):
+                    print("Complete message received")
+                    if hasattr(chunk.message, 'content'):
+                        for block in chunk.message.content:
+                            if block.type == 'text':
+                                full_response += block.text
+                                response_placeholder.markdown(full_response + "▌")
+    
+    except Exception as e:
+        print(f"\n=== Error in Claude Stream ===")
+        print(f"Error type: {type(e)}")
+        print(f"Error details: {str(e)}")
+        st.error(f"Error calling Claude API: {str(e)}")
+        return "I apologize, but I encountered an error while processing your request."
+    
+    print(f"\n=== Final Response ===")
+    print(f"Response length: {len(full_response)}")
+    if full_response:
+        print(f"First 200 chars: {full_response[:200]}...")
+    else:
+        print("No response generated")
+    
+    # Final update without cursor
+    response_placeholder.markdown(full_response)
+    return full_response
+
 def get_ai_response(query):
     # Stage 1: Broad retrieval
     hybrid_retriever = HybridRetriever(faiss_index)
@@ -43,8 +119,6 @@ def get_ai_response(query):
     
     # Stage 2: Reranking
     reranked_docs = reranker.rerank(query, initial_docs, top_k=20)
-    
-
     
     # Display in sidebar
     with st.sidebar:
@@ -63,9 +137,8 @@ def get_ai_response(query):
                 st.markdown("**Metadata:**")
                 st.json(doc.metadata)
 
-    is_enough,related_docs = agent.analyze_documents(query, reranked_docs)
-    if not is_enough:           
-    # Analyze documents using the agent    :
+    is_enough, related_docs = agent.analyze_documents(query, reranked_docs)
+    if not is_enough:
         improved_query = agent.generate_improved_query(query, reranked_docs)
         st.warning("Document analysis found insufficient information. Suggested improved query:")
         st.markdown(f"**{improved_query}**")
@@ -74,35 +147,34 @@ def get_ai_response(query):
     else:
         context = related_docs
 
-        
-    # Prepare context
-    # context = "\n\n".join([
-    #     f"Document {i+1}:\n{doc.page_content}" 
-    #     for i, doc in enumerate(reranked_docs)
-    # ])
     augmented_query = f"{context}\n\nQuestion: {query}"
     st.session_state.messages.append({'role': 'user', 'content': augmented_query})
     
-    # Create placeholder for streaming response
-    response_placeholder = st.empty()
-    full_response = ""
-    
-    # Stream the response
-    stream = chat(
-        model='deepseek-r1:32b',
-        messages=st.session_state.messages,
-        options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50, 'num_ctx': 30000},
-        stream=True
-    )
-    
-    # Process streaming chunks
-    for chunk in stream:
-        if chunk.message.content:
-            full_response += chunk.message.content
-            response_placeholder.markdown(full_response + "▌")
-    
-    # Final update without cursor
-    response_placeholder.markdown(full_response)
+    if model_choice == "Claude Sonnet":
+        full_response = get_claude_response(
+            st.session_state.messages,
+            context,
+            query
+        )
+    else:  # Deepseek Ollama
+        # Create placeholder for streaming response
+        response_placeholder = st.empty()
+        full_response = ""
+        
+        # Stream the response using Ollama
+        stream = ollama_chat(
+            model='deepseek-r1:32b',
+            messages=st.session_state.messages,
+            options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50, 'num_ctx': 30000},
+            stream=True
+        )
+        
+        for chunk in stream:
+            if chunk.message.content:
+                full_response += chunk.message.content
+                response_placeholder.markdown(full_response + "▌")
+        
+        response_placeholder.markdown(full_response)
     
     # Add to chat history
     st.session_state.messages.append({
