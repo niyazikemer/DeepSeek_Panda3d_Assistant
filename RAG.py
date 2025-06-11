@@ -114,6 +114,7 @@ def get_claude_response(messages, context, query):
 
 def get_ai_response(query):
     # Stage 1: Broad retrieval
+    # why we create here instead of outside the function? No need to create it again and again.
     hybrid_retriever = HybridRetriever(faiss_index)
     initial_docs = hybrid_retriever.hybrid_search(query, k=100)
     
@@ -163,7 +164,8 @@ def get_ai_response(query):
         
         # Stream the response using Ollama
         stream = ollama_chat(
-            model='deepseek-r1:32b',
+            #model='deepseek-r1:32b',
+            model='qwq',
             messages=st.session_state.messages,
             options={'temperature': 0.65, 'top_p': 0.8, 'top_k': 50, 'num_ctx': 30000},
             stream=True
